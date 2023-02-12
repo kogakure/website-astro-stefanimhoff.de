@@ -1,0 +1,36 @@
+{
+	"plugins": [
+		"prettier-plugin-astro",
+		"prettier-plugin-svelte",
+		"prettier-plugin-organize-imports",
+		"prettier-plugin-tailwindcss"
+	],
+	"endOfLine": "lf",
+	"semi": true,
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 100,
+	"trailingComma": "es5",
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": {
+				"singleQuote": false,
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		},
+		{
+			"files": "*.svelte",
+			"options": {
+				"parser": "svelte"
+			}
+		}
+	]
+}
