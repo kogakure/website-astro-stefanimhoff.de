@@ -1,0 +1,9 @@
+{
+  "version": "0.2",
+  "dictionaryDefinitions": [
+    { "addWords": true, "path": ".cspell/dictionary.txt", "name": "dictionary" }
+  ],
+  "language": "en",
+  "dictionaries": ["dictionary"],
+  "ignorePaths": ["dist"]
+}

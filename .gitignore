@@ -7,6 +7,9 @@ dist/
 # dependencies
 node_modules/
 
+# Vale 
+.vale/write-good/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
