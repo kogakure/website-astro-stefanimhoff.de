@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: stefanimhoff.de
+Token: 822c71a818e212dc8041aaa460ed10beba68bc0c12fa65a1de2b1674551c64bf

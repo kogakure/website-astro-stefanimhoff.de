@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/kogakure
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://stefanimhoff.de
+  * I am kogakure (https://keybase.io/kogakure) on keybase.
+  * I have a public key ASD10xwjUmtKK5ponrhVnoCSbQQNKwT_wvpszotYnHOmigo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f5d31c23526b4a2b9a689eb8559e80926d040d2b04ffc2fa6cce8b589c73a68a0a",
+      "host": "keybase.io",
+      "kid": "0120f5d31c23526b4a2b9a689eb8559e80926d040d2b04ffc2fa6cce8b589c73a68a0a",
+      "uid": "cfdc09db277c0bd122139c37d607c019",
+      "username": "kogakure"
+    },
+    "merkle_root": {
+      "ctime": 1579264347,
+      "hash": "d6ce4aefb3199f2a4eb5acf759592a6ba9bbbbd882cb3b8f02d0404a6ba43b83045741d64ab9ff5ea853f0931d2a8e9c2e29fc20a8c4b2c8af308efd01963a52",
+      "hash_meta": "b76004bd509208e54df970f3f637fcdcef2c136f4d2f0799c4110c961b010385",
+      "seqno": 14263138
+    },
+    "service": {
+      "entropy": "cmw8uyeHZ4S1bD5M9VRYwBK5",
+      "hostname": "stefanimhoff.de",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.1.1"
+  },
+  "ctime": 1579264363,
+  "expire_in": 504576000,
+  "prev": "412d785b55bf9920e7a09ab86d7e072d241e33f187ff97bdb16ac5a31f30d297",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg9dMcI1JrSiuaaJ64VZ6Akm0EDSsE/8L6bM6LWJxzpooKp3BheWxvYWTESpcCCsQgQS14W1W/mSDnoJq4bX4HLSQeM/GH/5e9sWrFox8w0pfEIG3RCFiiU2mA0E99mffRHlE2zjCXD0t6XxYOz/GH/Rd/AgHCo3NpZ8RARVnwHGjXvDSnWFAsqBid+Re6JUJ1rJNyX47Nw/0RwEh/bcvA9EIEX6ZkVIOIx3yCxtOzaoB+Ff6DIjnBWbsQD6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBz2vqmLmWeFfTWJHs/eLrlqOTvtt3UKdwllOJC6AFDAo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kogakure
+
+==================================================================
