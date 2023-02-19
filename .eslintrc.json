@@ -4,12 +4,23 @@
 		"node": true,
 		"browser": true
 	},
-	"extends": ["eslint:recommended", "plugin:prettier/recommended"],
+	"extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:astro/recommended"],
 	"plugins": ["prettier"],
 	"parserOptions": {
 		"sourceType": "module"
 	},
 	"rules": {
 		"prettier/prettier": "error"
-	}
+	},
+	"overrides": [
+		{
+			"files": ["*.astro"],
+			"parser": "astro-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"extraFileExtensions": [".astro"]
+			},
+			"rules": {}
+		}
+	]
 }
