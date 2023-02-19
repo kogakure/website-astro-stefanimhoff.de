@@ -9,6 +9,29 @@ module.exports = {
 				xl: '1280px', // --desktop (prev. 1200)
 				'3xl': '1800px', // --wide
 			},
+			colors: {
+				shibui: {
+					50: '#f3f3f1',
+					100: '#e6e6e3', // bg (light), fg (dark, 0.87 alpha)
+					150: '#dad9d5',
+					200: '#cdccc7', // bg dark (light)
+					250: '#c0bfb9',
+					300: '#b3b2ab',
+					350: '#a7a59e',
+					400: '#9a9891',
+					450: '#8d8b84',
+					500: '#807e77',
+					550: '#74716a',
+					600: '#67645e',
+					650: '#5a5751',
+					700: '#4e4b45',
+					750: '#413e3a',
+					800: '#34322e',
+					850: '#272522',
+					900: '#1b1917', // bg (dark)
+					950: '#0e0d0c', // fg (light), bg dark (dark)
+				},
+			},
 			gridTemplateColumns: {
 				10: 'repeat(10, minmax(0, 1fr))', // --grid-narrow
 				14: 'repeat(14, minmax(0, 1fr))', // --grid-wide
