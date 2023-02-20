@@ -17,6 +17,21 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<link
+			rel="preload"
+			href="/assets/fonts/secuela-regular-vf.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/assets/fonts/secuela-italic-vf.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 	</head>
 	<body class="flex h-screen flex-col font-sans font-normal leading-relaxed">
 		<slot />
