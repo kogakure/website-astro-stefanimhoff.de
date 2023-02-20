@@ -9,14 +9,20 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html
 	lang="en"
-	class="box-border scroll-smooth bg-shibui-100 text-[125%] text-shibui-950 dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
+	class="no-js box-border scroll-smooth bg-shibui-100 text-[125%] text-shibui-950 dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 >
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
 		<title>{title}</title>
+
+		<script type="module">
+			document.documentElement.classList.remove('no-js');
+			document.documentElement.classList.add('js');
+		</script>
 
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" href="/assets/images/branding/favicons/favicon.svg" type="image/svg+xml" />
