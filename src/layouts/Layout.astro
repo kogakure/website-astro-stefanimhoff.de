@@ -29,7 +29,7 @@ const { title } = Astro.props;
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" href="/assets/images/branding/favicons/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/assets/images/branding/favicons/apple-touch-icon.png" />
-		<link rel="manifest" href="/manifest.webmanifest" />
+		<!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
 
 		<link
 			rel="preload"
@@ -47,6 +47,12 @@ const { title } = Astro.props;
 		/>
 	</head>
 	<body class="flex h-screen flex-col font-sans font-normal leading-relaxed">
-		<slot />
+		<header class="grid grid-cols-18 grid-rows-layout mbe-layout print:hidden" role="banner">
+			Header
+		</header>
+		<main class="flex grow">
+			<slot />
+		</main>
+		<footer class="grid grid-cols-18 grid-rows-layout mbs-layout print:hidden">Footer</footer>
 	</body>
 </html>
