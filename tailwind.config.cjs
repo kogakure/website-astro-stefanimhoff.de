@@ -37,6 +37,9 @@ module.exports = {
 				14: 'repeat(14, minmax(0, 1fr))', // --grid-wide
 				18: 'repeat(18, minmax(0, 1fr))', // --grid-fullsize
 			},
+			gridTemplateRows: ({ theme }) => ({
+				layout: `clamp(3rem, ${theme('spacing.55')}, 9rem)`,
+			}),
 			borderRadius: {
 				1: '2px', // --radius-1
 				2: '5px', // --radius-2
@@ -71,6 +74,7 @@ module.exports = {
 				19: 'clamp(7.43rem, 15.9vw, 8.916rem)', // --space-19
 				20: 'clamp(8.916rem, 19.08vw, 10.699rem)', // --space-20
 				55: '5.55vw', // --space-55 TODO: new name, e.g. spacing-grid
+				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
 			},
 			fontFamily: {
 				sans: ['SecuelaVariable', 'Arial', 'sans-serif'], // --font-family-base
