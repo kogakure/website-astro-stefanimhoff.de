@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
+import { Sprite } from 'astro-icon';
 
 export interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
+const { title, frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -47,12 +48,44 @@ const { title } = Astro.props;
 		/>
 	</head>
 	<body class="flex h-screen flex-col font-sans font-normal leading-relaxed">
-		<header class="grid grid-cols-18 grid-rows-layout mbe-layout print:hidden" role="banner">
-			Header
-		</header>
-		<main class="flex grow">
-			<slot />
-		</main>
-		<footer class="grid grid-cols-18 grid-rows-layout mbs-layout print:hidden">Footer</footer>
+		<Sprite.Provider>
+			<header
+				class="page-header grid grid-cols-18 grid-rows-layout mbe-layout print:hidden"
+				role="banner"
+			>
+				<!-- Backlink -->
+				{
+					frontmatter?.backLink ? (
+						<a
+							class="back-link col-span-1 col-start-1 self-center justify-self-center transition-transform duration-500 ease-in-out mie-[15px] hover:-translate-x-1 focus:-translate-x-1 print:hidden"
+							href="{frontmatter.backLink}"
+						>
+							<button
+								class="back-link-button flex h-[40px] w-[40px] cursor-pointer items-center justify-center border-none bg-transparent text-[0]"
+								aria-label="Back to overview"
+								type="button"
+							>
+								<Sprite name="ri:arrow-left-line" />
+							</button>
+						</a>
+					) : (
+						<div class="back-link-spacer col-span-1 col-start-1 h-[40px] w-[40px] justify-center self-center mie-[15px]" />
+					)
+				}
+			</header>
+			<main class="page-content flex grow">
+				<slot />
+			</main>
+			<footer class="page-footer grid grid-cols-18 grid-rows-layout mbs-layout print:hidden">
+				Footer
+			</footer>
+		</Sprite.Provider>
 	</body>
 </html>
+
+<style>
+	[astro-icon] {
+		width: 24px;
+		height: 24px;
+	}
+</style>
