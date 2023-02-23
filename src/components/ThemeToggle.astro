@@ -1,0 +1,49 @@
+---
+import { Sprite } from 'astro-icon';
+---
+
+<theme-toggle
+	class="col-start-18 flex h-[40px] w-[40px] items-center self-center justify-center justify-self-center print:hidden"
+>
+	<button
+		aria-label="Switch color theme"
+		class="theme-toggle group flex h-[40px] w-[40px] cursor-pointer items-center justify-center self-center border-0 text-[0]"
+	>
+		<Sprite
+			name="circle"
+			class="duration-500 h-[25px] w-[25px] transition-transform ease-in-out group-hover:scale-125 group-focus:scale-125"
+		/>
+	</button>
+</theme-toggle>
+
+<script>
+	class ThemeToggle extends HTMLElement {
+		constructor() {
+			super();
+			const button = this.querySelector('button')!;
+			const setTheme = (dark: boolean) => {
+				document.documentElement.classList[dark ? 'add' : 'remove']('dark');
+				button.setAttribute('aria-pressed', String(dark));
+			};
+
+			button.addEventListener('click', () => {
+				setTheme(!this.isDark());
+				button.blur();
+			});
+
+			setTheme(this.isDark());
+		}
+
+		isDark() {
+			return document.documentElement.classList.contains('dark');
+		}
+	}
+
+	customElements.define('theme-toggle', ThemeToggle);
+</script>
+
+<style>
+	:global(.no-js) theme-toggle {
+		display: none;
+	}
+</style>
