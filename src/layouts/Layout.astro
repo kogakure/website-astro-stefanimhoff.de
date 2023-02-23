@@ -3,15 +3,18 @@ import '../styles/global.css';
 import { Sprite } from 'astro-icon';
 
 import ThemeProvider from '../components/ThemeProvider.astro';
+import PageHeader from '../components/PageHeader.astro';
+
 export interface Props {
 	title: string;
+	backLink?: string;
 }
 
-const { title, frontmatter } = Astro.props;
+const { title, backLink } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="no-js box-border scroll-smooth">
+<html lang="en" class="no-js box-border scroll-smooth text-[125%]">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,33 +50,10 @@ const { title, frontmatter } = Astro.props;
 		<ThemeProvider />
 	</head>
 	<body
-		class="flex h-screen flex-col bg-shibui-100 font-sans text-[125%] font-normal leading-relaxed text-shibui-950 dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
+		class="flex h-screen flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
 		<Sprite.Provider>
-			<header
-				class="page-header grid grid-cols-18 grid-rows-layout mbe-layout print:hidden"
-				role="banner"
-			>
-				<!-- Backlink -->
-				{
-					frontmatter?.backLink ? (
-						<a
-							class="back-link col-span-1 col-start-1 self-center justify-self-center transition-transform duration-500 ease-in-out mie-[15px] hover:-translate-x-1 focus:-translate-x-1 print:hidden"
-							href="{frontmatter.backLink}"
-						>
-							<button
-								class="back-link-button flex h-[40px] w-[40px] cursor-pointer items-center justify-center border-none bg-transparent text-[0]"
-								aria-label="Back to overview"
-								type="button"
-							>
-								<Sprite name="ri:arrow-left-line" />
-							</button>
-						</a>
-					) : (
-						<div class="back-link-spacer col-span-1 col-start-1 h-[40px] w-[40px] justify-center self-center mie-[15px]" />
-					)
-				}
-			</header>
+			<PageHeader backLink={backLink} />
 			<main class="page-content flex grow">
 				<slot />
 			</main>
