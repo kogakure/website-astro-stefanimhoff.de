@@ -1,0 +1,26 @@
+---
+import { Sprite } from 'astro-icon';
+
+export interface Props {
+	backLink?: string;
+}
+
+const { backLink } = Astro.props;
+---
+
+{
+	backLink && (
+		<a
+			class="back-link col-span-1 col-start-1 self-center justify-self-center transition-transform duration-500 ease-in-out hover:-translate-x-1 focus:-translate-x-1 print:hidden"
+			href={backLink}
+		>
+			<button
+				aria-label="Back to overview"
+				class="back-link-button flex h-[40px] w-[40px] cursor-pointer items-center justify-center border-none text-[0]"
+				type="button"
+			>
+				<Sprite name="ri:arrow-left-line" class="h-[25px] w-[25px]" />
+			</button>
+		</a>
+	)
+}
