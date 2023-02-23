@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			screens: {
@@ -10,6 +11,7 @@ module.exports = {
 				'3xl': '1800px', // --wide
 			},
 			colors: {
+				accent: '#e60510',
 				shibui: {
 					50: '#f3f3f1',
 					100: '#e6e6e3', // bg (light), fg (dark, 0.87 alpha)
@@ -40,6 +42,36 @@ module.exports = {
 			gridTemplateRows: ({ theme }) => ({
 				layout: `clamp(3rem, ${theme('spacing.55')}, 9rem)`,
 			}),
+			columns: {
+				13: '13',
+				14: '14',
+				15: '15',
+				16: '16',
+				17: '17',
+				18: '18',
+			},
+			gridColumn: {
+				'span-13': 'span 13 / span 13',
+				'span-14': 'span 14 / span 14',
+				'span-15': 'span 15 / span 15',
+				'span-16': 'span 16 / span 16',
+				'span-17': 'span 17 / span 17',
+				'span-18': 'span 18 / span 18',
+			},
+			gridColumnStart: {
+				14: '14',
+				15: '15',
+				16: '16',
+				17: '17',
+				18: '18',
+			},
+			gridColumnEnd: {
+				14: '14',
+				15: '15',
+				16: '16',
+				17: '17',
+				18: '18',
+			},
 			borderRadius: {
 				1: '2px', // --radius-1
 				2: '5px', // --radius-2
