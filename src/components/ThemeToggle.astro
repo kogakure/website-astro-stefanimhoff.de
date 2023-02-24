@@ -3,15 +3,15 @@ import { Sprite } from 'astro-icon';
 ---
 
 <theme-toggle
-	class="col-start-18 flex h-[40px] w-[40px] items-center self-center justify-center justify-self-center print:hidden"
+	class="col-start-18 flex h-clickarea w-clickarea items-center self-center justify-center justify-self-center print:hidden"
 >
 	<button
 		aria-label="Switch color theme"
-		class="theme-toggle group flex h-[40px] w-[40px] cursor-pointer items-center justify-center self-center border-0 text-[0]"
+		class="theme-toggle h-clickarea w-clickarea group flex cursor-pointer items-center justify-center self-center border-0 text-[0]"
 	>
 		<Sprite
 			name="circle"
-			class="duration-500 h-[25px] w-[25px] transition-transform ease-in-out group-hover:scale-125 group-focus:scale-125"
+			class="duration-500 h-icon w-icon transition-transform ease-in-out group-hover:scale-125 group-focus:scale-125"
 		/>
 	</button>
 </theme-toggle>

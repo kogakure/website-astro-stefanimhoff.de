@@ -107,6 +107,8 @@ module.exports = {
 				20: 'clamp(8.916rem, 19.08vw, 10.699rem)', // --space-20
 				55: '5.55vw', // --space-55 TODO: new name, e.g. spacing-grid
 				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
+				icon: '24px',
+				clickarea: '40px',
 			},
 			fontFamily: {
 				sans: ['SecuelaVariable', 'Arial', 'sans-serif'], // --font-family-base
