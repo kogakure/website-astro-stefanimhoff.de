@@ -1,0 +1,30 @@
+---
+import { Sprite } from 'astro-icon';
+---
+
+<div class="flex flex-1 justify-end">
+	<a
+		id="up-link"
+		class="up-link transition-transform duration-500 ease-in-out hover:-translate-y-1 focus:-translate-y-1"
+		href="#top"
+	>
+		<button
+			aria-label="Back to top"
+			class="up-link-button flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		>
+			<Sprite name="ri:arrow-up-line" class="h-icon-small w-icon-small" />
+		</button>
+	</a>
+
+	<script>
+		const button = document.getElementById('up-link');
+		button?.addEventListener('click', (event) => {
+			event.preventDefault();
+			window.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth',
+			});
+		});
+	</script>
+</div>

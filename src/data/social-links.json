@@ -1,0 +1,23 @@
+[
+	{
+		"text": "Mail",
+		"url": "#protected-email",
+		"icon": "ri:mail-fill",
+		"props": {
+			"data-domain": "stefanimhoff",
+			"data-name": "hey",
+			"data-tld": "de",
+			"onclick": "window.open(`mailto:${this.dataset.name}@${this.dataset.domain}.${this.dataset.tld}`, '_blank')"
+		}
+	},
+	{
+		"text": "Twitter",
+		"url": "https://twitter.com/kogakure",
+		"icon": "ri:twitter-fill"
+	},
+	{
+		"text": "GitHub",
+		"url": "https://github.com/kogakure",
+		"icon": "ri:github-fill"
+	}
+]

@@ -4,6 +4,7 @@ import { Sprite } from 'astro-icon';
 
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
+import PageFooter from '../components/PageFooter.astro';
 
 export interface Props {
 	title: string;
@@ -57,9 +58,7 @@ const { title, backLink } = Astro.props;
 			<main class="page-content flex grow">
 				<slot />
 			</main>
-			<footer class="page-footer grid grid-cols-18 grid-rows-layout mbs-layout print:hidden">
-				Footer
-			</footer>
+			<PageFooter />
 		</Sprite.Provider>
 	</body>
 </html>

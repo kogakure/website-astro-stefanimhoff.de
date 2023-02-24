@@ -40,7 +40,7 @@ module.exports = {
 				18: 'repeat(18, minmax(0, 1fr))', // --grid-fullsize
 			},
 			gridTemplateRows: ({ theme }) => ({
-				layout: `clamp(3rem, ${theme('spacing.55')}, 9rem)`,
+				layout: `clamp(3rem, ${theme('spacing.layout')}, 9rem)`,
 			}),
 			columns: {
 				13: '13',
@@ -81,6 +81,7 @@ module.exports = {
 			},
 			borderWidth: {
 				1: '1px', // --border-width-1, (DEFAULT)
+				2: '2px',
 				10: '0.1em', // --border-width-10
 				15: '0.15em', // --border-width-15
 			},
@@ -105,9 +106,11 @@ module.exports = {
 				18: 'clamp(6.192rem, 13.25vw, 7.43rem)', // --space-18
 				19: 'clamp(7.43rem, 15.9vw, 8.916rem)', // --space-19
 				20: 'clamp(8.916rem, 19.08vw, 10.699rem)', // --space-20
-				55: '5.55vw', // --space-55 TODO: new name, e.g. spacing-grid
+				column: '5.55vw', // --space-55 TODO: new name, e.g. spacing-grid
+				halfcolumn: '2.775vw',
 				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
 				icon: '24px',
+				'icon-small': '20px',
 				clickarea: '40px',
 			},
 			fontFamily: {
@@ -116,7 +119,7 @@ module.exports = {
 			},
 			// TODO: Switch to Tshirt sizes
 			fontSize: {
-				1: ['0.65em', { lineHeight: ' ' }], // --font-size-1 (0)
+				1: ['0.65em', { lineHeight: '' }], // --font-size-1 (0)
 				2: ['clamp(0.65rem, 0.8vw, 0.75rem)', { lineHeight: '1.625' }], // --font-size-2 (2)
 				3: ['clamp(1rem, 1.1vw, 1.25rem)', { lineHeight: '1.625' }], // --font-size-3 (15)
 				4: ['clamp(1.25rem, 1.8vw, 2rem)', { lineHeight: '1' }], // --font-size-4 (5)
