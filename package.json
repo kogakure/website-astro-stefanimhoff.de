@@ -31,6 +31,7 @@
 		"eslint-plugin-astro": "^0.23.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-svelte": "^2.19.1",
 		"husky": "^8.0.0",
 		"lint-staged": "^13.1.1",
 		"prettier": "^2.8.4",

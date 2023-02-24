@@ -4,10 +4,18 @@
 		"node": true,
 		"browser": true
 	},
-	"extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:astro/recommended"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended",
+		"plugin:astro/recommended",
+		"plugin:svelte/recommended"
+	],
 	"plugins": ["prettier", "astro"],
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"sourceType": "module"
+		"sourceType": "module",
+		"project": "./tsconfig.json",
+		"extraFileExtensions": [".astro", ".svelte"]
 	},
 	"rules": {
 		"prettier/prettier": "error"
@@ -37,6 +45,13 @@
 			},
 			"rules": {
 				"prettier/prettier": "off"
+			}
+		},
+		{
+			"files": ["*.svelte"],
+			"parser": "svelte-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser"
 			}
 		}
 	]
