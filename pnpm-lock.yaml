@@ -28,7 +28,6 @@ specifiers:
   tailwindcss: ^3.0.24
   tailwindcss-logical: ^3.0.0
   typescript: ^4.9.5
-  vale: ^0.1.0
   vite: ^4.1.1
 
 dependencies:
@@ -61,7 +60,6 @@ devDependencies:
   rollup: 3.15.0
   tailwindcss-logical: 3.0.0_gbtt6ss3tbiz4yjtvdr6fbrj44
   typescript: 4.9.5
-  vale: 0.1.0
   vite: 4.1.1
 
 packages:
@@ -5581,10 +5579,6 @@ packages:
       kleur: 4.1.5
       sade: 1.8.1
     dev: false
-
-  /vale/0.1.0:
-    resolution: {integrity: sha512-hlLJrZ03CGeZoaiqg9zzTKK5/s/qUfDyFcZNwEOXJv+qhGCLHujIq8vgGeaKvvNmFpaSrlhokiBQ4HpHCL6vvw==}
-    dev: true
 
   /vfile-location/4.1.0:
     resolution: {integrity: sha512-YF23YMyASIIJXpktBa4vIGLJ5Gs88UB/XePgqPmTa7cDA+JeO3yclbpheQYCHjVHBn/yePzrXuygIL+xbvRYHw==}
