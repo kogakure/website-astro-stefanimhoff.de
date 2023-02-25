@@ -3,11 +3,11 @@ import LegalDate from './LegalDate.svelte';
 import { site } from '../data/site';
 ---
 
-<div class="legal flex flex-1 shrink-0 items-center">
-	<span class="legal-copyright relative text-[14px] mie-[0.25em] block-start-[1px]">©</span>
-	<span class="legal-year shrink-0">
+<div class="flex flex-1 shrink-0 items-center">
+	<span class="relative text-[14px] mie-[0.25em] block-start-[1px]">©</span>
+	<span class="shrink-0">
 		<LegalDate client:idle />
 	</span>
-	<span class="legal-bullet mli-[0.25em]">•</span>
-	<strong class="legal-author shrink-0 uppercase tracking-wider">{site.author}</strong>
+	<span class="mli-[0.25em]">•</span>
+	<strong class="shrink-0 uppercase tracking-wider">{site.author}</strong>
 </div>

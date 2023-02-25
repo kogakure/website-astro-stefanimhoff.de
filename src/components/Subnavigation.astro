@@ -1,0 +1,40 @@
+---
+import data from '../data/subnavigation.json';
+
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<div class="glow flex gap-12">
+	<ul>
+		{
+			data.main.map(({ title, url }) => (
+				<li>
+					<a
+						href={url}
+						class={`text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
+							currentPath === url && 'underline !decoration-accent decoration-4'
+						}`}
+					>
+						{title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<ul class="mie-12 md:mie-16">
+		{
+			data.misc.map(({ title, url }) => (
+				<li>
+					<a
+						href={url}
+						class={`text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
+							currentPath === url && 'underline !decoration-accent decoration-4'
+						}`}
+					>
+						{title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>

@@ -4,18 +4,14 @@ import navigation from '../data/navigation.json';
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<nav
-	class="navigation col-span-16 col-start-2 self-center md:col-span-14 md:col-start-3"
-	role="navigation"
->
-	<ul class="navigation-list flex flex-wrap">
+<nav class="col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3" role="navigation">
+	<ul class="flex flex-wrap">
 		{
 			navigation.map(({ title, url }) => (
-				<li class="navigation-list-item mie-[10px] xs:mie-[15px]">
+				<li class="mie-[10px] xs:mie-[15px]">
 					<a
-						class={`navigation-item-link text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
-							currentPath === url &&
-							'active underline !decoration-accent decoration-4'
+						class={`text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
+							currentPath === url && 'underline !decoration-accent decoration-4'
 						}`}
 						href={url}
 					>

@@ -1,14 +1,19 @@
 ---
+import RSSLink from './RSSLink.astro';
+import Subnavigation from './Subnavigation.astro';
 import Legal from './Legal.astro';
 import SocialLinks from './SocialLinks.astro';
 import UpLink from './UpLink.astro';
 ---
 
 <footer
-	class="page-footer bg-shibui-200 mbs-layout pli-halfcolumn pbe-[calc(2.775vw/2)] pbs-halfcolumn border-bs-2 border-bs-shibui-250 dark:bg-shibui-950 dark:border-bs-shibui-850 print:hidden"
+	class="bg-shibui-200 mbs-layout pis-9 pie-6 pbe-5 pbs-10 border-bs-2 border-bs-shibui-250 dark:bg-shibui-950 dark:border-bs-shibui-850 print:hidden"
 >
-	<div class="meta">Meta Footer</div>
-	<div class="small flex flex-wrap gap-4 text-[12px]">
+	<div class="flex flex-col gap-4 mbe-10 sm:flex-row sm:mbe-0">
+		<RSSLink />
+		<Subnavigation />
+	</div>
+	<div class="flex flex-col flex-wrap text-[12px] sm:flex-row sm:gap-4">
 		<Legal />
 		<SocialLinks />
 		<UpLink />

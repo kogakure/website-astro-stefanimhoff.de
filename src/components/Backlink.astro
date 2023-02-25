@@ -11,12 +11,12 @@ const { backLink } = Astro.props;
 {
 	backLink && (
 		<a
-			class="back-link col-span-1 col-start-1 self-center justify-self-center transition-transform duration-500 ease-in-out hover:-translate-x-1 focus:-translate-x-1 print:hidden"
+			class="col-span-2 col-start-1 h-clickarea w-clickarea items-center justify-center self-center justify-self-center transition-transform duration-500 ease-in-out hover:-translate-x-1 focus:-translate-x-1 print:hidden md:col-span-1"
 			href={backLink}
 		>
 			<button
 				aria-label="Back to overview"
-				class="back-link-button h-clickarea w-clickarea flex cursor-pointer items-center justify-center border-none text-[0]"
+				class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
 				type="button"
 			>
 				<Sprite name="ri:arrow-left-line" class="h-icon w-icon" />

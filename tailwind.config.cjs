@@ -40,7 +40,7 @@ module.exports = {
 				18: 'repeat(18, minmax(0, 1fr))', // --grid-fullsize
 			},
 			gridTemplateRows: ({ theme }) => ({
-				layout: `clamp(3rem, ${theme('spacing.layout')}, 9rem)`,
+				layout: `clamp(3rem, ${theme('spacing.column')}, 9rem)`,
 			}),
 			columns: {
 				13: '13',
@@ -107,7 +107,6 @@ module.exports = {
 				19: 'clamp(7.43rem, 15.9vw, 8.916rem)', // --space-19
 				20: 'clamp(8.916rem, 19.08vw, 10.699rem)', // --space-20
 				column: '5.55vw', // --space-55 TODO: new name, e.g. spacing-grid
-				halfcolumn: '2.775vw',
 				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
 				icon: '24px',
 				'icon-small': '20px',

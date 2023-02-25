@@ -1,0 +1,42 @@
+{
+	"main": [
+		{
+			"title": "About",
+			"url": "/about/"
+		},
+		{
+			"title": "Journal",
+			"url": "/journal/"
+		},
+		{
+			"title": "Projects",
+			"url": "/projects/"
+		},
+		{
+			"title": "Sketchnotes",
+			"url": "/sketchnotes/"
+		},
+		{
+			"title": "Haiku",
+			"url": "/haiku/"
+		}
+	],
+	"misc": [
+		{
+			"title": "Colophon",
+			"url": "/colophon/"
+		},
+		{
+			"title": "Tools",
+			"url": "/tools/"
+		},
+		{
+			"title": "Now",
+			"url": "/now/"
+		},
+		{
+			"title": "Imprint",
+			"url": "/imprint/"
+		}
+	]
+}

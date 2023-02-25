@@ -10,10 +10,7 @@ export interface Props {
 const { backLink } = Astro.props;
 ---
 
-<header
-	class="page-header grid grid-cols-18 grid-rows-layout mbe-layout print:hidden"
-	role="banner"
->
+<header class="grid grid-cols-18 grid-rows-layout mbe-layout print:hidden" role="banner">
 	<Backlink backLink={backLink} />
 	<MainNavigation />
 	<ThemeToggle />

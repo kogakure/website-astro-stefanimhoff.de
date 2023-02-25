@@ -10,7 +10,6 @@ crossorigin
 cssnano
 evenodd
 favicons
-halfcolumn
 linejoin
 lucida
 menlo
