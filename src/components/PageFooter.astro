@@ -7,15 +7,17 @@ import UpLink from './UpLink.astro';
 ---
 
 <footer
-	class="bg-shibui-200 mbs-layout pis-9 pie-6 pbe-5 pbs-10 border-bs-2 border-bs-shibui-250 dark:bg-shibui-950 dark:border-bs-shibui-850 print:hidden"
+	class="grid grid-cols-18 bg-shibui-200 mbs-layout pbe-10 pbs-12 border-bs-2 border-bs-shibui-250 dark:bg-shibui-950 dark:border-bs-shibui-850 print:hidden"
 >
-	<div class="flex flex-col gap-4 mbe-10 sm:flex-row sm:mbe-0">
-		<RSSLink />
-		<Subnavigation />
-	</div>
-	<div class="flex flex-col flex-wrap text-[12px] sm:flex-row sm:gap-4">
-		<Legal />
-		<SocialLinks />
-		<UpLink />
+	<div class="col-span-14 col-start-3 sm:col-span-16 sm:col-start-2">
+		<div class="flex flex-col gap-4 mbe-10 sm:flex-row sm:mbe-5">
+			<RSSLink />
+			<Subnavigation />
+		</div>
+		<div class="flex flex-col flex-wrap text-[12px] sm:flex-row sm:gap-4">
+			<Legal />
+			<SocialLinks />
+			<UpLink />
+		</div>
 	</div>
 </footer>
