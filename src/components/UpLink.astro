@@ -1,9 +1,11 @@
 ---
 import { Sprite } from 'astro-icon';
+
+import Link from './Link.astro';
 ---
 
 <div class="flex flex-1 justify-end">
-	<a
+	<Link
 		id="up-link"
 		class="transition-transform duration-500 ease-in-out hover:-translate-y-1 focus:-translate-y-1"
 		href="#top"
@@ -14,7 +16,7 @@ import { Sprite } from 'astro-icon';
 		>
 			<Sprite name="ri:arrow-up-line" class="h-icon-small w-icon-small" />
 		</button>
-	</a>
+	</Link>
 
 	<script>
 		const button = document.getElementById('up-link');

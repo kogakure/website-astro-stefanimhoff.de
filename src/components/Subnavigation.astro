@@ -1,6 +1,8 @@
 ---
 import data from '../data/subnavigation.json';
 
+import Link from './Link.astro';
+
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
@@ -9,14 +11,14 @@ const currentPath = new URL(Astro.request.url).pathname;
 		{
 			data.main.map(({ title, url }) => (
 				<li>
-					<a
+					<Link
 						href={url}
 						class={`font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
 							currentPath === url && 'underline !decoration-accent decoration-4'
 						}`}
 					>
 						{title}
-					</a>
+					</Link>
 				</li>
 			))
 		}
@@ -25,14 +27,14 @@ const currentPath = new URL(Astro.request.url).pathname;
 		{
 			data.misc.map(({ title, url }) => (
 				<li>
-					<a
+					<Link
 						href={url}
 						class={`font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
 							currentPath === url && 'underline !decoration-accent decoration-4'
 						}`}
 					>
 						{title}
-					</a>
+					</Link>
 				</li>
 			))
 		}

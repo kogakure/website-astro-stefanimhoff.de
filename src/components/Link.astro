@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const props = { ...Astro.props };
+const { class: className } = props;
+
+if (typeof props.href !== 'string') props.href = '#';
+
+const isExternal = props.href.startsWith('http');
+---
+
+<a
+	class:list={['link', className, { external: isExternal }]}
+	href={props.href}
+	rel={isExternal ? 'nofollow noopener noreferrer' : null}
+	target={isExternal ? '_blank' : null}
+	{...props}
+>
+	<slot />
+</a>

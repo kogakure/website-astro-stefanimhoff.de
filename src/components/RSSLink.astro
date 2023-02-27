@@ -1,6 +1,7 @@
 ---
 import { Sprite } from 'astro-icon';
 
+import Link from './Link.astro';
 import Subsubheadline from './Subsubheadline.astro';
 ---
 
@@ -8,13 +9,12 @@ import Subsubheadline from './Subsubheadline.astro';
 	<Subsubheadline>Stay up to date.</Subsubheadline>
 	<p>
 		<Sprite name="ri:rss-fill" class="h-icon w-icon inline" />
-		<a
+		<Link
 			class="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20"
 			href="/rss.xml"
-			rel="nofollow noopener noreferrer external"
 			target="_blank"
 		>
 			Subscribe via RSS
-		</a>
+		</Link>
 	</p>
 </div>

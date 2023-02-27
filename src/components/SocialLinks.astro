@@ -1,22 +1,23 @@
 ---
 import { Sprite } from 'astro-icon';
+
+import Link from './Link.astro';
+
 import data from '../data/social-links.json';
 ---
 
 <div class="flex flex-1 sm:justify-center">
 	{
 		data.map(({ text, url, icon, props = {} }) => (
-			<a
+			<Link
 				aria-label={text}
 				class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
 				href={url}
-				rel="nofollow noopener noreferrer external"
-				target="_blank"
 				title={text}
 				{...props}
 			>
 				<Sprite name={icon} class="h-icon-small w-icon-small" />
-			</a>
+			</Link>
 		))
 	}
 </div>
