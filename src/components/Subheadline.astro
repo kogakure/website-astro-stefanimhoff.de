@@ -1,0 +1,20 @@
+---
+interface Props {
+	as?: string;
+	children?: any;
+	class?: string;
+}
+
+const { as = 'h3', class: className, ...props } = Astro.props;
+const Element = as;
+---
+
+<Element
+	class:list={[
+		'text-4 font-black tracking-tight mbe-8 mbs-14 first-of-type:mbs-0 dark:font-extrabold',
+		className,
+	]}
+	{...props}
+>
+	<slot />
+</Element>

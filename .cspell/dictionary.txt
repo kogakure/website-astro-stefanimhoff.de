@@ -1,8 +1,6 @@
-Backlink
-Imhoff
-Secuela
 astro
 astrojs
+Backlink
 bezier
 bitstream
 clickarea
@@ -10,6 +8,7 @@ crossorigin
 cssnano
 evenodd
 favicons
+Imhoff
 linejoin
 lucida
 menlo
@@ -21,7 +20,13 @@ noreferrer
 onclick
 rgba
 secuela
+Secuela
 shibui
+sketchnotes
+Sketchnotes
 stefanimhoff
+subnavigation
+Subnavigation
+Subsubheadline
 tailwindcss
 typeof

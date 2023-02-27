@@ -27,7 +27,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 				<li>
 					<a
 						href={url}
-						class={`text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
+						class={`font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
 							currentPath === url && 'underline !decoration-accent decoration-4'
 						}`}
 					>
