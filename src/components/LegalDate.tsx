@@ -1,7 +1,7 @@
-<script>
+export const LegalDate = () => {
 	const currentDate = new Date();
 	const isoDate = currentDate.toISOString();
 	const currentYear = currentDate.getFullYear();
-</script>
 
-<time datetime={isoDate}>2006–{currentYear}</time>
+	return <time dateTime={isoDate}>2006–{currentYear}</time>;
+};
