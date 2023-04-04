@@ -1,0 +1,28 @@
+---
+import cx from 'classnames';
+
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+	class?: string;
+	grid?: 'wide' | 'narrow';
+}
+
+const { frontmatter, class: className, grid = 'wide' } = Astro.props;
+const gridVariant = frontmatter.grid || grid;
+
+const gridClasses = cx('grid w-full grid-cols-18', className);
+const wrapperClasses = cx(
+	'col-start-2 col-end-18',
+	{ 'md:col-start-6 md:col-end-14 xl:col-start-7 xl:col-end-13': gridVariant === 'narrow' },
+	{ 'md:col-start-3 md:col-end-16': gridVariant === 'wide' }
+);
+---
+
+<BaseLayout title={frontmatter.title}>
+	<div class={gridClasses}>
+		<div class={wrapperClasses}>
+			<slot />
+		</div>
+	</div>
+</BaseLayout>

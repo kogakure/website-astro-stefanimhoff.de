@@ -1,11 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import { Title } from '../components/Title';
 
-const { frontmatter } = Astro.props;
+import GridLayout from './GridLayout.astro';
+
+export interface Props {
+	class?: string;
+	grid?: 'wide' | 'narrow';
+}
+
+const { frontmatter, class: className, grid = 'wide' } = Astro.props;
+const gridVariant = frontmatter.grid || grid;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<GridLayout grid={gridVariant} class={className} {frontmatter}>
 	<Title>{frontmatter.title}</Title>
 	<slot />
-</BaseLayout>
+</GridLayout>
