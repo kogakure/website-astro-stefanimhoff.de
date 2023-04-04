@@ -9,6 +9,7 @@ specifiers:
   astro: ^2.0.10
   astro-icon: ^0.8.0
   autoprefixer: ^10.4.13
+  classnames: ^2.3.2
   cssnano: ^5.1.15
   eslint: ^8.34.0
   eslint-config-prettier: ^8.6.0
@@ -29,6 +30,7 @@ specifiers:
   svelte: ^3.54.0
   tailwindcss: ^3.0.24
   tailwindcss-logical: ^3.0.0
+  tailwindcss-opentype: ^1.1.0
   typescript: ^4.9.5
   vite: ^4.1.1
 
@@ -40,10 +42,12 @@ dependencies:
   astro: 2.0.10
   astro-icon: 0.8.0
   autoprefixer: 10.4.13_postcss@8.4.21
+  classnames: 2.3.2
   postcss: 8.4.21
   preact: 10.13.2
   svelte: 3.55.1
   tailwindcss: 3.2.6_postcss@8.4.21
+  tailwindcss-opentype: 1.1.0_tailwindcss@3.2.6
 
 devDependencies:
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -1502,6 +1506,10 @@ packages:
   /ci-info/3.7.1:
     resolution: {integrity: sha512-4jYS4MOAaCIStSRwiuxc4B8MYhIe676yO1sYGzARnjXkWpmzZMMYxY6zu8WYWDhSuth5zhrQ1rhNSibyyvv4/w==}
     engines: {node: '>=8'}
+    dev: false
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
   /clean-stack/2.2.0:
@@ -5406,6 +5414,15 @@ packages:
       - postcss
       - ts-node
     dev: true
+
+  /tailwindcss-opentype/1.1.0_tailwindcss@3.2.6:
+    resolution: {integrity: sha512-d/+/oBITS2JX/Nn+20WSfnxQbYNcSHMNrKeBwmgetxf/9Nmi5k1pOae6OJC4WD+5M8jX9Xb8TnLZ2lkp6qv09A==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      tailwindcss: '>= 3'
+    dependencies:
+      tailwindcss: 3.2.6_postcss@8.4.21
+    dev: false
 
   /tailwindcss/3.0.7_gbtt6ss3tbiz4yjtvdr6fbrj44:
     resolution: {integrity: sha512-rZdKNHtC64jcQncLoWOuCzj4lQDTAgLtgK3WmQS88tTdpHh9OwLqULTQxI3tw9AMJsqSpCKlmcjW/8CSnni6zQ==}

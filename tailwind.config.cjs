@@ -139,5 +139,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-logical')],
+	plugins: [require('tailwindcss-logical'), require('tailwindcss-opentype')],
 };

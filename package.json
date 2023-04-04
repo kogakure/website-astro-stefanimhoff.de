@@ -19,6 +19,7 @@
 		"astro": "^2.0.10",
 		"astro-icon": "^0.8.0",
 		"autoprefixer": "^10.4.13",
+		"classnames": "^2.3.2",
 		"postcss": "^8.4.21",
 		"preact": "^10.6.5",
 		"svelte": "^3.54.0",
@@ -42,6 +43,7 @@
 		"prettier-plugin-tailwindcss": "^0.2.2",
 		"rollup": "^3.15.0",
 		"tailwindcss-logical": "^3.0.0",
+		"tailwindcss-opentype": "^1.1.0",
 		"typescript": "^4.9.5",
 		"vite": "^4.1.1"
 	}
