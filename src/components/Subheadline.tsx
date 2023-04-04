@@ -16,7 +16,7 @@ export const Subheadline: FunctionalComponent<Props> = ({
 }) => {
 	const Tag = as;
 	const classes = cx(
-		'text-4 font-black tracking-tight mbe-8 mbs-14 first-of-type:mbs-0 dark:font-extrabold',
+		'text-4 font-black tracking-tight mbe-8 mbs-12 dark:font-extrabold',
 		className
 	);
 
