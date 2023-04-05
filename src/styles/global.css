@@ -1,1 +1,87 @@
 @import 'fonts.css';
+
+/** Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** Base */
+@layer base {
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
+
+	::selection {
+		background-color: #a3b387;
+		color: #ffffff;
+	}
+
+	/** Critic Markup */
+	del {
+		@apply decoration-[0.15em];
+	}
+
+	ins {
+		@apply decoration-dashed decoration-[0.15em];
+	}
+
+	mark {
+		@apply rounded border border-black/[0.1] bg-marked text-black/[0.75] pli-[0.3em] pbe-[0.2em] pbs-[0.3em] dark:bg-marked/[0.7];
+	}
+
+	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
+	pre {
+		@apply whitespace-pre;
+	}
+
+	p code,
+	li code,
+	samp {
+		@apply whitespace-normal rounded-[0.3em] bg-code-1 text-code-2 plb-1 pli-3;
+	}
+
+	kbd {
+		@apply inline-block whitespace-nowrap rounded-2 border-1 border-solid border-[#ccc] bg-[#f7f7f7] text-2 font-bold leading-5 text-[#333] shadow-beveled pli-[0.6em] pbe-[0.1em] pbs-[0.3em] dark:bg-[#f7f7f7]/[0.9];
+		text-shadow: 0 1px 0 #ffffff;
+	}
+
+	abbr {
+		@apply small-caps;
+	}
+
+	:is(code, kbd, samp) {
+		@apply font-mono text-2;
+	}
+
+	:is(abbr, dfn) {
+		@apply cursor-help;
+	}
+
+	/** Quotes */
+	[lang|='en'] blockquote,
+	blockquote[lang|='en'],
+	[lang|='en'] q,
+	q[lang|='en'] {
+		quotes: '“' '”' '‘' '’';
+	}
+
+	/** Inline Quotes */
+	q {
+		@apply italic;
+
+		&::before {
+			@apply not-italic mis-[0.1em];
+		}
+
+		&::after {
+			@apply not-italic mie-[0.1em];
+		}
+	}
+
+	/** Cite */
+	cite {
+		@apply pie-[0.1em];
+	}
+}
