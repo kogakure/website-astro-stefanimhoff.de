@@ -1,4 +1,14 @@
-import { Headline, Subheadline, Subsubheadline, Text, TextLink, Title } from './components';
+import {
+	Headline,
+	ListItem,
+	OrderedList,
+	Subheadline,
+	Subsubheadline,
+	Text,
+	TextLink,
+	Title,
+	UnorderedList,
+} from './components';
 
 export const mapping = {
 	a: TextLink,
@@ -8,5 +18,8 @@ export const mapping = {
 	h4: Subsubheadline,
 	h5: Subsubheadline,
 	h6: Subsubheadline,
+	li: ListItem,
+	ol: OrderedList,
 	p: Text,
+	ul: UnorderedList,
 };
