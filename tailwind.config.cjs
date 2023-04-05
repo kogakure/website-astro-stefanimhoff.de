@@ -12,6 +12,7 @@ module.exports = {
 			},
 			colors: {
 				accent: '#e60510',
+				marked: '#E6F028',
 				shibui: {
 					50: '#f3f3f1',
 					100: '#e6e6e3',
@@ -32,6 +33,10 @@ module.exports = {
 					850: '#272522',
 					900: '#1b1917',
 					950: '#0e0d0c',
+				},
+				code: {
+					1: '#282c34',
+					2: '#abb2bf',
 				},
 			},
 			gridTemplateColumns: {
@@ -131,6 +136,11 @@ module.exports = {
 				subtle: '0 0 50px rgb(0 0 0 / 0.2)',
 				beveled: '0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff',
 				darkInset: 'inset 0 0 0 1px rgb(0 0 0 / 0.2)',
+			},
+			listStyleType: {
+				none: 'none',
+				decimal: 'decimal',
+				square: 'square',
 			},
 			dropShadow: {
 				subtle: 'inset 0 0 5px rgb(0 0 0 / 0.15)',
