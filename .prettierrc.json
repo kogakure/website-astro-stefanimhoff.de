@@ -14,7 +14,7 @@
 	"trailingComma": "es5",
 	"overrides": [
 		{
-			"files": "*.md",
+			"files": ["*.md", "*.mdx"],
 			"options": {
 				"singleQuote": false,
 				"tabWidth": 2
