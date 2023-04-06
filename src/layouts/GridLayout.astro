@@ -27,6 +27,7 @@ const wrapperClasses = cx(
 <BaseLayout title={frontmatter.title}>
 	<div class={gridClasses}>
 		<slot name="title" />
+		<slot name="before-content" />
 		{
 			gridVariant !== 'fullsize' ? (
 				<div class={wrapperClasses}>
@@ -36,5 +37,6 @@ const wrapperClasses = cx(
 				<slot />
 			)
 		}
+		<slot name="after-content" />
 	</div>
 </BaseLayout>

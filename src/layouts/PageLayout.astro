@@ -1,6 +1,5 @@
 ---
-import cx from 'classnames';
-import { Title } from '../components/Title';
+import PageTitle from '../components/PageTitle.astro';
 
 import GridLayout from './GridLayout.astro';
 
@@ -11,19 +10,13 @@ export interface Props {
 
 const { frontmatter, class: className, grid = 'narrow' } = Astro.props;
 const gridVariant = frontmatter.grid || grid;
-const titleClasses = cx(
-	'col-start-2 col-end-18 !mbe-0',
-	{
-		'md:col-start-3 md:col-end-17': gridVariant === 'wide',
-		'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': gridVariant === 'narrow',
-	},
-	className
-);
 ---
 
 <GridLayout grid={gridVariant} class={className} {frontmatter}>
-	<Title slot="title" class={titleClasses}>
+	<PageTitle slot="title" grid={gridVariant} {frontmatter}>
 		{frontmatter.title}
-	</Title>
+	</PageTitle>
+	<slot name="before-content" />
 	<slot />
+	<slot name="after-content" />
 </GridLayout>
