@@ -1,3 +1,4 @@
+export * from './Divider';
 export * from './Headline';
 export * from './LegalDate';
 export * from './Link';
