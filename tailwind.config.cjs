@@ -76,6 +76,7 @@ module.exports = {
 				16: '16',
 				17: '17',
 				18: '18',
+				19: '19',
 			},
 			borderRadius: {
 				1: '2px',
@@ -113,6 +114,7 @@ module.exports = {
 				20: 'clamp(8.916rem, 19.08vw, 10.699rem)',
 				column: '5.55vw',
 				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
+				gap: 'clamp(1.5rem, 5.55vw, 6rem)',
 				icon: '24px',
 				'icon-small': '20px',
 				clickarea: '40px',
