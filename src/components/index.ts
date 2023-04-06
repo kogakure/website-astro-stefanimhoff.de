@@ -1,5 +1,6 @@
 export * from './Divider';
 export * from './Headline';
+export * from './Image';
 export * from './LegalDate';
 export * from './Link';
 export * from './ListItem';

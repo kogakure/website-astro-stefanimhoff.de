@@ -84,4 +84,28 @@
 	cite {
 		@apply pie-[0.1em];
 	}
+
+	/** Images */
+	img[src$='.svg'] {
+		@apply border-0 bg-transparent shadow-none;
+	}
+}
+
+@layer components {
+	.image-shadow {
+		@apply relative transition-transform duration-500 ease-in-out;
+
+		&::after {
+			@apply absolute -z-[1] h-full w-full opacity-0 shadow-subtle transition-opacity duration-500 ease-in-out content-[''] block-start-0 inline-start-0;
+		}
+
+		&:hover,
+		&:focus {
+			@apply scale-[1.03];
+
+			&::after {
+				@apply opacity-100;
+			}
+		}
+	}
 }

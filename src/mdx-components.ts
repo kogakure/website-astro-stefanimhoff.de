@@ -1,6 +1,7 @@
 import {
 	Divider,
 	Headline,
+	Image,
 	ListItem,
 	OrderedList,
 	Subheadline,
@@ -20,6 +21,7 @@ export const mapping = {
 	h5: Subsubheadline,
 	h6: Subsubheadline,
 	hr: Divider,
+	img: Image,
 	li: ListItem,
 	ol: OrderedList,
 	p: Text,
