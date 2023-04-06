@@ -5,24 +5,36 @@ import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
 	class?: string;
-	grid?: 'wide' | 'narrow';
+	gap?: boolean;
+	grid?: 'fullsize' | 'wide' | 'narrow';
 }
 
-const { frontmatter, class: className, grid = 'wide' } = Astro.props;
+const { frontmatter, class: className, gap = true, grid = 'narrow' } = Astro.props;
 const gridVariant = frontmatter.grid || grid;
 
-const gridClasses = cx('grid w-full grid-cols-18', className);
+const gridClasses = cx('grid w-full grid-cols-18', { 'gap-y-gap': gap }, className);
 const wrapperClasses = cx(
-	'col-start-2 col-end-18',
-	{ 'md:col-start-6 md:col-end-14 xl:col-start-7 xl:col-end-13': gridVariant === 'narrow' },
+	{ 'col-start-1 col-end-19': gridVariant === 'fullsize' },
+	{ 'col-start-2 col-end-18': gridVariant === 'wide' || gridVariant === 'narrow' },
+	{
+		'md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13':
+			gridVariant === 'narrow',
+	},
 	{ 'md:col-start-3 md:col-end-16': gridVariant === 'wide' }
 );
 ---
 
 <BaseLayout title={frontmatter.title}>
 	<div class={gridClasses}>
-		<div class={wrapperClasses}>
-			<slot />
-		</div>
+		<slot name="title" />
+		{
+			gridVariant !== 'fullsize' ? (
+				<div class={wrapperClasses}>
+					<slot />
+				</div>
+			) : (
+				<slot />
+			)
+		}
 	</div>
 </BaseLayout>
