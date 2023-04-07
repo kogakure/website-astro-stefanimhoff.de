@@ -8,18 +8,17 @@ export interface Props {
 	grid?: 'wide' | 'narrow';
 }
 
-const { frontmatter, class: className, grid = 'narrow' } = Astro.props;
-const gridVariant = frontmatter.grid || grid;
+const { class: className, grid = 'narrow' } = Astro.props;
 const titleClasses = cx(
 	'col-start-2 col-end-18 !mbe-0',
 	{
-		'md:col-start-3 md:col-end-17': gridVariant === 'wide',
-		'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': gridVariant === 'narrow',
+		'md:col-start-3 md:col-end-17': grid === 'wide',
+		'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': grid === 'narrow',
 	},
 	className
 );
 ---
 
 <Title class={titleClasses}>
-	{frontmatter.title}
+	<slot />
 </Title>
