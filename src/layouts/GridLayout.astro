@@ -4,32 +4,40 @@ import cx from 'classnames';
 import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
+	backLink?: string;
 	class?: string;
 	gap?: boolean;
 	grid?: 'fullsize' | 'wide' | 'narrow';
+	innerGrid?: boolean;
+	title: string;
 }
 
-const { frontmatter, class: className, gap = true, grid = 'narrow' } = Astro.props;
-const gridVariant = frontmatter.grid || grid;
+const { backLink, class: className, gap = true, grid = 'narrow', innerGrid, title } = Astro.props;
 
 const gridClasses = cx('grid w-full grid-cols-18', { 'gap-y-gap': gap }, className);
 const wrapperClasses = cx(
-	{ 'col-start-1 col-end-19': gridVariant === 'fullsize' },
-	{ 'col-start-2 col-end-18': gridVariant === 'wide' || gridVariant === 'narrow' },
+	{ 'col-start-1 col-end-19': grid === 'fullsize' },
+	{ 'col-start-2 col-end-18': grid === 'wide' || grid === 'narrow' },
 	{
 		'md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13':
-			gridVariant === 'narrow',
+			grid === 'narrow',
 	},
-	{ 'md:col-start-3 md:col-end-16': gridVariant === 'wide' }
+	{ 'md:col-start-3 md:col-end-17': grid === 'wide' },
+	{ 'grid w-full': innerGrid },
+	{ 'grid-cols-16 md:grid-cols-14': innerGrid && grid === 'wide' },
+	{
+		'grid-cols-16 md:grid-cols-10 xl:grid-cols-8 3xl:grid-cols-6':
+			innerGrid && grid === 'narrow',
+	}
 );
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout backLink={backLink} title={title}>
 	<div class={gridClasses}>
 		<slot name="title" />
 		<slot name="before-content" />
 		{
-			gridVariant !== 'fullsize' ? (
+			grid !== 'fullsize' ? (
 				<div class={wrapperClasses}>
 					<slot />
 				</div>
