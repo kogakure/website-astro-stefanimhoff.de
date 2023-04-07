@@ -55,9 +55,11 @@ const { title, backLink } = Astro.props;
 	>
 		<Sprite.Provider>
 			<PageHeader backLink={backLink} />
-			<main class="page-content flex grow">
-				<slot />
-			</main>
+			<div class="page-content flex grow">
+				<main>
+					<slot />
+				</main>
+			</div>
 			<PageFooter />
 		</Sprite.Provider>
 	</body>
