@@ -40,8 +40,11 @@ module.exports = {
 				},
 			},
 			gridTemplateColumns: {
+				6: 'repeat(6, minmax(0, 1fr))',
+				8: 'repeat(8, minmax(0, 1fr))',
 				10: 'repeat(10, minmax(0, 1fr))',
 				14: 'repeat(14, minmax(0, 1fr))',
+				16: 'repeat(16, minmax(0, 1fr))',
 				18: 'repeat(18, minmax(0, 1fr))',
 			},
 			gridTemplateRows: ({ theme }) => ({
