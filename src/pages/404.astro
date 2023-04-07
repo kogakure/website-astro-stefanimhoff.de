@@ -1,0 +1,33 @@
+---
+import GridLayout from '../layouts/GridLayout.astro';
+
+import PageTitle from '../components/PageTitle.astro';
+import { Verse } from '../components';
+
+import { Content as Haiku } from '../content/404/haiku.mdx';
+import { mapping } from '../mdx-components';
+---
+
+<GridLayout title="Error 404" grid="wide" class="grid" innerGrid>
+	<PageTitle grid="wide" innerGrid>Not Found.</PageTitle>
+	<Verse
+		class="z-10 col-start-1 col-end-17 row-start-2 text-3 italic mbe-10 mbs-10 md:col-start-3 md:col-end-9"
+	>
+		<Haiku components={mapping} />
+	</Verse>
+	<span
+		aria-hidden="true"
+		class="col-start-10 col-end-13 row-start-1 row-end-3 text-9 font-black text-black/[0.05] dark:text-white/[0.05]"
+		role="img"
+	>
+		404
+	</span>
+</GridLayout>
+
+<style>
+	span {
+		line-height: 0.6;
+		user-select: none;
+		writing-mode: vertical-lr;
+	}
+</style>
