@@ -1,0 +1,47 @@
+---
+import GridLayout from '../layouts/GridLayout.astro';
+
+import PageTitle from '../components/PageTitle.astro';
+
+import { Content as Intro } from '../content/traditional-colors-of-japan/intro.mdx';
+
+import { mapping } from '../mdx-components';
+---
+
+<GridLayout title="The Traditional Colors of Japan" grid="wide" class="grid" innerGrid>
+	<PageTitle grid="wide" innerGrid>The Traditional Colors of&nbsp;Japan</PageTitle>
+
+	<article
+		class="color-japan-introduction col-start-1 col-end-17 grid md:col-end-8 xl:content-center"
+	>
+		<Intro components={mapping} />
+	</article>
+
+	<article
+		class="color-japan-books col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end"
+	>
+		Books
+		<!-- 
+		{%- book "475624100X", "The Traditional Colors of Japan" -%}
+		{%- book "475624114X", "Traditional Japanese Color Palette" -%}
+		-->
+	</article>
+
+	<article class="color-japan-grid col-start-1 col-end-17 grid grid-cols-books gap-[20px]">
+		<div>Color 1</div>
+		<div>Color 2</div>
+		<div>Color 3</div>
+		<div>Color 4</div>
+		<div>Color 5</div>
+		<div>Color 6</div>
+		<div>Color 7</div>
+		<div>Color 8</div>
+		<div>Color 9</div>
+		<div>Color 10</div>
+		<!-- 
+		{% for item in colorsJapan %}
+			{%- color item.color, item.name, item.description -%}
+		{% endfor %}
+		-->
+	</article>
+</GridLayout>
