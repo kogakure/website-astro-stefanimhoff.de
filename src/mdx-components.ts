@@ -10,6 +10,7 @@ import {
 	TextLink,
 	Title,
 	UnorderedList,
+	Verse,
 } from './components';
 
 export const mapping = {
@@ -26,4 +27,5 @@ export const mapping = {
 	ol: OrderedList,
 	p: Text,
 	ul: UnorderedList,
+	Verse,
 };
