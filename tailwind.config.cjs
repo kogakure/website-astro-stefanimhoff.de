@@ -40,12 +40,14 @@ module.exports = {
 				},
 			},
 			gridTemplateColumns: {
+				2: 'repeat(2, minmax(0, 1fr))',
 				6: 'repeat(6, minmax(0, 1fr))',
 				8: 'repeat(8, minmax(0, 1fr))',
 				10: 'repeat(10, minmax(0, 1fr))',
 				14: 'repeat(14, minmax(0, 1fr))',
 				16: 'repeat(16, minmax(0, 1fr))',
 				18: 'repeat(18, minmax(0, 1fr))',
+				books: 'repeat(auto-fill, minmax(150px, 1fr))',
 			},
 			gridTemplateRows: ({ theme }) => ({
 				layout: `clamp(3rem, ${theme('spacing.column')}, 9rem)`,
