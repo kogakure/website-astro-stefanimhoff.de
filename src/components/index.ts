@@ -1,3 +1,5 @@
+export * from './AmazonBook';
+export * from './Book';
 export * from './Divider';
 export * from './Headline';
 export * from './Image';

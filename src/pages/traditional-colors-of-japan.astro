@@ -2,6 +2,7 @@
 import GridLayout from '../layouts/GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
+import { AmazonBook } from '../components';
 
 import { Content as Intro } from '../content/traditional-colors-of-japan/intro.mdx';
 
@@ -20,11 +21,16 @@ import { mapping } from '../mdx-components';
 	<article
 		class="color-japan-books col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end"
 	>
-		Books
-		<!-- 
-		{%- book "475624100X", "The Traditional Colors of Japan" -%}
-		{%- book "475624114X", "Traditional Japanese Color Palette" -%}
-		-->
+		<AmazonBook
+			alt="The Traditional Colors of Japan"
+			asin="475624100X"
+			class="mie-[1.5vw] max-w-[300px] [&_img]:self-end"
+		/>
+		<AmazonBook
+			alt="Traditional Japanese Color Palette"
+			asin="475624114X"
+			class="mis-[1.5vw] max-w-[300px] [&_img]:self-end"
+		/>
 	</article>
 
 	<article class="color-japan-grid col-start-1 col-end-17 grid grid-cols-books gap-[20px]">

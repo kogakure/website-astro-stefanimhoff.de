@@ -1,4 +1,6 @@
 import {
+	AmazonBook,
+	Book,
 	Divider,
 	Headline,
 	Image,
@@ -15,6 +17,8 @@ import {
 
 export const mapping = {
 	a: TextLink,
+	AmazonBook,
+	Book,
 	h1: Title,
 	h2: Headline,
 	h3: Subheadline,

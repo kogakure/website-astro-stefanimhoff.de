@@ -143,6 +143,9 @@ module.exports = {
 				subtle: '0 0 50px rgb(0 0 0 / 0.2)',
 				beveled: '0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff',
 				darkInset: 'inset 0 0 0 1px rgb(0 0 0 / 0.2)',
+				book: '0 0.1em 0.5em rgba(0, 0, 0, 0.5)',
+				'book-before': '0.1em 0 rgba(0, 0, 0, 0.1), 2px 0 0px rgba(255, 255, 255, 0.1)',
+				'book-after': '0 0 2em rgba(0, 0, 0, 0.8)',
 			},
 			listStyleType: {
 				none: 'none',
