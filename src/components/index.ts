@@ -1,5 +1,6 @@
 export * from './AmazonBook';
 export * from './Book';
+export * from './ColorSwatch';
 export * from './Divider';
 export * from './Headline';
 export * from './Image';

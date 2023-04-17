@@ -1,6 +1,7 @@
 import {
 	AmazonBook,
 	Book,
+	ColorSwatch,
 	Divider,
 	Headline,
 	Image,
@@ -19,6 +20,7 @@ export const mapping = {
 	a: TextLink,
 	AmazonBook,
 	Book,
+	ColorSwatch,
 	h1: Title,
 	h2: Headline,
 	h3: Subheadline,
