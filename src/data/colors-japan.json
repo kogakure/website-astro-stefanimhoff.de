@@ -1,0 +1,1502 @@
+[
+	{
+		"id": "1",
+		"name": "Pink",
+		"description": "The vivid pink of Dianthus chinesis flowers.",
+		"color": "#DC9FB4"
+	},
+	{
+		"id": "2",
+		"name": "Orchid Pink",
+		"description": "The purplish pink of orchids.",
+		"color": "#E16B8C"
+	},
+	{
+		"id": "3",
+		"name": "Raspberry Red",
+		"description": "The rich purplish red of raspberries.",
+		"color": "#8E354A"
+	},
+	{
+		"id": "4",
+		"name": "Old Rose",
+		"description": "A soft, light red; a washed-out vermilion.",
+		"color": "#F8C3CD"
+	},
+	{
+		"id": "5",
+		"name": "Baby Pink",
+		"description": "A soft pink.",
+		"color": "#F4A7B9"
+	},
+	{
+		"id": "6",
+		"name": "Mulberry",
+		"description": "The dark reddish-purple of ripe mulberries.",
+		"color": "#64363C"
+	},
+	{
+		"id": "7",
+		"name": "Fuchsia Pink",
+		"description": "The pink of fuchsia flowers.",
+		"color": "#F596AA"
+	},
+	{
+		"id": "8",
+		"name": "Strawberry",
+		"description": "The rich red of strawberries.",
+		"color": "#B5495B"
+	},
+	{
+		"id": "9",
+		"name": "Rose Pink",
+		"description": "The pale vermilion of classic pink roses.",
+		"color": "#E87A90"
+	},
+	{
+		"id": "10",
+		"name": "Signal Red",
+		"description": "A deep red.",
+		"color": "#D05A6E"
+	},
+	{
+		"id": "11",
+		"name": "Cherry Pink",
+		"description": "A pink with a hint of purple.",
+		"color": "#DB4D6D"
+	},
+	{
+		"id": "12",
+		"name": "Cherry Blossom",
+		"description": "The pink of cherry blossoms, the Japanese national flower.",
+		"color": "#FEDFE1"
+	},
+	{
+		"id": "13",
+		"name": "Rose Gray",
+		"description": "Gray with a hint of rose-red.",
+		"color": "#9E7A7A"
+	},
+	{
+		"id": "14",
+		"name": "Rose Red",
+		"description": "The familiar red of roses.",
+		"color": "#D0104C"
+	},
+	{
+		"id": "15",
+		"name": "Crimson",
+		"description": "A deep red originally derived from the cochineal insect.",
+		"color": "#9F353A"
+	},
+	{
+		"id": "16",
+		"name": "Carmine",
+		"description": "A bright red originally derived from the cochineal insect.",
+		"color": "#CB1B45"
+	},
+	{
+		"id": "17",
+		"name": "Pink",
+		"description": "The color of fringed pinks, also known as Dianthus or pink carnations.",
+		"color": "#EEA9A9"
+	},
+	{
+		"id": "18",
+		"name": "Old Rose",
+		"description": "A faded rose-red.",
+		"color": "#BF6766"
+	},
+	{
+		"id": "19",
+		"name": "Chocolate Brown",
+		"description": "A deep, rich brown.",
+		"color": "#86473F"
+	},
+	{
+		"id": "20",
+		"name": "Silver Pink",
+		"description": "Pink with a hint of silver.",
+		"color": "#B19693"
+	},
+	{
+		"id": "21",
+		"name": "French Rose",
+		"description": "A bright crimson.",
+		"color": "#EB7A77"
+	},
+	{
+		"id": "22",
+		"name": "Russet Brown",
+		"description": "A deep reddish brown.",
+		"color": "#954A45"
+	},
+	{
+		"id": "23",
+		"name": "Corinth Pink",
+		"description": "A reddish-brown used on ancient Greek pottery from Corinth.",
+		"color": "#A96360"
+	},
+	{
+		"id": "24",
+		"name": "Geranium",
+		"description": "The strong red of geraniums, flowering perennials in the geraniaceae family.",
+		"color": "#CB4042"
+	},
+	{
+		"id": "25",
+		"name": "Cardinal",
+		"description": "A vivid red, named for the color of the cassocks worn by cardinals of the Roman Catholic Church.",
+		"color": "#AB3B3A"
+	},
+	{
+		"id": "26",
+		"name": "Silver Pink",
+		"description": "Pink with a hint of silver.",
+		"color": "#D7C4BB"
+	},
+	{
+		"id": "27",
+		"name": "Dark Cardinal",
+		"description": "A dark reddish brown.",
+		"color": "#904840"
+	},
+	{
+		"id": "28",
+		"name": "Garnet",
+		"description": "A dark red of garnets.",
+		"color": "#734338"
+	},
+	{
+		"id": "29",
+		"name": "Blood Red",
+		"description": "A pure, clear red.",
+		"color": "#C73E3A"
+	},
+	{
+		"id": "30",
+		"name": "Woodland Brown",
+		"description": "The deep brown of a woodland floor.",
+		"color": "#554236"
+	},
+	{
+		"id": "31",
+		"name": "Pompeian Red",
+		"description": "A reddish-brown reminiscent of the houses of Pompeii.",
+		"color": "#994639"
+	},
+	{
+		"id": "32",
+		"name": "Salmon Pink",
+		"description": "The bright pink of salmon.",
+		"color": "#F19483"
+	},
+	{
+		"id": "33",
+		"name": "Amber Red",
+		"description": "Red with a hint of orange.",
+		"color": "#B54434"
+	},
+	{
+		"id": "34",
+		"name": "Ash Rose",
+		"description": "A pale rose with a hint of ash gray.",
+		"color": "#B9887D"
+	},
+	{
+		"id": "35",
+		"name": "Coral Pink",
+		"description": "The characteristic pink of coral.",
+		"color": "#F17C67"
+	},
+	{
+		"id": "36",
+		"name": "Oxblood Red",
+		"description": "A rich reddish brown.",
+		"color": "#884C3A"
+	},
+	{
+		"id": "37",
+		"name": "Poppy Red",
+		"description": "A strong red with a hint of orange.",
+		"color": "#E83015"
+	},
+	{
+		"id": "38",
+		"name": "Red Lead",
+		"description": "A bright reddish-orange, named for the pigment red lead or minium.",
+		"color": "#D75455"
+	},
+	{
+		"id": "39",
+		"name": "Copper Rose",
+		"description": "Rose red with a hint of copper.",
+		"color": "#B55D4C"
+	},
+	{
+		"id": "40",
+		"name": "Mahogany",
+		"description": "The deep reddish-brown of mahogany wood.",
+		"color": "#854836"
+	},
+	{
+		"id": "41",
+		"name": "Brick Dust",
+		"description": "A dull brick red.",
+		"color": "#A35E47"
+	},
+	{
+		"id": "42",
+		"name": "Scarlett",
+		"description": "A vivid red with a hint of yellow.",
+		"color": "#CC543A"
+	},
+	{
+		"id": "43",
+		"name": "Auburn Brown",
+		"description": "A red-brown color.",
+		"color": "#724832"
+	},
+	{
+		"id": "44",
+		"name": "Tomato Red",
+		"description": "A color of a ripe tomato.",
+		"color": "#F75C2F"
+	},
+	{
+		"id": "45",
+		"name": "Chestnut",
+		"description": "The reddish brown of chestnuts.",
+		"color": "#6A4028"
+	},
+	{
+		"id": "46",
+		"name": "Copper Brown",
+		"description": "A rich coppery brown.",
+		"color": "#9A5034"
+	},
+	{
+		"id": "47",
+		"name": "Burnt Orange",
+		"description": "A deep orange.",
+		"color": "#C46243"
+	},
+	{
+		"id": "48",
+		"name": "Garnet Brown",
+		"description": "A reddish brown.",
+		"color": "#AF5F3C"
+	},
+	{
+		"id": "49",
+		"name": "Indian Pink",
+		"description": "A pale vermilion.",
+		"color": "#FB966E"
+	},
+	{
+		"id": "50",
+		"name": "Arabian Red",
+		"description": "A dark red.",
+		"color": "#724938"
+	},
+	{
+		"id": "51",
+		"name": "Cinnamon",
+		"description": "The light reddish-brown of cinnamon.",
+		"color": "#B47157"
+	},
+	{
+		"id": "52",
+		"name": "Melon Pink",
+		"description": "The orange-pink of cantaloupe melon.",
+		"color": "#DB8E71"
+	},
+	{
+		"id": "53",
+		"name": "Orange Vermilion",
+		"description": "A strong orange vermilion.",
+		"color": "#F05E1C"
+	},
+	{
+		"id": "54",
+		"name": "Flamingo",
+		"description": "The pale crimson of flamingo plumage.",
+		"color": "#ED784A"
+	},
+	{
+		"id": "55",
+		"name": "Coral Rust",
+		"description": "Coral pink with a hint of brown.",
+		"color": "#CA7853"
+	},
+	{
+		"id": "56",
+		"name": "Etruscan Orange",
+		"description": "The orange with a hint of brown characteristic of Etruscan art.",
+		"color": "#B35C37"
+	},
+	{
+		"id": "57",
+		"name": "Burnt Umber",
+		"description": "A deep reddish chocolate brown.",
+		"color": "#563F2E"
+	},
+	{
+		"id": "58",
+		"name": "Cork",
+		"description": "The light brown of the bark of the cork tree.",
+		"color": "#E3916E"
+	},
+	{
+		"id": "59",
+		"name": "Brick Red",
+		"description": "A mellow reddish brown.",
+		"color": "#8F5A3C"
+	},
+	{
+		"id": "60",
+		"name": "Flesh",
+		"description": "A peach-hued skin color.",
+		"color": "#F0A986"
+	},
+	{
+		"id": "61",
+		"name": "Etruscan Rose",
+		"description": "A soft pinkish brown.",
+		"color": "#A0674B"
+	},
+	{
+		"id": "62",
+		"name": "Burnt Sienna",
+		"description": "An orange-brown.",
+		"color": "#C1693C"
+	},
+	{
+		"id": "63",
+		"name": "Apricot Buff",
+		"description": "A dull apricot yellow.",
+		"color": "#FB9966"
+	},
+	{
+		"id": "64",
+		"name": "Nut Brown",
+		"description": "The brown of ripe walnuts.",
+		"color": "#947A6D"
+	},
+	{
+		"id": "65",
+		"name": "Terra Cotta",
+		"description": "A rich brownish orange, as in unglazed roof titles.",
+		"color": "#A36336"
+	},
+	{
+		"id": "66",
+		"name": "Salmon Buff",
+		"description": "A dull, pale orange.",
+		"color": "#E79460"
+	},
+	{
+		"id": "67",
+		"name": "Golden Brown",
+		"description": "A rich golden brown.",
+		"color": "#7D532C"
+	},
+	{
+		"id": "68",
+		"name": "Red Fallow",
+		"description": "Tan with a hint of red.",
+		"color": "#C78550"
+	},
+	{
+		"id": "69",
+		"name": "Bronze",
+		"description": "The clean brown of unweathered bronze.",
+		"color": "#985F2A"
+	},
+	{
+		"id": "70",
+		"name": "Peach Beige",
+		"description": "A beige with a touch of pink.",
+		"color": "#E1A679"
+	},
+	{
+		"id": "71",
+		"name": "Tobacco Brown",
+		"description": "A warm light brown.",
+		"color": "#855B32"
+	},
+	{
+		"id": "72",
+		"name": "Saffron Yellow",
+		"description": "The golden yellow of dried saffron stigmas.",
+		"color": "#FC9F4D"
+	},
+	{
+		"id": "73",
+		"name": "Light Apricot",
+		"description": "A pale ripe apricot color.",
+		"color": "#FFBA84"
+	},
+	{
+		"id": "74",
+		"name": "Majolica Orange",
+		"description": "The orange found in Majolica ceramics.",
+		"color": "#E98B2A"
+	},
+	{
+		"id": "75",
+		"name": "Peach Buff",
+		"description": "A pale reddish tan.",
+		"color": "#E9A368"
+	},
+	{
+		"id": "76",
+		"name": "Ocher Beige",
+		"description": "A pale yellow-brown.",
+		"color": "#B17844"
+	},
+	{
+		"id": "77",
+		"name": "Fawn",
+		"description": "A golden brown, seen in some fawn’s coats.",
+		"color": "#96632E"
+	},
+	{
+		"id": "78",
+		"name": "Russet Gold",
+		"description": "Gold with a touch of brown.",
+		"color": "#43341B"
+	},
+	{
+		"id": "79",
+		"name": "Amber",
+		"description": "The golden yellow of amber.",
+		"color": "#CA7A2C"
+	},
+	{
+		"id": "80",
+		"name": "Vanilla",
+		"description": "Pale vanilla extract.",
+		"color": "#ECB88A"
+	},
+	{
+		"id": "81",
+		"name": "Russet Brown",
+		"description": "A deep reddish brown.",
+		"color": "#78552B"
+	},
+	{
+		"id": "82",
+		"name": "Buff",
+		"description": "A light yellow-brown, the color of buffalo leather.",
+		"color": "#B07736"
+	},
+	{
+		"id": "83",
+		"name": "Drab",
+		"description": "A light olive brown.",
+		"color": "#967249"
+	},
+	{
+		"id": "84",
+		"name": "Fallow",
+		"description": "The pale brown of sandy soil in fallow fields.",
+		"color": "#E2943B"
+	},
+	{
+		"id": "85",
+		"name": "Brown Gold",
+		"description": "A gold with a hint of brown.",
+		"color": "#C7802D"
+	},
+	{
+		"id": "86",
+		"name": "Raw Sienna",
+		"description": "A brownish-yellow.",
+		"color": "#9B6E23"
+	},
+	{
+		"id": "87",
+		"name": "Sepia",
+		"description": "A dark brown like the pigment derived from cuttlefish ink.",
+		"color": "#6E552F"
+	},
+	{
+		"id": "88",
+		"name": "Champagne",
+		"description": "The pale straw color of champagne.",
+		"color": "#EBB471"
+	},
+	{
+		"id": "89",
+		"name": "Peach",
+		"description": "A soft pinkish-orange, the color of peach flesh.",
+		"color": "#D7B98E"
+	},
+	{
+		"id": "90",
+		"name": "Maple Sugar",
+		"description": "The light brown of maple sugar.",
+		"color": "#82663A"
+	},
+	{
+		"id": "91",
+		"name": "Yellow Ocher",
+		"description": "A natural yellow-brown pigment.",
+		"color": "#B68E55"
+	},
+	{
+		"id": "92",
+		"name": "Ecru",
+		"description": "The very pale brown of unbleached linen or silk.",
+		"color": "#BC9F77"
+	},
+	{
+		"id": "93",
+		"name": "Old Gold",
+		"description": "A dark yellow.",
+		"color": "#876633"
+	},
+	{
+		"id": "94",
+		"name": "Maple Leaf",
+		"description": "A golden brown.",
+		"color": "#C18A26"
+	},
+	{
+		"id": "95",
+		"name": "Marigold",
+		"description": "The bright yellow of the marigold, a member of the chrysanthemum family native to Mexico.",
+		"color": "#FFB11B"
+	},
+	{
+		"id": "96",
+		"name": "Gold",
+		"description": "The warm yellow of the metal gold.",
+		"color": "#D19826"
+	},
+	{
+		"id": "97",
+		"name": "Yellow Gold",
+		"description": "The yellow of the metal gold.",
+		"color": "#DDA52D"
+	},
+	{
+		"id": "98",
+		"name": "Buff",
+		"description": "A light yellow-brown, the color of buffalo leather.",
+		"color": "#C99833"
+	},
+	{
+		"id": "99",
+		"name": "York Yellow",
+		"description": "The rich yellow of egg yolks.",
+		"color": "#F9BF45"
+	},
+	{
+		"id": "100",
+		"name": "Flax",
+		"description": "A pale yellowish gray.",
+		"color": "#DCB879"
+	},
+	{
+		"id": "101",
+		"name": "Curry Yellow",
+		"description": "The rich yellow of turmeric.",
+		"color": "#BA9132"
+	},
+	{
+		"id": "102",
+		"name": "Maize",
+		"description": "The yellow of kernels of ripe maize (corn).",
+		"color": "#E8B647"
+	},
+	{
+		"id": "103",
+		"name": "Sun Gold",
+		"description": "The true gold of the sun.",
+		"color": "#F7C242"
+	},
+	{
+		"id": "104",
+		"name": "Tawny Olive",
+		"description": "Olive green with a hint of brown.",
+		"color": "#7D6C46"
+	},
+	{
+		"id": "105",
+		"name": "Cream",
+		"description": "A pale yellowish white.",
+		"color": "#DAC9A6"
+	},
+	{
+		"id": "106",
+		"name": "Straw",
+		"description": "The delicate yellow of dry straw.",
+		"color": "#FAD689"
+	},
+	{
+		"id": "107",
+		"name": "Honeysweet",
+		"description": "Honey yellow.",
+		"color": "#D9AB42"
+	},
+	{
+		"id": "108",
+		"name": "Naples Yellow",
+		"description": "A muted reddish-yellow pigment containing lead antimonate.",
+		"color": "#F6C555"
+	},
+	{
+		"id": "109",
+		"name": "Sunflower",
+		"description": "The yellow of sunflower petals.",
+		"color": "#FFC408"
+	},
+	{
+		"id": "110",
+		"name": "Golden Yellow",
+		"description": "A vivid yellow.",
+		"color": "#EFBB24"
+	},
+	{
+		"id": "111",
+		"name": "Mustard",
+		"description": "The dull yellow of mustard.",
+		"color": "#CAAD5F"
+	},
+	{
+		"id": "112",
+		"name": "Oriental Gold",
+		"description": "A muted gold.",
+		"color": "#8D742A"
+	},
+	{
+		"id": "113",
+		"name": "Citron Gray",
+		"description": "Gray with a touch of green.",
+		"color": "#B4A582"
+	},
+	{
+		"id": "114",
+		"name": "Covert Gray",
+		"description": "An olive gray.",
+		"color": "#877F6C"
+	},
+	{
+		"id": "115",
+		"name": "Dusty Olive",
+		"description": "A dull olive green",
+		"color": "#897D55"
+	},
+	{
+		"id": "116",
+		"name": "Beech",
+		"description": "A blonde tan.",
+		"color": "#74673E"
+	},
+	{
+		"id": "117",
+		"name": "Oil Yellow",
+		"description": "A deep yellow with a hint of green.",
+		"color": "#A28C37"
+	},
+	{
+		"id": "118",
+		"name": "Seaweed",
+		"description": "A grayish olive.",
+		"color": "#6C6024"
+	},
+	{
+		"id": "119",
+		"name": "Seaweed Yellow",
+		"description": "A grayish-olive yellow.",
+		"color": "#867835"
+	},
+	{
+		"id": "120",
+		"name": "Seaweed Brown",
+		"description": "A grayish brown.",
+		"color": "#62592C"
+	},
+	{
+		"id": "121",
+		"name": "Chrome Lemon",
+		"description": "A natural yellow pigment made of lead chromate.",
+		"color": "#E9CD4C"
+	},
+	{
+		"id": "122",
+		"name": "Canary",
+		"description": "A bright yellow with a hint of green.",
+		"color": "#F7D94C"
+	},
+	{
+		"id": "123",
+		"name": "Lemon Yellow",
+		"description": "A vivid yellow, the color of lemon peel.",
+		"color": "#FBE251"
+	},
+	{
+		"id": "124",
+		"name": "Chartreuse Yellow",
+		"description": "A greenish yellow.",
+		"color": "#D9CD90"
+	},
+	{
+		"id": "125",
+		"name": "Olive Yellow",
+		"description": "Yellow with a hint of olive green.",
+		"color": "#ADA142"
+	},
+	{
+		"id": "126",
+		"name": "Citron Yellow",
+		"description": "A grayish-green yellow.",
+		"color": "#DDD23B"
+	},
+	{
+		"id": "127",
+		"name": "Light Olive Yellow",
+		"description": "Pale yellow with a hint of olive green.",
+		"color": "#A5A051"
+	},
+	{
+		"id": "128",
+		"name": "Apple Green",
+		"description": "A crisp yellow-green.",
+		"color": "#BEC23F"
+	},
+	{
+		"id": "129",
+		"name": "Sage Green",
+		"description": "The gray-green of sage.",
+		"color": "#6C6A2D"
+	},
+	{
+		"id": "130",
+		"name": "Citron Green",
+		"description": "A light grayish yellow green.",
+		"color": "#939650"
+	},
+	{
+		"id": "131",
+		"name": "Moss Green",
+		"description": "A dullish yellow-green.",
+		"color": "#838A2D"
+	},
+	{
+		"id": "132",
+		"name": "Elm Green",
+		"description": "A grayish olive green.",
+		"color": "#B1B479"
+	},
+	{
+		"id": "133",
+		"name": "Drab",
+		"description": "A light olive brown.",
+		"color": "#616138"
+	},
+	{
+		"id": "134",
+		"name": "Dark Olive",
+		"description": "A dark olive green.",
+		"color": "#4B4E2A"
+	},
+	{
+		"id": "135",
+		"name": "Sea Moss",
+		"description": "Grayish olive green.",
+		"color": "#5B622E"
+	},
+	{
+		"id": "136",
+		"name": "Bronze Green",
+		"description": "A grayish olive.",
+		"color": "#B1B479"
+	},
+	{
+		"id": "137",
+		"name": "Silver Sage",
+		"description": "A sage green with a hint of silver.",
+		"color": "#89916B"
+	},
+	{
+		"id": "138",
+		"name": "Fresh Green",
+		"description": "The bright green of new growth.",
+		"color": "#90B44B"
+	},
+	{
+		"id": "139",
+		"name": "Willow",
+		"description": "The yellow-green of willow leaves.",
+		"color": "#91AD70"
+	},
+	{
+		"id": "140",
+		"name": "Mist Green",
+		"description": "The delicate grayish green of the backs of willow leaves.",
+		"color": "#B5CAA0"
+	},
+	{
+		"id": "141",
+		"name": "Slate Olive",
+		"description": "An olive green with a hint of slate blue.",
+		"color": "#646A58"
+	},
+	{
+		"id": "142",
+		"name": "Spring Green",
+		"description": "The characteristic vital green of spring growth.",
+		"color": "#7BA23F"
+	},
+	{
+		"id": "143",
+		"name": "Apple Green",
+		"description": "The clear green of green apples.",
+		"color": "#86C166"
+	},
+	{
+		"id": "144",
+		"name": "Deep Sea Moss",
+		"description": "A deep grayed green.",
+		"color": "#4A593D"
+	},
+	{
+		"id": "145",
+		"name": "Jade Green",
+		"description": "A bluish green.",
+		"color": "#42602D"
+	},
+	{
+		"id": "146",
+		"name": "Cactus",
+		"description": "A yellow-green with a hint of gray.",
+		"color": "#516E41"
+	},
+	{
+		"id": "147",
+		"name": "Light Green",
+		"description": "A light true green.",
+		"color": "#91B493"
+	},
+	{
+		"id": "148",
+		"name": "Eggshell Green",
+		"description": "The delicate bluish green of robin’s eggs.",
+		"color": "#808F7C"
+	},
+	{
+		"id": "149",
+		"name": "Evergreen",
+		"description": "A rich leaf green.",
+		"color": "#1B813E"
+	},
+	{
+		"id": "150",
+		"name": "Porcelain Green",
+		"description": "A vivid yellow-green.",
+		"color": "#5DAC81"
+	},
+	{
+		"id": "151",
+		"name": "Bottle Green",
+		"description": "A dark green often found in glass bottles.",
+		"color": "#36563C"
+	},
+	{
+		"id": "152",
+		"name": "Malachite Green",
+		"description": "The rich, true green of malachite.",
+		"color": "#227D51"
+	},
+	{
+		"id": "153",
+		"name": "Opal Green",
+		"description": "The milky green of opals.",
+		"color": "#A8D8B9"
+	},
+	{
+		"id": "154",
+		"name": "Antique Green",
+		"description": "The dull green of marble.",
+		"color": "#6A8372"
+	},
+	{
+		"id": "155",
+		"name": "Almond Green",
+		"description": "The deep bluish-green of the backs of almonds leaves.",
+		"color": "#2D6D4B"
+	},
+	{
+		"id": "156",
+		"name": "Forest Green",
+		"description": "A dull, deep green.",
+		"color": "#465D4C"
+	},
+	{
+		"id": "157",
+		"name": "Verdigris",
+		"description": "The bluish-green of the patina that forms on copper.",
+		"color": "#24936E"
+	},
+	{
+		"id": "158",
+		"name": "Ripple Green",
+		"description": "A delicate blue-green.",
+		"color": "#86A697"
+	},
+	{
+		"id": "159",
+		"name": "Jewel Green",
+		"description": "A deep emerald green.",
+		"color": "#00896C"
+	},
+	{
+		"id": "160",
+		"name": "Lincoln Green",
+		"description": "A deep green used in tartan.",
+		"color": "#096148"
+	},
+	{
+		"id": "161",
+		"name": "Green Duck",
+		"description": "Mallard green.",
+		"color": "#20604F"
+	},
+	{
+		"id": "162",
+		"name": "Olive Drab",
+		"description": "A dull olive green.",
+		"color": "#0F4C3A"
+	},
+	{
+		"id": "163",
+		"name": "Chinese Green",
+		"description": "Overglaze green in Chinese ceramics.",
+		"color": "#4F726C"
+	},
+	{
+		"id": "164",
+		"name": "Sea Green",
+		"description": "The blue-green of the sea.",
+		"color": "#00AA90"
+	},
+	{
+		"id": "165",
+		"name": "Celadon",
+		"description": "The gray-green of celadon porcelains.",
+		"color": "#69B0AC"
+	},
+	{
+		"id": "166",
+		"name": "Fir Green",
+		"description": "The blue-green of fir needles.",
+		"color": "#26453D"
+	},
+	{
+		"id": "167",
+		"name": "Aqua Green",
+		"description": "A blue-green color.",
+		"color": "#66BAB7"
+	},
+	{
+		"id": "168",
+		"name": "Turquoise Blue",
+		"description": "The vivid blue-green of turquoises.",
+		"color": "#268785"
+	},
+	{
+		"id": "169",
+		"name": "Blue Conifer",
+		"description": "The muted blue-green of pine needles.",
+		"color": "#405B55"
+	},
+	{
+		"id": "170",
+		"name": "Canton Blue",
+		"description": "A bright navy blue.",
+		"color": "#305A56"
+	},
+	{
+		"id": "171",
+		"name": "Pale Ultramarine",
+		"description": "A pale true blue.",
+		"color": "#78C2C4"
+	},
+	{
+		"id": "172",
+		"name": "Dun",
+		"description": "A grayish olive green.",
+		"color": "#376B6D"
+	},
+	{
+		"id": "173",
+		"name": "Horizon Blue",
+		"description": "The pale sky-blue visible on the horizon.",
+		"color": "#A5DEE4"
+	},
+	{
+		"id": "174",
+		"name": "Aqua Gray",
+		"description": "A gray-aqua mixture.",
+		"color": "#77969A"
+	},
+	{
+		"id": "175",
+		"name": "Light Saxe Blue",
+		"description": "A dull blue-green.",
+		"color": "#6699A1"
+	},
+	{
+		"id": "176",
+		"name": "Pale Aqua",
+		"description": "A pale sky blue.",
+		"color": "#81C7D4"
+	},
+	{
+		"id": "177",
+		"name": "Turquoise Blue",
+		"description": "The blue-green of turquoises.",
+		"color": "#33A6B8"
+	},
+	{
+		"id": "178",
+		"name": "Tapestry Blue",
+		"description": "A dark blue with a hint of gray.",
+		"color": "#0C4842"
+	},
+	{
+		"id": "179",
+		"name": "Marine Blue",
+		"description": "The deep indigo blue of Marine Corps uniforms.",
+		"color": "#0D5661"
+	},
+	{
+		"id": "180",
+		"name": "Cerulean Blue",
+		"description": "A vivid sky blue.",
+		"color": "#0089A7"
+	},
+	{
+		"id": "181",
+		"name": "Goblin Blue",
+		"description": "A dull blue-green.",
+		"color": "#336774"
+	},
+	{
+		"id": "182",
+		"name": "Electric Blue",
+		"description": "A vivid blue with a hint of green.",
+		"color": "#255359"
+	},
+	{
+		"id": "183",
+		"name": "Saxe Blue",
+		"description": "A cobalt blue associated with the region of Germany known as Saxony.",
+		"color": "#1E88A8"
+	},
+	{
+		"id": "184",
+		"name": "Smoke Blue",
+		"description": "The gray-blue of smoke.",
+		"color": "#566C73"
+	},
+	{
+		"id": "185",
+		"name": "Smoke Blue",
+		"description": "A dull blue.",
+		"color": "#577C8A"
+	},
+	{
+		"id": "186",
+		"name": "Sky Blue",
+		"description": "The blue of a clear sky.",
+		"color": "#58B2DC"
+	},
+	{
+		"id": "187",
+		"name": "Oriental Blue",
+		"description": "A deep grayed blue.",
+		"color": "#2B5F75"
+	},
+	{
+		"id": "188",
+		"name": "Azure Blue",
+		"description": "The blue of a perfectly clear sky.",
+		"color": "#3A8FB7"
+	},
+	{
+		"id": "189",
+		"name": "Slate Blue",
+		"description": "The gray-blue of slate.",
+		"color": "#2E5C6E"
+	},
+	{
+		"id": "190",
+		"name": "Sapphire Blue",
+		"description": "The blue of sapphires.",
+		"color": "#006284"
+	},
+	{
+		"id": "191",
+		"name": "Forget Me Not Blue",
+		"description": "A clear, medium blue.",
+		"color": "#7DB9DE"
+	},
+	{
+		"id": "192",
+		"name": "Ultramarine",
+		"description": "The color of the blue pigment made from powdered lapis lazuli.",
+		"color": "#51A8DD"
+	},
+	{
+		"id": "193",
+		"name": "Cobalt Blue",
+		"description": "A sky blue named for a pigment of cobalt oxide and alumina.",
+		"color": "#2EA9DF"
+	},
+	{
+		"id": "194",
+		"name": "Midnight Blue",
+		"description": "Blue black.",
+		"color": "#0B1013"
+	},
+	{
+		"id": "195",
+		"name": "Navy Blue",
+		"description": "A deep blue of British navy uniforms.",
+		"color": "#0F2540"
+	},
+	{
+		"id": "196",
+		"name": "Indigo",
+		"description": "A dark blue produced by dyeing with indigo.",
+		"color": "#08192D"
+	},
+	{
+		"id": "197",
+		"name": "Lapis Lazuli",
+		"description": "The soft, slightly purplish blue associated with the semi-precious stone.",
+		"color": "#005CAF"
+	},
+	{
+		"id": "198",
+		"name": "Royal Blue",
+		"description": "A rich purplish blue associated with the British royal family.",
+		"color": "#0B346E"
+	},
+	{
+		"id": "199",
+		"name": "Salvia Blue",
+		"description": "The purplish blue of salvia flowers.",
+		"color": "#7B90D2"
+	},
+	{
+		"id": "200",
+		"name": "Lavender Gray",
+		"description": "Gray with a hint of pale purple.",
+		"color": "#6E75A4"
+	},
+	{
+		"id": "201",
+		"name": "Steel Gray",
+		"description": "A gray with the dark bluish hue of steel.",
+		"color": "#261E47"
+	},
+	{
+		"id": "202",
+		"name": "Prussian Blue",
+		"description": "A deep blue produced with ferric ferrocynide.",
+		"color": "#113285"
+	},
+	{
+		"id": "203",
+		"name": "Gentian Blue",
+		"description": "The soft, purplish blue of gentian flowers.",
+		"color": "#4E4F97"
+	},
+	{
+		"id": "204",
+		"name": "Victoria Violet",
+		"description": "A deep purple",
+		"color": "#211E55"
+	},
+	{
+		"id": "205",
+		"name": "Wisteria",
+		"description": "The purple of wisteria blossoms.",
+		"color": "#8B81C3"
+	},
+	{
+		"id": "206",
+		"name": "Aster",
+		"description": "A dull bluish-purple.",
+		"color": "#70649A"
+	},
+	{
+		"id": "207",
+		"name": "Helitrope",
+		"description": "A pink-purple, midway between violet and magenta.",
+		"color": "#9B90C2"
+	},
+	{
+		"id": "208",
+		"name": "Mauve",
+		"description": "The color of the first aniline die, a pale grayed pink-lilac.",
+		"color": "#8A6BBE"
+	},
+	{
+		"id": "209",
+		"name": "Bell Flower",
+		"description": "A bluish-violet.",
+		"color": "#6A4C9C"
+	},
+	{
+		"id": "210",
+		"name": "Heliotrope",
+		"description": "A light pinkish-purple.",
+		"color": "#8F77B5"
+	},
+	{
+		"id": "211",
+		"name": "Skark",
+		"description": "A deep gray with a hint of purple.",
+		"color": "#533D5B"
+	},
+	{
+		"id": "212",
+		"name": "Pale Lilac",
+		"description": "The pale purple of lilacs.",
+		"color": "#B28FCE"
+	},
+	{
+		"id": "213",
+		"name": "Crocus",
+		"description": "The pale purple of crocus flowers.",
+		"color": "#986DB2"
+	},
+	{
+		"id": "214",
+		"name": "Royal Purple",
+		"description": "A reddish purple.",
+		"color": "#77428D"
+	},
+	{
+		"id": "215",
+		"name": "Pansy",
+		"description": "The deep violet of pansy petals.",
+		"color": "#3C2F41"
+	},
+	{
+		"id": "216",
+		"name": "Deep Royal Purple",
+		"description": "A deep reddish purple.",
+		"color": "#4A225D"
+	},
+	{
+		"id": "217",
+		"name": "Violet",
+		"description": "The color of violet blossoms; the name Newton gave to the purple end of the visible spectrum.",
+		"color": "#66327C"
+	},
+	{
+		"id": "218",
+		"name": "Purple",
+		"description": "A mixture of red and blue, with many hies, including lavender and lilac; the unmodified term usually refers to a reddish purple.",
+		"color": "#592C63"
+	},
+	{
+		"id": "219",
+		"name": "Iris",
+		"description": "The soft reddish-purple of Japanese irises.",
+		"color": "#6F3381"
+	},
+	{
+		"id": "220",
+		"name": "Prune",
+		"description": "A deep gray with a touch of purple.",
+		"color": "#574C57"
+	},
+	{
+		"id": "221",
+		"name": "Lilac",
+		"description": "A pale purple.",
+		"color": "#B481BB"
+	},
+	{
+		"id": "222",
+		"name": "Dusky Purple",
+		"description": "A dark, blackish purple.",
+		"color": "#3F2B36"
+	},
+	{
+		"id": "223",
+		"name": "Eggplant",
+		"description": "A brownish purple.",
+		"color": "#572A3F"
+	},
+	{
+		"id": "224",
+		"name": "Plum Purple",
+		"description": "The grayed purple of plums.",
+		"color": "#5E3D50"
+	},
+	{
+		"id": "225",
+		"name": "Lilac Hazy",
+		"description": "A dull pale purple.",
+		"color": "#72636E"
+	},
+	{
+		"id": "226",
+		"name": "Amethyst",
+		"description": "A vivid reddish purple.",
+		"color": "#622954"
+	},
+	{
+		"id": "227",
+		"name": "Amethyst Mauve",
+		"description": "A grayed amethyst.",
+		"color": "#6D2E5B"
+	},
+	{
+		"id": "228",
+		"name": "Peony Purple",
+		"description": "A vivid reddish-purple.",
+		"color": "#C1328E"
+	},
+	{
+		"id": "229",
+		"name": "Amaranth Purple",
+		"description": "A deep reddish-purple.",
+		"color": "#A8497A"
+	},
+	{
+		"id": "230",
+		"name": "Plum",
+		"description": "A deep grayed purple.",
+		"color": "#562E37"
+	},
+	{
+		"id": "231",
+		"name": "Azalea Pink",
+		"description": "The pinkish purple of azalea blossoms.",
+		"color": "#E03C8A"
+	},
+	{
+		"id": "232",
+		"name": "Indian Purple",
+		"description": "A purple with a hint of brown.",
+		"color": "#60373E"
+	},
+	{
+		"id": "233",
+		"name": "Snow White",
+		"description": "Pure white.",
+		"color": "#FFFFFB"
+	},
+	{
+		"id": "234",
+		"name": "Chalk",
+		"description": "White with a hint of yellow.",
+		"color": "#FCFAF2"
+	},
+	{
+		"id": "235",
+		"name": "Pearl Gray",
+		"description": "A pale, warm gray.",
+		"color": "#BDC0BA"
+	},
+	{
+		"id": "236",
+		"name": "Silver Gray",
+		"description": "A silvery gray.",
+		"color": "#91989F"
+	},
+	{
+		"id": "237",
+		"name": "Lead Gray",
+		"description": "A medium gray.",
+		"color": "#787878"
+	},
+	{
+		"id": "238",
+		"name": "Ash Gray",
+		"description": "A medium gray.",
+		"color": "#828282"
+	},
+	{
+		"id": "239",
+		"name": "Mouse Gray",
+		"description": "Medium gray.",
+		"color": "#787D7B"
+	},
+	{
+		"id": "240",
+		"name": "Celadon Gray",
+		"description": "A gray with a hint of celadon.",
+		"color": "#707C74"
+	},
+	{
+		"id": "241",
+		"name": "Olive Gray",
+		"description": "Gray with a hint of olive green.",
+		"color": "#656765"
+	},
+	{
+		"id": "242",
+		"name": "Steel Gray",
+		"description": "A greenish-gray.",
+		"color": "#535953"
+	},
+	{
+		"id": "243",
+		"name": "Dove Gray",
+		"description": "A dark gray.",
+		"color": "#4F4F48"
+	},
+	{
+		"id": "244",
+		"name": "Black Berry",
+		"description": "The dark purple of blackberries.",
+		"color": "#52433D"
+	},
+	{
+		"id": "245",
+		"name": "Dark Slate",
+		"description": "A dark gray with a hint of blue.",
+		"color": "#373C38"
+	},
+	{
+		"id": "246",
+		"name": "African Brown",
+		"description": "Blackish brown.",
+		"color": "#3A3226"
+	},
+	{
+		"id": "247",
+		"name": "Charcoal Gray",
+		"description": "The blackish gray of charcoal.",
+		"color": "#434343"
+	},
+	{
+		"id": "248",
+		"name": "Charcoal Gray",
+		"description": "The grey-black of charcoal.",
+		"color": "#1C1C1C"
+	},
+	{
+		"id": "249",
+		"name": "Lamp Black",
+		"description": "True black; the darkest color.",
+		"color": "#080808"
+	},
+	{
+		"id": "250",
+		"name": "Ivory Black",
+		"description": "Lacquer black.",
+		"color": "#0C0C0C"
+	}
+]
