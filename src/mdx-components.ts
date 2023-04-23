@@ -1,6 +1,7 @@
 import {
 	AffiliateLink,
 	AmazonBook,
+	Banner,
 	Book,
 	ColorSwatch,
 	Divider,
@@ -9,6 +10,7 @@ import {
 	Image,
 	ListItem,
 	NetflixFlag,
+	OdyseeVideo,
 	OrderedList,
 	PrimeVideoFlag,
 	Subheadline,
@@ -18,6 +20,7 @@ import {
 	Title,
 	UnorderedList,
 	Verse,
+	YouTubeVideo,
 } from './components';
 
 export const mapping = {
@@ -39,8 +42,10 @@ export const mapping = {
 	li: ListItem,
 	ol: OrderedList,
 	NetflixFlag,
+	OdyseeVideo,
 	p: Text,
 	ul: UnorderedList,
 	PrimeVideoFlag,
 	Verse,
+	YouTubeVideo,
 };
