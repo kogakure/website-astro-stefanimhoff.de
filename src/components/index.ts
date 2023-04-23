@@ -1,5 +1,6 @@
 export * from './AffiliateLink';
 export * from './AmazonBook';
+export * from './Banner';
 export * from './Book';
 export * from './ColorSwatch';
 export * from './Divider';

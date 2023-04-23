@@ -22,6 +22,7 @@ export const mapping = {
 	AffiliateLink,
 	AmazonBook,
 	Book,
+	Banner,
 	ColorSwatch,
 	h1: Title,
 	h2: Headline,
