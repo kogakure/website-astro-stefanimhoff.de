@@ -1,3 +1,4 @@
+export * from './AffiliateLink';
 export * from './AmazonBook';
 export * from './Book';
 export * from './ColorSwatch';

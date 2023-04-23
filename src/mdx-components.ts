@@ -1,4 +1,5 @@
 import {
+	AffiliateLink,
 	AmazonBook,
 	Book,
 	ColorSwatch,
@@ -18,6 +19,7 @@ import {
 
 export const mapping = {
 	a: TextLink,
+	AffiliateLink,
 	AmazonBook,
 	Book,
 	ColorSwatch,
