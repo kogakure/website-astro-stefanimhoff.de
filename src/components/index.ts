@@ -1,5 +1,6 @@
 // @ts-nocheck
 import DownloadLink from './DownloadLink.astro';
+import EmailLink from './EmailLink.astro';
 import MoreLink from './MoreLink.astro';
 
 export * from './AffiliateLink';
@@ -26,4 +27,4 @@ export * from './Title';
 export * from './UnorderedList';
 export * from './Verse';
 export * from './YouTubeVideo';
-export { DownloadLink, MoreLink };
+export { DownloadLink, EmailLink, MoreLink };

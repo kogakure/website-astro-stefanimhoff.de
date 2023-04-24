@@ -1,0 +1,44 @@
+---
+import { Sprite } from 'astro-icon';
+
+import { TextLink } from '../components';
+
+export interface Props {
+	text?: string;
+}
+
+const { text = 'Email', ...props } = Astro.props;
+---
+
+<TextLink class="group" href="#protected-email" data-email-link {...props}>
+	{text}
+	<span
+		class="more-icon relative inline-flex mis-[0.2em] inline-start-[0.2em] block-start-[0.3em]"
+	>
+		<Sprite
+			name="ri:mail-send-line"
+			aria-hidden="true"
+			class="h-icon w-icon group-hover:translate-x-1 transition-transform duration-500 ease-in-out"
+		/>
+	</span>
+</TextLink>
+
+<script>
+	function handleClick(event: Event) {
+		event.preventDefault();
+		const currentTarget = event.currentTarget;
+		if (currentTarget instanceof HTMLElement) {
+			const { name, domain, tld } = currentTarget.dataset;
+			if (name && domain && tld) {
+				const mailto = `mailto:${name}@${domain}.${tld}`;
+				window.open(mailto, '_blank');
+			}
+		}
+	}
+
+	const links = document.querySelectorAll('[data-email-link]');
+
+	links.forEach((link) => {
+		link.addEventListener('click', handleClick);
+	});
+</script>
