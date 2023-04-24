@@ -5,13 +5,14 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 
 export interface Props {
 	backLink?: string;
+	navigation?: boolean;
 }
 
-const { backLink } = Astro.props;
+const { backLink, navigation = true } = Astro.props;
 ---
 
 <header class="grid grid-cols-18 grid-rows-layout mbe-layout print:hidden" role="banner">
 	<Backlink backLink={backLink} />
-	<MainNavigation />
+	{navigation && <MainNavigation />}
 	<ThemeToggle />
 </header>
