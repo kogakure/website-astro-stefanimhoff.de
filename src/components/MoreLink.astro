@@ -1,0 +1,23 @@
+---
+import { Sprite } from 'astro-icon';
+
+import { TextLink } from '../components';
+
+export interface Props {
+	href: string;
+	text: string;
+}
+
+const { href, text, ...props } = Astro.props;
+---
+
+<TextLink class="group" href={href} {...props}>
+	{text}
+	<span class="more-icon relative inline-flex mis-[0.2em] block-start-[0.2em]">
+		<Sprite
+			name="ri:arrow-right-line"
+			aria-hidden="true"
+			class="h-icon w-icon group-hover:translate-x-1 transition-transform duration-500 ease-in-out"
+		/>
+	</span>
+</TextLink>
