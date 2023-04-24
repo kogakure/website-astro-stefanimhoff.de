@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Verse } from '../../components';
+
+export async function getStaticPaths() {
+	const haikuEntries = await getCollection('haiku');
+	return haikuEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+---
+
+<BaseLayout title={`Haiku ${entry.slug}`} backLink="/haiku/" navigation={false} footer={false}>
+	<Verse>{entry.data.de}</Verse>
+	<Verse>{entry.data.en}</Verse>
+</BaseLayout>
