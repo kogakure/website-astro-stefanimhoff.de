@@ -9,11 +9,11 @@ import PageFooter from '../components/PageFooter.astro';
 export interface Props {
 	backLink?: string;
 	footer?: boolean;
-	navigation?: boolean;
+	header?: boolean;
 	title: string;
 }
 
-const { backLink, footer = true, navigation, title } = Astro.props;
+const { backLink, footer = true, header = true, title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -56,9 +56,9 @@ const { backLink, footer = true, navigation, title } = Astro.props;
 		class="flex h-screen flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
 		<Sprite.Provider>
-			<PageHeader backLink={backLink} navigation={navigation} />
+			{header && <PageHeader backLink={backLink} />}
 			<div class="page-content flex grow">
-				<main>
+				<main class="h-full w-full">
 					<slot />
 				</main>
 			</div>

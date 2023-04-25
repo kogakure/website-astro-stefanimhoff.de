@@ -6,13 +6,24 @@ import BaseLayout from './BaseLayout.astro';
 export interface Props {
 	backLink?: string;
 	class?: string;
+	footer?: boolean;
 	gap?: boolean;
 	grid?: 'fullsize' | 'wide' | 'narrow';
+	header?: boolean;
 	innerGrid?: boolean;
 	title: string;
 }
 
-const { backLink, class: className, gap = true, grid = 'narrow', innerGrid, title } = Astro.props;
+const {
+	backLink,
+	class: className,
+	footer = true,
+	gap = true,
+	grid = 'narrow',
+	header,
+	innerGrid,
+	title,
+} = Astro.props;
 
 const gridClasses = cx('grid w-full grid-cols-18', { 'gap-y-gap': gap }, className);
 const wrapperClasses = cx(
@@ -33,7 +44,7 @@ const wrapperClasses = cx(
 );
 ---
 
-<BaseLayout backLink={backLink} title={title}>
+<BaseLayout backLink={backLink} footer={footer} header={header} title={title}>
 	<div class={gridClasses}>
 		<slot name="title" />
 		<slot name="before-content" />
