@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
 import { Verse } from '../../components';
 
 export async function getStaticPaths() {
@@ -15,7 +16,30 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<BaseLayout title={`Haiku ${entry.slug}`} backLink="/haiku/" navigation={false} footer={false}>
-	<Verse>{entry.data.de}</Verse>
-	<Verse>{entry.data.en}</Verse>
+<BaseLayout title={`Haiku ${entry.slug}`} header={false} footer={false}>
+	<div class="grid h-full grid-cols-18 grid-rows-haiku">
+		<PageHeader
+			class="!mbe-0 z-10 col-span-full row-start-1"
+			navigation={false}
+			backLink="/haiku/"
+		/>
+		<div
+			class="col-span-full row-start-1 row-end-3 grid w-full grid-cols-haiku haiku:grid-cols-haiku-xl"
+		>
+			<div class="grid h-full w-full items-center">
+				<Verse
+					class="text-3 haiku:text-4 font-black justify-center text-center !leading-relaxed not-italic"
+				>
+					{entry.data.de}
+				</Verse>
+			</div>
+			<div class="grid h-full w-full items-center bg-[#d0cdc8] dark:bg-[#0e0d0c]">
+				<Verse
+					class="text-3 haiku:text-4 font-black justify-center text-center !leading-relaxed not-italic"
+				>
+					{entry.data.en}
+				</Verse>
+			</div>
+		</div>
+	</div>
 </BaseLayout>

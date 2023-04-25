@@ -9,6 +9,7 @@ module.exports = {
 				md: '768px',
 				xl: '1280px',
 				'3xl': '1800px',
+				haiku: '25rem',
 			},
 			colors: {
 				accent: '#e60510',
@@ -48,9 +49,12 @@ module.exports = {
 				16: 'repeat(16, minmax(0, 1fr))',
 				18: 'repeat(18, minmax(0, 1fr))',
 				books: 'repeat(auto-fill, minmax(150px, 1fr))',
+				haiku: 'repeat(auto-fit, minmax(15rem, 1fr))',
+				'haiku-xl': 'repeat(auto-fit, minmax(25rem, 1fr))',
 			},
 			gridTemplateRows: ({ theme }) => ({
 				layout: `clamp(3rem, ${theme('spacing.column')}, 9rem)`,
+				haiku: `clamp(3rem, ${theme('spacing.column')}, 9rem) 1fr`,
 			}),
 			columns: {
 				13: '13',
