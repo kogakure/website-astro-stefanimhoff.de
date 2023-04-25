@@ -1,17 +1,23 @@
 ---
+import cx from 'classnames';
+
 import Backlink from '../components/Backlink.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 
 export interface Props {
 	backLink?: string;
+	class?: string;
 	navigation?: boolean;
 }
 
-const { backLink, navigation = true } = Astro.props;
+const { backLink, class: className, navigation = true } = Astro.props;
 ---
 
-<header class="grid grid-cols-18 grid-rows-layout mbe-layout print:hidden" role="banner">
+<header
+	class={cx('grid w-full grid-cols-18 grid-rows-layout mbe-layout print:hidden', className)}
+	role="banner"
+>
 	<Backlink backLink={backLink} />
 	{navigation && <MainNavigation />}
 	<ThemeToggle />
