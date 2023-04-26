@@ -1,0 +1,78 @@
+---
+import { Sprite } from 'astro-icon';
+
+export interface Props {
+	previousUrl?: string;
+	nextUrl?: string;
+	previousText?: string;
+	nextText?: string;
+}
+
+const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
+---
+
+{
+	previousUrl && (
+		<a
+			aria-label={previousText || 'Previous'}
+			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-start-[1rem]"
+			href={previousUrl}
+			rel="prev"
+			title={previousText || 'Previous'}
+		>
+			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+				<Sprite name="ri:arrow-left-s-line" aria-hidden="true" class="h-icon w-icon" />
+			</div>
+		</a>
+	)
+}
+{
+	nextUrl && (
+		<a
+			aria-label={nextText || 'Next'}
+			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-end-[1rem]"
+			href={nextUrl}
+			rel="next"
+			title={nextText || 'Next'}
+		>
+			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+				<Sprite name="ri:arrow-right-s-line" aria-hidden="true" class="h-icon w-icon" />
+			</div>
+		</a>
+	)
+}
+
+<script is:inline>
+	const body = document.body;
+	const scrollUp = 'scroll-up';
+	const scrollDown = 'scroll-down';
+	let lastScroll = 0;
+
+	window.addEventListener('scroll', () => {
+		const currentScroll = window.pageYOffset;
+
+		if (currentScroll <= 0) {
+			body.classList.remove(scrollUp);
+			return;
+		}
+
+		if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+			body.classList.remove(scrollUp);
+			body.classList.add(scrollDown);
+		} else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+			body.classList.remove(scrollDown);
+			body.classList.add(scrollUp);
+		}
+		lastScroll = currentScroll;
+	});
+</script>
+
+<style is:global>
+	.scroll-up .pagination {
+		@apply opacity-100;
+	}
+
+	.scroll-down .pagination {
+		@apply opacity-0;
+	}
+</style>
