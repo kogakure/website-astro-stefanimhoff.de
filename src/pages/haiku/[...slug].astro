@@ -1,19 +1,29 @@
 ---
 import { getCollection } from 'astro:content';
 
+import { sortByDate } from '../../utils/sort-by-date';
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import { Verse } from '../../components';
+import { Pagination, Verse } from '../../components';
 
 export async function getStaticPaths() {
 	const haikuEntries = await getCollection('haiku');
-	return haikuEntries.map((entry) => ({
+	const numberOfPages = haikuEntries.length;
+	haikuEntries.sort(sortByDate).reverse();
+
+	return haikuEntries.map((entry, index) => ({
 		params: { slug: entry.slug },
-		props: { entry },
+		props: {
+			entry,
+			nextPost:
+				index + 1 === numberOfPages ? { slug: null, data: null } : haikuEntries[index + 1],
+			prevPost: index === 0 ? {} : haikuEntries[index - 1],
+		},
 	}));
 }
 
-const { entry } = Astro.props;
+const { entry, prevPost, nextPost } = Astro.props;
 ---
 
 <BaseLayout title={`Haiku ${entry.slug}`} header={false} footer={false}>
@@ -24,7 +34,7 @@ const { entry } = Astro.props;
 			backLink="/haiku/"
 		/>
 		<div
-			class="col-span-full row-start-1 row-end-3 grid w-full grid-cols-haiku haiku:grid-cols-haiku-xl"
+			class="haiku:grid-cols-haiku-xl col-span-full row-start-1 row-end-3 grid w-full grid-cols-haiku"
 		>
 			<div class="grid h-full w-full items-center">
 				<Verse
@@ -42,4 +52,10 @@ const { entry } = Astro.props;
 			</div>
 		</div>
 	</div>
+	<Pagination
+		nextText={`Haiku ${nextPost.slug}`}
+		nextUrl={nextPost.slug && `/haiku/${nextPost.slug}`}
+		previousText={`Haiku ${prevPost.slug}`}
+		previousUrl={prevPost.slug && `/haiku/${prevPost.slug}`}
+	/>
 </BaseLayout>
