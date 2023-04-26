@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+
+import { sortByDate } from '../utils/sort-by-date';
+
+import GridLayout from '../layouts/GridLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import { Link } from '../components';
+import { Content as Intro } from '../text/haiku/intro.mdx';
+
+import { mapping } from '../mdx-components';
+
+const allHaiku = await getCollection('haiku');
+allHaiku.sort(sortByDate).reverse();
+---
+
+<GridLayout title="Haiku" grid="wide" class="grid" innerGrid>
+	<PageTitle grid="wide" innerGrid>Haiku</PageTitle>
+
+	<article
+		class="col-start-1 col-end-17 grid md:col-start-4 md:col-end-12 xl:col-start-5 xl:col-end-11"
+	>
+		<Intro components={mapping} />
+	</article>
+
+	<div class="col-start-1 col-end-17 md:col-start-2 md:col-end-14">
+		<ol class="grid list-none grid-cols-haiku-list justify-items-center gap-[1rem]">
+			{
+				allHaiku.map(({ slug }) => (
+					<li>
+						<Link
+							class="flex h-[3rem] w-[3rem] items-center justify-center rounded-[50%] bg-black/80 font-semibold text-white/80 hover:!bg-accent focus:!bg-accent dark:bg-white/80 dark:text-black/80 dark:hover:text-white/80 dark:focus:text-white/80"
+							arial-label={`Haiku ${slug}`}
+							href={`/haiku/${slug}/`}
+						>
+							{slug}
+						</Link>
+					</li>
+				))
+			}
+		</ol>
+	</div>
+</GridLayout>

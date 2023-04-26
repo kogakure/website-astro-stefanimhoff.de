@@ -50,7 +50,8 @@ module.exports = {
 				18: 'repeat(18, minmax(0, 1fr))',
 				books: 'repeat(auto-fill, minmax(150px, 1fr))',
 				haiku: 'repeat(auto-fit, minmax(15rem, 1fr))',
-				'haiku-xl': 'repeat(auto-fit, minmax(25rem, 1fr))',
+				'haiku-xl': 'repeat(auto-fit, minmax(25rem, 1fr)',
+				'haiku-list': 'repeat(auto-fill, minmax(3rem, 1fr))',
 			},
 			gridTemplateRows: ({ theme }) => ({
 				layout: `clamp(3rem, ${theme('spacing.column')}, 9rem)`,
