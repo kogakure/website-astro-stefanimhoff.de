@@ -13,15 +13,11 @@ import { mapping } from '../mdx-components';
 <GridLayout title="The Traditional Colors of Japan" grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>The Traditional Colors of&nbsp;Japan</PageTitle>
 
-	<article
-		class="color-japan-introduction col-start-1 col-end-17 grid md:col-end-8 xl:content-center"
-	>
+	<article class="col-start-1 col-end-17 grid md:col-end-8 xl:content-center">
 		<Intro components={mapping} />
 	</article>
 
-	<article
-		class="color-japan-books col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end"
-	>
+	<article class="col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end">
 		<AmazonBook
 			alt="The Traditional Colors of Japan"
 			asin="475624100X"
@@ -34,7 +30,7 @@ import { mapping } from '../mdx-components';
 		/>
 	</article>
 
-	<article class="color-japan-grid col-start-1 col-end-17 grid grid-cols-books gap-[20px]">
+	<article class="col-start-1 col-end-17 grid grid-cols-books gap-[20px]">
 		{
 			colors.map(({ name, description, color }) => (
 				<ColorSwatch client:visible color={color} title={name} description={description} />
