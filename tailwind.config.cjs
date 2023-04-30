@@ -52,6 +52,7 @@ module.exports = {
 				haiku: 'repeat(auto-fit, minmax(15rem, 1fr))',
 				'haiku-xl': 'repeat(auto-fit, minmax(25rem, 1fr)',
 				'haiku-list': 'repeat(auto-fill, minmax(3rem, 1fr))',
+				toolbox: 'repeat(auto-fit, minmax(80px, 1fr))',
 			},
 			gridTemplateRows: ({ theme }) => ({
 				layout: `clamp(3rem, ${theme('spacing.column')}, 9rem)`,

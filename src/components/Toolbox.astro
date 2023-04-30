@@ -1,0 +1,31 @@
+---
+import { Image } from '@astrojs/image/components';
+import { Link } from '.';
+
+import type { ToolsProps } from '../data/tools';
+
+export interface Props {
+	tools: ToolsProps[];
+}
+
+const { tools } = Astro.props;
+---
+
+<ul class="grid grid-cols-toolbox items-center gap-2 rounded-2 bg-black/5 p-5 dark:bg-white/5">
+	{
+		tools.map(({ name, url, image }) => (
+			<li>
+				<Link href={url} title={name}>
+					<Image
+						alt={name}
+						aspectRatio="1:1"
+						format="avif"
+						height={80}
+						src={image}
+						width={80}
+					/>
+				</Link>
+			</li>
+		))
+	}
+</ul>

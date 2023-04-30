@@ -3,6 +3,7 @@ import DownloadLink from './DownloadLink.astro';
 import EmailLink from './EmailLink.astro';
 import MoreLink from './MoreLink.astro';
 import Pagination from './Pagination.astro';
+import Toolbox from './Toolbox.astro';
 
 export * from './AffiliateLink';
 export * from './AmazonBook';
@@ -28,4 +29,4 @@ export * from './Title';
 export * from './UnorderedList';
 export * from './Verse';
 export * from './YouTubeVideo';
-export { DownloadLink, EmailLink, MoreLink, Pagination };
+export { DownloadLink, EmailLink, MoreLink, Pagination, Toolbox };
