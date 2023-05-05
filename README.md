@@ -1,54 +1,37 @@
-# Astro Starter Kit: Basics
+[![Live](https://img.shields.io/badge/live-stefanimhoff.de-green.svg)](https://www.stefanimhoff.de/)
+![Maintenance](https://img.shields.io/maintenance/yes/2023.svg)
 
-```
-npm create astro@latest -- --template basics
-```
+# stefanimhoff.de
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+This is the source of my [personal website][si] build with [Astro], [Tailwind CSS], and [Preact].
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Installation
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Running the Website
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+pnpm dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+For more tasks have a look into the `package.json`.
 
-## 🧞 Commands
+## License
 
-All commands are run from the root of the project, from a terminal:
+All content is copyrighted by _Stefan Imhoff_ unless otherwise stated. Feel free to learn from the Source Code and reuse code for your projects.
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+The essays in my [Journal] of this website are licensed under a [Creative Commons license].
 
-## 👀 Want to learn more?
+The use of my design—the unique combination of layout, photos, or illustrations—my private photos, personal data and logo are only allowed with written permission.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+In _easier_ words: **This is not a free theme**. Learn from it. Remix. Reuse. Build your own stuff. You can do it! 🤘
+
+[creative commons license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[astro]: https://astro.build/
+[tailwind css]: https://tailwindcss.com/
+[preact]: https://preactjs.com/
+[journal]: https://www.stefanimhoff.de/journal/
+[si]: https://www.stefanimhoff.de/
