@@ -1,4 +1,4 @@
 {
-	"**/*.{md,mdx,html,astro,svelte,css}": ["npx prettier --write"],
-	"**/*.{js,ts,html,astro,svelte}": ["npx eslint --fix"]
+	"**/*.{md,mdx,html,astro,css}": ["npx prettier --write"],
+	"**/*.{js,ts,html,astro}": ["npx eslint --fix"]
 }
