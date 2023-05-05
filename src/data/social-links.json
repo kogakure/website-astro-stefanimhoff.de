@@ -16,6 +16,11 @@
 		"icon": "ri:twitter-fill"
 	},
 	{
+		"text": "Instagram",
+		"url": "https://instagram.com/kogakure",
+		"icon": "ri:instagram-fill"
+	},
+	{
 		"text": "GitHub",
 		"url": "https://github.com/kogakure",
 		"icon": "ri:github-fill"
