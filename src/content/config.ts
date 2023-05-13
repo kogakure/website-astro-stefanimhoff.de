@@ -8,6 +8,33 @@ const haikuCollection = defineCollection({
 	}),
 });
 
+const projectCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		sort: z.number().optional(),
+		showcase: z.boolean().optional(),
+		description: z.string(),
+		categories: z.array(z.enum([
+			"Design",
+			"Graphic Design",
+			"Icon Design",
+			"Illustration",
+			"Painting",
+			"Photography",
+			"Poetry",
+			"Typeface Design",
+			"Web Design",
+			"Web Development",
+			"Writing"
+		])),
+		more: z.object({
+			text: z.string().optional(),
+			link: z.string()
+		}).optional()
+	}),
+});
+
 export const collections = {
 	haiku: haikuCollection,
+	projects: projectCollection
 };
