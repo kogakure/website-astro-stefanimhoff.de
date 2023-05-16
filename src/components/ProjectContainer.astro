@@ -1,0 +1,122 @@
+---
+import cx from 'classnames';
+
+import type { CollectionEntry } from 'astro:content';
+
+import { ProjectContent, ProjectImage } from '../components';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const {
+	project: {
+		data: { format, class: className },
+	},
+	project,
+} = Astro.props;
+
+const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
+---
+
+<article class={classes}>
+	{
+		format === '50-start' && (
+			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-3 row-start-1 md:col-start-1 md:col-end-2 md:row-start-1">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-1 col-end-3 row-start-2 text-start md:col-start-2 md:row-start-1">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+	{
+		format === '50-end' && (
+			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-3 row-start-1 md:col-start-2 md:row-start-1">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-1 col-end-3 row-start-2 text-start md:col-start-1 md:col-end-2 md:row-start-1">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+	{
+		format === '70-start' && (
+			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-19 grid self-start xl:col-end-13">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-2 col-end-18 xl:col-start-13">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+	{
+		format === '70-end' && (
+			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-19 row-start-1 grid self-start xl:col-start-7 xl:col-end-19">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-2 col-end-18 xl:col-start-2 xl:col-end-7">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+	{
+		format === '100-start' && (
+			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-19 row-start-1">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-2 col-end-18 md:col-end-13 xl:col-end-10">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+	{
+		format === '100-end' && (
+			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+				<div class="image-shadow col-start-1 col-end-19 row-start-1">
+					<ProjectImage project={project} />
+				</div>
+				<figcaption class="col-start-2 col-end-18 md:col-start-8 md:col-end-18 xl:col-start-10 xl:col-end-18">
+					<ProjectContent project={project} />
+				</figcaption>
+			</figure>
+		)
+	}
+</article>
+
+<style is:global>
+	/* Extra spacing and background for the Bamboo */
+	.bamboo-illustration {
+		& img {
+			@apply bg-black/5 pbe-10 pie-gap dark:bg-white/5;
+		}
+	}
+
+	.traditional-colors-of-japan {
+		& img {
+			@apply bg-transparent duration-500 ease-in-out;
+			transition-property: filter;
+		}
+
+		& .image-shadow:focus,
+		& .image-shadow:hover {
+			& img {
+				@apply drop-shadow-subtle;
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+</style>

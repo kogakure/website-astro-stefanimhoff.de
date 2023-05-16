@@ -11,6 +11,23 @@ const haikuCollection = defineCollection({
 const projectCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
+		format: z.enum([
+			"100-end",
+			"100-start",
+			"50-end",
+			"50-start",
+			"70-end",
+			"70-start"
+		]),
+		image: z.object({
+			src: z.string(),
+			height: z.number().optional(),
+			width: z.number().optional(),
+			aspectRatio: z.union([
+				z.number(),
+				z.string().regex(/^\d+:\d+$/),
+			]),
+		}).optional(),
 		sort: z.number().optional(),
 		showcase: z.boolean().optional(),
 		description: z.string(),
@@ -30,7 +47,8 @@ const projectCollection = defineCollection({
 		more: z.object({
 			text: z.string().optional(),
 			link: z.string()
-		}).optional()
+		}).optional(),
+		class: z.string().optional(),
 	}),
 });
 

@@ -5,6 +5,7 @@ import GridLayout from './GridLayout.astro';
 
 export interface Props {
 	class?: string;
+	frontmatter?: any;
 	grid?: 'wide' | 'narrow';
 }
 
@@ -12,8 +13,8 @@ const { frontmatter, class: className, grid = 'narrow' } = Astro.props;
 const gridVariant = frontmatter.grid || grid;
 ---
 
-<GridLayout grid={gridVariant} class={className} {frontmatter}>
-	<PageTitle slot="title" grid={gridVariant} {frontmatter}>
+<GridLayout grid={gridVariant} class={className} {...frontmatter}>
+	<PageTitle slot="title" grid={gridVariant} {...frontmatter}>
 		{frontmatter.title}
 	</PageTitle>
 	<slot name="before-content" />

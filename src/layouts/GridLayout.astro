@@ -6,6 +6,7 @@ import BaseLayout from './BaseLayout.astro';
 export interface Props {
 	backLink?: string;
 	class?: string;
+	description?: string;
 	footer?: boolean;
 	gap?: boolean;
 	grid?: 'fullsize' | 'wide' | 'narrow';
@@ -17,6 +18,7 @@ export interface Props {
 const {
 	backLink,
 	class: className,
+	description,
 	footer = true,
 	gap = true,
 	grid = 'narrow',
@@ -44,7 +46,13 @@ const wrapperClasses = cx(
 );
 ---
 
-<BaseLayout backLink={backLink} footer={footer} header={header} title={title}>
+<BaseLayout
+	backLink={backLink}
+	footer={footer}
+	header={header}
+	title={title}
+	description={description}
+>
 	<div class={gridClasses}>
 		<slot name="title" />
 		<slot name="before-content" />

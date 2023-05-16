@@ -1,0 +1,25 @@
+---
+import { Picture } from '@astrojs/image/components';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+---
+
+{
+	project.data.image &&
+		(project.data.image.src.includes('.svg') ? (
+			<img alt={project.data.title} src={project.data.image.src} />
+		) : (
+			<Picture
+				alt={project.data.title}
+				aspectRatio={project.data.image.aspectRatio as number | `${number}:${number}`}
+				formats={['webp', 'avif']}
+				widths={[300, 500, 700, 1000, 1200, 1500]}
+				src={project.data.image.src}
+			/>
+		))
+}

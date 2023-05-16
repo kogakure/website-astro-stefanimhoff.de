@@ -5,7 +5,7 @@ import { sortBySortKey } from '../utils/sort-by-sortkey';
 
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
-import { MoreLink } from '../components';
+import ProjectContainer from '../components/ProjectContainer.astro';
 
 import { Content as Intro } from '../text/projects/intro.mdx';
 
@@ -14,7 +14,13 @@ const allProjects = await getCollection('projects');
 allProjects.sort(sortBySortKey).reverse();
 ---
 
-<GridLayout title="Projects" grid="fullsize" class="grid" innerGrid>
+<GridLayout
+	title="Projects"
+	description="I’m a Frontend Developer by profession. I worked in Design, Editing, and 3D Animation. These are  projects I created over the last years."
+	grid="fullsize"
+	class="grid"
+	innerGrid
+>
 	<PageTitle
 		grid="wide"
 		innerGrid
@@ -27,18 +33,7 @@ allProjects.sort(sortBySortKey).reverse();
 		<Intro components={mapping} />
 	</article>
 
-	<div class="col-start-1 col-end-19">
-		{
-			allProjects.map(({ slug, data }) => (
-				<li>
-					<h2>{data.title}</h2>
-					<p>{data.description}</p>
-					<div>{data.categories.join(' / ')}</div>
-					{data.more && (
-						<MoreLink href={data.more.link} text={data.more.text || 'See more'} />
-					)}
-				</li>
-			))
-		}
-	</div>
+	<section class="col-start-1 col-end-19 grid gap-y-gap">
+		{allProjects.map((project) => <ProjectContainer project={project} />)}
+	</section>
 </GridLayout>

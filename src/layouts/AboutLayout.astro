@@ -8,8 +8,8 @@ import { Image } from '../components';
 const { frontmatter } = Astro.props;
 ---
 
-<GridLayout title={frontmatter.title} grid="narrow" {frontmatter}>
-	<PageTitle slot="title" grid="narrow" {frontmatter}>
+<GridLayout title={frontmatter.title} grid="narrow" {...frontmatter}>
+	<PageTitle slot="title" grid="narrow" {...frontmatter}>
 		{frontmatter.title}
 	</PageTitle>
 	<div

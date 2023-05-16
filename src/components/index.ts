@@ -3,6 +3,9 @@ import DownloadLink from './DownloadLink.astro';
 import EmailLink from './EmailLink.astro';
 import MoreLink from './MoreLink.astro';
 import Pagination from './Pagination.astro';
+import ProjectContainer from './ProjectContainer.astro';
+import ProjectContent from './ProjectContent.astro';
+import ProjectImage from './ProjectImage.astro';
 import Toolbox from './Toolbox.astro';
 
 export * from './AffiliateLink';
@@ -29,4 +32,13 @@ export * from './Title';
 export * from './UnorderedList';
 export * from './Verse';
 export * from './YouTubeVideo';
-export { DownloadLink, EmailLink, MoreLink, Pagination, Toolbox };
+export {
+	DownloadLink,
+	EmailLink,
+	MoreLink,
+	Pagination,
+	ProjectContainer,
+	ProjectContent,
+	ProjectImage,
+	Toolbox,
+};

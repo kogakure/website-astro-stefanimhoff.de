@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1600 1550" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="secuela-variable-regular" transform="matrix(1,0,0,1.72222,0,0)">
+        <rect x="0" y="0" width="1600" height="900" style="fill:none;"/>
+        <g transform="matrix(1,0,0,0.580645,-27.028,314.585)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-Medium', 'Secuela';font-weight:500;font-size:200px;">Sec<tspan x="471.028px 565.028px 654.428px 703.228px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="926.428px " y="390.415px ">a</tspan>ri<tspan x="1128.43px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,-45.028,216.92)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-SemiBold', 'Secuela';font-weight:600;font-size:200px;">Sec<tspan x="477.628px 574.228px 666.028px 716.628px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="944.628px " y="390.415px ">a</tspan>ri<tspan x="1154.03px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,-62.828,117.978)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-Bold', 'Secuela';font-weight:700;font-size:200px;">Sec<tspan x="484.228px 583.628px 677.828px 730.428px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="963.228px " y="390.415px ">a</tspan>ri<tspan x="1179.83px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,-80.328,17.7591)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-ExtraBold', 'Secuela';font-weight:800;font-size:200px;">Sec<tspan x="490.428px 592.628px 689.028px 743.228px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="980.828px " y="390.415px ">a</tspan>ri<tspan x="1205.03px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,-98.328,-83.8538)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-Black', 'Secuela';font-weight:900;font-size:200px;">Sec<tspan x="497.028px 602.028px 700.828px 757.028px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="999.428px " y="390.415px ">a</tspan>ri<tspan x="1230.83px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,8.67199,509.682)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-Light', 'Secuela';font-weight:300;font-size:200px;">Sec<tspan x="458.228px " y="390.415px ">u</tspan>el<tspan x="676.428px " y="390.415px ">a</tspan> V<tspan x="890.028px " y="390.415px ">a</tspan>riable</text>
+        </g>
+        <g transform="matrix(1,0,0,0.580645,-9.02801,412.133)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-Regular', 'Secuela';font-size:200px;">Sec<tspan x="464.428px 555.628px 642.628px 689.428px " y="390.415px 390.415px 390.415px 390.415px ">uela</tspan> V<tspan x="907.828px " y="390.415px ">a</tspan>ri<tspan x="1102.63px " y="390.415px ">a</tspan>ble</text>
+        </g>
+        <g transform="matrix(1.01622,0,0,0.590061,22.9667,603.554)">
+            <text x="203.828px" y="390.415px" style="font-family:'Secuela-ExtraLight', 'Secuela';font-weight:200;font-size:196.809px;">Sec<tspan x="447.674px " y="390.415px ">u</tspan>ela V<tspan x="860.972px " y="390.415px ">a</tspan>riable</text>
+        </g>
+    </g>
+</svg>

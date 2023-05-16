@@ -126,6 +126,7 @@ module.exports = {
 				column: '5.55vw',
 				layout: 'clamp(1.5rem, 5.55vw, 4.5rem)',
 				gap: 'clamp(1.5rem, 5.55vw, 6rem)',
+				halfgap: 'calc(clamp(1.5rem, 5.55vw, 6rem) / 2)',
 				icon: '24px',
 				'icon-small': '20px',
 				clickarea: '40px',
@@ -147,6 +148,7 @@ module.exports = {
 			},
 			boxShadow: {
 				subtle: '0 0 50px rgb(0 0 0 / 0.2)',
+				img: '0 2px 3px rgb(0 0 0 / 0.05)',
 				beveled: '0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff',
 				darkInset: 'inset 0 0 0 1px rgb(0 0 0 / 0.2)',
 				book: '0 0.1em 0.5em rgba(0, 0, 0, 0.5)',
@@ -159,7 +161,7 @@ module.exports = {
 				square: 'square',
 			},
 			dropShadow: {
-				subtle: 'inset 0 0 5px rgb(0 0 0 / 0.15)',
+				subtle: '0 0 50px rgb(0 0 0 / 0.2)',
 			},
 		},
 	},

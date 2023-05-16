@@ -86,6 +86,10 @@
 	}
 
 	/** Images */
+	img {
+		@apply block h-auto w-full rounded-1 border border-solid border-black/5 bg-black/5 shadow-img dark:border-white/5 dark:bg-white/5 dark:opacity-[0.87];
+	}
+
 	img[src$='.svg'] {
 		@apply border-0 bg-transparent shadow-none;
 	}

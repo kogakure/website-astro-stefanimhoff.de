@@ -8,12 +8,13 @@ import PageFooter from '../components/PageFooter.astro';
 
 export interface Props {
 	backLink?: string;
+	description?: string;
 	footer?: boolean;
 	header?: boolean;
 	title: string;
 }
 
-const { backLink, footer = true, header = true, title } = Astro.props;
+const { backLink, footer = true, header = true, title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
