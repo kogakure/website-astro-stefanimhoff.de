@@ -1,0 +1,30 @@
+---
+import cx from 'classnames';
+import { Image } from '@astrojs/image/components';
+
+interface Props {
+	aspectRatio?: number | `${number}:${number}`;
+	alt?: string;
+	class?: string;
+	height?: number;
+	noMargin?: boolean;
+	src: string;
+	width: number;
+}
+
+const { aspectRatio, alt, class: className, height, noMargin, src, width, ...props } = Astro.props;
+
+const classes = cx('image-shadow mbe-10 mbs-0', { 'mbe-0': noMargin }, className);
+---
+
+<div class={classes}>
+	<Image
+		aspectRatio={aspectRatio || '1:1'}
+		alt={alt || ''}
+		class="block h-auto w-full rounded-1 border-1 border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10"
+		height={height || 0}
+		src={src}
+		width={width}
+		{...props}
+	/>
+</div>
