@@ -3,7 +3,7 @@ import GridLayout from './GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
 
-import { Image } from '../components';
+import { Picture } from '../components';
 
 const { frontmatter } = Astro.props;
 ---
@@ -16,7 +16,13 @@ const { frontmatter } = Astro.props;
 		slot="before-content"
 		class="col-start-1 col-end-12 md:col-start-3 md:col-end-10 xl:col-start-15 xl:col-end-18 xl:row-start-2 3xl:col-start-14 3xl:col-end-17"
 	>
-		<Image src="/assets/images/portrait-stefan-imhoff.svg" alt="Stefan Imhoff" />
+		<Picture
+			alt="Stefan Imhoff"
+			aspectRatio="1:1"
+			class="[&_img]:xl:-scale-x-100"
+			src="/assets/images/ai-portrait-stefan-imhoff.png"
+			widths={[300, 512]}
+		/>
 	</div>
 	<slot />
 </GridLayout>
