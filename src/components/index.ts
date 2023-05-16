@@ -4,6 +4,7 @@ import EmailLink from './EmailLink.astro';
 import Image from './Image.astro';
 import MoreLink from './MoreLink.astro';
 import Pagination from './Pagination.astro';
+import Picture from './Picture.astro';
 import ProjectContainer from './ProjectContainer.astro';
 import ProjectContent from './ProjectContent.astro';
 import ProjectImage from './ProjectImage.astro';
@@ -38,6 +39,7 @@ export {
 	Image,
 	MoreLink,
 	Pagination,
+	Picture,
 	ProjectContainer,
 	ProjectContent,
 	ProjectImage,
