@@ -5,7 +5,8 @@ import { sortByDate } from '../../utils/sort-by-date';
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import { Pagination, Verse } from '../../components';
+import Pagination from '../../components/Pagination.astro';
+import { Verse } from '../../components';
 
 export async function getStaticPaths() {
 	const haikuEntries = await getCollection('haiku');

@@ -3,7 +3,8 @@ import cx from 'classnames';
 
 import type { CollectionEntry } from 'astro:content';
 
-import { ProjectContent, ProjectImage } from '../components';
+import ProjectContent from '../components/ProjectContent.astro';
+import ProjectImage from '../components/ProjectImage.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -23,7 +24,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '50-start' && (
 			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-3 row-start-1 md:col-start-1 md:col-end-2 md:row-start-1">
+				<div class="col-start-1 col-end-3 row-start-1 md:col-start-1 md:col-end-2 md:row-start-1">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-1 col-end-3 row-start-2 text-start md:col-start-2 md:row-start-1">
@@ -35,7 +36,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '50-end' && (
 			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-3 row-start-1 md:col-start-2 md:row-start-1">
+				<div class="col-start-1 col-end-3 row-start-1 md:col-start-2 md:row-start-1">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-1 col-end-3 row-start-2 text-start md:col-start-1 md:col-end-2 md:row-start-1">
@@ -47,7 +48,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '70-start' && (
 			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-19 grid self-start xl:col-end-13">
+				<div class=" col-start-1 col-end-19 grid self-start xl:col-end-13">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-2 col-end-18 xl:col-start-13">
@@ -59,7 +60,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '70-end' && (
 			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-19 row-start-1 grid self-start xl:col-start-7 xl:col-end-19">
+				<div class=" col-start-1 col-end-19 row-start-1 grid self-start xl:col-start-7 xl:col-end-19">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-2 col-end-18 xl:col-start-2 xl:col-end-7">
@@ -71,7 +72,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '100-start' && (
 			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-19 row-start-1">
+				<div class=" col-start-1 col-end-19 row-start-1">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-2 col-end-18 md:col-end-13 xl:col-end-10">
@@ -83,7 +84,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	{
 		format === '100-end' && (
 			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
-				<div class="image-shadow col-start-1 col-end-19 row-start-1">
+				<div class=" col-start-1 col-end-19 row-start-1">
 					<ProjectImage project={project} />
 				</div>
 				<figcaption class="col-start-2 col-end-18 md:col-start-8 md:col-end-18 xl:col-start-10 xl:col-end-18">
@@ -104,7 +105,7 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 
 	.traditional-colors-of-japan {
 		& img {
-			@apply bg-transparent duration-500 ease-in-out;
+			@apply border-0 bg-transparent shadow-none duration-500 ease-in-out dark:bg-transparent;
 			transition-property: filter;
 		}
 

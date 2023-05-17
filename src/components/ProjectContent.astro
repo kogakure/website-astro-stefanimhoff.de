@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-import { Headline, MoreLink, Text } from '../components';
+import MoreLink from '../components/MoreLink.astro';
+import { Headline, Text } from '../components';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -16,7 +17,7 @@ const { project } = Astro.props;
 	{project.data.categories.join(' / ')}
 </small>
 <Headline class="!mbs-1">{project.data.title}</Headline>
-<Text>{project.data.description}</Text>
+<Text>{project.data.intro}</Text>
 {
 	project.data.more && (
 		<MoreLink href={project.data.more.link} text={project.data.more.text || 'See more'} />

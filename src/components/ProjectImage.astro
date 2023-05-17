@@ -1,6 +1,6 @@
 ---
-import { Picture } from '@astrojs/image/components';
 import type { CollectionEntry } from 'astro:content';
+import Picture from './Picture.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -12,7 +12,9 @@ const { project } = Astro.props;
 {
 	project.data.image &&
 		(project.data.image.src.includes('.svg') ? (
-			<img alt={project.data.title} src={project.data.image.src} />
+			<div class="image-shadow mbe-10 mbs-0">
+				<img class="image-border" alt={project.data.title} src={project.data.image.src} />
+			</div>
 		) : (
 			<Picture
 				alt={project.data.title}

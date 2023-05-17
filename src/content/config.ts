@@ -11,48 +11,45 @@ const haikuCollection = defineCollection({
 const projectCollection = defineCollection({
 	schema: z.object({
 		title: z.string(),
-		format: z.enum([
-			"100-end",
-			"100-start",
-			"50-end",
-			"50-start",
-			"70-end",
-			"70-start"
-		]),
-		image: z.object({
-			src: z.string(),
-			height: z.number().optional(),
-			width: z.number().optional(),
-			aspectRatio: z.union([
-				z.number(),
-				z.string().regex(/^\d+:\d+$/),
-			]),
-		}).optional(),
+		format: z.enum(['100-end', '100-start', '50-end', '50-start', '70-end', '70-start']),
+		image: z
+			.object({
+				src: z.string(),
+				height: z.number().optional(),
+				width: z.number().optional(),
+				aspectRatio: z.union([z.number(), z.string().regex(/^\d+:\d+$/)]),
+			})
+			.optional(),
 		sort: z.number().optional(),
 		showcase: z.boolean().optional(),
-		description: z.string(),
-		categories: z.array(z.enum([
-			"Design",
-			"Graphic Design",
-			"Icon Design",
-			"Illustration",
-			"Painting",
-			"Photography",
-			"Poetry",
-			"Typeface Design",
-			"Web Design",
-			"Web Development",
-			"Writing"
-		])),
-		more: z.object({
-			text: z.string().optional(),
-			link: z.string()
-		}).optional(),
+		description: z.string().optional(),
+		intro: z.string().optional(),
+		categories: z.array(
+			z.enum([
+				'Design',
+				'Graphic Design',
+				'Icon Design',
+				'Illustration',
+				'Painting',
+				'Photography',
+				'Poetry',
+				'Typeface Design',
+				'Web Design',
+				'Web Development',
+				'Writing',
+			])
+		),
+		more: z
+			.object({
+				text: z.string().optional(),
+				link: z.string(),
+			})
+			.optional(),
 		class: z.string().optional(),
 	}),
 });
 
 export const collections = {
 	haiku: haikuCollection,
-	projects: projectCollection
+	projects: projectCollection,
 };

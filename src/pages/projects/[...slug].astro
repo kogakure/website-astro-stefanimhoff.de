@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+
+import { sortBySortKey } from '../../utils/sort-by-sortkey';
+
+import GridLayout from '../../layouts/GridLayout.astro';
+import PageTitle from '../../components/PageTitle.astro';
+
+import { mapping } from '../../mdx-components';
+
+import Pagination from '../../components/Pagination.astro';
+import { Tag } from '../../components';
+
+export async function getStaticPaths() {
+	const projectEntries = await getCollection('projects', ({ data }) => data.showcase === true);
+	const numberOfPages = projectEntries.length;
+	projectEntries.sort(sortBySortKey).reverse();
+
+	return projectEntries.map((entry, index) => ({
+		params: { slug: entry.slug },
+		props: {
+			entry,
+			nextPost:
+				index + 1 === numberOfPages
+					? { slug: null, data: null }
+					: projectEntries[index + 1],
+			prevPost: index === 0 ? {} : projectEntries[index - 1],
+		},
+	}));
+}
+
+const { entry, prevPost, nextPost } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<GridLayout title={entry.data.title} grid="wide" innerGrid backLink="/projects/">
+	<PageTitle slot="title">
+		{entry.data.title}
+	</PageTitle>
+
+	<article class="project-content col-start-1 col-end-17 grid-cols-books gap-[20px]">
+		<div class="mbe-7">
+			{entry.data.categories.map((category: string) => <Tag>{category}</Tag>)}
+		</div>
+		<Content components={mapping} />
+	</article>
+
+	<Pagination
+		nextText={nextPost.data?.title}
+		nextUrl={nextPost.slug && `/projects/${nextPost.slug}`}
+		previousText={prevPost.data?.title}
+		previousUrl={prevPost.slug && `/projects/${prevPost.slug}`}
+	/>
+</GridLayout>

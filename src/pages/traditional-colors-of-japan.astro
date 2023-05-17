@@ -2,7 +2,7 @@
 import GridLayout from '../layouts/GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
-import { AmazonBook, ColorSwatch } from '../components';
+import { AmazonBook, ColorSwatch, ColorStack } from '../components';
 
 import { Content as Intro } from '../text/traditional-colors-of-japan/intro.mdx';
 import colors from '../data/colors-japan.json';
@@ -30,11 +30,11 @@ import { mapping } from '../mdx-components';
 		/>
 	</article>
 
-	<article class="col-start-1 col-end-17 grid grid-cols-books gap-[20px]">
+	<ColorStack>
 		{
 			colors.map(({ name, description, color }) => (
 				<ColorSwatch client:visible color={color} title={name} description={description} />
 			))
 		}
-	</article>
+	</ColorStack>
 </GridLayout>
