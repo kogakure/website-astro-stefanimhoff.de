@@ -1,13 +1,12 @@
 ---
 import cx from 'classnames';
 
-import { Picture } from '@astrojs/image/components';
-import type { PictureComponentLocalImageProps } from '@astrojs/image/components';
+import { Picture } from 'astro-imagetools/components';
+import type { PictureConfigOptions } from 'astro-imagetools';
 
-interface Props extends PictureComponentLocalImageProps {
+interface Props extends PictureConfigOptions {
 	class?: string;
 	noMargin?: boolean;
-	slot?: string;
 }
 
 const { class: className, noMargin, ...props } = Astro.props;

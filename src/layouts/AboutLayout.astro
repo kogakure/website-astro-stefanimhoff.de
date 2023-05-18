@@ -16,10 +16,10 @@ const { frontmatter } = Astro.props;
 	>
 		<Picture
 			alt="Stefan Imhoff"
-			aspectRatio="1:1"
+			aspect={1}
+			breakpoints={[300, 512]}
 			class="[&_img]:xl:-scale-x-100"
 			src="/assets/images/ai-portrait-stefan-imhoff.png"
-			widths={[300, 512]}
 		/>
 	</div>
 	<slot />

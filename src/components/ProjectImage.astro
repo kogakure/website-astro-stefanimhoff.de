@@ -18,9 +18,9 @@ const { project } = Astro.props;
 		) : (
 			<Picture
 				alt={project.data.title}
-				aspectRatio={project.data.image.aspectRatio as number | `${number}:${number}`}
-				formats={['webp', 'avif']}
-				widths={[300, 500, 700, 1000, 1200, 1500]}
+				aspect={project.data.image.aspectRatio}
+				breakpoints={[300, 500, 700, 1000, 1200, 1500]}
+				format={['webp', 'avif']}
 				src={project.data.image.src}
 			/>
 		))

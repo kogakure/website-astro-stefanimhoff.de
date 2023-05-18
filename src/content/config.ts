@@ -17,7 +17,7 @@ const projectCollection = defineCollection({
 				src: z.string(),
 				height: z.number().optional(),
 				width: z.number().optional(),
-				aspectRatio: z.union([z.number(), z.string().regex(/^\d+:\d+$/)]),
+				aspectRatio: z.number().optional(),
 			})
 			.optional(),
 		sort: z.number().optional(),
