@@ -22,7 +22,7 @@ const ColorCard: FunctionalComponent<ColorCardProps> = ({
 	...props
 }) => {
 	const classes = cx(
-		'absolute box-border h-[100vw] max-h-[200px] w-full max-w-[300px] rounded-25 bg-white shadow-book inline-start-0 block-start-0 [perspective:500px] [backface-visibility:hidden] dark:bg-black dark:rounded-25 dark:border-[1px] dark:border-white/20',
+		'absolute box-border h-[100vw] max-h-[200px] w-full max-w-[300px] rounded-25 bg-white shadow-book inline-start-0 block-start-0 [perspective:500px] [backface-visibility:hidden] dark:bg-black dark:border-[1px] dark:border-white/20',
 		className
 	);
 
