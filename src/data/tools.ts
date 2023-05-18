@@ -145,11 +145,6 @@ export const other = [
 		image: '/assets/images/tools/brave-browser.png',
 	},
 	{
-		name: 'Bitwarden',
-		url: 'https://bitwarden.com/',
-		image: '/assets/images/tools/bitwarden.png',
-	},
-	{
 		name: 'ProtonMail',
 		url: '',
 		image: '/assets/images/tools/protonmail.png',
@@ -158,6 +153,11 @@ export const other = [
 		name: 'ProtonVPN',
 		url: 'https://protonvpn.com/',
 		image: '/assets/images/tools/protonvpn.png',
+	},
+	{
+		name: 'Bitwarden',
+		url: 'https://bitwarden.com/',
+		image: '/assets/images/tools/bitwarden.png',
 	},
 	{
 		name: 'Espanso',
