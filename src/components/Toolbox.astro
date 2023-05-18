@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Img } from 'astro-imagetools/components';
 import { Link } from '.';
 
 import type { ToolsProps } from '../data/tools';
@@ -16,14 +16,7 @@ const { tools } = Astro.props;
 		tools.map(({ name, url, image }) => (
 			<li>
 				<Link href={url} title={name}>
-					<Image
-						alt={name}
-						aspectRatio="1:1"
-						format="avif"
-						height={200}
-						src={image}
-						width={200}
-					/>
+					<Img alt={name} aspect={1} format="avif" height={200} src={image} width={200} />
 				</Link>
 			</li>
 		))
