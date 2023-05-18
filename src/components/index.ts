@@ -7,7 +7,6 @@ export * from './ColorSwatch';
 export * from './DisplayBox';
 export * from './Divider';
 export * from './Flag';
-export * from './FloatingImage';
 export * from './Headline';
 export * from './LegalDate';
 export * from './Link';

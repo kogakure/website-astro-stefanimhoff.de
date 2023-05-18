@@ -1,5 +1,6 @@
 import DownloadLink from './components/DownloadLink.astro';
 import EmailLink from './components/EmailLink.astro';
+import MarkdownImage from './components/MarkdownImage.astro';
 import MoreLink from './components/MoreLink.astro';
 import ThemeBox from './components/ThemeBox.astro';
 
@@ -13,7 +14,6 @@ import {
 	DisplayBox,
 	Divider,
 	Flag,
-	FloatingImage,
 	Headline,
 	ListItem,
 	NetflixFlag,
@@ -50,7 +50,7 @@ export const mapping = {
 	h5: Subsubheadline,
 	h6: Subsubheadline,
 	hr: Divider,
-	img: FloatingImage,
+	img: MarkdownImage,
 	li: ListItem,
 	MoreLink,
 	NetflixFlag,
