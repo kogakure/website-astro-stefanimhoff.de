@@ -16,7 +16,15 @@ const { tools } = Astro.props;
 		tools.map(({ name, url, image }) => (
 			<li>
 				<Link href={url} title={name}>
-					<Img alt={name} aspect={1} format="avif" height={200} src={image} width={200} />
+					<Img
+						alt={name}
+						aspect={1}
+						format="avif"
+						height={300}
+						placeholder="tracedSVG"
+						src={image}
+						width={300}
+					/>
 				</Link>
 			</li>
 		))
