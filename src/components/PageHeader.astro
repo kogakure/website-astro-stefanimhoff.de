@@ -12,7 +12,10 @@ export interface Props {
 }
 
 const { backLink, class: className, navigation = true } = Astro.props;
-const classes = cx('grid w-full grid-cols-18 grid-rows-layout mbe-layout print:hidden', className);
+const classes = cx(
+	'sticky grid w-full grid-cols-18 grid-rows-layout bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden z-50',
+	className
+);
 ---
 
 <header class={classes} role="banner">
