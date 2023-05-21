@@ -17,14 +17,14 @@ export async function getStaticPaths() {
 		params: { slug: entry.slug },
 		props: {
 			entry,
-			nextPost:
+			next:
 				index + 1 === numberOfPages ? { slug: null, data: null } : haikuEntries[index + 1],
-			prevPost: index === 0 ? {} : haikuEntries[index - 1],
+			prev: index === 0 ? {} : haikuEntries[index - 1],
 		},
 	}));
 }
 
-const { entry, prevPost, nextPost } = Astro.props;
+const { entry, prev, next } = Astro.props;
 ---
 
 <BaseLayout title={`Haiku ${entry.slug}`} header={false} footer={false}>
@@ -54,9 +54,9 @@ const { entry, prevPost, nextPost } = Astro.props;
 		</div>
 	</div>
 	<Pagination
-		nextText={`Haiku ${nextPost.slug}`}
-		nextUrl={nextPost.slug && `/haiku/${nextPost.slug}`}
-		previousText={`Haiku ${prevPost.slug}`}
-		previousUrl={prevPost.slug && `/haiku/${prevPost.slug}`}
+		nextText={`Haiku ${next.slug}`}
+		nextUrl={next.slug && `/haiku/${next.slug}`}
+		previousText={`Haiku ${prev.slug}`}
+		previousUrl={prev.slug && `/haiku/${prev.slug}`}
 	/>
 </BaseLayout>

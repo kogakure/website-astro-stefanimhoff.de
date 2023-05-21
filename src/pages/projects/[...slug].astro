@@ -20,16 +20,16 @@ export async function getStaticPaths() {
 		params: { slug: entry.slug },
 		props: {
 			entry,
-			nextPost:
+			next:
 				index + 1 === numberOfPages
 					? { slug: null, data: null }
 					: projectEntries[index + 1],
-			prevPost: index === 0 ? {} : projectEntries[index - 1],
+			prev: index === 0 ? {} : projectEntries[index - 1],
 		},
 	}));
 }
 
-const { entry, prevPost, nextPost } = Astro.props;
+const { entry, prev, next } = Astro.props;
 const { Content } = await entry.render();
 ---
 
@@ -48,9 +48,9 @@ const { Content } = await entry.render();
 	</article>
 
 	<Pagination
-		nextText={nextPost.data?.title}
-		nextUrl={nextPost.slug && `/projects/${nextPost.slug}`}
-		previousText={prevPost.data?.title}
-		previousUrl={prevPost.slug && `/projects/${prevPost.slug}`}
+		nextText={next.data?.title}
+		nextUrl={next.slug && `/projects/${next.slug}`}
+		previousText={prev.data?.title}
+		previousUrl={prev.slug && `/projects/${prev.slug}`}
 	/>
 </GridLayout>
