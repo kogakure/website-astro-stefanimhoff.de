@@ -8,7 +8,11 @@ import navigation from '../data/navigation.json';
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<nav class="col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3" role="navigation">
+<nav
+	class="col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3"
+	role="navigation"
+	aria-label="Main"
+>
 	<ul class="flex flex-wrap">
 		{
 			navigation.map(({ title, url }) => (

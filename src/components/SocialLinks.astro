@@ -6,7 +6,7 @@ import { Link } from '.';
 import data from '../data/social-links.json';
 ---
 
-<div class="flex flex-1 sm:justify-center">
+<nav class="flex flex-1 sm:justify-center" aria-label="Social Links">
 	{
 		data.map(({ text, url, icon, props = {} }) => (
 			<Link
@@ -20,4 +20,4 @@ import data from '../data/social-links.json';
 			</Link>
 		))
 	}
-</div>
+</nav>

@@ -23,7 +23,7 @@ allHaiku.sort(sortByDate).reverse();
 		<Intro components={mapping} />
 	</article>
 
-	<div class="col-start-1 col-end-17 md:col-start-2 md:col-end-14">
+	<nav class="col-start-1 col-end-17 md:col-start-2 md:col-end-14" aria-label="Haiku">
 		<ol class="grid list-none grid-cols-haiku-list justify-items-center gap-[1rem]">
 			{
 				allHaiku.map(({ slug }) => (
@@ -39,5 +39,5 @@ allHaiku.sort(sortByDate).reverse();
 				))
 			}
 		</ol>
-	</div>
+	</nav>
 </GridLayout>

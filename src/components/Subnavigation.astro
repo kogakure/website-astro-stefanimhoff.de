@@ -8,7 +8,7 @@ import { Link } from '.';
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<div class="glow flex gap-12">
+<nav class="glow flex gap-12" aria-label="Subnavigation">
 	<ul>
 		{
 			data.main.map(({ title, url }) => (
@@ -42,4 +42,4 @@ const currentPath = new URL(Astro.request.url).pathname;
 			))
 		}
 	</ul>
-</div>
+</nav>
