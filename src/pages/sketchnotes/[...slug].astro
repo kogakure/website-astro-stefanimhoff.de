@@ -6,14 +6,14 @@ import { sortBySortKey } from '../../utils/sort-by-sortkey';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Pagination from '../../components/Pagination.astro';
-import { Headline } from '../../components';
+import GalleryDetail from '../../components/GalleryDetail.astro';
 
 import { mapping } from '../../mdx-components';
 
 export async function getStaticPaths() {
 	const sketchnotesEntries = await getCollection('sketchnotes');
 	const numberOfPages = sketchnotesEntries.length;
-	sketchnotesEntries.sort(sortBySortKey).reverse();
+	sketchnotesEntries.sort(sortBySortKey);
 
 	return sketchnotesEntries.map((entry, index) => ({
 		params: { slug: entry.slug },
@@ -33,35 +33,15 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title} header={false} footer={false}>
-	<div class="grid h-full grid-cols-18 grid-rows-haiku">
+	<div class="grid h-full grid-cols-18">
 		<PageHeader
 			class="!mbe-0 z-10 col-span-full row-start-1 bg-transparent dark:bg-transparent"
 			navigation={false}
 			backLink="/sketchnotes/"
 		/>
-		<div
-			class="haiku:grid-cols-haiku-xl col-span-full row-start-1 row-end-3 grid w-full grid-cols-haiku"
-		>
-			<div class="grid h-full w-full items-center">
-				<div>
-					<Headline>{entry.data.title}</Headline>
-					<Content components={mapping} />
-				</div>
-			</div>
-			<div class="grid h-full w-full items-center bg-[#d0cdc8] dark:bg-[#0e0d0c]">
-				{
-					entry.data.images.map(({ src }: { src: string }) => (
-						<div class="grid h-full w-full items-center">
-							<img
-								alt={entry.data.title}
-								class="h-full w-full object-cover"
-								src={src}
-							/>
-						</div>
-					))
-				}
-			</div>
-		</div>
+		<GalleryDetail entry={entry}>
+			<Content components={mapping} />
+		</GalleryDetail>
 		<Pagination
 			nextText={'Next'}
 			nextUrl={next.slug && `/sketchnotes/${next.slug}`}

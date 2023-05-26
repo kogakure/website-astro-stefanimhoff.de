@@ -49,7 +49,21 @@ const projectCollection = defineCollection({
 	}),
 });
 
+const sketchnotesCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		sort: z.number().optional(),
+		images: z.array(
+			z.object({
+				src: z.string(),
+				aspectRatio: z.number(),
+			})
+		),
+	}),
+});
+
 export const collections = {
 	haiku: haikuCollection,
 	projects: projectCollection,
+	sketchnotes: sketchnotesCollection,
 };
