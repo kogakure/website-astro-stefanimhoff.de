@@ -13,12 +13,16 @@
 			"url": "/projects/"
 		},
 		{
-			"title": "Sketchnotes",
-			"url": "/sketchnotes/"
-		},
-		{
 			"title": "Haiku",
 			"url": "/haiku/"
+		},
+		{
+			"title": "AI Art",
+			"url": "/ai-art/"
+		},
+		{
+			"title": "Sketchnotes",
+			"url": "/sketchnotes/"
 		}
 	],
 	"misc": [

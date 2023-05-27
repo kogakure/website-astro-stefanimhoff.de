@@ -39,7 +39,7 @@ const imageLength = entry.data.images.length;
 					alt={entry.data.title}
 					aspect={entry.data.aspect}
 					breakpoints={[300, 500, 700, 1000, 1280]}
-					class={cx('col-span-full w-full lg:col-span-3  lg:max-w-full', {
+					class={cx('col-span-full w-full !mbe-0  lg:col-span-3 lg:max-w-full', {
 						'justify-self-start lg:col-start-1':
 							randomPosition() === 'start' && imageLength > 1 && index > 0,
 						'justify-self-center lg:col-start-2':

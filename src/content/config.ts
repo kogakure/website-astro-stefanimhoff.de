@@ -63,8 +63,23 @@ const sketchnotesCollection = defineCollection({
 	}),
 });
 
+const aiArtCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		sort: z.number().optional(),
+		coverSize: z.enum(['small', 'medium', 'large']).default('small'),
+		images: z.array(
+			z.object({
+				src: z.string(),
+				aspectRatio: z.number(),
+			})
+		),
+	}),
+});
+
 export const collections = {
 	haiku: haikuCollection,
 	projects: projectCollection,
 	sketchnotes: sketchnotesCollection,
+	'ai-art': aiArtCollection,
 };

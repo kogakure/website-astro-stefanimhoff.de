@@ -1,0 +1,72 @@
+---
+import cx from 'classnames';
+
+import { getCollection } from 'astro:content';
+
+import { sortBySortKey } from '../utils/sort-by-sortkey';
+
+import GridLayout from '../layouts/GridLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Picture from '../components/Picture.astro';
+import { Link } from '../components';
+import { Content as Intro } from '../text/ai-art/intro.mdx';
+
+import { mapping } from '../mdx-components';
+
+const allAiArt = await getCollection('ai-art');
+allAiArt.sort(sortBySortKey);
+---
+
+<GridLayout title="Sketchnotes" grid="wide" class="grid" innerGrid>
+	<PageTitle grid="wide" innerGrid>AI Art</PageTitle>
+
+	<article
+		class="col-start-1 col-end-17 grid md:col-start-4 md:col-end-12 xl:col-start-5 xl:col-end-11"
+	>
+		<Intro components={mapping} />
+	</article>
+
+	<nav class="md:col-start-1 md:col-end-16" aria-label="AI Art">
+		<ol
+			class="gap-[max(25px,_2vw)] md:grid md:grid-flow-row-dense md:auto-rows-gallery md:grid-cols-gallery md:grid-rows-gallery"
+		>
+			{
+				allAiArt.map(({ slug, data }) => (
+					<li
+						class={cx({
+							'md:col-span-3 md:row-span-2':
+								data.images[0].aspectRatio > 1 && data.coverSize === 'small',
+							'md:col-span-2 md:row-span-3':
+								data.images[0].aspectRatio < 1 && data.coverSize === 'small',
+							'md:col-span-3 md:row-span-3':
+								data.images[0].aspectRatio === 1 && data.coverSize === 'small',
+							'md:col-span-4 md:row-span-3':
+								data.images[0].aspectRatio > 1 && data.coverSize === 'medium',
+							'md:col-span-3 md:row-span-4':
+								data.images[0].aspectRatio < 1 && data.coverSize === 'medium',
+							'md:col-span-4 md:row-span-4':
+								data.images[0].aspectRatio === 1 && data.coverSize === 'medium',
+							'md:col-span-6 md:row-span-5':
+								data.images[0].aspectRatio > 1 && data.coverSize === 'large',
+							'md:col-span-5 md:row-span-6':
+								data.images[0].aspectRatio < 1 && data.coverSize === 'large',
+							'md:col-span-6 md:row-span-6':
+								data.images[0].aspectRatio === 1 && data.coverSize === 'large',
+						})}
+					>
+						<Link title={data.title} href={`/ai-art/${slug}/`}>
+							<Picture
+								aspect={data.images[0].aspectRatio}
+								src={data.images[0].src}
+								alt={data.title}
+								class="h-full mbe-10 md:w-full md:object-cover md:!mbe-0 [&_img]:!block [&_img]:!h-full [&_img]:border-solid [&_picture]:!block [&_picture]:!h-full"
+								format={['webp', 'avif']}
+								breakpoints={[300, 500, 700, 1000, 1280]}
+							/>
+						</Link>
+					</li>
+				))
+			}
+		</ol>
+	</nav>
+</GridLayout>

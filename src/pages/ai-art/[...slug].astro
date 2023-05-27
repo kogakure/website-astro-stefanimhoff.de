@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+
+import { sortBySortKey } from '../../utils/sort-by-sortkey';
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Pagination from '../../components/Pagination.astro';
+import GalleryDetail from '../../components/GalleryDetail.astro';
+
+import { mapping } from '../../mdx-components';
+
+export async function getStaticPaths() {
+	const aiArtEntries = await getCollection('ai-art');
+	const numberOfPages = aiArtEntries.length;
+	aiArtEntries.sort(sortBySortKey);
+
+	return aiArtEntries.map((entry, index) => ({
+		params: { slug: entry.slug },
+		props: {
+			entry,
+			next:
+				index + 1 === numberOfPages ? { slug: null, data: null } : aiArtEntries[index + 1],
+			prev: index === 0 ? {} : aiArtEntries[index - 1],
+		},
+	}));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={entry.data.title} header={false} footer={false}>
+	<div class="grid h-full grid-cols-18">
+		<PageHeader
+			class="!mbe-0 z-10 col-span-full row-start-1 bg-transparent dark:bg-transparent"
+			navigation={false}
+			backLink="/ai-art/"
+		/>
+		<GalleryDetail entry={entry}>
+			<Content components={mapping} />
+		</GalleryDetail>
+		<Pagination
+			nextText={'Next'}
+			nextUrl={next.slug && `/ai-art/${next.slug}`}
+			previousText={'Next'}
+			previousUrl={prev.slug && `/ai-art/${prev.slug}`}
+		/>
+	</div>
+</BaseLayout>

@@ -39,7 +39,7 @@
 	p code,
 	li code,
 	samp {
-		@apply whitespace-normal rounded-[0.3em] bg-code-1 text-code-2 plb-1 pli-3;
+		@apply relative whitespace-normal rounded-[0.3em] bg-code-1 text-2 text-code-2 pli-3 pbe-1 pbs-3 -block-start-[0.2em];
 	}
 
 	kbd {
