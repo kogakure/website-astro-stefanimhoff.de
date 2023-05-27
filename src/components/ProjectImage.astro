@@ -20,6 +20,7 @@ const { project } = Astro.props;
 				alt={project.data.title}
 				aspect={project.data.image.aspectRatio}
 				breakpoints={[300, 500, 700, 1000, 1200, 1500]}
+				class="[&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
 				format={['webp', 'avif']}
 				src={project.data.image.src}
 			/>
