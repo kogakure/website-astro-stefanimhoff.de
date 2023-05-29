@@ -109,15 +109,18 @@
 					"Critical Render Path",
 					"Performance",
 					"Styled Components",
+					"Tailwind CSS",
 					"PostCSS",
 					"CSS Modules",
 					"Sass/SCSS",
 					"Stylelint",
 					"ESlint",
 					"React",
+					"Preact",
+					"Atro",
+					"Eleventy",
 					"Redux",
 					"Apollo",
-					"Web3.js",
 					"Babel",
 					"Webpack",
 					"Gulp",
@@ -140,7 +143,8 @@
 					"Sketch",
 					"Abstract",
 					"Adobe Photoshop",
-					"Adobe Illustrator"
+					"Adobe Illustrator",
+					"Stable Diffusion"
 				]
 			},
 			{
@@ -150,9 +154,6 @@
 					"Express",
 					"RESTful Services",
 					"GraphQL",
-					"Ruby",
-					"Ruby on Rails",
-					"Solidity",
 					"MySQL",
 					"PostgreSQL",
 					"SQLite"
@@ -160,28 +161,18 @@
 			},
 			{
 				"headline": "Dev Ops",
-				"tags": [
-					"Jenkins",
-					"Travis CI",
-					"Docker",
-					"Kubernetes",
-					"Apache",
-					"NGINX",
-					"SSH",
-					"FTP"
-				]
+				"tags": ["Jenkins", "Travis CI", "Docker", "Apache", "NGINX", "SSH", "FTP"]
 			},
 			{
 				"headline": "Collaboration",
 				"tags": [
 					"Git",
 					"GitHub",
-					"GitLab",
 					"Slack",
+					"Microsoft MS Teams",
 					"Confluence",
 					"Jira",
-					"Notion",
-					"Basecamp"
+					"Notion"
 				]
 			},
 			{
@@ -201,13 +192,11 @@
 			{
 				"headline": "Miscellaneous",
 				"tags": [
-					"Eleventy",
-					"Gatsby",
-					"Jekyll",
+					"Fish Shell",
 					"Zsh",
 					"Bash",
-					"Vim",
 					"Neovim",
+					"Vim",
 					"Visual Studio Code",
 					"tmux",
 					"Mac OS",
