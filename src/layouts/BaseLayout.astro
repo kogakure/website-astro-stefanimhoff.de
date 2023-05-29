@@ -27,6 +27,8 @@ const { backLink, footer = true, header = true, title, description } = Astro.pro
 
 		<title>{title}</title>
 
+		<meta name="description" content={description} />
+
 		<script type="module">
 			document.documentElement.classList.remove('no-js');
 			document.documentElement.classList.add('js');
@@ -65,5 +67,10 @@ const { backLink, footer = true, header = true, title, description } = Astro.pro
 			</div>
 			{footer && <PageFooter />}
 		</Sprite.Provider>
+		<script>
+			console.info(
+				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
+			);
+		</script>
 	</body>
 </html>
