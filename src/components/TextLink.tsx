@@ -12,7 +12,7 @@ export const TextLink: FunctionalComponent<Props> = ({
 	...props
 }: Props) => {
 	const classes = cx(
-		'font-semibold text-shibui-950 underline decoration-shibui-900/20 decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:text-shibui-200/[0.87] dark:decoration-shibui-100/20',
+		'inline-block font-semibold text-shibui-950 underline decoration-shibui-900/20 decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:text-shibui-200/[0.87] dark:decoration-shibui-100/20',
 		className as string
 	);
 
