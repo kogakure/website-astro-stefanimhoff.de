@@ -1,0 +1,147 @@
+---
+import GridLayout from '../layouts/GridLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import DownloadLink from '../components/DownloadLink.astro';
+import EmailLink from '../components/EmailLink.astro';
+import {
+	Divider,
+	Headline,
+	ListItem,
+	Subheadline,
+	Text,
+	TextLink,
+	UnorderedList,
+} from '../components';
+
+import cv from '../data/cv.json';
+
+import { Content as Intro } from '../text/cv/intro.mdx';
+import { Content as InterestsHobbies } from '../text/cv/interests-hobbies.mdx';
+
+import { mapping } from '../mdx-components';
+
+const title = 'CV';
+const description = '';
+---
+
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
+	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
+
+	<article class="col-span-full md:col-start-1 md:col-end-9">
+		<Headline class="!mbs-0">{cv.summary.headline}</Headline>
+		<Intro components={mapping} />
+	</article>
+
+	<article class="col-span-full md:col-start-10 md:col-end-18">
+		<Headline class="!mbs-0">Personal Information</Headline>
+		<Subheadline class="font-semibold !mbs-0">{cv.personal.name}</Subheadline>
+		<Text class="!mbe-0">{cv.personal.tagline}</Text>
+		<TextLink href="https://www.stefanimhoff.de">Website</TextLink> •
+		<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} /> •
+		<DownloadLink href="/downloads/cv-stefan-imhoff.zip" text="CV" /> •
+		<DownloadLink href="/downloads/business-card-stefan-imhoff.zip" text="VCard" />
+	</article>
+
+	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
+
+	<article class="col-span-full md:col-start-1 md:col-end-9">
+		<Headline class="!mbs-0">{cv.experience.headline}</Headline>
+		{
+			cv.experience.items.map((item) => (
+				<div>
+					<div class="mbe-10">
+						<Subheadline class="font-semibold">{item.title}</Subheadline>
+						<div class="italic mbe-2 no-common-ligatures">{item.duration}</div>
+						<div class="leading-none">
+							<strong>{item.company}</strong> / {item.location}
+						</div>
+						{item.url && (
+							<div>
+								<TextLink href={item.url}>
+									{item.url.replace(/https?:\/\//, '')}
+								</TextLink>
+							</div>
+						)}
+					</div>
+					{item.tasks.length > 0 && (
+						<UnorderedList>
+							{item.tasks.map((task) => (
+								<ListItem>{task}</ListItem>
+							))}
+						</UnorderedList>
+					)}
+				</div>
+			))
+		}
+
+		<Headline class="!mbs-0">{cv.education.headline}</Headline>
+		{
+			cv.education.items.map((item) => (
+				<div class="mbe-12">
+					<Subheadline class="font-semibold">{item.degree}</Subheadline>
+					<div class="italic mbe-2 no-common-ligatures">{item.duration}</div>
+					<div class="leading-none">
+						<strong>{item.school}</strong> / {item.location}
+					</div>
+					{item.url && (
+						<div>
+							<TextLink href={item.url}>
+								{item.url.replace(/https?:\/\//, '')}
+							</TextLink>
+						</div>
+					)}
+				</div>
+			))
+		}
+	</article>
+
+	<aside class="col-span-full md:col-start-10 md:col-end-18">
+		<article>
+			<Headline class="!mbs-0">{cv.skills.headline}</Headline>
+			{
+				cv.skills.items.map((item) => (
+					<div>
+						<Subheadline class="font-semibold">{item.headline}</Subheadline>
+						<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+							{item.tags.map((tag, index) => (
+								<ListItem class="inline">
+									{index === item.tags.length - 1
+										? tag.concat('')
+										: tag.concat(', ')}
+								</ListItem>
+							))}
+						</UnorderedList>
+					</div>
+				))
+			}
+		</article>
+
+		<article>
+			<Headline class="!mbs-0">{cv.languages.headline}</Headline>
+			<UnorderedList>
+				{
+					cv.languages.items.map((item) => (
+						<ListItem>
+							<strong>{item.language}</strong> ({item.level})
+						</ListItem>
+					))
+				}
+			</UnorderedList>
+
+			<article>
+				<Headline class="!mbs-0">{cv.awards.headline}</Headline>
+				<UnorderedList>
+					{cv.awards.items.map((item) => <ListItem>{item}</ListItem>)}
+				</UnorderedList>
+			</article>
+		</article>
+	</aside>
+	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
+
+	<article class="col-span-full">
+		<Headline class="!mbs-0">{cv.interests.headline}</Headline>
+		<ul class="columns-1 gap-gap md:columns-2">
+			<InterestsHobbies components={mapping} />
+		</ul>
+	</article>
+</GridLayout>

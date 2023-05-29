@@ -1,0 +1,250 @@
+{
+	"personal": {
+		"name": "Stefan Imhoff",
+		"tagline": "Front-End Web Developer & UX/UI Designer"
+	},
+	"summary": {
+		"headline": "Professional Summary"
+	},
+	"experience": {
+		"headline": "Professional Experience",
+		"items": [
+			{
+				"company": "NEW WORK SE",
+				"url": "https://www.xing.com",
+				"title": "Senior Software Engineer",
+				"location": "Hamburg, Germany",
+				"duration": "03/2020-current",
+				"tasks": [
+					"Programming of central components for the XING Platform with React and CSS.",
+					"Development, maintenance and documentation of the XING Design System.",
+					"Support for the product teams with the integration of new interfaces from components of the Design System.",
+					"Conception of new components in collaboration with designers and developers.",
+					"Evaluation of coding challenges and interviews for hiring new Frontend Developers.",
+					"Administration of a Slack workspace with over 800 participants."
+				]
+			},
+			{
+				"company": "XING",
+				"url": "https://www.xing.com",
+				"location": "Hamburg, Germany",
+				"title": "Front-End Engineer",
+				"duration": "01/2011-02/2020",
+				"tasks": [
+					"Development, deployment and monitoring of multiple XING products.",
+					"Concept, idea and development of user interface improvements on the job marketplace, which lead to 59 % more visitors on job ads.",
+					"Idea and conception of a freelancer marketplace in a Hack Week, which lead to a new product on the platform.",
+					"Development of an iPad hybrid app with Backbone.js.",
+					"Creation of a screencast series in cooperation with User Care.",
+					"Development of multiple products as the logged out profile, public search, onboarding user flow and profile-filling widget with React, Redux and GraphQL."
+				]
+			},
+			{
+				"company": "Dumrath & Fassnacht",
+				"location": "Hamburg, Germany",
+				"title": "Web Designer",
+				"duration": "09/2005-12/2010",
+				"tasks": [
+					"Planning, design, and layout of websites.",
+					"Implementation in W3C standard with HTML and CSS.",
+					"Programming websites with content management systems and blog systems.",
+					"Revision and update of existing customer websites.",
+					"Customer advisory"
+				]
+			},
+			{
+				"company": "IGS Development",
+				"location": "Harbke, Germany",
+				"title": "Media Designer",
+				"duration": "02/2002-01/2005",
+				"tasks": [
+					"Creation of Internet and Intranet pages with HTML, CSS, PHP, MySQL, and Typo3.",
+					"Filming of industrial processes and production facilities in Germany and France.",
+					"Editing and Postproduction with Premiere, Avid, and After Effect.",
+					"Creation of 3D models and animations with 3ds max, and Cinema 4D."
+				]
+			},
+			{
+				"company": "Schmitz Kommunikation",
+				"location": "Hamburg, Germany",
+				"title": "Intern Web Design",
+				"duration": "03/2001-04/2001",
+				"tasks": [
+					"Relaunch, conception, and realization of websites with Dreamweaver, Fireworks, Photoshop, and Flash 5 & ActionScript."
+				]
+			}
+		]
+	},
+	"education": {
+		"headline": "Education",
+		"items": [
+			{
+				"school": "bib International College",
+				"url": "https://www.bib.de",
+				"degree": "Computer Scientist",
+				"location": "Hanover, Germany",
+				"duration": "10/1999-09/2001"
+			}
+		]
+	},
+	"skills": {
+		"headline": "Key Skills",
+		"items": [
+			{
+				"headline": "Fontend",
+				"tags": [
+					"HTML",
+					"CSS",
+					"JavaScript",
+					"TypeScript",
+					"SVG",
+					"Web API & DOM",
+					"Responsive Webdesign (RWD)",
+					"Adaptive Webdesign (AWD)",
+					"CSS Grid Layout",
+					"Flexbox",
+					"Markdown",
+					"Progressive Web Apps (PWA)",
+					"Service Worker",
+					"Critical Render Path",
+					"Performance",
+					"Styled Components",
+					"PostCSS",
+					"CSS Modules",
+					"Sass/SCSS",
+					"Stylelint",
+					"ESlint",
+					"React",
+					"Redux",
+					"Apollo",
+					"Web3.js",
+					"Babel",
+					"Webpack",
+					"Gulp",
+					"Jest",
+					"Cypress",
+					"SEO",
+					"Accessibility (A11Y)",
+					"Usability"
+				]
+			},
+			{
+				"headline": "Design",
+				"tags": [
+					"UX/UI Design",
+					"Information Architecture",
+					"Affinity Designer",
+					"Affinity Photo",
+					"Affinity Publisher",
+					"Figma",
+					"Sketch",
+					"Abstract",
+					"Adobe Photoshop",
+					"Adobe Illustrator"
+				]
+			},
+			{
+				"headline": "Backend",
+				"tags": [
+					"Node.js",
+					"Express",
+					"RESTful Services",
+					"GraphQL",
+					"Ruby",
+					"Ruby on Rails",
+					"Solidity",
+					"MySQL",
+					"PostgreSQL",
+					"SQLite"
+				]
+			},
+			{
+				"headline": "Dev Ops",
+				"tags": [
+					"Jenkins",
+					"Travis CI",
+					"Docker",
+					"Kubernetes",
+					"Apache",
+					"NGINX",
+					"SSH",
+					"FTP"
+				]
+			},
+			{
+				"headline": "Collaboration",
+				"tags": [
+					"Git",
+					"GitHub",
+					"GitLab",
+					"Slack",
+					"Confluence",
+					"Jira",
+					"Notion",
+					"Basecamp"
+				]
+			},
+			{
+				"headline": "Agile Methods & Productivity",
+				"tags": [
+					"Kanban",
+					"Scrum",
+					"Miro",
+					"OKR",
+					"GTD",
+					"Pomodoro",
+					"DEVONthink",
+					"Obsidian",
+					"Zettelkasten Method"
+				]
+			},
+			{
+				"headline": "Miscellaneous",
+				"tags": [
+					"Eleventy",
+					"Gatsby",
+					"Jekyll",
+					"Zsh",
+					"Bash",
+					"Vim",
+					"Neovim",
+					"Visual Studio Code",
+					"tmux",
+					"Mac OS",
+					"Linux"
+				]
+			}
+		]
+	},
+	"languages": {
+		"headline": "Languages",
+		"items": [
+			{
+				"language": "German",
+				"level": "native language"
+			},
+			{
+				"language": "English",
+				"level": "fluently spoken and written"
+			},
+			{
+				"language": "Japanese",
+				"level": "advanced-beginner"
+			},
+			{
+				"language": "Spanish",
+				"level": "advanced-beginner"
+			}
+		]
+	},
+	"awards": {
+		"headline": "Awards",
+		"items": [
+			"Three times winner of the yearly company-wide innovation award of XING Prototyping Days (2013, 2015, 2017).",
+			"SEMY Award \u2013 German Search Marketing Award 2015."
+		]
+	},
+	"interests": {
+		"headline": "Interests & Hobbies"
+	}
+}
