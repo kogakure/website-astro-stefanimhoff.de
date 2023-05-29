@@ -12,9 +12,12 @@ import { mapping } from '../mdx-components';
 
 const allHaiku = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
+
+const title = 'Haiku';
+const description = '…';
 ---
 
-<GridLayout title="Haiku" grid="wide" class="grid" innerGrid>
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>Haiku</PageTitle>
 
 	<article

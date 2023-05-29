@@ -12,15 +12,13 @@ import { Content as Intro } from '../text/projects/intro.mdx';
 import { mapping } from '../mdx-components';
 const allProjects = await getCollection('projects');
 allProjects.sort(sortBySortKey).reverse();
+
+const title = 'Projects';
+const description =
+	'I’m a Frontend Developer by profession. I worked in Design, Editing, and 3D Animation. These are  projects I created over the last years.';
 ---
 
-<GridLayout
-	title="Projects"
-	description="I’m a Frontend Developer by profession. I worked in Design, Editing, and 3D Animation. These are  projects I created over the last years."
-	grid="fullsize"
-	class="grid"
-	innerGrid
->
+<GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>
 	<PageTitle
 		grid="wide"
 		innerGrid

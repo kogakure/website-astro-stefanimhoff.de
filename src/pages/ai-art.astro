@@ -15,9 +15,12 @@ import { mapping } from '../mdx-components';
 
 const allAiArt = await getCollection('ai-art');
 allAiArt.sort(sortBySortKey);
+
+const title = 'AI Art';
+const description = '…';
 ---
 
-<GridLayout title="Sketchnotes" grid="wide" class="grid" innerGrid>
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>AI Art</PageTitle>
 
 	<article

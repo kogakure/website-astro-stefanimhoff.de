@@ -15,9 +15,12 @@ import { mapping } from '../mdx-components';
 
 const allSketchnotes = await getCollection('sketchnotes');
 allSketchnotes.sort(sortBySortKey);
+
+const title = 'Sketchnotes';
+const description = 'This is a collection of Sketchnotes I’ve drawn.';
 ---
 
-<GridLayout title="Sketchnotes" grid="wide" class="grid" innerGrid>
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>Sketchnotes</PageTitle>
 
 	<article

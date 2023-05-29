@@ -28,12 +28,15 @@ export async function getStaticPaths() {
 
 const { entry, prev, next } = Astro.props;
 const { Content } = await entry.render();
+
+const title = entry.data.title;
+const description = '…';
 ---
 
-<BaseLayout title={entry.data.title} header={false} footer={false}>
+<BaseLayout title={title} description={description} header={false} footer={false}>
 	<div class="grid h-full grid-cols-18">
 		<PageHeader
-			class="!mbe-0 z-10 col-span-full row-start-1 bg-transparent dark:bg-transparent"
+			class="z-10 col-span-full row-start-1 bg-transparent !mbe-0 dark:bg-transparent"
 			navigation={false}
 			backLink="/ai-art/"
 		/>

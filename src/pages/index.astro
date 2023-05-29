@@ -1,8 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Headline } from '../components';
+
+const title = 'Homepage';
+const description = '…';
 ---
 
-<BaseLayout title="Homepage">
+<BaseLayout title={title} description={description}>
 	<Headline>Homepage</Headline>
 </BaseLayout>

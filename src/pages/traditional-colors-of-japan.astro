@@ -8,9 +8,13 @@ import { Content as Intro } from '../text/traditional-colors-of-japan/intro.mdx'
 import colors from '../data/colors-japan.json';
 
 import { mapping } from '../mdx-components';
+
+const title = 'The Traditional Colors of Japan';
+const description =
+	'I took the time and converted all colors in the book “Traditional Colors of Japan” by Nobyoshi Hamada into an ASE file free to download.';
 ---
 
-<GridLayout title="The Traditional Colors of Japan" grid="wide" class="grid" innerGrid>
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>The Traditional Colors of&nbsp;Japan</PageTitle>
 
 	<article class="col-start-1 col-end-17 grid md:col-end-8 xl:content-center">
@@ -21,12 +25,12 @@ import { mapping } from '../mdx-components';
 		<AmazonBook
 			alt="The Traditional Colors of Japan"
 			asin="475624100X"
-			class="mie-[1.5vw] max-w-[300px] [&_img]:self-end"
+			class="max-w-[300px] mie-[1.5vw] [&_img]:self-end"
 		/>
 		<AmazonBook
 			alt="Traditional Japanese Color Palette"
 			asin="475624114X"
-			class="mis-[1.5vw] max-w-[300px] [&_img]:self-end"
+			class="max-w-[300px] mis-[1.5vw] [&_img]:self-end"
 		/>
 	</article>
 
