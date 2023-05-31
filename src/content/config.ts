@@ -1,8 +1,9 @@
-import { aiArt, haiku, projects, sketchnotes } from '../schema';
+import { aiArt, haiku, journal, projects, sketchnotes } from '../schema';
 
 export const collections = {
+	'ai-art': aiArt,
 	haiku: haiku,
+	journal: journal,
 	projects: projects,
 	sketchnotes: sketchnotes,
-	'ai-art': aiArt,
 };

@@ -1,0 +1,139 @@
+---
+import cx from 'classnames';
+
+import { getCollection } from 'astro:content';
+
+import { sortByDate } from '../utils';
+import { dateToFormat, dateToISO, wordCount } from '../utils';
+
+import GridLayout from '../layouts/GridLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import Pagination from '../components/Pagination.astro';
+import Picture from '../components/Picture.astro';
+import { TextLink } from '../components';
+
+import { mapping } from '../mdx-components';
+
+export async function getStaticPaths() {
+	const journalEntries = await getCollection('journal');
+	const numberOfPages = journalEntries.length;
+	journalEntries.sort(sortByDate).reverse();
+
+	return journalEntries.map((entry, index) => ({
+		params: { slug: entry.slug },
+		props: {
+			entry,
+			next:
+				index + 1 === numberOfPages
+					? { slug: null, data: null }
+					: journalEntries[index + 1],
+			prev: index === 0 ? {} : journalEntries[index - 1],
+		},
+	}));
+}
+
+const { entry, prev, next } = Astro.props;
+const {
+	Content,
+	remarkPluginFrontmatter: { minutesRead },
+} = await entry.render();
+
+const title = entry.data.title;
+const description = '…';
+---
+
+<GridLayout title={title} description={description} grid="fullsize" innerGrid backLink="/journal/">
+	<PageTitle slot="title" class="!text-6">
+		{entry.data.title}
+	</PageTitle>
+
+	{
+		entry.data.cover && (
+			<Picture
+				alt={entry.data.title}
+				aspect={1.6}
+				breakpoints={[300, 500, 700, 1000, 1300, 1500, 1800, 2000]}
+				class="col-span-full h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
+				format={['webp', 'avif']}
+				src={entry.data.cover}
+			/>
+		)
+	}
+
+	<aside
+		class={cx(
+			'col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-15 xl:col-end-18 xl:row-start-2 3xl:col-start-14 3xl:col-end-18',
+			{ 'row-start-3': entry.data.cover }
+		)}
+	>
+		<div class="leading-none mbe-6">
+			<em>By</em>
+			<TextLink href="/about/">{entry.data.author}</TextLink>
+		</div>
+		<div class="leading-tight">
+			<time datetime={dateToISO(entry.data.date)}>{dateToFormat(entry.data.date)}</time>
+		</div>
+		<div class="leading-none">
+			{wordCount(entry.body)}
+			<span class="italic">words</span> • {minutesRead}
+			<span class="italic">read</span>
+		</div>
+	</aside>
+	<div
+		class="journal-post col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13"
+	>
+		<Content components={mapping} />
+		{
+			entry.data.updated && (
+				<footer class="mbs-10">
+					<b>Last Updated:</b>
+					<time datetime={dateToISO(entry.data.updated)}>
+						{dateToFormat(entry.data.updated)}
+					</time>
+				</footer>
+			)
+		}
+	</div>
+
+	<Pagination
+		nextText={'Next'}
+		nextUrl={next.slug && next.slug}
+		previousText={'Next'}
+		previousUrl={prev.slug && prev.slug}
+	/>
+</GridLayout>
+
+<style is:global>
+	.journal-post {
+		& > h2 {
+			@apply text-4 mbe-9 mbs-14;
+		}
+
+		& > h3,
+		& > h4,
+		& > h5,
+		& > h6 {
+			@apply text-3 !mbs-14;
+		}
+
+		& > h2:first-of-type,
+		& > h3:first-of-type,
+		& > h4:first-of-type,
+		& > h5:first-of-type,
+		& > h6:first-of-type {
+			@apply mbs-0;
+		}
+
+		& > *:first-child {
+			@apply mbs-0;
+		}
+
+		& > pre {
+			@apply md:mie-[calc(5.55vw_*_-1)] md:mis-[calc(5.55vw_*_-1)];
+		}
+
+		& > figure {
+			@apply md:mie-[calc(5.55vw_*_-1_*_3)] md:mis-[calc(5.55vw_*_-1_*_3)] xl:mie-[calc(5.55vw_*_-1_*_2)] xl:mis-[calc(5.55vw_*_-1_*_2)];
+		}
+	}
+</style>
