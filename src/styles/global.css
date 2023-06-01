@@ -81,6 +81,35 @@
 		quotes: '「' '」' '『' '』';
 	}
 
+	/** Blockquote */
+	blockquote {
+		& p,
+		& ul,
+		& ol {
+			@apply text-3 font-extralight italic opacity-60 !mbe-8 mbs-0;
+		}
+
+		& p:last-child {
+			@apply !mbe-0;
+		}
+
+		& > footer {
+			@apply !-mbs-5;
+		}
+
+		&:nth-last-child(2) {
+			@apply mbe-5;
+		}
+
+		& strong {
+			@apply font-bold italic;
+		}
+
+		& sup {
+			@apply font-normal;
+		}
+	}
+
 	/** Inline Quotes */
 	q {
 		@apply italic;

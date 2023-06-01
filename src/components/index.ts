@@ -1,6 +1,7 @@
 export * from './AffiliateLink';
 export * from './AmazonBook';
 export * from './Banner';
+export * from './Blockquote';
 export * from './Book';
 export * from './ColorStack';
 export * from './ColorSwatch';
