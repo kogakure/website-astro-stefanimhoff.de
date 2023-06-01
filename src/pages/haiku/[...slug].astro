@@ -31,14 +31,14 @@ const description = '…';
 ---
 
 <BaseLayout title={title} description={description} header={false} footer={false}>
-	<div class="grid h-full grid-cols-18 grid-rows-haiku">
+	<div class="grid-rows-[clamp(3rem,_5.55vw,_9rem) 1fr] grid h-full grid-cols-18">
 		<PageHeader
 			class="z-10 col-span-full row-start-1 bg-transparent !mbe-0 dark:bg-transparent"
 			navigation={false}
 			backLink="/haiku/"
 		/>
 		<div
-			class="haiku:grid-cols-haiku-xl col-span-full row-start-1 row-end-3 grid w-full grid-cols-haiku"
+			class="haiku:grid-cols-[repeat(auto-fit,_minmax(25rem,_1fr)] col-span-full row-start-1 row-end-3 grid w-full grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))]"
 		>
 			<div class="grid h-full w-full items-center">
 				<Verse

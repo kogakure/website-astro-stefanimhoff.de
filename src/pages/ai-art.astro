@@ -31,7 +31,7 @@ const description = '…';
 
 	<nav class="col-start-1 col-end-18 md:col-start-1 md:col-end-16" aria-label="AI Art">
 		<ol
-			class="gap-[max(25px,_2vw)] md:grid md:grid-flow-row-dense md:auto-rows-gallery md:grid-cols-gallery md:grid-rows-gallery"
+			class="gap-[max(25px,_2vw)] md:grid md:grid-flow-row-dense md:auto-rows-[50px] md:grid-cols-[repeat(auto-fit,_minmax(50px,_1fr))] md:grid-rows-[50px]"
 		>
 			{
 				allAiArt.map(({ slug, data }) => (

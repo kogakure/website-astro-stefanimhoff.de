@@ -41,9 +41,7 @@ const description = '…';
 		{entry.data.title}
 	</PageTitle>
 
-	<article
-		class="project-content col-start-1 col-end-17 grid-cols-books gap-[20px] [&_img]:w-full"
-	>
+	<article class="project-content col-start-1 col-end-17 [&_img]:w-full">
 		<div class="mbe-7">
 			{entry.data.categories.map((category: string) => <Tag>{category}</Tag>)}
 		</div>

@@ -97,9 +97,9 @@ const description = '…';
 
 	<Pagination
 		nextText={'Next'}
-		nextUrl={next.slug && next.slug}
+		nextUrl={next.slug && `/${next.slug}/`}
 		previousText={'Next'}
-		previousUrl={prev.slug && prev.slug}
+		previousUrl={prev.slug && `/${prev.slug}/`}
 	/>
 </GridLayout>
 
@@ -129,11 +129,20 @@ const description = '…';
 		}
 
 		& > pre {
-			@apply md:mie-[calc(5.55vw_*_-1)] md:mis-[calc(5.55vw_*_-1)];
+			@apply md:-mie-[5.55vw] md:-mis-[5.55vw];
 		}
 
-		& > figure {
-			@apply md:mie-[calc(5.55vw_*_-1_*_3)] md:mis-[calc(5.55vw_*_-1_*_3)] xl:mie-[calc(5.55vw_*_-1_*_2)] xl:mis-[calc(5.55vw_*_-1_*_2)];
+		& > figure.figure-wide {
+			@apply md:-mie-[16.65vw] md:-mis-[16.65vw] xl:-mie-[11.1vw] xl:-mis-[11.1vw] [&_img]:w-full [&_img]:max-w-none;
+		}
+
+		& > figure.figure-fullsize {
+			@apply -mie-[5.55vw] -mis-[5.55vw] md:-mie-[22.2vw] md:-mis-[22.2vw] xl:-mie-[27.75vw] xl:-mis-[27.75vw] 3xl:-mie-[33.3vw] 3xl:-mis-[33.3vw] [&_img]:w-full [&_img]:max-w-none;
+		}
+
+		& > figure .image-shadow,
+		& > figure p {
+			@apply m-0;
 		}
 	}
 </style>

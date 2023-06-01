@@ -11,7 +11,9 @@ export interface Props {
 const { tools } = Astro.props;
 ---
 
-<ul class="grid grid-cols-toolbox items-center gap-2 rounded-2 bg-black/5 p-5 dark:bg-white/5">
+<ul
+	class="grid grid-cols-[repeat(auto-fit,_minmax(80px,_1fr))] items-center gap-2 rounded-2 bg-black/5 p-5 dark:bg-white/5"
+>
 	{
 		tools.map(({ name, url, image }) => (
 			<li>
