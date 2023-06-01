@@ -16,6 +16,7 @@ export * from './OdyseeVideo';
 export * from './OrderedList';
 export * from './PrimeVideoFlag';
 export * from './ProjectIntro';
+export * from './Pullquote';
 export * from './Subheadline';
 export * from './Subsubheadline';
 export * from './Tag';

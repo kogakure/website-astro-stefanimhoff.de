@@ -67,6 +67,20 @@
 		quotes: '“' '”' '‘' '’';
 	}
 
+	[lang|='de'] blockquote,
+	blockquote[lang|='de'],
+	[lang|='de'] q,
+	q[lang|='de'] {
+		quotes: '»' '«' '›' '‹';
+	}
+
+	[lang|='ja'] blockquote,
+	blockquote[lang|='ja'],
+	[lang|='ja'] q,
+	q[lang|='ja'] {
+		quotes: '「' '」' '『' '』';
+	}
+
 	/** Inline Quotes */
 	q {
 		@apply italic;
@@ -78,6 +92,33 @@
 		&::after {
 			@apply not-italic mie-[0.1em];
 		}
+	}
+
+	/** Pullquote */
+	.pullquote {
+		&::before {
+			@apply hidden;
+		}
+
+		& p {
+			@apply m-0 text-4 font-extrabold leading-none;
+		}
+
+		& p:first-child::before {
+			@apply font-normal content-[open-quote];
+		}
+
+		& p:nth-of-type(1):first-letter {
+			@apply -mis-[0.4em];
+		}
+
+		& p:nth-last-of-type(1)::after {
+			@apply font-normal content-[close-quote];
+		}
+	}
+
+	.pullquote[lang|='ja'] {
+		@apply font-normal;
 	}
 
 	/** Cite */
