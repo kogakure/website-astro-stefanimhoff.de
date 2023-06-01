@@ -43,7 +43,7 @@
 	}
 
 	kbd {
-		@apply inline-block whitespace-nowrap rounded-2 border-1 border-solid border-[#ccc] bg-[#f7f7f7] text-2 font-bold leading-5 text-[#333] shadow-beveled pli-[0.6em] pbe-[0.1em] pbs-[0.3em] dark:bg-[#f7f7f7]/[0.9];
+		@apply inline-block whitespace-nowrap rounded-2 border-1 border-solid border-[#ccc] bg-[#f7f7f7] !text-code font-bold leading-5 text-[#333] shadow-beveled pli-[0.6em] pbe-[0.1em] pbs-[0.3em] dark:bg-[#f7f7f7]/[0.9];
 		text-shadow: 0 1px 0 #ffffff;
 	}
 
@@ -52,7 +52,7 @@
 	}
 
 	:is(code, kbd, samp) {
-		@apply font-mono text-2;
+		@apply font-mono !text-code;
 	}
 
 	:is(abbr, dfn) {
