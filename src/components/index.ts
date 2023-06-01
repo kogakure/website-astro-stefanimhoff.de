@@ -8,6 +8,7 @@ export * from './ColorStack';
 export * from './ColorSwatch';
 export * from './DisplayBox';
 export * from './Divider';
+export * from './Figure';
 export * from './Flag';
 export * from './Headline';
 export * from './LegalDate';
