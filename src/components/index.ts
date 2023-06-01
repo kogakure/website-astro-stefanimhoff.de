@@ -3,6 +3,7 @@ export * from './AmazonBook';
 export * from './Banner';
 export * from './Blockquote';
 export * from './Book';
+export * from './Bookshelf';
 export * from './ColorStack';
 export * from './ColorSwatch';
 export * from './DisplayBox';
