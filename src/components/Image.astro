@@ -12,7 +12,11 @@ interface Props extends ImgConfigOptions {
 
 const { class: className, noMargin, src, ...props } = Astro.props;
 
-const classes = cx('image-shadow mbe-10 mbs-0', { 'mbe-0': noMargin }, className);
+const classes = cx(
+	'image-shadow mbe-10 mbs-0 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none',
+	{ 'mbe-0': noMargin },
+	className
+);
 const imageClasses =
 	'rounded-1 border-1 block h-auto w-full border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10';
 ---

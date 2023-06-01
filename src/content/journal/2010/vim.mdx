@@ -1,0 +1,156 @@
+---
+title: Vim
+slug: vim
+author: Stefan Imhoff
+date: 2010-10-29T19:00:00+02:00
+description: How I became a convinced Vim disciple, why Vim is an ingenious editor, and how to best practice if you want to learn Vim.
+tags: ["code"]
+---
+
+## By the Power of Vim … I Have the Power
+
+Something similar was said by the superhero _He-Man_ from the 80s TV show _Masters of the Universe_ before he got his superpowers. And Vim exists about as long as the TV show: **22 years**. And the older Vi, on which Vim is based, has been around even longer than I live. If a _simple_ text editor exists for a long time and gives these _powers_, it has to be something special about it.
+
+<Figure caption="Vim - cleanser and polisher. Brightens the home and the age.">
+	<Image src="/assets/images/posts/vim-vintage.jpg" alt="Vim, Reinigungs- und Poliermittel." />
+</Figure>
+
+The first time I stumbled upon Vim (or Vi) a couple of years ago, was when I first had to edit any file on a server and none of my fancy editors worked there. The first time I worked with Vi(m) was my natural reaction: <q>WTF, I cannot tap until I press `i`? Who invented this crap?</q>
+
+But because I, as a web worker, inevitably have to work on the server, again and again, I could not avoid learning either Vim or Nano. For years, I coped well with four or five Vim key combinations. But I was wrong. Wrong. Wrong. _Really_ wrong.
+
+Three years ago, I had tried to learn Vim and had failed miserably. Why?
+
+## Vim is Incredible, Incredibly Complex (but Equally Powerful)
+
+Some developers have been working with Vim for 20 years and do not think that they have mastered Vim.
+
+That I failed then was sole because I had not started properly. With Vim, it is necessary to start slowly and gradually. As with almost any other art form, the basics must first be learned and mastered before moving on to the next level. I copied a Vim configuration file and was overwhelmed.
+
+If you want to learn Vim, it’s important to first unlearn what all other editors have taught you wrong. With a text editor—whether Word, Notepad, TextMate, or another editor—you want to edit text. Even if you may think the most essential part is typing, that’s not true, not even with a book author, let alone a programmer.
+
+Therefore, the whole philosophy of Vim is different from that of any other competitors. You cannot even compare the other editors with Vim.
+
+When you use Vim, you feel as if you master the text, as a doctor can dissect the text with a scalpel. You navigate and edit your text in the best and most efficient way I’ve ever seen.
+
+## This is Not a Tutorial
+
+I will not write a beginner’s tutorial here, it would be a waste of work, as there are countless sources on the Internet, and Vim Help is one of the best. And you can type `vimtutor` on your terminal to start an interactive Vim tutorial. Instead, I want to describe how I got the first steps right.
+
+## The First Steps
+
+First, be sure to put all your Vim files and plugins under version control to be able to restore the same workspace to any computer in seconds. Incidentally, it’s a good idea to version all Bash files and Unix configuration files.
+
+I have created a repository `dotfile` with Git, which contains subfolders for `bash`, `bin`, `git`, `vim`, and other programs. My Vim subfolder contains a file `vimrc.vim` and `gvimrc.vim` and various other Vim folders. This simple bash installation script installs my environment on a computer if desired:
+
+```bash
+#!/bin/bash
+
+cd vim
+export VIM_SRC=`pwd`
+cd
+ln -nfs $VIM_SRC .vim
+ln -nfs $VIM_SRC/vimrc.vim .vimrc
+ln -nfs $VIM_SRC/gvimrc.vim .gvimrc
+```
+
+This script links my configuration files as a symbolic link to the home directory where Vim expects them.
+
+## The Second and Most Important Step
+
+Vim has the nasty feature of scattering files across folders taken from the Unix philosophy and does not facilitate the overview of what has been installed.
+
+Tim Pope has programmed a fantastic plugin that is the last plugin to be installed traditionally: **Pathogen**.
+
+Pathogen makes it possible to store plugins as bundles, individually, and bundled together as a nice package. All you have to do is download [pathogen.vim](https://github.com/tpope/vim-pathogen) and place it in the Vim folder in a subfolder `autoload`. The next step is to create a `bundle` folder in the Vim folder and open your `.vimrc` file. There you write at the beginning:
+
+#### .vimrc
+
+```vim
+silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
+```
+
+Plugins are from now on not put into the correct subfolders but put per plugin in a separate folder under `bundle`. For Vim, there are unfortunately various ways to install extensions. Simple scripts, automatic installer, and, thank God, Git checkouts.
+
+**Update:** A few years ago, I switched to [vim-plug](https://github.com/junegunn/vim-plug), a minimalist Vim Plugin Manager. It has many pleasant features.
+
+My recommendation is to switch to git checkouts. This has recently become easy because somebody created a mirror of many vim scripts under [vim-scripts](https://github.com/vim-scripts) on GitHub, and thus allows the automatic update of the plugins via Git.
+
+Another option is to clone the plugins as submodules, I use a small Ruby script from [Tammer Saleh](http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen/), to update my git repositories:
+
+```ruby
+#!/usr/bin/env ruby
+
+git_bundles = [
+  "git://github.com/scrooloose/nerdtree.git",
+  "git://github.com/kogakure/snipmate.vim.git",
+  "git://github.com/vim-scripts/vim-surround.git"
+  # …
+]
+
+require 'fileutils'
+
+bundle_dir = File.expand_path('../bundle/', __FILE__)
+
+git_bundles.each do |url|
+  dirname = File.basename(url)
+  puts "* Extract #{url} → #{dirname}"
+  dir = File.join(bundle_dir, dirname)
+  cd #{dir} 2>/dev/null && git pull || git clone #{url} #{dir}
+end
+```
+
+This great script clones my bundles or updates them from different places (GitHub, my server). The advantage is that in my repository I always have everything with me and I have not gotten it with a submodule command.
+
+## Basic Configuration
+
+Next, you should open the `.vimrc` and enter basic settings. To find out which ones are the best, you can have a look at the blogs and screencasts mentioned below. I recommend that you always write comments next to each command that explains what it does.
+
+My file is divided into several areas: First, the basic settings are line width, wrapping, colors, backups, and line numbering. Then follows an area for abbreviations, then the area for the mappings, then file-type settings, and at the end functions.
+
+## Keyboard Shortcuts
+
+My biggest problem was that my keyboard had no keys left, about all the function keys and almost all the other keys were used. The consequence of this was that I constantly had to find out which function, which plugin or mapping now creates a conflict. But thank God, the ominous `Leader`, is a key that you can press and then press any key combination. By default, this key is located on the <kbd>\\</kbd> and is therefore difficult to reach, which is why you can remap it to another key, such as the space key or a comma:
+
+```vim
+let mapleader=','
+```
+
+By pressing the comma in NORMAL mode followed by my keyboard shortcuts, I can execute arbitrary commands.
+
+## Get Back Cherished Functions Through Plugins
+
+If you switch from TextMate (or another editor) to Vim, you’re bound to miss your editor’s favorite features. If the missing feature does not work in Vim by itself, it will likely work with one of the thousands of plugins.
+
+A sidebar, in which all files are to be seen in the tree structure, can for example added with [NERD tree](https://github.com/scrooloose/nerdtree). At first, I thought, I’ll need this functionality **undoubtedly**, but since I know the buffers and splits of Vim, I use the NERD tree rarely.
+
+Wincent Colaiuta has written [Command-T](https://wincent.com/products/command-t) an ingenious plugin that reproduces TextMate’s ability to open any file in the project with a few keystrokes.
+
+Another essential plugin is [surround. vim](https://github.com/tpope/vim-surround). It lets you manipulate, add or delete enclosures such as parentheses, tags, and single quotes.
+
+TextMate was the first program that introduced snippets on a large scale. I’ve has been working with TextMate for years and could not work properly without snippets. Vim even offers several implementations for snippets. I use [snipmate](https://github.com/msanders/snipmate.vim) even though there is a more powerful (but more complicated plugin) for Power users. Snipmate offers almost all the functions that TextMate had, the snippets can almost be copied and modified with a few changes.
+
+Peteris Krumin introduces it on his blog [Vim Plugins You Should Know About](http://www.catonmat.net/blog/vim-plugins-surround-vim/).
+
+## Omnicomplete Power
+
+Vim offers an unbeatable tool since version 7 with Omnicomplete. Omnicomplete completes everything: simple words, dictionaries, functions, classes, and file names. This is a genius. I’ve hooked up a 7 MB dictionary with German spelling, and now Vim completes any word that complicated.
+
+## There Will Be Color
+
+No matter if you like it bright, or dark, for Vim there are almost countless color schemes that can be downloaded and changed in seconds. There is even the possibility to convert TextMate themes into Vim color schemes. The color files can be adjusted until the last one is satisfied.
+
+## And Where Do I Start Now?
+
+If you have an hour and a half, take a look at the video from Google Tech Talk, in which the developer of Vim, the Dutchman Bram Moolenaar, shows in [7 Habits For Effective Text Editing 2.0](https://youtu.be/p6K4iIMlouI) which is impressive on Vim.
+
+There are two fantastic articles I can recommend: [Coming Home to Vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/) by Steve Losh and [How I boosted my vim](https://nvie.com/posts/how-i-boosted-my-vim/) by Vincent Driessen.
+
+## The Best Comes Last
+
+But the best way to get started is with two incredible screencast series. [Derek Wyatt’s Vim Tutorial Videos](http://derekwyatt.org/vim/tutorials/) and the [Screencasts at vimcasts.org](http://vimcasts.org/). If you have little time to read through the blogs, take the time to watch his screencasts. They are between 5 and 30 minutes long, and he has made a number of them. I’ve rarely laughed that way because Derek not only shows how a professional developer works with Vim but has a remarkable sense of humor. It’s best to watch the beginner videos first. You should start with the introductory video [Welcome to Vim](http://derekwyatt.org/vim/tutorials/novice/). The screencasts on vimcasts.org are recommended.
+
+Do not try too much at once, learn the basics, especially the motion commands, search commands, and string manipulations. And use them, even if you think the old way would go faster! In the beginning, you will be slow and feel that you are less productive with Vim. But that’s misleading since you’ll get better quickly and then depend on every other editor. The transition is not easy, I’ve been trying it for a month, and it’s difficult to get rid of all those awful habits: the constant grasp of the mouse or the nonsensical arrow keys to operate.
+
+If you use Vim, you will have to type far less, and you will be able to edit your text much faster. But above all, you will be constantly excited again when you have discovered a new way to write better, faster, and more efficiently.

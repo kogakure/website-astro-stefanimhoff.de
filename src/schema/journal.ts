@@ -10,13 +10,16 @@ export const journal = defineCollection({
 		cover: z.string().optional(),
 		tags: z.array(
 			z.enum([
+				'book',
 				'code',
 				'design',
 				'download',
 				'film',
 				'productivity',
+				'publication',
 				'self-improvement',
 				'tip',
+				'typography',
 			])
 		),
 	}),

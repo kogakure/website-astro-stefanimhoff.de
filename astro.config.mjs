@@ -10,6 +10,11 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
+		shikiConfig: {
+			theme: 'nord',
+			langs: [],
+			wrap: true,
+		},
 	},
 	integrations: [mdx(), tailwind(), preact(), astroImageTools],
 });

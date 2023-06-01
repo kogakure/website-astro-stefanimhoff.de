@@ -136,6 +136,7 @@ module.exports = {
 				7: ['clamp(3.3rem, 7.3vw, 8.5rem)', { lineHeight: '1' }],
 				8: ['clamp(4.5rem, 12.2vw, 13.87rem)', { lineHeight: '1' }],
 				9: ['clamp(5.5rem, 28.7vw, 22.43rem)', { lineHeight: '1' }],
+				code: ['clamp(0.75rem, 0.8vw, 0.9rem)', { lineHeight: '1.625' }],
 			},
 			boxShadow: {
 				subtle: '0 0 50px rgb(0 0 0 / 0.2)',

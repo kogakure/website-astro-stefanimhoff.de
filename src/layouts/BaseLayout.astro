@@ -72,5 +72,10 @@ const { backLink, footer = true, header = true, title, description } = Astro.pro
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
 			);
 		</script>
+		<style is:global>
+			.astro-code {
+				@apply overflow-auto rounded-2 p-[1em] font-mono text-code mbe-10 mbs-0;
+			}
+		</style>
 	</body>
 </html>
