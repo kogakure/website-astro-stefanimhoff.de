@@ -22,7 +22,7 @@ const imageClasses =
 		src.includes('.svg') ? (
 			<img class={imageClasses} src={src} {...(props as any)} />
 		) : (
-			<Img class={imageClasses} src={src} {...props} />
+			<Img src={src} attributes={{ class: imageClasses }} {...props} />
 		)
 	}
 </div>
