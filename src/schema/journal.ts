@@ -15,6 +15,7 @@ export const journal = defineCollection({
 				'design',
 				'download',
 				'film',
+				'health',
 				'productivity',
 				'publication',
 				'self-improvement',
@@ -22,5 +23,6 @@ export const journal = defineCollection({
 				'typography',
 			])
 		),
+		series: z.string().optional(),
 	}),
 });

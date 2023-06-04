@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-import { sortBySortKey } from '../utils';
+import { sortByDate } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
@@ -11,7 +11,7 @@ import { Link } from '../components';
 import { mapping } from '../mdx-components';
 
 const allJournal = await getCollection('journal');
-allJournal.sort(sortBySortKey);
+allJournal.sort(sortByDate);
 
 const title = 'Journal';
 const description = '…';

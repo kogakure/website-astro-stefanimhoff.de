@@ -10,7 +10,7 @@ import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Pagination from '../components/Pagination.astro';
 import Picture from '../components/Picture.astro';
-import { TextLink } from '../components';
+import { Banner, ListItem, OrderedList, TextLink } from '../components';
 
 import { mapping } from '../mdx-components';
 
@@ -37,6 +37,12 @@ const {
 	Content,
 	remarkPluginFrontmatter: { minutesRead },
 } = await entry.render();
+
+const seriesEntries = await getCollection('journal', ({ data }) => {
+	return data.series === entry.data.series;
+});
+
+seriesEntries.sort(sortByDate).reverse();
 
 const title = entry.data.title;
 const description = '…';
@@ -82,6 +88,26 @@ const description = '…';
 	<div
 		class="journal-post col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13"
 	>
+		{
+			entry.data.series && (
+				<Banner summary="Series">
+					<OrderedList class="!mbe-0 !pis-7">
+						{seriesEntries.map((item) => (
+							<ListItem class="!text-[0.85em]">
+								{entry.slug === item.slug ? (
+									<>
+										<i>{item.data.title}</i>
+										📍
+									</>
+								) : (
+									<TextLink href={`/${item.slug}/`}>{item.data.title}</TextLink>
+								)}
+							</ListItem>
+						))}
+					</OrderedList>
+				</Banner>
+			)
+		}
 		<Content components={mapping} />
 		{
 			entry.data.updated && (
