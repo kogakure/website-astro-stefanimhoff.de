@@ -150,6 +150,15 @@ const description = '…';
 			@apply mbs-0;
 		}
 
+		& h2 + h3,
+		& p + h2,
+		& p + h3,
+		& p + h4,
+		& p + h5,
+		& p + h6 {
+			@apply !mbs-12;
+		}
+
 		& > *:first-child {
 			@apply mbs-0;
 		}

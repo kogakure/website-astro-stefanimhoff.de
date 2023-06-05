@@ -12,6 +12,7 @@ export const journal = defineCollection({
 			z.enum([
 				'book',
 				'code',
+				'decentralization',
 				'design',
 				'download',
 				'featured',
@@ -19,10 +20,15 @@ export const journal = defineCollection({
 				'health',
 				'minimalism',
 				'note-taking',
+				'personal',
+				'philosophy',
+				'poetry',
+				'politics',
 				'productivity',
 				'publication',
 				'self-improvement',
 				'software',
+				'survival',
 				'tip',
 				'typography',
 			])
