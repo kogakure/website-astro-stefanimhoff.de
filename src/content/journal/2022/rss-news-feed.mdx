@@ -1,0 +1,135 @@
+---
+title: The Return of the News Feed
+slug: rss-news-feed
+date: 2022-11-05T16:00:00+01:00
+author: Stefan Imhoff
+description: Why you should stop reading news inside of social media sites and instead use the RSS/Atom news feed format to directly follow content creators, and why you should provide a news feed as a content creator.
+tags: ["tip"]
+---
+
+People always ask me how I stay up to date with all those new tools, libraries, memes, jokes, industry or political news without getting overwhelmed. My answer is simple: <q>I use an RSS feed reader for as long as I can remember.</q> I follow 817 sources. I read everything within my RSS Reader, from blogs to news sites, YouTube videos, Twitter, and Reddit, to newsletters.
+
+## A Short History of the News Feed
+
+At the beginning of the internet, there were not many websites, and bookmarking those and visiting them from time to time was easy. But as more and more people discovered the internet, people started to create curated lists of “cool things” to look at. But the number of websites grew, and it got harder and harder to find the good things. The invention of search engines allowed to crawl the internet and create indexes of everything. Finding things was now possible again. As soon as you wanted to stay up to date with more than a handful of websites, you were out of luck. Too much effort was necessary to check all the cool websites every day.
+
+### A New Hope
+
+Clever people started to think about ways to create machine-readable ways to deliver content to solve those issues. The RSS (_Rich Site Summary_ or _Really Simple Syndication_) format was created in 1999, but it gained widespread usage between 2005 and 2006.
+
+The idea is simple: Instead of visiting a website to see if new content is available, the website updates a small machine-readable file that is frequently read by a feed reader. It started similarly to news tickers. At first, those websites delivered headlines and occasionally a short excerpt, but soon many delivered the full content. Google created the [Google Reader](https://en.wikipedia.org/wiki/Google_Reader) in 2005, a fantastic way of staying up to date.
+
+### The Empire Strikes Back
+
+But with the advent of social media, many content creators moved their content to those social media platforms and they build walls around it. They discovered that the idea of content aggregation ran against their business model of advertising to the user. Google tried monetizing news feed advertising by buying the company [Feedburner](https://feedburner.google.com/). The companies discovered that giving control over when and how users consume content harmed the companies revenue. Instead, they started investing in algorithms to deliver sorted and ranked content to the user inside their social media feeds. Google retired Google Reader in 2013 and gradually removed features from Feedburner and in 2021 they retired the service and kept a minimal interface alive to proxy feeds.
+
+But over the years, more and more content creators discovered that they lost control or even ownership over their content and customers. This [funny comic](https://theoatmeal.com/comics/reaching_people_2021) by <cite>The Oatmeal</cite> visualizes the dilemma content creators are in right now.
+
+Social media companies started to misuse their algorithms for maximal profit and to push politically biased content. It started with conservative people that saw their reach limited or throttled, content removed or pages deplatformed. But with the acquisition of Twitter by Elon Musk, even the most progressive left-leaning person realized that ownership and policies in those walled gardens can change quickly. More and more content creators start moving back to good old newsletters, RSS feeds, and their websites. They post links to their content on all social media sites, but the content lives on their sites.
+
+### The Return of the News Feed
+
+And even though not many people use this technology, it never went away. It was kept alive in Open-Source projects, specialized services, or hidden beneath famous applications (like Apple podcasts). And with the realization that social media companies abused our trust, many tools bring back this old technology. Brave introduced in [2020](https://brave.com/announcing-brave-today/) [Brave News](https://brave.com/brave-news/) to their browser as a built-in newsreader that supports RSS. Readwise created a brand-new reading experience with [Readwise Reader](https://readwise.io/read) that has an RSS Reader built-in. The recipe app [Mela](https://mela.recipes/) uses RSS to collect recipes from around the internet and to add them with one click to your recipe collection. And RSS is the underlying technology of all podcast apps.
+
+## Introduction to News Feeds for Beginners
+
+It is best I start briefly explaining the technical terms you might come along with when using a newsreader. News feeds are available as different formats: [RSS](https://en.wikipedia.org/wiki/RSS), [Atom](<https://en.wikipedia.org/wiki/Atom_(web_standard)>), and [JSON feed](https://www.jsonfeed.org/). As a user, you don’t need to know the differences, the first two formats are supported by nearly every reader, and the last format is newer and has less support. RSS and Atom can be used interchangeably, even though there are slight differences that don’t have to bother a non-tech person. It’s a file that is updated by the website you want to subscribe to and regularly checked for updates by your RSS Reader or RSS Aggregator. If you’re curious about how a file looks like, you can have a look at [my RSS feed](https://www.stefanimhoff.de/index.xml).
+
+Another term is [OPML](https://en.wikipedia.org/wiki/OPML) (Outline Processor Markup Language), a format that is used to export and import a list of sources you follow. When you want to create a backup of your subscriptions or use a new app, you export your current list of sources to this format and import it to the new app.
+
+### RSS Reader vs. RSS Aggregator
+
+As RSS is an open format, there are as many ways of consuming content as there are tastes. You have to pick what you value. A pretty interface, easy usage, advanced features, or even artificial intelligence. RSS Readers or RSS Aggregator are two ways of reading your content.
+
+An RSS Reader is a direct connection to each source, and you can pick at what interval all the sources should be checked for new content. Depending on the number of sources you follow, this might take a few seconds or minutes to ask each website for changes. Many applications can do this in the background. They come built into some applications, for example in [DEVONthink](https://devontechnologies.com/apps/devonthink) or [Brave Browser](https://brave.com/brave-news/), as browser plugins or applications for Desktop or Mobile. The price range is from free over a small one-time price to monthly payments. I use [Reeder](https://reeder.app/) on macOS, iOS, and iPadOS. Here is a short list of applications: [Reeder](https://reeder.app/), [NewNewsWire](https://netnewswire.com/), [Fiery Feeds](http://cocoacake.net/apps/fiery/), [lire](https://lireapp.com/), [ViennaRSS](https://www.vienna-rss.com/), [Unread](https://www.goldenhillsoftware.com/unread/), or [Fluent Reader](https://hyliu.me/fluent-reader/). But there are much more available by searching for `RSS Reader` on the internet or your preferred App Store. I suggest downloading a free or cheap RSS Reader at first and start using a RSS Aggregator when you need more features.
+
+An RSS Aggregator is a service that does the fetching for you, and they add more useful features to justify a monthly fee. They might allow subscribing to email newsletters or have a powerful search. Some might provide a Twitter subscription or a connection to other services. They might hide sponsored advertising, provide a nice reading experience, allow you to listen to podcasts, see changes in updated articles, create filter or muting rules, or even use artificial intelligence to enhance the experience. The price range is between $4-12 per month.
+
+I used [Feedly](https://feedly.com/) since 2013, but switched last year to [Feedbin](https://feedbin.com/) because I didn’t need the artificial intelligence features of Feedly and Feedbin provided the features I wanted for a better price. It’s possible to use RSS Aggregators with RSS Readers. I read my news in Reeder, but Feedbin is my aggregator. I additionally started using [Readwise Reader](https://readwise.io/read), which is in late Beta. Other aggregators are [NewsBlur](https://newsblur.com/), [InnoReader](https://www.inoreader.com/), [BadQux Reader](https://bazqux.com/), or [The Old Reader](https://theoldreader.com/). If you are technically skilled, you can even host your aggregator with tools like [FreshRSS](https://freshrss.org/) or [Tiny Tiny RSS](https://tt-rss.org/).
+
+## Subscribing to a News Feed
+
+Many RSS Readers allow subscribing to a website by clicking a button and pasting the URL of the website. Browser extensions allow doing this directly from within a browser. RSS Aggregators provide often a way to discover news sources inside the application. Feeds can be organized by adding them to folders or adding tags. This allows reading everything about one topic before moving to the next. It’s not only websites you can subscribe to, but many services have hidden RSS features.
+
+```md
+# YouTube
+
+https://www.youtube.com/feeds/videos.xml?channel_id=<ID>
+https://www.youtube.com/feeds/videos.xml?playlist_id=<ID>
+
+# Odysee
+
+https://odysee.com/$/rss/@<USER>
+
+# Reddit
+
+https://www.reddit.com/.rss
+https://www.reddit.com/r/<NAME>.rss
+https://www.reddit.com/r/<NAME>/hot.rss
+https://www.reddit.com/r/<NAME>/new.rss
+https://www.reddit.com/r/<NAME>/rising.rss
+https://www.reddit.com/r/<NAME>/top.rss
+https://www.reddit.com/r/<NAME>/best.rss
+https://www.reddit.com/user/<USER>.rss
+https://www.reddit.com/user/<USER>/m/<NAME>.rss
+https://www.reddit.com/r/<NAME>+<NAME>+<NAME>.rss
+
+# Hacker News
+
+https://news.ycombinator.com/rss
+https://news.ycombinator.com/showrss
+https://hnrss.org/newest?points=250
+https://hnrss.org/newest?q=Django
+https://hnrss.org/bestcomments
+https://hnrss.org/best
+```
+
+A much longer list is provided in the article [Use RSS for privacy and efficiency](https://rsapkf.org/weblog/q2z) and in a huge [GitHub gist](https://gist.github.com/thefranke/63853a6f8c499dc97bc17838f6cedcc2) with endpoints. For websites that don’t provide an RSS feed, there is the option of [scraping](https://en.wikipedia.org/wiki/Web_scraping). Scraping is the technique of scanning a website and extracting data. [RSS Bridge](https://rss-bridge.github.io/rss-bridge/) is an open-source project that generates RSS or Atom feeds for websites that don’t provide one. Some content aggregators like Feedly have a built-in scraper. The only way to prevent content from being scraped is through a password-protected site.
+
+## Providing a News Feed
+
+But why share content on the internet, if you don’t want people to find and read it? Every so often, I come to a tech blog that doesn’t provide an RSS feed. This always leaves me with a mixture of perplexity, confusion, and anger. When I like the content, I write an email to the website owner asking to provide one, if they don’t add one I try using a scraper or never come back.
+
+Don’t lose potential readers, customers, or fans by not providing an RSS feed. Adding a feed is easy. Many CMS systems, web frameworks, and static site generators have the feature either built-in, or it can be activated in the settings, added with a plugin, or with custom code written in 15 minutes. Here is information on how to add an RSS feed to [WordPress](https://wordpress.com/support/feeds/), [Ghost](https://ghost.org/integrations/custom-rss/), [Joomla](https://docs.joomla.org/Help310:Extensions_Module_Manager_Syndication_Feeds), [Magnolia](https://docs.magnolia-cms.com/product-docs/6.2/Authoring/Feeds.html), [Squarespace](https://support.squarespace.com/hc/en-us/articles/206543187-Finding-your-RSS-feed-URL), [Wix](https://www.wix.com/blog/2021/05/rss-feed), [Weebly](https://www.weebly.com/app/help/us/en/topics/what-is-an-rss-feed), [Ruby on Rails](https://www.lugolabs.com/articles/build-a-rss-feed-in-ruby-on-rails), [Django](https://djangocentral.com/creating-feeds-with-django/), [Next.js](https://jonbellah.com/articles/rss-feed-nextjs), [Hugo](https://gohugo.io/templates/rss/), [Gatsby](https://www.gatsbyjs.com/docs/how-to/adding-common-features/adding-an-rss-feed/), [Jekyll](https://github.com/jekyll/jekyll-feed), [Nuxt](https://www.npmjs.com/package/@nuxtjs/feed), [Hexo](https://github.com/hexojs/hexo-generator-feed), [Astro](https://docs.astro.build/en/tutorial/5-astro-api/4/), [Vuepress](https://github.com/webmasterish/vuepress-plugin-feed), [Eleventy](https://www.11ty.dev/docs/plugins/rss/), [SvelteKit](https://scottspence.com/posts/make-an-rss-feed-with-sveltekit), [Gridsome](https://gridsome.org/plugins/gridsome-plugin-feed), or [Metalsmith](https://github.com/hurrymaplelad/metalsmith-feed).
+
+After an RSS feed is published for your website, you need to make sure RSS Readers and RSS Aggregators can find it. This is done by adding the URL to the feed(s) to the `<head>` of your website. Many CMS do this automatically for you.
+
+It is a good idea to provide multiple feeds if you provide different content types. That way, the readers can subscribe to the topics they are interested in.
+
+I provide a feed for my essays, one for my Haiku poetry, one for my sketch notes and one for my link recommendations:
+
+```html
+<link
+	href="https://www.stefanimhoff.de/index.xml"
+	rel="alternate"
+	title="Stefan Imhoff"
+	type="application/rss+xml"
+/>
+
+<link
+	href="https://www.stefanimhoff.de/haiku.xml"
+	rel="alternate"
+	title="Stefan Imhoff (Haiku)"
+	type="application/rss+xml"
+/>
+
+<link
+	href="https://www.stefanimhoff.de/sketchnotes.xml"
+	rel="alternate"
+	title="Stefan Imhoff (Sketchnotes)"
+	type="application/rss+xml"
+/>
+
+<link
+	href="https://www.stefanimhoff.de/feed-raindrop.xml"
+	rel="alternate"
+	title="Stefan Imhoff (Recommendations)"
+	type="application/rss+xml"
+/>
+```
+
+## Conclusion
+
+Social media companies have shown us many reasons to mistrust them. They don’t create content, but aggregate, sort, and filter the content of others to advertise, make money, push political messages, or outright steal the content of creative people. Any content creator that uses social media sites or video sites as the only way to connect to their consumers will regret this decision because they will lose control over their content and customers.
+
+RSS feeds provide a relaxing way for readers to follow many interesting sources of content around the internet without the possibility of manipulation through social media companies. For content providers, RSS feeds provide a direct connection to the reader without the interference of third-party providers. Your content is delivered fast and direct to the reader, within minutes.

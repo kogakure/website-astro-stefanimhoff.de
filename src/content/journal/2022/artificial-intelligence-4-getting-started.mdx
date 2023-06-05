@@ -1,0 +1,157 @@
+---
+title: "The Advent of AI: Getting Started with Text-to-Image Generation"
+slug: artificial-intelligence-4-getting-started
+date: 2022-12-24T12:00:00+01:00
+author: Stefan Imhoff
+description: This is a four-part series of essays that investigates different aspects of AI.
+cover: /assets/images/cover/ai-cover-4.jpg
+tags: ["code", "software", "design"]
+series: artificial-intelligence
+---
+
+Text-to-image generation needs a powerful [NVIDIA GPU](https://www.youtube.com/watch?v=H-6DXU967bU) with at least 4 GB VRAM. You can run Stable Diffusion on an Apple M1 chip. The easiest way to get started is either with [UnstableFusion](https://github.com/ahrm/UnstableFusion) for Windows, Mac, and Linux, or with [Diffusion Bee](https://diffusionbee.com/) for Mac.
+
+Though it’s possible to run it on the CPU, this is extremely slow and not recommended.
+For comparison, I generated images with the same prompt on DreamStudio in 9 seconds, on my iPad Pro M2 in 58 seconds and with Diffusion Bee on a MacBook 2016 in 7 minutes.
+
+If you’re just curious and don’t to pay for the necessary hardware, or create an account on one of the platforms, you can try the old DALL·E Mini. It’s now a free service rebranded as [Crayon](https://www.craiyon.com/). The quality of the results is months behind the quality of the current models, but it’s a good starting point to get to know the technology. Another option is to use the free contingents of various services mentioned in the last essay.
+
+## Draw Things
+
+If you have an iPad or iPhone, you’re in luck because a free app is available on the App Store that allows using dozens of free image models based on Stable Diffusion. The name of the app is [Draw Things: AI Generation](https://apps.apple.com/app/draw-things-ai-generation/id6444050820), developed by Liu Liu. The app is mind-blowing and I highly recommend it.
+
+<Figure caption="Draw Things app for iOS/iPadOS" size="wide">
+	<Image src="/assets/images/posts/ai-draw-things.jpg" alt="Draw Things app" />
+</Figure>
+
+The developer improves the app constantly by adding interesting new models. I downloaded over 50 GB of model data. Besides the official versions of Stable Diffusion, there are models from the community. The most important website for models is [Hugging Face](https://huggingface.co/), an AI community to build, train and deploy models powered by the reference open source in machine learning. It’s the GitHub for AI. You can find exciting [projects](https://huggingface.co/huggingface-projects) on Huggingface, for example [diffuse the f rest](https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest), where you draw an image and provide a prompt and the AI will generate a better version of it.
+
+## Diffusion Models
+
+You can find most models available in the Draw Things application on Hugging Face. A lot of the models are trained in a specific style. I list here all available models of the app at the time of writing, you can see examples of each model at the linked URLs. You can find here a more extensive list of models for [Stable Diffusion](https://rentry.co/sdmodels).
+
+- [Stable Diffusion v1.4](https://huggingface.co/CompVis/stable-diffusion-v1-4)
+- [Stable Diffusion v1.5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
+- [Stable Diffusion v1.5 Inpainting](https://huggingface.co/runwayml/stable-diffusion-inpainting) – Inpainting in existing photos
+- [Stable Diffusion v2.0](https://huggingface.co/stabilityai/stable-diffusion-2)
+- [Stable Diffusion v2.0 768-v (HD)](https://huggingface.co/stabilityai/stable-diffusion-2)
+- [Stable Diffusion v2.0 Inpainting](https://huggingface.co/stabilityai/stable-diffusion-2-inpainting) – Inpainting in existing photos
+- [Stable Diffusion v2.1](https://huggingface.co/stabilityai/stable-diffusion-2-1)
+- [Stable Diffusion v2.1 768-v (HD)](https://huggingface.co/stabilityai/stable-diffusion-2-1)
+- [MiniSD v1.4](https://huggingface.co/justinpinkney/miniSD)
+- [Waifu Diffusion v2.1](https://huggingface.co/hakurei/waifu-diffusion) – high-quality anime images
+- [Nitro Diffusion v1.3](https://huggingface.co/nitrosocke/Nitro-Diffusion) – this model can create multiple styles: [Archer](https://www.themoviedb.org/tv/10283-archer) style, [Arcane](https://www.themoviedb.org/tv/94605-arcane) style, or modern Disney style
+- [Cyberpunk Anime Diffusion](https://huggingface.co/DGSpitzer/Cyberpunk-Anime-Diffusion) – Cyberpunk anime characters
+- [Redshift Diffusion v1](https://huggingface.co/nitrosocke/redshift-diffusion) – high-resolution 3D artwork
+- [Redshift Diffusion 768 (HD)](https://huggingface.co/nitrosocke/redshift-diffusion-768) – Stable Diffusion 2.0 trained on Redshift style
+- [Dungeons and Diffusion](https://huggingface.co/0xJustin/Dungeons-and-Diffusion) – trained on DnD characters
+- [Tron Legacy](https://huggingface.co/dallinmackay/Tron-Legacy-diffusion) – trained on screenshots of the film [Tron: Legacy](https://www.themoviedb.org/movie/20526-tron-legacy)
+- [Openjourney](https://huggingface.co/prompthero/openjourney) – model trained on Midjourney images. If you love Midjourney, you’ll like this style
+- [Anything v3](https://huggingface.co/Linaqruf/anything-v3.0) – model for high-quality anime
+- [Classic Animation Diffusion v1](https://huggingface.co/nitrosocke/classic-anim-diffusion) – this model creates the classic Disney animation style
+- [Modern Disney Diffusion v1](https://huggingface.co/nitrosocke/mo-di-diffusion) – Creates the style of modern Disney movies
+- [Arcane Diffusion v3](https://huggingface.co/nitrosocke/Arcane-Diffusion) – model trained on the style of [Arcane](https://www.themoviedb.org/tv/94605-arcane).
+- [Hassanblend v1.4](https://huggingface.co/hassanblend/hassanblend1.4) – ⚠️ model trained on NSFW content
+- [Van Gogh Diffusion v2](https://huggingface.co/dallinmackay/Van-Gogh-diffusion) – model based on the movie [Loving Vincent](https://www.themoviedb.org/movie/339877-loving-vincent)
+- [Spider-Verse Diffusion v1](https://huggingface.co/nitrosocke/spider-verse-diffusion) – model trained on movie stills from [Spider-Man: Into the Spider-Verse](https://www.themoviedb.org/movie/324857-spider-man-into-the-spider-verse)
+- [Elden Ring Diffusion v3](https://huggingface.co/nitrosocke/elden-ring-diffusion) – model trained on the game art from [Elden Ring](https://www.eldenring.com/)
+- [Paper Cut v1](https://huggingface.co/Fictiverse/Stable_Diffusion_PaperCut_Model) – model trained on paper cut images
+- [VoxelArt v1](https://huggingface.co/Fictiverse/Stable_Diffusion_VoxelArt_Model) – model trained on Voxel Art images
+- [Balloon Art v1](https://huggingface.co/Fictiverse/Stable_Diffusion_BalloonArt_Model) – model trained on Twisted Balloon images
+- F222 – ⚠️ model trained on NSFW content
+- [Super Mario Nation v2](https://huggingface.co/tuwonga/supermarionation) – model trained on Gerry Anderson’s [Supermarionation](https://de.wikipedia.org/wiki/Supermarionation)
+- [Inkpunk Diffusion v2](https://huggingface.co/Envvi/Inkpunk-Diffusion) – model on dream booth, inspired by Gorillaz, FLCL, and Yoji Shinkawa
+- [SamDoesArt v3](https://huggingface.co/Sandro-Halpo/SamDoesArt-V3) – model trained on the art style of [Sam Yang](https://www.instagram.com/samdoesarts/).
+
+To show what the models are capable of, I used my profile picture with different diffusion models. I used the same seed, no prompt, `50` steps, a guidance scale of `13,0`, a strength of `46%`, and the `Euler Ancestral` sampler. 46% as a strength value means it took roughly half of the source photo and the rest was creative. Lower values generate an image that looks like the source image, higher values generate images that look like the style the model was trained on. If you combine it with a prompt, you can get even more creative results, but you can never change the basic geometry of the image. For that, you need to train a new model with your face in Dreambooth.
+
+<Figure caption="My profile picture in different diffusion models" size="wide">
+	<Image
+		src="/assets/images/posts/ai-diffusion-models.jpg"
+		alt="Profile picture in diffusion models"
+	/>
+</Figure>
+
+## Diffusion Models
+
+When you start with text-to-image generation AI, many terms will not make any sense to you. But without understanding these basics, good results are mostly luck.
+
+The first term you’ll hear, is “Diffusion Model.” As I can’t explain it myself, I asked GPT-3 to explain it:
+
+> It is a model that is trained to generate images from text. It is called “Diffusion Model” because it is based on the diffusion process. The diffusion process is a mathematical model that describes how a substance spreads in a medium. The diffusion process is used in many fields, for example in biology, chemistry, and physics. In the context of text-to-image generation, the diffusion process is used to describe how the model spreads the text information over the image pixels.
+
+In this video, you get the whole process of [how AI image generators work](https://www.youtube.com/watch?v=1CIpzeNxIhU) explained.
+
+## Prompt
+
+The most important part of the generation of AI images is the “prompt.” Entire books with hundreds of pages exist about how to write a good prompt. The prompt is your way to talk to the AI.
+
+If you write a simple prompt, the result might be good at random or total crap. Each generator has its own rules on how to write a good prompt, but the basic technique is similar. You have to write detailed and descriptive what you want to see in the image, the word parts are usually separated by commas. The order of words is essential.
+
+Some generators allow negative prompts, to exclude specific things from the image. You could, for example, ask the AI to generate a picture of a jungle, but exclude the color green from it. Often it’s possible to weigh specific parts of the prompt, to signal the AI which parts are more important. In Midjourney you use the `more weight::2.0` (negative or positive numbers) to weigh a part of the prompt, in Stable Diffusion you can use the `more weight:2.0` or brackets `((more weight))` to weigh a part of the prompt.
+
+My first prompt was basic, I asked the AI to generate `a cyberpunk wizard`. The result was impressive, but random luck. I recreated the first two images with the same seed and upscaled the second one to add more detail. But the third image, generated with a new seed, created a complete different picture.
+
+<Figure caption="A cyberpunk wizard" size="wide">
+	<Image src="/assets/images/posts/ai-cyberpunk-wizard.jpg" alt="Cyberpunk wizard" />
+</Figure>
+
+The art or skill of writing a good prompt is somewhere between programming, art direction, art history, photography, and writing. The more you know about formats, lenses, colors, lighting, art, artists, photography, painting, and many other art forms, the better you can write a good prompt.
+
+Many websites are helping with the creation of prompts. Some have a build in search engine, others vast documentation, or even generators for prompts for different models.
+
+PromptoMANIA has a [Prompt Builder](https://promptomania.com/prompt-builder/) that supports Midjourney, DreamStudio, Stable Diffusion, CF Spark, and Generic prompts. [Prompthero](https://prompthero.com/) allows searching millions of images for Openjourney, Stable Diffusion, DALL·E, and Midjourney. [AiTuts](https://aituts.com/) has a huge [prompt library](https://prompts.aituts.com/) with fantastic images, a free prompt book (<cite>The Big Book of Prompts</cite>), and a blog with useful getting-started articles on many generators. [Diffusion Land](https://www.diffusion.land/) has a search and archive for many Stable Diffusion models. [ArtHub.ai](https://arthub.ai/) has a prompt library and a massive collection of community art. Rex Wang has a website with a [Dynamic Prompt generator](https://rexwang8.github.io/resource/ai/generator). He has also the remarkable project [Teapots and Midjourney](https://rexwang8.github.io/resource/ai/teapot), which explains styles, themes, mediums, materials, camera properties, and many more things for Midjourney, Stable Diffusion and DALL-E at the example of a Utah Teapot.
+
+## Style Guides
+
+Speaking of all the different styles, the next thing is to look at style guides. To create a good prompt, you need to know as many things as possible about everything related to the appearance of your image. But unless you hold a degree in art history or are a professional photographer, art director, or artist, you will need one of the many style guides on the internet. Here is a short list of interesting ones:
+
+- [Midjourney Styles and Keyword Reference](https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference)
+- [Disco Diffusion 70+ Artist Studies](https://weirdwonderfulai.art/resources/disco-diffusion-70-plus-artist-studies/)
+- [56 Awesome Midjourney Examples to Jumpstart Your Ai Portrait Generating](https://www.betchashesews.com/midjourney-examples/)
+- [9 Tricks for Writing Ai Prompts to Create the Best Midjourney Portraits](https://www.betchashesews.com/midjourney-portraits/)
+- [V4 Midjourney Reference Sheets](https://docs.google.com/spreadsheets/d/1MsX0NYYqhv4ZhZ7-50cXH1gvYE2FKLixLBvAkI40ha0/)
+- [Open Library of Styles by the MJ Community](https://docs.google.com/spreadsheets/d/1cm6239gw1XvvDMRtazV6txa9pnejpKkM5z24wRhhFz0/)
+- [Midjourney Style Guide](https://docs.google.com/spreadsheets/d/117kRRXZFYkRM-QFt7yt6hRLQrg0n3mAMvk7RY3JyXhQ/)
+
+Even though, the style guides are explicitly for a specific generator, you can learn a lot from them and achieve a similar result with a different generator.
+
+## Seed
+
+A seed is a starting point for generating an AI image. It can be a random value or a specific input, like a text description or sample image. The seed determines the initial conditions for the image generation process. If you know the seed of a generated image, you can use it to create the same image again. This is useful for generating a series of similar images, such as a series of images featuring the same person.
+
+## Inpainting & Outpainting
+
+Inpainting is a technique used in image processing and computer vision to fill in missing or corrupted parts of an image. Inpainting algorithms can be used to restore damaged or degraded images, remove objects from an image, or fill in gaps in an image. These algorithms work by using information from surrounding pixels in the image to estimate the values of the missing or corrupted pixels. In the context of AI image generation, inpainting can be used to improve the quality of generated images by filling in any missing or incomplete pixels.
+
+<Figure caption="AI Inpainting" size="wide">
+	<Image src="/assets/images/posts/ai-inpainting.jpg" alt="AI Inpainting" />
+</Figure>
+
+The simplest form of inpainting is to remove a specific object from an image. For example, if you want to remove a person from an image, you can use an inpainting algorithm to fill in the missing pixels with the surrounding pixels. It is possible to fill the area in with a prompt. In the image above, I asked Stable Diffusion to fill in a teddy bear, sitting on a sofa.
+
+[DALL·E](https://openai.com/blog/dall-e-introducing-outpainting/) and [Stable Diffusion](https://github.com/lkwq007/stablediffusion-infinity) support outpainting. With this technique, the AI tries to fill in the missing parts of an image and extend it. Here is a longer [Stable Diffusion Outpainting Colab Tutorial](https://www.youtube.com/watch?v=-8jmBGgGj2E) showing how to do it with a GoogleColab notebook.
+
+## Other Settings
+
+Depending on each generator, there are other settings. The most important is the format of the image. You need to pick the aspect ratio and size, it’s not easily possible to recreate for example an image generated in a 1:1 format in 16:9. The different size will generate a different image, even with the same seed. With some luck, it might look similar.
+
+You need to select how many steps should be applied to the image, the higher the number the better the result, but the longer the process takes. I use Stable Diffusion with values between 30-50 steps.
+
+Stable Diffusion has a Guidance Scale setting that decides how literally the AI takes your prompt, higher values are more faithful to the prompt. I usually use some value between 7-13. Other generators have similar settings.
+
+It’s possible to use different samplers in Stable Diffusion, but the details are too scientific for me. Even the explanation of ChatGPT for the different samplers didn’t help me understand it. The Draw Things app writes:
+
+> Different samplers can converge at different steps and may result different visual styles. Euler A is known to generate more dreamy images while DPM++ 2M Karras can generate high quality images in no more than 30 steps.
+
+## Conclusion
+
+You are now equipped with the knowledge to start your journey with AI. I covered speech-to-text generation, text generation, text-to-image generation, the various generators and Stable Diffusion models, and the different settings. I hope you will have fun with it and create spectacular images.
+
+<Banner summary="Instagram" open>
+	I started posting my AI image art on a new [Instagram](https://www.instagram.com/kogakure.ai.art/)
+	account. You can follow me there for sporadic updates. I would love to see what you create with
+	AI.
+</Banner>
+
+🤖 I researched this series of essays with [ChatGPT](https://chat.openai.com), wrote it with [GitHub Copilot](https://github.com/features/copilot), created the cover artwork with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release), and improved their quality with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN).

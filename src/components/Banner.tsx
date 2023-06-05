@@ -23,12 +23,16 @@ export const Banner: FunctionalComponent<Props> = ({
 
 	return (
 		<aside class={classes} {...props}>
-			<details open={open} class="group">
-				<summary class="cursor-pointer font-black leading-4 tracking-tight group-open:mbe-8">
-					{summary}
-				</summary>
-				{children}
-			</details>
+			{summary ? (
+				<details open={open} class="group">
+					<summary class="cursor-pointer font-black leading-4 tracking-tight group-open:mbe-8">
+						{summary}
+					</summary>
+					{children}
+				</details>
+			) : (
+				children
+			)}
 		</aside>
 	);
 };

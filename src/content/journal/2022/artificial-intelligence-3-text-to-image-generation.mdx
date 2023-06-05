@@ -1,0 +1,99 @@
+---
+title: "The Advent of AI: Text-to-Image Generation"
+slug: artificial-intelligence-3-text-to-image-generation
+date: 2022-12-21T12:00:00+01:00
+author: Stefan Imhoff
+description: This is a four-part series of essays that investigates different aspects of AI.
+cover: /assets/images/cover/ai-cover-3.jpg
+tags: ["code", "software", "design"]
+series: artificial-intelligence
+---
+
+Another type of AI that captures the time and minds of people around the world for months is text-to-image generation. You might have seen the website [This Person Does Not Exist](https://www.thispersondoesnotexist.com/), which generates a new face on every reload. Text-to-image generation is even better, you can generate images just with a text input.
+
+<YouTubeVideo id="fpUpVznI4Yc" />
+
+The video above is one month of work by an artist, created in Midjourney out of 10,000 images. If you’re curious about what artists created with these AI generators, have a look at these stunning videos:
+
+- [Disturbed – Bad Man (Official Music Video)](https://www.youtube.com/watch?v=fpUpVznI4Yc) – Midjourney
+- [How I Faked My Life Using Ai: Or (The Life and Death of Ryan Gosling Person)](https://www.youtube.com/watch?v=FRClNMC_z-s) – Stable Diffusion & Dreambooth
+- [BINARY DREAMS: How A.I. Sees the Universe](https://www.youtube.com/watch?v=ViGcwiW7rfY) – Midjourney
+- [Voyage through Time - a Generative AI journey](https://www.youtube.com/watch?v=Bo3VZCjDhGI) – Stable Diffusion
+- [Shroudcity Yuu](https://www.youtube.com/watch?v=cOkJv8q4t2I) – DALL·E
+- [Frank Hughes OMG V1](https://www.youtube.com/watch?v=98Oxnb3oTZ8) – DALL·E
+- [Billingsley - Serenity](https://www.youtube.com/watch?v=gGjzfN02G1Y) – DALL·E
+- [Venosic - Denial of Decree](https://www.youtube.com/watch?v=iD1qWTVk5_4) – Midjourney
+- [Vlad In Tears - Running Up That Hill](https://www.youtube.com/watch?v=YA_QL0YKrVY) – Midjourney
+- [I’ve made DALLE-2 neural network extend Michelangelo’s “Creation of Adam”](https://www.reddit.com/r/interestingasfuck/comments/vpog9b/ive_made_dalle2_neural_network_extend/) – DALL·E
+- [A snippet from my full-length animated philosophy video](https://www.reddit.com/r/StableDiffusion/comments/zk0ib8/a_snippet_from_my_full_length_animated_philosophy/) – Stable Diffusion
+- [A quick demonstration of how I accomplished this animation](https://www.reddit.com/r/StableDiffusion/comments/zl6bco/a_quick_demonstration_of_how_i_accomplished_this/) – Stable Diffusion
+
+## My First AI Project
+
+Two weeks ago, when a colleague left our company, a designer from our team had the idea to create a fantasy-based goodbye card on a Miro board because the leaving colleague is a huge fantasy fan.
+
+The designer created a map of [Essos](https://awoiaf.westeros.org/index.php/Essos) from <cite>Game of Thrones</cite> and added the journey of the leaving colleague to his new company as a path on the map. People could sign the route with their goodbye wishes. He created fantasy cards for each member of our team.
+
+I had started using text-to-image generation a month earlier and had spoken with him about AI. He asked me if I could do <q>magic</q> and <q>make us look more fantasy.</q> And thanks to text-to-image AI, I was able to transform us into wizards, warriors, elves, and dwarfs. The demand for more people signing the card grew, and I was creating lots of fantasy photos for co-workers from other teams.
+
+My chat exploded with questions: <q>How did you do this?</q>, <q>Can you teach me how to do this?,</q> and <q>Can I book a personal hour to learn how to do this?</q>
+
+Text-to-image AI is a large language model capable of generating images from text descriptions (prompts), using a neural network trained on a dataset of text-image pairs. Currently, there exist four ways for text-to-image generation that the public can use. You have to pay for two of the options, the others are open source, and you can run them yourself.
+
+The two commercial generators are [DALL·E 2](https://openai.com/dall-e-2/) by OpenAI and [Midjourney](https://www.midjourney.com/) by an independent research lab.
+
+## DALL·E 2
+
+You pay DALL·E 2 per image and resolution, the [price](https://openai.com/api/pricing/) is between $0.016 (256×256 pixels) and $0.020 (1024×1024 pixels). You can use your free $18 gift for the generation of images (or text).
+
+It’s excellent at coherency, can create unique zoom animations, and is easy to use. On the downside, it’s expensive, very censored, and you have limited artistic control. You can see incredible art created with DALL·E 2 in the Reddit Subreddit [DALL·E 2](https://www.reddit.com/r/dalle2/).
+
+## Midjourney
+
+Midjourney has different membership [plans](https://midjourney.gitbook.io/docs/billing), the cheapest is $10 per month and allows you to generate ~200 images. The Standard membership costs $30 per month and allows unlimited images in relax mode and 15 GPU hours for upscaling of images. More upgrades are available, for example, to have a private visibility option. Corporate Membership costs $600 per year for one person. With a new account, you get 20 image generations for free.
+
+You create images on a Discord server using the Midjourney bot. Midjourney has extensive [documentation](https://midjourney.gitbook.io/) and a massive community. Artists and designers love Midjourney because it produces dreamy and artful images. It’s in the sweet spot between creative control and ease of use, it’s very stylistic, and has fantastic developers working on it. On the downside, it’s less coherent. To see images generated with Midjourney, visit the official Reddit [Midjourney](https://www.reddit.com/r/midjourney/) Subreddit.
+
+## Stable Diffusion
+
+The third generator is [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release), developed by [Stability AI Ltd](https://stability.ai/). It has a permissive license that allows for commercial and non-commercial usage. You can run Stable Diffusion on your local computer, but you need to fulfill some minimum hardware requirements. It needs an NVIDIA GPU with at least 4 GB VRAM, and hard drive space of 10 GB. On a Mac, you’ll need a M1 chip or better to run it properly.
+
+The company develops [DreamStudio](https://beta.dreamstudio.ai/), a paid service using Stable Diffusion. For $10 you can create ~5,000 images with the app, 500 images are free with a new account.
+
+It’s probably the generator with the highest quality, it’s very coherent, very fluid, and open source. On the downside, you require experience with AI generators, and it can be confusing to newcomers.
+
+If you want to see what it’s capable of, look at [Stable Diffusion: DALL-E 2 For Free, For Everyone!](https://www.youtube.com/watch?v=nVhmFski3vg), and [Stable Diffusion Is Getting Outrageously Good!](https://www.youtube.com/watch?v=bT8e1EV5-ic) by [Two Minute Papers](https://www.youtube.com/@TwoMinutePapers). The Subreddit [StableDiffusion](https://www.reddit.com/r/StableDiffusion/) is a constant stream of mind-blowing things.
+
+Another fantastic technique you can do with Stable Diffusion is [Dreambooth](https://dreambooth.github.io/). It allows people to train the AI with custom images (for example with photos of you or your pet) to generate personalized images. You can learn more about Dreambooth in the article [Training Stable Diffusion with Dreambooth using 🧨 Diffusers](https://huggingface.co/blog/dreambooth). Another option is one of the commercial platforms. On [Astria](https://www.strmr.com/) you can train a model for $5 with up to 20 photos. [Dreambooth](https://dream.ai/booth) is another option with a yearly price tag of $29.99. You can browse the funny gallery with famous people.
+
+OpenArt has an incredible free [Stable Diffusion Prompt Book](https://openart.ai/promptbook) that is constantly updated. It’s one of the best resources I know for learning Stable Diffusion.
+
+## GoogleColab
+
+Another way to run text-to-image generation is [GoogleColab](https://colab.research.google.com/) notebooks. The website is a way to prepare complicated code to generate AI in a user-friendly way, where beginners can click through the code steps. It’s fully controllable and allows for more specific use cases. On the downside, it’s not very user-friendly, slow if you don’t pay for faster generation, and requires a lot of technical knowledge.
+
+You can find [Disco Diffusion](https://github.com/alembics/disco-diffusion), [VQGAN](https://github.com/nerdyrodent/VQGAN-CLIP), and many others. With a bit of technical knowledge (Python) you can create wonderful things without limitations on your computer. This video gives a [brief introduction to how to generate AI images with Disco Diffusion](https://www.youtube.com/watch?v=wIw59kAU6u8). But if you don’t have the hardware or want to invest the money for fast execution, it’s slow, I used the free version of Disco Diffusion, and it took 35 minutes to create one image.
+
+You can run Dreambooth on GoogleColab. This [tutorial video](https://www.youtube.com/watch?v=-JtBUoPcjeM) or [this video](https://www.youtube.com/watch?v=Z-hyKADmHmE) explain the steps.
+
+## Playgrounds and Services
+
+Plenty of services are available to generate images. [Playground](https://playgroundai.com/) allows using Stable Diffusion (1000/day), or with the Pro Plan for $15 per month (2000/day). You can use the DALL·E add-on for $10 per month to create 800 DALL·E images per month.
+
+[Lexica](https://lexica.art/) is a Stable Diffusion search engine that allows the creation of 100 images without any payment. The best feature is that each artwork has its prompt (the text used to talk to the AI), its settings, dimensions, and seed (a random number to create noise for the image). With this information, it’s possible to create a similar image (but never the same).
+
+[DreamStudio](https://beta.dreamstudio.ai/) is the application of the creators of Stable Diffusion and gifts users 500 images for free. 5,000 images cost $10 per month.
+
+The image models compete constantly for the throne, and with each update, people discuss the differences between the generators. Nobody can tell you which of the generators is the _best_. It’s taste, depends on your prompting skills, and the style you want to achieve.
+
+## Text-to-Video, Text-to-3D, Text-to-Audio, and Brain-to-Image
+
+Here are a few links to other interesting research that I don’t cover here in detail, lacking information. [Google Video AI](https://www.youtube.com/watch?v=YxmAQiiHOkA) can create impressive videos from text with [Imagen Video](https://imagen.research.google/video/).
+
+And another project of Google, [DreamFusion](https://dreamfusion3d.github.io/) is [capable to generate 3D models from text](https://www.youtube.com/watch?v=L3G0dx1Q0R8).
+
+[Riffusion](https://www.riffusion.com/) is a model that uses Stable Diffusion to create images of spectrograms that can be converted to audio. You can basically create music from text. Harmonai created with [Diffusion Radio](https://www.youtube.com/watch?v=uGRLOMf2hSc), a radio station that streams 24/7 AI-generated music.
+
+And the paper [Seeing Beyond the Brain: Conditional Diffusion Model with Sparse Masked Modeling for Vision Decoding](https://mind-vis.github.io/) decoded visual stimuli from brain recording to create images.
+
+[AutoDraw](https://www.autodraw.com/) is a fun tool to create images from painting. It will recognize what you tried to draw and suggest an illustration.

@@ -1,0 +1,202 @@
+---
+title: "The Advent of AI: Text Generation"
+slug: artificial-intelligence-2-text-generation
+date: 2022-12-17T12:00:00+01:00
+author: Stefan Imhoff
+description: This is a four-part series of essays that investigates different aspects of AI.
+cover: /assets/images/cover/ai-cover-2.jpg
+tags: ["code", "software", "writing"]
+series: artificial-intelligence
+---
+
+## GitHub Copilot
+
+The most prominent text generation model, used by over 80 commercial apps, is GPT-3 by OpenAI. I learned late that [GitHub Copilot](https://copilot.github.com/), a code completion tool I used for over a year, uses GPT-3. I used GitHub Copilot for a few months during its trial period, and it helped me tremendously. The first time it blew my mind was when I created a TypeScript array with all letters of the web font of XING (a patched variant of Fira Sans). I had the task to write a visual testing page to observe changes to our font. We planned to roll out a big update to the font and wanted to make sure nothing breaks. The file that generates the testing page looked like this, including all letters, numbers, special characters, and ligatures.
+
+```ts
+const fontLetters = [
+	"A", // The uppercase A
+	"B", // The uppercase B
+	"C", // The uppercase C
+	// …
+];
+```
+
+GitHub Copilot was able to complete the array with all letters, including a comment about the letter. When GitHub Copilot turned into a premium service, I decided to invest the $10 per month because it’s a great help, in completing code or sentences each day.
+
+Later I learned the underlying model is [Codex](https://openai.com/blog/openai-codex/), a descendant of GPT-3, specialized for code completion. I use the [Vim plugin](https://github.com/github/copilot.vim) and the [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) every day. I learned that GitHub Copilot does not only write code, but it can explain code and generate code from text input.
+
+Writing a comment like this in the code:
+
+```
+Create a React component in TypeScript and Styled Components
+taking children and returning a red button.
+```
+
+Will create code like this:
+
+```tsx
+import styled from "styled-components";
+
+const RedButton = styled.button`
+	color: red;
+`;
+
+export default ({ children }) => <RedButton>{children}</RedButton>;
+```
+
+GitHub Copilot can explain and write regular expressions or answer development questions.[^copilotqna][^levelupcopilot] And because it’s GPT-3, it can answer nearly any question:
+
+```
+q: what is the capital of france?
+a: paris
+```
+
+A good one is to ask for colors, the AI completes the sentence and adds the color [#f1c40f](https://www.color-hex.com/color/f1c40f):
+
+```
+The hex color for the sky at sunset is #f1c40f.
+```
+
+GitHub is working on [GitHub Copilot CLI](https://githubnext.com/projects/copilot-cli/), which allows using GitHub Copilot in the terminal. I’ve added myself to the waiting list.
+
+## GPT-3
+
+GPT-3 is the language model that drives Codex. To play with the model, you don’t need to subscribe to GitHub Copilot. You can create an OpenAI account and play on its [Playground](https://beta.openai.com/playground). With the creation of an account, you get a gift of $18. You can use these for text or image creation (though image creation is more expensive). OpenAI is a non-profit organization, but somebody needs to keep the lights on. The training and servers cost money, and somebody has to pay the bill.
+
+The [Example](https://beta.openai.com/examples) section lists nearly 50 examples of how to use GPT-3. From Grammar correction, translation, calculation of time complexity, product name generation, code conversion, summary, and recipe creator (eat at your own risk) to the creation of study notes, the examples are a lot of fun to try out. My favorite is the [Movie to Emoji](https://beta.openai.com/playground/p/default-movie-to-emoji?model=text-davinci-003) example that converts movie titles to emojis.
+
+```
+Convert movie titles into emoji.
+
+Back to the Future: 👨👴🚗🕒
+Batman: 🤵🦇
+Transformers: 🚗🤖
+```
+
+The language models are constantly improved. The newest model can even fill in the blanks in a text, as demonstrated in the video [OpenAI’s New AI: Video Game Addict No More!](https://www.youtube.com/watch?v=263vx1g52eM) by [Two Minute Papers](https://www.youtube.com/@TwoMinutePapers).
+
+## AI Text Generation in the Wild
+
+The number of projects and companies using GPT-3 (or similar models) under the hood exploded in the last few months. It’s nearly impossible to keep track of them. Productivity and note-taking apps like [Notion](https://www.notion.so/), [Mem](https://mem.ai/), [Craft](https://www.craft.do/), and [Coda](https://coda.io/) have all implemented (or are implementing) AI in their products. You can use [Notion AI](https://www.notion.so/product/ai) for example to write blog posts, meeting agendas, social media posts, press releases, job descriptions, sales emails, poems, and more. This will increase the productivity of customers a lot.
+
+Then there is [Lex](https://lex.page/), a word processor with AI baked in to help write text. The service is free right now with a waiting list. It can generate headlines or full paragraphs using GPT-3. [Nathan Baschez](https://twitter.com/nbashaw), the creator of Lex, shows in this [video](https://www.youtube.com/watch?v=7Cao0oy1CBg) what Lex can do. Another cool AI writing app is [HyperWrite](https://hyperwriteai.com/), a personal writing assistant. It has a built-in editor that suggests text while you write, and a Google Chrome extension to do the same on the web. [Jasper](https://www.jasper.ai/) is another writing app with AI, but it’s too expensive for many casual users.[^iawarw]
+
+The GitHub user [nhaouari](https://github.com/nhaouari) created a [plugin](https://github.com/nhaouari/obsidian-textgenerator-plugin) for my favorite note-taking tool, [Obsidian](https://obsidian.md/), that uses GPT-3 to generate notes. [Shubhro Saha](https://twitter.com/shubroski) integrated [GPT-3 into Google Sheets](https://twitter.com/shubroski/status/1587136794797244417).
+
+Another tool, [Dramatron](https://deepmind.github.io/dramatron/), can write screenplays. It uses AI to generate ideas for characters, plots, and scenes.
+
+## Ghostreader in Readwise Reader
+
+My favorite project using GPT-3 is the newly introduced Ghostreader in [Readwise Reader](https://readwise.io/read), the new product of [Readwise](https://readwise.io/). I’m a happy customer of Readwise for two years, and use it all the time to collect and learn highlights from various sources (books, articles, tweets, and podcasts) and to transfer them into my knowledge database in Obsidian. Their newest product, Readwise Reader, is in now in public Beta. The product allows reading books, articles, video transcripts, and numerous other sources. It has a built-in [RSS](/rss-news-feed/) Reader.
+
+A few weeks ago, they integrated GPT-3. The reading assistant with the name <cite>Ghostreader</cite> is a lot of fun. It can simplify complicated text (for example scientific papers), summarize sections or paragraphs, explain words and terms, create flashcards for learning, and even create haiku or emoji from highlighted text. I use the TL;DR feature all the time to create short comments for highlights.
+
+I read last month an article by the [Foundation of Economic Education](https://fee.org/) written by [Jon Miltimore](https://fee.org/people/jon-miltimore/) about the true source of power.[^riddleofsteel] I’ll show how Ghostreader works with a highlight of this article talking about the 1982 movie [Conan the Barbarian](https://www.themoviedb.org/movie/9387-conan-the-barbarian). For this example, I highlighted the following text:
+
+<Blockquote author="Jon Miltimore" source="How the ‘Riddle of Steel’ in Conan the Barbarian Reveals the Secret of Power" sourceUrl="https://fee.org/articles/how-the-riddle-of-steel-in-conan-the-barbarian-reveals-the-secret-of-power/">
+Unfortunately, Conan’s attempt to penetrate the cult goes sideways, and he’s taken captive. After being beaten to a pulp, Conan is brought before Thulsa Doom, who doesn’t even remember destroying Conan’s village or killing his parents. But he does hold an answer to an important mystery: the riddle of steel.
+
+Thulsa Doom: There was a time, boy, when I searched for steel when steel meant more to me than gold or jewels.
+
+Conan: The riddle… of steel.
+
+Thulsa Doom: Yes! You know what it is, don't you boy? Shall I tell you? It's the least I can do. Steel isn't strong, boy, flesh is stronger!
+
+At this point, Thulsa Doom looks up at the cliffs that surround him and Conan. Several young women stand in flowing white robes on rocks, arms folded passively.
+
+“Come to me, my child,” Thulsa Doom says in a gentle voice to a young woman.
+
+Obediently, the woman steps away from the rocks above … and calmly plunges to her death.
+
+“That is strength, boy! That is power!,” Thulsa Doom tells Conan. “What is steel compared to the hand that wields it?”
+
+</Blockquote>
+
+When I use `Simplify` on the text, it generates this:
+
+```
+Unfortunately, Conan gets captured and brought to Thulsa Doom.
+Thulsa Doom doesn't remember hurting Conan's family, but he knows
+the answer to an important mystery called the "riddle of steel".
+Thulsa Doom tells Conan that steel isn't strong, rather, it is the
+person who uses the steel that is strong. To prove his point,
+Thulsa Doom calls out to a young woman on the cliffs above.
+The woman steps away from the rocks and falls to her death.
+Thulsa Doom explains that this is strength and power, and asks
+Conan what steel is compared to the hand that wields it.
+```
+
+When I use `Summarize` on the text, it generates this:
+
+```
+Thulsa Doom reveals the 'Riddle of Steel' to Conan, which is
+that steel is not strong, but the flesh is. He then demonstrates
+this by having a young woman obediently plunge to her death to
+prove the strength of power.
+```
+
+Using `TL;DR` creates this short sentence:
+
+```
+Steel is not as powerful as flesh.
+```
+
+The `Haiku` it wrote for me couldn’t be better, [if I had it written](/haiku/):
+
+```
+Riddle of steel's power 🔪
+glimpsed in Thulsa Doom's wisdom 🧠
+strength of flesh conquers all 💪
+```
+
+I asked for a pure `Emojify` of the highlight:
+
+```
+🤴🏼👦🏼👊🏼💥🧱💪🏼🧚🏼‍♀️⛰🗣️🙏🏼🤚🏼💔😰🤯💥
+```
+
+And finally, it created a flashcard for me:
+
+```
+Q: What is Thulsa Doom's explanation of the riddle of steel?
+A: Steel is not strong, flesh is stronger. What is steel
+   compared to the hand that wields it?
+```
+
+It’s possible to use custom templates with the [Jinja templating engine](https://jinja.palletsprojects.com/en/3.1.x/). You could ask for example what the top 5 key takeaways of the article are, let it create a blog post, or ask any other question.
+
+<Banner summary="Readwise & Readwise Reader" open>
+	If you want to use both products, [Readwise](https://readwise.io/) and [Readwise
+	Reader](https://readwise.io/read), now is a good time to subscribe. The price for new customers
+	will soon be higher due to its increased value. You can use this [invite
+	link](https://readwise.io/i/stefan805) if you wish to try it and give us both an extra free month.
+</Banner>
+
+## ChatGPT
+
+OpenAI created the biggest wave yet with the release of [ChatGPT](https://chat.openai.com/) (GPT-3.5) in December 2022. It’s a natural language processing model developed by OpenAI. It’s designed for chatbot applications, and you can use it to create conversational agents that can engage in human-like dialogue. Millions of people tried it out in the weeks since its release. Currently, it’s constantly overloaded and OpenAI works on scaling the servers up to the growing demand.
+
+Over the last few weeks, I’ve seen incredible applications of ChatGPT. People tried to use it in the most creative ways possible. Dr. Jordan B. Peterson asked the AI to write the [13th chapter](https://twitter.com/jordanbpeterson/status/1599258279255093248) for his book [12 Rules for Life: An Antidote to Chaos](https://www.goodreads.com/book/show/30257963-12-rules-for-life). He then asked the AI to write it in the [style of the KJV Bible](https://twitter.com/jordanbpeterson/status/1599259053393600515) and then as a [KJV and Daodejing hybrid](https://twitter.com/jordanbpeterson/status/1599260863986532353). He asked the AI to [evaluate if the 2020 US election was stolen](https://twitter.com/jordanbpeterson/status/1599269660725506048), and to [define postmodern Neo-Marxism](https://twitter.com/jordanbpeterson/status/1599274030540140544).
+
+You could use ChatGPT for creative tasks. Simon Willison used ChatGPT to [learn the Rust programming language](://simonwillison.net/2022/Dec/5/rust-chatgpt-copilot/). Dylan Black [taught ChatGPT to Invent a Language](https://maximumeffort.substack.com/p/i-taught-chatgpt-to-invent-a-language). Guy Parsons asked ChatGPT to [create a movie script](https://twitter.com/GuyP/status/1598668947439685633), including the script and images of the protagonists.
+
+Other people used it for assistive or consulting tasks. Alex Cohen [created a weight loss plan, with calorie targets, a grocery list, and a workout plan](https://twitter.com/anothercohen/status/1599531037570502656). Daniel Gross [created a WhatsApp bot](https://twitter.com/danielgross/status/1598735800497119232) with ChatGPT that served as his personal assistant. Roxana Daneshjou tried to use [ChatGPT as a medical chatbot](https://twitter.com/RoxanaDaneshjou/status/1598170660186251264). The German Twitter user Velofisch asked ChatGPT to [evaluate recent political events](https://twitter.com/Velofisch/status/1601243231148478464) in Germany for its ethics and morality. Its answer was a poor certificate for the German government because it declared all political decisions as immoral.
+
+And we could see numerous people trying to let it develop things. Rakshit Lodha asked ChatGPT to [build a Twitter bot without knowing any programming language](https://medium.com/@rlodha1/how-i-used-chat-gpt-to-build-a-twitter-bot-without-any-programming-language-35bbc43f6ad). Jonas Degrave [build a virtual machine inside ChatGPT](https://www.engraved.blog/building-a-virtual-machine-inside/). Sarah Gooding used ChatGPT to [create a working WordPress plugin](https://wptavern.com/chatgpt-creates-a-working-wordpress-plugin-on-the-first-try) on the first try. The [game of an 11-year-old boy created with ChatGPT](https://mpost.io/11-year-old-boys-game-for-chatgpt-is-blowing-up-the-internet/) created a lot of attention. Amjad Masad used ChatGPT as a [debugging companion](https://twitter.com/amasad/status/1598042665375105024). Lech Sokolowski asked ChatGPT to [create Blender scripts](https://www.youtube.com/watch?v=k50Y0b3g5WY) that arranged cubes in a random, in a circle, facing the center, and in a sphere.
+
+People tried to hack ChatGPT in all possible ways. But OpenAI works constantly to prevent those abuses. This Twitter thread shows [all the ways to get around ChatGPT's safeguards](https://twitter.com/davisblalock/status/1602600453555961856), for example allow it to browse the internet, talk rude, or give tips for a perfect murder.
+
+People created many interesting projects related to ChatGPT in a matter of days. [LearnGPT](https://www.learngpt.com/) and [showGPT](https://showgpt.co/) are platforms that collect fascinating prompts and allow rating them in Reddit style. [Awesome ChatGPT Prompts](https://github.com/f/awesome-chatgpt-prompts) is a GitHub repository collecting cool ideas. This collection highlights the shortcomings of ChatGPT and [where it lacks](https://cookup.ai/chatgpt/where-it-lacks/). [ShareGPT](https://sharegpt.com/) is a platform and Google Chrome browser extension that allows sharing your results with others. Wang Dàpéng created a [ChatGPT Google extension](https://github.com/wong2/chat-gpt-google-extension) that shows the response to a question alongside the search results. Hello Cognition, Inc. created a [ChatGPT search engine](https://beta.sayhello.so/) that looks at the results of a search for answers to a question. Abiel Zulio M created an unofficial [ChatGPT extension for Raycast](https://github.com/abielzulio/chatgpt-raycast).
+
+## GPT-4
+
+And this is only the beginning, rumors around the internet say that GPT-4 will be coming soon, sometime between December 2022 and February 2023.[^gpt4romeroapr][^gpt4rumornov][^gpt4rumorasw] GPT-3 has 175 billion parameters, but GPT-4 is 500 times more powerful with 100 trillion parameters.
+
+[^copilotqna]: Visual Studio Code (2022): Copilot Q&A, https://www.youtube.com/watch?v=gRNo_JOl-9g.
+[^levelupcopilot]: Visual Studio Code (2022): Level up with Copilot, https://www.youtube.com/watch?v=Uq7ppvXCBDM.
+[^iawarw]: Shu Omi (2022): 3 Best AI Writing Apps Compared!, https://www.youtube.com/watch?v=nLycRKwNdd0.
+[^riddleofsteel]: Jon Miltimore (2022): How the ‘Riddle of Steel’ in Conan the Barbarian Reveals the Secret of Power, https://fee.org/articles/how-the-riddle-of-steel-in-conan-the-barbarian-reveals-the-secret-of-power/.
+[^gpt4romeroapr]: Alberto Romero (2022): GPT-4 Is Coming Soon. Here’s What We Know About It, https://towardsdatascience.com/gpt-4-is-coming-soon-heres-what-we-know-about-it-64db058cfd45.
+[^gpt4rumornov]: Alberto Romero (2022): GPT-4 Rumors From Silicon Valley, https://thealgorithmicbridge.substack.com/p/gpt-4-rumors-from-silicon-valley.
+[^gpt4rumorasw]: Andrew Steinwold (2022): Twitter, https://twitter.com/AndrewSteinwold/status/1594889562526027777.

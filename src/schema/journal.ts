@@ -31,6 +31,7 @@ export const journal = defineCollection({
 				'survival',
 				'tip',
 				'typography',
+				'writing',
 			])
 		),
 		series: z.string().optional(),

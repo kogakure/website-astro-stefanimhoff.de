@@ -1,0 +1,111 @@
+---
+title: Manage References for Note-Taking
+slug: manage-references-for-note-taking
+date: 2022-04-22T18:00:00+02:00
+updated: 2022-04-30
+author: Stefan Imhoff
+description: When writing notes, it’s important to keep references somewhere to make sure our ideas are backed up, and we can quote the source accordingly. This is how I work with my references.
+tags: ["note-taking", "productivity", "tip"]
+---
+
+When using a note-taking system like **Zettelkasten**, it’s essential to always keep references somewhere (preferably separate from your notes). This way, you make sure to attribute where your ideas came from and make sure you don’t plagiarize.
+
+Taking notes is like a funnel. You put in plenty of things, but few refined ideas come out at the end.
+
+The input can come from a broad variety of sources. Books, articles, scientific papers, quotes, graphs, podcasts, movies, TV shows, videos, or images.
+
+Not every source is of the same quality, but even the most mundane, low-quality reference might have this one paragraph worth remembering.
+
+## Feedbin
+
+I follow my sources at one location, in [Feedbin](https://feedbin.com/), my RSS/Atom Feed-Reader. It doesn’t matter if it’s a blog, a news site, a YouTube channel subscription, a Twitter user, a Reddit thread, a newsletter, companies, technologies, or trends.
+
+I picked Feedbin because I want to read and watch everything in one source. I have additional sources like books that can’t be added to Feedbin.
+
+If I see an interesting item, I open it and skim the content. I decide if this is appealing to be read or watched later or not. If it’s a (potentially) fascinating item, I move to the next step.
+
+## Pocket
+
+I recently made a massive change to my workflow. I used Pocket for many years as the tool of choice for collecting items to process. But in the last few months, I got more and more unhappy with Pocket. Even though it’s the best-integrated tool of that kind, I had the feeling the company focuses on the wrong things. Instead of improving the interface and retrievability of my collected items, they focused on features to discover new things. I don’t need nor want that, I distrust algorithms because they transport the bias of their programmers. And many programmers are left-leaning, and the result is an inaccurate and biased view of the world. I decide whom I follow and what I consume.
+
+Instead of allowing me to use the full size of my monitor to quickly browse my collection on a masonry grid, everything is crammed into small columns with small thumbnails. At least the tagging feature got love lately.
+
+And the search is a nightmare, it doesn’t work properly. It’s slow and even if I remember reading an item two weeks ago and searching for the exact words, it’s unlikely to be in the results. The results are pages long, but sometimes outright wrong. Filtering for oldest/newest/relevance is broken and doesn’t work anymore. Once something is in Pocket, I will _never_ find it again.
+
+## Raindrop.io
+
+In 2020, I stumbled on the new bookmark manager [Raindrop.io](https://raindrop.io/). I used it for a while, tried Pro for a year, and then quit it again. It was nice but didn’t convince me at first. I continued using it, by transferring my Pocket bookmarks with [IFTTT](https://ifttt.com/) to Raindrop.io.
+
+Occasionally, I used its delightful big view and ultra-fast and fantastic search to find a bookmark, but I used Pocket to collect and read my items.
+
+Over the next year, Pocket became more annoying to me and I used Raindrop.io more. Last month they added the brand-new _Highlights_ feature, and it is incredible. It allows highlighting text on any website (in four different colors) and to add notes. A browser extension even keeps the highlight active the next time you visit the website. Additionally, the highlights are collected in a highlights section of the app.
+
+I decided to look into the features of Raindrop.io again and discovered things I didn’t know it was able to do. Each collection can have a different view (List, Card, Headlines, Moodboard). You can upload PDFs, images, and videos. There is an [Alfred Plugin](https://www.packal.org/workflow/search-raindropio), manual sorting, export functionality of your bookmarks, and a shortcut to search inside the browser bar for bookmarks. The Pro version allows full-text search, nested collections, permanent copies, finding duplicates, and broken links. I decided to go Pro again.
+
+And last week I discovered that it’s possible to share [collections publicly](https://raindrop.io/kogakure) or with specific people. It’s possible to collect with different people to collections, and if the owner of a collection has a Pro plan, every collaborator has access to the Pro features. 🤩
+
+Two weeks ago, I switched the direction from Raindrop.io to Pocket. Now, my items in Raindrop.io get copied with IFTTT to Pocket. I use the fantastic Raindrop.io [browser extension](https://raindrop.io/download) to collect items.
+
+I would like to see a full export of my uploaded assets to start using it as a Pinterest replacement to collect inspiration.
+
+One thing I _really_ like about Raindrop.io is how they handle bugs and feature requests. They created an [extra website](https://better.raindrop.io/) where users can post feature, translation, and integration requests or vote on them and report bugs. Labels transparently show what features they work on, and are planned or reviewed. 👍
+
+There is too much content to write notes on. I use Readwise.io to find it in the future. The fast search, collections, and tags help me find interesting items again, should I want to research a specific topic more in the future.
+
+After I consumed the content I collected, I add tags, and then I move it to an archive folder.
+
+## DEVONthink
+
+If a reference is important to me, I’ll collect it into [DEVONthink](https://devontechnologies.com/apps/devonthink). Even though Raindrop.io has an offline feature, allowing me to keep articles, if the content goes offline, I never trust cloud solutions. With DEVONthink the content is mine, it’s offline. I save articles with the DEVONthink web clipper as Markdown (sometimes PDF, or full websites) into my reference archive.
+
+I have currently 21K bookmarks in Raindrop.io and 5K reference items in DEVONthink, roughly ¼ of all reference items make it offline.
+
+## BibDesk
+
+If I decide to write a note or article on a topic that references a reference item, I’ll create an entry in my [BibDesk](https://bibdesk.sourceforge.io/) database. Currently, I have 457 entries in that database.
+
+BibDesk allows adding Bibliography, like author, title, date, or link and creates a unique cite key.
+
+The items are recorded in a specific format in the background:
+
+```tex
+@webpage{Thiel2022vp,
+ author = {Thiel, Peter},
+ date-added = {2022-04-12 14:59:36 +0200},
+ date-modified = {2022-04-12 15:00:10 +0200},
+ journal = {Bitcoin 2022 Conference},
+ keywords = {BitCoin},
+ month = {04},
+ title = {Paypal Co-Founder Peter Thiel - Bitcoin Keynote},
+ url = {https://youtu.be/ko6K82pXcPA},
+ year = {2022},
+ bdsk-url-1 = {https://youtu.be/ko6K82pXcPA}}
+```
+
+If I want to use this key in a note in [Obsidian](https://obsidian.md/), I can use my Markdown template to copy the entry and paste it into the note.
+
+```md
+[^thiel2022vp]: Peter Thiel (2022): _Paypal Co-Founder Peter Thiel - Bitcoin Keynote_, <https://youtu.be/ko6K82pXcPA>.
+```
+
+The format is not official Markdown syntax, but citations from [MultiMarkdown](https://rawgit.com/fletcher/MultiMarkdown-6-Syntax-Guide/master/index.html). Even if a tool doesn't support it, you can still read it. If a tool supports it, like [iA Writer](https://ia.net/writer), you get automatically nice reference notes.
+
+If I want to write a note and add a reference, I would do it like this:
+
+```md
+[[Peter Thiel]] mentioned that [[ESG]] is a hate
+factory that is used to label enemies. There is
+nothing _environmental_, _social_ or _governance_
+with the companies labeled ESG-friendly, the CCP
+is ESG-friendly.[^thiel2022vp]
+```
+
+When I decide to write a Markdown post that should be published, I can convert the MultiMarkdown to regular footnotes, but replace the `#` in the cite key with `^`.
+
+```md
+A sentence, that references the footnote.[^thiel2022vp]
+
+[^thiel2022vp]: Peter Thiel (2022): _Paypal Co-Founder Peter Thiel - Bitcoin Keynote_, <https://youtu.be/ko6K82pXcPA>.
+```
+
+I consume between 100 and 300 items per week and produce around 10-15 notes. 3-15 % of the things I consume will create a note. The rest is waiting in my archive and is searchable for potential future usage.
