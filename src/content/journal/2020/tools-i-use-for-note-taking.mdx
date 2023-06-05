@@ -1,0 +1,146 @@
+---
+title: Tools I Use For Note-Taking
+slug: tools-i-use-for-note-taking
+date: 2020-09-03T12:00:00+02:00
+author: Stefan Imhoff
+description: I started my Zettelkasten in DEVONthink. But since then, I integrated more tools into my workflow. This essay describes which tools I use for my notes and why.
+tags: ["productivity", "software", "note-taking", "featured"]
+---
+
+I started 6 months ago to use the [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten) note-taking method. In this short time, my collection of notes grew from zero to more than 350 notes. And now I can see the first benefits of cross-linking notes.
+
+If you want to learn more about the Zettelkasten method, I recommend the essay [Zettelkasten — How One German Scholar Was So Freakishly Productive](https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125).
+
+As I wrote in my last essay [Zettelkasten Note-Taking Method With DEVONthink](/zettelkasten-note-taking-devonthink/) I started my Zettelkasten in DEVONthink. But since then, I integrated more tools into my workflow. This essay describes which tools I use for my notes and why.
+
+## DEVONthink or Obsidian? Both!
+
+After using DEVONthink for a while, a few of its disadvantages for the Zettelkasten method became obvious: The linking of notes was time-consuming manual work, it is missing backlink and graph features, and the WikiLink auto-complete does _only_ work if I know the note ID. But as I use DEVONthink not only for note-taking but for archiving documents, or inspirational material, I found myself in a dilemma. I gave [Obsidian](https://obsidian.md/) another try and was impressed. It had tremendously improved after I first tested it. I felt frustrated to not be able to have the features of both tools in one tool. And as there is never _one_ tool that fulfills all wishes, why not combine tools?
+
+I use 7 different tools: 😅
+
+1. [DEVONthink](https://devontechnologies.com/apps/devonthink) – Holding all my reference material, synchronizing notes across devices, and easy filtering by tags.
+2. [DEVONthink to Go](https://apps.apple.com/app/devonthink-to-go/id395722470) – Adding notes on mobile devices like my phone or tablet.
+3. [Obsidian](https://obsidian.md/) – Creating, writing, linking, and analyzing notes.
+4. [Alfred](https://www.alfredapp.com/) – Creating snippets (ID, or templates).
+5. [iA Writer](https://ia.net/writer) – Writing essays or longer notes.
+6. [GitHub](https://github.com/) – Version-controlled history of all my note changes.
+7. [BibDesk](https://bibdesk.sourceforge.io/) – Manage my bibliography.
+
+The following sections describe my workflow and how I integrate the various tools into my note-taking process.
+
+---
+
+## Tools
+
+### DEVONthink
+
+[DEVONthink](https://devontechnologies.com/apps/devonthink) is a fantastic document management system. It allows any type of content to be stored, archived, sorted, and analyzed. Databases can be synced via Bonjour, WebDAV, USB connection, or cloud providers such as Dropbox, or iCloud. The databases are automatically encrypted on external servers.
+
+The Tagging is incredibly fast and convenient, compared with other tools such as Evernote. And I use countless tags (currently, 23507 different tags). Tags replaced all folders for me because folders and tags are interchangeable in DEVONthink. I won’t go into much more detail on how I work with DEVONthink, as this is covered in my previous essay, [Zettelkasten Note-Taking Method With DEVONthink](/zettelkasten-note-taking-devonthink/).
+
+One thing I changed to my previous DEVONthink-_only_ workflow is that I use an **indexed folder** instead of putting my notes directly in DEVONthink. This can be achieved by adding the notes folder on the hard disk with `File` → `Index Files and Folders…`. Any change in a file on the hard disk or in DEVONthink will immediately sync across all devices.
+
+### DEVONthink to Go
+
+I use [DEVONthink to Go](https://apps.apple.com/app/devonthink-to-go/id395722470s) to quickly create new notes, and add photos, or other media to my databases. These files get automatically synced with all connected devices and are added to my Macs the next time I open DEVONthink. Additionally, I use the mobile version to search and read the content of my database when I’m not on my computer.
+
+### Obsidian
+
+[Obsidian](https://obsidian.md/) is incredible, doesn’t matter whether you use the Zettelkasten note-taking method or any other method. It’s built for _offline first_. Even though it’s in Beta, it outstrips its competitors. It has 18 official plugins (as of writing) and will add community plugins with version 1.0.
+
+One of the best features is Backlinks. Users of [Roam Research](https://roamresearch.com/) are familiar with this feature. If you link a note via the WikiLink syntax, e.g., `[[note]]`, the connected note will show this connection in a special backlink drawer. The creation of backlinks has fuzzy auto-complete, which is incredibly helpful. Linking another note is a matter of seconds.
+
+Obsidian has a Quick Switcher that allows jumping between notes in seconds and supports a fuzzy search for files.
+
+The Graph View is a cool feature! It displays all notes as dots (depending on the zoom level with or without the note name) and all connections between notes are visualized as lines. This allows us to see how good (or bad) the notes are connected. You can drag notes around and all connected notes will follow.
+
+<Figure caption="Obsidian Graph View of my 3,500 notes" size="wide">
+	<Image src="/assets/images/posts/obsidian-graph-view.jpg" alt="Obsidian Graph View of my notes" />
+</Figure>
+
+One plugin allows opening a note via custom shortcuts in the default app, which I use to edit longer notes in iA Writer.
+
+Obsidian has a plugin that activates the _Zettelkasten Prefixer_. Creating a new note will automatically prefix a date-time ID to a new note.
+
+The search for Obsidian is powerful and fast. It supports fuzzy search, logical operators, grouping, or regular expressions.
+
+Other nice plugins enable support for auto-pair brackets, Vim key bindings, a tag pane, starred notes, word count, a note outline, or a page preview. Each plugin can be switched on or off, you have total control over what features you want.
+
+Obsidian supports custom CSS and has a community theme library with many delightful themes.
+
+If you write daily notes, there is support for that. A note can be automatically prefixed with any date format.
+
+The Random Note feature is helpful to open a random note. I use it to connect every day one or two notes to other notes.
+
+### Alfred
+
+I use [Alfred](https://www.alfredapp.com/) for more than snippets, but this would be another blog post. In my note-taking process, I use Alfred to create unique note IDs (e.g., `202008311912` and fill in different note templates).
+
+### iA Writer
+
+I like writing long texts with iA Writer, because of its minimalistic interface, focus mode, and nice features to write better texts. I found an easy way of editing any Markdown note on-demand from DEVONthink or Obsidian in [iA Writer](https://ia.net/writer) and saving the changes back. Both tools allow setting shortcuts to open a file with its default application, which is for me iA Writer for Markdown files.
+
+### GitHub
+
+Putting my notes in a folder on the hard disk has the advantage of additionally adding version control with Git. I created a private repository in [GitHub](https://github.com/) and added the Zettelkasten notes folder. I commit once per day to all changes to my notes. I don’t need to push/pull on other devices, as the files are synced via DEVONthink. But it’s a pleasant addition to seeing how the notes changed over time.
+
+### BibDesk
+
+I use [BibDesk](https://bibdesk.sourceforge.io/) to manage my citations, as described in the essay [Manage Citations for a Zettelkasten](https://zettelkasten.de/posts/bibliography-zettelkasten/). For every book, webpage, or video I want to reference, I create a new entry. It’s a quick process, but immensely helpful later to find the source again.
+
+I updated the citation template mentioned in the essay to my wishes (to support URLs).
+
+## Note Creating Workflow
+
+If I sit at one of my Mac computers, I press a shortcut in Obsidian to automatically create a new Zettelkasten note, automatically suffixed with a timestamp ID. I enter a title for the note, and a template feature of Obsidian automatically fills in the basic structure of a note. I use Alfred to create other types of notes. My note template is as simple as it gets:
+
+#### Zettelkasten Principles - 202008311912.md
+
+```md
+#
+
+## Related
+
+Tags:
+```
+
+I add the title, content, commented links to other notes, and tags. I decided to drop the ID from the title of the headline. This example is translated, I use the German language for my notes:
+
+```md
+# Zettelkasten Principles
+
+The 12 Zettelkasten principles mentioned in [#Clear2019aa].
+
+1. Atomicity – Just one idea per note
+2. Autonomy – A note should be self-contained and comprehensible on its own
+3. Link your notes – Link the note to already existing notes
+4. Explain why you’re linking the notes – Add a comment to the link
+5. Use your own words – Don’t copy and paste. Writing in your own words forces you to understand the idea.
+6. Keep references – Add references to your notes to remember where you got the idea from.
+7. Add your thoughts – Add comments or ideas.
+8. Don’t worry about structure – You don’t need folders
+9. Add connection notes – If you see a connection between random notes, add new notes connecting these.
+10. Add outline notes – If you see topics emerging, create outline notes, that contain just links to other notes and create a story or narrative.
+11. Never delete – Don’t delete old notes, link the new notes describing what’s wrong or outdated.
+12. Add notes without fear – You can’t have too many notes.
+
+## Related
+
+- How to add a custom template to BibDesk: [[Add BibDesk Markdown template - 202008231056]]
+- Blog posts on my website on how to use DEVONthink for the Zettelkasten method: [[Zettelkasten Note-Taking Method With DEVONthink - 202005171813]]
+
+Tags: #Zettelkasten
+
+[#Clear2019aa]: David B. Clear (2019): _Zettelkasten – How One German Scholar Was So Freakishly Productive_, <https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125>.
+```
+
+In DEVONthink I select all notes I created on a given day and press the right mouse button, select `Tags` → `Convert Hashtags to Tags` which will create Mac tags out of the Hashtags on my notes. It’s possible to activate this feature in the settings automatically, but I didn’t do it because Obsidian doesn’t have a save feature, instead automatically saves the note on every keystroke. The Hashtag feature in Obsidian supports auto-complete, but as the sync to DEVONthink is instantly the feature would create multiple meaningless tags, e.g., `Zet`, `tel`, `ka`, `sten` – depending on how fast you type or when you select the auto-completed tag.
+
+DEVONthink can create a nice preview thumbnail of the notes and will sync all notes or changes via the sync storage with other devices (including the Mac tags).
+
+I commit all changes or additions to my Zettelkasten folder and push the changes to GitHub. It’s not needed to pull my changes on another computer (unless I want to commit to a different computer) because DEVONthink handles the synchronization.
+
+I try to connect notes when I find a note without connections and split notes into small notes if I stumble upon a note that is too big.
+
+Over time, these connected notes convert into a second brain. New ideas emerge by connecting notes that weren’t originally intended to be connected.

@@ -170,5 +170,38 @@ const description = '…';
 		& > figure p {
 			@apply m-0;
 		}
+
+		/** Footnotes */
+		.footnotes {
+			@apply relative pis-[2rem];
+		}
+
+		.footnotes ol {
+			@apply m-0 list-none p-0 [counter-reset:item];
+		}
+
+		.footnotes li::before {
+			@apply absolute align-super text-[smaller] font-thin opacity-60 content-[counter(item)] pbs-[0.15rem] inline-start-0 [counter-increment:item];
+		}
+
+		.footnotes .data-footnote-backref {
+			@apply font-light text-accent no-underline;
+		}
+
+		.footnotes p {
+			@apply mbe-0;
+		}
+
+		.footnotes p a {
+			@apply break-words;
+		}
+
+		.footnotes :target {
+			@apply bg-black/5 p-5 dark:bg-white/5;
+		}
+
+		[data-footnote-ref] {
+			@apply p-[0.1em] font-light !text-accent no-underline;
+		}
 	}
 </style>
