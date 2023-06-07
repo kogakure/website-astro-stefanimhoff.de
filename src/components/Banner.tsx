@@ -5,7 +5,7 @@ import type { ComponentChild, FunctionalComponent } from 'preact';
 interface Props {
 	class?: string;
 	children: ComponentChild;
-	summary: string;
+	summary?: string;
 	open?: boolean;
 }
 

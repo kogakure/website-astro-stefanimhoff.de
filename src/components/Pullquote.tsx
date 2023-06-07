@@ -11,6 +11,7 @@ interface Props extends JSX.HTMLAttributes<HTMLQuoteElement> {
 	lang?: string;
 	source?: string;
 	sourceUrl?: string;
+	text: string;
 }
 
 export const Pullquote: FunctionalComponent<Props> = ({
@@ -20,13 +21,14 @@ export const Pullquote: FunctionalComponent<Props> = ({
 	lang = 'en',
 	source,
 	sourceUrl,
+	text,
 	...props
 }) => {
-	const classes = cx('pullquote p-9 text-center', className);
+	const classes = cx('pullquote mbe-10 p-9 text-center', className);
 
 	return (
 		<blockquote lang={lang} class={classes} {...props}>
-			{children}
+			<p dangerouslySetInnerHTML={{ __html: text }} />
 			{(author || source) && (
 				<footer class="text-2 font-normal opacity-60 mbs-6">
 					{author && <b class="font-normal">{author}</b>}

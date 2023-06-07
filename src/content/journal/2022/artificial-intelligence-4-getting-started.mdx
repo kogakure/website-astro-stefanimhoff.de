@@ -21,7 +21,7 @@ If you’re just curious and don’t to pay for the necessary hardware, or creat
 If you have an iPad or iPhone, you’re in luck because a free app is available on the App Store that allows using dozens of free image models based on Stable Diffusion. The name of the app is [Draw Things: AI Generation](https://apps.apple.com/app/draw-things-ai-generation/id6444050820), developed by Liu Liu. The app is mind-blowing and I highly recommend it.
 
 <Figure caption="Draw Things app for iOS/iPadOS" size="wide">
-	<Image src="/assets/images/posts/ai-draw-things.jpg" alt="Draw Things app" />
+  <Image src="/assets/images/posts/ai-draw-things.jpg" alt="Draw Things app" />
 </Figure>
 
 The developer improves the app constantly by adding interesting new models. I downloaded over 50 GB of model data. Besides the official versions of Stable Diffusion, there are models from the community. The most important website for models is [Hugging Face](https://huggingface.co/), an AI community to build, train and deploy models powered by the reference open source in machine learning. It’s the GitHub for AI. You can find exciting [projects](https://huggingface.co/huggingface-projects) on Huggingface, for example [diffuse the f rest](https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest), where you draw an image and provide a prompt and the AI will generate a better version of it.
@@ -66,10 +66,10 @@ You can find most models available in the Draw Things application on Hugging Fac
 To show what the models are capable of, I used my profile picture with different diffusion models. I used the same seed, no prompt, `50` steps, a guidance scale of `13,0`, a strength of `46%`, and the `Euler Ancestral` sampler. 46% as a strength value means it took roughly half of the source photo and the rest was creative. Lower values generate an image that looks like the source image, higher values generate images that look like the style the model was trained on. If you combine it with a prompt, you can get even more creative results, but you can never change the basic geometry of the image. For that, you need to train a new model with your face in Dreambooth.
 
 <Figure caption="My profile picture in different diffusion models" size="wide">
-	<Image
-		src="/assets/images/posts/ai-diffusion-models.jpg"
-		alt="Profile picture in diffusion models"
-	/>
+  <Image
+    src="/assets/images/posts/ai-diffusion-models.jpg"
+    alt="Profile picture in diffusion models"
+  />
 </Figure>
 
 ## Diffusion Models
@@ -93,7 +93,7 @@ Some generators allow negative prompts, to exclude specific things from the imag
 My first prompt was basic, I asked the AI to generate `a cyberpunk wizard`. The result was impressive, but random luck. I recreated the first two images with the same seed and upscaled the second one to add more detail. But the third image, generated with a new seed, created a complete different picture.
 
 <Figure caption="A cyberpunk wizard" size="wide">
-	<Image src="/assets/images/posts/ai-cyberpunk-wizard.jpg" alt="Cyberpunk wizard" />
+  <Image src="/assets/images/posts/ai-cyberpunk-wizard.jpg" alt="Cyberpunk wizard" />
 </Figure>
 
 The art or skill of writing a good prompt is somewhere between programming, art direction, art history, photography, and writing. The more you know about formats, lenses, colors, lighting, art, artists, photography, painting, and many other art forms, the better you can write a good prompt.
@@ -125,7 +125,7 @@ A seed is a starting point for generating an AI image. It can be a random value 
 Inpainting is a technique used in image processing and computer vision to fill in missing or corrupted parts of an image. Inpainting algorithms can be used to restore damaged or degraded images, remove objects from an image, or fill in gaps in an image. These algorithms work by using information from surrounding pixels in the image to estimate the values of the missing or corrupted pixels. In the context of AI image generation, inpainting can be used to improve the quality of generated images by filling in any missing or incomplete pixels.
 
 <Figure caption="AI Inpainting" size="wide">
-	<Image src="/assets/images/posts/ai-inpainting.jpg" alt="AI Inpainting" />
+  <Image src="/assets/images/posts/ai-inpainting.jpg" alt="AI Inpainting" />
 </Figure>
 
 The simplest form of inpainting is to remove a specific object from an image. For example, if you want to remove a person from an image, you can use an inpainting algorithm to fill in the missing pixels with the surrounding pixels. It is possible to fill the area in with a prompt. In the image above, I asked Stable Diffusion to fill in a teddy bear, sitting on a sofa.
@@ -148,10 +148,10 @@ It’s possible to use different samplers in Stable Diffusion, but the details a
 
 You are now equipped with the knowledge to start your journey with AI. I covered speech-to-text generation, text generation, text-to-image generation, the various generators and Stable Diffusion models, and the different settings. I hope you will have fun with it and create spectacular images.
 
-<Banner summary="Instagram" open>
-	I started posting my AI image art on a new [Instagram](https://www.instagram.com/kogakure.ai.art/)
-	account. You can follow me there for sporadic updates. I would love to see what you create with
-	AI.
+<Banner>
+  I started posting my AI image art on a new [Instagram](https://www.instagram.com/kogakure.ai.art/)
+  account. You can follow me there for sporadic updates. I would love to see what you create with
+  AI.
 </Banner>
 
 🤖 I researched this series of essays with [ChatGPT](https://chat.openai.com), wrote it with [GitHub Copilot](https://github.com/features/copilot), created the cover artwork with [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release), and improved their quality with [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN).
