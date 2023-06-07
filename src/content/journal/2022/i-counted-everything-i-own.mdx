@@ -2,11 +2,20 @@
 title: I Counted Everything I Own
 slug: i-counted-everything-i-own
 date: 2022-01-25T19:34:18+01:00
+updated: 2023-06-07
 author: Stefan Imhoff
 description: As a minimalist I’m interested in how much stuff I own. I counted all the things I own.
 charts: true
 tags: ["minimalism", "personal"]
 ---
+
+import { DoughnutChart } from "../../../components";
+import {
+	things,
+	rooms,
+	categories,
+	options,
+} from "../../../data/journal/i-counted-everything-i-own.ts";
 
 When I started to be interested in [Minimalism](/minimalism/) in 2017, I decided to count all my stuff.
 
@@ -31,173 +40,33 @@ Back in 2017, I counted way too strict, I even counted each dental brush as one 
 
 Matt D’Avella counted 1,641 items in his home (together with his wife); 1363 things, and 278 consumables which is not a lot. He owns 498 items, his wife the rest.
 
-After counting my flat and cellar on the weekend the results are finally in. I own **2541** items, including 162 consumables. _Matt won_.
+After counting my flat and cellar on the weekend the results are finally in. I own **2749** items, including 397 consumables. _Matt won_.
 
-I still own 652 books and way too many coffee cups (I don’t even drink coffee) 🤷‍♂️ And I still have way too many clothes, but even though I don’t wear my dress shirts very often, I still love them too much to get rid of them.
+I still own 659 books and way too many coffee cups (I don’t even drink coffee) 🤷‍♂️ And I still have way too many clothes, but even though I don’t wear my dress shirts very often, I still love them too much to get rid of them.
 
 ### Things vs. Consumables
 
-I did the same as Matt and checked all my items if they are a thing or consumable. 339 items are consumables, the rest are things.
+I did the same as Matt and checked all my items if they are a thing or consumable. 397 items are consumables, the rest are things.
 
-```chart
-{
-  "type": "doughnut",
-  "data": {
-    "labels": ["Things", "Consumables"],
-    "datasets": [
-      {
-        "label": "Things vs. Consumables",
-        "data": [2257, 361],
-        "backgroundColor": ["#D7B98E", "#0C0C0C"]
-      }
-    ]
-  },
-  "options": {
-    "plugins": {
-      "title": {
-        "display": true,
-        "text": "Things vs. Consumables",
-        "font": {
-          "family": "SecuelaVariable, Arial, sans-serif",
-          "size": "18",
-          "weight": "900"
-        }
-      },
-      "legend": {
-        "position": "right"
-      }
-    }
-  }
-}
-```
+<Figure caption="Things vs. Consumables" size="wide">
+	<DoughnutChart client:visible data={things} options={options} />
+</Figure>
 
 ### Rooms
 
 Most of my items are in the living room, followed by the bedroom, kitchen, cellar, corridor, bathroom, and balcony last.
 
-```chart
-{
-  "type": "doughnut",
-  "data": {
-    "labels": [
-      "Living Room",
-      "Bedroom",
-      "Kitchen/Dining Room",
-      "Cellar",
-      "Corridor",
-      "Bathroom",
-      "Balcony"
-    ],
-    "datasets": [
-      {
-        "label": "Rooms",
-        "data": [1199, 760, 305, 127, 137, 77, 10],
-        "backgroundColor": [
-          "#FAD689",
-          "#939650",
-          "#DC9FB4",
-          "#91AD70",
-          "#2EA9DF",
-          "#77428D",
-          "#3C2F41"
-        ]
-      }
-    ]
-  },
-  "options": {
-    "plugins": {
-      "title": {
-        "display": true,
-        "text": "Rooms",
-        "font": {
-          "family": "SecuelaVariable, Arial, sans-serif",
-          "size": "18",
-          "weight": "900"
-        }
-      },
-      "legend": {
-        "position": "right"
-      }
-    }
-  }
-}
-```
+<Figure caption="Rooms" size="wide">
+	<DoughnutChart client:visible data={rooms} options={options} />
+</Figure>
 
 ### Categories
 
 My top category is “books”, even though I recently gave 150 books away. Followed by kitchen tools … I need to get rid of my coffee mugs and the dozens of Asian noodle bowls. Then clothes, probably because I recently bought a bunch of socks.
 
-```chart
-{
-  "type": "doughnut",
-  "data": {
-    "labels": [
-      "Books",
-      "Kitchen",
-      "Clothing",
-      "Electronics",
-      "Entertainment",
-      "Stationery",
-      "Survival Gear",
-      "Furniture",
-      "Personal Care",
-      "Decor",
-      "Organization",
-      "Sports Equipment",
-      "Paper/Documents",
-      "Clearning Supplies",
-      "Plants/Plant Accessories",
-      "Tools",
-      "Medicine",
-      "Travel"
-    ],
-    "datasets": [
-      {
-        "label": "Categories",
-        "data": [
-          655, 272, 262, 208, 180, 176, 171, 138, 114, 96, 74, 64, 48, 46, 40, 36, 26, 12
-        ],
-        "backgroundColor": [
-          "#CB4042",
-          "#B9887D",
-          "#B07736",
-          "#B1B479",
-          "#3A8FB7",
-          "#6E75A4",
-          "#CB1B45",
-          "#F6C555",
-          "#BEC23F",
-          "#986DB2",
-          "#FFBA84",
-          "#967249",
-          "#26453D",
-          "#77969A",
-          "#005CAF",
-          "#535953",
-          "#9F353A",
-          "#ECB88A"
-        ]
-      }
-    ]
-  },
-  "options": {
-    "plugins": {
-      "title": {
-        "display": true,
-        "text": "Categories",
-        "font": {
-          "family": "SecuelaVariable, Arial, sans-serif",
-          "size": "18",
-          "weight": "900"
-        }
-      },
-      "legend": {
-        "position": "right"
-      }
-    }
-  }
-}
-```
+<Figure caption="Categories" size="wide">
+	<DoughnutChart client:visible data={categories} options={options} />
+</Figure>
 
 ## Conclusion
 
