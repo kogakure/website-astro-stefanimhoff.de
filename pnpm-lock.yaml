@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  react: npm:@preact/compat@latest
+  react-dom: npm:@preact/compat@latest
+
 dependencies:
   '@astrojs/mdx':
     specifier: ^0.19.4
@@ -26,9 +30,18 @@ dependencies:
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.24)
+  chart.js:
+    specifier: ^4.3.0
+    version: 4.3.0
+  chartjs-plugin-autocolors:
+    specifier: ^0.2.2
+    version: 0.2.2(@kurkle/color@0.3.2)(chart.js@4.3.0)
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
+  deepmerge:
+    specifier: ^4.3.1
+    version: 4.3.1
   file-type:
     specifier: ^18.4.0
     version: 18.4.0
@@ -53,6 +66,15 @@ dependencies:
   preact:
     specifier: ^10.15.1
     version: 10.15.1
+  react:
+    specifier: npm:@preact/compat@latest
+    version: /@preact/compat@17.1.2(preact@10.15.1)
+  react-chartjs-2:
+    specifier: ^5.2.0
+    version: 5.2.0(@preact/compat@17.1.2)(chart.js@4.3.0)
+  react-dom:
+    specifier: npm:@preact/compat@latest
+    version: /@preact/compat@17.1.2(preact@10.15.1)
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
@@ -67,6 +89,9 @@ devDependencies:
   '@types/mdast':
     specifier: ^3.0.11
     version: 3.0.11
+  '@types/react':
+    specifier: ^18.2.8
+    version: 18.2.8
   '@types/unist':
     specifier: ^2.0.6
     version: 2.0.6
@@ -1178,6 +1203,10 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
+  /@kurkle/color@0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
+    dev: false
+
   /@ljharb/has-package-exports-patterns@0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
     dev: false
@@ -1248,6 +1277,14 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.5.2
+
+  /@preact/compat@17.1.2(preact@10.15.1):
+    resolution: {integrity: sha512-7pOZN9lMDDRQ+6aWvjwTp483KR8/zOpfS83wmOo3zfuLKdngS8/5RLbsFWzFZMGdYlotAhX980hJ75bjOHTwWg==}
+    peerDependencies:
+      preact: '*'
+    dependencies:
+      preact: 10.15.1
+    dev: false
 
   /@preact/signals-core@1.3.0:
     resolution: {integrity: sha512-M+M3ZOtd1dtV/uasyk4SZu1vbfEJ4NeENv0F7F12nijZYedB5wSgbtZcuACyssnTznhF4ctUyrR0dZHuHfyWKA==}
@@ -1380,9 +1417,25 @@ packages:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
     dev: false
 
+  /@types/prop-types@15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react@18.2.8:
+    resolution: {integrity: sha512-lTyWUNrd8ntVkqycEEplasWy2OxNlShj3zqS0LuB1ENUGis5HodmhM7DtCoUGbxj3VW/WsGA0DUhpG6XrM7gPA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.3
+      csstype: 3.1.2
+    dev: true
+
   /@types/resolve@1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
     dev: false
+
+  /@types/scheduler@0.16.3:
+    resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
+    dev: true
 
   /@types/unist@2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
@@ -1991,6 +2044,23 @@ packages:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
     dev: false
 
+  /chart.js@4.3.0:
+    resolution: {integrity: sha512-ynG0E79xGfMaV2xAHdbhwiPLczxnNNnasrmPEXriXsPJGjmhOBYzFVEsB65w2qMDz+CaBJJuJD0inE/ab/h36g==}
+    engines: {pnpm: '>=7'}
+    dependencies:
+      '@kurkle/color': 0.3.2
+    dev: false
+
+  /chartjs-plugin-autocolors@0.2.2(@kurkle/color@0.3.2)(chart.js@4.3.0):
+    resolution: {integrity: sha512-zKSivIHRL3yB6a47bcxOfIEOEByL+AMXTtcnscb7I3Vu4PGNCyPe4C+4XxLGvR52lMYgFYcMcYmaXksi1bbA+A==}
+    peerDependencies:
+      '@kurkle/color': ^0.3.1
+      chart.js: '>=2'
+    dependencies:
+      '@kurkle/color': 0.3.2
+      chart.js: 4.3.0
+    dev: false
+
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
@@ -2291,6 +2361,10 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0, npm: '>=7.0.0'}
     dependencies:
       css-tree: 2.2.1
+    dev: true
+
+  /csstype@3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
     dev: true
 
   /damerau-levenshtein@1.0.8:
@@ -5745,6 +5819,16 @@ packages:
       ini: 1.3.8
       minimist: 1.2.8
       strip-json-comments: 2.0.1
+    dev: false
+
+  /react-chartjs-2@5.2.0(@preact/compat@17.1.2)(chart.js@4.3.0):
+    resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 4.3.0
+      react: /@preact/compat@17.1.2(preact@10.15.1)
     dev: false
 
   /read-cache@1.0.0:

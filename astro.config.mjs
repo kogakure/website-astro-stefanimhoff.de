@@ -16,5 +16,5 @@ export default defineConfig({
 			wrap: true,
 		},
 	},
-	integrations: [mdx(), tailwind(), preact(), astroImageTools],
+	integrations: [mdx(), tailwind(), preact({ compat: true }), astroImageTools],
 });
