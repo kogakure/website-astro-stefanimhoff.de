@@ -84,7 +84,11 @@ const description = '…';
 			<span class="italic">read</span>
 		</div>
 		<div class="flex flex-wrap gap-y-3">
-			{entry.data.tags.map((t) => <Tag href={`/tag/${t}/`}>{t}</Tag>)}
+			{
+				entry.data.tags
+					.sort((a: string, b: string) => a.localeCompare(b))
+					.map((t: string) => <Tag href={`/tag/${t}/`}>{t}</Tag>)
+			}
 		</div>
 	</aside>
 	<div
