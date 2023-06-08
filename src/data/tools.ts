@@ -16,9 +16,9 @@ export const development = [
 		image: '/assets/images/tools/tmux.png',
 	},
 	{
-		name: 'Kitty',
-		url: 'https://sw.kovidgoyal.net/kitty/',
-		image: '/assets/images/tools/kitty.png',
+		name: 'Wezterm',
+		url: 'https://wezfurlong.org/wezterm/',
+		image: '/assets/images/tools/wezterm.png',
 	},
 	{
 		name: 'Visual Studio Code',
