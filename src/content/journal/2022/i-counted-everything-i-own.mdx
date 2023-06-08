@@ -6,15 +6,15 @@ updated: 2023-06-07
 author: Stefan Imhoff
 description: As a minimalist I’m interested in how much stuff I own. I counted all the things I own.
 charts: true
-tags: ["minimalism", "personal"]
+tags: ["self-improvement"]
 ---
 
 import { DoughnutChart } from "../../../components";
 import {
-	things,
-	rooms,
-	categories,
-	options,
+  things,
+  rooms,
+  categories,
+  options,
 } from "../../../data/journal/i-counted-everything-i-own.ts";
 
 When I started to be interested in [Minimalism](/minimalism/) in 2017, I decided to count all my stuff.
@@ -49,7 +49,7 @@ I still own 659 books and way too many coffee cups (I don’t even drink coffee)
 I did the same as Matt and checked all my items if they are a thing or consumable. 397 items are consumables, the rest are things.
 
 <Figure caption="Things vs. Consumables" size="wide">
-	<DoughnutChart client:visible data={things} options={options} />
+  <DoughnutChart client:visible data={things} options={options} />
 </Figure>
 
 ### Rooms
@@ -57,7 +57,7 @@ I did the same as Matt and checked all my items if they are a thing or consumabl
 Most of my items are in the living room, followed by the bedroom, kitchen, cellar, corridor, bathroom, and balcony last.
 
 <Figure caption="Rooms" size="wide">
-	<DoughnutChart client:visible data={rooms} options={options} />
+  <DoughnutChart client:visible data={rooms} options={options} />
 </Figure>
 
 ### Categories
@@ -65,7 +65,7 @@ Most of my items are in the living room, followed by the bedroom, kitchen, cella
 My top category is “books”, even though I recently gave 150 books away. Followed by kitchen tools … I need to get rid of my coffee mugs and the dozens of Asian noodle bowls. Then clothes, probably because I recently bought a bunch of socks.
 
 <Figure caption="Categories" size="wide">
-	<DoughnutChart client:visible data={categories} options={options} />
+  <DoughnutChart client:visible data={categories} options={options} />
 </Figure>
 
 ## Conclusion

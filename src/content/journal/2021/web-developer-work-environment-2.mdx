@@ -4,7 +4,7 @@ slug: web-developer-work-environment-2
 date: 2021-12-23T10:00:00+01:00
 author: Stefan Imhoff
 description: I decided to re-examine my developer tools and replace some of them with better tools.
-tags: ["code", "personal", "productivity", "software"]
+tags: ["code", "productivity", "technology"]
 series: web-developer-work-environment
 ---
 
@@ -72,7 +72,7 @@ Neovim has many features inherited from Vim and Vi, but the developers can’t a
 Even for installing plugins, you have multiple options: You can download and copy the file manually (nobody does this) or install one of the many plugin managers. I use [vim-plug](https://github.com/kogakure/dotfiles/blob/master/nvim/autocmd.vim). All you need to do is add a line pointing to the plugin to your configuration, reload Vim, and run `:PlugInstall`.
 
 <Figure caption="Vim Plug" size="wide">
-	<Image src="/assets/images/posts/work-environment-plug-install.jpg" alt="Vim Plug" />
+  <Image src="/assets/images/posts/work-environment-plug-install.jpg" alt="Vim Plug" />
 </Figure>
 
 ### Plugin Configuration
@@ -94,7 +94,7 @@ The amount of my plugins is currently 78. I will use the rough categories of my 
 The built-in LSP client of Neovim is a fantastic feature. But it’s the most complicated part to set up at the moment. Of all the plugins, I struggled the most in setting up LSP. The main plugins to help are [lspconfig](https://github.com/neovim/nvim-lspconfig) and [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer) will help to create configurations for the LSP servers and to install them without additional manual work.
 
 <Figure caption="LSP Installer" size="wide">
-	<Image src="/assets/images/posts/work-environment-lsp-installer.jpg" alt="LSP Installer" />
+  <Image src="/assets/images/posts/work-environment-lsp-installer.jpg" alt="LSP Installer" />
 </Figure>
 
 One of the LSP servers is the diagnostics language server. There is an [unofficial collection](https://github.com/creativenull/diagnosticls-configs-nvim) of configurations for useful things such as prettier or ESLint.
@@ -106,7 +106,7 @@ One of the LSP servers is the diagnostics language server. There is an [unoffici
 Vim has a nice completion engine with `omnicomplete`, but with [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) it feels much more modern. The recommended setup includes more plugins by the same author to complete LSP, buffers, path, vim’s command line, and snippets of one of the four biggest snippet plugins.
 
 <Figure caption="Completion" size="wide">
-	<Image src="/assets/images/posts/work-environment-completion.jpg" alt="Completion" />
+  <Image src="/assets/images/posts/work-environment-completion.jpg" alt="Completion" />
 </Figure>
 
 I decided to stay with [Ultisnips](https://github.com/SirVer/ultisnips) because it’s the most starred, creating snippets is quick and easy and with [vim-snippets](https://github.com/honza/vim-snippets) it brings a massive collection of snippets. There is a [source for nvim-cmp](https://github.com/quangnguyen30192/cmp-nvim-ultisnips).
@@ -118,7 +118,7 @@ The plugin [lspkind-nvim](https://github.com/onsails/lspkind-nvim) will add pret
 [Telescope](https://github.com/nvim-telescope/telescope.nvim) is my favorite plugin. It is a plugin to find, filter, preview, and pick files. It supports built-in dozens of features, for example, files, Vim features, LSP, Git, and many more. But it can be extended to browse [the file system](https://github.com/nvim-telescope/telescope-file-browser.nvim), [fzf](https://github.com/nvim-telescope/telescope-fzf-native.nvim), [recently used files](https://github.com/nvim-telescope/telescope-frecency.nvim), [node_modules](https://github.com/nvim-telescope/telescope-node-modules.nvim), or [browser bookmarks](https://github.com/dhruvmanila/telescope-bookmarks.nvim).
 
 <Figure caption="Telescope" size="wide">
-	<Image src="/assets/images/posts/work-environment-telescope.jpg" alt="Telescope" />
+  <Image src="/assets/images/posts/work-environment-telescope.jpg" alt="Telescope" />
 </Figure>
 
 I don’t use Tree plugins much because Telescope is fast and finds everything, but every so often you want to browse a specific folder structure. NerdTree is the most famous tree plugin, but I use a newer version written in Lua: [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua).
@@ -160,7 +160,7 @@ Another thing on the opposite end of the window that many people want is a statu
 I like to work distraction-free. In Visual Studio Code there is the Zen mode which will hide all unnecessary things. For Vim, the plugin [Goyo](https://github.com/junegunn/goyo.vim) does a similar thing. It centers the editor and removes all distractions.
 
 <Figure caption="Goyo" size="wide">
-	<Image src="/assets/images/posts/work-environment-goyo.jpg" alt="Goyo" />
+  <Image src="/assets/images/posts/work-environment-goyo.jpg" alt="Goyo" />
 </Figure>
 
 ### Syntax Highlighting
@@ -174,7 +174,7 @@ The only problem I have is support for Styled Components. It’s an [open issue 
 As a Front-end Web Developer, I love to see my color values visualized. The plugin [colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua) does this fast and pretty.
 
 <Figure caption="Colorizer" size="wide">
-	<Image src="/assets/images/posts/work-environment-colorizer.jpg" alt="Colorizer" />
+  <Image src="/assets/images/posts/work-environment-colorizer.jpg" alt="Colorizer" />
 </Figure>
 
 Another plugin I use is [Emmet](https://github.com/mattn/emmet-vim). It allows using this simple syntax to automatically create HTML or CSS.

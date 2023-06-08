@@ -4,7 +4,7 @@ slug: web-developer-work-environment-1
 date: 2021-12-20T10:00:00+01:00
 author: Stefan Imhoff
 description: I decided to re-examine my developer tools and replace some of them with better tools.
-tags: ["code", "personal", "productivity", "software"]
+tags: ["code", "productivity", "technology"]
 series: web-developer-work-environment
 ---
 
@@ -45,7 +45,7 @@ My previous dotfiles used a custom script to create symbolic links from inside t
 Previously, I used [iTerm2](https://iterm2.com/) as my terminal application, but it is slow and using Vim is sluggish. I heard of [Kitty](https://github.com/kovidgoyal/kitty) and [Alacritty](https://github.com/alacritty/alacritty) and tried both. In the end, I decided to use Kitty as my new terminal application. It is a cross-platform, fast, feature-rich, GPU-based terminal. Additionally, it has built-in support for [Ligatures](<https://en.wikipedia.org/wiki/Ligature_(writing)>).
 
 <Figure caption="Terminal" size="wide">
-	<Image src="/assets/images/posts/work-environment-terminal.jpg" alt="Terminal" />
+  <Image src="/assets/images/posts/work-environment-terminal.jpg" alt="Terminal" />
 </Figure>
 
 ## Shell
@@ -89,7 +89,7 @@ While it is possible to download color themes for each tool, I use [base16-shell
 The terminal beginner uses a new terminal window when wanting to run something while a process is in progress. The intermediate terminal user uses the built-in feature of terminals to create new tabs. The advanced terminal user uses the built-in feature to split windows into separate sections. The professional terminal user uses a terminal multiplexer. It allows you to switch between several programs in one terminal and detach them while keeping them running in the background.
 
 <Figure caption="TMUX" size="wide">
-	<Image src="/assets/images/posts/work-environment-tmux.jpg" alt="TMUX" />
+  <Image src="/assets/images/posts/work-environment-tmux.jpg" alt="TMUX" />
 </Figure>
 
 A co-worker introduced me to this concept 10 years ago. Since then, I use [tmux](https://tmux.github.io/). It allows me to run many work projects and private projects at the same time and switch with a few keystrokes between them.
@@ -117,7 +117,7 @@ This is where useful tools like [z](https://github.com/rupa/z) and [fzf](https:/
 [FZF](https://github.com/junegunn/fzf) is my favorite tool on the terminal. It is a general-purpose command-line fuzzy finder that is blazing fast and can be combined with every tool thinkable.
 
 <Figure caption="FZF" size="wide">
-	<Image src="/assets/images/posts/work-environment-fzf.jpg" alt="FZF" />
+  <Image src="/assets/images/posts/work-environment-fzf.jpg" alt="FZF" />
 </Figure>
 
 You can take nearly any output and pass it to FZF to get a list that can be filtered down with a fuzzy search in seconds. It can handle tenths of thousands or even hundreds of thousands of items with a fantastic performance.
@@ -127,7 +127,7 @@ You can take nearly any output and pass it to FZF to get a list that can be filt
 Terminals have tools like `cat`, `head`, or `tail` to quickly view content without opening them in a more powerful editor. Cat is the most used tool of this kind, but it doesn’t have plenty of features except showing the content.
 
 <Figure caption="Bat" size="wide">
-	<Image src="/assets/images/posts/work-environment-bat.jpg" alt="Bat" />
+  <Image src="/assets/images/posts/work-environment-bat.jpg" alt="Bat" />
 </Figure>
 
 [Bat](https://github.com/sharkdp/bat) is a content viewer like cat, but with powerful features like syntax highlighting, line numbers, git integration, and paging. I replaced it nearly everywhere where I used `cat` before. It can be combined with FZF to view the code.
@@ -200,7 +200,7 @@ I use [pyenv](https://github.com/pyenv/pyenv) for version management with Python
 There are dozens of window managers available, paid or free. Even the built-in macOS split feature might be enough for regular people. But a powerful window manager is crucial for effective working. As a developer, we use two or even more monitors to constantly monitor services, browse the documentation, write code, check email or chat, and browse the internet. The context switches throughout the day, sometimes the Browser is a primary tool (when surfing), and other times it’s a secondary tool (when coding). Moving windows around monitors, resizing and arranging them is therefore important.
 
 <Figure caption="Hammerspoon" size="wide">
-	<Image src="/assets/images/posts/work-environment-hammerspoon.jpg" alt="Hammerspoon" />
+  <Image src="/assets/images/posts/work-environment-hammerspoon.jpg" alt="Hammerspoon" />
 </Figure>
 
 I use [Hammerspoon](https://www.hammerspoon.org/) for nearly 10 years. It is a bridge between macOS and a Lua scripting engine. It’s possible to control nearly everything with it and listen to Wi-Fi or USB events. I use it mainly for window resizing, window layout management, and application switching. If you’re interested in my configuration, you can find it in [init.lua](https://github.com/kogakure/dotfiles/blob/master/hammerspoon/init.lua) and additional helper functions in [functions.lua](https://github.com/kogakure/dotfiles/blob/master/hammerspoon/functions.lua). Those are copied because I had no clue about Lua 10 years ago.
