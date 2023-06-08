@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+
+import { sortByDate } from '../../utils';
+
+import GridLayout from '../../layouts/GridLayout.astro';
+import PageTitle from '../../components/PageTitle.astro';
+import JournalList from '../../components/JournalList.astro';
+
+console.log('test');
+
+export async function getStaticPaths() {
+	const journalEntries = await getCollection('journal');
+	journalEntries.sort(sortByDate);
+
+	const uniqueTags = [...new Set(journalEntries.map((entry) => entry.data.tags).flat())];
+
+	return uniqueTags.map((tag) => {
+		const filteredEntries = journalEntries.filter((entry) => entry.data.tags.includes(tag));
+		return {
+			params: { tag },
+			props: {
+				entries: filteredEntries,
+			},
+		};
+	});
+}
+
+const { tag } = Astro.params;
+const { entries } = Astro.props;
+
+const title = 'Journal';
+const description = '…';
+---
+
+<GridLayout
+	title={title}
+	description={description}
+	grid="wide"
+	class="grid"
+	innerGrid
+	backLink="/journal/"
+>
+	<PageTitle slot="title">
+		Tag: {tag}
+	</PageTitle>
+	<JournalList entries={entries} />
+</GridLayout>

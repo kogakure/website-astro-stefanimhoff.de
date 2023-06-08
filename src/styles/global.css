@@ -182,4 +182,21 @@
 			}
 		}
 	}
+
+	.journal-card {
+		@apply relative col-span-2 row-span-3 inline-block overflow-hidden rounded-4 border-1 border-black/25 hover:scale-105 dark:border-white/25 md:row-span-5;
+
+		& img,
+		& picture {
+			@apply !h-full w-full object-cover;
+		}
+
+		& img {
+			@apply !h-full scale-100 blur-0 brightness-[50%] filter transition duration-300 ease-in-out;
+		}
+
+		&:hover img {
+			@apply scale-105 blur-sm brightness-[70%];
+		}
+	}
 }

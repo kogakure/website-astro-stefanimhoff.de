@@ -1,0 +1,52 @@
+---
+import { Picture } from 'astro-imagetools/components';
+
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+	entries: CollectionEntry<'journal'>[];
+}
+
+import { pickTwoRandomColors } from '../utils';
+import { Link, Subsubheadline } from '../components';
+
+const { entries } = Astro.props;
+---
+
+<nav class="col-start-1 col-end-18" aria-label="Journal">
+	<ul
+		class="grid auto-rows-[50px] grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] grid-rows-[50px] gap-[max(25px,_2vw)]"
+	>
+		{
+			entries.map(({ slug, data }) => (
+				<li class="journal-card image-shadow group">
+					<Link title={data.title} href={`/${slug}/`} class="block h-full w-full">
+						<div class="absolute z-10 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
+							<Subsubheadline class="!m-0 leading-tight">{data.title}</Subsubheadline>
+						</div>
+						{data.cover ? (
+							<>
+								{data.cover.endsWith('.svg') ? (
+									<img src={data.cover} alt={data.title} />
+								) : (
+									<Picture
+										src={data.cover}
+										alt={data.title}
+										aspect={0.6}
+										breakpoints={[300, 512, 768, 1024]}
+									/>
+								)}
+							</>
+						) : (
+							<div
+								class="h-full w-full scale-105 bg-gray-800 blur-sm brightness-[50%] filter transition duration-300 ease-in-out group-hover:brightness-[90%]"
+								style={`background-image: linear-gradient(to bottom left, ${
+									pickTwoRandomColors()[0]
+								} 0%, ${pickTwoRandomColors()[1]} 100%)`}
+							/>
+						)}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+</nav>

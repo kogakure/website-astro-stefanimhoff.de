@@ -5,13 +5,18 @@ import { sortByDate } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
+import JournalList from '../components/JournalList.astro';
+import { Tag } from '../components';
+
 import { Content as Intro } from '../text/journal/intro.mdx';
-import { Link } from '../components';
 
 import { mapping } from '../mdx-components';
 
 const allJournal = await getCollection('journal');
 allJournal.sort(sortByDate);
+
+const uniqueTags = [...new Set(allJournal.map((entry) => entry.data.tags).flat())];
+uniqueTags.sort((a, b) => a.localeCompare(b));
 
 const title = 'Journal';
 const description = '…';
@@ -25,18 +30,8 @@ const description = '…';
 	>
 		<Intro components={mapping} />
 	</article>
-
-	<nav class="md:col-start-1 md:col-end-16" aria-label="Journal">
-		<ol>
-			{
-				allJournal.map(({ slug, data }) => (
-					<li>
-						<Link title={data.title} href={`/${slug}/`}>
-							{data.title}
-						</Link>
-					</li>
-				))
-			}
-		</ol>
-	</nav>
+	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
+		{uniqueTags.map((tag) => <Tag href={`/tag/${tag}/`}>{tag}</Tag>)}
+	</aside>
+	<JournalList entries={allJournal} />
 </GridLayout>
