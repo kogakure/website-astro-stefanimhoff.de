@@ -10,7 +10,7 @@ import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Pagination from '../components/Pagination.astro';
 import Picture from '../components/Picture.astro';
-import { Banner, ListItem, OrderedList, TextLink } from '../components';
+import { Banner, ListItem, OrderedList, Tag, TextLink } from '../components';
 
 import { mapping } from '../mdx-components';
 
@@ -52,14 +52,13 @@ const description = '…';
 	<PageTitle slot="title" class="!text-6">
 		{entry.data.title}
 	</PageTitle>
-
 	{
 		entry.data.cover && (
 			<Picture
 				alt={entry.data.title}
 				aspect={1.6}
 				breakpoints={[300, 500, 700, 1000, 1300, 1500, 1800, 2000]}
-				class="col-span-full h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
+				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
 				format={['webp', 'avif']}
 				src={entry.data.cover}
 			/>
@@ -79,10 +78,13 @@ const description = '…';
 		<div class="leading-tight">
 			<time datetime={dateToISO(entry.data.date)}>{dateToFormat(entry.data.date)}</time>
 		</div>
-		<div class="leading-none">
+		<div class="leading-none mbe-6">
 			{wordCount(entry.body)}
 			<span class="italic">words</span> • {minutesRead}
 			<span class="italic">read</span>
+		</div>
+		<div class="flex flex-wrap gap-y-3">
+			{entry.data.tags.map((t) => <Tag href={`/tag/${t}/`}>{t}</Tag>)}
 		</div>
 	</aside>
 	<div

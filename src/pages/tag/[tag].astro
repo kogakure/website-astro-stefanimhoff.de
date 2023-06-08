@@ -6,14 +6,20 @@ import { sortByDate } from '../../utils';
 import GridLayout from '../../layouts/GridLayout.astro';
 import PageTitle from '../../components/PageTitle.astro';
 import JournalList from '../../components/JournalList.astro';
+import { Tag } from '../../components';
 
-console.log('test');
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+	entries: CollectionEntry<'journal'>[];
+	uniqueTags: string[];
+}
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal');
 	journalEntries.sort(sortByDate);
 
 	const uniqueTags = [...new Set(journalEntries.map((entry) => entry.data.tags).flat())];
+	uniqueTags.sort((a, b) => a.localeCompare(b));
 
 	return uniqueTags.map((tag) => {
 		const filteredEntries = journalEntries.filter((entry) => entry.data.tags.includes(tag));
@@ -21,13 +27,14 @@ export async function getStaticPaths() {
 			params: { tag },
 			props: {
 				entries: filteredEntries,
+				uniqueTags: uniqueTags,
 			},
 		};
 	});
 }
 
 const { tag } = Astro.params;
-const { entries } = Astro.props;
+const { entries, uniqueTags } = Astro.props;
 
 const title = 'Journal';
 const description = '…';
@@ -41,8 +48,17 @@ const description = '…';
 	innerGrid
 	backLink="/journal/"
 >
-	<PageTitle slot="title">
-		Tag: {tag}
+	<PageTitle slot="title" class="capitalize">
+		{tag}
 	</PageTitle>
+	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
+		{
+			uniqueTags.map((uTag) => (
+				<Tag active={uTag === tag} href={`/tag/${uTag}/`}>
+					{uTag}
+				</Tag>
+			))
+		}
+	</aside>
 	<JournalList entries={entries} />
 </GridLayout>

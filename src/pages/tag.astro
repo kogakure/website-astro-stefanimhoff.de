@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+
+import { sortByDate } from '../utils';
+
+import GridLayout from '../layouts/GridLayout.astro';
+import PageTitle from '../components/PageTitle.astro';
+import { Tag } from '../components';
+
+const allJournal = await getCollection('journal');
+allJournal.sort(sortByDate);
+
+const uniqueTags = [...new Set(allJournal.map((entry) => entry.data.tags).flat())];
+uniqueTags.sort((a, b) => a.localeCompare(b));
+
+const title = 'Tags';
+const description = '…';
+---
+
+<GridLayout
+	backLink="/journal/"
+	class="grid"
+	description={description}
+	grid="wide"
+	innerGrid
+	title={title}
+>
+	<PageTitle grid="wide" innerGrid>Tags</PageTitle>
+	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
+		{uniqueTags.map((t) => <Tag href={`/tag/${t}/`}>{t}</Tag>)}
+	</aside>
+</GridLayout>
