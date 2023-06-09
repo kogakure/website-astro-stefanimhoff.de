@@ -1,0 +1,11 @@
+---
+draft: true
+title: {{titleCase title}}
+slug: {{dashCase title}}
+date: {{date}}
+author: Stefan Imhoff
+description: {{description}}
+tags: [{{#each tags}}"{{.}}"{{#unless @last}}, {{/unless}}{{/each}}]
+---
+
+Hello World!
