@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.stefanimhoff.de/sitemap.xml
+Host: https://www.stefanimhoff.de/
