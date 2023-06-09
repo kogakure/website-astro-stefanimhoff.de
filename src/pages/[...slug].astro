@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 import { getCollection } from 'astro:content';
 
-import { sortByDate } from '../utils';
+import { formatPosts, sortByDate } from '../utils';
 import { dateToFormat, dateToISO, wordCount } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
@@ -17,17 +17,17 @@ import { mapping } from '../mdx-components';
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal');
 	const numberOfPages = journalEntries.length;
-	journalEntries.sort(sortByDate).reverse();
+	const formattedJournalEntries = formatPosts(journalEntries, { sortOrder: 'asc' });
 
-	return journalEntries.map((entry, index) => ({
+	return formattedJournalEntries.map((entry, index) => ({
 		params: { slug: entry.slug },
 		props: {
 			entry,
 			next:
 				index + 1 === numberOfPages
 					? { slug: null, data: null }
-					: journalEntries[index + 1],
-			prev: index === 0 ? {} : journalEntries[index - 1],
+					: formattedJournalEntries[index + 1],
+			prev: index === 0 ? {} : formattedJournalEntries[index - 1],
 		},
 	}));
 }
