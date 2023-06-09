@@ -29,8 +29,7 @@ Later I learned the underlying model is [Codex](https://openai.com/blog/openai-c
 Writing a comment like this in the code:
 
 ```
-Create a React component in TypeScript and Styled Components
-taking children and returning a red button.
+Create a React component in TypeScript and Styled Components taking children and returning a red button.
 ```
 
 Will create code like this:
@@ -116,24 +115,13 @@ Obediently, the woman steps away from the rocks above … and calmly plunges to 
 When I use `Simplify` on the text, it generates this:
 
 ```
-Unfortunately, Conan gets captured and brought to Thulsa Doom.
-Thulsa Doom doesn't remember hurting Conan's family, but he knows
-the answer to an important mystery called the "riddle of steel".
-Thulsa Doom tells Conan that steel isn't strong, rather, it is the
-person who uses the steel that is strong. To prove his point,
-Thulsa Doom calls out to a young woman on the cliffs above.
-The woman steps away from the rocks and falls to her death.
-Thulsa Doom explains that this is strength and power, and asks
-Conan what steel is compared to the hand that wields it.
+Unfortunately, Conan gets captured and brought to Thulsa Doom. Thulsa Doom doesn't remember hurting Conan's family, but he knows the answer to an important mystery called the "riddle of steel". Thulsa Doom tells Conan that steel isn't strong, rather, it is the person who uses the steel that is strong. To prove his point, Thulsa Doom calls out to a young woman on the cliffs above. The woman steps away from the rocks and falls to her death. Thulsa Doom explains that this is strength and power, and asks Conan what steel is compared to the hand that wields it.
 ```
 
 When I use `Summarize` on the text, it generates this:
 
 ```
-Thulsa Doom reveals the 'Riddle of Steel' to Conan, which is
-that steel is not strong, but the flesh is. He then demonstrates
-this by having a young woman obediently plunge to her death to
-prove the strength of power.
+Thulsa Doom reveals the 'Riddle of Steel' to Conan, which is that steel is not strong, but the flesh is. He then demonstrates this by having a young woman obediently plunge to her death to prove the strength of power.
 ```
 
 Using `TL;DR` creates this short sentence:
@@ -160,8 +148,7 @@ And finally, it created a flashcard for me:
 
 ```
 Q: What is Thulsa Doom's explanation of the riddle of steel?
-A: Steel is not strong, flesh is stronger. What is steel
-   compared to the hand that wields it?
+A: Steel is not strong, flesh is stronger. What is steel compared to the hand that wields it?
 ```
 
 It’s possible to use custom templates with the [Jinja templating engine](https://jinja.palletsprojects.com/en/3.1.x/). You could ask for example what the top 5 key takeaways of the article are, let it create a blog post, or ask any other question.
