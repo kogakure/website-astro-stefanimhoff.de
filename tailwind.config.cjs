@@ -9,7 +9,6 @@ module.exports = {
 				md: '768px',
 				xl: '1280px',
 				'3xl': '1800px',
-				haiku: '25rem',
 			},
 			colors: {
 				accent: '#e60510',
