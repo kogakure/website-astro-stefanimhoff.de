@@ -7,25 +7,30 @@ export const formatPosts = (
 	{
 		removeDrafts = true,
 		removeFuture = true,
+		showFeatured,
 		sortBy = 'date',
 		sortOrder = 'desc',
 		limit,
 	}: {
 		removeDrafts?: boolean;
 		removeFuture?: boolean;
+		showFeatured?: boolean;
 		sortBy?: 'date' | 'alphabet' | 'random';
 		sortOrder?: 'asc' | 'desc';
 		limit?: number;
 	}
 ): CollectionEntry<'journal'>[] => {
 	const filteredPosts = posts.reduce((acc: CollectionEntry<'journal'>[], post) => {
-		const { date, draft } = post.data;
+		const { date, draft, featured } = post.data;
 
 		// Remove draft content
 		if (removeDrafts && draft) return acc;
 
 		// Remove future content
 		if (removeFuture && new Date(date) > new Date()) return acc;
+
+		// Show featured only
+		if (showFeatured && !featured) return acc;
 
 		acc.push(post);
 
