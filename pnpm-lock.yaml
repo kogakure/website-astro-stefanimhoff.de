@@ -84,6 +84,9 @@ dependencies:
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
+  sal.js:
+    specifier: ^0.8.5
+    version: 0.8.5
   sharp:
     specifier: ^0.32.1
     version: 0.32.1
@@ -11356,6 +11359,11 @@ packages:
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
+
+  /sal.js@0.8.5:
+    resolution: {integrity: sha512-KUb3fNrVZ1oWxxkEAfQfQ4Mrd910yboIRHqsvioBkulQInqMVeSMah+J5f7ch7KXFLicKlAaE0TzTsG/eJ02Dg==}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /sass-formatter@0.7.6:
     resolution: {integrity: sha512-hXdxU6PCkiV3XAiSnX+XLqz2ohHoEnVUlrd8LEVMAI80uB1+OTScIkH9n6qQwImZpTye1r1WG1rbGUteHNhoHg==}

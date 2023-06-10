@@ -5,6 +5,7 @@ import { Sprite } from 'astro-icon';
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PageFooter from '../components/PageFooter.astro';
+import Sal from '../components/Sal.astro';
 
 export interface Props {
 	backLink?: string;
@@ -53,6 +54,7 @@ const { backLink, footer = true, header = true, title, description } = Astro.pro
 			rel="preload"
 			type="font/woff2"
 		/>
+		<Sal />
 		<ThemeProvider />
 	</head>
 	<body

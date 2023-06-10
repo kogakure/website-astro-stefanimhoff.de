@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 
 import { sortByDate } from '../../utils';
+import { animation, animationDelay } from '../../data/site';
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
@@ -41,18 +42,22 @@ const description = '…';
 			class="min-[700px]:grid-cols-[repeat(auto-fit,_minmax(25rem,_1fr)] col-span-full row-start-1 row-end-3 grid w-full grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))]"
 		>
 			<div class="grid h-full w-full items-center">
-				<Verse
-					class="justify-center text-center text-3 font-black not-italic !leading-relaxed min-[700px]:text-4"
-				>
-					{entry.data.de}
-				</Verse>
+				<div {...animation}>
+					<Verse
+						class="justify-center text-center text-3 font-black not-italic !leading-relaxed min-[700px]:text-4"
+					>
+						{entry.data.de}
+					</Verse>
+				</div>
 			</div>
 			<div class="grid h-full w-full items-center bg-[#d0cdc8] dark:bg-[#0e0d0c]">
-				<Verse
-					class="justify-center text-center text-3 font-black not-italic !leading-relaxed min-[700px]:text-4"
-				>
-					{entry.data.en}
-				</Verse>
+				<div {...animationDelay}>
+					<Verse
+						class="justify-center text-center text-3 font-black not-italic !leading-relaxed min-[700px]:text-4"
+					>
+						{entry.data.en}
+					</Verse>
+				</div>
 			</div>
 		</div>
 	</div>

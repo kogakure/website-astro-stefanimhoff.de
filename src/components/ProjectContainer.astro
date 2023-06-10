@@ -3,6 +3,8 @@ import cx from 'classnames';
 
 import type { CollectionEntry } from 'astro:content';
 
+import { animation } from '../data/site';
+
 import ProjectContent from '../components/ProjectContent.astro';
 import ProjectImage from '../components/ProjectImage.astro';
 
@@ -20,7 +22,7 @@ const {
 const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 ---
 
-<article class={classes}>
+<article class={classes} {...animation}>
 	{
 		format === '50-start' && (
 			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
@@ -35,7 +37,10 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	}
 	{
 		format === '50-end' && (
-			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">
+			<figure
+				class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap"
+				{...animation}
+			>
 				<div class="col-start-1 col-end-3 row-start-1 md:col-start-2 md:row-start-1">
 					<ProjectImage project={project} />
 				</div>
@@ -47,7 +52,10 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	}
 	{
 		format === '70-start' && (
-			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+			<figure
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				{...animation}
+			>
 				<div class=" col-start-1 col-end-19 grid self-start xl:col-end-13">
 					<ProjectImage project={project} />
 				</div>
@@ -59,7 +67,10 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	}
 	{
 		format === '70-end' && (
-			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+			<figure
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				{...animation}
+			>
 				<div class=" col-start-1 col-end-19 row-start-1 grid self-start xl:col-start-7 xl:col-end-19">
 					<ProjectImage project={project} />
 				</div>
@@ -71,7 +82,10 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	}
 	{
 		format === '100-start' && (
-			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+			<figure
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				{...animation}
+			>
 				<div class=" col-start-1 col-end-19 row-start-1">
 					<ProjectImage project={project} />
 				</div>
@@ -83,7 +97,10 @@ const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 	}
 	{
 		format === '100-end' && (
-			<figure class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap">
+			<figure
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				{...animation}
+			>
 				<div class=" col-start-1 col-end-19 row-start-1">
 					<ProjectImage project={project} />
 				</div>

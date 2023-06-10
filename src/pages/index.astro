@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 
 import { formatPosts } from '../utils';
 
+import { site, animation, animationDelay } from '../data/site';
+
 import GridLayout from '../layouts/GridLayout.astro';
 
 import MoreLink from '../components/MoreLink.astro';
@@ -27,9 +29,9 @@ const description = '…';
 
 <GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>
 	<PageTitle class="!text-6 sm:!text-7">
-		Stefan Imhoff
+		{site.title}
 		<small class="block text-[0.235em] font-light tracking-normal dark:text-[0.23em]"
-			>Front-End Web Developer • Designer • Minimalist • Japanophile</small
+			>{site.tagline}</small
 		>
 	</PageTitle>
 	<div
@@ -45,6 +47,7 @@ const description = '…';
 
 	<article
 		class="col-start-2 col-end-18 row-start-3 self-center md:col-start-12 md:row-start-2 xl:col-start-13 xl:col-end-17"
+		{...animation}
 	>
 		<Headline>About Me</Headline>
 		<AboutMe components={mapping} />
@@ -53,6 +56,7 @@ const description = '…';
 
 	<article
 		class="col-start-2 col-end-18 row-start-4 md:col-start-3 md:col-end-17 md:row-start-3 xl:col-start-5 xl:col-end-15"
+		{...animationDelay}
 	>
 		<Headline>What I Do</Headline>
 		<div class="columns-1 gap-[2.775vw] mbe-10 md:columns-2 [&_p:last-of-type]:mbe-0">
@@ -63,6 +67,7 @@ const description = '…';
 
 	<article
 		class="col-start-2 col-end-18 md:col-start-6 md:col-end-14 xl:col-start-7 xl:col-end-13"
+		{...animation}
 	>
 		<Headline>Journal</Headline>
 		<Journal components={mapping} />
@@ -71,6 +76,7 @@ const description = '…';
 
 	<article
 		class="min-[1794px]:[&_li:block col-start-2 col-end-18 grid w-full grid-cols-18 gap-y-gap mbe-12 min-[1097px]:[&_li:nth-child(n+5)]:hidden min-[1410px]:[&_li:nth-child(n+5)]:block min-[1411px]:[&_li:nth-child(n+6)]:hidden min-[1793px]:[&_li:nth-child(n+6)]:block"
+		{...animation}
 	>
 		<JournalList entries={formattedLatest} />
 	</article>

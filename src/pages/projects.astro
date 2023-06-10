@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../utils';
 
+import { animation } from '../data/site';
+
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import ProjectContainer from '../components/ProjectContainer.astro';
@@ -27,7 +29,7 @@ const description =
 		Projects
 	</PageTitle>
 
-	<article class="col-start-2 col-end-18 md:col-start-6 md:col-end-14">
+	<article class="col-start-2 col-end-18 md:col-start-6 md:col-end-14" {...animation}>
 		<Intro components={mapping} />
 	</article>
 

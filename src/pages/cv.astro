@@ -1,4 +1,6 @@
 ---
+import { animation, animationDelay } from '../data/site';
+
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import DownloadLink from '../components/DownloadLink.astro';
@@ -27,12 +29,12 @@ const description = '';
 <GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
 
-	<article class="col-span-full md:col-start-1 md:col-end-9">
+	<article class="col-span-full md:col-start-1 md:col-end-9" {...animation}>
 		<Headline>{cv.summary.headline}</Headline>
 		<Intro components={mapping} />
 	</article>
 
-	<article class="col-span-full md:col-start-10 md:col-end-18">
+	<article class="col-span-full md:col-start-10 md:col-end-18" {...animationDelay}>
 		<Headline>Personal Information</Headline>
 		<Subheadline class="font-semibold">{cv.personal.name}</Subheadline>
 		<Text class="!mbe-0">{cv.personal.tagline}</Text>

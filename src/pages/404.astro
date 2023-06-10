@@ -1,4 +1,6 @@
 ---
+import { animation, animationDelay } from '../data/site';
+
 import GridLayout from '../layouts/GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
@@ -16,6 +18,7 @@ const description = 'Page not found.';
 	<Verse
 		class="z-10 col-start-1 col-end-17 row-start-2 text-3 italic mbe-10 mbs-10 md:col-start-3 md:col-end-9"
 		variant="left"
+		{...animation}
 	>
 		<Haiku components={mapping} />
 	</Verse>
@@ -23,6 +26,7 @@ const description = 'Page not found.';
 		aria-hidden="true"
 		class="col-start-10 col-end-13 row-start-1 row-end-3 text-9 font-black text-black/[0.05] dark:text-white/[0.05]"
 		role="img"
+		{...animationDelay}
 	>
 		404
 	</span>

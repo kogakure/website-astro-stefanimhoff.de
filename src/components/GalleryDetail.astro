@@ -1,6 +1,8 @@
 ---
 import cx from 'classnames';
 
+import { animation, animationDelay } from '../data/site';
+
 import Picture from './Picture.astro';
 import { Headline } from '.';
 
@@ -19,6 +21,7 @@ const imageLength = entry.data.images.length;
 	<div class="p-gap lg:w-2/6">
 		<div
 			class="w-[66ch] lg:sticky lg:top-[calc(100vh_/_2_-_(max(30vh,_250px)_/_2))] lg:h-[max(30vh,_250px)] lg:w-full"
+			{...animationDelay}
 		>
 			<Headline>{entry.data.title}</Headline>
 			<slot />
@@ -35,10 +38,7 @@ const imageLength = entry.data.images.length;
 	>
 		{
 			entry.data.images.map(({ src }: { src: string }, index: number) => (
-				<Picture
-					alt={entry.data.title}
-					aspect={entry.data.aspect}
-					breakpoints={[300, 500, 700, 1000, 1280]}
+				<div
 					class={cx('col-span-full w-full !mbe-0  lg:col-span-3 lg:max-w-full', {
 						'justify-self-start lg:col-start-1':
 							randomPosition() === 'start' && imageLength > 1 && index > 0,
@@ -48,9 +48,16 @@ const imageLength = entry.data.images.length;
 							randomPosition() === 'end' && imageLength > 1 && index > 0,
 						'lg:col-start-2': imageLength === 1 || index === 0,
 					})}
-					format={['webp', 'avif']}
-					src={src}
-				/>
+					{...animation}
+				>
+					<Picture
+						alt={entry.data.title}
+						aspect={entry.data.aspect}
+						breakpoints={[300, 500, 700, 1000, 1280]}
+						format={['webp', 'avif']}
+						src={src}
+					/>
+				</div>
 			))
 		}
 	</div>
