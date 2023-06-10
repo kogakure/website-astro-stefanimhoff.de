@@ -13,7 +13,7 @@ import { mapping } from '../../mdx-components';
 export async function getStaticPaths() {
 	const sketchnotesEntries = await getCollection('sketchnotes');
 	const numberOfPages = sketchnotesEntries.length;
-	sketchnotesEntries.sort(sortBySortKey);
+	sketchnotesEntries.sort(sortBySortKey).reverse();
 
 	return sketchnotesEntries.map((entry, index) => ({
 		params: { slug: entry.slug },

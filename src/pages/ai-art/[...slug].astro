@@ -13,7 +13,7 @@ import { mapping } from '../../mdx-components';
 export async function getStaticPaths() {
 	const aiArtEntries = await getCollection('ai-art');
 	const numberOfPages = aiArtEntries.length;
-	aiArtEntries.sort(sortBySortKey);
+	aiArtEntries.sort(sortBySortKey).reverse();
 
 	return aiArtEntries.map((entry, index) => ({
 		params: { slug: entry.slug },

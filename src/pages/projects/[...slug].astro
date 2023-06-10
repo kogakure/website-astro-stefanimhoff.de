@@ -14,7 +14,7 @@ import { Tag } from '../../components';
 export async function getStaticPaths() {
 	const projectEntries = await getCollection('projects', ({ data }) => data.showcase === true);
 	const numberOfPages = projectEntries.length;
-	projectEntries.sort(sortBySortKey).reverse();
+	projectEntries.sort(sortBySortKey);
 
 	return projectEntries.map((entry, index) => ({
 		params: { slug: entry.slug },
