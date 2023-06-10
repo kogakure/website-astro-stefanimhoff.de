@@ -17,7 +17,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 			aria-label={previousText || 'Previous'}
 			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-start-[1rem]"
 			href={previousUrl}
-			rel="prev"
+			rel="prefetch prev"
 			title={previousText || 'Previous'}
 		>
 			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
@@ -32,7 +32,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 			aria-label={nextText || 'Next'}
 			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-end-[1rem]"
 			href={nextUrl}
-			rel="next"
+			rel="prefetch next"
 			title={nextText || 'Next'}
 		>
 			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
