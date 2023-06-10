@@ -14,17 +14,21 @@ The source code of this website is available on [GitHub](https://github.com/koga
 
 - I designed the website myself in [Affinity Designer](https://affinity.serif.com/designer/), using the Japanese art form of _shibui_ (渋い) as a source of inspiration. To learn more about the process, please read the essays about the [inspiration](/new-website-2020-inspiration/) and [design](/new-website-2020-design/).
 - The design uses the variable typeface [Secuela](https://fontlibrary.org/en/font/secuela-variable) by [deFharo](https://github.com/defharo). I use a font scale that is based on the golden ratio, and the font scales automatically to the viewport size.
-- The Bonsai image on my homepage took [Norio Nakayama](https://www.flickr.com/photos/norio-nakayama/9156103138).
+- I created the Bonsai image on my homepage with [Stable Diffusion](https://stability.ai/), [ControlNet](https://github.com/lllyasviel/ControlNet), and [Affinity Photo](https://affinity.serif.com/photo/).
 - The minimalistic icons are by [Remix Icon](https://remixicon.com/), which is [Jimmy Cheung](https://github.com/xiaochunjimmy) and [Wendy Gao](https://github.com/wendygaoyuan).
 
 ## Technology
 
 - The website is built with [Astro](https://astro.build/), the all-in-one web framework.
-- I write the code in [Neovim](https://neovim.io/), using [GitHub Copilot](https://github.com/features/copilot).
-- My essays are written in [MDX](https://mdxjs.com/), which allows the usage of components in the [Markdown](https://daringfireball.net/projects/markdown/) content.
+- I write the code in [Neovim](https://neovim.io/), using [GitHub Copilot](https://github.com/features/copilot), and [Raycast AI](https://www.raycast.com/pro) (ChatGPT).
 - The layouts, templates, and components are written in Astro and [Preact](https://preactjs.com/).
+- My content is written in [MDX](https://mdxjs.com/), which allows using components in the [Markdown](https://daringfireball.net/projects/markdown/).
 - I use [Tailwind CSS](https://tailwindcss.com/) for my styling.
 - The website is hosted on [Netlify](https://www.netlify.com/).
-- TODO: JS Libraries
-- TODO: Astro Plugins
-- TODO: Components Examples
+- Icons are handled by [Astro Icon](https://github.com/natemoo-re/astro-icon).
+- All images are optimized with [Astro ImageTools](https://github.com/RafidMuhymin/astro-imagetools/).
+- To generate charts, I use [Chart.js](https://www.chartjs.org/), [react-chartjs-2](https://react-chartjs-2.js.org/), and [chartjs-plugin-autocolors](https://github.com/kurkle/chartjs-plugin-autocolors).
+- Chart.js is used for the charts.
+- I use [reading-time](https://github.com/ngryman/reading-time) to add the reading time to Remark.
+- To parse and format dates I use [Moment.js](https://momentjs.com/).
+- I use [Plop](https://plopjs.com/) to generate content from templates.
