@@ -1,3 +1,5 @@
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
 import DownloadLink from './components/DownloadLink.astro';
 import EmailLink from './components/EmailLink.astro';
 import Image from './components/Image.astro';
@@ -34,7 +36,6 @@ import {
 	Title,
 	UnorderedList,
 	Verse,
-	YouTubeVideo,
 } from './components';
 
 export const mapping = {
@@ -76,5 +77,5 @@ export const mapping = {
 	ThemeBox,
 	ul: UnorderedList,
 	Verse,
-	YouTubeVideo,
+	YouTube,
 };

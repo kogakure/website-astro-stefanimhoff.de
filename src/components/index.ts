@@ -29,4 +29,3 @@ export * from './TextLink';
 export * from './Title';
 export * from './UnorderedList';
 export * from './Verse';
-export * from './YouTubeVideo';

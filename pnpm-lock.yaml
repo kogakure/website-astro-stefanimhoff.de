@@ -9,6 +9,9 @@ overrides:
   react-dom: npm:@preact/compat@latest
 
 dependencies:
+  '@astro-community/astro-embed-youtube':
+    specifier: ^0.2.2
+    version: 0.2.2(astro@2.5.5)
   '@astrojs/mdx':
     specifier: ^0.19.4
     version: 0.19.4(astro@2.5.5)(rollup@3.23.0)
@@ -177,6 +180,15 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
+    dev: false
+
+  /@astro-community/astro-embed-youtube@0.2.2(astro@2.5.5):
+    resolution: {integrity: sha512-eGBVujUNOv6x2x/iXS7D/XWmlx69frLQKyYBW0zTFzzgDCeOuXkJ4TPMOdQHsttp2ZCvbqii8f27GoaTKHIa7g==}
+    peerDependencies:
+      astro: ^1.0.0 || ^2.0.0-beta
+    dependencies:
+      astro: 2.5.5(@types/node@16.9.1)(sharp@0.32.1)
+      lite-youtube-embed: 0.2.0
     dev: false
 
   /@astrojs/compiler@1.4.2:
@@ -7735,6 +7747,10 @@ packages:
       - zen-observable
       - zenObservable
     dev: true
+
+  /lite-youtube-embed@0.2.0:
+    resolution: {integrity: sha512-XXXAk5sbvtjjwbie3XG+6HppgTm1HTGL/Uk9z9NkJH53o7puZLur434heHzAjkS60hZB3vT4ls25zl5rMiX4EA==}
+    dev: false
 
   /load-bmfont@1.4.1:
     resolution: {integrity: sha512-8UyQoYmdRDy81Brz6aLAUhfZLwr5zV0L3taTQ4hju7m6biuwiWiJXjPhBJxbUQJA8PrkvJ/7Enqmwk2sM14soA==}

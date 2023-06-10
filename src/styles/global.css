@@ -199,4 +199,13 @@
 			@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
 		}
 	}
+
+	/** YouTube Lite */
+	lite-youtube {
+		@apply relative aspect-video mbe-10;
+
+		&::before {
+			@apply !bg-none;
+		}
+	}
 }
