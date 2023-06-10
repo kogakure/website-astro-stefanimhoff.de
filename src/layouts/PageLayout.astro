@@ -1,5 +1,6 @@
 ---
 import PageTitle from '../components/PageTitle.astro';
+import Picture from '../components/Picture.astro';
 
 import GridLayout from './GridLayout.astro';
 
@@ -17,6 +18,21 @@ const gridVariant = frontmatter.grid || grid;
 	<PageTitle slot="title" grid={gridVariant} {...frontmatter}>
 		{frontmatter.title}
 	</PageTitle>
+	{
+		frontmatter.cover && (
+			<div
+				slot="before-content"
+				class="col-span-full xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
+			>
+				<Picture
+					alt={frontmatter.title}
+					aspect={1.5}
+					breakpoints={[300, 512, 768, 1024, 1280, 1536, 1700, 2000]}
+					src={frontmatter.cover}
+				/>
+			</div>
+		)
+	}
 	<slot name="before-content" />
 	<slot />
 	<slot name="after-content" />
