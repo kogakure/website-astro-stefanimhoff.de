@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
-import { Tag as TagComponent } from '../components';
+import { Tag } from '../components';
 
 const allJournal = await getCollection('journal');
 const uniqueTags = [...new Set(allJournal.map((entry) => entry.data.tags).flat())];
@@ -23,6 +23,6 @@ const description = '…';
 >
 	<PageTitle grid="wide" innerGrid>Tags</PageTitle>
 	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
-		{uniqueTags.map((t) => <TagComponent href={`/tag/${t}/`}>{t}</TagComponent>)}
+		{uniqueTags.map((t) => <Tag href={`/tag/${t}/`}>{t}</Tag>)}
 	</aside>
 </GridLayout>
