@@ -137,25 +137,6 @@ const description = '…';
 
 <style is:global>
 	.journal-post {
-		& > h2 {
-			@apply text-4 mbe-9 mbs-14;
-		}
-
-		& > h3,
-		& > h4,
-		& > h5,
-		& > h6 {
-			@apply text-3 !mbs-14;
-		}
-
-		& > h2:first-of-type,
-		& > h3:first-of-type,
-		& > h4:first-of-type,
-		& > h5:first-of-type,
-		& > h6:first-of-type {
-			@apply mbs-0;
-		}
-
 		& h2 + h3,
 		& p + h2,
 		& p + h3,
@@ -163,10 +144,6 @@ const description = '…';
 		& p + h5,
 		& p + h6 {
 			@apply !mbs-12;
-		}
-
-		& > *:first-child {
-			@apply mbs-0;
 		}
 
 		& > pre {

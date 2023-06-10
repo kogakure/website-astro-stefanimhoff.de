@@ -65,9 +65,7 @@ export const ColorSwatch: FunctionalComponent<Props> = ({
 					></div>
 					<div class="h-full min-h-[6rem] pbe-7 pbs-6 pie-6 pis-6">
 						{title && (
-							<Subheadline class="!text-[20px] !mbs-0 !mbe-[8px]">
-								{title}
-							</Subheadline>
+							<Subheadline class="!text-[20px] !mbe-[8px]">{title}</Subheadline>
 						)}
 						<Text class="m-0 font-mono text-[16px] text-black/40 dark:text-white/40">
 							{color}

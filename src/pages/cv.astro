@@ -28,13 +28,13 @@ const description = '';
 	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline class="!mbs-0">{cv.summary.headline}</Headline>
+		<Headline>{cv.summary.headline}</Headline>
 		<Intro components={mapping} />
 	</article>
 
 	<article class="col-span-full md:col-start-10 md:col-end-18">
-		<Headline class="!mbs-0">Personal Information</Headline>
-		<Subheadline class="font-semibold !mbs-0">{cv.personal.name}</Subheadline>
+		<Headline>Personal Information</Headline>
+		<Subheadline class="font-semibold">{cv.personal.name}</Subheadline>
 		<Text class="!mbe-0">{cv.personal.tagline}</Text>
 		<TextLink href="https://www.stefanimhoff.de">Website</TextLink> •
 		<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} /> •
@@ -45,7 +45,7 @@ const description = '';
 	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline class="!mbs-0">{cv.experience.headline}</Headline>
+		<Headline>{cv.experience.headline}</Headline>
 		{
 			cv.experience.items.map((item) => (
 				<div>
@@ -74,7 +74,7 @@ const description = '';
 			))
 		}
 
-		<Headline class="!mbs-0">{cv.education.headline}</Headline>
+		<Headline>{cv.education.headline}</Headline>
 		{
 			cv.education.items.map((item) => (
 				<div class="mbe-12">
@@ -97,7 +97,7 @@ const description = '';
 
 	<aside class="col-span-full md:col-start-10 md:col-end-18">
 		<article>
-			<Headline class="!mbs-0">{cv.skills.headline}</Headline>
+			<Headline>{cv.skills.headline}</Headline>
 			{
 				cv.skills.items.map((item) => (
 					<div>
@@ -117,7 +117,7 @@ const description = '';
 		</article>
 
 		<article>
-			<Headline class="!mbs-0">{cv.languages.headline}</Headline>
+			<Headline>{cv.languages.headline}</Headline>
 			<UnorderedList>
 				{
 					cv.languages.items.map((item) => (
@@ -129,7 +129,7 @@ const description = '';
 			</UnorderedList>
 
 			<article>
-				<Headline class="!mbs-0">{cv.awards.headline}</Headline>
+				<Headline>{cv.awards.headline}</Headline>
 				<UnorderedList>
 					{cv.awards.items.map((item) => <ListItem>{item}</ListItem>)}
 				</UnorderedList>
@@ -139,7 +139,7 @@ const description = '';
 	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
 
 	<article class="col-span-full">
-		<Headline class="!mbs-0">{cv.interests.headline}</Headline>
+		<Headline>{cv.interests.headline}</Headline>
 		<ul class="columns-1 gap-gap md:columns-2">
 			<InterestsHobbies components={mapping} />
 		</ul>

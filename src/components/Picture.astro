@@ -13,7 +13,7 @@ interface Props extends PictureConfigOptions {
 const { class: className, noMargin, src, ...props } = Astro.props;
 
 const classes = cx(
-	'image-shadow block h-auto w-full rounded-1 border-1 border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 mbe-10 mbs-0 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10',
+	'image-shadow block h-auto w-full rounded-1 border-1 border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 mbe-10 mbs-0 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/5 border-x-0',
 	{ 'mbe-0': noMargin },
 	className
 );
