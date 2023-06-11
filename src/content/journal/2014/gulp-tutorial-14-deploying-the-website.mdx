@@ -4,7 +4,7 @@ slug: gulp-tutorial-14-deploying-the-website
 author: Stefan Imhoff
 date: 2014-10-31T08:00:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to deploy your website with rsync to your server."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -70,7 +70,7 @@ var config = require("../../config").rsync;
  * via rsync
  */
 gulp.task("rsync", function () {
-	return gulp.src(config.src).pipe(rsync(config.options));
+  return gulp.src(config.src).pipe(rsync(config.options));
 });
 ```
 
@@ -81,5 +81,5 @@ This concludes the series _Introduction to Gulp.js_. Developing and deploying wi
 I like the UNIX philosophy of Gulp.js: Having small files, which do one task and connect these to larger workflows. And because I kept my Gulp.js tasks small, pluggable, and shareable, I was able to add Gulp.js to my second website in less than five minutes.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

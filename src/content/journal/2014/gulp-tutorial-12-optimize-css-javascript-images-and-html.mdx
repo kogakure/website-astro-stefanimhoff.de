@@ -4,7 +4,7 @@ slug: gulp-tutorial-12-optimize-css-javascript-images-and-html
 author: Stefan Imhoff
 date: 2014-10-29T08:00:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to optimize CSS, JavaScript, images, and HTML to speed up your website."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -47,7 +47,7 @@ var config = require("../../config").optimize.css;
  * Copy and minimize CSS files
  */
 gulp.task("optimize:css", function () {
-	return gulp.src(config.src).pipe(csso(config.options)).pipe(gulp.dest(config.dest)).pipe(size());
+  return gulp.src(config.src).pipe(csso(config.options)).pipe(gulp.dest(config.dest)).pipe(size());
 });
 ```
 
@@ -88,11 +88,11 @@ var config = require("../../config").optimize.js;
  * Copy and minimize JS files
  */
 gulp.task("optimize:js", function () {
-	return gulp
-		.src(config.src)
-		.pipe(uglify(config.options))
-		.pipe(gulp.dest(config.dest))
-		.pipe(size());
+  return gulp
+    .src(config.src)
+    .pipe(uglify(config.options))
+    .pipe(gulp.dest(config.dest))
+    .pipe(size());
 });
 ```
 
@@ -150,11 +150,11 @@ var config = require("../../config").optimize.images;
  * Copy and minimize image files
  */
 gulp.task("optimize:images", function () {
-	return gulp
-		.src(config.src)
-		.pipe(imagemin(config.options))
-		.pipe(gulp.dest(config.dest))
-		.pipe(size());
+  return gulp
+    .src(config.src)
+    .pipe(imagemin(config.options))
+    .pipe(gulp.dest(config.dest))
+    .pipe(size());
 });
 ```
 
@@ -202,7 +202,7 @@ var config = require("../../config").optimize.html;
  * Minimize HTML
  */
 gulp.task("optimize:html", function () {
-	return gulp.src(config.src).pipe(htmlmin(config.options)).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(htmlmin(config.options)).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -211,5 +211,5 @@ gulp.task("optimize:html", function () {
 This concludes the 12th part of my series _Introduction to Gulp.js_. Today we learned how to minimize CSS and JavaScript files and reduce the size of images.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

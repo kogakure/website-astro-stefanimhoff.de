@@ -4,7 +4,7 @@ slug: gulp-tutorial-2-development-server-browsersync-configuration
 author: Stefan Imhoff
 date: 2014-10-19T10:17:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to set up a development server with BrowserSync."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -29,7 +29,7 @@ I create inside the `gulp/tasks` folder a file `default.js` and write this code:
 var gulp = require("gulp");
 
 gulp.task("default", function () {
-	console.log("Hello Gulp.js!");
+  console.log("Hello Gulp.js!");
 });
 ```
 
@@ -93,7 +93,7 @@ var config = require("../../config").browsersync.development;
  * Run the build task and start a server with BrowserSync
  */
 gulp.task("browsersync", ["build"], function () {
-	browsersync(config);
+  browsersync(config);
 });
 ```
 
@@ -117,20 +117,20 @@ var developmentAssets = "build/assets";
 var productionAssets = "build/production/assets";
 
 module.exports = {
-	browsersync: {
-		development: {
-			server: {
-				baseDir: [development, build, src],
-			},
-			port: 9999,
-			files: [
-				developmentAssets + "/css/*.css",
-				developmentAssets + "/js/*.js",
-				developmentAssets + "/images/**",
-				developmentAssets + "/fonts/*",
-			],
-		},
-	},
+  browsersync: {
+    development: {
+      server: {
+        baseDir: [development, build, src],
+      },
+      port: 9999,
+      files: [
+        developmentAssets + "/css/*.css",
+        developmentAssets + "/js/*.js",
+        developmentAssets + "/images/**",
+        developmentAssets + "/fonts/*",
+      ],
+    },
+  },
 };
 ```
 
@@ -145,5 +145,5 @@ BrowserSync watches my asset files, in order that my browser won’t reload like
 This concludes the 2nd part of my series _Introduction to Gulp.js_. We learned how to install Gulp.js, write a Gulp.js task, run other tasks, and set up a development server with BrowserSync.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

@@ -4,7 +4,7 @@ slug: gulp-tutorial-7-base64
 author: Stefan Imhoff
 date: 2014-10-24T07:30:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to replace small images with base64 encoded images."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -19,13 +19,13 @@ To load the background pattern, I use SCSS like this:
 
 ```scss
 %pattern-light-grey {
-	background-color: $background-color;
-	background-image: url(/assets/images/patterns/light_grey.png);
-	background-size: 301px 621px;
+  background-color: $background-color;
+  background-image: url(/assets/images/patterns/light_grey.png);
+  background-size: 301px 621px;
 }
 
 body {
-	@extend %pattern-light-grey;
+  @extend %pattern-light-grey;
 }
 ```
 
@@ -33,9 +33,9 @@ The generated CSS looks like this:
 
 ```css
 body {
-	background-color: #fdfdfd;
-	background-image: url(/assets/images/patterns/light_grey.png);
-	background-size: 301px 621px;
+  background-color: #fdfdfd;
+  background-image: url(/assets/images/patterns/light_grey.png);
+  background-size: 301px 621px;
 }
 ```
 
@@ -43,9 +43,9 @@ After the task ran, the CSS will look like this:
 
 ```css
 body {
-	background-color: #fdfdfd;
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAloAAATaBAMAAAB4FdU7AAAA…);
-	background-size: 301px 621px;
+  background-color: #fdfdfd;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAloAAATaBAMAAAB4FdU7AAAA…);
+  background-size: 301px 621px;
 }
 ```
 
@@ -85,7 +85,7 @@ var config = require("../../config").base64;
  * Replace urls in CSS files with base64 encoded data
  */
 gulp.task("base64", ["sass"], function () {
-	return gulp.src(config.src).pipe(base64(config.options)).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(base64(config.options)).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -96,5 +96,5 @@ We are now finished with the development `build` task.
 This concludes the 7th part of my series, _Introduction to Gulp.js_. We learned how to replace URLs to PNGs with Base64 encoded images. And we are now finished with our `build` task.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

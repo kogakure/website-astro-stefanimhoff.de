@@ -4,7 +4,7 @@ slug: gulp-tutorial-13-revisioning
 author: Stefan Imhoff
 date: 2014-10-30T07:45:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to use revisioning to allow long caching of your assets and replace them  with hashed file names, that can be cache-busted."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -39,7 +39,7 @@ var config = require("../../config").copyfonts.production;
  * Copy fonts to folder
  */
 gulp.task("copy:fonts:production", function () {
-	return gulp.src(config.src).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -95,13 +95,13 @@ var config = require("../../config").revision;
  * write a manifest file
  */
 gulp.task("revision", function () {
-	return gulp
-		.src(config.src.assets, { base: config.src.base })
-		.pipe(gulp.dest(config.dest.assets))
-		.pipe(rev())
-		.pipe(gulp.dest(config.dest.assets))
-		.pipe(rev.manifest({ path: config.dest.manifest.name }))
-		.pipe(gulp.dest(config.dest.manifest.path));
+  return gulp
+    .src(config.src.assets, { base: config.src.base })
+    .pipe(gulp.dest(config.dest.assets))
+    .pipe(rev())
+    .pipe(gulp.dest(config.dest.assets))
+    .pipe(rev.manifest({ path: config.dest.manifest.name }))
+    .pipe(gulp.dest(config.dest.manifest.path));
 });
 ```
 
@@ -142,7 +142,7 @@ var config = require("../../config").collect;
  * from a manifest file
  */
 gulp.task("rev:collect", function () {
-	return gulp.src(config.src).pipe(collect()).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(collect()).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -155,5 +155,5 @@ The production build is finished! Only one thing is missing to complete this ser
 This concludes the 13th part of my series, _Introduction to Gulp.js_. Today we learned how to revise the asset files and replace links to these files.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

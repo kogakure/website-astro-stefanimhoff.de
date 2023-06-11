@@ -4,7 +4,7 @@ slug: gulp-tutorial-10-generating-sprites
 author: Stefan Imhoff
 date: 2014-10-27T07:40:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to generate image sprite maps with Spritesmith."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -63,11 +63,11 @@ var config = require("../../config").sprites;
  * Generate sprite and CSS files from PNGs
  */
 gulp.task("sprites", function () {
-	var spriteData = gulp.src(config.src).pipe(spritesmith(config.options));
+  var spriteData = gulp.src(config.src).pipe(spritesmith(config.options));
 
-	spriteData.img.pipe(gulp.dest(config.dest.image));
+  spriteData.img.pipe(gulp.dest(config.dest.image));
 
-	spriteData.css.pipe(gulp.dest(config.dest.css));
+  spriteData.css.pipe(gulp.dest(config.dest.css));
 });
 ```
 
@@ -82,5 +82,5 @@ Next, I will write the tasks needed to get a production-ready code.
 This concludes the 10th part of my series, _Introduction to Gulp.js_. Today, we learned how to create CSS image sprites with Gulp.js and Spritesmith.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

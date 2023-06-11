@@ -4,7 +4,7 @@ slug: gulp-tutorial-6-images-vector-fonts
 author: Stefan Imhoff
 date: 2014-10-23T08:00:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to move images and generate vector fonts from SVG."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -36,10 +36,10 @@ var config = require("../../config").images;
  * if not changed
  */
 gulp.task("images", function () {
-	return gulp
-		.src(config.src)
-		.pipe(changed(config.dest)) // Ignore unchanged files
-		.pipe(gulp.dest(config.dest));
+  return gulp
+    .src(config.src)
+    .pipe(changed(config.dest)) // Ignore unchanged files
+    .pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -132,7 +132,7 @@ var config = require("../../config").copyfonts.development;
  * Copy fonts to folder
  */
 gulp.task("copy:fonts", ["fontcustom"], function () {
-	return gulp.src(config.src).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -179,5 +179,5 @@ After you add the line for `fontcustom` you will have to run `bundle install` ag
 This concludes the 6th part of my series, _Introduction to Gulp.js_. We learned how to move files with Gulp.js (and don’t even need a plugin for that), and how I create my vector fonts. Nothing special, but the next part will be more interesting again.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

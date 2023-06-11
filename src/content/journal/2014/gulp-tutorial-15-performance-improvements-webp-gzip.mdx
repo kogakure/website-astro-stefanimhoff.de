@@ -4,7 +4,7 @@ slug: gulp-tutorial-15-performance-improvements-webp-gzip
 author: Stefan Imhoff
 date: 2014-12-21T11:15:00+01:00
 description: "The ultimate tutorial and guide for Gulp.js: How to improve the speed and performance of your website with WebP and Gzip."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -50,7 +50,7 @@ var config = require("../../config").webp;
  * Convert images to WebP
  */
 gulp.task("webp", function () {
-	return gulp.src(config.src).pipe(webp(config.options)).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(webp(config.options)).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -66,15 +66,15 @@ var runSequence = require("run-sequence");
  * Run all tasks needed for a build in the defined order
  */
 gulp.task("build:production", function (callback) {
-	runSequence(
-		"delete",
-		"jekyll:production",
-		// ...,
-		"revision",
-		"rev:collect",
-		"webp",
-		callback
-	);
+  runSequence(
+    "delete",
+    "jekyll:production",
+    // ...,
+    "revision",
+    "rev:collect",
+    "webp",
+    callback
+  );
 });
 ```
 
@@ -149,7 +149,7 @@ var config = require("../../config").gzip;
  * Gzip text files
  */
 gulp.task("gzip", function () {
-	return gulp.src(config.src).pipe(gzip(config.options)).pipe(gulp.dest(config.dest));
+  return gulp.src(config.src).pipe(gzip(config.options)).pipe(gulp.dest(config.dest));
 });
 ```
 
@@ -165,15 +165,15 @@ var runSequence = require("run-sequence");
  * Run all tasks needed for a build in the defined order
  */
 gulp.task("build:production", function (callback) {
-	runSequence(
-		"delete",
-		"jekyll:production",
-		// ...,
-		"revision",
-		"rev:collect",
-		["webp", "gzip"],
-		callback
-	);
+  runSequence(
+    "delete",
+    "jekyll:production",
+    // ...,
+    "revision",
+    "rev:collect",
+    ["webp", "gzip"],
+    callback
+  );
 });
 ```
 
@@ -182,5 +182,5 @@ gulp.task("build:production", function (callback) {
 This concludes the 15th part of my series _Introduction to Gulp.js_. We learned how to convert images to the WebP format and how to compress text files with Gzip. Every byte we can reduce will increase the speed of the website.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

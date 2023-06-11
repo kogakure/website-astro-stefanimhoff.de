@@ -4,7 +4,7 @@ slug: gulp-tutorial-11-production-build-server-and-jekyll
 author: Stefan Imhoff
 date: 2014-10-28T07:30:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to write the production task for Jekyll and BrowserSync."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -61,7 +61,7 @@ var config = require("../../config").browsersync.production;
  * Start a server and watch changes with BrowserSync
  */
 gulp.task("browsersync:production", ["build:production"], function () {
-	browsersync(config);
+  browsersync(config);
 });
 ```
 
@@ -79,16 +79,16 @@ var runSequence = require("run-sequence");
  * Run all tasks needed for a build in the defined order
  */
 gulp.task("build:production", function (callback) {
-	runSequence(
-		"delete",
-		"jekyll:production",
-		["sass", "scripts", "images", "copy:fonts"],
-		"base64",
-		["optimize:css", "optimize:js", "optimize:images", "optimize:html", "copy:fonts:production"],
-		"revision",
-		"rev:collect",
-		callback
-	);
+  runSequence(
+    "delete",
+    "jekyll:production",
+    ["sass", "scripts", "images", "copy:fonts"],
+    "base64",
+    ["optimize:css", "optimize:js", "optimize:images", "optimize:html", "copy:fonts:production"],
+    "revision",
+    "rev:collect",
+    callback
+  );
 });
 ```
 
@@ -135,23 +135,23 @@ var config = require("../../config").jekyll.production;
  * Build the Jekyll Site
  */
 gulp.task("jekyll:production", function (done) {
-	browsersync.notify("Compiling Jekyll (Production)");
+  browsersync.notify("Compiling Jekyll (Production)");
 
-	return cp
-		.spawn(
-			"bundle",
-			[
-				"exec",
-				"jekyll",
-				"build",
-				"-q",
-				"--source=" + config.src,
-				"--destination=" + config.dest,
-				"--config=" + config.config,
-			],
-			{ stdio: "inherit" }
-		)
-		.on("close", done);
+  return cp
+    .spawn(
+      "bundle",
+      [
+        "exec",
+        "jekyll",
+        "build",
+        "-q",
+        "--source=" + config.src,
+        "--destination=" + config.dest,
+        "--config=" + config.config,
+      ],
+      { stdio: "inherit" }
+    )
+    .on("close", done);
 });
 ```
 
@@ -160,5 +160,5 @@ gulp.task("jekyll:production", function (done) {
 This concludes the 11th part of my series _Introduction to Gulp.js_. Today, I started to work on the production part of my website, including a server to view the production site and generate a production build of my Jekyll site.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>

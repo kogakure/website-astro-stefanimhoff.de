@@ -4,7 +4,7 @@ slug: gulp-tutorial-3-build-clean-jekyll
 author: Stefan Imhoff
 date: 2014-10-20T10:00:00+02:00
 description: "The ultimate tutorial and guide for Gulp.js: How to write tasks for cleaning files and folders, generating the build and the website with Jekyll."
-cover: /assets/images/cover/gulp.svg
+cover: /assets/images/cover/gulp.jpg
 tags: ["code"]
 series: gulp
 ---
@@ -31,7 +31,7 @@ var runSequence = require("run-sequence");
  * Run all tasks needed for a build in a defined order
  */
 gulp.task("build", function (callback) {
-	runSequence("delete", ["jekyll", "sass", "scripts", "images", "copy:fonts"], "base64", callback);
+  runSequence("delete", ["jekyll", "sass", "scripts", "images", "copy:fonts"], "base64", callback);
 });
 ```
 
@@ -75,7 +75,7 @@ var config = require("../../config").delete;
  * Delete folders and files
  */
 gulp.task("delete", function (callback) {
-	del(config.src, callback);
+  del(config.src, callback);
 });
 ```
 
@@ -109,27 +109,27 @@ var config = require("../../config").jekyll.development;
  * Build the Jekyll Site
  */
 gulp.task("jekyll", function (done) {
-	browsersync.notify("Compiling Jekyll");
+  browsersync.notify("Compiling Jekyll");
 
-	return cp
-		.spawn(
-			"bundle",
-			[
-				"exec",
-				"jekyll",
-				"build",
-				"-q",
-				"--source=" + config.src,
-				"--destination=" + config.dest,
-				"--config=" + config.config,
-			],
-			{ stdio: "inherit" }
-		)
-		.on("close", done);
+  return cp
+    .spawn(
+      "bundle",
+      [
+        "exec",
+        "jekyll",
+        "build",
+        "-q",
+        "--source=" + config.src,
+        "--destination=" + config.dest,
+        "--config=" + config.config,
+      ],
+      { stdio: "inherit" }
+    )
+    .on("close", done);
 });
 
 gulp.task("jekyll-rebuild", ["jekyll"], function () {
-	browsersync.reload();
+  browsersync.reload();
 });
 ```
 
@@ -152,5 +152,5 @@ I have a second Jekyll build task `jekyll-rebuild`, which is only a wrapper for 
 This concludes the 3rd part of my series, _Introduction to Gulp.js_. We learned how to run files in specified order with `run-sequence`, how to delete files and folders, and how to execute a shell task like Jekyll.
 
 <Figure>
-	<MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
+  <MoreLink href="https://github.com/kogakure/gulp-tutorial" text="View Source on GitHub" />
 </Figure>
