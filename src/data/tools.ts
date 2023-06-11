@@ -49,6 +49,11 @@ export const design = [
 		image: '/assets/images/tools/affinity-publisher.png',
 	},
 	{
+		name: 'Eagle',
+		url: 'https://eagle.cool/',
+		image: '/assets/images/tools/eagle.png',
+	},
+	{
 		name: 'Procreate',
 		url: 'https://procreate.com/',
 		image: '/assets/images/tools/procreate.png',
