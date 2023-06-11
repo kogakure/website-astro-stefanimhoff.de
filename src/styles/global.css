@@ -202,7 +202,7 @@
 
 	/** YouTube Lite */
 	lite-youtube {
-		@apply relative aspect-video mbe-10;
+		@apply relative aspect-video w-full !max-w-none mbe-10;
 
 		&::before {
 			@apply !bg-none;
