@@ -32,7 +32,7 @@ const { entry, prev, next } = Astro.props;
 const { Content } = await entry.render();
 
 const title = entry.data.title;
-const description = '…';
+const description = `The sketchnote for "${entry.data.title}."`;
 ---
 
 <BaseLayout title={title} description={description} header={false} footer={false}>

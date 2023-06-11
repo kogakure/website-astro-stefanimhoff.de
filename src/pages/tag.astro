@@ -12,7 +12,7 @@ const uniqueTags = [...new Set(allJournal.map((entry) => entry.data.tags).flat()
 uniqueTags.sort((a, b) => a.localeCompare(b));
 
 const title = 'Tags';
-const description = '…';
+const description = 'This is a list of all the tags used in my journal.';
 ---
 
 <GridLayout

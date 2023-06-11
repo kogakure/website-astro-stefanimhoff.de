@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 const { entry, prev, next } = Astro.props;
 
 const title = `Haiku ${entry.slug}`;
-const description = '…';
+const description = `Haiku ${entry.slug} in German and English.`;
 ---
 
 <BaseLayout title={title} description={description} header={false} footer={false}>

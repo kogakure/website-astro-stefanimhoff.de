@@ -45,7 +45,7 @@ const seriesEntries = await getCollection('journal', ({ data }) => {
 seriesEntries.sort(sortByDate).reverse();
 
 const title = entry.data.title;
-const description = '…';
+const description = entry.data.description;
 ---
 
 <GridLayout title={title} description={description} grid="fullsize" innerGrid backLink="/journal/">
