@@ -6,4 +6,5 @@ export * from './remark-widont';
 export * from './sort-by-alphabet';
 export * from './sort-by-date';
 export * from './sort-by-sortkey';
+export * from './titlecase';
 export * from './word-count';
