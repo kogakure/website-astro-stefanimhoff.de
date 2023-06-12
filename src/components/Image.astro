@@ -26,7 +26,13 @@ const imageClasses =
 		src.includes('.svg') ? (
 			<img class={imageClasses} src={src} {...(props as any)} />
 		) : (
-			<Img src={src} attributes={{ class: imageClasses }} {...props} />
+			<Img
+				attributes={{ class: imageClasses }}
+				breakpoints={[500, 1000, 1500]}
+				format="webp"
+				src={src}
+				{...props}
+			/>
 		)
 	}
 </div>

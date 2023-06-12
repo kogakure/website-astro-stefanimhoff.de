@@ -24,7 +24,7 @@ const classes = cx(
 		src.includes('.svg') ? (
 			<img src={src} {...(props as any)} />
 		) : (
-			<Picture src={src} {...props} />
+			<Picture breakpoints={[500, 1000, 1500]} format={['avif']} src={src} {...props} />
 		)
 	}
 </div>

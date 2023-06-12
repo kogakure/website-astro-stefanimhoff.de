@@ -19,5 +19,11 @@ const classes = cx(
 ---
 
 <div class={classes}>
-	{src.includes('.svg') ? <img src={src} {...props} /> : <Img src={src} {...props} />}
+	{
+		src.includes('.svg') ? (
+			<img src={src} {...props} />
+		) : (
+			<Img breakpoints={[500, 1000, 1500]} format="webp" src={src} {...props} />
+		)
+	}
 </div>

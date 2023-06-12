@@ -30,10 +30,11 @@ const { entries } = Astro.props;
 								<img src={data.cover} alt={data.title} />
 							) : (
 								<Picture
-									src={data.cover}
 									alt={data.title}
 									aspect={0.6}
-									breakpoints={[300, 512, 768, 1024]}
+									breakpoints={[300, 500, 1000]}
+									format={['avif']}
+									src={data.cover}
 								/>
 							)}
 						</>

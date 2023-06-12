@@ -21,7 +21,8 @@ const { tools } = Astro.props;
 					<Img
 						alt={name}
 						aspect={1}
-						format="avif"
+						breakpoints={[128]}
+						format="webp"
 						height={300}
 						placeholder="tracedSVG"
 						src={image}

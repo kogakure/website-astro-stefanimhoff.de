@@ -93,9 +93,9 @@ const schema = JSON.stringify({
 			<Picture
 				alt={entry.data.title}
 				aspect={1.6}
-				breakpoints={[300, 500, 700, 1000, 1300, 1500, 1800, 2000]}
+				breakpoints={[500, 1000, 1500]}
 				class="col-span-full aspect-video h-auto !mbe-0 print:hidden xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
-				format={['webp', 'avif']}
+				format={['avif']}
 				src={entry.data.cover}
 			/>
 		)
