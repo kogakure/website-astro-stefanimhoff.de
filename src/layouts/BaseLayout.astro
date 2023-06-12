@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import { Sprite } from 'astro-icon';
+import { SEO } from 'astro-seo';
+import { site } from '../data/site';
 
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
@@ -9,52 +11,142 @@ import Sal from '../components/Sal.astro';
 
 export interface Props {
 	backLink?: string;
+	cover?: string;
 	description?: string;
 	footer?: boolean;
 	header?: boolean;
+	nofollow?: boolean;
+	noindex?: boolean;
 	title: string;
 }
 
-const { backLink, footer = true, header = true, title, description } = Astro.props;
+const {
+	backLink,
+	description,
+	footer = true,
+	header = true,
+	nofollow,
+	noindex,
+	title,
+	cover = '/assets/images/branding/og/bonsai.jpg',
+} = Astro.props;
+const currentPath = new URL(Astro.request.url).pathname;
+const fullTitle = `${title} · ${site.description}`;
+const fullDescription = description || site.description;
+const fullUrl = site.url + currentPath;
+const fullImage = site.url + cover;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="no-js box-border scroll-smooth text-[125%]">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-
-		<title>{title}</title>
-
-		<meta name="description" content={description} />
+		<SEO
+			charset="UTF-8"
+			title={fullTitle}
+			description={fullDescription}
+			canonical={fullUrl}
+			nofollow={nofollow}
+			noindex={noindex}
+			openGraph={{
+				basic: {
+					image: fullImage,
+					title: fullTitle,
+					type: 'article',
+					url: fullUrl,
+				},
+				image: {
+					height: 675,
+					width: 1200,
+				},
+				optional: {
+					description: fullDescription,
+				},
+			}}
+			twitter={{
+				card: 'summary_large_image',
+				creator: site.twitter,
+				description: fullDescription,
+				image: fullImage,
+				site: site.twitter,
+				title: fullTitle,
+			}}
+			extend={{
+				link: [
+					{ rel: 'icon', href: '/favicon.ico' },
+					{
+						rel: 'icon',
+						href: '/assets/images/branding/favicons/favicon.svg',
+						type: 'image/svg+xml',
+					},
+					{
+						rel: 'apple-touch-icon',
+						href: '/assets/images/branding/favicons/apple-touch-icon.png',
+					},
+					{
+						rel: 'manifest',
+						href: '/manifest.webmanifest',
+					},
+					{
+						as: 'font',
+						crossorigin: '',
+						href: '/assets/fonts/secuela-regular-vf.woff2',
+						rel: 'preload',
+						type: 'font/woff2',
+					},
+					{
+						as: 'font',
+						crossorigin: '',
+						href: '/assets/fonts/secuela-italic-vf.woff2',
+						rel: 'preload',
+						type: 'font/woff2',
+					},
+					{
+						rel: 'alternate',
+						type: 'application/rss+xml',
+						title: 'Stefan Imhoff',
+						href: site.url + '/rss.xml',
+					},
+					{
+						rel: 'alternate',
+						type: 'application/rss+xml',
+						title: 'Stefan Imhoff (Haiku)',
+						href: site.url + '/rss-haiku.xml',
+					},
+					{
+						rel: 'alternate',
+						type: 'application/rss+xml',
+						title: 'Stefan Imhoff (Sketchnotes)',
+						href: site.url + '/rss-sketchnotes.xml',
+					},
+					{
+						rel: 'alternate',
+						type: 'application/rss+xml',
+						title: 'Stefan Imhoff (AI Art)',
+						href: site.url + '/rss-ai-art.xml',
+					},
+					{
+						rel: 'alternate',
+						type: 'application/rss+xml',
+						title: 'Stefan Imhoff (Projects)',
+						href: site.url + '/rss-projects.xml',
+					},
+				],
+				meta: [
+					{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+					{ name: 'author', content: site.author },
+					{ name: 'generator', content: Astro.generator },
+					{ name: 'theme-color', content: '#e7e6e4' },
+				],
+			}}
+		/>
 
 		<script type="module">
 			document.documentElement.classList.remove('no-js');
 			document.documentElement.classList.add('js');
 		</script>
 
-		<link rel="icon" href="/favicon.ico" sizes="any" />
-		<link rel="icon" href="/assets/images/branding/favicons/favicon.svg" type="image/svg+xml" />
-		<link rel="apple-touch-icon" href="/assets/images/branding/favicons/apple-touch-icon.png" />
-		<!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
-
-		<link
-			as="font"
-			crossorigin
-			href="/assets/fonts/secuela-regular-vf.woff2"
-			rel="preload"
-			type="font/woff2"
-		/>
-		<link
-			as="font"
-			crossorigin
-			href="/assets/fonts/secuela-italic-vf.woff2"
-			rel="preload"
-			type="font/woff2"
-		/>
 		<Sal />
+
 		<ThemeProvider />
 	</head>
 	<body

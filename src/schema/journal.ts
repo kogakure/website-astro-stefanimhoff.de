@@ -29,5 +29,7 @@ export const journal = defineCollection({
 			])
 		),
 		series: z.string().optional(),
+		noindex: z.boolean().optional(),
+		nofollow: z.boolean().optional(),
 	}),
 });

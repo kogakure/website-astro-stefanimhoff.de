@@ -5,5 +5,7 @@ export const haiku = defineCollection({
 		date: z.date(),
 		de: z.string(),
 		en: z.string(),
+		noindex: z.boolean().optional(),
+		nofollow: z.boolean().optional(),
 	}),
 });

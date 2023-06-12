@@ -11,5 +11,7 @@ export const sketchnotes = defineCollection({
 				aspectRatio: z.number(),
 			})
 		),
+		noindex: z.boolean().optional(),
+		nofollow: z.boolean().optional(),
 	}),
 });

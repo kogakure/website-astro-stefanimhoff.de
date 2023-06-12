@@ -27,7 +27,15 @@ const description =
 	'The curriculum vitae of Stefan Imhoff, Senior Software Engineer from Hamburg, Germany.';
 ---
 
-<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
+<GridLayout
+	class="grid"
+	description={description}
+	grid="wide"
+	innerGrid
+	nofollow={true}
+	noindex={true}
+	title={title}
+>
 	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
 
 	<article class="col-span-full md:col-start-1 md:col-end-9" {...animation}>

@@ -33,6 +33,9 @@ dependencies:
   astro-imagetools:
     specifier: ^0.8.1
     version: 0.8.1(astro@2.5.5)
+  astro-seo:
+    specifier: ^0.7.4
+    version: 0.7.4
   autoprefixer:
     specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.24)
@@ -3574,6 +3577,10 @@ packages:
       potrace: 2.1.8
     optionalDependencies:
       imagetools-core: 3.0.2
+    dev: false
+
+  /astro-seo@0.7.4:
+    resolution: {integrity: sha512-E+wJmxOnvBRjgzVctdGk/VdwoEqeQ6Q/KgVW2wRBXZWJVDgOweB32Da/UiH0/FpGncPzo2daOrc08DNn5wTanw==}
     dev: false
 
   /astro@2.5.5(@types/node@16.9.1)(sharp@0.32.1):

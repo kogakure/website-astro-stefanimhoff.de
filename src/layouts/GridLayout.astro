@@ -6,24 +6,30 @@ import BaseLayout from './BaseLayout.astro';
 export interface Props {
 	backLink?: string;
 	class?: string;
+	cover?: string;
 	description?: string;
 	footer?: boolean;
 	gap?: boolean;
 	grid?: 'fullsize' | 'wide' | 'narrow';
 	header?: boolean;
 	innerGrid?: boolean;
+	nofollow?: boolean;
+	noindex?: boolean;
 	title: string;
 }
 
 const {
 	backLink,
 	class: className,
+	cover,
 	description,
 	footer = true,
 	gap = true,
 	grid = 'narrow',
 	header,
 	innerGrid,
+	nofollow,
+	noindex,
 	title,
 } = Astro.props;
 
@@ -48,10 +54,13 @@ const wrapperClasses = cx(
 
 <BaseLayout
 	backLink={backLink}
+	cover={cover}
+	description={description}
 	footer={footer}
 	header={header}
+	nofollow={nofollow}
+	noindex={noindex}
 	title={title}
-	description={description}
 >
 	<div class={gridClasses}>
 		<slot name="title" />

@@ -38,5 +38,7 @@ export const projects = defineCollection({
 			})
 			.optional(),
 		class: z.string().optional(),
+		noindex: z.boolean().optional(),
+		nofollow: z.boolean().optional(),
 	}),
 });
