@@ -3,6 +3,8 @@ import cx from 'classnames';
 
 import { getCollection } from 'astro:content';
 
+import { site } from '../data/site';
+
 import { formatPosts, sortByDate } from '../utils';
 import { dateToFormat, dateToISO, wordCount } from '../utils';
 
@@ -46,6 +48,31 @@ seriesEntries.sort(sortByDate).reverse();
 
 const title = entry.data.title;
 const description = entry.data.description;
+
+const schema = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: entry.data.title,
+	description: entry.data.description,
+	datePublished: entry.data.date,
+	dateModified: entry.data.updated,
+	image: [
+		entry.data.cover
+			? site.url + entry.data.cover
+			: `${site.url}/assets/images/branding/og/bonsai.jpg`,
+	],
+	author: [
+		{
+			'@type': 'Person',
+			name: entry.data.author || site.author,
+			url: `${site.url}/about`,
+		},
+	],
+	mainEntityOfPage: {
+		'@type': 'webPage',
+		id: `${site.url}/${entry.slug}/}`,
+	},
+});
 ---
 
 <GridLayout
@@ -143,6 +170,8 @@ const description = entry.data.description;
 		previousUrl={prev.slug && `/${prev.slug}/`}
 	/>
 </GridLayout>
+
+<script type="application/ld+json" set:html={schema} />
 
 <style is:global>
 	.journal-post {

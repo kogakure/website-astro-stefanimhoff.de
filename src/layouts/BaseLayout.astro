@@ -35,6 +35,13 @@ const fullTitle = `${title} · ${site.description}`;
 const fullDescription = description || site.description;
 const fullUrl = site.url + currentPath;
 const fullImage = site.url + cover;
+
+const schema = JSON.stringify({
+	'@context': 'https://schema.org/',
+	'@type': 'WebSite',
+	name: site.author,
+	url: site.url,
+});
 ---
 
 <!DOCTYPE html>
@@ -167,6 +174,7 @@ const fullImage = site.url + cover;
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
 			);
 		</script>
+		<script type="application/ld+json" set:html={schema} />
 		<style is:global>
 			.astro-code {
 				@apply overflow-auto rounded-2 p-[1em] font-mono text-code mbe-10 mbs-0;

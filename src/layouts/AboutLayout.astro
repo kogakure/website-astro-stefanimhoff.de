@@ -1,9 +1,30 @@
 ---
+import { site } from '../data/site';
+
 import GridLayout from './GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Picture from '../components/Picture.astro';
 
 const { frontmatter } = Astro.props;
+const schema = JSON.stringify({
+	'@context': 'https://schema.org/',
+	'@type': 'Person',
+	name: site.author,
+	url: site.url,
+	image: site.url + '/assets/images/ai-portrait-stefan-imhoff.png',
+	jobTitle: 'Senior Software Engineer',
+	worksFor: {
+		'@type': 'Organization',
+		name: 'NEW WORK SE',
+	},
+	sameAs: [
+		'https://twitter.com/kogakure',
+		'https://www.instagram.com/kogakure/',
+		'https://www.youtube.com/@kogakure',
+		'https://www.linkedin.com/in/kogakure/',
+		'https://github.com/kogakure',
+	],
+});
 ---
 
 <GridLayout title={frontmatter.title} grid="narrow" {...frontmatter}>
@@ -22,4 +43,5 @@ const { frontmatter } = Astro.props;
 		/>
 	</div>
 	<slot />
+	<script type="application/ld+json" set:html={schema} />
 </GridLayout>
