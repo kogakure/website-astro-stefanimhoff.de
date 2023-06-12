@@ -3,7 +3,7 @@ const moment = require('moment');
 
 const currentDir = process.cwd();
 const templatePath = 'plop';
-const date = moment().format();
+const date = moment().format('YYYY-MM-DD');
 const year = moment().format('YYYY');
 
 module.exports = function (plop) {
