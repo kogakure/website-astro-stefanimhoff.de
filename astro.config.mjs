@@ -1,24 +1,36 @@
 import mdx from '@astrojs/mdx';
 import preact from '@astrojs/preact';
+import prefetch from '@astrojs/prefetch';
+import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { astroImageTools } from 'astro-imagetools';
-import { remarkReadingTime, remarkWidont } from './src/utils';
 import { defineConfig } from 'astro/config';
-
-import prefetch from "@astrojs/prefetch";
+import { remarkReadingTime, remarkWidont } from './src/utils';
 
 // https://astro.build/config
 export default defineConfig({
-  markdown: {
-    shikiConfig: {
-      theme: 'nord',
-      langs: [],
-      wrap: true
-    }
-  },
-  integrations: [mdx({
-    remarkPlugins: [remarkReadingTime, remarkWidont]
-  }), tailwind(), preact({
-    compat: true
-  }), astroImageTools, prefetch()]
+	site: 'https://www.stefanimhoff.de',
+	markdown: {
+		shikiConfig: {
+			theme: 'nord',
+			langs: [],
+			wrap: true,
+		},
+	},
+	integrations: [
+		mdx({
+			remarkPlugins: [remarkReadingTime, remarkWidont],
+		}),
+		tailwind(),
+		preact({
+			compat: true,
+		}),
+		astroImageTools,
+		prefetch(),
+		sitemap({
+			filter: (page) =>
+				page !== 'https://www.stefanimhoff.de/cv/' &&
+				page !== 'https://www.stefanimhoff.de/imprint/',
+		}),
+	],
 });
