@@ -12,11 +12,11 @@ const { tools } = Astro.props;
 ---
 
 <ul
-	class="grid grid-cols-[repeat(auto-fit,_minmax(80px,_1fr))] items-center gap-2 rounded-2 bg-black/5 p-5 mbe-10 dark:bg-white/5"
+	class="grid grid-cols-[repeat(auto-fit,_minmax(80px,_1fr))] items-center gap-2 rounded-2 bg-black/5 p-5 mbe-10 dark:bg-white/5 print:block"
 >
 	{
 		tools.map(({ name, url, image }) => (
-			<li>
+			<li class="print:[&_img]:!hidden">
 				<Link href={url} title={name}>
 					<Img
 						alt={name}

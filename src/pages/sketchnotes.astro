@@ -25,15 +25,18 @@ const description = 'This is a collection of Sketchnotes I’ve drawn.';
 	<PageTitle grid="wide" innerGrid>Sketchnotes</PageTitle>
 
 	<article
-		class="col-start-1 col-end-17 grid md:col-start-4 md:col-end-12 xl:col-start-5 xl:col-end-11"
+		class="col-start-1 col-end-17 grid print:block md:col-start-4 md:col-end-12 xl:col-start-5 xl:col-end-11"
 		{...animation}
 	>
 		<Intro components={mapping} />
 	</article>
 
-	<nav class="md:col-start-1 md:col-end-16" aria-label="Sketchnotes">
+	<nav
+		class="col-start-1 col-end-18 w-full md:col-start-1 md:col-end-16"
+		aria-label="Sketchnotes"
+	>
 		<ol
-			class="gap-[max(25px,_2vw)] md:grid md:grid-flow-row-dense md:auto-rows-[50px] md:grid-cols-[repeat(auto-fit,_minmax(50px,_1fr))] md:grid-rows-[50px]"
+			class="gap-[max(25px,_2vw)] print:block md:grid md:grid-flow-row-dense md:auto-rows-[50px] md:grid-cols-[repeat(auto-fit,_minmax(50px,_1fr))] md:grid-rows-[50px]"
 		>
 			{
 				allSketchnotes.map(({ slug, data }) => (

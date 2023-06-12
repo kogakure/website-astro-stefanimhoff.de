@@ -15,7 +15,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 	previousUrl && (
 		<a
 			aria-label={previousText || 'Previous'}
-			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-start-[1rem]"
+			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-start-[1rem] print:hidden"
 			href={previousUrl}
 			rel="prefetch prev"
 			title={previousText || 'Previous'}
@@ -30,7 +30,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 	nextUrl && (
 		<a
 			aria-label={nextText || 'Next'}
-			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-end-[1rem]"
+			class="group fixed rounded-[50%] block-start-[calc(50%_-_20px)] inline-end-[1rem] print:hidden"
 			href={nextUrl}
 			rel="prefetch next"
 			title={nextText || 'Next'}

@@ -29,7 +29,7 @@ const imageLength = entry.data.images.length;
 	</div>
 	<div
 		class={cx(
-			'grid grid-cols-5 gap-x-[2vw] gap-y-gap grow bg-[#d0cdc8] dark:bg-[#0e0d0c] lg:w-2/3 ',
+			'grid grid-cols-5 gap-x-[2vw] gap-y-gap grow bg-[#d0cdc8] dark:bg-[#0e0d0c] lg:w-2/3 print:!bg-transparent',
 			{
 				'lg:pbs-[calc(100vh_/_2_-_(max(30vh,_250px)_/_2))]': imageLength > 1,
 				'lg:justify-items-center lg:items-center': imageLength === 1,

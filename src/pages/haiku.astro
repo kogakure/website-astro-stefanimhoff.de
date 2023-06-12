@@ -29,7 +29,10 @@ const description =
 		<Intro components={mapping} />
 	</article>
 
-	<nav class="col-start-1 col-end-17 md:col-start-2 md:col-end-14" aria-label="Haiku">
+	<nav
+		class="col-start-1 col-end-17 print:hidden md:col-start-2 md:col-end-14"
+		aria-label="Haiku"
+	>
 		<ol
 			class="grid list-none grid-cols-[repeat(auto-fill,_minmax(3rem,_1fr))] justify-items-center gap-[1rem]"
 			{...animationDelay}

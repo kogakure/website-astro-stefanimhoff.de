@@ -32,14 +32,14 @@ const description = `Haiku ${entry.slug} in German and English.`;
 ---
 
 <BaseLayout title={title} description={description} header={false} footer={false}>
-	<div class="grid-rows-[clamp(3rem,_5.55vw,_9rem) 1fr] grid h-full grid-cols-18">
+	<div class="grid-rows-[clamp(3rem,_5.55vw,_9rem) 1fr] grid h-full grid-cols-18 print:block">
 		<PageHeader
 			class="z-10 col-span-full row-start-1 bg-transparent !mbe-0 dark:bg-transparent"
 			navigation={false}
 			backLink="/haiku/"
 		/>
 		<div
-			class="min-[700px]:grid-cols-[repeat(auto-fit,_minmax(25rem,_1fr)] col-span-full row-start-1 row-end-3 grid w-full grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))]"
+			class="min-[700px]:grid-cols-[repeat(auto-fit,_minmax(25rem,_1fr)] col-span-full row-start-1 row-end-3 grid w-full grid-cols-[repeat(auto-fit,_minmax(15rem,_1fr))] print:block"
 		>
 			<div class="grid h-full w-full items-center">
 				<div {...animation}>
@@ -50,7 +50,9 @@ const description = `Haiku ${entry.slug} in German and English.`;
 					</Verse>
 				</div>
 			</div>
-			<div class="grid h-full w-full items-center bg-[#d0cdc8] dark:bg-[#0e0d0c]">
+			<div
+				class="grid h-full w-full items-center bg-[#d0cdc8] dark:bg-[#0e0d0c] print:bg-transparent"
+			>
 				<div {...animationDelay}>
 					<Verse
 						class="justify-center text-center text-3 font-black not-italic !leading-relaxed min-[700px]:text-4"

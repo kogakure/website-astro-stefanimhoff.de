@@ -11,7 +11,7 @@ interface Props {
 
 export const PrimeVideoFlag: FunctionalComponent<Props> = ({ class: className, id, ...props }) => {
 	const classes = cx(
-		'rounded-1 border-1 border-solid border-sky-500 bg-sky-500 font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em]',
+		'rounded-1 border-1 border-solid border-sky-500 bg-sky-500 font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] print:bg-transparent print:border-gray-500',
 		className
 	);
 
