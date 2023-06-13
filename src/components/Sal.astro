@@ -1,8 +1,8 @@
 ---
-import '../../node_modules/sal.js/dist/sal.css';
+import '../styles/sal.css';
 ---
 
-<script src="../../node_modules/sal.js/dist/sal.js" defer></script>
+<script src="/assets/scripts/sal.js" defer></script>
 <script type="module">
 	if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
 		sal({
@@ -12,8 +12,17 @@ import '../../node_modules/sal.js/dist/sal.css';
 </script>
 
 <style is:global>
-	.no-js [data-sal|='slide-up'] {
-		opacity: 1 !important;
-		transform: none !important;
+	.no-js [data-sal|='fade'] {
+		opacity: 1;
+	}
+
+	.no-js [data-sal|='slide'],
+	.no-js [data-sal|='zoom'] {
+		opacity: 1;
+		transform: none;
+	}
+
+	.no-js [data-sal|='flip'] {
+		transform: none;
 	}
 </style>
