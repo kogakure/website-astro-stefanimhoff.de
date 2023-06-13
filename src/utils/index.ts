@@ -1,5 +1,6 @@
 export * from './date';
 export * from './format-posts';
+export * from './is-production';
 export * from './pick-two-random-colors';
 export * from './remark-reading-time';
 export * from './remark-widont';
