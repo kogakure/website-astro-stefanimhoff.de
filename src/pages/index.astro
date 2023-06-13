@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-import { formatPosts } from '../utils';
+import { formatPosts, isProduction, sortMarkdownByDate } from '../utils';
 
 import { site, animation, animationDelay } from '../data/site';
 
@@ -11,6 +11,13 @@ import MoreLink from '../components/MoreLink.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Picture from '../components/Picture.astro';
 import JournalList from '../components/JournalList.astro';
+
+/* FIXME: Remove hack as soon as this issue is resolved:
+ * Issue: https://github.com/withastro/roadmap/issues/533
+ * Proposal: https://github.com/withastro/roadmap/discussions/419
+ */
+import WriteFile from '../components/WriteFile.astro';
+import RssXml from '../components/RssXml.astro';
 
 import { Headline } from '../components';
 
@@ -25,6 +32,9 @@ const formattedLatest = formatPosts(allPosts, { limit: 6 });
 
 const title = 'Stefan Imhoff';
 const description = 'Front-End Web Developer from Hamburg, Germany';
+
+const rssPosts = await Astro.glob('../content/journal/**/*.mdx');
+rssPosts.sort(sortMarkdownByDate);
 ---
 
 <GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>
@@ -81,3 +91,7 @@ const description = 'Front-End Web Developer from Hamburg, Germany';
 		<JournalList entries={formattedLatest} />
 	</article>
 </GridLayout>
+
+<WriteFile slot="rss-writer">
+	<RssXml allPosts={isProduction ? rssPosts : []} slot="rss-writer" />
+</WriteFile>
