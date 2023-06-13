@@ -3,6 +3,7 @@ import { defineCollection, z } from 'astro:content';
 export const sketchnotes = defineCollection({
 	schema: z.object({
 		title: z.string(),
+		date: z.date(),
 		sort: z.number().optional(),
 		coverSize: z.enum(['small', 'medium', 'large']).default('small'),
 		images: z.array(
