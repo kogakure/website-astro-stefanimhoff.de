@@ -58,4 +58,8 @@ export default defineConfig({
 		}),
 		serviceWorker(),
 	],
+	build: {
+		inlineStylesheets: 'auto',
+	},
+	compressHTML: true,
 });
