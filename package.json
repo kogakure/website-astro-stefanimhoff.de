@@ -27,6 +27,7 @@
 		"astro-icon": "^0.8.0",
 		"astro-imagetools": "^0.8.1",
 		"astro-seo": "^0.7.4",
+		"astro-webmanifest": "^0.6.0",
 		"autoprefixer": "^10.4.14",
 		"chart.js": "^4.3.0",
 		"chartjs-plugin-autocolors": "^0.2.2",
