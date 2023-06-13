@@ -46,6 +46,12 @@ status = 200
 
 # Redirects
 [[redirects]]
+from = "/index.xml"
+to = "/rss.xml"
+status = 301
+force = true
+
+[[redirects]]
 from = "/templates-for-ia-writer"
 to = "/koi-design"
 status = 301
