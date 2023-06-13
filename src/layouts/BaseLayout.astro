@@ -3,6 +3,7 @@ import '../styles/global.css';
 import { Sprite } from 'astro-icon';
 import { SEO } from 'astro-seo';
 import { site } from '../data/site';
+import { isProduction } from '../utils';
 
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
@@ -42,6 +43,11 @@ const schema = JSON.stringify({
 	name: site.author,
 	url: site.url,
 });
+
+const webManifest = isProduction && {
+	rel: 'manifest',
+	href: '/manifest.webmanifest',
+};
 ---
 
 <!DOCTYPE html>
@@ -91,10 +97,7 @@ const schema = JSON.stringify({
 						rel: 'apple-touch-icon',
 						href: '/assets/images/branding/favicons/apple-touch-icon.png',
 					},
-					{
-						rel: 'manifest',
-						href: '/manifest.webmanifest',
-					},
+					{ ...webManifest },
 					{
 						as: 'font',
 						crossorigin: '',
@@ -132,12 +135,6 @@ const schema = JSON.stringify({
 						type: 'application/rss+xml',
 						title: 'Stefan Imhoff (AI Art)',
 						href: site.url + '/rss-ai-art.xml',
-					},
-					{
-						rel: 'alternate',
-						type: 'application/rss+xml',
-						title: 'Stefan Imhoff (Projects)',
-						href: site.url + '/rss-projects.xml',
 					},
 				],
 				meta: [
