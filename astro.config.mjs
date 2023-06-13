@@ -6,6 +6,7 @@ import tailwind from '@astrojs/tailwind';
 import { astroImageTools } from 'astro-imagetools';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
+import serviceWorker from 'astrojs-service-worker';
 
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
@@ -55,5 +56,6 @@ export default defineConfig({
 			background_color: '#e7e6e4',
 			display: 'standalone',
 		}),
+		serviceWorker(),
 	],
 });
