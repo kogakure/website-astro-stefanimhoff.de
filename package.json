@@ -8,7 +8,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"deploy": "netlify deploy --prod",
-		"deploy:preview": "netflify deploy",
+		"deploy:preview": "netlify deploy",
 		"publish": "npm-run-all build deploy",
 		"og:generate": "node og-generate.cjs",
 		"plop": "plop",
