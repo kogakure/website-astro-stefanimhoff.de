@@ -1,0 +1,79 @@
+---
+import '../styles/sal.css';
+---
+
+<script src="/assets/scripts/sal.js" defer></script>
+<script>
+	import Swup from 'swup';
+	import SwupFadeTheme from '@swup/fade-theme';
+	import SwupHeadPlugin from '@swup/head-plugin';
+	import SwupA11yPlugin from '@swup/a11y-plugin';
+	import SwupPreloadPlugin from '@swup/preload-plugin';
+	import SwupScrollPlugin from '@swup/scroll-plugin';
+
+	declare const sal: any;
+
+	const swup = new Swup({
+		plugins: [
+			new SwupFadeTheme(),
+			new SwupHeadPlugin(),
+			new SwupA11yPlugin(),
+			new SwupPreloadPlugin(),
+			new SwupScrollPlugin({
+				doScrollingRightAway: true,
+				animateScroll: false,
+				scrollFriction: 0.3,
+				scrollAcceleration: 0.04,
+			}),
+		],
+	});
+
+	if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+		if (typeof sal !== 'undefined') {
+			sal({
+				threshold: 0.1,
+			});
+		}
+	}
+
+	swup.on('pageView', () => {
+		if (typeof sal !== 'undefined') {
+			sal({
+				threshold: 0.1,
+			});
+
+			setActiveLink();
+		}
+	});
+
+	function setActiveLink() {
+		const links = document.querySelectorAll('.navigation a');
+		const currentPath = window.location.pathname;
+
+		links.forEach((link) => {
+			if (link.getAttribute('href') === currentPath) {
+				link.classList.add('is-active');
+			} else {
+				link.classList.remove('is-active');
+			}
+		});
+	}
+
+	setActiveLink();
+</script>
+
+<style is:global>
+	.no-js [data-sal|='fade'] {
+		opacity: 1;
+	}
+
+	.no-js [data-sal|='slide'],
+	.no-js [data-sal|='zoom'] {
+		opacity: 1;
+		transform: none;
+	}
+
+	.no-js [data-sal|='flip'] {
+		transform: none;
+	}
+</style>

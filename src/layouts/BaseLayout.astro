@@ -8,8 +8,7 @@ import { isProduction } from '../utils';
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PageFooter from '../components/PageFooter.astro';
-import Sal from '../components/Sal.astro';
-import ActiveNavigationCheck from '../components/ActiveNavigationCheck.astro';
+import Scripts from '../components/Scripts.astro';
 
 export interface Props {
 	backLink?: string;
@@ -152,23 +151,24 @@ const webManifest = isProduction && {
 			document.documentElement.classList.add('js');
 		</script>
 
-		<Sal />
-		<ActiveNavigationCheck />
+		<Scripts />
 
 		<ThemeProvider />
 	</head>
 	<body
 		class="flex h-screen flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
-		<Sprite.Provider>
-			{header && <PageHeader backLink={backLink} />}
-			<div class="page-content flex grow">
-				<main class="h-full w-full">
-					<slot />
-				</main>
-			</div>
-			{footer && <PageFooter />}
-		</Sprite.Provider>
+		<div class="flex grow flex-col" id="swup">
+			<Sprite.Provider>
+				{header && <PageHeader backLink={backLink} />}
+				<div class="page-content flex grow">
+					<main class="h-full w-full">
+						<slot />
+					</main>
+				</div>
+				{footer && <PageFooter />}
+			</Sprite.Provider>
+		</div>
 		<script>
 			console.info(
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
