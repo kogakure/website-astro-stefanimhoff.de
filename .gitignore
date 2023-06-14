@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Unlighthouse reports
 .unlighthouse
+
+# Local Netlify folder
+.netlify
