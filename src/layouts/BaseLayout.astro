@@ -9,6 +9,7 @@ import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PageFooter from '../components/PageFooter.astro';
 import Sal from '../components/Sal.astro';
+import ActiveNavigationCheck from '../components/ActiveNavigationCheck.astro';
 
 export interface Props {
 	backLink?: string;
@@ -152,6 +153,7 @@ const webManifest = isProduction && {
 		</script>
 
 		<Sal />
+		<ActiveNavigationCheck />
 
 		<ThemeProvider />
 	</head>

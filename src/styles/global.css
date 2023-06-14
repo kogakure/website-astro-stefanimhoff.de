@@ -166,6 +166,10 @@
 }
 
 @layer components {
+	.navigation .is-active {
+		@apply underline !decoration-accent decoration-4;
+	}
+
 	.image-shadow {
 		@apply relative transition-transform duration-500 ease-in-out;
 

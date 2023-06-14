@@ -1,15 +1,11 @@
 ---
-import cx from 'classnames';
-
 import { Link } from '.';
 
 import navigation from '../data/navigation.json';
-
-const currentPath = new URL(Astro.request.url).pathname;
 ---
 
 <nav
-	class="col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3"
+	class="navigation col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3"
 	role="navigation"
 	aria-label="Main"
 >
@@ -18,10 +14,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 			navigation.map(({ title, url }) => (
 				<li class="mie-[10px] xs:mie-[15px]">
 					<Link
-						class={cx(
-							'text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20',
-							{ 'underline !decoration-accent decoration-4': currentPath === url }
-						)}
+						class="text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20"
 						href={url}
 					>
 						{title}

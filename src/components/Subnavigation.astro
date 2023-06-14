@@ -1,24 +1,17 @@
 ---
-import cx from 'classnames';
-
 import data from '../data/subnavigation.json';
 
 import { Link } from '.';
-
-const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<nav class="glow flex gap-12" aria-label="Subnavigation">
+<nav class="navigation glow flex gap-12" aria-label="Subnavigation" role="navigation">
 	<ul>
 		{
 			data.main.map(({ title, url }) => (
 				<li>
 					<Link
 						href={url}
-						class={cx(
-							'font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20',
-							{ 'underline !decoration-accent decoration-4': currentPath === url }
-						)}
+						class="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20"
 					>
 						{title}
 					</Link>
@@ -32,9 +25,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 				<li>
 					<Link
 						href={url}
-						class={`font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 ${
-							currentPath === url && 'underline !decoration-accent decoration-4'
-						}`}
+						class="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20"
 					>
 						{title}
 					</Link>

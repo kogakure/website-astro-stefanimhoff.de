@@ -1,0 +1,20 @@
+---
+---
+
+<script>
+	function setActiveLink() {
+		const links = document.querySelectorAll('.navigation a');
+		const currentPath = window.location.pathname;
+		console.log(currentPath);
+
+		links.forEach((link) => {
+			if (link.getAttribute('href') === currentPath) {
+				link.classList.add('is-active');
+			} else {
+				link.classList.remove('is-active');
+			}
+		});
+	}
+
+	setActiveLink();
+</script>
