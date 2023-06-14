@@ -51,7 +51,7 @@ const webManifest = isProduction && {
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="no-js box-border scroll-smooth text-[125%]">
+<html lang="en" class="no-js box-border h-screen scroll-smooth text-[125%]">
 	<head>
 		<SEO
 			charset="UTF-8"
@@ -138,7 +138,10 @@ const webManifest = isProduction && {
 					},
 				],
 				meta: [
-					{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+					{
+						name: 'viewport',
+						content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
+					},
 					{ name: 'author', content: site.author },
 					{ name: 'generator', content: Astro.generator },
 					{ name: 'theme-color', content: '#e7e6e4' },
