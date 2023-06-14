@@ -11,6 +11,8 @@ import serviceWorker from 'astrojs-service-worker';
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
 
+import compress from 'astro-compress';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
@@ -59,5 +61,12 @@ export default defineConfig({
 		}),
 		serviceWorker(),
 		critters(),
+		compress({
+			css: true,
+			html: true,
+			img: false,
+			js: true,
+			svg: false,
+		}),
 	],
 });
