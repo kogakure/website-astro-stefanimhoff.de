@@ -1,3 +1,4 @@
+/* critters:exclude start */
 body {
 	padding-block-end: 0.5cm;
 	padding-block-start: 1cm;
@@ -53,3 +54,4 @@ a[href^='https://']::after
 a[href^='#']::after {
 	display: none;
 }
+/* critters:exclude end */

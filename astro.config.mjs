@@ -3,14 +3,15 @@ import preact from '@astrojs/preact';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import critters from 'astro-critters';
 import { astroImageTools } from 'astro-imagetools';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
-
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
 
+// https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
 	markdown: {
@@ -57,9 +58,6 @@ export default defineConfig({
 			display: 'standalone',
 		}),
 		serviceWorker(),
+		critters(),
 	],
-	build: {
-		inlineStylesheets: 'auto',
-	},
-	compressHTML: true,
 });
