@@ -3,6 +3,7 @@ import preact from '@astrojs/preact';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import compress from 'astro-compress';
 import critters from 'astro-critters';
 import { astroImageTools } from 'astro-imagetools';
 import webmanifest from 'astro-webmanifest';
@@ -10,8 +11,6 @@ import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
-
-import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
@@ -59,7 +58,30 @@ export default defineConfig({
 			background_color: '#e7e6e4',
 			display: 'standalone',
 		}),
-		serviceWorker(),
+		serviceWorker({
+			workbox: {
+				globDirectory: 'dist/',
+				globPatterns: ['**/*.woff2'],
+				swDest: 'dist/sw.js',
+				sourcemap: false,
+				cleanupOutdatedCaches: true,
+				clientsClaim: true,
+				skipWaiting: true,
+				runtimeCaching: [
+					{
+						urlPattern: /\.(?:jpg|png|svg|gif|webp|avif)$/,
+						handler: 'CacheFirst',
+						options: {
+							cacheName: 'images',
+							expiration: {
+								maxEntries: 50,
+								maxAgeSeconds: 60 * 60 * 24 * 365,
+							},
+						},
+					},
+				],
+			},
+		}),
 		critters(),
 		compress({
 			css: true,
