@@ -163,6 +163,11 @@
 	img.image-no-border {
 		@apply border-0 bg-transparent shadow-none;
 	}
+
+	/** Swup */
+	main[tabindex='-1'] {
+		outline: none;
+	}
 }
 
 @layer components {
@@ -187,21 +192,36 @@
 		}
 	}
 
-	.journal-card {
-		@apply relative col-span-2 row-span-3 inline-block overflow-hidden rounded-4 border-1 border-black/25 hover:scale-105 dark:border-white/25 md:row-span-5;
+	.journal-card,
+	.journal-card-link {
+		@apply relative col-span-2 row-span-3 inline-block overflow-hidden rounded-4 border-1 border-black/25 outline outline-2 outline-offset-2 outline-transparent hover:scale-105 focus:scale-105 dark:border-white/25 md:row-span-5;
+	}
 
-		& img,
-		& picture {
-			@apply !h-full w-full object-cover;
-		}
+	.journal-card-link {
+		@apply relative block h-full w-full focus:scale-100;
+	}
 
-		& img {
-			@apply !h-full scale-100 blur-0 brightness-[80%] filter transition duration-300 ease-in-out dark:brightness-[50%];
-		}
+	.journal-card:focus-within {
+		@apply outline-current;
+	}
 
-		&:hover img {
-			@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
-		}
+	.journal-card img,
+	.journal-card picture,
+	.journal-card-link img,
+	.journal-card-link picture {
+		@apply !h-full w-full object-cover;
+	}
+
+	.journal-card img,
+	.journal-card-link img {
+		@apply !h-full scale-100 blur-0 brightness-[80%] filter transition duration-300 ease-in-out dark:brightness-[50%];
+	}
+
+	.journal-card:hover img,
+	.journal-card:focus img,
+	.journal-card-link:hover img,
+	.journal-card-link:focus img {
+		@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
 	}
 
 	/** YouTube Lite */

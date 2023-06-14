@@ -20,32 +20,39 @@ const { entries } = Astro.props;
 	{
 		entries.map(({ slug, data }) => (
 			<li class="journal-card image-shadow group" {...animation}>
-				<Link title={data.title} href={`/${slug}/`} class="relative block h-full w-full">
-					<div class="absolute z-10 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
+				<Link
+					class="journal-card-link group relative block h-full w-full group-hover:scale-100"
+					href={`/${slug}/`}
+					tabIndex={0}
+					title={data.title}
+				>
+					<div class="absolute z-10 h-full w-full">
+						{data.cover ? (
+							<>
+								{data.cover.endsWith('.svg') ? (
+									<img src={data.cover} alt={data.title} />
+								) : (
+									<Picture
+										alt={data.title}
+										aspect={0.6}
+										breakpoints={[300, 500, 1000]}
+										format={['avif']}
+										src={data.cover}
+									/>
+								)}
+							</>
+						) : (
+							<div
+								class="h-full w-full bg-gray-800 transition duration-300 ease-in-out group-hover:brightness-[90%] group-focus:brightness-[90%] dark:brightness-[50%] dark:group-hover:brightness-[100%] dark:group-focus:brightness-[100%]"
+								style={`background-image: linear-gradient(to bottom left, ${
+									pickTwoRandomColors()[0]
+								} 0%, ${pickTwoRandomColors()[1]} 100%)`}
+							/>
+						)}
+					</div>
+					<div class="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
 						<Subsubheadline class="!m-0 leading-tight">{data.title}</Subsubheadline>
 					</div>
-					{data.cover ? (
-						<>
-							{data.cover.endsWith('.svg') ? (
-								<img src={data.cover} alt={data.title} />
-							) : (
-								<Picture
-									alt={data.title}
-									aspect={0.6}
-									breakpoints={[300, 500, 1000]}
-									format={['avif']}
-									src={data.cover}
-								/>
-							)}
-						</>
-					) : (
-						<div
-							class="h-full w-full scale-105 bg-gray-800 blur-sm brightness-[80%] filter transition duration-300 ease-in-out group-hover:brightness-[90%] dark:brightness-[50%] dark:group-hover:brightness-[100%]"
-							style={`background-image: linear-gradient(to bottom left, ${
-								pickTwoRandomColors()[0]
-							} 0%, ${pickTwoRandomColors()[1]} 100%)`}
-						/>
-					)}
 				</Link>
 			</li>
 		))

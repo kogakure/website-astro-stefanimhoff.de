@@ -14,7 +14,7 @@ import navigation from '../data/navigation.json';
 			navigation.map(({ title, url }) => (
 				<li class="mie-[10px] xs:mie-[15px]">
 					<Link
-						class="text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20"
+						class="text-3 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
 						href={url}
 					>
 						{title}
