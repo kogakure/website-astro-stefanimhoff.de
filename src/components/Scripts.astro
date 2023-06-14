@@ -10,6 +10,7 @@ import '../styles/sal.css';
 	import SwupA11yPlugin from '@swup/a11y-plugin';
 	import SwupPreloadPlugin from '@swup/preload-plugin';
 	import SwupScrollPlugin from '@swup/scroll-plugin';
+	import SwupScriptsPlugin from '@swup/scripts-plugin';
 
 	declare const sal: any;
 
@@ -19,6 +20,10 @@ import '../styles/sal.css';
 			new SwupHeadPlugin(),
 			new SwupA11yPlugin(),
 			new SwupPreloadPlugin(),
+			new SwupScriptsPlugin({
+				head: true,
+				body: true,
+			}),
 			new SwupScrollPlugin({
 				doScrollingRightAway: true,
 				animateScroll: false,

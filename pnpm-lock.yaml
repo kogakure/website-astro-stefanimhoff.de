@@ -42,6 +42,9 @@ dependencies:
   '@swup/preload-plugin':
     specifier: ^2.2.0
     version: 2.2.0(swup@3.1.0)
+  '@swup/scripts-plugin':
+    specifier: ^1.1.0
+    version: 1.1.0
   '@swup/scroll-plugin':
     specifier: ^2.0.3
     version: 2.0.3(swup@3.1.0)
@@ -4423,6 +4426,12 @@ packages:
 
   /@swup/prettier-config@1.0.0:
     resolution: {integrity: sha512-NbbuG2zT+bQkPcUGyeLNFbiwdunc58e3A/GZpPpUDrXA4ZKN7/rNh97sfG6z5+0OfxrNmDE3N7t+60p5HKhc9w==}
+    dev: false
+
+  /@swup/scripts-plugin@1.1.0:
+    resolution: {integrity: sha512-/2V5cUrmzxxZH91bBk0WjsWMJhjKhb32wZ41Sw/HXAUf2gLvqebvW6Lw98HJsagNXxVqqjmzTDIfdbHGwVsG/w==}
+    dependencies:
+      '@swup/plugin': 1.0.1
     dev: false
 
   /@swup/scroll-plugin@2.0.3(swup@3.1.0):
