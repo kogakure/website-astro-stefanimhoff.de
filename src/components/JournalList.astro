@@ -51,7 +51,9 @@ const { entries } = Astro.props;
 						)}
 					</div>
 					<div class="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
-						<Subsubheadline class="!m-0 leading-tight">{data.title}</Subsubheadline>
+						<Subsubheadline as="h3" class="!m-0 leading-tight">
+							{data.title}
+						</Subsubheadline>
 					</div>
 				</Link>
 			</li>

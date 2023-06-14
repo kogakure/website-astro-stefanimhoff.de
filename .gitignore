@@ -7,7 +7,7 @@ dist/
 # dependencies
 node_modules/
 
-# Vale 
+# Vale
 .vale/write-good/
 
 # logs
@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Unlighthouse reports
+.unlighthouse

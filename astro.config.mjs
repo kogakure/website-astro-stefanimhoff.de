@@ -62,7 +62,7 @@ export default defineConfig({
 			workbox: {
 				globDirectory: 'dist/',
 				globPatterns: ['**/*.woff2'],
-				swDest: 'dist/sw.js',
+				swDest: 'dist/service-worker.js',
 				sourcemap: false,
 				cleanupOutdatedCaches: true,
 				clientsClaim: true,
