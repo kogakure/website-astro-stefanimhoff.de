@@ -18,7 +18,7 @@ export const AmazonBook: FunctionalComponent<Props> = ({
 	const affiliateUrl = `http://www.amazon.de/gp/product/${asin}?ie=UTF8&tag=stefanimhoffde-21&linkCode=as2&camp=1638&creative=6742&creativeASIN=${asin}`;
 
 	return (
-		<Link href={affiliateUrl} class={className} {...props}>
+		<Link href={affiliateUrl} class={className} aria-label={alt} {...props}>
 			<Book alt={alt} src={amazonImageUrl} />
 		</Link>
 	);

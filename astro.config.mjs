@@ -10,12 +10,14 @@ import serviceWorker from 'astrojs-service-worker';
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
 
+import customTheme from './shiki-theme.json';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
 	markdown: {
 		shikiConfig: {
-			theme: 'nord',
+			theme: customTheme,
 			langs: [],
 			wrap: true,
 		},

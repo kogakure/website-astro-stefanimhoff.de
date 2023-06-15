@@ -36,6 +36,10 @@
 		@apply whitespace-pre;
 	}
 
+	.astro-code {
+		@apply border-1 border-solid dark:border-white/20;
+	}
+
 	p code,
 	li code,
 	samp {

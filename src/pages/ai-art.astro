@@ -63,12 +63,13 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 					>
 						<Link title={data.title} href={`/ai-art/${slug}/`}>
 							<Picture
-								aspect={data.images[0].aspectRatio}
-								src={data.images[0].src}
 								alt={data.title}
+								aspect={data.images[0].aspectRatio}
+								breakpoints={[500, 1000, 1500]}
 								class="h-full mbe-10 md:w-full md:object-cover md:!mbe-0 [&_img]:!block [&_img]:!h-full [&_img]:border-solid [&_picture]:!block [&_picture]:!h-full"
 								format={['avif']}
-								breakpoints={[500, 1000, 1500]}
+								loading="eager"
+								src={data.images[0].src}
 							/>
 						</Link>
 					</li>
