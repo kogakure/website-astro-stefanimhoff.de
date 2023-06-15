@@ -109,15 +109,15 @@ const schema = JSON.stringify({
 		)}
 	>
 		<div class="leading-none mbe-6">
-			<em>By</em>
+			<em>By</em>{' '}
 			<TextLink href="/about/">{entry.data.author}</TextLink>
 		</div>
 		<div class="leading-tight">
 			<time datetime={dateToISO(entry.data.date)}>{dateToFormat(entry.data.date)}</time>
 		</div>
 		<div class="leading-none mbe-6">
-			{wordCount(entry.body)}
-			<span class="italic">words</span> • {minutesRead}
+			{wordCount(entry.body)}{' '}
+			<span class="italic">words</span> • {minutesRead}{' '}
 			<span class="italic">read</span>
 		</div>
 		<div class="flex flex-wrap gap-y-3">
