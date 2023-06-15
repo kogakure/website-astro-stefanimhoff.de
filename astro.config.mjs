@@ -3,7 +3,6 @@ import preact from '@astrojs/preact';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import compress from 'astro-compress';
 import { astroImageTools } from 'astro-imagetools';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -81,12 +80,9 @@ export default defineConfig({
 				],
 			},
 		}),
-		compress({
-			css: true,
-			html: true,
-			img: false,
-			js: true,
-			svg: false,
-		}),
 	],
+	compressHTML: true,
+	build: {
+		inlineStylesheets: 'always',
+	},
 });
