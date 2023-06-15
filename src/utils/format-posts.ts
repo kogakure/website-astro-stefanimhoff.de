@@ -6,7 +6,7 @@ export const formatPosts = (
 	posts: CollectionEntry<'journal'>[],
 	{
 		removeDrafts = true,
-		removeFuture = true,
+		removeFuture = false,
 		showFeatured,
 		sortBy = 'date',
 		sortOrder = 'desc',
