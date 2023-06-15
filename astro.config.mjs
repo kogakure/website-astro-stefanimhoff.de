@@ -4,7 +4,6 @@ import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import compress from 'astro-compress';
-import critters from 'astro-critters';
 import { astroImageTools } from 'astro-imagetools';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -82,7 +81,6 @@ export default defineConfig({
 				],
 			},
 		}),
-		critters(),
 		compress({
 			css: true,
 			html: true,
