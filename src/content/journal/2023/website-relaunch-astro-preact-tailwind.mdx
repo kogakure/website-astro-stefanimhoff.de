@@ -1,0 +1,50 @@
+---
+title: Website Relaunch With Astro, Tailwind CSS, and Preact
+slug: website-relaunch-astro-preact-tailwind
+date: 2023-06-16
+author: Stefan Imhoff
+description: How I built my personal website using Astro, Tailwind CSS, and AI improving the information architecture, content, and design.
+tags: ["code", "design"]
+cover: /assets/images/cover/alien-worlds.jpg
+---
+
+After five months of hard work, I'm proud to present my new personal website, built with [Astro](https://astro.build/). Back in February 2023, I began working on the project. I had been wanting to try out Astro for a while, but when content collections were released, I was finally convinced. I also wanted to experiment with [Tailwind CSS](https://tailwindcss.com/), so I decided to use it for this project.
+
+## Information Architecture, Content, and Design
+
+I always start by thinking about the content and identifying pages to remove, add, or update. I wanted to improve my [sketchnotes gallery](/sketchnotes/) and add a new [AI art gallery](/ai-art/).
+
+Previously, many pages were difficult to access, hidden on subpages. To make them easier to find, I added a footer containing all important links to all sections. I also slimmed down the main navigation to only three links: [About](/about/), [Journal](/journal/), and [Projects](/projects/). I reduced the social links to the three most essential ones: Twitter, GitHub, and Instagram.
+
+The journal pages received a bigger update. I removed the grouping by years, since most of my essays are timeless, and instead introduced a new card design for each essay. On the journal page and the essays, I added the ability to filter by tags.
+
+I also introduced some new pages, such as a [Colophon](/colophon/) page listing all the [tools](/tools/) I use to build my website, and a tools page listing my work equipment, hardware, and software.
+
+## Artificial Intelligence
+
+I've utilized AI a lot for my new website. Not only for coding with [GitHub Copilot](https://github.com/features/copilot), but also [ChatGPT](https://chat.openai.com/) (with [Raycast Pro](https://www.raycast.com/pro)) to debug complex issues during development, generate TypeScript types, or automatically generate code. I used it to write and rewrite text, replace template tags with components, fix typos, and much more. In addition, I used [Stable Diffusion](https://stability.ai/) to create my profile and cover photos. And I used AI image upscaling to increase all old cover photos.
+
+<Figure
+  caption="AI Cover Photos: Bonsai (left), Shinto Gate in a mossy forest (center), and man running from a wave of news (right)"
+  size="wide"
+>
+  <Image src="/assets/images/cover/bonsai.jpg" alt="Bonsai" />
+  <Image src="/assets/images/cover/shinto-gate.jpg" alt="Shinto gate in a mossy forest" />
+  <Image src="/assets/images/cover/news-wave.jpg" alt="Man running from a wave of news" />
+</Figure>
+
+Previously, I had cover photos on my website, but I removed them because it was too time-consuming to find a new stock photo for each entry. However, with Stable Diffusion, I can now quickly generate a cover photo that fits the topic while experimenting with different art styles and techniques. I started with a few, such as the Bonsai on the homepage and the last 7 essays. I'll fill in the others over time. Likewise, I'm also planning to write a comprehensive tutorial on how I used Stable Diffusion to generate the bonsai cover image.
+
+## Development
+
+Recreating my previous website with [Astro](https://astro.build/) was a lot of fun. It was impressive how quickly it was set up and how easy it was to find anything in the documentation. And the speed of Astro is impressive, nearly all of my pages have a perfect 100% rating in [Unlighthouse](https://unlighthouse.dev/).
+
+<Figure caption="Unlighthouse Results" size="wide">
+  <Image src="/assets/images/posts/unlighthouse.jpg" alt="unlighthouse results for my website" />
+</Figure>
+
+I opted for [Preact](https://preactjs.com/) for components, even though many didn't need interactivity. I'm glad I could use [MDX](https://mdxjs.com/) and map components to markdown elements.
+
+It was my first time using [Tailwind CSS](https://tailwindcss.com/). Initially, I was skeptical because I didn’t like the idea of writing CSS in HTML. But after using it, I really like it. Writing CSS is much faster and I don’t have to think about naming classes. Additionally, I reduced the CSS size by 30%.
+
+I used [Sal](https://mciastek.github.io/sal/) for scroll animations and [Swup](https://swup.js.org/) for page transitions. If you're interested in the plugins, tools, and libraries I used, take a look at the [Colophon](/colophon/) page or the [source code](https://github.com/kogakure/website-astro-stefanimhoff.de) on GitHub.
