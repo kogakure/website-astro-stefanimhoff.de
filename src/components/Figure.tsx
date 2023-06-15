@@ -24,7 +24,7 @@ export const Figure: FunctionalComponent<Props> = ({
 
 	return (
 		<figure class={classes} {...props}>
-			<div>{children}</div>
+			<div class="flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow">{children}</div>
 			{caption && (
 				<figcaption class="text-center text-2 mbs-2 [text-wrap:balance]">
 					{caption}
