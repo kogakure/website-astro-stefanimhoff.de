@@ -48,6 +48,8 @@ import '../styles/sal.css';
 			});
 
 			setActiveLink();
+			setUpLink();
+			setEmailLink();
 		}
 	});
 
@@ -64,7 +66,41 @@ import '../styles/sal.css';
 		});
 	}
 
+	function setUpLink() {
+		const button = document.getElementById('up-link');
+		button?.addEventListener('click', (event) => {
+			event.preventDefault();
+			window.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth',
+			});
+		});
+	}
+
+	function handleEmailClick(event: Event) {
+		event.preventDefault();
+		const currentTarget = event.currentTarget;
+		if (currentTarget instanceof HTMLElement) {
+			const { name, domain, tld } = currentTarget.dataset;
+			if (name && domain && tld) {
+				const mailto = `mailto:${name}@${domain}.${tld}`;
+				window.open(mailto, '_blank');
+			}
+		}
+	}
+
+	function setEmailLink() {
+		const links = document.querySelectorAll('[data-email-link]');
+
+		links.forEach((link) => {
+			link.addEventListener('click', handleEmailClick);
+		});
+	}
+
 	setActiveLink();
+	setUpLink();
+	setEmailLink();
 </script>
 
 <style is:global>

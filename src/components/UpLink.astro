@@ -17,16 +17,4 @@ import { Link } from '.';
 			<Sprite name="ri:arrow-up-line" class="h-icon-small w-icon-small" />
 		</button>
 	</Link>
-
-	<script>
-		const button = document.getElementById('up-link');
-		button?.addEventListener('click', (event) => {
-			event.preventDefault();
-			window.scrollTo({
-				top: 0,
-				left: 0,
-				behavior: 'smooth',
-			});
-		});
-	</script>
 </div>
