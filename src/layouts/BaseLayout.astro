@@ -140,7 +140,7 @@ const webManifest = isProduction && {
 				meta: [
 					{
 						name: 'viewport',
-						content: 'width=device-width, initial-scale=1.0',
+						content: 'width=device-width, initial-scale=1.0, viewport-fit=cover',
 					},
 					{ name: 'author', content: site.author },
 					{ name: 'generator', content: Astro.generator },
@@ -158,7 +158,7 @@ const webManifest = isProduction && {
 		<Scripts />
 	</head>
 	<body
-		class="flex h-screen flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
+		class="flex grow flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
 		<div class="flex h-screen grow flex-col" id="swup">
 			<Sprite.Provider>
