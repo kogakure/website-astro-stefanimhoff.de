@@ -117,8 +117,8 @@ const schema = JSON.stringify({
 		</div>
 		<div class="leading-none mbe-6">
 			{wordCount(entry.body)}{' '}
-			<span class="italic">words</span> • {minutesRead}{' '}
-			<span class="italic">read</span>
+			<span class="italic">words</span> • {Math.round(minutesRead)}{' '}
+			<span class="italic">min read</span>
 		</div>
 		<div class="flex flex-wrap gap-y-3">
 			{
