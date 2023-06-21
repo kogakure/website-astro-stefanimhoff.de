@@ -79,3 +79,32 @@ export const mapping = {
 	Verse,
 	YouTube,
 };
+
+// Mapping for RSS feed to reduce the size of the feed
+export const rssMapping = {
+	AffiliateLink,
+	AmazonBook,
+	Banner,
+	Blockquote,
+	Book,
+	Bookshelf,
+	ColorStack,
+	ColorSwatch,
+	DisplayBox,
+	DownloadLink,
+	EmailLink,
+	Figure,
+	Flag,
+	Image,
+	MarkdownImage,
+	MoreLink,
+	NetflixFlag,
+	OdyseeVideo,
+	Picture,
+	PrimeVideoFlag,
+	ProjectIntro,
+	Pullquote,
+	ThemeBox,
+	Verse,
+	YouTube,
+};

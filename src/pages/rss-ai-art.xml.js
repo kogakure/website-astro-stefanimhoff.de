@@ -2,10 +2,14 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 import { site } from '../data/site';
+import { sortBySortKey } from '../utils';
 
 export async function get(context) {
 	const aiArt = await getCollection('ai-art');
+	aiArt.sort(sortBySortKey);
+
 	return rss({
+		stylesheet: '/rss.xsl',
 		title: `${site.title} (AI Art)`,
 		description: 'This is a collection of AI art pieces I’ve created with Stable Diffusion.',
 		site: context.site,
