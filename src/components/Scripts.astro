@@ -15,6 +15,7 @@ import '../styles/sal.css';
 	declare const sal: any;
 
 	const swup = new Swup({
+		ignoreVisit: (url, { el } = {}) => el?.closest('[data-pagefind-ui] a'),
 		plugins: [
 			new SwupFadeTheme(),
 			new SwupHeadPlugin(),
@@ -41,6 +42,7 @@ import '../styles/sal.css';
 		}
 	}
 
+	// Register scripts after swup page transition
 	swup.on('pageView', () => {
 		if (typeof sal !== 'undefined') {
 			sal({
@@ -50,6 +52,8 @@ import '../styles/sal.css';
 			setActiveLink();
 			setUpLink();
 			setEmailLink();
+			setSearchModalLink();
+			setSearchLink();
 		}
 	});
 
@@ -78,6 +82,45 @@ import '../styles/sal.css';
 		});
 	}
 
+	function setSearchLink() {
+		const dialog = document.querySelector('dialog');
+		const openDialogLink = document.getElementById('search-link');
+
+		openDialogLink?.addEventListener('click', (event) => {
+			event.preventDefault();
+			dialog?.showModal();
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === '/') {
+				event.preventDefault();
+				dialog?.showModal();
+			}
+		});
+	}
+
+	function setSearchModalLink() {
+		const dialog = document.querySelector('dialog');
+
+		dialog?.addEventListener('click', (event) => {
+			if (event.target === dialog) {
+				if (!dialog.classList.contains('hide')) {
+					dialog.classList.add('hide');
+					dialog.addEventListener(
+						'animationend',
+						(animationEvent) => {
+							if (animationEvent.animationName === 'hide-modal') {
+								dialog.close();
+								dialog.classList.remove('hide');
+							}
+						},
+						{ once: true }
+					);
+				}
+			}
+		});
+	}
+
 	function handleEmailClick(event: Event) {
 		event.preventDefault();
 		const currentTarget = event.currentTarget;
@@ -101,6 +144,8 @@ import '../styles/sal.css';
 	setActiveLink();
 	setUpLink();
 	setEmailLink();
+	setSearchLink();
+	setSearchModalLink();
 </script>
 
 <style is:global>

@@ -8,6 +8,7 @@ import { isProduction } from '../utils';
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PageFooter from '../components/PageFooter.astro';
+import SearchModal from '../components/SearchModal.astro';
 import Scripts from '../components/Scripts.astro';
 
 export interface Props {
@@ -44,6 +45,7 @@ const schema = JSON.stringify({
 	url: site.url,
 });
 
+const pagefind = !noindex && { 'data-pagefind-body': '' };
 const webManifest = isProduction && {
 	rel: 'manifest',
 	href: '/manifest.webmanifest',
@@ -164,13 +166,14 @@ const webManifest = isProduction && {
 			<Sprite.Provider>
 				{header && <PageHeader backLink={backLink} />}
 				<div class="page-content flex grow">
-					<main class="h-full w-full">
+					<main class="h-full w-full" {...pagefind}>
 						<slot />
 					</main>
 				</div>
 				{footer && <PageFooter />}
 			</Sprite.Provider>
 		</div>
+		<SearchModal />
 		<script>
 			console.info(
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'

@@ -1,0 +1,20 @@
+---
+import { Sprite } from 'astro-icon';
+
+import { Link } from '.';
+---
+
+<Link
+	class="col-span-2 col-start-1 h-clickarea w-clickarea items-center justify-center self-center justify-self-center transition-transform duration-500 ease-in-out hover:scale-75 focus:scale-75 print:hidden md:col-span-1"
+	id="search-link"
+	title="Search (/)"
+>
+	<button
+		aria-label="Search the website (/)"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
+		tabindex={-1}
+		type="button"
+	>
+		<Sprite name="ri:search-line" class="h-icon w-icon" />
+	</button>
+</Link>

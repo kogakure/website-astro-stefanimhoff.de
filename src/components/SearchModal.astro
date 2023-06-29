@@ -1,0 +1,118 @@
+---
+import Search from 'astro-pagefind/components/Search';
+---
+
+<dialog>
+	<Search />
+</dialog>
+
+<style is:global>
+	dialog::backdrop {
+		@apply bg-black/50 backdrop-blur-sm;
+		animation: show-dimmer 0.5s ease-in-out;
+	}
+
+	dialog.hide::backdrop {
+		animation: hide-dimmer 0.5s ease-in-out;
+	}
+
+	dialog[open] {
+		@apply h-[80vh] w-[80vw] max-w-[40em] bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:border-1 dark:border-solid dark:border-shibui-200/[0.25] dark:bg-shibui-900 dark:text-shibui-200/[0.87];
+		animation: show-modal 0.5s ease-in-out;
+	}
+
+	dialog.hide {
+		animation: hide-modal 0.5s ease-in-out;
+	}
+
+	@keyframes show-modal {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes show-dimmer {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes hide-modal {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+	}
+
+	@keyframes hide-dimmer {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	.pagefind-ui {
+		@apply bg-shibui-100 !font-sans !font-normal !leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87];
+	}
+
+	.pagefind-ui__form::before {
+		@apply !hidden;
+	}
+
+	.pagefind-ui__search-input,
+	.pagefind-ui__search-clear {
+		@apply !bg-shibui-100 !text-shibui-950 dark:!bg-shibui-850 dark:!text-shibui-200/[0.87];
+	}
+
+	.pagefind-ui__search-input {
+		@apply !border-1 !border-solid !border-shibui-900/[0.25] !bg-shibui-100 !text-shibui-950 !pis-7 dark:!border-shibui-200/[0.25] dark:!bg-shibui-850 dark:!text-shibui-200/[0.87];
+	}
+
+	.pagefind-ui__search-clear {
+		@apply !inline-end-4;
+	}
+
+	.pagefind-ui__result {
+		@apply !border-solid !border-black/[0.1] !border-be-1 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1];
+	}
+
+	.pagefind-ui__result-inner,
+	.pagefind-ui__message,
+	.pagefind-ui__result-link {
+		@apply !text-shibui-950 dark:!text-shibui-200/[0.87];
+	}
+
+	.pagefind-ui__result-link {
+		@apply inline !font-semibold !text-shibui-950 underline !decoration-shibui-900/20 !decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:!text-shibui-100;
+	}
+
+	.pagefind-ui .pagefind-ui__result-link {
+		@apply !text-3 !font-black leading-tight;
+	}
+
+	.pagefind-ui .pagefind-ui__result-excerpt {
+		@apply !text-2;
+	}
+
+	.pagefind-ui__result-excerpt mark {
+		@apply !rounded !border !border-black/[0.1] !bg-marked !text-black/[0.75] !pli-[0.3em] !pbe-[0.2em] !pbs-[0.3em] dark:!bg-marked/[0.7];
+	}
+
+	.pagefind-ui__button {
+		@apply !border-1 !border-solid !border-shibui-900/[0.25] !bg-shibui-200 !text-shibui-950 hover:!bg-shibui-300 dark:!border-shibui-200/[0.25] dark:!bg-shibui-950 dark:!text-shibui-200/[0.87] dark:hover:!bg-shibui-800;
+	}
+</style>

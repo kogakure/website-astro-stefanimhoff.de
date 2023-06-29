@@ -4,6 +4,7 @@ import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { astroImageTools } from 'astro-imagetools';
+import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
@@ -32,6 +33,7 @@ export default defineConfig({
 		}),
 		astroImageTools,
 		prefetch(),
+		pagefind(),
 		sitemap({
 			filter: (page) =>
 				page !== 'https://www.stefanimhoff.de/cv/' &&
@@ -86,5 +88,6 @@ export default defineConfig({
 	compressHTML: true,
 	build: {
 		inlineStylesheets: 'always',
+		client: './dist',
 	},
 });

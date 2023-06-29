@@ -2,10 +2,11 @@
 import { Link } from '.';
 
 import navigation from '../data/navigation.json';
+import SearchLink from './SearchLink.astro';
 ---
 
 <nav
-	class="navigation col-span-12 col-start-4 self-center md:col-span-14 md:col-start-3"
+	class="navigation col-span-12 col-start-4 flex items-center self-center md:col-span-14 md:col-start-3"
 	role="navigation"
 	aria-label="Main"
 >
@@ -23,4 +24,5 @@ import navigation from '../data/navigation.json';
 			))
 		}
 	</ul>
+	<SearchLink />
 </nav>
