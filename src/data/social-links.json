@@ -2,7 +2,7 @@
 	{
 		"text": "Mail",
 		"url": "#protected-email",
-		"icon": "ri:mail-fill",
+		"icon": "ri:mail-line",
 		"props": {
 			"data-domain": "stefanimhoff",
 			"data-name": "hey",
@@ -13,16 +13,16 @@
 	{
 		"text": "Twitter",
 		"url": "https://twitter.com/kogakure",
-		"icon": "ri:twitter-fill"
+		"icon": "ri:twitter-line"
 	},
 	{
 		"text": "Instagram",
 		"url": "https://instagram.com/kogakure",
-		"icon": "ri:instagram-fill"
+		"icon": "ri:instagram-line"
 	},
 	{
 		"text": "GitHub",
 		"url": "https://github.com/kogakure",
-		"icon": "ri:github-fill"
+		"icon": "ri:github-line"
 	}
 ]
