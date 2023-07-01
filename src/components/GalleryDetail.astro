@@ -25,7 +25,7 @@ const imageLength = entry.data.images.length;
 			class="md:w-[66ch] lg:sticky lg:top-[calc(100vh_/_2_-_(max(30vh,_250px)_/_2))] lg:h-[max(30vh,_250px)] lg:w-full"
 			{...animationDelay}
 		>
-			<Headline>{entry.data.title}</Headline>
+			<Headline as="h1">{entry.data.title}</Headline>
 			<slot />
 		</div>
 	</div>
