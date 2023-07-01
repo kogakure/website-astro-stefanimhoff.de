@@ -57,6 +57,7 @@ const imageLength = entry.data.images.length;
 						aspect={entry.data.aspect}
 						breakpoints={[500, 1000, 1500]}
 						format={['avif']}
+						loading={index === 0 ? 'eager' : 'lazy'}
 						src={src}
 					/>
 				</div>
