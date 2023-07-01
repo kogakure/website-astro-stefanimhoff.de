@@ -1,14 +1,35 @@
 ---
 import Search from 'astro-pagefind/components/Search';
+
+import { Sprite } from 'astro-icon';
+
+import { Link } from '.';
 ---
 
 <dialog>
-	<Search />
+	<header
+		class="flex h-[clamp(3rem,_5.55vw,_9rem)] w-full items-center justify-end pie-gap pis-gap block-start-0"
+	>
+		<Link
+			id="close-search"
+			class="transition-transform duration-500 ease-in-out block-start-0 hover:scale-125"
+		>
+			<button
+				aria-label="Close Search Modal"
+				class="flex h-[2em] w-[2em] cursor-pointer items-center justify-center text-shibui-950 dark:text-shibui-200/[0.87]"
+			>
+				<Sprite name="ri:close-line" class="h-[2em] w-[2em]" />
+			</button>
+		</Link>
+	</header>
+	<search>
+		<Search />
+	</search>
 </dialog>
 
 <style is:global>
 	dialog::backdrop {
-		@apply bg-black/50 backdrop-blur-sm;
+		@apply bg-shibui-100  dark:bg-shibui-900;
 		animation: show-dimmer 0.5s ease-in-out;
 	}
 
@@ -17,7 +38,7 @@ import Search from 'astro-pagefind/components/Search';
 	}
 
 	dialog[open] {
-		@apply h-[80vh] w-[80vw] max-w-[40em] bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:border-1 dark:border-solid dark:border-shibui-200/[0.25] dark:bg-shibui-900 dark:text-shibui-200/[0.87];
+		@apply m-gap w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87];
 		animation: show-modal 0.5s ease-in-out;
 	}
 
@@ -66,7 +87,7 @@ import Search from 'astro-pagefind/components/Search';
 	}
 
 	.pagefind-ui {
-		@apply bg-shibui-100 !font-sans !font-normal !leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87];
+		@apply px-gap !font-sans !font-normal !leading-relaxed pbe-gap common-ligatures;
 	}
 
 	.pagefind-ui__form::before {
@@ -75,15 +96,23 @@ import Search from 'astro-pagefind/components/Search';
 
 	.pagefind-ui__search-input,
 	.pagefind-ui__search-clear {
-		@apply !bg-shibui-100 !text-shibui-950 dark:!bg-shibui-850 dark:!text-shibui-200/[0.87];
+		@apply !text-shibui-950 dark:!text-shibui-100;
 	}
 
 	.pagefind-ui__search-input {
-		@apply !border-1 !border-solid !border-shibui-900/[0.25] !bg-shibui-100 !text-shibui-950 !pis-7 dark:!border-shibui-200/[0.25] dark:!bg-shibui-850 dark:!text-shibui-200/[0.87];
+		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !border-0 !border-solid !border-black/[0.1] !bg-transparent !text-7 !font-black !leading-tight !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1] dark:!font-extrabold;
+	}
+
+	.pagefind-ui__search-input::placeholder {
+		@apply !text-shibui-950 !opacity-20 dark:!text-shibui-200/[0.87] dark:!opacity-30;
 	}
 
 	.pagefind-ui__search-clear {
-		@apply !inline-end-4;
+		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !rounded-sm !bg-transparent !p-2 focus:!outline;
+	}
+
+	.pagefind-ui__results {
+		@apply !grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] !gap-x-gap !pbe-12 lg:!grid;
 	}
 
 	.pagefind-ui__result {
@@ -97,7 +126,7 @@ import Search from 'astro-pagefind/components/Search';
 	}
 
 	.pagefind-ui__result-link {
-		@apply inline !font-semibold !text-shibui-950 underline !decoration-shibui-900/20 !decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:!text-shibui-100;
+		@apply inline !font-semibold !text-shibui-950 !underline !decoration-shibui-900/20 !decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:!text-shibui-100;
 	}
 
 	.pagefind-ui .pagefind-ui__result-link {
@@ -113,6 +142,6 @@ import Search from 'astro-pagefind/components/Search';
 	}
 
 	.pagefind-ui__button {
-		@apply !border-1 !border-solid !border-shibui-900/[0.25] !bg-shibui-200 !text-shibui-950 hover:!bg-shibui-300 dark:!border-shibui-200/[0.25] dark:!bg-shibui-950 dark:!text-shibui-200/[0.87] dark:hover:!bg-shibui-800;
+		@apply !flex !items-center !justify-center !border-0 !bg-transparent !py-12 !text-4 !tracking-tight !text-shibui-950 !mbe-10 !mbs-0 focus:!outline dark:!text-shibui-200/[0.87];
 	}
 </style>

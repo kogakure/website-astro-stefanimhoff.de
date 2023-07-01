@@ -83,18 +83,47 @@ import '../styles/sal.css';
 	}
 
 	function setSearchLink() {
+		const body = document.body;
 		const dialog = document.querySelector('dialog');
 		const openDialogLink = document.getElementById('search-link');
+		const closeDialogLink = document.getElementById('close-search');
+
+		dialog.addEventListener('close', () => {
+			body.style.overflow = 'auto';
+		});
 
 		openDialogLink?.addEventListener('click', (event) => {
+			const searchInput = dialog?.querySelector('input');
 			event.preventDefault();
 			dialog?.showModal();
+			searchInput?.focus();
+			body.style.overflow = 'hidden';
+		});
+
+		closeDialogLink?.addEventListener('click', (event) => {
+			event.preventDefault();
+			if (!dialog?.classList.contains('hide')) {
+				dialog?.classList.add('hide');
+				dialog?.addEventListener(
+					'animationend',
+					(animationEvent) => {
+						if (animationEvent.animationName === 'hide-modal') {
+							dialog?.close();
+							dialog?.classList.remove('hide');
+						}
+					},
+					{ once: true }
+				);
+			}
 		});
 
 		document.addEventListener('keydown', (event) => {
 			if (event.key === '/') {
+				const searchInput = dialog?.querySelector('input');
 				event.preventDefault();
 				dialog?.showModal();
+				searchInput?.focus();
+				body.style.overflow = 'hidden';
 			}
 		});
 	}
