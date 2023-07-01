@@ -1,9 +1,10 @@
+![Preview of the website](public/assets/images/website-light.jpg)
 [![Live](https://img.shields.io/badge/live-stefanimhoff.de-green.svg)](https://www.stefanimhoff.de/)
 ![Maintenance](https://img.shields.io/maintenance/yes/2023.svg)
 
 # stefanimhoff.de
 
-This is the source of my [personal website][si] build with [Astro], [Tailwind CSS], and [Preact].
+This is the source of my [personal website][si] build with [Astro], [Preact], and [Tailwind CSS].
 
 ## Installation
 

@@ -30,20 +30,24 @@ import { Link } from '.';
 <style is:global>
 	dialog::backdrop {
 		@apply bg-shibui-100  dark:bg-shibui-900;
-		animation: show-dimmer 0.5s ease-in-out;
+		animation: show-dimmer 0.2s ease-in-out;
 	}
 
 	dialog.hide::backdrop {
-		animation: hide-dimmer 0.5s ease-in-out;
+		animation: hide-dimmer 0.2s ease-in-out;
+	}
+
+	dialog {
+		@apply h-full;
 	}
 
 	dialog[open] {
 		@apply m-gap w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87];
-		animation: show-modal 0.5s ease-in-out;
+		animation: show-modal 0.2s ease-in-out;
 	}
 
 	dialog.hide {
-		animation: hide-modal 0.5s ease-in-out;
+		animation: hide-modal 0.2s ease-in-out;
 	}
 
 	@keyframes show-modal {
