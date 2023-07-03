@@ -8,7 +8,7 @@ import { Link } from '.';
 
 <dialog>
 	<header
-		class="flex h-[clamp(3rem,_5.55vw,_9rem)] w-full items-center justify-end pie-gap pis-gap block-start-0"
+		class="flex h-[clamp(3rem,_5.55vw,_9rem)] w-full items-center justify-end block-start-0 md:pie-gap md:pis-gap"
 	>
 		<Link
 			id="close-search"
@@ -91,7 +91,7 @@ import { Link } from '.';
 	}
 
 	.pagefind-ui {
-		@apply px-gap !font-sans !font-normal !leading-relaxed pbe-gap common-ligatures;
+		@apply !font-sans !font-normal !leading-relaxed pbe-gap common-ligatures md:px-gap;
 	}
 
 	.pagefind-ui__form::before {
@@ -104,7 +104,7 @@ import { Link } from '.';
 	}
 
 	.pagefind-ui__search-input {
-		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !border-0 !border-solid !border-black/[0.1] !bg-transparent !text-7 !font-black !leading-tight !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1] dark:!font-extrabold;
+		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !rounded-none !border-0 !border-solid !border-black/[0.1] !bg-transparent !text-6 !font-black !leading-normal !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1] dark:!font-extrabold md:!text-7;
 	}
 
 	.pagefind-ui__search-input::placeholder {
