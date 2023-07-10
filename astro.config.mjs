@@ -56,8 +56,6 @@ export default defineConfig({
 			short_name: site.title,
 			description: site.description,
 			start_url: '/',
-			theme_color: '#e7e6e4',
-			background_color: '#e7e6e4',
 			display: 'standalone',
 		}),
 		serviceWorker({
