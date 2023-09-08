@@ -167,11 +167,6 @@
 	img.image-no-border {
 		@apply border-0 bg-transparent shadow-none;
 	}
-
-	/** Swup */
-	main[tabindex='-1'] {
-		outline: none;
-	}
 }
 
 @layer components {
