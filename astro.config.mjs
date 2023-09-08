@@ -83,7 +83,6 @@ export default defineConfig({
 			},
 		}),
 	],
-	compressHTML: true,
 	build: {
 		inlineStylesheets: 'always',
 		client: './dist',
