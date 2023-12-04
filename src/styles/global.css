@@ -168,6 +168,10 @@
 		@apply border-0 bg-transparent shadow-none;
 	}
 
+	.icon {
+		@apply fill-shibui-950 dark:fill-shibui-200/[0.87];
+	}
+
 	/** Swup */
 	main[tabindex='-1'] {
 		outline: none;
