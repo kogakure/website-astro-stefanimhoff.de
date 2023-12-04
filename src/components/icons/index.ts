@@ -1,0 +1,16 @@
+export { default as ArrowLeft } from './ArrowLeft.tsx';
+export { default as ArrowLeftS } from './ArrowLeftS.tsx';
+export { default as ArrowRight } from './ArrowRight.tsx';
+export { default as ArrowRightS } from './ArrowRightS.tsx';
+export { default as ArrowUp } from './ArrowUp.tsx';
+export { default as Circle } from './Circle.tsx';
+export { default as Close } from './Close.tsx';
+export { default as Download } from './Download.tsx';
+export { default as Github } from './Github.tsx';
+export { default as Instagram } from './Instagram.tsx';
+export { default as Mail } from './Mail.tsx';
+export { default as MailSend } from './MailSend.tsx';
+export { default as Rss } from './Rss.tsx';
+export { default as Search } from './Search.tsx';
+export { default as Twitter } from './Twitter.tsx';
+export { default as TwitterX } from './TwitterX.tsx';
