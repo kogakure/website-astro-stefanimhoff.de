@@ -30,4 +30,5 @@ export * from './Text';
 export * from './TextLink';
 export * from './Title';
 export * from './UnorderedList';
+export * from './UpLink';
 export * from './Verse';
