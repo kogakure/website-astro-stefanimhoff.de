@@ -1,6 +1,5 @@
 import { YouTube } from '@astro-community/astro-embed-youtube';
 
-import DownloadLink from './components/DownloadLink.astro';
 import EmailLink from './components/EmailLink.astro';
 import Image from './components/Image.astro';
 import MarkdownImage from './components/MarkdownImage.astro';
@@ -19,6 +18,7 @@ import {
 	ColorSwatch,
 	DisplayBox,
 	Divider,
+	DownloadLink,
 	Figure,
 	Flag,
 	Headline,
