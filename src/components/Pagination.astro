@@ -1,5 +1,5 @@
 ---
-import { Sprite } from 'astro-icon';
+import { ArrowLeftS, ArrowRightS } from './icons';
 
 export interface Props {
 	previousUrl?: string;
@@ -21,7 +21,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 			title={previousText || 'Previous'}
 		>
 			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
-				<Sprite name="ri:arrow-left-s-line" aria-hidden="true" class="h-icon w-icon" />
+				<ArrowLeftS aria-hidden="true" class="icon h-icon w-icon" />
 			</div>
 		</a>
 	)
@@ -36,7 +36,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 			title={nextText || 'Next'}
 		>
 			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
-				<Sprite name="ri:arrow-right-s-line" aria-hidden="true" class="h-icon w-icon" />
+				<ArrowRightS aria-hidden="true" class="icon h-icon w-icon" />
 			</div>
 		</a>
 	)
