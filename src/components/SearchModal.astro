@@ -1,9 +1,8 @@
 ---
 import Search from 'astro-pagefind/components/Search';
 
-import { Sprite } from 'astro-icon';
-
 import { Link } from '.';
+import { Close } from './icons';
 ---
 
 <dialog>
@@ -18,7 +17,7 @@ import { Link } from '.';
 				aria-label="Close Search Modal"
 				class="flex h-[2em] w-[2em] cursor-pointer items-center justify-center text-shibui-950 dark:text-shibui-200/[0.87]"
 			>
-				<Sprite name="ri:close-line" class="h-[2em] w-[2em]" />
+				<Close class="icon h-[2em] w-[2em]" />
 			</button>
 		</Link>
 	</header>
