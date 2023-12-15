@@ -1,17 +1,16 @@
 ---
-import { Sprite } from 'astro-icon';
+import { Circle } from './icons';
 ---
 
 <theme-toggle
-	class="col-start-17 md:col-start-18 md:col-span-1 col-span-2 flex h-clickarea w-clickarea items-center self-center justify-center justify-self-center print:hidden"
+	class="col-span-2 col-start-17 flex h-clickarea w-clickarea items-center justify-center self-center justify-self-center print:hidden md:col-span-1 md:col-start-18"
 >
 	<button
 		aria-label="Switch color theme"
 		class="group flex h-clickarea w-clickarea cursor-pointer items-center justify-center self-center border-0 text-[0]"
 	>
-		<Sprite
-			name="circle"
-			class="duration-500 h-icon w-icon transition-transform ease-in-out group-hover:scale-125 group-focus:scale-125"
+		<Circle
+			class="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125"
 		/>
 	</button>
 </theme-toggle>
