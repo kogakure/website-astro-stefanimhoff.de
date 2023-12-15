@@ -1,10 +1,13 @@
 ---
 import cx from 'classnames';
 
-import { Picture } from 'astro-imagetools/components';
+import { Picture as AstroImageToolsPicture } from 'astro-imagetools/components';
 import type { PictureConfigOptions } from 'astro-imagetools';
 
 interface Props extends PictureConfigOptions {
+	alt: string;
+	aspect: number;
+	breakpoints?: number[];
 	class?: string;
 	noMargin?: boolean;
 	src: string;
@@ -24,7 +27,12 @@ const classes = cx(
 		src.includes('.svg') ? (
 			<img src={src} {...(props as any)} />
 		) : (
-			<Picture breakpoints={[500, 1000, 1500]} format={['avif']} src={src} {...props} />
+			<AstroImageToolsPicture
+				breakpoints={[500, 1000, 1500]}
+				format={['avif']}
+				src={src}
+				{...props}
+			/>
 		)
 	}
 </div>
