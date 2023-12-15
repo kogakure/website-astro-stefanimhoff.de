@@ -2,7 +2,7 @@
 	{
 		"text": "Mail",
 		"url": "#protected-email",
-		"icon": "ri:mail-line",
+		"icon": "mail",
 		"props": {
 			"data-domain": "stefanimhoff",
 			"data-name": "hey",
@@ -13,16 +13,16 @@
 	{
 		"text": "Twitter",
 		"url": "https://twitter.com/kogakure",
-		"icon": "ri:twitter-line"
+		"icon": "twitter"
 	},
 	{
 		"text": "Instagram",
 		"url": "https://instagram.com/kogakure",
-		"icon": "ri:instagram-line"
+		"icon": "instagram"
 	},
 	{
 		"text": "GitHub",
 		"url": "https://github.com/kogakure",
-		"icon": "ri:github-line"
+		"icon": "github"
 	}
 ]
