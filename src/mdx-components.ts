@@ -3,7 +3,6 @@ import { YouTube } from '@astro-community/astro-embed-youtube';
 import EmailLink from './components/EmailLink.astro';
 import Image from './components/Image.astro';
 import MarkdownImage from './components/MarkdownImage.astro';
-import MoreLink from './components/MoreLink.astro';
 import Picture from './components/Picture.astro';
 import ThemeBox from './components/ThemeBox.astro';
 
@@ -23,6 +22,7 @@ import {
 	Flag,
 	Headline,
 	ListItem,
+	MoreLink,
 	NetflixFlag,
 	OdyseeVideo,
 	OrderedList,

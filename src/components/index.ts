@@ -17,6 +17,7 @@ export * from './Headline';
 export * from './LegalDate';
 export * from './Link';
 export * from './ListItem';
+export * from './MoreLink';
 export * from './NetflixFlag';
 export * from './OdyseeVideo';
 export * from './OrderedList';
