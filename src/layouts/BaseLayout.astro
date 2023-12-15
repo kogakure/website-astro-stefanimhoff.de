@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import { Sprite } from 'astro-icon';
 import { SEO } from 'astro-seo';
 import { site } from '../data/site';
 import { isProduction } from '../utils';
@@ -52,7 +51,7 @@ const webManifest = isProduction && {
 };
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js box-border h-screen scroll-smooth text-[125%]">
 	<head>
 		<SEO
@@ -162,15 +161,13 @@ const webManifest = isProduction && {
 		class="flex grow flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
 		<div class="flex h-screen grow flex-col" id="swup">
-			<Sprite.Provider>
-				{header && <PageHeader backLink={backLink} />}
-				<div class="page-content flex grow">
-					<main class="h-full w-full" {...pagefind}>
-						<slot />
-					</main>
-				</div>
-				{footer && <PageFooter />}
-			</Sprite.Provider>
+			{header && <PageHeader backLink={backLink} />}
+			<div class="page-content flex grow">
+				<main class="h-full w-full" {...pagefind}>
+					<slot />
+				</main>
+			</div>
+			{footer && <PageFooter />}
 		</div>
 		<SearchModal />
 		<script>

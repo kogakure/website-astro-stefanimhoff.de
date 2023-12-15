@@ -33,7 +33,6 @@
 		"@swup/scripts-plugin": "^1.1.0",
 		"@swup/scroll-plugin": "^2.0.3",
 		"astro": "^3.0.11",
-		"astro-icon": "^0.8.1",
 		"astro-imagetools": "^0.9.0",
 		"astro-pagefind": "^1.2.3",
 		"astro-seo": "^0.8.0",
