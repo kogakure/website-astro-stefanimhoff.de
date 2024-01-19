@@ -1,0 +1,374 @@
+---
+title: "Raycast: The Must-Have Productivity App for macOS"
+slug: raycast
+date: 2024-01-19
+author: Stefan Imhoff
+description: Discover the power of Raycast, the exceptionally fast and extendable launcher for macOS that will revolutionize your workflow. In this comprehensive article, I explore the impressive capabilities of Raycast, from its versatile application launcher and powerful calculator to its convenient features like floating notes, clipboard history, and window management. Find out how Raycast can enhance your productivity with its seamless integration of tools for developers, designers, and project managers.
+cover: /assets/images/cover/raycast.jpg
+tags: ["productivity", "software"]
+---
+
+There are few applications that have improved my workflow as much as [Raycast](https://www.raycast.com/). Raycast is an exceptionally fast and extendable launcher for macOS.
+
+Raycast is equipped by default with more tools than a Swiss Army knife, and it can be extended with over 1,300 additional extensions. Furthermore, it is a free app that can be enhanced with even more cool features through [Raycast Pro](https://www.raycast.com/pro).
+
+I’ve used other application launchers before. Alfred was a good companion for years, but Raycast’s interface is so well-designed. The context menus, keyboard shortcuts, and extensions work consistently the same everywhere. I have used Raycast now for more than 1.5 years and pay for Raycast Pro for nearly 9 months.
+
+## Application Launcher
+
+<Figure caption="The Raycast Launcher with 4 pinned favorites." size="wide">
+  <Image src="/assets/images/posts/raycast-launcher.jpg" alt="Raycast Launcher" />
+</Figure>
+
+The most basic feature that you get is an application launcher like Apple Spotlight, but it’s prettier, has fuzzy search, and, as with everything in Raycast, an alias and a keyboard shortcut can be assigned. I navigate between my main apps without exception using keyboard shortcuts.
+
+I use [Karabiner-Elements](https://karabiner-elements.pqrs.org/) to transform the useless <kbd>caps</kbd> lock key into a Hyperkey. This means I can use it to press <kbd>⌘</kbd> <kbd>^</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> at the same time. I also use it as <kbd>␛</kbd> in my code editor, [Neovim](https://neovim.io/). Additionally, I can combine it with <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd>, and <kbd>l</kbd> to navigate anywhere with the arrow keys.
+
+My application navigation is a combination of <kbd>hyper</kbd> plus a letter, like <kbd>hyper</kbd> <kbd>a</kbd> for the [Arc](https://arc.net/) browser or <kbd>hyper</kbd> <kbd>t</kbd> for [Things](https://culturedcode.com/things/), for example. I have 19 of these shortcuts for the apps I use all the time, the rest I open with Raycast over the search.
+
+In combination with a window manager (I use [yabai](https://github.com/koekeishiya/yabai)) and Apple’s Spaces feature, you can assign apps to specific spaces with a right-click on the application, then select Options. This allows me to have the same apps open in the spaces where I expect them. Raycast is the only application with consistent app switching behavior. When I press my keyboard shortcut, it opens the app if it’s closed. If it’s open but not focused, or I’m in a different space, it moves me to that space and focuses on the app. And if I look at it, it hides the application.
+
+## Calculator
+
+<Figure caption="Calculator" size="wide">
+  <Image src="/assets/images/posts/raycast-calculator.jpg" alt="Calculator" />
+</Figure>
+
+Raycast has a magically powerful calculator. It can perform all the normal calculations and also convert angles, area, currency, data rate, data size, density, length, mass, power, pressure, speed, temperature, time, typography, volume, color, flight tracker, and many more.
+
+You can choose the output format for the calculation. For example, you can calculate how much time 12 seconds saved per day amounts to in a year: `12 seconds * 7 * 52 in minutes`. It’s over an hour per year. You can also calculate e-book reading time, for example `0:48:50 / 9:21:31 in percent rounded` which is `9%`. This is really helpful to update my Goodread reading status, because Audible is unable, even after 12 years of people requesting this feature, to show you the percentage. 🙄
+
+The calculator history allows you to view previous calculations and pin useful ones to the top.
+
+## Calendar
+
+<Figure
+  caption="Calendar showing the next meeting, appointments of the current day, following days."
+  size="wide"
+>
+  <Image src="/assets/images/posts/raycast-calendar.jpg" alt="Calendar" />
+</Figure>
+
+The [Calendar](https://raycastapp.notion.site/Calendar-b4bdcf402a024c37940e46e8dcf2da91) feature is incredible. It allows you to open a schedule overview directly in Raycast and join calls, block times, delete events, copy or open links, copy event title or details, and open the camera.
+
+But the feature I love the most is the menu bar events. You can see the time until the next meeting or until the end of the current meeting in the menu bar.
+
+## Floating Notes
+
+Floating Notes are the perfect companion for storing ideas, ticket numbers, making quick notes in a meeting, removing formatting from copied text, and much more. I constantly use this feature. Raycast announced a big feature update for Floating Notes in 2024.
+
+<Figure caption="Floating Notes">
+  <Image src="/assets/images/posts/raycast-floating-notes.jpg" alt="Floating Notes" />
+</Figure>
+
+## Clipboard History
+
+<Figure caption="Clipboard History" size="wide">
+  <Image src="/assets/images/posts/raycast-clipboard-history.jpg" alt="Clipboard History" />
+</Figure>
+
+Another feature I use constantly is Clipboard History. It allows accessing the history of everything you copied, not only text, but images, files, links, and colors. They can be filtered, searched and directly copied, opened, edited, or deleted.
+
+## Screenshots
+
+<Figure caption="Search Screenshots with text recognition." size="wide">
+  <Image src="/assets/images/posts/raycast-screenshots.jpg" alt="Screenshots" />
+</Figure>
+
+The screenshots I create are saved in a cloud storage folder. With Raycast, you can search all your screenshots (images and videos) in multiple locations with a preview. You can search and filter them by date, name, and even by text inside a screenshot. My process is to use [Cleanshot X](https://cleanshot.com/) to capture and create full-length screenshots. I then send them directly to Cleanshot X from Raycast to annotate them and paste them back into a chat or work ticket.
+
+## Snippets
+
+<Figure caption="Snippets" size="wide">
+  <Image src="/assets/images/posts/raycast-snippets.jpg" alt="Snippets" />
+</Figure>
+
+I have used various paid and open-source solutions for snippets throughout the years. However, why use separate software when you can have it included in your favorite application?
+
+A text snippet is a piece of text that you frequently write and don’t want to repeatedly type or remember, such as personal information or boilerplate answers. I have well over 100 snippets, which include addresses, email addresses, phone numbers, date and time snippets, ASCII art, replacements for common spelling mistakes, and many more. About a third of these snippets have a specific trigger, which is a combination of characters I type to activate the snippet. The rest can be quickly accessed using a keyboard shortcut and searched.
+
+There may be snippet applications available with more features (like programming in snippets), but Raycast supports everything I need: cursor position, clipboard content, custom date and time formatting, and embedded snippets.
+
+## Emoji & Symbols
+
+<Figure caption="Search Emoji & Symbols with pinned and frequently used emoji." size="wide">
+  <Image src="/assets/images/posts/raycast-emoji-symbols.jpg" alt="Search Emoji & Symbols" />
+</Figure>
+
+In a remote setting, it’s important to transfer emotions to lift the mood and make sure the text is not misunderstood. I use the Emoji & Symbols feature many times each day. The Raycast Emoji & Symbol app shows all emojis in a beautiful grid, shows recently used emojis, and allows you to pin the emojis important to you.
+
+And recently, the feature got even better for Pro users, now you can search for anything and AI will find all Emoji that fit the search term.
+
+<Figure caption="Search Emoji & Symbols with AI" size="wide">
+  <Image
+    src="/assets/images/posts/raycast-emoji-symbols-ai.jpg"
+    alt="Search Emoji & Symbols with AI"
+  />
+</Figure>
+
+## Search Files
+
+<Figure caption="Search Files" size="wide">
+  <Image src="/assets/images/posts/raycast-search-files.jpg" alt="Search Files" />
+</Figure>
+
+This allows to search your hard drive for files, folders and optionally for the contents of your files. From there you can get information about the file, open, move, copy, duplicate and perform other commands on the selected file.
+
+## Window Management
+
+This is the only feature I don’t use a lot because I have a window manager that automatically allows me to arrange, rotate, center, and move my applications around. But Raycast’s Window Management is powerful and surpasses many paid apps with its features.
+
+I would love if my window manager [yabai](https://github.com/koekeishiya/yabai) worked together with Raycast, but currently using Raycast shortcuts will stop the window from working with yabai until I move them again with the mouse.
+
+## Quicklinks
+
+A feature I initially overlooked and started using a few months ago after watching the useful [Quick Tips](https://www.youtube.com/playlist?list=PLNzQX4H1-dVTHCLKFjekFwswKDpcEN2rI) playlist by Raycast on YouTube is Quicklinks. But now I use it more and more. Quicklinks allows linking to URLs, files on your hard drive and even include a query for a search. I use Quicklinks a lot to create names I can remember to link to important documents, folders or work URLs.
+
+## Script Commands
+
+Script commands are the intermediary step before you create your own extension, perfectly suited for simple commands. They can be written in the programming languages Bash, AppleScript, Swift, Python, Ruby, and Node.js.
+
+You can store scripts in multiple folders on your hard drive. If you are not a programmer or are scared to write custom commands, you can browse the massive collection of over [600 community script commands](https://github.com/raycast/script-commands) on GitHub.
+
+I use several script commands, which are publicly available in my [raycast-scripts](https://github.com/kogakure/raycast-scripts) repository. I have a few to open or close all my work-related apps, connect to the VPN, or create a backup of my IMDb data.
+
+## Raycast AI 💰
+
+<Figure
+  caption="Raycast AI with custom configuration. This images shows my Japanese Assitant."
+  size="wide"
+>
+  <Image src="/assets/images/posts/raycast-ai.jpg" alt="Raycast AI" />
+</Figure>
+
+In case you don’t know how to program custom scripts, you can use Raycast AI as a paying Pro member to help with that. Raycast AI is one of the features I use the most. It uses ChatGPT under the hood, but instead of using a web interface, you can use it everywhere on your computer and work with highlighted text.
+
+You can type a question directly in Raycast and press the <kbd>⇥</kbd> key to trigger the answer. If the AI is unable to answer the question, it will use Google to find the answer on the internet and additionally add the sources of the answer.
+
+You can continue (or start) a regular ChatGPT session in an extra window that conveniently floats on top of all apps. It is possible to configure each chat with a custom name, model, system instructions, and creativity level. GPT-3.5 Turbo is included in the Pro subscription. If you want GPT-4, you have to upgrade.
+
+I have several assistants that I use for specific tasks, providing the necessary instructions and context. I have one that helps me solve coding issues, one that helps me learn Japanese grammar, and one for training tips.
+
+<Figure caption="Search AI Commands" size="wide">
+  <Image src="/assets/images/posts/raycast-ai-commands.jpg" alt="Search AI Commands" />
+</Figure>
+
+But the feature I like the most is Search AI Commands. These commands allow you to create specific custom commands that perform a task on your text. The built-in AI commands include:
+
+- Fix Spelling and Grammar
+- Make Shorter
+- Make Longer
+- Change Tone to Friendly
+- Change Tone to Casual
+- Change Tone to Confident
+- Change Tone to Professional
+- Improve Writing
+- Rephrase as Tweet
+- Explain This in Simple Terms
+- Explain Code Step by Step
+- Find Bugs in Code
+
+Raycast includes another 10-20 AI commands as ideas, and I have created many more for my use cases. I have one that takes a text, summarizes the content as bullet points with matching emojis in the German language, and provides a short sentence summary. I use it frequently for my second brain notes in [Obsidian](https://obsidian.md/). Another one translates text to German in either formal or informal language. I have one command that takes a YouTube video description, removes all promotional links, hashtags, advertising, and unnecessary content, and generates a concise summary from the video description. This is particularly helpful for bookmarking videos in my bookmark manager, [Raindrop.io](https://raindrop.io/).
+
+## Translator 💰
+
+<Figure
+  caption="Translator. Translating “Epitaph for Poet’s Tomb” by Shuntaro Tanikawa."
+  size="wide"
+>
+  <Image src="/assets/images/posts/raycast-translator.jpg" alt="Translate" />
+</Figure>
+
+As a Pro subscriber, you have access to a fantastic built-in translator that can translate in nearly all languages. You can dictate and listen to the translations.
+
+## Miscellaneous
+
+Raycast has many more features to mention, but here are a few:
+
+- Search System Settings
+- Perform system commands, such as emptying the trash, shutting down, restarting, or putting the computer to sleep
+- Access Apple shortcuts
+- Search contacts
+- Navigate windows
+- Search menu items
+- Define words
+- Explore Raycast Prompts, Snippets, and Themes
+
+## Raycast Store
+
+<Figure caption="Raycast Store" size="wide">
+  <Image src="/assets/images/posts/raycast-store.jpg" alt="Raycast Store" />
+</Figure>
+
+This alone combines the features of a dozen or more, often paid apps. But the reason Raycast is so successful is its built-in app [store](https://www.raycast.com/store) that allows developers to provide custom extensions. Raycast provides a convenient and robust API to build extensions with [React](https://react.dev/), one of the most popular JavaScript libraries. Under the hood, the components are converted into native code.
+
+Because the number of extensions is huge, I’ll show in the next section how I use third-party extensions to work in specific areas.
+
+## Browsing & Searching
+
+<Figure caption="Search Arc" size="wide">
+  <Image src="/assets/images/posts/raycast-extension-arc.jpg" alt="Search Arc" />
+</Figure>
+
+One of my most favorite extension in this section is the [Arc](https://www.raycast.com/the-browser-company/arc) extension that allows you to control the Arc browser from anywhere. With it, you can search, create new tabs and spaces, and access the browser history from anywhere. When I’m working somewhere and want to go to a specific tab, I don’t have to switch to the browser, find the tab, and click it. Instead, I can immediately jump to the correct tab instantly. There are similar extensions for other browsers, for example [Brave](https://www.raycast.com/ron-myers/brave).
+
+<Figure caption="Brave Search" size="wide">
+  <Image src="/assets/images/posts/raycast-extension-brave-search.jpg" alt="Brave Search" />
+</Figure>
+
+My default search engine these days is [Brave Search](https://search.brave.com/). Google is just too biased and suppresses too much information. With the [Brave Search](https://www.raycast.com/VishwasShashidhar/brave-search) extension, I can search with auto-complete from anywhere and directly open the search results in the browser.
+
+<Figure caption="Search Raindrop.io Bookmarks" size="wide">
+  <Image
+    src="/assets/images/posts/raycast-extension-raindrop.jpg"
+    alt="Search Raindrop.io Bookmarks"
+  />
+</Figure>
+
+The third of my most favorite extension is [Raindrop.io](https://www.raycast.com/lardissone/raindrop-io). It allows me to search in my favorite bookmark manager (30K bookmarks) and see the title, tags, and date of saving directly, and open the bookmark directly.
+
+Other honorable mentions are the [Reddit Search](https://www.raycast.com/ewlcheng/reddit-search), [Wolfram Alpha](https://www.raycast.com/mathieudutour/wolfram-alpha), [SimpleLogin](https://www.raycast.com/adrian-schnell/simplelogin), or [Apple Maps Search](https://www.raycast.com/djpowers/apple-maps-search).
+
+## Developer Tools
+
+I’m a Frontend Developer by profession and work a lot with code, but also with design tools.
+
+<Figure caption="Search GitHub Repositories" size="wide">
+  <Image src="/assets/images/posts/raycast-github.jpg" alt="Search GitHub Repositories" />
+</Figure>
+
+As a developer, you work a lot with version control. I use the [GitHub](https://www.raycast.com/raycast/github), [GitHub Enterprise](https://www.raycast.com/Kinbaum/github-for-enterprise), and [GitHub Gist](https://www.raycast.com/koinzhang/github-gist) extensions. They allow you to view or create pull requests, discussions, read notifications, search repositories, and much more. The [Git Repos](https://www.raycast.com/moored/git-repos) extension allows searching on the local hard drive for Git repositories.
+
+<Figure caption="Homebrew Show Installed" size="wide">
+  <Image src="/assets/images/posts/raycast-homebrew.jpg" alt="Homebrew Show Installed" />
+</Figure>
+
+I use the [Kill Process](https://www.raycast.com/rolandleth/kill-process) extension to terminate hung processes. The [Port Manager](https://www.raycast.com/lucaschultz/port-manager) allows me to view or kill ports. The [Brew](https://www.raycast.com/nhojb/brew) extension allows me to use Homebrew from Raycast. I work a lot with Neovim and tmux in my WezTerm terminal. The [Tmux Sessioner](https://www.raycast.com/louishuyng/tmux-sessioner) allows me to jump directly into the terminal in a specific project.
+
+I use extensions to format or create code. For example, I use [SVGO](https://www.raycast.com/kaichi/raycast-svgo) to optimize SVGs, [SVGR](https://www.raycast.com/rickMcGavin/svgr) to create React components from SVGs, and tools like [Format JSON](https://www.raycast.com/destiner/json-format) and [Prettier Code](https://www.raycast.com/lin/prettier) to format any code. It’s convenient to format the code before pasting it anywhere on the web.
+
+<Figure caption="Tailwind CSS Search Colors" size="wide">
+  <Image src="/assets/images/posts/raycast-tailwindcss.jpg" alt="Tailwind CSS Search Colors" />
+</Figure>
+
+A significant amount of a developer’s time is spent reading documentation to understand how libraries or tools work. I frequently use [Can I Use](https://www.raycast.com/thomaslombart/can-i-use) to determine browser support for web features, the [HTTP Status Codes](https://www.raycast.com/Alex_/http-status-codes) extension to look them up, [search npm packages](https://www.raycast.com/mrmartineau/search-npm), and browse the [TypeScript](https://www.raycast.com/chezhe/typescript-documentation-search) or [Tailwind CSS](https://www.raycast.com/vimtor/tailwindcss) documentation.
+
+Additional honorable mentions include the [Web Converter](https://www.raycast.com/nielsvanrijn/web-converter), which converts various web units, a [Random Data Generator](https://www.raycast.com/loris/random), a [RegEx REPL](https://www.raycast.com/hongkiulam/regex-repl), [URL Tools](https://www.raycast.com/huzef44/url-tools) for encoding or decoding URLs, and [cURL](https://www.raycast.com/jonathangiardino/curl) for making HTTP requests.
+
+Raycast itself build the useful online tool [ray.so](https://ray.so/) that allows to format code and export it as image or SVG. There is an [extension](https://www.raycast.com/garrett/ray-so) to do this directly from Raycast.
+
+## Design Tools
+
+Raycast is not only a fantastic tool for developers, but designers can also benefit a lot.
+
+I love the [Color Picker](https://www.raycast.com/thomas/color-picker) extension, which allows you to directly pick colors from anywhere and manage them. The [Ruler](https://www.raycast.com/anwarulislam/ruler) extension enables you to measure distances.
+
+[Image Modification](https://www.raycast.com/HelloImSteven/sips) allows you to convert images and vector graphics, flip, scale, resize, add filters and distortions, optimize the size, and perform real-time image manipulations.
+
+<Figure caption="Search Google Fonts" size="wide">
+  <Image src="/assets/images/posts/raycast-google-fonts.jpg" alt="Search Google Fonts" />
+</Figure>
+
+There is a [Google Fonts](https://www.raycast.com/GastroGeek/google-fonts) extension that allows browsing and directly downloading fonts.
+
+<Figure caption="Search Glyphs" size="wide">
+  <Image src="/assets/images/posts/raycast-glyph-search.jpg" alt="Search Glyphs" />
+</Figure>
+
+[Glyph Search](https://www.raycast.com/gbgk/glyph-search) helps you find Unicode characters.
+
+<Figure caption="Search Unsplash Images" size="wide">
+  <Image src="/assets/images/posts/raycast-unsplash.jpg" alt="Search Unsplash Images" />
+</Figure>
+
+[Unsplash](https://www.raycast.com/eggsy/unsplash) enables looking at the massive collection of stock photos, and the [Figma File Search](https://www.raycast.com/michaelschultz/figma-files-raycast-extension) allows for direct searching and opening of designs. I started using the [Eagle](https://www.raycast.com/Yukai/eagle) extension to locally search all my assets stored in [Eagle](https://eagle.cool/).
+
+## Note-Taking & Text-Editing
+
+I write a lot, including blog posts, documentation, chat messages, and code. Raycast’s various extensions can help.
+
+[Lorem Ipsum](https://www.raycast.com/AntonNiklasson/lorem-ipsum) allows you to create placeholder text. [Link Cleaner](https://www.raycast.com/MisakiCoca/link-cleaner) removes all tracking parameters from the last URL in the clipboard.
+
+<Figure caption="Change Case" size="wide">
+  <Image src="/assets/images/posts/raycast-change-case.jpg" alt="Change Case" />
+</Figure>
+
+One of my favorites is [Change Case](https://www.raycast.com/erics118/change-case). I use it many times each week to convert, for example, the title of a Jira ticket into a branch name in Git. The [Word Search](https://www.raycast.com/rishabswift/word-search) extension is fantastic for finding adjectives, antonyms, rhymes, synonyms, or missing letters.
+
+<Figure caption="Browser Readwise Library" size="wide">
+  <Image src="/assets/images/posts/raycast-readwise.jpg" alt="Browser Readwise Library" />
+</Figure>
+
+All the tools I use for note-taking have companion apps: [Obsidian](https://www.raycast.com/KevinBatdorf/obsidian), [Readwise](https://www.raycast.com/natterstefan/readwise), [Readwise Reader](https://www.raycast.com/zach/readwise-reader), [DEVONthink](https://www.raycast.com/bgnfu7re/devonthink), and [Notion](https://www.raycast.com/notion/notion).
+
+## Project Management & Productivity
+
+<Figure caption="Things Show Anytime List" size="wide">
+  <Image src="/assets/images/posts/raycast-things.jpg" alt="Things Show Anytime List" />
+</Figure>
+
+There is most likely an app for most online tools available in this category. I, personally, use two of them: [Jira](https://www.raycast.com/raycast/jira) and [Things](https://www.raycast.com/loris/things). Jira is the ticket management tool we use at work, and Things is my personal to-do application.
+
+Fun fact: The Jira application needed approval by my company’s IT. I opened a request the day we moved to Jira Cloud, and there were already 5 other requests opened for the Raycast app by co-workers in my company. 😅
+
+## Media
+
+<Figure caption="Search for GIFs" size="wide">
+  <Image src="/assets/images/posts/raycast-giphy.jpg" alt="Search for GIFs" />
+</Figure>
+
+Raycast extensions are not just for work, but also for fun. Everyone needs to generate memes or find funny GIFs, right? Well, there’s an extension called [Meme Generator](https://www.raycast.com/timoransky/meme-generator) and [GIF Search](https://www.raycast.com/josephschmitt/gif-search) for exactly that purpose.
+
+<Figure caption="The Movie Database Upcoming Movies" size="wide">
+  <Image src="/assets/images/posts/raycast-tmdb.jpg" alt="The Movie Database Upcoming Movies" />
+</Figure>
+
+If you’re into movies and TV shows, I frequently use [The Movie Database](https://www.raycast.com/Aayush9029/tmdb) for information and [JustWatch Search](https://www.raycast.com/rishabswift/search-justwatch) to find out where they are available for streaming.
+
+<Figure caption="Spotify Your Library" size="wide">
+  <Image src="/assets/images/posts/raycast-spotify.jpg" alt="Spotify Your Library" />
+</Figure>
+
+I use the [Goodreads](https://www.raycast.com/puneeth/goodreads) extension to discover books or authors and the [Spotify Player](https://www.raycast.com/mattisssa/spotify-player) to manage music.
+
+<Figure caption="YouTube Search Videos" size="wide">
+  <Image src="/assets/images/posts/raycast-youtube.jpg" alt="YouTube Search Videos" />
+</Figure>
+
+I regularly use the [YouTube](https://www.raycast.com/tonka3000/youtube) extension to search videos or channels and [YouTube Downloader](https://www.raycast.com/vimtor/youtube-downloader), as well as the [Twitter/X Video Downloader](https://www.raycast.com/kaanrkaraman/twitter-video-downloader), to download videos onto my hard drive.
+
+## Miscellaneous
+
+Browsing the Raycast extension store is a good idea to find interesting extensions. You may not use all the extensions regularly, but it’s useful to keep ones that you need occasionally.
+
+I really like the [Coffee](https://www.raycast.com/mooxl/coffee) extension, which prevents my Mac from going to sleep. I use it every week when I do ink drawings and watercolor painting and need to keep my computer awake while looking at a reference photo on my monitor without touching the devices.
+
+The [Hue](https://www.raycast.com/pindab0ter/hue) extension lets you control your Hue lights at home through Raycast.
+
+In my opinion, the [File Manager](https://www.raycast.com/erics118/file-manager) extension is more intuitive than the built-in file extension. The [Downloads Manager](https://www.raycast.com/thomas/downloads-manager) is a convenient extension for working with recent downloads.
+
+## All Raycast
+
+Raycast is an app that is not only improving your productivity by a considerable margin, it’s also fun. The onboarding Walkthrough is one of the best onboarding I’ve seen in an application, and the developers are constantly releasing new features. They are approachable and responsive to feedback, you can share feedback directly through Raycast.
+
+With a Pro account, you can design your own Raycast color themes, and Easter eggs like Confetti or Bounce Animations are built into Raycast.
+
+The second year in a row, you get one of the best year reviews. People proudly share their images on 𝕏 ([#RaycastWrapped](https://x.com/hashtag/RaycastWrapped)). Here is my Raycast Wrapped 2023 summary:
+
+<Figure caption="Raycast Wrapped 2023" size="wide">
+  <Image src="/assets/images/posts/raycast-wrapped-2023.jpg" alt="Raycast Wrapped 2023" />
+</Figure>
+
+[Raycast](https://www.raycast.com/) offers a range of useful resources. You can find the changes for each release in the [Changelog](https://www.raycast.com/changelog), which is also accessible within Raycast. Additionally, the [blog](https://www.raycast.com/blog) features informative and engaging articles.
+
+[Pedro Duarte](https://ped.ro/) is the official Community Manager of Raycast. He shares valuable extensions, tips, and sneak peeks on his 𝕏 account [@peduarte](https://twitter.com/peduarte). Make sure to also follow the official Raycast account [@raycastapp](https://www.youtube.com/@raycastapp). On the official [Raycast YouTube Channel](https://www.youtube.com/@raycastapp), he frequently posts quick tips, updates, and interviews with community members.
+
+## Conclusion
+
+Raycast will improve your workflow and fun at your computer a lot. And it is free, as are all the community extensions.
+
+When you realize the usefulness of Raycast, you may want to consider supporting them by subscribing to their [Pro](https://www.raycast.com/pro) plan. Additionally, they offer [team](https://www.raycast.com/teams) accounts that enable sharing scripts, snippets, and extensions with your entire team.
+
+If you’re a [developer](https://www.raycast.com/developers), you might be interested in creating your own extension. The YouTube channel offers coding sessions in multiple videos, and the [API documentation](https://developers.raycast.com/) is well-written.
+
+If you’re interested in subscribing to Pro, I have a few rewards affiliate links available. Send me an email to receive one.
