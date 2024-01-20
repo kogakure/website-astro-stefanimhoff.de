@@ -107,11 +107,6 @@ export const research = [
 		image: '/assets/images/tools/readwise.png',
 	},
 	{
-		name: 'Overcast',
-		url: 'https://overcast.fm',
-		image: '/assets/images/tools/overcast.png',
-	},
-	{
 		name: 'Snipd',
 		url: 'https://www.snipd.com/',
 		image: '/assets/images/tools/snipd.png',
@@ -150,24 +145,19 @@ export const other = [
 		image: '/assets/images/tools/brave-browser.png',
 	},
 	{
-		name: 'ProtonMail',
-		url: '',
+		name: 'Proton Mail',
+		url: 'https://proton.me/mail',
 		image: '/assets/images/tools/protonmail.png',
 	},
 	{
-		name: 'ProtonVPN',
+		name: 'Proton VPN',
 		url: 'https://protonvpn.com/',
 		image: '/assets/images/tools/protonvpn.png',
 	},
 	{
-		name: 'Bitwarden',
-		url: 'https://bitwarden.com/',
-		image: '/assets/images/tools/bitwarden.png',
-	},
-	{
-		name: 'Espanso',
-		url: 'https://espanso.org/',
-		image: '/assets/images/tools/espanso.png',
+		name: 'Proton Pass',
+		url: 'https://proton.me/pass',
+		image: '/assets/images/tools/protonpass.png',
 	},
 	{
 		name: 'Yoink',
