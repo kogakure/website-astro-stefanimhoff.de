@@ -131,12 +131,12 @@ export const other = [
 	},
 	{
 		name: 'Raycast',
-		url: 'https://www.raycast.com/',
+		url: 'https://www.raycast.com/hey/059d78ca',
 		image: '/assets/images/tools/raycast.png',
 	},
 	{
 		name: 'Arc',
-		url: 'https://arc.net/',
+		url: 'https://arc.net/gift/3a2fd063',
 		image: '/assets/images/tools/arc-browser.png',
 	},
 	{
