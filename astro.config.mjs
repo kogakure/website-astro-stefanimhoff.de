@@ -3,6 +3,7 @@ import preact from '@astrojs/preact';
 import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import swup from '@swup/astro';
 import { astroImageTools } from 'astro-imagetools';
 import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
@@ -31,6 +32,7 @@ export default defineConfig({
 		preact({
 			compat: true,
 		}),
+		swup({ globalInstance: true }),
 		astroImageTools,
 		prefetch(),
 		pagefind(),

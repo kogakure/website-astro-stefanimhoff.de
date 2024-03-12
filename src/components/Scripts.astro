@@ -14,8 +14,11 @@ import '../styles/sal.css';
 
 	declare const sal: any;
 
+	const hasWindow =
+		'querySelector' in document && 'localStorage' in window && 'addEventListener' in window;
+
 	const swup = new Swup({
-		ignoreVisit: (url, { el } = {}) => el?.closest('[data-pagefind-ui] a'),
+		containers: ['#swup'],
 		plugins: [
 			new SwupFadeTheme(),
 			new SwupHeadPlugin(),
@@ -34,7 +37,7 @@ import '../styles/sal.css';
 		],
 	});
 
-	if ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
+	if (hasWindow) {
 		if (typeof sal !== 'undefined') {
 			sal({
 				threshold: 0.1,
@@ -43,17 +46,19 @@ import '../styles/sal.css';
 	}
 
 	// Register scripts after swup page transition
-	swup.on('pageView', () => {
+	swup.hooks.on('page:view', () => {
+		setActiveLink();
+		setUpLink();
+		setEmailLink();
+		setSearchModalLink();
+		setSearchLink();
+	});
+
+	swup.hooks.on('visit:end', () => {
 		if (typeof sal !== 'undefined') {
 			sal({
 				threshold: 0.1,
 			});
-
-			setActiveLink();
-			setUpLink();
-			setEmailLink();
-			setSearchModalLink();
-			setSearchLink();
 		}
 	});
 
@@ -88,7 +93,7 @@ import '../styles/sal.css';
 		const openDialogLink = document.getElementById('search-link');
 		const closeDialogLink = document.getElementById('close-search');
 
-		dialog.addEventListener('close', () => {
+		dialog?.addEventListener('close', () => {
 			body.style.overflow = 'auto';
 		});
 
