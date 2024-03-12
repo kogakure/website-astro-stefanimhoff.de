@@ -156,5 +156,9 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-logical'), require('tailwindcss-opentype')],
+	plugins: [
+		require('tailwindcss-logical'),
+		require('tailwindcss-opentype'),
+		'prettier-plugin-tailwindcss',
+	],
 };

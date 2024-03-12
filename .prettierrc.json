@@ -1,6 +1,7 @@
 {
 	"plugins": [
 		"prettier-plugin-astro",
+		"prettier-plugin-astro-organize-imports",
 		"prettier-plugin-organize-imports",
 		"prettier-plugin-tailwindcss"
 	],
