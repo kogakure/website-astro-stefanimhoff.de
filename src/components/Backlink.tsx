@@ -19,9 +19,8 @@ export const Backlink: FunctionalComponent<Props> = ({ backLink, class: classNam
 	return (
 		<>
 			{backLink && (
-				<Link class={classes} href={backLink} {...props}>
+				<Link aria-label="Back to overview" class={classes} href={backLink} {...props}>
 					<button
-						aria-label="Back to overview"
 						class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
 						type="button"
 						tabIndex={-1}

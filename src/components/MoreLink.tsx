@@ -11,7 +11,7 @@ interface Props extends JSX.HTMLAttributes<HTMLAnchorElement> {
 export const MoreLink: FunctionalComponent<Props> = ({ href, text, ...props }) => (
 	<TextLink class="group" href={href} {...props}>
 		{text}
-		<span class="more-icon relative inline-flex mis-[0.2em] block-start-[0.2em]">
+		<span class="more-icon relative inline-flex mis-[0.2em] block-start-[0.4em]">
 			<ArrowRight
 				aria-hidden="true"
 				class="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
