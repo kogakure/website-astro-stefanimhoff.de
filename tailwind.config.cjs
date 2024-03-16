@@ -117,9 +117,9 @@ module.exports = {
 				layout: 'clamp(1.5rem, 6.9375vw, 4.5rem)',
 				gap: 'clamp(1.5rem, 6.9375vw, 6rem)',
 				halfgap: 'calc(clamp(1.5rem, 6.9375vw, 6rem) / 2)',
-				icon: '30px',
-				'icon-small': '25px',
-				clickarea: '50px',
+				icon: '24px',
+				'icon-small': '20px',
+				clickarea: '40px',
 			},
 			fontFamily: {
 				sans: ['SecuelaVariable', 'Arial', 'sans-serif'],
