@@ -14,8 +14,7 @@
 		"icons:generate": "node icons-generate.cjs",
 		"plop": "plop",
 		"astro": "astro",
-		"cspell": "cspell --words-only --unique 'src' | sort --ignore-case >> .cspell/dictionary.txt",
-		"prepare": "husky install"
+		"cspell": "cspell --words-only --unique 'src' | sort --ignore-case >> .cspell/dictionary.txt"
 	},
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.4.4",
@@ -34,7 +33,7 @@
 		"@swup/scripts-plugin": "^2.1.0",
 		"@swup/scroll-plugin": "^3.3.2",
 		"astro": "^4.5.4",
-		"astro-pagefind": "^1.4.0",
+		"astro-pagefind": "^1.5.0",
 		"astro-seo": "^0.8.3",
 		"astro-webmanifest": "^1.0.0",
 		"astrojs-service-worker": "^2.0.0",
@@ -82,8 +81,9 @@
 		"lodash": "^4.17.21",
 		"netlify-cli": "^17.19.3",
 		"npm-run-all": "^4.1.5",
-		"pagefind": "^1.0.4",
+		"pagefind": "^1.1.0",
 		"plop": "^4.0.1",
+		"postcss-import": "^16.1.0",
 		"postcss-nesting": "^12.1.0",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
