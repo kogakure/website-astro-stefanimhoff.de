@@ -2,7 +2,6 @@ import { YouTube } from '@astro-community/astro-embed-youtube';
 
 import Image from './components/Image.astro';
 import MarkdownImage from './components/MarkdownImage.astro';
-import Picture from './components/Picture.astro';
 import ThemeBox from './components/ThemeBox.astro';
 
 import {
@@ -71,7 +70,6 @@ export const mapping = {
 	OdyseeVideo,
 	ol: OrderedList,
 	p: Text,
-	Picture,
 	PrimeVideoFlag,
 	ProjectIntro,
 	Pullquote,
@@ -102,7 +100,6 @@ export const rssMapping = {
 	MoreLink,
 	NetflixFlag,
 	OdyseeVideo,
-	Picture,
 	PrimeVideoFlag,
 	ProjectIntro,
 	Pullquote,

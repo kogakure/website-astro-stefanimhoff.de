@@ -1,15 +1,6 @@
 ---
 import cx from 'classnames';
 
-import { Img } from 'astro-imagetools/components';
-import type { ImgConfigOptions } from 'astro-imagetools';
-
-interface Props extends ImgConfigOptions {
-	class?: string;
-	noMargin?: boolean;
-	src: string;
-}
-
 const { class: className, noMargin, src, ...props } = Astro.props;
 
 const classes = cx(
@@ -22,17 +13,5 @@ const imageClasses =
 ---
 
 <div class={classes}>
-	{
-		src.includes('.svg') ? (
-			<img class={imageClasses} src={src} {...(props as any)} />
-		) : (
-			<Img
-				attributes={{ class: imageClasses }}
-				breakpoints={[500, 1000, 1500]}
-				format="webp"
-				src={src}
-				{...props}
-			/>
-		)
-	}
+	<img class={imageClasses} decoding="async" loading="lazy" src={src} {...props} />
 </div>

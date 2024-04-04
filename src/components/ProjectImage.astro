@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Picture from './Picture.astro';
+import Image from './Image.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -16,12 +16,9 @@ const { project } = Astro.props;
 				<img class="image-border" alt={project.data.title} src={project.data.image.src} />
 			</div>
 		) : (
-			<Picture
+			<Image
 				alt={project.data.title}
-				aspect={project.data.image.aspectRatio}
-				breakpoints={[500, 1000, 1500]}
 				class="[&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
-				format={['avif']}
 				src={project.data.image.src}
 			/>
 		))

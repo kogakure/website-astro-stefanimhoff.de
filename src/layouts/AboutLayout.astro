@@ -3,7 +3,7 @@ import { site } from '../data/site';
 
 import GridLayout from './GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
-import Picture from '../components/Picture.astro';
+import Image from '../components/Image.astro';
 
 const { frontmatter } = Astro.props;
 const schema = JSON.stringify({
@@ -35,12 +35,7 @@ const schema = JSON.stringify({
 		slot="before-content"
 		class="col-start-1 col-end-12 md:col-start-3 md:col-end-10 xl:col-start-15 xl:col-end-18 xl:row-start-2 xl:-scale-x-100 3xl:col-start-14 3xl:col-end-17"
 	>
-		<Picture
-			alt="Stefan Imhoff"
-			aspect={1}
-			breakpoints={[300, 700, 1000]}
-			src="/assets/images/ai-portrait-stefan-imhoff.jpg"
-		/>
+		<Image alt="Stefan Imhoff" src="/assets/images/ai-portrait-stefan-imhoff.jpg" />
 	</div>
 	<slot />
 	<script type="application/ld+json" set:html={schema} />

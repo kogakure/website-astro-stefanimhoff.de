@@ -1,5 +1,5 @@
 ---
-import { Img } from 'astro-imagetools/components';
+import { Image } from 'astro:assets';
 import { Link } from '.';
 
 import type { ToolsProps } from '../data/tools';
@@ -18,16 +18,7 @@ const { tools } = Astro.props;
 		tools.map(({ name, url, image }) => (
 			<li class="print:[&_img]:!hidden">
 				<Link href={url} title={name}>
-					<Img
-						alt={name}
-						aspect={1}
-						breakpoints={[128]}
-						format="webp"
-						height={300}
-						placeholder="tracedSVG"
-						src={image}
-						width={300}
-					/>
+					<Image alt={name} widths={[128]} height={300} src={image} width={300} />
 				</Link>
 			</li>
 		))

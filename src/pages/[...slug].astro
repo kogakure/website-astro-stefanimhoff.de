@@ -11,7 +11,7 @@ import { dateToFormat, dateToISO, wordCount } from '../utils';
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Pagination from '../components/Pagination.astro';
-import Picture from '../components/Picture.astro';
+import Image from '../components/Image.astro';
 import { Banner, ListItem, OrderedList, Tag, TextLink } from '../components';
 
 import { mapping } from '../mdx-components';
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 				index + 1 === numberOfPages
 					? { slug: null, data: null }
 					: formattedJournalEntries[index + 1],
-			prev: index === 0 ? {} : formattedJournalEntries[index - 1],
+			prev: index === 0 ? { slug: null, data: null } : formattedJournalEntries[index - 1],
 		},
 	}));
 }
@@ -90,12 +90,9 @@ const schema = JSON.stringify({
 	</PageTitle>
 	{
 		entry.data.cover && (
-			<Picture
+			<Image
 				alt={entry.data.title}
-				aspect={1.6}
-				breakpoints={[500, 1000, 1500]}
-				class="col-span-full aspect-video h-auto !mbe-0 print:hidden xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
-				format={['avif']}
+				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
 				loading="eager"
 				src={entry.data.cover}
 			/>
@@ -165,10 +162,10 @@ const schema = JSON.stringify({
 	</div>
 
 	<Pagination
-		nextText={'Next'}
-		nextUrl={next.slug && `/${next.slug}/`}
-		previousText={'Next'}
-		previousUrl={prev.slug && `/${prev.slug}/`}
+		nextText="Next"
+		nextUrl={next.slug ? `/${next.slug}/` : undefined}
+		previousText="Previous"
+		previousUrl={prev.slug ? `/${prev.slug}/` : undefined}
 	/>
 </GridLayout>
 

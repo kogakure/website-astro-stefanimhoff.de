@@ -8,7 +8,7 @@ import { site, animation, animationDelay } from '../data/site';
 import GridLayout from '../layouts/GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
-import Picture from '../components/Picture.astro';
+import Image from '../components/Image.astro';
 import JournalList from '../components/JournalList.astro';
 
 /* FIXME: Remove hack as soon as this issue is resolved:
@@ -46,13 +46,7 @@ rssPosts.sort(sortMarkdownByDate);
 	<div
 		class="col-start-1 col-end-19 md:col-start-1 md:col-end-11 xl:col-end-11 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
 	>
-		<Picture
-			alt="Bonsai"
-			aspect={1.5}
-			breakpoints={[500, 1000, 1500]}
-			loading="eager"
-			src="/assets/images/cover/bonsai.jpg"
-		/>
+		<Image alt="Bonsai" loading="eager" src="/assets/images/cover/bonsai.jpg" />
 	</div>
 
 	<article

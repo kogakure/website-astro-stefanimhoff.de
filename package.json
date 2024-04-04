@@ -34,7 +34,6 @@
 		"@swup/scripts-plugin": "^2.1.0",
 		"@swup/scroll-plugin": "^3.3.2",
 		"astro": "^4.5.4",
-		"astro-imagetools": "^0.9.0",
 		"astro-pagefind": "^1.4.0",
 		"astro-seo": "^0.8.3",
 		"astro-webmanifest": "^1.0.0",
@@ -58,7 +57,6 @@
 		"react-dom": "npm:@preact/compat@latest",
 		"reading-time": "^1.5.0",
 		"sal.js": "^0.8.5",
-		"sharp": "^0.33.2",
 		"swup": "^4.6.0",
 		"tailwindcss": "^3.4.1",
 		"unist-util-visit": "^5.0.0"
