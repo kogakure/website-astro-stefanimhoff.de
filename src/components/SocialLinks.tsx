@@ -27,6 +27,7 @@ export const SocialLinks: FunctionalComponent = () => (
 			<Link
 				aria-label={item.text}
 				class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+				data-umami-event={item.text}
 				href={item.url}
 				key={index}
 				title={item.text}

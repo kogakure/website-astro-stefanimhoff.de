@@ -3,11 +3,12 @@ import { Circle } from './icons';
 ---
 
 <theme-toggle
-	class="col-span-2 col-start-17 flex h-clickarea w-clickarea items-center justify-center self-center justify-self-center print:hidden md:col-span-1 md:col-start-18"
+	class="col-span-2 col-start-17 flex h-clickarea w-clickarea items-center justify-center self-center justify-self-center md:col-span-1 md:col-start-18 print:hidden"
 >
 	<button
 		aria-label="Switch color theme"
 		class="group flex h-clickarea w-clickarea cursor-pointer items-center justify-center self-center border-0 text-[0]"
+		data-umami-event="Switch color theme"
 	>
 		<Circle
 			class="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125"
