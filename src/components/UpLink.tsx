@@ -8,6 +8,7 @@ export const UpLink: FunctionalComponent = ({ ...props }) => (
 		<Link
 			aria-label="Back to top"
 			class="transition-transform duration-500 ease-in-out hover:-translate-y-1 focus:-translate-y-1"
+			data-umami-event="Back to top"
 			href="#top"
 			id="up-link"
 		>

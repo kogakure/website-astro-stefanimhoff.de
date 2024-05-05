@@ -19,7 +19,13 @@ export const Backlink: FunctionalComponent<Props> = ({ backLink, class: classNam
 	return (
 		<>
 			{backLink && (
-				<Link aria-label="Back to overview" class={classes} href={backLink} {...props}>
+				<Link
+					aria-label="Back to overview"
+					class={classes}
+					data-umami-event="Back to overview"
+					href={backLink}
+					{...props}
+				>
 					<button
 						class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
 						type="button"
