@@ -155,10 +155,15 @@ const webManifest = isProduction && {
 		</script>
 
 		<ThemeProvider />
-		<script
-			defer
-			src="https://umami.kogakure.cloud/script.js"
-			data-website-id="ca67348d-b662-4205-a2c1-f1d8e4c68adb"></script>
+		{
+			isProduction && (
+				<script
+					defer
+					src="https://umami.kogakure.cloud/script.js"
+					data-website-id="ca67348d-b662-4205-a2c1-f1d8e4c68adb"
+				/>
+			)
+		}
 		<Scripts />
 	</head>
 	<body
