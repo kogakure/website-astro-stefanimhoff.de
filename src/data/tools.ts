@@ -21,11 +21,6 @@ export const development = [
 		image: '/assets/images/tools/wezterm.webp',
 	},
 	{
-		name: 'Visual Studio Code',
-		url: 'https://code.visualstudio.com/',
-		image: '/assets/images/tools/visual-studio-code.webp',
-	},
-	{
 		name: 'Kaleidoscope',
 		url: 'https://kaleidoscope.app/',
 		image: '/assets/images/tools/kaleidoscope.webp',
@@ -105,11 +100,6 @@ export const research = [
 		name: 'Readwise',
 		url: 'https://readwise.io/i/stefan805',
 		image: '/assets/images/tools/readwise.webp',
-	},
-	{
-		name: 'Snipd',
-		url: 'https://www.snipd.com/',
-		image: '/assets/images/tools/snipd.webp',
 	},
 	{
 		name: 'MindNode',
