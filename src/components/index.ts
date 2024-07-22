@@ -1,4 +1,3 @@
-export * from './AffiliateLink';
 export * from './AmazonBook';
 export * from './Backlink';
 export * from './Banner';
@@ -23,6 +22,7 @@ export * from './NetflixFlag';
 export * from './OdyseeVideo';
 export * from './OrderedList';
 export * from './PrimeVideoFlag';
+export * from './ProductLink';
 export * from './ProjectIntro';
 export * from './Pullquote';
 export * from './SocialLinks';

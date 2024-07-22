@@ -5,7 +5,6 @@ import MarkdownImage from './components/MarkdownImage.astro';
 import ThemeBox from './components/ThemeBox.astro';
 
 import {
-	AffiliateLink,
 	AmazonBook,
 	Banner,
 	Blockquote,
@@ -26,6 +25,7 @@ import {
 	OdyseeVideo,
 	OrderedList,
 	PrimeVideoFlag,
+	ProductLink,
 	ProjectIntro,
 	Pullquote,
 	Spotify,
@@ -40,7 +40,7 @@ import {
 
 export const mapping = {
 	a: TextLink,
-	AffiliateLink,
+	ProductLink,
 	AmazonBook,
 	Banner,
 	Blockquote,
@@ -82,7 +82,7 @@ export const mapping = {
 
 // Mapping for RSS feed to reduce the size of the feed
 export const rssMapping = {
-	AffiliateLink,
+	ProductLink,
 	AmazonBook,
 	Banner,
 	Blockquote,

@@ -121,7 +121,7 @@ export const other = [
 	},
 	{
 		name: 'Raycast',
-		url: 'https://www.raycast.com/hey/059d78ca',
+		url: 'https://www.raycast.com/',
 		image: '/assets/images/tools/raycast.webp',
 	},
 	{
