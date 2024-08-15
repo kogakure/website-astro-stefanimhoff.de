@@ -30,7 +30,7 @@ const allPosts = await getCollection('journal');
 const formattedLatest = formatPosts(allPosts, { limit: 6 });
 
 const title = 'Stefan Imhoff';
-const description = 'Front-End Web Developer from Hamburg, Germany';
+const description = 'Web UI Engieer from Hamburg, Germany';
 
 const rssPosts = await Astro.glob('../content/journal/**/*.mdx');
 rssPosts.sort(sortMarkdownByDate);

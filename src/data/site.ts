@@ -5,10 +5,10 @@ const easing = 'ease-out-sine';
 
 export const site = {
 	title: 'Stefan Imhoff',
-	description: 'Front-End Web Developer from Hamburg, Germany',
+	description: 'Web UI Engineer from Hamburg, Germany',
 	url: 'https://www.stefanimhoff.de',
 	author: 'Stefan Imhoff',
-	tagline: 'Front-End Web Developer • Designer • Minimalist • Japanophile',
+	tagline: 'Web UI Engineer • Minimalist • Stoic • Libertarian • Japanophile',
 	faviconPath: '/assets/images/branding/favicons/',
 	twitter: '@kogakure',
 };
