@@ -19,7 +19,7 @@ export const ProductLink: FunctionalComponent<Props> = ({
 	const classes = cx('product', className);
 
 	return (
-		<TextLink class={classes} href={`http://www.amazon.de/gp/product/${asin}`} {...props}>
+		<TextLink class={classes} href={`https://www.amazon.de/gp/product/${asin}`} {...props}>
 			{text}
 		</TextLink>
 	);
