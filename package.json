@@ -9,9 +9,9 @@
 		"preview": "astro preview",
 		"og:generate": "node og-generate.cjs",
 		"icons:generate": "node icons-generate.cjs",
+		"webp": "node convert-images.cjs",
 		"plop": "plop",
-		"astro": "astro",
-		"cspell": "cspell --words-only --unique 'src' | sort --ignore-case >> .cspell/dictionary.txt"
+		"astro": "astro"
 	},
 	"dependencies": {
 		"@astro-community/astro-embed-youtube": "^0.5.2",
