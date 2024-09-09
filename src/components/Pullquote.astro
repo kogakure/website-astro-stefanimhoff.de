@@ -1,0 +1,38 @@
+---
+// Cspell:words astro classnames
+import cx from 'classnames';
+import TextLink from './TextLink.astro';
+
+interface Props {
+	author?: string;
+	class?: string;
+	lang?: string;
+	source?: string;
+	sourceUrl?: string;
+	text: string;
+}
+
+const { author, class: className, lang = 'en', source, sourceUrl, text, ...props } = Astro.props;
+
+const classes = cx('pullquote mbe-10 p-9 text-center', className);
+---
+
+<blockquote lang={lang} class={classes} {...props}>
+	<p set:html={text} />
+	{
+		(author || source) && (
+			<footer class="text-2 font-normal opacity-60 mbs-6">
+				{author && <b class="font-normal">{author}</b>}
+				{author && source && ', '}
+				{source &&
+					(sourceUrl ? (
+						<cite>
+							<TextLink href={sourceUrl}>{source}</TextLink>
+						</cite>
+					) : (
+						<cite>{source}</cite>
+					))}
+			</footer>
+		)
+	}
+</blockquote>

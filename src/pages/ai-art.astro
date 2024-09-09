@@ -1,6 +1,9 @@
 ---
+// Cspell:words astro classnames pagefind minmax
 import cx from 'classnames';
 
+import type { CollectionEntry } from 'astro:content';
+type AiArt = CollectionEntry<'ai-art'>;
 import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../utils';
@@ -10,12 +13,12 @@ import { animation } from '../data/site';
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Image from '../components/Image.astro';
-import { Link } from '../components';
+import Link from '../components/Link.astro';
 import { Content as Intro } from '../text/ai-art/intro.mdx';
 
 import { mapping } from '../mdx-components';
 
-const allAiArt = await getCollection('ai-art');
+const allAiArt: AiArt[] = await getCollection('ai-art');
 allAiArt.sort(sortBySortKey);
 
 const title = 'AI Art';

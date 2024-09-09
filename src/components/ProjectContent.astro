@@ -1,7 +1,10 @@
 ---
+// Cspell:words astro classnames
 import type { CollectionEntry } from 'astro:content';
 
-import { Headline, Text, MoreLink } from '../components';
+import Headline from '../components/Headline.astro';
+import MoreLink from '../components/MoreLink.astro';
+import Text from '../components/Text.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;

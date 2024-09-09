@@ -1,7 +1,8 @@
 ---
+// Cspell:words astro pagefind swup shibui minmax
 import Search from 'astro-pagefind/components/Search';
 
-import { Link } from '.';
+import Link from './Link.astro';
 import { Close } from './icons';
 ---
 
@@ -28,7 +29,7 @@ import { Close } from './icons';
 
 <style is:global>
 	dialog::backdrop {
-		@apply bg-shibui-100  dark:bg-shibui-900;
+		@apply bg-shibui-100 dark:bg-shibui-900;
 		animation: show-dimmer 0.2s ease-in-out;
 	}
 

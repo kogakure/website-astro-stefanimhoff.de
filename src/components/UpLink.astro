@@ -1,0 +1,25 @@
+---
+// Cspell:words astro umami clickarea
+import { ArrowUp } from './icons';
+import Link from './Link.astro';
+
+export interface Props {
+	[key: string]: any;
+}
+
+const { ...props } = Astro.props;
+---
+
+<div class="flex flex-1 justify-end" {...props}>
+	<Link
+		aria-label="Back to top"
+		class="transition-transform duration-500 ease-in-out hover:-translate-y-1 focus:-translate-y-1"
+		data-umami-event="Back to top"
+		href="#top"
+		id="up-link"
+	>
+		<button class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center">
+			<ArrowUp class="icon h-icon w-icon" />
+		</button>
+	</Link>
+</div>

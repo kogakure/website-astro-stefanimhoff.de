@@ -1,4 +1,7 @@
 ---
+// Cspell:words astro fullsize
+import type { CollectionEntry } from 'astro:content';
+type Projects = CollectionEntry<'projects'>;
 import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../utils';
@@ -12,7 +15,7 @@ import ProjectContainer from '../components/ProjectContainer.astro';
 import { Content as Intro } from '../text/projects/intro.mdx';
 
 import { mapping } from '../mdx-components';
-const allProjects = await getCollection('projects');
+const allProjects: Projects[] = await getCollection('projects');
 allProjects.sort(sortBySortKey).reverse();
 
 const title = 'Projects';

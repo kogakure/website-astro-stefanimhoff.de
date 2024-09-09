@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+type Projects = CollectionEntry<'projects'>;
 import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../../utils';
@@ -9,10 +11,13 @@ import PageTitle from '../../components/PageTitle.astro';
 import { mapping } from '../../mdx-components';
 
 import Pagination from '../../components/Pagination.astro';
-import { Tag } from '../../components';
+import Tag from '../../components/Tag.astro';
 
 export async function getStaticPaths() {
-	const projectEntries = await getCollection('projects', ({ data }) => data.showcase === true);
+	const projectEntries: Projects[] = await getCollection(
+		'projects',
+		({ data }: Projects) => data.showcase === true
+	);
 	const numberOfPages = projectEntries.length;
 	projectEntries.sort(sortBySortKey);
 

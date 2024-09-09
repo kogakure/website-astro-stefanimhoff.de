@@ -1,0 +1,48 @@
+---
+// Cspell:words astro clickarea umami stefanimhoff onclick
+import { Github, Instagram, Mail, TwitterX } from './icons';
+import Link from '../components/Link.astro';
+---
+
+<nav class="flex flex-1 sm:justify-center" aria-label="Social Links">
+	<Link
+		aria-label="Mail"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		data-umami-event="Mail"
+		href="#protected-email"
+		title="Mail"
+		data-domain="stefanimhoff"
+		data-name="hey"
+		data-tld="de"
+		onclick="window.open(`mailto:${this.dataset.name}@${this.dataset.domain}.${this.dataset.tld}`, '_blank')"
+	>
+		<Mail class="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="𝕏"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		data-umami-event="𝕏"
+		href="https://x.com/kogakure"
+		title="𝕏"
+	>
+		<TwitterX class="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="Instagram"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		data-umami-event="Instagram"
+		href="https://instagram.com/kogakure"
+		title="Instagram"
+	>
+		<Instagram class="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="GitHub"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		data-umami-event="GitHub"
+		href="https://github.com/kogakure"
+		title="GitHub"
+	>
+		<Github class="icon h-icon-small w-icon-small" />
+	</Link>
+</nav>

@@ -1,5 +1,6 @@
 ---
-import { LegalDate } from '.';
+// Cspell:words astro
+import LegalDate from './LegalDate.astro';
 
 import { site } from '../data/site';
 ---
@@ -7,7 +8,7 @@ import { site } from '../data/site';
 <div class="flex flex-1 shrink-0 items-center">
 	<span class="relative text-[14px] mie-[0.25em] block-start-[1px]">©</span>
 	<span class="shrink-0">
-		<LegalDate client:idle />
+		<LegalDate />
 	</span>
 	<span class="mli-[0.25em]">•</span>
 	<strong class="shrink-0 uppercase tracking-wider">{site.author}</strong>

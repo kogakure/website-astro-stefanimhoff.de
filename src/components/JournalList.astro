@@ -1,4 +1,5 @@
 ---
+// Cspell:words astro subsubheadline minmax webp
 import { Picture } from 'astro:assets';
 
 import type { CollectionEntry } from 'astro:content';
@@ -9,7 +10,8 @@ interface Props {
 import { animation } from '../data/site';
 
 import { pickTwoRandomColors } from '../utils';
-import { Link, Subsubheadline } from '../components';
+import Link from '../components/Link.astro';
+import Subsubheadline from './Subsubheadline.astro';
 
 const { entries } = Astro.props;
 ---

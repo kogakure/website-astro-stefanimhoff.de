@@ -1,3 +1,4 @@
+// Cspell:words deepmerge autocolors chartjs
 import deepmerge from 'deepmerge';
 
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js';

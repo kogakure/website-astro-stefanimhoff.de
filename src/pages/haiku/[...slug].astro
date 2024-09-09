@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+type Haiku = CollectionEntry<'haiku'>;
 import { getCollection } from 'astro:content';
 
 import { sortByDate } from '../../utils';
@@ -7,10 +9,10 @@ import { animation, animationDelay } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Pagination from '../../components/Pagination.astro';
-import { Verse } from '../../components';
+import Verse from '../../components/Verse.astro';
 
 export async function getStaticPaths() {
-	const haikuEntries = await getCollection('haiku');
+	const haikuEntries: Haiku[] = await getCollection('haiku');
 	const numberOfPages = haikuEntries.length;
 	haikuEntries.sort(sortByDate).reverse();
 

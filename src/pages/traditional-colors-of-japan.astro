@@ -1,8 +1,11 @@
 ---
+// Cspell:words astro nobyoshi hamada nbsp
 import GridLayout from '../layouts/GridLayout.astro';
 
+import AmazonBook from '../components/AmazonBook.astro';
+import ColorStack from '../components/ColorStack.astro';
+import ColorSwatch from '../components/ColorSwatch.astro';
 import PageTitle from '../components/PageTitle.astro';
-import { AmazonBook, ColorSwatch, ColorStack } from '../components';
 
 import { Content as Intro } from '../text/traditional-colors-of-japan/intro.mdx';
 import colors from '../data/colors-japan.json';
@@ -42,12 +45,7 @@ const description =
 		{
 			colors.map(({ name, description, color }) => (
 				<div {...animation}>
-					<ColorSwatch
-						client:visible
-						color={color}
-						title={name}
-						description={description}
-					/>
+					<ColorSwatch color={color} title={name} description={description} />
 				</div>
 			))
 		}

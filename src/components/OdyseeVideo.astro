@@ -1,0 +1,23 @@
+---
+// Cspell:words astro classnames autoplay allowfullscreen
+import cx from 'classnames';
+
+export interface Props {
+	class?: string;
+	id: string;
+	[key: string]: any;
+}
+
+const { class: className, id, ...props } = Astro.props;
+
+const classes = cx('relative aspect-video mbe-10', className);
+---
+
+<div class={classes} {...props}>
+	<iframe
+		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+		class="absolute h-full w-full"
+		frameborder="0"
+		src={`https://odysee.com/$/embed/${id}`}></iframe>
+</div>

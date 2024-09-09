@@ -1,0 +1,17 @@
+---
+// Cspell:words astro classnames
+import cx from 'classnames';
+
+export interface Props {
+	class?: string;
+	[key: string]: any;
+}
+
+const { class: className, ...props } = Astro.props;
+
+const classes = cx('[&_img]:bg-gray-100 [&_img]:p-10', className);
+---
+
+<div class={classes} {...props}>
+	<slot />
+</div>

@@ -1,0 +1,32 @@
+---
+// Cspell:words astro classnames
+import cx from 'classnames';
+
+export interface Props {
+	class?: string;
+	summary?: string;
+	open?: boolean;
+}
+
+const { class: className, open, summary, ...props } = Astro.props;
+
+const classes = cx(
+	'rounded-2 bg-black/5 p-10 mbe-10 dark:bg-white/5 [&_p:last-of-type]:mbe-0',
+	className
+);
+---
+
+<aside class={classes} {...props}>
+	{
+		summary ? (
+			<details open={open} class="group">
+				<summary class="cursor-pointer font-black leading-4 tracking-tight group-open:mbe-8">
+					{summary}
+				</summary>
+				<slot />
+			</details>
+		) : (
+			<slot />
+		)
+	}
+</aside>

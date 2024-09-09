@@ -1,0 +1,15 @@
+---
+// Cspell:words astro minmax
+export interface Props {
+	[key: string]: any;
+}
+
+const { ...props } = Astro.props;
+---
+
+<article
+	class="col-start-1 col-end-17 grid grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))] gap-[20px] mbe-10"
+	{...props}
+>
+	<slot />
+</article>

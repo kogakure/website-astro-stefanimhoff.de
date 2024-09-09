@@ -1,6 +1,8 @@
 ---
 import cx from 'classnames';
 
+import type { CollectionEntry } from 'astro:content';
+type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
 import { site } from '../data/site';
@@ -8,18 +10,22 @@ import { site } from '../data/site';
 import { formatPosts, sortByDate } from '../utils';
 import { dateToFormat, dateToISO, wordCount } from '../utils';
 
+import Banner from '../components/Banner.astro';
 import GridLayout from '../layouts/GridLayout.astro';
+import Image from '../components/Image.astro';
+import ListItem from '../components/ListItem.astro';
+import OrderedList from '../components/OrderedList.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Pagination from '../components/Pagination.astro';
-import Image from '../components/Image.astro';
-import { Banner, ListItem, OrderedList, Tag, TextLink } from '../components';
+import Tag from '../components/Tag.astro';
+import TextLink from '../components/TextLink.astro';
 
 import { mapping } from '../mdx-components';
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal');
 	const numberOfPages = journalEntries.length;
-	const formattedJournalEntries = formatPosts(journalEntries, { sortOrder: 'asc' });
+	const formattedJournalEntries: Journal[] = formatPosts(journalEntries, { sortOrder: 'asc' });
 
 	return formattedJournalEntries.map((entry, index) => ({
 		params: { slug: entry.slug },
@@ -40,7 +46,7 @@ const {
 	remarkPluginFrontmatter: { minutesRead },
 } = await entry.render();
 
-const seriesEntries = await getCollection('journal', ({ data }) => {
+const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journal) => {
 	return data.series === entry.data.series;
 });
 

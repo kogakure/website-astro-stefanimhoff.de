@@ -1,10 +1,11 @@
 ---
+// Cspell:words astro classnames
 import cx from 'classnames';
 
 import { animation, animationDelay } from '../data/site';
 
 import Image from './Image.astro';
-import { Headline } from '.';
+import Headline from './Headline.astro';
 
 const { entry } = Astro.props;
 
@@ -41,7 +42,7 @@ const imageLength = entry.data.images.length;
 		{
 			entry.data.images.map(({ src }: { src: string }, index: number) => (
 				<div
-					class={cx('col-span-full w-full !mbe-0  lg:col-span-3 lg:max-w-full', {
+					class={cx('col-span-full w-full !mbe-0 lg:col-span-3 lg:max-w-full', {
 						'justify-self-start lg:col-start-1':
 							randomPosition() === 'start' && imageLength > 1 && index > 0,
 						'justify-self-center lg:col-start-2':

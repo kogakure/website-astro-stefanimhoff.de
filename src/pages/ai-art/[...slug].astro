@@ -1,4 +1,6 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+type AiArt = CollectionEntry<'ai-art'>;
 import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../../utils';
@@ -11,7 +13,7 @@ import GalleryDetail from '../../components/GalleryDetail.astro';
 import { mapping } from '../../mdx-components';
 
 export async function getStaticPaths() {
-	const aiArtEntries = await getCollection('ai-art');
+	const aiArtEntries: AiArt[] = await getCollection('ai-art');
 	const numberOfPages = aiArtEntries.length;
 	aiArtEntries.sort(sortBySortKey).reverse();
 

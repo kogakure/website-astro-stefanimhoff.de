@@ -1,0 +1,26 @@
+---
+// Cspell:words astro
+import { MailSend } from './icons';
+import TextLink from './TextLink.astro';
+
+interface Props {
+	text?: string;
+	icon?: boolean;
+}
+
+const { icon = true, text = 'Email', ...props } = Astro.props;
+---
+
+<TextLink class="group" href="#protected-email" data-email-link {...props}>
+	{text}
+	{
+		icon && (
+			<span class="more-icon relative inline-flex mis-[0.2em] block-start-[0.3em] inline-start-[0.2em]">
+				<MailSend
+					aria-hidden="true"
+					class="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+				/>
+			</span>
+		)
+	}
+</TextLink>

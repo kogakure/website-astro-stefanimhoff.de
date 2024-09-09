@@ -1,17 +1,20 @@
 ---
+// Cspell:words astro pagefind minmax
+import type { CollectionEntry } from 'astro:content';
+type Haiku = CollectionEntry<'haiku'>;
 import { getCollection } from 'astro:content';
 
 import { sortByDate } from '../utils';
 import { animation, animationDelay } from '../data/site';
 
 import GridLayout from '../layouts/GridLayout.astro';
+import Link from '../components/Link.astro';
 import PageTitle from '../components/PageTitle.astro';
-import { Link } from '../components';
 import { Content as Intro } from '../text/haiku/intro.mdx';
 
 import { mapping } from '../mdx-components';
 
-const allHaiku = await getCollection('haiku');
+const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
 
 const title = 'Haiku';
@@ -31,7 +34,7 @@ const description =
 
 	<nav
 		aria-label="Haiku"
-		class="col-start-1 col-end-17 print:hidden md:col-start-2 md:col-end-14"
+		class="col-start-1 col-end-17 md:col-start-2 md:col-end-14 print:hidden"
 		data-pagefind-ignore
 	>
 		<ol

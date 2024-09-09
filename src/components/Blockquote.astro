@@ -1,0 +1,41 @@
+---
+// Cspell:words astro classnames
+import cx from 'classnames';
+import TextLink from './TextLink.astro';
+
+interface Props {
+	author?: string;
+	class?: string;
+	lang?: string;
+	source?: string;
+	sourceUrl?: string;
+}
+
+const { author, class: className, lang = 'en', source, sourceUrl, ...props } = Astro.props;
+
+const classes = cx(
+	'relative overflow-hidden mbe-12 mbs-12 mie-8 mis-8 pie-8 pis-8 md:mie-10 md:mis-10',
+	className
+);
+---
+
+<blockquote lang={lang} class={classes} {...props}>
+	<slot />
+	{
+		(author || source) && (
+			<footer class="text-2 font-normal opacity-60 mbs-6">
+				{(author || source) && '—'}
+				{author && <b class="font-normal">{author}</b>}
+				{author && source && ', '}
+				{source &&
+					(sourceUrl ? (
+						<cite>
+							<TextLink href={sourceUrl}>{source}</TextLink>
+						</cite>
+					) : (
+						<cite>{source}</cite>
+					))}
+			</footer>
+		)
+	}
+</blockquote>

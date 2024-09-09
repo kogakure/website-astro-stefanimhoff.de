@@ -1,42 +1,40 @@
+// Cspell:words astro odysee pullquote subheadline subsubheadline
 import { YouTube } from '@astro-community/astro-embed-youtube';
 
+import AmazonBook from './components/AmazonBook.astro';
+import Banner from './components/Banner.astro';
+import Blockquote from './components/Blockquote.astro';
+import Book from './components/Book.astro';
+import Bookshelf from './components/Bookshelf.astro';
+import ColorStack from './components/ColorStack.astro';
+import ColorSwatch from './components/ColorSwatch.astro';
+import DisplayBox from './components/DisplayBox.astro';
+import Divider from './components/Divider.astro';
+import DownloadLink from './components/DownloadLink.astro';
+import EmailLink from './components/EmailLink.astro';
+import Figure from './components/Figure.astro';
+import Flag from './components/Flag.astro';
+import Headline from './components/Headline.astro';
 import Image from './components/Image.astro';
+import ListItem from './components/ListItem.astro';
 import MarkdownImage from './components/MarkdownImage.astro';
+import MoreLink from './components/MoreLink.astro';
+import NetflixFlag from './components/NetflixFlag.astro';
+import OdyseeVideo from './components/OdyseeVideo.astro';
+import OrderedList from './components/OrderedList.astro';
+import PrimeVideoFlag from './components/PrimeVideoFlag.astro';
+import ProductLink from './components/ProductLink.astro';
+import ProjectIntro from './components/ProjectIntro.astro';
+import Pullquote from './components/Pullquote.astro';
+import Spotify from './components/Spotify.astro';
+import Subheadline from './components/Subheadline.astro';
+import Subsubheadline from './components/Subsubheadline.astro';
+import Text from './components/Text.astro';
+import TextLink from './components/TextLink.astro';
 import ThemeBox from './components/ThemeBox.astro';
-
-import {
-	AmazonBook,
-	Banner,
-	Blockquote,
-	Book,
-	Bookshelf,
-	ColorStack,
-	ColorSwatch,
-	DisplayBox,
-	Divider,
-	DownloadLink,
-	EmailLink,
-	Figure,
-	Flag,
-	Headline,
-	ListItem,
-	MoreLink,
-	NetflixFlag,
-	OdyseeVideo,
-	OrderedList,
-	PrimeVideoFlag,
-	ProductLink,
-	ProjectIntro,
-	Pullquote,
-	Spotify,
-	Subheadline,
-	Subsubheadline,
-	Text,
-	TextLink,
-	Title,
-	UnorderedList,
-	Verse,
-} from './components';
+import Title from './components/Title.astro';
+import UnorderedList from './components/UnorderedList.astro';
+import Verse from './components/Verse.astro';
 
 export const mapping = {
 	a: TextLink,

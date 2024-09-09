@@ -1,0 +1,36 @@
+---
+// Cspell:words astro classnames shibui
+import cx from 'classnames';
+import Link from './Link.astro';
+
+interface Props {
+	active?: boolean;
+	class?: string;
+	href?: string;
+	[key: string]: any;
+}
+
+const { active, class: className, href, ...props } = Astro.props;
+
+const classes = cx(
+	'capitalize border-3 relative inline-flex items-center justify-center rounded-25 border-2 border-shibui-350 bg-shibui-200 px-3 py-1 text-1 font-normal leading-none text-black mie-1 pbs-3 dark:border-shibui-750 dark:bg-shibui-950 dark:text-white min-w-[50px] print:hidden',
+	{
+		'!bg-shibui-550 !text-white hover:!bg-shibui-650 focus:!bg-shibui-650 dark:!border-shibui-500 dark:!bg-shibui-700 dark:hover:!bg-shibui-600 dark:focus:!bg-shibui-600':
+			href,
+		'active [&.active]:!border-black/25 !text-white [&.active]:!bg-accent': active,
+	},
+	className
+);
+---
+
+{
+	href ? (
+		<Link href={href} class={classes} {...props}>
+			<slot />
+		</Link>
+	) : (
+		<span class={classes} {...props}>
+			<slot />
+		</span>
+	)
+}

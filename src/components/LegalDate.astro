@@ -1,0 +1,19 @@
+---
+
+---
+
+<time id="legal-date">2006–</time>
+
+<script is:inline>
+	(function () {
+		const currentDate = new Date();
+		const isoDate = currentDate.toISOString();
+		const currentYear = currentDate.getFullYear();
+
+		const timeElement = document.getElementById('legal-date');
+		if (timeElement) {
+			timeElement.setAttribute('datetime', isoDate);
+			timeElement.textContent = `2006–${currentYear}`;
+		}
+	})();
+</script>

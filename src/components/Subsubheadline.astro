@@ -1,0 +1,21 @@
+---
+// Cspell:words astro classnames keyof
+import cx from 'classnames';
+
+export interface Props {
+	as?: keyof astroHTML.JSX.IntrinsicElements;
+	class?: string;
+	[key: string]: any;
+}
+
+const { as: Tag = 'h4', class: className, ...props } = Astro.props;
+
+const classes = cx(
+	'text-3 font-black tracking-tight mbe-5 dark:font-extrabold [text-wrap:balance]',
+	className
+);
+---
+
+<Tag class={classes} {...props}>
+	<slot />
+</Tag>

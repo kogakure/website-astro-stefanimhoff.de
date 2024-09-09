@@ -1,0 +1,20 @@
+---
+// Cspell:words astro classnames
+import cx from 'classnames';
+import TextLink from './TextLink.astro';
+
+export interface Props {
+	asin: string;
+	class?: string;
+	text: string;
+	[key: string]: any;
+}
+
+const { asin, class: className, text, ...props } = Astro.props;
+
+const classes = cx('product', className);
+---
+
+<TextLink class={classes} href={`https://www.amazon.de/gp/product/${asin}`} {...props}>
+	{text}
+</TextLink>
