@@ -16,7 +16,5 @@ const isExternal = (href as string).startsWith('http');
 	href={href}
 	rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
 	target={isExternal ? '_blank' : undefined}
-	{...props}
+	{...props}><slot /></a
 >
-	<slot />
-</a>
