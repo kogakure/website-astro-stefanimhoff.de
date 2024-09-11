@@ -50,13 +50,13 @@ const {
 	{
 		format === '70-start' && (
 			<figure
-				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				class="col-start-1 col-end-19 grid grid-cols-18 items-center gap-y-halfgap"
 				{...animation}
 			>
-				<div class="col-start-1 col-end-19 grid self-start xl:col-end-13">
+				<div class="col-start-1 col-end-19 xl:col-end-13">
 					<ProjectImage project={project} />
 				</div>
-				<figcaption class="col-start-2 col-end-18 xl:col-start-13">
+				<figcaption class="col-start-2 col-end-18 md:col-start-10 xl:col-start-14 xl:col-end-18">
 					<ProjectContent project={project} />
 				</figcaption>
 			</figure>
@@ -65,13 +65,13 @@ const {
 	{
 		format === '70-end' && (
 			<figure
-				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				class="col-start-1 col-end-19 grid grid-cols-18 items-center gap-y-halfgap"
 				{...animation}
 			>
-				<div class="col-start-1 col-end-19 row-start-1 grid self-start xl:col-start-7 xl:col-end-19">
+				<div class="col-start-1 col-end-19 grid xl:col-start-7">
 					<ProjectImage project={project} />
 				</div>
-				<figcaption class="col-start-2 col-end-18 xl:col-start-2 xl:col-end-7">
+				<figcaption class="col-start-2 col-end-18 md:col-end-10 xl:col-end-6 xl:row-start-1">
 					<ProjectContent project={project} />
 				</figcaption>
 			</figure>
@@ -80,7 +80,7 @@ const {
 	{
 		format === '100-start' && (
 			<figure
-				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-y-halfgap"
 				{...animation}
 			>
 				<div class="col-start-1 col-end-19 row-start-1">
@@ -95,7 +95,7 @@ const {
 	{
 		format === '100-end' && (
 			<figure
-				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-x-gap gap-y-halfgap"
+				class="col-start-1 col-end-19 row-start-1 grid grid-cols-18 gap-y-halfgap"
 				{...animation}
 			>
 				<div class="col-start-1 col-end-19 row-start-1">

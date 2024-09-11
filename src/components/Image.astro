@@ -6,7 +6,7 @@ const { class: className, noMargin, src, ...props } = Astro.props;
 <div
 	class:list={[
 		'image-shadow mbe-10 mbs-0 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none',
-		{ 'mbe-0': noMargin },
+		{ '!mbe-0': noMargin },
 		className,
 	]}
 >
