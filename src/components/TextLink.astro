@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro classnames shibui
-import cx from 'classnames';
+// Cspell:words astro shibui
 import Link from './Link.astro';
 
 interface Props {
@@ -9,13 +8,14 @@ interface Props {
 }
 
 const { class: className, ...props } = Astro.props;
-
-const classes = cx(
-	'inline font-semibold text-shibui-950 underline decoration-shibui-900/20 decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:text-shibui-200/[0.87] dark:decoration-shibui-100/20',
-	className
-);
 ---
 
-<Link class={classes} {...props}>
+<Link
+	class:list={[
+		'inline font-semibold text-shibui-950 underline decoration-shibui-900/20 decoration-4 underline-offset-auto no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:text-shibui-200/[0.87] dark:decoration-shibui-100/20',
+		className,
+	]}
+	{...props}
+>
 	<slot />
 </Link>

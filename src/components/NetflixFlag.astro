@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro etflix classnames
-import cx from 'classnames';
+// Cspell:words astro etflix
 import Link from './Link.astro';
 
 export interface Props {
@@ -10,14 +9,17 @@ export interface Props {
 }
 
 const { class: className, id, ...props } = Astro.props;
-
-const classes = cx(
-	'rounded-1 border-1 border-solid border-red-600 bg-red-600 font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] print:bg-transparent print:border-gray-500',
-	className
-);
 ---
 
-<Link class={classes} href={`https://www.netflix.com/title/${id}`} title="Netflix" {...props}>
+<Link
+	class:list={[
+		'rounded-1 border-1 border-solid border-red-600 bg-red-600 font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] print:border-gray-500 print:bg-transparent',
+		className,
+	]}
+	href={`https://www.netflix.com/title/${id}`}
+	title="Netflix"
+	{...props}
+>
 	<span class="hidden" aria-hidden="true">[</span>
 	N
 	<span class="hidden" aria-hidden="true">etflix]</span>

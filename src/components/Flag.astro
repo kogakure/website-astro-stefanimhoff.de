@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro classnames darkgrey
-import cx from 'classnames';
+// Cspell:words astro darkgrey
 import Link from './Link.astro';
 
 export interface Props {
@@ -11,16 +10,19 @@ export interface Props {
 }
 
 const { label, class: className, href, ...props } = Astro.props;
-
-const classes = cx(
-	'rounded-1 border-1 border-solid border-[darkgrey] bg-[lightgrey] font-mono text-[0.7em] text-black decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] dark:bg-[lightgrey]/80',
-	className
-);
 ---
 
 {
 	href ? (
-		<Link class={classes} href={href} title={label} {...props}>
+		<Link
+			class:list={[
+				'rounded-1 border-1 border-solid border-[darkgrey] bg-[lightgrey] font-mono text-[0.7em] text-black decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] dark:bg-[lightgrey]/80',
+				className,
+			]}
+			href={href}
+			title={label}
+			{...props}
+		>
 			<span class="hidden" aria-hidden="true">
 				[
 			</span>
@@ -30,7 +32,14 @@ const classes = cx(
 			</span>
 		</Link>
 	) : (
-		<span class={classes} title={label} {...props}>
+		<span
+			class:list={[
+				'rounded-1 border-1 border-solid border-[darkgrey] bg-[lightgrey] font-mono text-[0.7em] text-black decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] dark:bg-[lightgrey]/80',
+				className,
+			]}
+			title={label}
+			{...props}
+		>
 			<span class="hidden" aria-hidden="true">
 				[
 			</span>

@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
+// Cspell:words astro
 import TextLink from './TextLink.astro';
 
 interface Props {
@@ -13,11 +12,9 @@ interface Props {
 }
 
 const { author, class: className, lang = 'en', source, sourceUrl, text, ...props } = Astro.props;
-
-const classes = cx('pullquote mbe-10 p-9 text-center', className);
 ---
 
-<blockquote lang={lang} class={classes} {...props}>
+<blockquote lang={lang} class:list={['pullquote p-9 text-center mbe-10', className]} {...props}>
 	<p set:html={text} />
 	{
 		(author || source) && (

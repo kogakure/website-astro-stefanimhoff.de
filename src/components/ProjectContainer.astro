@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames halfgap figcaption
-import cx from 'classnames';
-
+// Cspell:words astro halfgap figcaption
 import type { CollectionEntry } from 'astro:content';
 
 import { animation } from '../data/site';
@@ -19,11 +17,9 @@ const {
 	},
 	project,
 } = Astro.props;
-
-const classes = cx('col-start-1 col-end-19 grid grid-cols-18', className);
 ---
 
-<article class={classes} {...animation}>
+<article class:list={['col-start-1 col-end-19 grid grid-cols-18', className]} {...animation}>
 	{
 		format === '50-start' && (
 			<figure class="col-start-2 col-end-18 m-0 grid grid-cols-2 items-center gap-x-gap gap-y-halfgap">

@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro tabindex clickarea umami classnames
-import cx from 'classnames';
-
+// Cspell:words astro tabindex clickarea umami
 import { ArrowLeft } from './icons';
 import Link from './Link.astro';
 
@@ -11,18 +9,16 @@ interface Props {
 }
 
 const { backLink, class: className, ...props } = Astro.props;
-
-const classes = cx(
-	'col-span-2 col-start-1 h-clickarea w-clickarea items-center justify-center self-center justify-self-center transition-transform duration-500 ease-in-out hover:-translate-x-1 focus:-translate-x-1 print:hidden md:col-span-1',
-	className
-);
 ---
 
 {
 	backLink && (
 		<Link
 			aria-label="Back to overview"
-			class={classes}
+			class:list={[
+				'col-span-2 col-start-1 h-clickarea w-clickarea items-center justify-center self-center justify-self-center transition-transform duration-500 ease-in-out hover:-translate-x-1 focus:-translate-x-1 md:col-span-1 print:hidden',
+				className,
+			]}
 			data-umami-event="Back to overview"
 			href={backLink}
 			{...props}

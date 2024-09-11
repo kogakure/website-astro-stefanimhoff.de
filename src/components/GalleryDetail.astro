@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
-
+// Cspell:words astro
 import { animation, animationDelay } from '../data/site';
 
 import Image from './Image.astro';
@@ -31,26 +29,29 @@ const imageLength = entry.data.images.length;
 		</div>
 	</div>
 	<div
-		class={cx(
-			'grid grid-cols-5 gap-x-[2vw] gap-y-gap grow bg-[#d0cdc8] dark:bg-[#0e0d0c] lg:w-2/3 print:!bg-transparent',
+		class:list={[
+			'grid grow grid-cols-5 gap-x-[2vw] gap-y-gap bg-[#d0cdc8] dark:bg-[#0e0d0c] lg:w-2/3 print:!bg-transparent',
 			{
 				'lg:pbs-[calc(100vh_/_2_-_(max(30vh,_250px)_/_2))]': imageLength > 1,
-				'lg:justify-items-center lg:items-center': imageLength === 1,
-			}
-		)}
+				'lg:items-center lg:justify-items-center': imageLength === 1,
+			},
+		]}
 	>
 		{
 			entry.data.images.map(({ src }: { src: string }, index: number) => (
 				<div
-					class={cx('col-span-full w-full !mbe-0 lg:col-span-3 lg:max-w-full', {
-						'justify-self-start lg:col-start-1':
-							randomPosition() === 'start' && imageLength > 1 && index > 0,
-						'justify-self-center lg:col-start-2':
-							randomPosition() === 'center' && imageLength > 1 && index > 0,
-						'justify-self-end lg:col-start-3':
-							randomPosition() === 'end' && imageLength > 1 && index > 0,
-						'lg:col-start-2': imageLength === 1 || index === 0,
-					})}
+					class:list={[
+						'col-span-full w-full !mbe-0 lg:col-span-3 lg:max-w-full',
+						{
+							'justify-self-start lg:col-start-1':
+								randomPosition() === 'start' && imageLength > 1 && index > 0,
+							'justify-self-center lg:col-start-2':
+								randomPosition() === 'center' && imageLength > 1 && index > 0,
+							'justify-self-end lg:col-start-3':
+								randomPosition() === 'end' && imageLength > 1 && index > 0,
+							'lg:col-start-2': imageLength === 1 || index === 0,
+						},
+					]}
 					{...animation}
 				>
 					<Image alt={entry.data.title} src={src} />

@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro backlink classnames shibui
-import cx from 'classnames';
-
+// Cspell:words astro backlink shibui
 import Backlink from '../components/Backlink.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
@@ -13,13 +11,15 @@ export interface Props {
 }
 
 const { backLink, class: className, navigation = true } = Astro.props;
-const classes = cx(
-	'sticky grid w-full grid-cols-18 grid-rows-[clamp(3rem,_5.55vw,_9rem)] bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden z-50',
-	className
-);
 ---
 
-<header class={classes} role="banner">
+<header
+	class:list={[
+		'sticky z-50 grid w-full grid-cols-18 grid-rows-[clamp(3rem,_5.55vw,_9rem)] bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden',
+		className,
+	]}
+	role="banner"
+>
 	<Backlink backLink={backLink} />
 	{navigation && <MainNavigation />}
 	<ThemeToggle />

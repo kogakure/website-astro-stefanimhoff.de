@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames pagefind minmax
-import cx from 'classnames';
-
+// Cspell:words astro pagefind minmax
 import type { CollectionEntry } from 'astro:content';
 type AiArt = CollectionEntry<'ai-art'>;
 import { getCollection } from 'astro:content';
@@ -46,26 +44,28 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 			{
 				allAiArt.map(({ slug, data }) => (
 					<li
-						class={cx({
-							'md:col-span-3 md:row-span-2':
-								data.images[0].aspectRatio > 1 && data.coverSize === 'small',
-							'md:col-span-2 md:row-span-3':
-								data.images[0].aspectRatio < 1 && data.coverSize === 'small',
-							'md:col-span-3 md:row-span-3':
-								data.images[0].aspectRatio === 1 && data.coverSize === 'small',
-							'md:col-span-4 md:row-span-3':
-								data.images[0].aspectRatio > 1 && data.coverSize === 'medium',
-							'md:col-span-3 md:row-span-4':
-								data.images[0].aspectRatio < 1 && data.coverSize === 'medium',
-							'md:col-span-4 md:row-span-4':
-								data.images[0].aspectRatio === 1 && data.coverSize === 'medium',
-							'md:col-span-6 md:row-span-5':
-								data.images[0].aspectRatio > 1 && data.coverSize === 'large',
-							'md:col-span-5 md:row-span-6':
-								data.images[0].aspectRatio < 1 && data.coverSize === 'large',
-							'md:col-span-6 md:row-span-6':
-								data.images[0].aspectRatio === 1 && data.coverSize === 'large',
-						})}
+						class:list={[
+							{
+								'md:col-span-3 md:row-span-2':
+									data.images[0].aspectRatio > 1 && data.coverSize === 'small',
+								'md:col-span-2 md:row-span-3':
+									data.images[0].aspectRatio < 1 && data.coverSize === 'small',
+								'md:col-span-3 md:row-span-3':
+									data.images[0].aspectRatio === 1 && data.coverSize === 'small',
+								'md:col-span-4 md:row-span-3':
+									data.images[0].aspectRatio > 1 && data.coverSize === 'medium',
+								'md:col-span-3 md:row-span-4':
+									data.images[0].aspectRatio < 1 && data.coverSize === 'medium',
+								'md:col-span-4 md:row-span-4':
+									data.images[0].aspectRatio === 1 && data.coverSize === 'medium',
+								'md:col-span-6 md:row-span-5':
+									data.images[0].aspectRatio > 1 && data.coverSize === 'large',
+								'md:col-span-5 md:row-span-6':
+									data.images[0].aspectRatio < 1 && data.coverSize === 'large',
+								'md:col-span-6 md:row-span-6':
+									data.images[0].aspectRatio === 1 && data.coverSize === 'large',
+							},
+						]}
 						{...animation}
 					>
 						<Link title={data.title} href={`/ai-art/${slug}/`}>

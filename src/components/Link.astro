@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames noopener noreferrer
-import cx from 'classnames';
-
+// Cspell:words astro noopener noreferrer
 interface Props {
 	class?: string;
 	href?: string;
@@ -11,11 +9,10 @@ interface Props {
 const { class: className, href = '#', ...props } = Astro.props;
 
 const isExternal = (href as string).startsWith('http');
-const classes = cx('link', { external: isExternal }, className);
 ---
 
 <a
-	class={classes}
+	class:list={['link', { external: isExternal }, className]}
 	href={href}
 	rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
 	target={isExternal ? '_blank' : undefined}

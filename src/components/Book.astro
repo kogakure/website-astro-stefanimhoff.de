@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro tabindex classnames
-import cx from 'classnames';
-
+// Cspell:words astro tabindex
 interface Props {
 	alt?: string;
 	class?: string;
@@ -9,13 +7,14 @@ interface Props {
 }
 
 const { alt = '', class: className, src, ...props } = Astro.props;
-
-const classes = cx(
-	"image-shadow relative box-border grid h-auto max-w-[250px] shrink grow justify-self-center overflow-hidden align-bottom shadow-book before:absolute before:z-10 before:block before:h-full before:w-[0.5em] before:bg-gradient-to-r before:from-black/30 before:to-transparent before:shadow-book-before before:content-[''] before:rounded-is-1",
-	className
-);
 ---
 
-<div class={classes} tabindex={0}>
+<div
+	class:list={[
+		"image-shadow relative box-border grid h-auto max-w-[250px] shrink grow justify-self-center overflow-hidden align-bottom shadow-book before:absolute before:z-10 before:block before:h-full before:w-[0.5em] before:bg-gradient-to-r before:from-black/30 before:to-transparent before:shadow-book-before before:content-[''] before:rounded-is-1",
+		className,
+	]}
+	tabindex={0}
+>
 	<img alt={alt} src={src} {...props} />
 </div>

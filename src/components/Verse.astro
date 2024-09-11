@@ -1,28 +1,29 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
-
+// Cspell:words astro
 export interface Props {
 	class?: string;
 	variant?: 'center' | 'left';
 }
 
 const { class: className, variant = 'center', ...props } = Astro.props;
-
-const classes = cx(
-	'flex italic [&_p]:mbe-0',
-	{
-		'm-10': variant === 'center',
-		'mbs-10 mbe-10 mis-0 mie-0': variant === 'left',
-	},
-	className
-);
-
-const preClasses = cx('font-sans mis-0 mie-0 whitespace-pre', {
-	'mbs-auto mbe-auto': variant === 'center',
-});
 ---
 
-<blockquote class={classes} {...props}>
-	<pre class={preClasses}><slot /></pre>
+<blockquote
+	class:list={[
+		'flex italic [&_p]:mbe-0',
+		{
+			'm-10': variant === 'center',
+			'mbe-10 mbs-10 mie-0 mis-0': variant === 'left',
+		},
+		className,
+	]}
+	{...props}
+>
+	<pre
+		class:list={[
+			'whitespace-pre font-sans mie-0 mis-0',
+			{
+				'mbe-auto mbs-auto': variant === 'center',
+			},
+		]}><slot /></pre>
 </blockquote>

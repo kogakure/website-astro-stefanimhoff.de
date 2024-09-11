@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro subheadline backface flippable classnames
-import cx from 'classnames';
+// Cspell:words astro subheadline backface flippable
 import Subheadline from './Subheadline.astro';
 import Text from './Text.astro';
 
@@ -12,25 +11,29 @@ interface Props {
 }
 
 const { class: className, color, title, description, ...props } = Astro.props;
-
-const classes = cx(
-	'h-[100vw] max-h-[200px] w-full max-w-[300px] [perspective:500px]',
-	{ 'cursor-pointer': description },
-	className
-);
-
-const flipperClasses = cx(
-	'relative transition-transform duration-500 ease-in-out [transform-style:preserve-3d]'
-);
-
-const cardClasses = cx(
-	'absolute box-border h-[100vw] max-h-[200px] w-full max-w-[300px] rounded-25 bg-white shadow-book inline-start-0 block-start-0 [perspective:500px] [backface-visibility:hidden] dark:bg-black dark:border-[1px] dark:border-white/20'
-);
 ---
 
-<div class={classes} data-flippable={description ? 'true' : 'false'} {...props}>
-	<div class={flipperClasses}>
-		<div class={cx(cardClasses, 'z-10')} data-side="front">
+<div
+	class:list={[
+		'h-[100vw] max-h-[200px] w-full max-w-[300px] [perspective:500px]',
+		{ 'cursor-pointer': description },
+		className,
+	]}
+	data-flippable={description ? 'true' : 'false'}
+	{...props}
+>
+	<div
+		class:list={[
+			'relative transition-transform duration-500 ease-in-out [transform-style:preserve-3d]',
+		]}
+	>
+		<div
+			class:list={[
+				'absolute box-border h-[100vw] max-h-[200px] w-full max-w-[300px] rounded-25 bg-white shadow-book block-start-0 inline-start-0 [backface-visibility:hidden] [perspective:500px] dark:border-[1px] dark:border-white/20 dark:bg-black',
+				'z-10',
+			]}
+			data-side="front"
+		>
 			<div
 				class="border-be-solid min-h-[5rem] bg-white border-be-[1px] border-be-black/20 rounded-bs-25 dark:bg-black dark:border-be-white/20"
 				style={`background-color: ${color};`}
@@ -46,7 +49,10 @@ const cardClasses = cx(
 		{
 			description && (
 				<div
-					class={cx(cardClasses, 'plb-7 pli-6 [transform:rotateY(180deg)]')}
+					class:list={[
+						'absolute box-border h-[100vw] max-h-[200px] w-full max-w-[300px] rounded-25 bg-white shadow-book block-start-0 inline-start-0 [backface-visibility:hidden] [perspective:500px] dark:border-[1px] dark:border-white/20 dark:bg-black',
+						'plb-7 pli-6 [transform:rotateY(180deg)]',
+					]}
 					data-side="back"
 				>
 					<Text class="text-[15px]">{description}</Text>

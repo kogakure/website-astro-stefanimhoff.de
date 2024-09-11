@@ -1,18 +1,22 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
-
+// Cspell:words astro
 const { class: className, noMargin, src, ...props } = Astro.props;
-
-const classes = cx(
-	'image-shadow mbe-10 mbs-0 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none',
-	{ 'mbe-0': noMargin },
-	className
-);
-const imageClasses =
-	'rounded-1 border-1 block h-auto w-full border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10';
 ---
 
-<div class={classes}>
-	<img class={imageClasses} decoding="async" loading="lazy" src={src} {...props} />
+<div
+	class:list={[
+		'image-shadow mbe-10 mbs-0 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none',
+		{ 'mbe-0': noMargin },
+		className,
+	]}
+>
+	<img
+		class:list={[
+			'block h-auto w-full rounded-1 border-1 border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10',
+		]}
+		decoding="async"
+		loading="lazy"
+		src={src}
+		{...props}
+	/>
 </div>

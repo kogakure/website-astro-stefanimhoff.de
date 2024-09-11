@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
-
+// Cspell:words astro
 import Title from './Title.astro';
 
 export interface Props {
@@ -11,17 +9,18 @@ export interface Props {
 }
 
 const { class: className, grid = 'narrow', innerGrid } = Astro.props;
-const titleClasses = cx(
-	'col-start-2 col-end-18 !mbe-0',
-	{
-		'md:col-start-3 md:col-end-17': grid === 'wide',
-		'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': grid === 'narrow',
-		'!col-start-1 row-start-1': innerGrid,
-	},
-	className
-);
 ---
 
-<Title class={titleClasses}>
+<Title
+	class:list={[
+		'col-start-2 col-end-18 !mbe-0',
+		{
+			'md:col-start-3 md:col-end-17': grid === 'wide',
+			'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': grid === 'narrow',
+			'!col-start-1 row-start-1': innerGrid,
+		},
+		className,
+	]}
+>
 	<slot />
 </Title>

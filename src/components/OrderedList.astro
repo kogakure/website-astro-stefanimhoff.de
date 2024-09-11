@@ -1,20 +1,19 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
-
+// Cspell:words astro
 export interface Props {
 	class?: string;
 	[key: string]: any;
 }
 
 const { class: className, children, ...props } = Astro.props;
-
-const classes = cx(
-	'list-decimal text-3 mbe-12 pis-[1.5rem] md:pis-0 [li>&]:mbe-0 [li>&]:pis-[1.5rem]',
-	className
-);
 ---
 
-<ol class={classes} {...props}>
+<ol
+	class:list={[
+		'list-decimal text-3 mbe-12 pis-[1.5rem] md:pis-0 [li>&]:mbe-0 [li>&]:pis-[1.5rem]',
+		className,
+	]}
+	{...props}
+>
 	<slot />
 </ol>

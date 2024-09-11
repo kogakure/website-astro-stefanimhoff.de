@@ -1,6 +1,5 @@
 ---
-// Cspell:words astro classnames
-import cx from 'classnames';
+// Cspell:words astro
 import TextLink from './TextLink.astro';
 
 export interface Props {
@@ -11,10 +10,12 @@ export interface Props {
 }
 
 const { asin, class: className, text, ...props } = Astro.props;
-
-const classes = cx('product', className);
 ---
 
-<TextLink class={classes} href={`https://www.amazon.de/gp/product/${asin}`} {...props}>
+<TextLink
+	class:list={['product', className]}
+	href={`https://www.amazon.de/gp/product/${asin}`}
+	{...props}
+>
 	{text}
 </TextLink>

@@ -1,7 +1,5 @@
 ---
-// Cspell:words astro classnames autoplay allowfullscreen
-import cx from 'classnames';
-
+// Cspell:words astro autoplay allowfullscreen
 export interface Props {
 	class?: string;
 	id: string;
@@ -9,11 +7,9 @@ export interface Props {
 }
 
 const { class: className, id, ...props } = Astro.props;
-
-const classes = cx('relative aspect-video mbe-10', className);
 ---
 
-<div class={classes} {...props}>
+<div class:list={['relative aspect-video mbe-10', className]} {...props}>
 	<iframe
 		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 		allowfullscreen

@@ -1,6 +1,4 @@
 ---
-import cx from 'classnames';
-
 import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
@@ -106,10 +104,10 @@ const schema = JSON.stringify({
 	}
 
 	<aside
-		class={cx(
+		class:list={[
 			'col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-15 xl:col-end-18 xl:row-start-2 3xl:col-start-14 3xl:col-end-18',
-			{ 'row-start-3': entry.data.cover }
-		)}
+			{ 'row-start-3': entry.data.cover },
+		]}
 	>
 		<div class="leading-none mbe-6">
 			<em>By</em>{' '}

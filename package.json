@@ -37,7 +37,6 @@
 		"autoprefixer": "^10.4.19",
 		"chart.js": "^4.4.3",
 		"chartjs-plugin-autocolors": "^0.2.2",
-		"classnames": "^2.5.1",
 		"deepmerge": "^4.3.1",
 		"file-type": "^19.0.0",
 		"find-cache-dir": "^5.0.0",
