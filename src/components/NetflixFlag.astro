@@ -19,8 +19,7 @@ const { class: className, id, ...props } = Astro.props;
 	href={`https://www.netflix.com/title/${id}`}
 	title="Netflix"
 	{...props}
+	><span class="hidden" aria-hidden="true">[</span>N<span class="hidden" aria-hidden="true"
+		>etflix]</span
+	></Link
 >
-	<span class="hidden" aria-hidden="true">[</span>
-	N
-	<span class="hidden" aria-hidden="true">etflix]</span>
-</Link>
