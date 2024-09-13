@@ -11,7 +11,7 @@ interface Props {
 const { href, text, ...props } = Astro.props;
 ---
 
-<TextLink class="group" href={href} {...props}>
+<TextLink class="group" href={href} data-umami-event={`Download: ${text}`} {...props}>
 	{text}
 	<span class="more-icon relative inline-flex mis-[0.2em] block-start-[0.2em]">
 		<Download

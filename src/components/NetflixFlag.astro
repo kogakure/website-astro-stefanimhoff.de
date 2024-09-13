@@ -16,6 +16,7 @@ const { class: className, id, ...props } = Astro.props;
 		'rounded-1 border-1 border-solid border-red-600 bg-red-600 font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] print:border-gray-500 print:bg-transparent',
 		className,
 	]}
+	data-umami-event={`Netflix: ${id}`}
 	href={`https://www.netflix.com/title/${id}`}
 	title="Netflix"
 	{...props}
