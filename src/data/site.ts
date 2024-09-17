@@ -10,7 +10,7 @@ export const site = {
 	author: 'Stefan Imhoff',
 	tagline: 'Web UI Engineer • Minimalist • Stoic • Libertarian • Japanophile',
 	faviconPath: '/assets/images/branding/favicons/',
-	twitter: '@kogakure',
+	x: '@kogakure',
 };
 
 export const animation = {
