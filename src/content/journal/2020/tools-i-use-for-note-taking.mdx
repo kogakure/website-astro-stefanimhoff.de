@@ -93,4 +93,58 @@ Putting my notes in a folder on the hard disk has the advantage of additionally 
 
 I use [BibDesk](https://bibdesk.sourceforge.io/) to manage my citations, as described in the essay [Manage Citations for a Zettelkasten](https://zettelkasten.de/posts/bibliography-zettelkasten/). For every book, webpage, or video I want to reference, I create a new entry. It’s a quick process, but immensely helpful later to find the source again.
 
-I updated the citation template mentioned in the essay to my wi
+I updated the citation template mentioned in the essay to my wishes (to support URLs).
+
+## Note Creating Workflow
+
+If I sit at one of my Mac computers, I press a shortcut in Obsidian to automatically create a new Zettelkasten note, automatically suffixed with a timestamp ID. I enter a title for the note, and a template feature of Obsidian automatically fills in the basic structure of a note. I use Alfred to create other types of notes. My note template is as simple as it gets:
+
+#### Zettelkasten Principles - 202008311912.md
+
+```md
+#
+
+## Related
+
+Tags:
+```
+
+I add the title, content, commented links to other notes, and tags. I decided to drop the ID from the title of the headline. This example is translated, I use the German language for my notes:
+
+```md
+# Zettelkasten Principles
+
+The 12 Zettelkasten principles mentioned in [#Clear2019aa].
+
+1. Atomicity – Just one idea per note
+2. Autonomy – A note should be self-contained and comprehensible on its own
+3. Link your notes – Link the note to already existing notes
+4. Explain why you’re linking the notes – Add a comment to the link
+5. Use your own words – Don’t copy and paste. Writing in your own words forces you to understand the idea.
+6. Keep references – Add references to your notes to remember where you got the idea from.
+7. Add your thoughts – Add comments or ideas.
+8. Don’t worry about structure – You don’t need folders
+9. Add connection notes – If you see a connection between random notes, add new notes connecting these.
+10. Add outline notes – If you see topics emerging, create outline notes, that contain just links to other notes and create a story or narrative.
+11. Never delete – Don’t delete old notes, link the new notes describing what’s wrong or outdated.
+12. Add notes without fear – You can’t have too many notes.
+
+## Related
+
+- How to add a custom template to BibDesk: [[Add BibDesk Markdown template - 202008231056]]
+- Blog posts on my website on how to use DEVONthink for the Zettelkasten method: [[Zettelkasten Note-Taking Method With DEVONthink - 202005171813]]
+
+Tags: #Zettelkasten
+
+[#Clear2019aa]: David B. Clear (2019): _Zettelkasten – How One German Scholar Was So Freakishly Productive_, <https://writingcooperative.com/zettelkasten-how-one-german-scholar-was-so-freakishly-productive-997e4e0ca125>.
+```
+
+In DEVONthink I select all notes I created on a given day and press the right mouse button, select `Tags` → `Convert Hashtags to Tags` which will create Mac tags out of the Hashtags on my notes. It’s possible to activate this feature in the settings automatically, but I didn’t do it because Obsidian doesn’t have a save feature, instead automatically saves the note on every keystroke. The Hashtag feature in Obsidian supports auto-complete, but as the sync to DEVONthink is instantly the feature would create multiple meaningless tags, e.g., `Zet`, `tel`, `ka`, `sten` – depending on how fast you type or when you select the auto-completed tag.
+
+DEVONthink can create a nice preview thumbnail of the notes and will sync all notes or changes via the sync storage with other devices (including the Mac tags).
+
+I commit all changes or additions to my Zettelkasten folder and push the changes to GitHub. It’s not needed to pull my changes on another computer (unless I want to commit to a different computer) because DEVONthink handles the synchronization.
+
+I try to connect notes when I find a note without connections and split notes into small notes if I stumble upon a note that is too big.
+
+Over time, these connected notes convert into a second brain. New ideas emerge by connecting notes that weren’t originally intended to be connected.
