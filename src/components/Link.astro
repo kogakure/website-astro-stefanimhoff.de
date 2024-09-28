@@ -13,7 +13,7 @@ const isExternal = (href as string).startsWith('http');
 
 <a
 	class:list={['link', { external: isExternal }, className]}
-	data-umami-event={isExternal ? `Link: ${href}` : undefined}
+	data-umami-event={isExternal ? `Link: ${href.replace(/^(https?:\/\/)/, '')}` : undefined}
 	href={href}
 	rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
 	target={isExternal ? '_blank' : undefined}
