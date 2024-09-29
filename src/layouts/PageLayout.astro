@@ -32,6 +32,13 @@ const gridVariant = frontmatter.grid || grid;
 			</div>
 		)
 	}
+	{
+		frontmatter.intro && (
+			<blockquote class="mbe-10">
+				<p>{frontmatter.intro}</p>
+			</blockquote>
+		)
+	}
 	<slot name="before-content" />
 	{
 		frontmatter.intro && (
