@@ -12,6 +12,7 @@ export interface Props {
 	grid?: 'fullsize' | 'wide' | 'narrow';
 	header?: boolean;
 	innerGrid?: boolean;
+	multicolumn?: boolean;
 	nofollow?: boolean;
 	noindex?: boolean;
 	title: string;
@@ -27,6 +28,7 @@ const {
 	grid = 'narrow',
 	header,
 	innerGrid,
+	multicolumn = false,
 	nofollow,
 	noindex,
 	title,
@@ -63,8 +65,13 @@ const {
 								innerGrid && grid === 'narrow',
 						},
 						{ 'gap-y-gap': gap },
+						{
+							'multicolumns columns-[clamp(400px,30vw,700px)] gap-x-[clamp(50px,4vw,80px)]':
+								multicolumn,
+						},
 					]}
 				>
+					<slot name="intro" />
 					<slot />
 				</div>
 			) : (

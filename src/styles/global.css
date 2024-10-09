@@ -177,6 +177,21 @@
 	.icon {
 		@apply fill-shibui-950 dark:fill-shibui-200/[0.87];
 	}
+
+	.multicolumns > h2 {
+		break-inside: avoid;
+		break-after: avoid;
+	}
+
+	.multicolumns > h2 + ul,
+	.multicolumns > h2 + h3 {
+		break-inside: avoid;
+		break-after: avoid;
+	}
+
+	.multicol-span {
+		column-span: all;
+	}
 }
 
 @layer components {
