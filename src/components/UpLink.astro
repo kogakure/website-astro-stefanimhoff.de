@@ -18,8 +18,11 @@ const { ...props } = Astro.props;
 		href="#top"
 		id="up-link"
 	>
-		<button class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center">
-			<ArrowUp class="icon h-icon w-icon" />
+		<button
+			aria-hidden="true"
+			class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		>
+			<ArrowUp aria-hidden="true" class="icon h-icon w-icon" />
 		</button>
 	</Link>
 </div>

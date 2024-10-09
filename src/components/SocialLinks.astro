@@ -16,7 +16,7 @@ import Link from '../components/Link.astro';
 		data-tld="de"
 		onclick="window.open(`mailto:${this.dataset.name}@${this.dataset.domain}.${this.dataset.tld}`, '_blank')"
 	>
-		<Mail class="icon h-icon-small w-icon-small" />
+		<Mail aria-hidden="true" class="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="𝕏"
@@ -25,7 +25,7 @@ import Link from '../components/Link.astro';
 		href="https://x.com/kogakure"
 		title="𝕏"
 	>
-		<TwitterX class="icon h-icon-small w-icon-small" />
+		<TwitterX aria-hidden="true" class="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="Instagram"
@@ -34,7 +34,7 @@ import Link from '../components/Link.astro';
 		href="https://instagram.com/kogakure"
 		title="Instagram"
 	>
-		<Instagram class="icon h-icon-small w-icon-small" />
+		<Instagram aria-hidden="true" class="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="GitHub"
@@ -43,6 +43,6 @@ import Link from '../components/Link.astro';
 		href="https://github.com/kogakure"
 		title="GitHub"
 	>
-		<Github class="icon h-icon-small w-icon-small" />
+		<Github aria-hidden="true" class="icon h-icon-small w-icon-small" />
 	</Link>
 </nav>

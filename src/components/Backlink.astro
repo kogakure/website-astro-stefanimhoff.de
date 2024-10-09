@@ -24,11 +24,12 @@ const { backLink, class: className, ...props } = Astro.props;
 			{...props}
 		>
 			<button
+				aria-hidden="true"
 				class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
 				type="button"
 				tabindex={-1}
 			>
-				<ArrowLeft class="icon h-icon w-icon" />
+				<ArrowLeft aria-hidden="true" class="icon h-icon w-icon" />
 			</button>
 		</Link>
 	)

@@ -12,11 +12,12 @@ import Link from './Link.astro';
 	title="Search the website (/)"
 >
 	<button
+		aria-hidden="true"
 		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center border-none text-[0]"
 		data-umami-event="Search"
 		tabindex={-1}
 		type="button"
 	>
-		<Search class="icon h-icon w-icon" />
+		<Search aria-hidden="true" class="icon h-icon w-icon" />
 	</button>
 </Link>
