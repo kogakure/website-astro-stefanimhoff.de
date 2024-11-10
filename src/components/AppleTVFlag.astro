@@ -1,0 +1,26 @@
+---
+// Cspell:words astro etflix
+import Link from './Link.astro';
+
+export interface Props {
+	class?: string;
+	id: string;
+	[key: string]: any;
+}
+
+const { class: className, id, ...props } = Astro.props;
+---
+
+<Link
+	class:list={[
+		'rounded-1 border-1 border-solid border-gray-600 bg-black font-mono text-[0.7em] text-white decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] print:border-gray-500 print:bg-transparent',
+		className,
+	]}
+	data-umami-event={`Apple TV+: ${id}`}
+	href={`https://tv.apple.com/show/foundation/umc.cmc.${id}`}
+	title="Apple TV+"
+	{...props}
+	><span class="hidden" aria-hidden="true">[</span><span class="hidden" aria-hidden="true"
+		>etflix]</span
+	></Link
+>

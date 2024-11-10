@@ -2,6 +2,7 @@
 import { YouTube } from '@astro-community/astro-embed-youtube';
 
 import AmazonBook from './components/AmazonBook.astro';
+import AppleTVFlag from './components/AppleTVFlag.astro';
 import Banner from './components/Banner.astro';
 import Blockquote from './components/Blockquote.astro';
 import Book from './components/Book.astro';
@@ -40,6 +41,7 @@ export const mapping = {
 	a: TextLink,
 	ProductLink,
 	AmazonBook,
+	AppleTVFlag,
 	Banner,
 	Blockquote,
 	blockquote: Blockquote,
