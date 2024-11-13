@@ -125,11 +125,6 @@ export const other = [
 		image: '/assets/images/tools/raycast.webp',
 	},
 	{
-		name: 'Arc',
-		url: 'https://arc.net/gift/3a2fd063',
-		image: '/assets/images/tools/arc-browser.webp',
-	},
-	{
 		name: 'Brave Browser',
 		url: 'https://brave.com/',
 		image: '/assets/images/tools/brave-browser.webp',
