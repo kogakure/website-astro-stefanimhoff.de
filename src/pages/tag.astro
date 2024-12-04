@@ -10,7 +10,7 @@ import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import TagComponent from '../components/Tag.astro';
 
-const allJournal: Journal[] = await getCollection('journal');
+const allJournal: Journal[] = await getCollection('journal', ({ data }: Journal) => !data.draft);
 const uniqueTags = [...new Set(allJournal.map((entry) => entry.data.tags).flat())];
 uniqueTags.sort((a, b) => a.localeCompare(b));
 

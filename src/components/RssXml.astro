@@ -20,24 +20,26 @@ const rssFooterXml = `	</channel>
 
 <Fragment set:html={rssHeaderXml} />
 {
-	allPosts.map((post: any) => (
-		<>
-			<Fragment
-				set:html={`    <item>
+	allPosts
+		.filter((post: any) => !post.frontmatter.draft)
+		.map((post: any) => (
+			<>
+				<Fragment
+					set:html={`    <item>
 			<title>${post.frontmatter.title.replace('&', '&amp;')}</title>
 			<link>${`${site.url}/${post.frontmatter.slug}/`}</link>
 			<guid>${`${site.url}/${post.frontmatter.slug}/`}</guid>
 			<description><![CDATA[${post.frontmatter.description}]]></description>
 			<pubDate>${dateToISO(post.frontmatter.date)}</pubDate>
 			<content:encoded><![CDATA[`}
-			/>
-			<post.Content components={rssMapping} />
-			<Fragment
-				set:html={`]]></content:encoded>
+				/>
+				<post.Content components={rssMapping} />
+				<Fragment
+					set:html={`]]></content:encoded>
 		</item>
 `}
-			/>
-		</>
-	))
+				/>
+			</>
+		))
 }
 <Fragment set:html={rssFooterXml} />

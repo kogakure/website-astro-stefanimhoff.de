@@ -1,5 +1,7 @@
 ---
 // Cspell:words astro imhoff fullsize webp pagefind
+import type { CollectionEntry } from 'astro:content';
+type JournalType = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts, isProduction, sortMarkdownByDate } from '../utils';
@@ -28,7 +30,7 @@ import { Content as Journal } from '../text/homepage/journal.mdx';
 
 import { mapping } from '../mdx-components';
 
-const allPosts = await getCollection('journal');
+const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
 const formattedLatest = formatPosts(allPosts, { limit: 6 });
 
 const title = 'Stefan Imhoff';

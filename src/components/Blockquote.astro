@@ -26,8 +26,9 @@ const { author, class: className, lang = 'en', source, sourceUrl, ...props } = A
 		(author || source) && (
 			<footer class="text-2 font-normal opacity-60 mbs-6">
 				{(author || source) && '—'}
-				{author && <b class="font-normal">{author}</b>}
-				{author && source && ', '}
+				<!-- prettier-ignore-start -->
+				{author && <b class="font-normal">{author}</b>}{author && source && ','}
+				<!-- prettier-ignore-end -->
 				{source &&
 					(sourceUrl ? (
 						<cite>

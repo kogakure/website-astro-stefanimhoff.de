@@ -21,7 +21,7 @@ import TextLink from '../components/TextLink.astro';
 import { mapping } from '../mdx-components';
 
 export async function getStaticPaths() {
-	const journalEntries = await getCollection('journal');
+	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
 	const numberOfPages = journalEntries.length;
 	const formattedJournalEntries: Journal[] = formatPosts(journalEntries, { sortOrder: 'asc' });
 
@@ -45,7 +45,7 @@ const {
 } = await entry.render();
 
 const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journal) => {
-	return data.series === entry.data.series;
+	return data.series === entry.data.series && !data.draft;
 });
 
 seriesEntries.sort(sortByDate).reverse();
@@ -133,7 +133,7 @@ const schema = JSON.stringify({
 		class="journal-post col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13"
 	>
 		{
-			entry.data.series && (
+			entry.data.series && seriesEntries.length > 1 && (
 				<Banner>
 					<OrderedList class="!mbe-0 !pis-7">
 						{seriesEntries.map((item) => (
