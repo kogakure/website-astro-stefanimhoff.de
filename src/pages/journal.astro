@@ -1,5 +1,7 @@
 ---
 // Cspell:words astro pagefind
+import type { CollectionEntry } from 'astro:content';
+type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts } from '../utils';
@@ -15,7 +17,7 @@ import { Content as Intro } from '../text/journal/intro.mdx';
 
 import { mapping } from '../mdx-components';
 
-const allPosts = await getCollection('journal');
+const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
 const formattedAllPosts = formatPosts(allPosts, {});
 
 const uniqueTags = [...new Set(formattedAllPosts.map((entry) => entry.data.tags).flat())];

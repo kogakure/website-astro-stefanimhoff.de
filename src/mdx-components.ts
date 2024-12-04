@@ -82,8 +82,8 @@ export const mapping = {
 
 // Mapping for RSS feed to reduce the size of the feed
 export const rssMapping = {
-	ProductLink,
 	AmazonBook,
+	AppleTVFlag,
 	Banner,
 	Blockquote,
 	Book,
@@ -101,6 +101,7 @@ export const rssMapping = {
 	NetflixFlag,
 	OdyseeVideo,
 	PrimeVideoFlag,
+	ProductLink,
 	ProjectIntro,
 	Pullquote,
 	Spotify,
