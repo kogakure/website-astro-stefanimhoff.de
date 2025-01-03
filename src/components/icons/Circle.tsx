@@ -1,4 +1,4 @@
-import type { SVGProps } from 'preact/compat';
+import type { SVGProps } from 'react';
 const Circle = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import mdx from '@astrojs/mdx';
-import preact from '@astrojs/preact';
 import prefetch from '@astrojs/prefetch';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import swup from '@swup/astro';
@@ -28,9 +28,7 @@ export default defineConfig({
 			remarkPlugins: [remarkReadingTime, remarkWidont],
 		}),
 		tailwind(),
-		preact({
-			compat: true,
-		}),
+		react(),
 		swup({ globalInstance: true }),
 		prefetch(),
 		pagefind(),

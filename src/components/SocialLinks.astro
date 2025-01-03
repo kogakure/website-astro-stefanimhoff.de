@@ -7,7 +7,7 @@ import Link from '../components/Link.astro';
 <nav class="flex flex-1 sm:justify-center" aria-label="Social Links">
 	<Link
 		aria-label="Mail"
-		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-transform duration-500 ease-in-out hover:scale-125 focus:scale-125"
 		data-umami-event="Mail"
 		href="#protected-email"
 		title="Mail"
@@ -16,33 +16,33 @@ import Link from '../components/Link.astro';
 		data-tld="de"
 		onclick="window.open(`mailto:${this.dataset.name}@${this.dataset.domain}.${this.dataset.tld}`, '_blank')"
 	>
-		<Mail aria-hidden="true" class="icon h-icon-small w-icon-small" />
+		<Mail aria-hidden="true" className="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="𝕏"
-		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-transform duration-500 ease-in-out hover:scale-125 focus:scale-125"
 		data-umami-event="𝕏"
 		href="https://x.com/kogakure"
 		title="𝕏"
 	>
-		<TwitterX aria-hidden="true" class="icon h-icon-small w-icon-small" />
+		<TwitterX aria-hidden="true" className="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="Instagram"
-		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-transform duration-500 ease-in-out hover:scale-125 focus:scale-125"
 		data-umami-event="Instagram"
 		href="https://instagram.com/kogakure"
 		title="Instagram"
 	>
-		<Instagram aria-hidden="true" class="icon h-icon-small w-icon-small" />
+		<Instagram aria-hidden="true" className="icon h-icon-small w-icon-small" />
 	</Link>
 	<Link
 		aria-label="GitHub"
-		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-transform duration-500 ease-in-out hover:scale-125 focus:scale-125"
 		data-umami-event="GitHub"
 		href="https://github.com/kogakure"
 		title="GitHub"
 	>
-		<Github aria-hidden="true" class="icon h-icon-small w-icon-small" />
+		<Github aria-hidden="true" className="icon h-icon-small w-icon-small" />
 	</Link>
 </nav>

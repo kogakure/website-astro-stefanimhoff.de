@@ -31,9 +31,10 @@ const generateIcons = async (iconFiles) => {
 			svg,
 			{
 				plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
-				dimensions: false,
+				dimensions: true,
 				typescript: true,
-				jsxRuntime: 'classic-preact',
+				jsxRuntime: 'automatic',
+				jsxImportSource: 'react',
 			},
 			{ componentName: iconName }
 		);
