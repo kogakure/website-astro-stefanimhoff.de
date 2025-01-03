@@ -1,7 +1,8 @@
 ---
 // Cspell:words astro frontmatter
-import PageTitle from '../components/PageTitle.astro';
+import Pullquote from '../components/Pullquote.astro';
 import Image from '../components/Image.astro';
+import PageTitle from '../components/PageTitle.astro';
 
 import GridLayout from './GridLayout.astro';
 
@@ -30,6 +31,13 @@ const gridVariant = frontmatter.grid || grid;
 		)
 	}
 	<slot name="before-content" />
+	{
+		frontmatter.intro && (
+			<div class="mbe-10" {...animation}>
+				<Pullquote alignment="left" text={frontmatter.intro} />
+			</div>
+		)
+	}
 	<slot />
 	<slot name="after-content" />
 </GridLayout>

@@ -3,6 +3,7 @@
 import TextLink from './TextLink.astro';
 
 interface Props {
+	alignment: 'center' | 'left';
 	author?: string;
 	class?: string;
 	lang?: string;
@@ -11,10 +12,27 @@ interface Props {
 	text: string;
 }
 
-const { author, class: className, lang = 'en', source, sourceUrl, text, ...props } = Astro.props;
+const {
+	alignment = 'center',
+	author,
+	class: className,
+	lang = 'en',
+	source,
+	sourceUrl,
+	text,
+	...props
+} = Astro.props;
 ---
 
-<blockquote lang={lang} class:list={['pullquote p-9 text-center mbe-10', className]} {...props}>
+<blockquote
+	lang={lang}
+	class:list={[
+		'pullquote p-9 mbe-10',
+		{ 'text-center': alignment === 'center', 'text-left': alignment === 'left' },
+		className,
+	]}
+	{...props}
+>
 	<p set:html={text} />
 	{
 		(author || source) && (
