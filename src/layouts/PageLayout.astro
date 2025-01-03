@@ -1,5 +1,8 @@
 ---
 // Cspell:words astro frontmatter
+import { dateToFormat, dateToISO } from '../utils';
+import { animation, animationDelay } from '../data/site';
+
 import Pullquote from '../components/Pullquote.astro';
 import Image from '../components/Image.astro';
 import PageTitle from '../components/PageTitle.astro';
@@ -39,5 +42,15 @@ const gridVariant = frontmatter.grid || grid;
 		)
 	}
 	<slot />
+	{
+		frontmatter.updated && (
+			<footer class="mbs-10" {...animationDelay}>
+				<b>Last Updated:</b>
+				<time datetime={dateToISO(frontmatter.updated)}>
+					{dateToFormat(frontmatter.updated)}
+				</time>
+			</footer>
+		)
+	}
 	<slot name="after-content" />
 </GridLayout>
