@@ -19,32 +19,44 @@ import { Circle } from './icons';
 </theme-toggle>
 
 <script>
-	class ThemeToggle extends HTMLElement {
-		constructor() {
-			super();
-			const button = this.querySelector('button')!;
-			const setTheme = (dark: boolean) => {
-				document.documentElement.classList[dark ? 'add' : 'remove']('dark');
-				button.setAttribute('aria-pressed', String(dark));
-			};
+	function initializeThemeToggle() {
+		// Remove no-js class after transitions
+		document.documentElement.classList.remove('no-js');
 
-			button.addEventListener('click', () => {
-				setTheme(!this.isDark());
-				button.blur();
-			});
+		class ThemeToggle extends HTMLElement {
+			constructor() {
+				super();
+				const button = this.querySelector('button')!;
+				const setTheme = (dark: boolean) => {
+					document.documentElement.classList[dark ? 'add' : 'remove']('dark');
+					button.setAttribute('aria-pressed', String(dark));
+				};
 
-			setTheme(this.isDark());
+				button.addEventListener('click', () => {
+					setTheme(!this.isDark());
+					button.blur();
+				});
+
+				setTheme(this.isDark());
+			}
+
+			isDark() {
+				return document.documentElement.classList.contains('dark');
+			}
 		}
 
-		isDark() {
-			return document.documentElement.classList.contains('dark');
-		}
+		customElements.define('theme-toggle', ThemeToggle);
 	}
 
-	customElements.define('theme-toggle', ThemeToggle);
+	// Run on initial load
+	initializeThemeToggle();
+
+	// Re-run on view transitions
+	document.addEventListener('astro:after-swap', initializeThemeToggle);
 </script>
 
 <style>
+	/* Turn off toggle if JavaScript is disabled */
 	:global(.no-js) theme-toggle {
 		display: none;
 	}

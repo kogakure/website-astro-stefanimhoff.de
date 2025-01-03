@@ -15,6 +15,7 @@ import customTheme from './shiki-theme.json';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
+	viewTransitions: true,
 	markdown: {
 		shikiConfig: {
 			theme: customTheme,

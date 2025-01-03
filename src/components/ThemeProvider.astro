@@ -1,8 +1,9 @@
 ---
+
 ---
 
 <script is:inline>
-	(function () {
+	function initializeTheme() {
 		const getThemePreference = () => {
 			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 				return localStorage.getItem('theme');
@@ -11,7 +12,6 @@
 		};
 
 		const isDark = getThemePreference() === 'dark';
-
 		document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
 
 		if (typeof localStorage !== 'undefined') {
@@ -24,5 +24,11 @@
 				attributeFilter: ['class'],
 			});
 		}
-	})();
+	}
+
+	// Run on initial load
+	initializeTheme();
+
+	// Re-run on view transitions
+	document.addEventListener('astro:after-swap', initializeTheme);
 </script>

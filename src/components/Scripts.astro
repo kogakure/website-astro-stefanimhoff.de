@@ -116,9 +116,16 @@
 		});
 	}
 
-	setActiveLink();
-	setUpLink();
-	setEmailLink();
-	setSearchLink();
-	setSearchModalLink();
+	function initializeScripts() {
+		setActiveLink();
+		setEmailLink();
+		setSearchLink();
+		setSearchModalLink();
+		setUpLink();
+	}
+
+	// Initialize on first load
+	initializeScripts();
+
+	document.addEventListener('astro:after-swap', initializeScripts);
 </script>

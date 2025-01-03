@@ -18,6 +18,12 @@
 		color: #ffffff;
 	}
 
+	/* Page Transitions */
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 300ms;
+	}
+
 	/** Critic Markup */
 	del {
 		@apply decoration-[0.15em];
@@ -170,11 +176,6 @@
 
 	.icon {
 		@apply fill-shibui-950 dark:fill-shibui-200/[0.87];
-	}
-
-	/** Swup */
-	main[tabindex='-1'] {
-		outline: none;
 	}
 }
 
