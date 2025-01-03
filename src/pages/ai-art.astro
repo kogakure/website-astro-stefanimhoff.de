@@ -6,8 +6,6 @@ import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../utils';
 
-import { animation } from '../data/site';
-
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Image from '../components/Image.astro';
@@ -28,7 +26,6 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 
 	<article
 		class="col-start-1 col-end-18 grid md:col-start-4 md:col-end-12 xl:col-start-5 xl:col-end-11"
-		{...animation}
 	>
 		<Intro components={mapping} />
 	</article>
@@ -66,7 +63,6 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 									data.images[0].aspectRatio === 1 && data.coverSize === 'large',
 							},
 						]}
-						{...animation}
 					>
 						<Link title={data.title} href={`/ai-art/${slug}/`}>
 							<Image

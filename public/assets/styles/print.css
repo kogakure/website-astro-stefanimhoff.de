@@ -5,12 +5,6 @@ body {
 	padding-inline-start: 0.5cm;
 }
 
-/* Show all content immediatly */
-[data-sal|='slide-up'] {
-	opacity: 1 !important;
-	transform: none !important;
-}
-
 /* Hide content from printing */
 lite-youtube {
 	display: none !important;

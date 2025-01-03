@@ -4,8 +4,6 @@ import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { animation } from '../data/site';
-
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
 import TagComponent from '../components/Tag.astro';
@@ -27,7 +25,7 @@ const description = 'This is a list of all the tags used in my journal.';
 	title={title}
 >
 	<PageTitle grid="wide" innerGrid>Tags</PageTitle>
-	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3" {...animation}>
+	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
 		{uniqueTags.map((t) => <TagComponent href={`/tag/${t}/`}>{t}</TagComponent>)}
 	</aside>
 </GridLayout>

@@ -7,17 +7,10 @@ intro: In publishing, a colophon is a brief statement containing information abo
 backLink: /
 ---
 
-import { animation, animationDelay } from "../data/site";
 import { mapping } from "../mdx-components.ts";
 export const components = mapping;
 
-<div {...animation}>
-
 The source code of this website is available on [GitHub](https://github.com/kogakure/website-astro-stefanimhoff.de). You are welcome to learn from the source code and reuse code for your projects. Don’t steal it. Learn from it. Remix. Reuse. Build your own things. 🤘
-
-</div>
-
-<div {...animationDelay}>
 
 ## Design
 
@@ -26,10 +19,6 @@ The source code of this website is available on [GitHub](https://github.com/koga
 - I created the Bonsai image on my homepage and other cover photos with [Stable Diffusion](https://stability.ai/), [FLUX](https://blackforestlabs.ai/) [ControlNet](https://github.com/lllyasviel/ControlNet), and [Affinity Photo](https://affinity.serif.com/photo/). My portrait photo was generated in Stable Diffusion with a custom model trainied in [DreamBooth](https://dreambooth.github.io/).
 - The minimalistic icons are by [Remix Icon](https://remixicon.com/), which is [Jimmy Cheung](https://github.com/xiaochunjimmy) and [Wendy Gao](https://github.com/wendygaoyuan).
 
-</div>
-
-<div {...animationDelay}>
-
 ## Technology
 
 - The website is built with [Astro](https://astro.build/), the all-in-one web framework.
@@ -37,7 +26,7 @@ The source code of this website is available on [GitHub](https://github.com/koga
 - The layouts, templates, and components are written in Astro and [Preact](https://preactjs.com/).
 - My content is written in [MDX](https://mdxjs.com/), which allows using components in the [Markdown](https://daringfireball.net/projects/markdown/).
 - I use [Tailwind CSS](https://tailwindcss.com/) for my styling and [tailwindcss-logical](https://stevecochrane.github.io/tailwindcss-logical/) to get logical properties.
-- The scroll animations are created with [Sal](https://mciastek.github.io/sal/) and for page transitions I use [Swup](https://swup.js.org/).
+- The page transitions are created with [Swup](https://swup.js.org/).
 - My site search is build with [Pagefind](https://pagefind.app/) using the [Astro-Pagefind](https://github.com/shishkin/astro-pagefind) integration.
 - I use YouTube Lite, provided by [Astro Embed](https://github.com/astro-community/astro-embed).
 - [Astro SEO](https://github.com/jonasmerlin/astro-seo) makes it easy to add the SEO relevant information.
@@ -47,5 +36,3 @@ The source code of this website is available on [GitHub](https://github.com/koga
 - To parse and format dates I use [Moment.js](https://momentjs.com/).
 - I use [Plop](https://plopjs.com/) to generate content from templates.
 - The website is self-hosted with [Coolify](https://coolify.io/).
-
-</div>

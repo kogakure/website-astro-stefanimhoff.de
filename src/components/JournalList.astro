@@ -7,8 +7,6 @@ interface Props {
 	entries: CollectionEntry<'journal'>[];
 }
 
-import { animation } from '../data/site';
-
 import { pickTwoRandomColors } from '../utils';
 import Link from '../components/Link.astro';
 import Subsubheadline from './Subsubheadline.astro';
@@ -21,7 +19,7 @@ const { entries } = Astro.props;
 >
 	{
 		entries.map(({ slug, data }) => (
-			<li class="journal-card image-shadow group" {...animation}>
+			<li class="journal-card image-shadow group">
 				<Link
 					class="journal-card-link group relative block h-full w-full group-hover:scale-100"
 					href={`/${slug}/`}

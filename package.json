@@ -51,7 +51,6 @@
 		"react-chartjs-2": "^5.2.0",
 		"react-dom": "npm:@preact/compat@latest",
 		"reading-time": "^1.5.0",
-		"sal.js": "^0.8.5",
 		"swup": "^4.6.1",
 		"tailwindcss": "^3.4.3",
 		"unist-util-visit": "^5.0.0"

@@ -1,7 +1,5 @@
 ---
 // Cspell:words astro subheadline imhoff stefanimhoff noindex
-import { animation, animationDelay } from '../data/site';
-
 import Divider from '../components/Divider.astro';
 import DownloadLink from '../components/DownloadLink.astro';
 import EmailLink from '../components/EmailLink.astro';
@@ -38,12 +36,12 @@ const description =
 >
 	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
 
-	<article class="col-span-full md:col-start-1 md:col-end-9" {...animation}>
+	<article class="col-span-full md:col-start-1 md:col-end-9">
 		<Headline>{cv.summary.headline}</Headline>
 		<Intro components={mapping} />
 	</article>
 
-	<article class="col-span-full md:col-start-10 md:col-end-18" {...animationDelay}>
+	<article class="col-span-full md:col-start-10 md:col-end-18">
 		<Headline>Personal Information</Headline>
 		<Subheadline class="font-semibold">{cv.personal.name}</Subheadline>
 		<Text class="!mbe-0">{cv.personal.tagline}</Text>

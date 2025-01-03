@@ -5,7 +5,6 @@ type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts, titleCase } from '../../utils';
-import { animationDelay } from '../../data/site';
 
 import GridLayout from '../../layouts/GridLayout.astro';
 import PageTitle from '../../components/PageTitle.astro';
@@ -58,7 +57,7 @@ const description = `These are all the articles categorized with the tag "${titl
 	<PageTitle slot="title" class="capitalize">
 		{tag}
 	</PageTitle>
-	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3" {...animationDelay}>
+	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
 		{
 			uniqueTags.map((uTag) => (
 				<TagComponent active={uTag === tag} href={`/tag/${uTag}/`}>

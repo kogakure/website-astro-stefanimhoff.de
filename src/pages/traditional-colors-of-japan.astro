@@ -11,7 +11,6 @@ import { Content as Intro } from '../text/traditional-colors-of-japan/intro.mdx'
 import colors from '../data/colors-japan.json';
 
 import { mapping } from '../mdx-components';
-import { animation, animationDelay } from '../data/site';
 
 const title = 'The Traditional Colors of Japan';
 const description =
@@ -21,14 +20,11 @@ const description =
 <GridLayout title={title} description={description} grid="wide" backLink="/" class="grid" innerGrid>
 	<PageTitle grid="wide" innerGrid>The Traditional Colors of&nbsp;Japan</PageTitle>
 
-	<article class="col-start-1 col-end-17 grid md:col-end-8 xl:content-center" {...animation}>
+	<article class="col-start-1 col-end-17 grid md:col-end-8 xl:content-center">
 		<Intro components={mapping} />
 	</article>
 
-	<article
-		class="col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end"
-		{...animationDelay}
-	>
+	<article class="col-start-1 col-end-17 flex grid-cols-2 md:col-start-9 md:justify-end">
 		<AmazonBook
 			alt="The Traditional Colors of Japan"
 			asin="475624100X"
@@ -44,7 +40,7 @@ const description =
 	<ColorStack>
 		{
 			colors.map(({ name, description, color }) => (
-				<div {...animation}>
+				<div>
 					<ColorSwatch color={color} title={name} description={description} />
 				</div>
 			))

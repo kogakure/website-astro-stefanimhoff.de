@@ -1,7 +1,5 @@
 ---
 // Cspell:words astro
-import { animation, animationDelay } from '../data/site';
-
 import Image from './Image.astro';
 import Headline from './Headline.astro';
 
@@ -22,7 +20,6 @@ const imageLength = entry.data.images.length;
 	<div class="p-gap lg:w-2/6">
 		<div
 			class="md:w-[66ch] lg:sticky lg:top-[calc(100vh_/_2_-_(max(30vh,_250px)_/_2))] lg:h-[max(30vh,_250px)] lg:w-full"
-			{...animationDelay}
 		>
 			<Headline as="h1">{entry.data.title}</Headline>
 			<slot />
@@ -52,7 +49,6 @@ const imageLength = entry.data.images.length;
 							'lg:col-start-2': imageLength === 1 || index === 0,
 						},
 					]}
-					{...animation}
 				>
 					<Image alt={entry.data.title} src={src} />
 				</div>

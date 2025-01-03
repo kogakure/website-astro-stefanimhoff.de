@@ -1,9 +1,7 @@
 ---
 // Cspell:words astro swup animationend keydown
-import '../styles/sal.css';
 ---
 
-<script src="/assets/scripts/sal.js" defer></script>
 <script>
 	import Swup from 'swup';
 	import SwupFadeTheme from '@swup/fade-theme';
@@ -12,8 +10,6 @@ import '../styles/sal.css';
 	import SwupPreloadPlugin from '@swup/preload-plugin';
 	import SwupScrollPlugin from '@swup/scroll-plugin';
 	import SwupScriptsPlugin from '@swup/scripts-plugin';
-
-	declare const sal: any;
 
 	const hasWindow =
 		'querySelector' in document && 'localStorage' in window && 'addEventListener' in window;
@@ -38,14 +34,6 @@ import '../styles/sal.css';
 		],
 	});
 
-	if (hasWindow) {
-		if (typeof sal !== 'undefined') {
-			sal({
-				threshold: 0.1,
-			});
-		}
-	}
-
 	// Register scripts after swup page transition
 	swup.hooks.on('page:view', () => {
 		setActiveLink();
@@ -53,14 +41,6 @@ import '../styles/sal.css';
 		setEmailLink();
 		setSearchModalLink();
 		setSearchLink();
-	});
-
-	swup.hooks.on('visit:end', () => {
-		if (typeof sal !== 'undefined') {
-			sal({
-				threshold: 0.1,
-			});
-		}
 	});
 
 	function setActiveLink() {
@@ -182,19 +162,3 @@ import '../styles/sal.css';
 	setSearchLink();
 	setSearchModalLink();
 </script>
-
-<style is:global>
-	.no-js [data-sal|='fade'] {
-		opacity: 1;
-	}
-
-	.no-js [data-sal|='slide'],
-	.no-js [data-sal|='zoom'] {
-		opacity: 1;
-		transform: none;
-	}
-
-	.no-js [data-sal|='flip'] {
-		transform: none;
-	}
-</style>

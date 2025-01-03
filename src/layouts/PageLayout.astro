@@ -1,7 +1,6 @@
 ---
 // Cspell:words astro frontmatter
 import { dateToFormat, dateToISO } from '../utils';
-import { animation, animationDelay } from '../data/site';
 
 import Pullquote from '../components/Pullquote.astro';
 import Image from '../components/Image.astro';
@@ -36,7 +35,7 @@ const gridVariant = frontmatter.grid || grid;
 	<slot name="before-content" />
 	{
 		frontmatter.intro && (
-			<div class="mbe-10" {...animation}>
+			<div class="mbe-10">
 				<Pullquote alignment="left" text={frontmatter.intro} />
 			</div>
 		)
@@ -44,7 +43,7 @@ const gridVariant = frontmatter.grid || grid;
 	<slot />
 	{
 		frontmatter.updated && (
-			<footer class="mbs-10" {...animationDelay}>
+			<footer class="mbs-10">
 				<b>Last Updated:</b>
 				<time datetime={dateToISO(frontmatter.updated)}>
 					{dateToFormat(frontmatter.updated)}
