@@ -1,48 +1,8 @@
 ---
-// Cspell:words astro swup animationend keydown
+// Cspell:words astro animationend keydown
 ---
 
 <script>
-	import Swup from 'swup';
-	import SwupFadeTheme from '@swup/fade-theme';
-	import SwupHeadPlugin from '@swup/head-plugin';
-	import SwupA11yPlugin from '@swup/a11y-plugin';
-	import SwupPreloadPlugin from '@swup/preload-plugin';
-	import SwupScrollPlugin from '@swup/scroll-plugin';
-	import SwupScriptsPlugin from '@swup/scripts-plugin';
-
-	const hasWindow =
-		'querySelector' in document && 'localStorage' in window && 'addEventListener' in window;
-
-	const swup = new Swup({
-		containers: ['#swup'],
-		plugins: [
-			new SwupFadeTheme(),
-			new SwupHeadPlugin(),
-			new SwupA11yPlugin(),
-			new SwupPreloadPlugin(),
-			new SwupScriptsPlugin({
-				head: true,
-				body: true,
-			}),
-			new SwupScrollPlugin({
-				doScrollingRightAway: true,
-				animateScroll: false,
-				scrollFriction: 0.3,
-				scrollAcceleration: 0.04,
-			}),
-		],
-	});
-
-	// Register scripts after swup page transition
-	swup.hooks.on('page:view', () => {
-		setActiveLink();
-		setUpLink();
-		setEmailLink();
-		setSearchModalLink();
-		setSearchLink();
-	});
-
 	function setActiveLink() {
 		const links = document.querySelectorAll('.navigation a');
 		const currentPath = window.location.pathname;

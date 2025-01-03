@@ -3,7 +3,6 @@ import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import swup from '@swup/astro';
 import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -29,7 +28,6 @@ export default defineConfig({
 		}),
 		tailwind(),
 		react(),
-		swup({ globalInstance: true }),
 		prefetch(),
 		pagefind(),
 		sitemap({
