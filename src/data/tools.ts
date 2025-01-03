@@ -11,14 +11,19 @@ export const development = [
 		image: '/assets/images/tools/neovim.webp',
 	},
 	{
+		name: 'Ghostty',
+		url: 'https://ghostty.org/',
+		image: '/assets/images/tools/ghostty.webp',
+	},
+	{
 		name: 'Tmux',
 		url: 'https://tmux.github.io/',
 		image: '/assets/images/tools/tmux.webp',
 	},
 	{
-		name: 'Wezterm',
-		url: 'https://wezfurlong.org/wezterm/',
-		image: '/assets/images/tools/wezterm.webp',
+		name: 'Zed',
+		url: 'https://zed.dev/',
+		image: '/assets/images/tools/zed.webp',
 	},
 	{
 		name: 'Kaleidoscope',
