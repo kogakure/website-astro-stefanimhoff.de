@@ -23,29 +23,32 @@ import { Circle } from './icons';
 		// Remove no-js class after transitions
 		document.documentElement.classList.remove('no-js');
 
-		class ThemeToggle extends HTMLElement {
-			constructor() {
-				super();
-				const button = this.querySelector('button')!;
-				const setTheme = (dark: boolean) => {
-					document.documentElement.classList[dark ? 'add' : 'remove']('dark');
-					button.setAttribute('aria-pressed', String(dark));
-				};
+		// Only define the custom element if it hasn't been defined yet
+		if (!customElements.get('theme-toggle')) {
+			class ThemeToggle extends HTMLElement {
+				constructor() {
+					super();
+					const button = this.querySelector('button')!;
+					const setTheme = (dark: boolean) => {
+						document.documentElement.classList[dark ? 'add' : 'remove']('dark');
+						button.setAttribute('aria-pressed', String(dark));
+					};
 
-				button.addEventListener('click', () => {
-					setTheme(!this.isDark());
-					button.blur();
-				});
+					button.addEventListener('click', () => {
+						setTheme(!this.isDark());
+						button.blur();
+					});
 
-				setTheme(this.isDark());
+					setTheme(this.isDark());
+				}
+
+				isDark() {
+					return document.documentElement.classList.contains('dark');
+				}
 			}
 
-			isDark() {
-				return document.documentElement.classList.contains('dark');
-			}
+			customElements.define('theme-toggle', ThemeToggle);
 		}
-
-		customElements.define('theme-toggle', ThemeToggle);
 	}
 
 	// Run on initial load

@@ -155,7 +155,7 @@ const webManifest = isProduction && {
 			document.documentElement.classList.remove('no-js');
 			document.documentElement.classList.add('js');
 		</script>
-
+		<ViewTransitions />
 		<ThemeProvider />
 		{
 			isProduction && (
@@ -166,7 +166,6 @@ const webManifest = isProduction && {
 				/>
 			)
 		}
-		<ViewTransitions />
 		<Scripts />
 	</head>
 	<body
