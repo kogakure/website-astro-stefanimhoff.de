@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
 title: About
+updated: 2022-01-06
 description: I’m Stefan Imhoff, a Web UI Engineer from Hamburg, Germany.
 backLink: /
 ---
@@ -16,20 +17,40 @@ As a passionate enthusiast of storytelling, I am convinced that humans understan
 
 In my spare time, I enjoy exploring nature through activities such as [walking and cycling](https://hamburg.stefanimhoff.de/), and doing [Calisthenics](/calisthenics/). I have a keen appreciation for the beauty of everyday life and find joy in the small things. Whether it’s the peacefulness of a forest, the vastness of the sea, or the grandeur of a mountain, I am constantly inspired by nature’s magnificence. I enjoy both the power of thunderstorms and the warmth of sunny days.
 
-These are the [rules](/life-rules/) I live by.
+I see myself as a 🔲 [Minimalist](/tag/minimalism/), 🏛️ [Stoic](/interpretation-if/), 🎧 Introvert, 🐍 Libertarian, and ⛩️ [Japanophile](/tag/japan/).
 
-See what I’m doing [now](/now/).
+🧭 These are the [rules, beliefs, and principles](/life-rules/) I live by.
+
+🛠️ These are the [tools](/tools/) I use.
+
+⏳ See what I’m doing [now](/now/).
 
 ---
 
-I see myself as a 🔲 [Minimalist](/minimalism/), 🏛️ [Stoic](/interpretation-if/), 🎧 Introvert, 🐍 Libertarian, and ⛩️ Japanophile.
+## About the Site
 
-🔲 Minimalism allows me to simplify my life and focus on what truly matters. By owning only what I need and cherish, I am able to reduce clutter, increase my sense of contentment, and live with intention.
+The source code of this website is available on [GitHub](https://github.com/kogakure/website-astro-stefanimhoff.de). You are welcome to learn from the source code and reuse code for your projects. Don’t steal it. Learn from it. Remix. Reuse. Build your own things. 🤘
 
-🏛️ Stoicism offers me a practical philosophy of life that emphasizes rationality, self-control, and virtue. By focusing on what is within my control and accepting what is not, I can develop a sense of inner peace, resilience, and purpose, even in the face of adversity.
+### Design
 
-🎧 As an introvert, I have a special relationship with silence. I’ll pretend to be out when someone knocks at my door unannounced (居留守), put on <q>Do Not Disturb</q> the whole day, and don’t answer calls from unknown numbers. With noise-canceling headphones as my trusty companion, I don’t need constant stimulation to be happy. And when it comes to socializing, I prefer quality to quantity.
+- I designed the website myself in [Affinity Designer](https://affinity.serif.com/designer/), using the Japanese art form of _shibui_ (<nobr>渋い</nobr>) as a source of inspiration. To learn more about the process, please read the essays about the [inspiration](/new-website-2020-inspiration/) and [design](/new-website-2020-design/)
+- The design uses the variable typeface [Secuela](https://fontlibrary.org/en/font/secuela-variable) by [deFharo](https://github.com/defharo). I use a font scale that is based on the golden ratio, and the font scales automatically to the viewport size
+- I created the Bonsai image on my homepage and other cover photos with [Stable Diffusion](https://stability.ai/), [FLUX](https://blackforestlabs.ai/) [ControlNet](https://github.com/lllyasviel/ControlNet), and [Affinity Photo](https://affinity.serif.com/photo/). My portrait photo was generated in Stable Diffusion with a custom model trainied in [DreamBooth](https://dreambooth.github.io/)
+- The minimalistic icons are by [Remix Icon](https://remixicon.com/), which is [Jimmy Cheung](https://github.com/xiaochunjimmy) and [Wendy Gao](https://github.com/wendygaoyuan)
 
-🐍 Libertarianism is my political philosophy. I believe in the freedom of the individual, the sanctity of private property, and the power of the free market. I am convinced that the best way to improve society is to empower individuals to make their own choices and take responsibility for their actions. I despise authoritarianism, collectivism, and the abuse of power. <q>[Don’t tread on me!](https://en.wikipedia.org/wiki/Gadsden_flag)</q> 👊
+### Technology
 
-⛩️ I have a deep appreciation for Japanese culture and aesthetics. From the simplicity and elegance of Japanese design to the philosophies of Wabi Sabi, Shibui, or Ikigai, I find myself constantly inspired. I am fascinated by the history of Japan, from the Samurai code of Bushidō to the ancient Shintō religion. I enjoy exploring traditional Japanese arts such as calligraphy and Sumi-e painting, and admire the natural beauty of Japanese gardens and architecture. Not only that, but I’m learning the Japanese language for a while, but I’m not fluent yet. Through my love for Japan, I seek greater meaning in life and cultivate a sense of harmony with the world around me.
+- The website is built with [Astro](https://astro.build/), the all-in-one web framework
+- I write the code in [Neovim](https://neovim.io/), using [GitHub Copilot](https://github.com/features/copilot), and [Raycast AI](https://www.raycast.com/pro).
+- The layouts, templates, and components are written in Astro and [React](https://react.dev/)
+- My content is written in [MDX](https://mdxjs.com/), which allows using components in the [Markdown](https://daringfireball.net/projects/markdown/)
+- I use [Tailwind CSS](https://tailwindcss.com/) for my styling and [tailwindcss-logical](https://stevecochrane.github.io/tailwindcss-logical/) to get logical properties.
+- My site search is build with [Pagefind](https://pagefind.app/) using the [Astro-Pagefind](https://github.com/shishkin/astro-pagefind) integration
+- I use YouTube Lite, provided by [Astro Embed](https://github.com/astro-community/astro-embed)
+- [Astro SEO](https://github.com/jonasmerlin/astro-seo) makes it easy to add the SEO relevant information
+- I use [Astro Webmanifest](https://github.com/alextim/astro-lib/tree/main/packages/astro-webmanifest) and [Astro Service Worker](https://github.com/tatethurston/astrojs-service-worker) to optimize the website
+- To generate charts, I use [Chart.js](https://www.chartjs.org/), [react-chartjs-2](https://react-chartjs-2.js.org/), and [chartjs-plugin-autocolors](https://github.com/kurkle/chartjs-plugin-autocolors)
+- I use [reading-time](https://github.com/ngryman/reading-time) to add the reading time to Remark.
+- To parse and format dates I use [Moment.js](https://momentjs.com/)
+- I use [Plop](https://plopjs.com/) to generate content from templates
+- The website is self-hosted with [Coolify](https://coolify.io/)

@@ -1,5 +1,6 @@
 ---
 // Cspell:words astro frontmatter imhoff webp
+import { dateToFormat, dateToISO } from '../utils';
 import { site } from '../data/site';
 
 import GridLayout from './GridLayout.astro';
@@ -39,5 +40,15 @@ const schema = JSON.stringify({
 		<Image alt="Stefan Imhoff" src="/assets/images/portrait-stefan-imhoff-2025.webp" />
 	</div>
 	<slot />
+	{
+		frontmatter.updated && (
+			<footer class="mbs-10">
+				<b>Last Updated:</b>
+				<time datetime={dateToISO(frontmatter.updated)}>
+					{dateToFormat(frontmatter.updated)}
+				</time>
+			</footer>
+		)
+	}
 	<script type="application/ld+json" set:html={schema} />
 </GridLayout>
