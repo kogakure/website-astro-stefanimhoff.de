@@ -18,6 +18,8 @@ export const journal = defineCollection({
 				'design',
 				'download',
 				'film',
+				'japan',
+				'minimalism',
 				'philosophy',
 				'poetry',
 				'politics',

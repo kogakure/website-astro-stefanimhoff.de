@@ -14,25 +14,39 @@ If you want to learn more about the Zettelkasten method, I recommend the essay [
 
 As I wrote in my last essay [Zettelkasten Note-Taking Method With DEVONthink](/zettelkasten-note-taking-devonthink/) I started my Zettelkasten in DEVONthink. But since then, I integrated more tools into my workflow. This essay describes which tools I use for my notes and why.
 
-## DEVONthink or Obsidian? Both!
+## DEVONthink or Obsidian? Both
 
 After using DEVONthink for a while, a few of its disadvantages for the Zettelkasten method became obvious: The linking of notes was time-consuming manual work, it is missing backlink and graph features, and the WikiLink auto-complete does _only_ work if I know the note ID. But as I use DEVONthink not only for note-taking but for archiving documents, or inspirational material, I found myself in a dilemma. I gave [Obsidian](https://obsidian.md/) another try and was impressed. It had tremendously improved after I first tested it. I felt frustrated to not be able to have the features of both tools in one tool. And as there is never _one_ tool that fulfills all wishes, why not combine tools?
 
 I use 7 different tools: 😅
 
-1. [DEVONthink](https://devontechnologies.com/apps/devonthink) – Holding all my reference material, synchronizing notes across devices, and easy filtering by tags.
-2. [DEVONthink to Go](https://apps.apple.com/app/devonthink-to-go/id395722470) – Adding notes on mobile devices like my phone or tablet.
-3. [Obsidian](https://obsidian.md/) – Creating, writing, linking, and analyzing notes.
-4. [Raycast](https://www.raycast.com/) – Creating snippets (ID, or templates).
-5. [iA Writer](https://ia.net/writer) – Writing essays or longer notes.
-6. [GitHub](https://github.com/) – Version-controlled history of all my note changes.
-7. [BibDesk](https://bibdesk.sourceforge.io/) – Manage my bibliography.
+1. [Obsidian](https://obsidian.md/) – Creating, writing, linking, and analyzing notes
+2. [iA Writer](https://ia.net/writer) – Writing essays or longer notes
+3. [DEVONthink](https://devontechnologies.com/apps/devonthink) – Holding all my reference material, synchronizing notes across devices, and easy filtering by tags
+4. [DEVONthink to Go](https://apps.apple.com/app/devonthink-to-go/id395722470) – Adding notes on mobile devices like my phone or tablet
+5. [BibDesk](https://bibdesk.sourceforge.io/) – Manage my bibliography
+6. [Raycast](https://www.raycast.com/) – Creating snippets (ID, or templates)
+7. [GitHub](https://github.com/) – Version-controlled history of all my note changes
 
 The following sections describe my workflow and how I integrate the various tools into my note-taking process.
 
 ---
 
 ## Tools
+
+### Obsidian
+
+[Obsidian](https://obsidian.md/) is incredible, doesn’t matter whether you use the Zettelkasten note-taking method or any other method. It’s built for _offline first_. Even though it’s in Beta, it outstrips its competitors. It has 18 official plugins (as of writing) and will add community plugins with version 1.0.
+
+One of the best features is Backlinks. Users of [Roam Research](https://roamresearch.com/) are familiar with this feature. If you link a note via the WikiLink syntax, e.g., `[[note]]`, the connected note will show this connection in a special backlink drawer. The creation of backlinks has fuzzy auto-complete, which is incredibly helpful. Linking another note is a matter of seconds.
+
+Obsidian has a Quick Switcher that allows jumping between notes in seconds and supports a fuzzy search for files.
+
+The Graph View is a cool feature! It displays all notes as dots (depending on the zoom level with or without the note name) and all connections between notes are visualized as lines. This allows us to see how good (or bad) the notes are connected. You can drag notes around and all connected notes will follow.
+
+### iA Writer
+
+I like writing long texts with iA Writer, because of its minimalistic interface, focus mode, and nice features to write better texts. I found an easy way of editing any Markdown note on-demand from DEVONthink or Obsidian in [iA Writer](https://ia.net/writer) and saving the changes back. Both tools allow setting shortcuts to open a file with its default application, which is for me iA Writer for Markdown files.
 
 ### DEVONthink
 
@@ -45,16 +59,6 @@ One thing I changed to my previous DEVONthink-_only_ workflow is that I use an *
 ### DEVONthink to Go
 
 I use [DEVONthink to Go](https://apps.apple.com/app/devonthink-to-go/id395722470s) to quickly create new notes, and add photos, or other media to my databases. These files get automatically synced with all connected devices and are added to my Macs the next time I open DEVONthink. Additionally, I use the mobile version to search and read the content of my database when I’m not on my computer.
-
-### Obsidian
-
-[Obsidian](https://obsidian.md/) is incredible, doesn’t matter whether you use the Zettelkasten note-taking method or any other method. It’s built for _offline first_. Even though it’s in Beta, it outstrips its competitors. It has 18 official plugins (as of writing) and will add community plugins with version 1.0.
-
-One of the best features is Backlinks. Users of [Roam Research](https://roamresearch.com/) are familiar with this feature. If you link a note via the WikiLink syntax, e.g., `[[note]]`, the connected note will show this connection in a special backlink drawer. The creation of backlinks has fuzzy auto-complete, which is incredibly helpful. Linking another note is a matter of seconds.
-
-Obsidian has a Quick Switcher that allows jumping between notes in seconds and supports a fuzzy search for files.
-
-The Graph View is a cool feature! It displays all notes as dots (depending on the zoom level with or without the note name) and all connections between notes are visualized as lines. This allows us to see how good (or bad) the notes are connected. You can drag notes around and all connected notes will follow.
 
 <Figure caption="Obsidian Graph View of my 3,500 notes" size="wide">
   <Image
@@ -77,23 +81,19 @@ If you write daily notes, there is support for that. A note can be automatically
 
 The Random Note feature is helpful to open a random note. I use it to connect every day one or two notes to other notes.
 
-### Raycast
-
-I use [Raycast](https://www.raycast.com/) for more than snippets, but this would be another blog post. In my note-taking process, I use Raycast to create unique note IDs (e.g., `202008311912` and fill in different note templates).
-
-### iA Writer
-
-I like writing long texts with iA Writer, because of its minimalistic interface, focus mode, and nice features to write better texts. I found an easy way of editing any Markdown note on-demand from DEVONthink or Obsidian in [iA Writer](https://ia.net/writer) and saving the changes back. Both tools allow setting shortcuts to open a file with its default application, which is for me iA Writer for Markdown files.
-
-### GitHub
-
-Putting my notes in a folder on the hard disk has the advantage of additionally adding version control with Git. I created a private repository in [GitHub](https://github.com/) and added the Zettelkasten notes folder. I commit once per day to all changes to my notes. I don’t need to push/pull on other devices, as the files are synced via DEVONthink. But it’s a pleasant addition to seeing how the notes changed over time.
-
 ### BibDesk
 
 I use [BibDesk](https://bibdesk.sourceforge.io/) to manage my citations, as described in the essay [Manage Citations for a Zettelkasten](https://zettelkasten.de/posts/bibliography-zettelkasten/). For every book, webpage, or video I want to reference, I create a new entry. It’s a quick process, but immensely helpful later to find the source again.
 
 I updated the citation template mentioned in the essay to my wishes (to support URLs).
+
+### Raycast
+
+I use [Raycast](https://www.raycast.com/) for more than snippets, but this would be another blog post. In my note-taking process, I use Raycast to create unique note IDs (e.g., `202008311912` and fill in different note templates).
+
+### GitHub
+
+Putting my notes in a folder on the hard disk has the advantage of additionally adding version control with Git. I created a private repository in [GitHub](https://github.com/) and added the Zettelkasten notes folder. I commit once per day to all changes to my notes. I don’t need to push/pull on other devices, as the files are synced via DEVONthink. But it’s a pleasant addition to seeing how the notes changed over time.
 
 ## Note Creating Workflow
 
