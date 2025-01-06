@@ -27,16 +27,12 @@
 	],
 	"misc": [
 		{
-			"title": "Colophon",
-			"url": "/colophon/"
+			"title": "Life Rules",
+			"url": "/life-rules/"
 		},
 		{
 			"title": "Tools",
 			"url": "/tools/"
-		},
-		{
-			"title": "Life Rules",
-			"url": "/life-rules/"
 		},
 		{
 			"title": "Now",
