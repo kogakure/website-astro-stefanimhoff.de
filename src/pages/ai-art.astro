@@ -41,6 +41,7 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 			{
 				allAiArt.map(({ slug, data }) => (
 					<li
+						style={{ aspectRatio: data.images[0].aspectRatio }}
 						class:list={[
 							{
 								'md:col-span-3 md:row-span-2':
@@ -51,13 +52,13 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 									data.images[0].aspectRatio === 1 && data.coverSize === 'small',
 								'md:col-span-4 md:row-span-3':
 									data.images[0].aspectRatio > 1 && data.coverSize === 'medium',
-								'md:col-span-3 md:row-span-4':
+								'md:col-span-3 md:row-span-5':
 									data.images[0].aspectRatio < 1 && data.coverSize === 'medium',
 								'md:col-span-4 md:row-span-4':
 									data.images[0].aspectRatio === 1 && data.coverSize === 'medium',
 								'md:col-span-6 md:row-span-5':
 									data.images[0].aspectRatio > 1 && data.coverSize === 'large',
-								'md:col-span-5 md:row-span-6':
+								'md:col-span-5 md:row-span-8':
 									data.images[0].aspectRatio < 1 && data.coverSize === 'large',
 								'md:col-span-6 md:row-span-6':
 									data.images[0].aspectRatio === 1 && data.coverSize === 'large',
