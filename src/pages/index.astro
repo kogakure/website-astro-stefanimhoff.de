@@ -50,7 +50,12 @@ rssPosts.sort(sortMarkdownByDate);
 	<div
 		class="col-start-1 col-end-19 md:col-start-1 md:col-end-11 xl:col-end-11 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
 	>
-		<Image alt="Bonsai" loading="eager" src="/assets/images/cover/bonsai.webp" />
+		<Image
+			alt="Bonsai"
+			loading="eager"
+			role="presentation"
+			src="/assets/images/cover/bonsai.webp"
+		/>
 	</div>
 
 	<article
@@ -82,6 +87,7 @@ rssPosts.sort(sortMarkdownByDate);
 	<article
 		class="min-[1794px]:[&_li:block col-start-2 col-end-18 grid w-full grid-cols-18 gap-y-gap mbe-12 min-[1097px]:[&_li:nth-child(n+5)]:hidden min-[1410px]:[&_li:nth-child(n+5)]:block min-[1411px]:[&_li:nth-child(n+6)]:hidden min-[1793px]:[&_li:nth-child(n+6)]:block"
 		data-pagefind-ignore
+		aria-label="Latest essays"
 	>
 		<JournalList entries={formattedLatest} />
 	</article>

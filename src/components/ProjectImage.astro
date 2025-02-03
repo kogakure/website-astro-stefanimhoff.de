@@ -19,6 +19,7 @@ const { project } = Astro.props;
 		) : (
 			<Image
 				alt={project.data.title}
+				aria-label={project.data.title}
 				class="[&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
 				noMargin
 				src={project.data.image.src}

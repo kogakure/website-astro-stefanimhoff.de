@@ -34,7 +34,7 @@ const description = 'I am writing essays about various topics in this Journal.';
 	>
 		<Intro components={mapping} />
 	</article>
-	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
+	<aside aria-label="Filter by tags" class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
 		{uniqueTags.map((tag) => <Tag href={`/tag/${tag}/`}>{tag}</Tag>)}
 	</aside>
 	<nav class="col-start-1 col-end-18" aria-label="Journal">

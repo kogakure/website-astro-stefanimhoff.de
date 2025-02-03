@@ -14,6 +14,7 @@ const { project } = Astro.props;
 ---
 
 <small
+	aria-label="Categories"
 	class="project-categories dark:text-white/0.2 text-black/0.8 block text-3 leading-4 small-caps md:p-0"
 >
 	{project.data.categories.join(' / ')}
