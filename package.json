@@ -81,5 +81,15 @@
 		"tailwindcss-opentype": "^1.1.0",
 		"typescript": "^5.4.5",
 		"vite": "^5.2.11"
+	},
+	"pnpm": {
+		"supportedArchitectures": {
+			"libc": [
+				"musl"
+			]
+		},
+		"overrides": {
+			"sharp": "0.33.4"
+		}
 	}
 }
