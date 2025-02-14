@@ -13,6 +13,7 @@ export const journal = defineCollection({
 		cover: z.string().optional(),
 		tags: z.array(
 			z.enum([
+				'ai',
 				'book',
 				'code',
 				'design',
