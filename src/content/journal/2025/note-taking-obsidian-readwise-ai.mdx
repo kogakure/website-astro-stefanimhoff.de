@@ -1,0 +1,470 @@
+---
+title: Working with Obsidian, Readwise, and AI to Create Notes
+slug: note-taking-obsidian-readwise-ai
+date: 2025-02-16
+author: Stefan Imhoff
+description: Enhance your note-taking with the Zettelkasten method using Obsidian. Drawing from my experience since its 2020 launch, I'll reveal how Obsidian transforms personal knowledge management through strategic file organization and productivity-boosting plugins.
+cover: /assets/images/cover/note-taking-obsidian-readwise-ai.webp
+tags: ["writing", "ai"]
+---
+
+I have been using the Zettelkasten note-taking method for a few years, and [Obsidian](https://obsidian.md/) since its initial release in March 2020. I’ve written [multiple articles about note-taking](/tag/writing/), including how I process information in various media using Obsidian and how I work with references. However, I have never written a complete essay on how I use Obsidian. My last essay on note-taking was three years ago, and a lot has changed since then. I thought it might be a good time to write a new one. I’ll include other tools besides Obsidian that I use to process information and to create notes.
+
+## Statistics
+
+I currently have 5,220 notes and 241 assets (images, videos, PDFs), and I use the paid Obsidian Sync service. You can synchronize for free with cloud providers like iCloud, but the encrypted sync is reliable and fast and allows me to support the developers.
+
+## Layout
+
+Obsidian allows you to configure the window layout to your liking; you can drag and drop panes and tools and set everything up how you prefer. It is possible to save and restore specific layouts with a core plugin.
+
+I use stacked tabs (known as sliding panes). This allows me to have multiple notes open side by side and move them left and right with my mouse.
+
+<Figure caption="The Obsidian Layout" size="wide">
+  <Image src="/assets/images/posts/obsidian-layout.webp" alt="Obsidian Layout" />
+</Figure>
+
+My left pane has files, search, and bookmarks in the upper section, with bookmarks open 90% of the time. Below this section, I use a calendar. This is new; I started with loose journaling in January 2025. I briefly note down important things—who I talked to, what we discussed, or what important things I learned or did that day. At the end of the left column, I have the Git community plugin pane to see and work with changed files.
+
+The right pane starts with the local graph (1 level deep), followed by a pane with the outline that shows all the headlines as a list. The next pane is outgoing links, and the backlinks are next to it. Backlinks are visible at the end of each note, I don’t need that pane regularly. The last pane in this column is the tag’s pane.
+
+I have had this layout for many years, nearly unchanged. I use numerous keyboard shortcuts to navigate around, jump to the search, or toggle the side panes.
+
+## File and Folder Structure
+
+I use folders sparingly because they limit how you can work with files. I use them to separate files that are of different categories.
+
+```
+├── assets
+├── canvas
+├── clippings
+├── data
+├── drawings
+├── journals
+├── pages
+├── references
+└── templates
+```
+
+The `assets` folder contains all images, videos, and PDF files. The `canvas` folder is for my canvas. I use these a lot when I work on essays to structure my thoughts and notes. The `clippings` folder is quite new, and I use it with the [Obsidian Web Clipper](https://obsidian.md/clipper), which allows me to clip a complete website as a Markdown document. The `drawings` folder is reserved for Excalidraw documents. The `journals` folder holds my journal entries in subfolders by year, e.g., `2025`, and with a note name of the day, e.g., `2025-01-31.md`. My notes are all in the `pages` folder. The `references` folder holds only one document, my `literature.bib` file for [BibDesk](https://bibdesk.sourceforge.io/). It is my tool of choice to create unique database entries for sources. The last folder is for `templates`. I currently have six different templates, but more about that later.
+
+## Plugins
+
+Obsidian has numerous built-in plugins that can be enabled on demand. However, the community provides over 2,000 additional plugins for every use case you can think of. It doesn’t make sense to list all the plugins I use, but the ones I use the most and find the most useful.
+
+### Core Plugins
+
+#### Backlinks
+
+The backlinks plugin shows all notes that link to the current note. This is a powerful feature to see how notes are connected and to find related notes. It is one of the core features of the Zettelkasten method. The note-taker should, during the process of writing a note, link to other notes that are related to the current note. This creates a network of notes that are connected and can be explored in different ways. The plugin can be configured to show the backlinks at the end of each note.
+
+#### Bookmarks
+
+The bookmarks are my most used pane in Obsidian. I rarely use anything besides the search or bookmarks. There is no need for me to use the file explorer because I can use the quick switcher or autocomplete inside a Wiki link. I group my bookmarks into categories like `Important`, `Todo`, `Literature Notes`, and a few others.
+
+#### Canvas
+
+Canvas is a newer plugin that allows users to create a canvas to structure thoughts and notes. It is a great tool for creating a mind map or a concept map. I use it to structure my essays and to create a visual representation of my thoughts.
+
+#### Daily Notes
+
+I started using this plugin on January 1st, 2025, and want to see if I can maintain the habit of journaling. I don’t write much, a few bullet points about things that happened that day. I started linking people’s names to be able to find all the days I spoke to them. I mention important things that happened that day.
+
+#### Graph View
+
+The Graph view is one of the coolest features to show to other people when introducing Obsidian. Many people think it does not have much use, but I like it. The graph shows how well my notes are connected to each other, an important part of the Zettelkasten method. I configured, in addition to the default colors for notes, non-existing notes, files, and tags, all notes with a special tag: `MOC` (maps of content). These are notes that hold nothing but links for a specific topic. I give all my journal notes a different color. The graph allows me to find connected notes and gain a graphical understanding of how things are connected.
+
+Additionally, you can search for specific words and see how notes are connected. There is a cool feature that shows the history of your notes, how they were created and changed over time.
+
+<Figure caption="The Obsidian Graph View" size="wide">
+  <Image src="/assets/images/posts/obsidian-graph-view-2025.webp" alt="Obsidian Graph View" />
+</Figure>
+
+I’m proud that my notes are well-connected. And yes, my Graph View looks like the Death Star, that’s a coincidence. When others share their graph view, it is often a mess of notes that are not connected or massive separated clusters connected with only a few connections. Connecting notes is one of my main tasks to create a useful Zettelkasten. When I’m finished with my notes, I always link important words in my notes and additionally search for notes that might relate to my note.
+
+#### Random Note
+
+I love the Random Notes plugin. Every day, I use it to open 5 random notes to read the content, improve the structure, or connect them to other notes.
+
+#### Templates
+
+I use the templates a lot to create predefined notes that have a specific format or type. I’ll show my templates later in this essay.
+
+#### Unique Note Creator
+
+Of the core plugins, I use this plugin every day multiple times. The unique note creator creates a note with a specific format and template. For me, this is the Zettelkasten format: `YYYYMMDDHHmm`. This allows me to create a new note without the need to think about the title. Later, after I finish my note, I rename it to a more meaningful title. I replaced all shortcuts and ways to create a new file to create a unique new file.
+
+### Community Plugins
+
+#### Advanced Tables
+
+It stinks to create tables in Markdown. The advanced tables plugin allows users to create tables with a graphical user interface. It is a great tool for creating tables quickly and without effort.
+
+#### AI Image Analyzer
+
+This fantastic plugin uses [Ollama](https://ollama.com/) and a `llava-llama` LLM model to analyze images. It can describe the content of an image, detect objects, and even generate alt text for images. It is a great tool for analyzing images and gaining a deeper understanding of the content. It works together with the Omnisearch plugin and allows users to search all images for text.
+
+#### Better Word Count
+
+Better Word Count adds a feature I love from [iA Writer](https://ia.net/writer): the option to show the word count, character count, and reading time in the status bar. It is a small feature, but I like it a lot.
+
+#### Calendar
+
+The calendar plugin is what you would expect—a simple calendar. It shows the week number and small dots for each day with a journal entry. You can create a journal entry by clicking on a day.
+
+#### Callout Manager
+
+I love Obsidian’s callout feature. Callouts are small boxes with a colored background and a small icon. The callout manager plugin allows you to create and manage callouts. I use them to summarize notes, highlight important information, or create a visual separation in a note.
+
+#### Data View
+
+The Dataview plugin is a powerful tool for querying and manipulating data in Obsidian. It allows users to create tables, lists, and other views of data. I use it to create lists of books, movies, links, people, or notes that are missing specific information, such as a date field.
+
+#### Editor Syntax Highlight
+
+This plugin is important for developers or anyone who writes notes with code examples. Using GitHub-flavored Markdown with code fences and the name of the programming or markup language, the plugin highlights the code in the note with color.
+
+#### Git
+
+I use the Git plugin every day multiple times and configured it to auto-commit every 30 minutes if new changes are present. Even though I use Obsidian Sync, I like to have a backup of my notes in a private Git repository. It has helped me a few times when I messed up something in my note vault.
+
+#### GitHub Copilot
+
+I have been using [GitHub Copilot](https://github.com/features/copilot) since it was first released as an Alpha version, paid for it myself, and currently, my employer pays for it. It is not only a valuable tool for generating code, but can help with generating text. I use the Obsidian GitHub Copilot plugin to create text for my notes and to accelerate my writing process.
+
+#### HTML Tags Autocomplete
+
+This plugin is a simple but helpful tool to autocomplete HTML tags. It is a small feature, but it saves time and makes writing HTML in Markdown easier. As a frontend developer, I use it a lot.
+
+#### LanguageTool Integration
+
+I’m a paying customer of [LanguageTool](https://languagetool.org/) and use it in Obsidian to check my notes for spelling and grammar mistakes. It is a great tool for improving the quality of my notes.
+
+#### Link Embed
+
+The link embed plugin is a great tool to embed links in a note. It shows a preview of the linked website, a small description, and the title. I use it a lot in my notes that are based on articles, podcasts, or videos to have a quick reminder of what the content was about.
+
+#### Note Refactor
+
+The Note Refactor plugin is my most used and loved plugin. It allows me to work on a big note and refactor it into smaller notes. I have a shortcut that I use multiple times every day to extract the currently highlighted text into a new note. It automatically creates a file name from the first line of the extracted text and links the new note to the original note. In the original file, it creates a list item with the Wiki link to the new note, and the new note links back to the old note.
+
+#### Omnisearch
+
+The Omnisearch plugin is a recent addition to my plugins. It allows searching with local AI models in all notes, images, and PDFs. It is great for a deep search in all my notes.
+
+#### Paste URL into Selection
+
+This plugin is a small but helpful tool for pasting a URL into the current selection. It is a minor feature, but it saves time and makes the process of adding links to notes easier.
+
+#### Prettier Format
+
+[Prettier](https://prettier.io/) is a code formatter frontend developers use for nearly all their projects. It automatically formats various file types. I copy notes from other tools, for example, [Raycast Notes](https://www.raycast.com/core-features/notes) into Obsidian, and the indentation might be different, which can mess up my notes. I use the Obsidian plugin to automatically format Markdown files in the same way.
+
+#### Reading Time
+
+The reading time plugin is a small but helpful tool to show the reading time of a note. It is a minor feature, but I like it a lot.
+
+#### Simple Embeds
+
+The Simple Embeds plugin is another embed plugin, but it provides several embeds, for example, YouTube videos, <span aria-label="Twitter/X">𝕏</span> posts, Instagram posts, Reddit posts, and many more. It recognizes the pasted URL and automatically shows a preview of the content.
+
+#### Templater
+
+The Templater plugin is a powerful tool for creating templates for notes, but I use it in the most basic way. For example, I use it to automatically create links for the previous and next day in my journal notes. However, it has a powerful templating engine that allows for the creation of complex templates.
+
+#### Update Time on Edit
+
+I added this plugin recently to my setup, and it helps me cut down a lot of manual work for my notes. I use a `created` and `updated` field in my notes and had to update these manually until I found this plugin. It automatically sets the `created` field upon creating a new note and updates the `updated` field when I edit a note.
+
+## Templates
+
+I use different templates for various types of notes. I currently have 6 different templates:
+
+- **Note:** A regular note
+- **Daily Note:** A note for my daily journal
+- **Literature Note:** A note to summarize a book, article, podcast, or video
+- **Person:** A note for a person
+- **Book:** A note for a book
+- **Movie:** A note for a movie
+
+### Note
+
+My templates are similar, but each type has different specific fields. All my notes are in German, translated into examples for convenience. This is, for example, my basic note template:
+
+```md
+---
+type: Note
+created:
+updated:
+aliases:
+tags:
+  - BOAT
+urls:
+related:
+reference:
+---
+```
+
+The `created` and `updated` fields exist in every note and are filled and updated automatically with the Update Time on Edit plugin.
+
+The `aliases` field is a special type of field in Obsidian that allows linking to a note with a different name. It is one of the most useful features because it allows adding pluralization, alternative names, nicknames, acronyms, and more to a note while linking to the same filename. This ensures your notes don’t get messed up in case you rename the main note. I always use aliases, even if I use the same name for the Wiki link and the filename.
+
+I use `tags` less now than when I started, and only for broad categories. The `BOAT` tag is a special tag I use for notes that have no incoming or outgoing links. The idea is taken from the [LYT Kit](https://start.linkingyourthinking.com/ideaverse-for-obsidian) and stands for “Block of Atomic Thought.” In general, you should avoid notes that have no links, but occasionally, you need to think about how to link them, or it is not possible to link them. Another tag I use is `MOC` for notes that are maps of content, notes that hold links to other notes, like a topic collection. I color these in a different color in the graph view. I use the `🔐` tag for notes that are private and should never be shared, and the `⭐` tag for notes that are important to me.
+
+The `urls`, `related`, and `reference` fields are all lists. I use `urls` for external links and `related` for notes that are related to the current note. All internal items are Wiki links. The `reference` field is used to add BibDesk references for a note (if they exist).
+
+### Daily Note
+
+````md
+---
+type: Daily Note
+created:
+updated:
+aliases:
+tags:
+  - Diary
+urls:
+related:
+---
+
+# <% moment(tp.file.title,'YYYY-MM-DD').locale('de').format("dddd, D. MMMM YYYY") %>
+
+← [[journals/<% tp.date.now("YYYY", -1) %>/<% tp.date.now("YYYY-MM-DD", -1) %>|Yesterday]] | [[journals/<% tp.date.now("YYYY", 1) %>/<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow]] →
+
+---
+
+- …
+
+---
+
+### Created today
+
+```dataview
+List FROM "" WHERE file.cday = date("<%tp.date.now('YYYY-MM-DD')%>") SORT file.ctime asc
+```
+
+### Changed today
+
+```dataview
+List FROM "" WHERE file.mday = date("<%tp.date.now('YYYY-MM-DD')%>") SORT file.mtime asc
+```
+````
+
+I use template syntax for the daily note to create navigation and the Data View plugin to list all notes that were created or changed that day.
+
+### Literature Note
+
+```md
+---
+type: Literature Note
+created:
+updated:
+aliases:
+reference:
+tags:
+urls:
+authors:
+related:
+---
+
+## Summary
+
+## Notes
+```
+
+The literature note is a special type of note. After I finish a book, article, or podcast of special importance, I take my time to write notes on each highlight I created in [Readwise](https://readwise.io/). I use many AI tools to help me with this process. More on that later in this essay. My general way of working is to copy all the highlights from Readwise into the `Notes` section and analyze and summarize them. Then I use the Note Refactor plugin to extract the notes into separate notes, leaving bullet points in the `Notes` section. In the last step, I use AI to create a summary of all the bullet points. The `reference` field links to the original source, and the `authors` field lists all authors of the source.
+
+### Person
+
+```md
+---
+type: Person
+created:
+updated:
+aliases:
+tags:
+  - BOAT
+  - Man
+  - Woman
+  - USA
+urls:
+birthday:
+death:
+location:
+quotes:
+books:
+articles:
+podcasts:
+videos:
+related:
+---
+```
+
+The person note is used for people. I use `tags` to categorize the sex, country, and other categorizations. The `birthday` and `death` fields are date fields, and the location is for geo-coordinates. There is a Map View plugin that can show all notes with a location on a map. The `quotes`, `books`, `articles`, `podcasts`, and `videos` fields are lists for references to the person.
+
+I start with famous people by using a Wikipedia intro, which I rewrite and shorten with AI, to have a brief introduction to the person. Subsequently, I write my thoughts and notes about the person.
+
+### Book
+
+```md
+---
+type: Book
+created:
+updated:
+aliases:
+reference:
+tags:
+  - BOAT
+urls:
+published:
+authors:
+genres:
+rating:
+pages:
+---
+```
+
+The `published` field is a date-time field for the publication date. The `authors` field is a list of authors. The `genres` field is a list of genres. The `rating` field is a numeric field for my rating of the book. The `pages` field is a numeric field for the number of pages. I use the `alias` field for the full title, which sometimes includes a `:` that is not allowed in the filename or for alternative translations of the title.
+
+### Movie
+
+```md
+---
+type: Movie
+created:
+updated:
+aliases:
+reference:
+tags:
+  - BOAT
+urls:
+directors:
+actors:
+genres:
+rating:
+IMDb rating:
+---
+```
+
+The `directors`, `actors`, and `genres` are all lists. The `rating` field is a numeric field for my rating of the movie. The `IMDb rating` field is a numeric field for the IMDb rating of the movie.
+
+---
+
+## How I Work with Notes
+
+My Obsidian vault of notes has become, in the last year, an extremely valuable tool because it is my one source of truth. All my notes will finally land here. I might use Raycast Notes for quick notes or drafts I’m working on, but when it’s a note that I want to preserve, I move it to Obsidian.
+
+There are multiple ways for a note to make it to my vault. It might be something original that I have, but many of my notes start as the thoughts of somebody else. I read many books, articles, listen to podcasts, watch videos, and read <span aria-label="Twitter/X">𝕏</span> posts. I use several tools to process this information and create notes. I’m not a Zettelkasten purist. I think even if you were to write out every thought by hand yourself, it is impossible to keep all the ideas in your head. The only important thing is that you understand the note you have written.
+
+### Using Readwise to Create Literature Notes
+
+One of my most used tools as a base for notes is [Readwise](https://readwise.io/). Over the years, it has become one of my valuable tools. Readwise works as a hub to import notes from a huge number of input sources and allows exporting them into a wide variety of export formats, including Obsidian notes. You can use, for example, your Kindle to highlight passages that are then automatically exported to Readwise. You can use the Readwise browser extension to highlight directly on any website, or save any website into [Readwise Reader](https://readwise.io/read) to read and highlight it later. Readwise supports RSS feeds, can receive <span aria-label="Twitter/X">𝕏</span> tweets and threads, audio transcripts from podcast services, and you can even watch YouTube videos while highlighting sections in the AI-improved transcript.
+
+I use additionally other tools like [Aiko](https://apps.apple.com/app/aiko/id1672085276) or [Whisper CCP](https://github.com/ggerganov/whisper.cpp) to transcribe audio or video into text.
+
+I export my highlights from Readwise to Obsidian once a week, but I keep them in a separate vault and copy over the notes that I want to work on in detail in my literature notes.
+
+Readwise recently added the feature to [talk to your highlights and notes with AI](https://docs.readwise.io/readwise/guides/chat-with-highlights), allowing you to ask questions, get context for a highlight, and much more. This has made it an additional tool for me to create notes in Obsidian while talking to my highlights. The AI will provide structured answers to your questions and links to the highlights in your vault. I have dipped my toes into this feature, but I see giant potential in it. This feature has changed how I highlight from now on, because I know that anything I highlight will be part of the permanent AI brain in Readwise and can be accessed later by talking to the AI.
+
+<Figure caption="Readwise Chat">
+  <Image src="/assets/images/posts/readwise-chat.webp" alt="Readwise Chat" />
+</Figure>
+
+In the future, I’ll likely use this feature every day to get answers for my notes. The good thing is that, in contrast to regular AI, which uses a web search to find the first few articles for a question and uses those as context, in Readwise I know that all the highlights I marked before as important and worth remembering make the answer much more valuable. But with all content, you get out what you feed it. If you read and highlight shallow articles or view things only from one side, your AI answers will be shallow and biased.
+
+### Using AI for Research
+
+There are many people who think AI is bad for writing because it might replace the writer. However, AI is a great tool to accelerate the writing process and improve the understanding of the notes. I don’t see an issue with using AI to help me cut down on the time this work takes. I always read, check, and understand the output of AI and correct it when it produces incorrect output.
+
+I use all kinds of AI to summarize articles for me and to extract the gist of an idea. There is, for example, the built-in AI in my browser [Brave](https://brave.com/), Leo AI, which uses either Claude 3 Haiku by Anthropic, Llama 3.1 8B, or Mixtral. You can also add local AI with [Ollama](https://ollama.com/) and provide your prompts. Another useful browser extension is [Perplexity](https://www.perplexity.ai/).
+
+<Figure caption="Brave Leo AI" size="wide">
+  <Image src="/assets/images/posts/brave-leo-ai.webp" alt="Brave Leo AI" />
+</Figure>
+
+But my main tool are the AI models in [Raycast Pro](https://raycast.com/pro?via=kogakure). I have subscribed to the biggest plan and use it every day. The advantage of Raycast is that you can use all the AI models for one fixed price of either €8 or €16 (for the bigger models) instead of subscribing to a dozen models. However, each model has its advantages and disadvantages, one model will likely not fulfill all your needs. Presently, Raycast supports the following providers with all their models: OpenAI, Anthropic, Perplexity, Meta, Mistral, DeepSeek, Google, and xAI. There are many models to choose from: fast models, big models, models with knowledge about current events, models specialized in code, models that answer unbiasedly, or models that can reason. I wrote a whole article about [Raycast](/raycast/).
+
+<Figure caption="Raycast AI: Summarize Website">
+  <Image src="/assets/images/posts/raycast-ai-summarize.webp" alt="Raycast AI: Summarize Website" />
+</Figure>
+
+Raycast provides a [browser extension](https://www.raycast.com/browser-extension) that allows access to any website and to ask questions about the content or code. AI models allow others to add files, PDFs, URLs, or images. Some can generate images.
+
+### Using AI to Create Literature Notes in Obsidian
+
+To illustrate how I work with AI on literature notes, I’ll provide an example of a book I read recently and how I created notes for it. I recently finished the book [Starship Troopers](https://www.goodreads.com/book/show/17214.Starship_Troopers) by Robert A. Heinlein. I was inspired by a documentary about the book to dive deeper into the politics and ideas of the book—which are _not_ Fascist—as the director of the movie [never read the book and misunderstood it](https://www.youtube.com/watch?v=kVpYvV0O7uI).
+
+One of the quotes I highlighted on my Kindle, which was transferred to Readwise and exported to Obsidian, was this quote:
+
+> As it is, with some of you, I pity the poverty of your wealth. You! I’ve just awarded you the prize for the hundred-meter dash. Does it make you happy?“
+>
+> „Uh, I suppose it would.“
+> „No dodging, please. You have the prize—here, I’ll write it out:
+>
+> ‚Grand prize for the championship, one hundred-meter sprint.’ „He had actually come back to my seat and pinned it on my chest. „There! Are you happy? You value it—or don’t you?“
+>
+> I was sore. First that dirty crack about rich kids—a typical sneer of those who haven’t got it – and now this farce. I ripped it off and chucked it at him.
+>
+> Mr. Dubois had looked surprised. „It doesn’t make you happy?“ „You know darn well I placed fourth!“
+>
+> „Exactly! The prize for first place is worthless to you … because you haven’t earned it. But you enjoy a modest satisfaction in placing fourth; you earned it. I trust that some of the somnambulists here understood this little morality play.
+
+This is a scene from school where the protagonist listens to his school teacher. In this scene, Heinlein uses the teacher, Mr. Dubois, to explain his philosophy in the same way Ayn Rand used “Atlas Shrugged” to explain her philosophy, Objectivism.
+
+I highlight the quote and use my most important Raycast AI command, `TL;DR`, to summarize it.
+
+<Figure caption="Raycast AI: TL;DR">
+  <Image src="/assets/images/posts/raycast-ai-tldr.webp" alt="Raycast AI: TL;DR" />
+</Figure>
+
+My AI Command uses this prompt:
+
+```
+Extract all facts from the text and summarize all relevant aspects in up to 7 bullet points and a 1-liner summary. Pick a good matching emoji for every bullet point. Don’t use the same emoji twice.
+
+Use:
+- Active voice
+- Direct statements
+- No phrases like "the text discusses" or "the article explains"
+- Present tense
+- Focus on the core message and actions
+- Emoji at the beginning of the bullet point
+
+Example transformation for the summary:
+Instead of:
+The text criticizes the discrepancy between political ideologies and highlights challenges...
+
+Write as:
+Political ideologies clash fundamentally, creating tension between individual freedom and state control.
+
+Text: {selection}
+```
+
+The AI will analyze the text and provide a summary like this:
+
+```md
+- 🏆 The protagonist receives an award for the 100-meter dash.
+- 😕 The protagonist expresses uncertainty about his joy at receiving the award.
+- 🎭 The conversation reveals tension between the protagonist and Mr. Dubois, highlighting feelings of bitterness.
+- 🥇 Mr. Dubois emphasizes that the value of an award depends on the effort one puts into earning it.
+- 📉 The protagonist finishes in fourth place, which he considers more meaningful than receiving a first place award.
+- 🤔 The situation serves as a morality play about the importance of personal achievement over undeserved accolades.
+
+Summary: A conversation about a sprint award provides an example for the conflict between the value of earned success and unearned awards.
+```
+
+The AI helped me summarize the gist of the quote. So when I come back to this note later, I can easily scan the bullet list with emojis and refresh my memory. However, I still need to do some manual work, which is to extract the gist of the quote into a note title that I want to remember:
+
+```
+A prize acquired without merit is worthless.
+```
+
+This is the title of my note. I start with an Obsidian callout with the summary, followed by my notes and the bullet list summary. I keep the quote as a reference at the end of the note.
+
+The next part is the most important part. I need to place the note in context and find similar notes. In this case, I would search for words like `merit`, `success`, or `value`.
+
+I link matching notes either without a comment in the header or with a comment in the note, depending on the importance of the connection.
+
+## Conclusion
+
+As you have seen, there is nothing magical about my note-taking process. I use various tools to process information and create notes. I use AI to accelerate the process and improve the quality of my notes. I use Obsidian as my main tool to store and work with my notes. I have several plugins that help me create and manage my notes. I have a collection of templates for different types of notes. I use the Graph View to see how well my notes are connected. I use the Bookmarks pane to quickly access my used notes. Additionally, I connect my notes and use titles that summarize an idea. If you follow a process like this, your second brain will become a valuable tool for storing and processing information. Most importantly, it will help you see connections between ideas and create new ones.
