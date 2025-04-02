@@ -1,0 +1,14 @@
+---
+export interface Props {
+	base: string;
+	text: string;
+	class?: string;
+	[key: string]: any;
+}
+
+const { base, text, class: className, ...props } = Astro.props;
+---
+
+<ruby class:list={className} {...props}
+	>{base}<rp>（</rp><rt class="relative -block-start-[0.3em]">{text}</rt><rp>）</rp>
+</ruby>

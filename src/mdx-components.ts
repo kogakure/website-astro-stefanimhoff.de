@@ -27,6 +27,7 @@ import PrimeVideoFlag from './components/PrimeVideoFlag.astro';
 import ProductLink from './components/ProductLink.astro';
 import ProjectIntro from './components/ProjectIntro.astro';
 import Pullquote from './components/Pullquote.astro';
+import Ruby from './components/Ruby.astro';
 import Spotify from './components/Spotify.astro';
 import Subheadline from './components/Subheadline.astro';
 import Subsubheadline from './components/Subsubheadline.astro';
@@ -73,6 +74,7 @@ export const mapping = {
 	PrimeVideoFlag,
 	ProjectIntro,
 	Pullquote,
+	Ruby,
 	Spotify,
 	ThemeBox,
 	ul: UnorderedList,
@@ -104,6 +106,7 @@ export const rssMapping = {
 	ProductLink,
 	ProjectIntro,
 	Pullquote,
+	Ruby,
 	Spotify,
 	ThemeBox,
 	Verse,
