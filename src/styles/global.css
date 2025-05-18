@@ -256,4 +256,8 @@
 			@apply !bg-none;
 		}
 	}
+
+	figure > .figure-content > lite-youtube {
+		@apply mbe-0;
+	}
 }

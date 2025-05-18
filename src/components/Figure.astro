@@ -11,13 +11,13 @@ const { class: className, caption, size = 'regular', ...props } = Astro.props;
 
 <figure
 	class:list={[
-		'rounded-4 bg-white/50 p-8 mbe-13 mbs-0 mie-0 mis-0 dark:bg-black/80',
-		{ 'figure-wide': size === 'wide', 'figure-fullsize': size === 'fullsize' },
+		'rounded-4 bg-white/50 p-8 mbs-0 mie-0 mis-0 dark:bg-black/80',
+		{ 'figure-wide': size === 'wide', 'figure-fullsize': size === 'fullsize', 'mbe-13': true },
 		className,
 	]}
 	{...props}
 >
-	<div class="flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow">
+	<div class="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow">
 		<slot />
 	</div>
 	{
