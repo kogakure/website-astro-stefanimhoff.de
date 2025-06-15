@@ -1,0 +1,63 @@
+media:
+  - name: assets
+    label: Assets
+    input: public/assets
+    output: /assets
+    path: public/assets
+  - name: downloads
+    label: Downloads
+    input: public/downloads
+    output: /downloads
+    path: public/downloads
+content:
+  - name: journal
+    label: Journal
+    type: collection
+    path: src/content/journal
+    filename: "{year}/{slug}.mdx"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date, updated]
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: draft, label: Draft, type: boolean, required: false, default: false }
+      - { name: featured, label: Featured, type: boolean, required: false }
+      - { name: slug, label: Slug, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: updated, label: Updated, type: date, required: false }
+      - { name: author, label: Author, type: string, default: "Stefan Imhoff" }
+      - { name: description, label: Description, type: text, options: { maxLength: 160 } }
+      - { name: cover, label: Cover, type: string }
+      - {
+          name: tags,
+          label: Tags,
+          type: select,
+          options:
+            {
+              multiple: true,
+              values:
+                [
+                  "ai",
+                  "book",
+                  "code",
+                  "design",
+                  "download",
+                  "film",
+                  "japan",
+                  "minimalism",
+                  "philosophy",
+                  "poetry",
+                  "politics",
+                  "productivity",
+                  "recommendation",
+                  "self-improvement",
+                  "software",
+                  "technology",
+                  "writing",
+                ],
+            },
+        }
+      - { name: series, label: Series, type: string, required: false }
+      - { name: noindex, label: No Index, type: boolean, required: false }
+      - { name: nofollow, label: No Follow, type: boolean, required: false }
+      - { name: body, label: Body, type: rich-text }
