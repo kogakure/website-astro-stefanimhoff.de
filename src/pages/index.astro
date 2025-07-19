@@ -34,7 +34,7 @@ const allPosts = await getCollection('journal', ({ data }: JournalType) => !data
 const formattedLatest = formatPosts(allPosts, { limit: 6 });
 
 const title = 'Stefan Imhoff';
-const description = 'Web UI Engineer from Hamburg, Germany';
+const description = 'Web Developer from Hamburg, Germany';
 
 const rssPosts = await Astro.glob('../content/journal/**/*.mdx');
 rssPosts.sort(sortMarkdownByDate);
