@@ -268,4 +268,22 @@
 	figure > .figure-content > lite-youtube {
 		@apply mbe-0;
 	}
+
+	@keyframes slide-fade-in {
+		from {
+			opacity: 0;
+			box-shadow: none;
+			transform: scale(0.8) translateY(15vh);
+		}
+	}
+
+	.slide {
+		@media (prefers-reduced-motion: no-preference) {
+			@supports (animation-timeline: view()) {
+				animation: slide-fade-in both;
+				animation-timeline: view();
+				animation-range: contain -40% contain 50%;
+			}
+		}
+	}
 }
