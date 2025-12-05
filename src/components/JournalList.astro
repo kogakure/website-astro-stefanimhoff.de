@@ -18,7 +18,7 @@ const { entries } = Astro.props;
 >
 	{
 		entries.map(({ slug, data }) => (
-			<li class="journal-card image-shadow group">
+			<li class="slide journal-card image-shadow group">
 				<Link
 					class="journal-card-link group relative block h-full w-full group-hover:scale-100"
 					href={`/${slug}/`}
