@@ -21,6 +21,7 @@ export const journal = defineCollection({
 				'film',
 				'japan',
 				'minimalism',
+				'personal',
 				'philosophy',
 				'poetry',
 				'politics',
