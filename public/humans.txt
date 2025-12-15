@@ -11,4 +11,4 @@ Location:    Hamburg, Germany
 /* SITE */
 Language:    English
 Components:  Astro, Preact, Tailwind CSS, PostCSS, TypeScript
-Software:    Neovim, Affinity Designer, Git
+Software:    Neovim, Affinity, Git
