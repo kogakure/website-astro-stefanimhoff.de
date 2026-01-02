@@ -14,14 +14,16 @@
 				"url": "https://www.xing.com",
 				"title": "Senior Software Engineer",
 				"location": "Hamburg, Germany",
-				"duration": "03/2020-05/2026",
+				"duration": "03/2020-",
 				"tasks": [
-					"Programming of central components for the XING Platform with React and CSS.",
-					"Development, maintenance and documentation of the XING Design System.",
-					"Support for the product teams with the integration of new interfaces from components of the Design System.",
-					"Conception of new components in collaboration with designers and developers.",
-					"Evaluation of coding challenges and interviews for hiring new Frontend Developers.",
-					"Administration of a Slack workspace with over 800 participants."
+					"Development of central design system components for the XING platform using React, TypeScript and styled components.",
+					"Support of the XING Design System throughout its entire lifecycle: further development, maintenance and documentation.",
+					"Supporting cross-functional product teams in integrating design system components into new applications.",
+					"Increased UI consistency and reduced implementation effort through standardized, versioned components.",
+					"Responsibility for the accessible (A11Y) design of the design system according to WCAG2.2AA, including the definition of guidelines, semantic/ARIA standards, and the introduction of automated and manual A11Y tests.",
+					"Conception and implementation of a dark/light color scheme for the XING platform, taking into account contrast requirements and state consistency.",
+					"Development and implementation of a monitoring system for the use of the design system as well as browser extensions for the identification and analysis of components in the browser.",
+					"Analysis and evaluation of coding challenges as well as conducting job interviews to recruit new frontend developers."
 				]
 			},
 			{
@@ -117,7 +119,7 @@
 					"ESlint",
 					"React",
 					"Preact",
-					"Atro",
+					"Astro",
 					"Eleventy",
 					"Redux",
 					"Apollo",
@@ -139,10 +141,8 @@
 					"Affinity",
 					"Figma",
 					"Sketch",
-					"Abstract",
 					"Adobe Photoshop",
-					"Adobe Illustrator",
-					"Stable Diffusion"
+					"Adobe Illustrator"
 				]
 			},
 			{
@@ -159,7 +159,42 @@
 			},
 			{
 				"headline": "Dev Ops",
-				"tags": ["Jenkins", "Travis CI", "Docker", "Apache", "NGINX", "SSH", "FTP"]
+				"tags": [
+					"Jenkins",
+					"GitHub Actions",
+					"Travis CI",
+					"Docker",
+					"Apache",
+					"NGINX",
+					"SSH",
+					"FTP"
+				]
+			},
+			{
+				"headline": "AI Assistants & Prompt Engineering",
+				"tags": ["Claude", "GPT", "Gemini", "Grok", "Perplexity Sonar"]
+			},
+			{
+				"headline": "AI for Code & Pair Programming",
+				"tags": ["GitHub Copilot", "Claude Code", "OpenCode"]
+			},
+			{
+				"headline": "Generative AI",
+				"tags": [
+					"GPT Image",
+					"Nano Banana Pro",
+					"FLUX",
+					"Stable Diffusion",
+					"Phoenix",
+					"Lucid",
+					"Sora",
+					"Veo",
+					"Kling"
+				]
+			},
+			{
+				"headline": "Miscellaneous AI Tools",
+				"tags": ["Ollama", "Whisper", "MCP"]
 			},
 			{
 				"headline": "Collaboration",
@@ -167,7 +202,7 @@
 					"Git",
 					"GitHub",
 					"Slack",
-					"Microsoft MS Teams",
+					"Microsoft Teams",
 					"Confluence",
 					"Jira",
 					"Notion"
@@ -195,6 +230,7 @@
 					"Bash",
 					"Neovim",
 					"Vim",
+					"Zed",
 					"Visual Studio Code",
 					"tmux",
 					"Mac OS",
@@ -215,21 +251,19 @@
 				"level": "fluently spoken and written"
 			},
 			{
-				"language": "Japanese",
-				"level": "advanced-beginner"
+				"language": "Spanish",
+				"level": "early CEFR B1"
 			},
 			{
-				"language": "Spanish",
-				"level": "advanced-beginner"
+				"language": "Japanese",
+				"level": "early CEFR B1, JLPT N3"
 			}
 		]
 	},
 	"awards": {
 		"headline": "Awards",
 		"items": [
-			"2rd price winner of the Hackweek at XING in 2025.",
-			"3rd price winner of the Hackweek at XING in 2024.",
-			"2nd price winner of the AI Hackweek at XING in 2023.",
+			"Three time winner of Hackweeks at XING (2023, 2024, 2025)",
 			"Three times winner of the yearly company-wide innovation award of XING Prototyping Days (2013, 2015, 2017).",
 			"SEMY Award \u2013 German Search Marketing Award 2015."
 		]
