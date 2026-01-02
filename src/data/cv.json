@@ -139,10 +139,8 @@
 					"Affinity",
 					"Figma",
 					"Sketch",
-					"Abstract",
 					"Adobe Photoshop",
-					"Adobe Illustrator",
-					"Stable Diffusion"
+					"Adobe Illustrator"
 				]
 			},
 			{
@@ -159,7 +157,42 @@
 			},
 			{
 				"headline": "Dev Ops",
-				"tags": ["Jenkins", "Travis CI", "Docker", "Apache", "NGINX", "SSH", "FTP"]
+				"tags": [
+					"Jenkins",
+					"GitHub Actions",
+					"Travis CI",
+					"Docker",
+					"Apache",
+					"NGINX",
+					"SSH",
+					"FTP"
+				]
+			},
+			{
+				"headline": "AI Assistants & Prompt Engineering",
+				"tags": ["Claude", "GPT", "Gemini", "Grok", "Perplexity Sonar"]
+			},
+			{
+				"headline": "AI for Code & Pair Programming",
+				"tags": ["GitHub Copilot", "Claude Code", "OpenCode"]
+			},
+			{
+				"headline": "Generative AI",
+				"tags": [
+					"GPT Image",
+					"Nano Banana Pro",
+					"FLUX",
+					"Stable Diffusion",
+					"Phoenix",
+					"Lucid",
+					"Sora",
+					"Veo",
+					"Kling"
+				]
+			},
+			{
+				"headline": "Miscellaneous AI Tools",
+				"tags": ["Ollama", "Whisper", "MCP"]
 			},
 			{
 				"headline": "Collaboration",
@@ -215,21 +248,19 @@
 				"level": "fluently spoken and written"
 			},
 			{
-				"language": "Japanese",
-				"level": "advanced-beginner"
+				"language": "Spanish",
+				"level": "early CEFR B1"
 			},
 			{
-				"language": "Spanish",
-				"level": "advanced-beginner"
+				"language": "Japanese",
+				"level": "early CEFR B1, JLPT N3"
 			}
 		]
 	},
 	"awards": {
 		"headline": "Awards",
 		"items": [
-			"2rd price winner of the Hackweek at XING in 2025.",
-			"3rd price winner of the Hackweek at XING in 2024.",
-			"2nd price winner of the AI Hackweek at XING in 2023.",
+			"Three time winner of Hackweeks at XING (2023, 2024, 2025)",
 			"Three times winner of the yearly company-wide innovation award of XING Prototyping Days (2013, 2015, 2017).",
 			"SEMY Award \u2013 German Search Marketing Award 2015."
 		]
