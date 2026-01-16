@@ -52,7 +52,6 @@
 		"@types/react": "^18.3.2",
 		"@types/unist": "^3.0.2",
 		"@typescript-eslint/parser": "^8.0.0",
-		"cspell": "^8.8.3",
 		"cssnano": "^7.0.1",
 		"eslint": "^9.3.0",
 		"eslint-config-prettier": "^9.1.0",

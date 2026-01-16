@@ -1,4 +1,3 @@
-// Cspell:words astro odysee pullquote subheadline subsubheadline
 import { YouTube } from '@astro-community/astro-embed-youtube';
 
 import AmazonBook from './components/AmazonBook.astro';

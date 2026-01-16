@@ -1,4 +1,3 @@
-// Cspell:words deepmerge autocolors chartjs
 import deepmerge from 'deepmerge';
 
 import {

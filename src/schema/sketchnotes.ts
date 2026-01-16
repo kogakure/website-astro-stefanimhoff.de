@@ -1,4 +1,3 @@
-// Cspell:words astro sketchnotes
 import { defineCollection, z } from 'astro:content';
 
 export const sketchnotes = defineCollection({

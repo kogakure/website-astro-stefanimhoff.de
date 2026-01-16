@@ -1,4 +1,3 @@
-// Cspell:words sketchnotes
 export * from './ai-art';
 export * from './haiku';
 export * from './journal';

@@ -1,4 +1,3 @@
-// Cspell:words astro astrojs sketchnotes
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
