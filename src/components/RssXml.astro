@@ -30,6 +30,17 @@ const rssFooterXml = `	</channel>
 			<guid>${`${site.url}/${post.frontmatter.slug}/`}</guid>
 			<description><![CDATA[${post.frontmatter.description}]]></description>
 			<pubDate>${dateToISO(post.frontmatter.date)}</pubDate>
+			<enclosure url="${
+				site.url +
+				(post.frontmatter.cover
+					? post.frontmatter.cover.startsWith('/assets/images/cover/') &&
+						post.frontmatter.cover.endsWith('.webp')
+						? post.frontmatter.cover
+								.replace('/assets/images/cover/', '/assets/images/branding/og/')
+								.replace(/\.webp$/, '.jpg')
+						: post.frontmatter.cover
+					: '/assets/images/branding/og/bonsai.jpg')
+			}" length="0" type="image/jpeg" />
 			<content:encoded><![CDATA[`}
 				/>
 				<post.Content components={rssMapping} />

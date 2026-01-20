@@ -39,6 +39,9 @@ fs.readdir(inputFolder, async (err, files) => {
 				0x00000000
 			);
 
+			// Reduce the quality of the combined image to 70%
+			combinedImage.quality(70);
+
 			// Paste the input image onto the new image
 			combinedImage.composite(inputImage, 0, 0);
 
