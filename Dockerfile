@@ -1,13 +1,16 @@
 # Stage 1: Build the application
 FROM --platform=linux/amd64 node:lts AS builder
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@9
 
 WORKDIR /app
 
 COPY package*.json pnpm-*.yaml ./
 
 RUN pnpm install
+
+# Force install sharp with Linux x64 binaries
+RUN pnpm remove sharp && pnpm add sharp
 
 COPY . .
 
