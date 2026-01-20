@@ -7,20 +7,18 @@ import Headline from '../components/Headline.astro';
 import ListItem from '../components/ListItem.astro';
 import PageTitle from '../components/PageTitle.astro';
 import Subheadline from '../components/Subheadline.astro';
+import Subsubheadline from '../components/Subsubheadline.astro';
 import Text from '../components/Text.astro';
 import TextLink from '../components/TextLink.astro';
 import UnorderedList from '../components/UnorderedList.astro';
-
-import cv from '../data/cv.json';
 
 import { Content as Intro } from '../text/cv/intro.mdx';
 import { Content as InterestsHobbies } from '../text/cv/interests-hobbies.mdx';
 
 import { mapping } from '../mdx-components';
 
-const title = 'CV';
-const description =
-	'The curriculum vitae of Stefan Imhoff, Senior Software Engineer from Hamburg, Germany.';
+const title = 'Resume';
+const description = 'The resume of Stefan Imhoff, Senior Software Engineer from Hamburg, Germany.';
 ---
 
 <GridLayout
@@ -33,113 +31,326 @@ const description =
 	noindex={true}
 	title={title}
 >
-	<PageTitle grid="wide" innerGrid>Curriculum Vitae</PageTitle>
+	<PageTitle grid="wide" innerGrid>Resume</PageTitle>
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline>{cv.summary.headline}</Headline>
+		<Headline>Professional Summary</Headline>
 		<Intro components={mapping} />
 	</article>
 
 	<article class="col-span-full md:col-start-10 md:col-end-18">
 		<Headline>Personal Information</Headline>
-		<Subheadline class="font-semibold">{cv.personal.name}</Subheadline>
-		<Text class="!mbe-0">{cv.personal.tagline}</Text>
-		<TextLink href="https://www.stefanimhoff.de">Website</TextLink> •
-		<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} /> •
-		<!-- <DownloadLink href="/downloads/cv-stefan-imhoff.zip" text="CV" /> • -->
-		<DownloadLink href="/downloads/business-card-stefan-imhoff.zip" text="VCard" />
+		<Subheadline class="font-semibold">Stefan Imhoff</Subheadline>
+		<Text class="!mbe-0">Senior Software Engineer / Design System Authority</Text>
+		<ul class="flex list-none flex-wrap items-center gap-2 p-0">
+			<li><TextLink href="https://www.stefanimhoff.de">Website</TextLink></li>
+			<li aria-hidden="true">•</li>
+			<li>
+				<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} />
+			</li>
+			<li aria-hidden="true">•</li>
+			<li><DownloadLink href="/downloads/resume-stefan-imhoff.zip" text="Resume" /></li>
+			<li aria-hidden="true">•</li>
+			<li><DownloadLink href="/downloads/business-card-stefan-imhoff.zip" text="VCard" /></li>
+		</ul>
 	</article>
 
 	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline>{cv.experience.headline}</Headline>
-		{
-			cv.experience.items.map((item) => (
-				<div>
-					<div class="mbe-10">
-						<Subheadline class="font-semibold">{item.title}</Subheadline>
-						<div class="italic mbe-2 no-common-ligatures">{item.duration}</div>
-						<div class="leading-none">
-							<strong>{item.company}</strong> / {item.location}
-						</div>
-						{item.url && (
-							<div>
-								<TextLink href={item.url}>
-									{item.url.replace(/https?:\/\//, '')}
-								</TextLink>
-							</div>
-						)}
-					</div>
-					{item.tasks.length > 0 && (
-						<UnorderedList>
-							{item.tasks.map((task) => (
-								<ListItem>{task}</ListItem>
-							))}
-						</UnorderedList>
-					)}
-				</div>
-			))
-		}
+		<Headline>Professional Experience</Headline>
 
-		<Headline>{cv.education.headline}</Headline>
-		{
-			cv.education.items.map((item) => (
-				<div class="mbe-12">
-					<Subheadline class="font-semibold">{item.degree}</Subheadline>
-					<div class="italic mbe-2 no-common-ligatures">{item.duration}</div>
+		<div>
+			<div class="mbe-10">
+				<Subheadline class="font-semibold">Senior Software Engineer</Subheadline>
+				<div class="flex items-center justify-between mbe-2">
 					<div class="leading-none">
-						<strong>{item.school}</strong> / {item.location}
+						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
 					</div>
-					{item.url && (
-						<div>
-							<TextLink href={item.url}>
-								{item.url.replace(/https?:\/\//, '')}
-							</TextLink>
-						</div>
-					)}
+					<div class="italic no-common-ligatures">Remote / Mar. 2020 – Present</div>
 				</div>
-			))
-		}
+			</div>
+			<Text>
+				<em>
+					Lead Engineer for the XING Design System (XDS), recognized by management as the
+					<q>Authority for Design System components on Web.</q>
+				</em>
+			</Text>
+			<UnorderedList>
+				<ListItem>
+					<strong>Delivered €572,400 in estimated annual savings</strong> (Savings Factor 3.32)
+					by establishing a centralized component creation workflow, achieving <q
+						>Top Performer</q
+					>
+					ratings (2021, 2022) for high-impact efficiency gains.
+				</ListItem>
+				<ListItem>
+					<strong>Dominated code contributions as the #3 ranked contributor</strong> - in the
+					Crate core monorepo (<strong>272,000+ LOC</strong> across <strong
+						>3,500+ files</strong
+					>), serving as the <strong>sole Web Engineer</strong> during critical 2023 reorganizations
+					while maintaining 100% delivery output.
+				</ListItem>
+				<ListItem>
+					<strong>Accelerated XING Design System adoption by 278%</strong> (cumulative growth
+					by Q3 2025), successfully deprecating legacy systems and reducing technical debt through
+					aggressive migration strategies acknowledged as <q>technically demanding</q> successes.
+				</ListItem>
+				<ListItem>
+					<strong>Spearheaded WCAG 2.2 AA compliance</strong> for the EU Accessibility Act,
+					conducting comprehensive audits on 50+ core components and implementing semantic standards,
+					focus management, and high-contrast support.
+				</ListItem>
+				<ListItem>
+					<strong>Recognized as a <q>Role Model for AI Tooling</q></strong> by leadership, integrating
+					generative AI into daily workflows for debugging and documentation, and winning <strong
+						>2nd Place in the 2023 AI Hackweek</strong
+					> for profile image generation.
+				</ListItem>
+				<ListItem>
+					<strong>Engineered a scalable Dark Mode architecture</strong> by creating a dual-mode
+					SVG token mapping strategy for 400+ illustrations, reducing asset load sizes, and
+					enabling dynamic theming without code duplication.
+				</ListItem>
+				<ListItem>
+					<strong>Executed the cloud migration</strong> of 10+ internal tools and Chrome extensions
+					to <strong>GitHub Cloud</strong>, modernizing the CI/CD infrastructure and
+					ensuring zero downtime.
+				</ListItem>
+				<ListItem>
+					<strong>Lead the technical upgrade to Styled Components</strong> and TypeScript modernization,
+					refactoring complex types and eliminating “snowflake” implementations to enhance build
+					performance and developer experience.
+				</ListItem>
+				<ListItem>
+					<strong>Mentored junior engineers and working students</strong> through dedicated
+					onboarding programs and support sessions, formally praised for being
+					<q>the most helpful person I know.</q>
+				</ListItem>
+			</UnorderedList>
+		</div>
+
+		<div>
+			<div class="mbe-10">
+				<Subheadline class="font-semibold">Frontend Engineer</Subheadline>
+				<div class="flex items-center justify-between mbe-2">
+					<div class="leading-none">
+						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
+					</div>
+					<div class="italic mbe-2 no-common-ligatures">
+						Hamburg, Germany / Jan. 2011 – Feb. 2020
+					</div>
+				</div>
+			</div>
+			<Text>
+				<em
+					>Key contributor to high-traffic product verticals including Onboarding, SEO,
+					Mobile, and Jobs. Consistently rated <q>Expectations Clearly Exceeded</q> (2018, 2019).</em
+				>
+			</Text>
+
+			<div class="flex items-center justify-between mbe-2">
+				<Subsubheadline>Onboarding Team</Subsubheadline>
+				<div class="italic mbe-2 no-common-ligatures">2017–2020</div>
+			</div>
+			<UnorderedList>
+				<ListItem>
+					<strong>Led the “Reactification” of user profiles</strong> and the team's migration
+					to <strong>TypeScript</strong>, managing the entire frontend stack solo in 2019
+					and earning a <q>Performance Expectations Clearly Exceeded</q> rating.
+				</ListItem>
+				<ListItem>
+					<strong>Improved user profile completion rates</strong> by engineering a high-performance
+					responsive widget using React.js and Redux, optimizing the data entry flow for new
+					users.
+				</ListItem>
+			</UnorderedList>
+
+			<div class="flex items-center justify-between mbe-2">
+				<Subsubheadline>SEO Team</Subsubheadline>
+				<div class="italic mbe-2 no-common-ligatures">2015–2017</div>
+			</div>
+			<UnorderedList>
+				<ListItem>
+					<strong>Maximized organic traffic and Google rankings</strong> by re-architecting
+					the Logged-Out User Profile with a focus on “Mobile First” performance and Core Web
+					Vitals.
+				</ListItem>
+				<ListItem>
+					<strong>Pioneered the first production usage of CSS Grid</strong> at XING during the
+					relaunch of Public Search, setting the standard for modern layout implementation across
+					the company.
+				</ListItem>
+			</UnorderedList>
+
+			<div class="flex items-center justify-between mbe-2">
+				<Subsubheadline>Mobile Web Team</Subsubheadline>
+				<div class="italic mbe-2 no-common-ligatures">2013–2014</div>
+			</div>
+			<UnorderedList>
+				<ListItem>
+					<strong>Enhanced cross-device consistency</strong> by developing a hybrid iPad application
+					using Backbone.js and migrating the “XING Touch” platform to a flattened, responsive
+					design system.
+				</ListItem>
+				<ListItem>
+					<strong>Increased user engagement</strong> by programming an interactive horizontal
+					navigation with complex state-based animations.
+				</ListItem>
+			</UnorderedList>
+
+			<div class="flex items-center justify-between mbe-2">
+				<Subsubheadline>Jobs Team</Subsubheadline>
+				<div class="italic mbe-2 no-common-ligatures">2011–2013</div>
+			</div>
+			<UnorderedList>
+				<ListItem>
+					<strong>Increased job ad visits by 59%</strong> by conceptualizing and developing
+					a novel “Context Pagination” feature, significantly boosting user retention.
+				</ListItem>
+				<ListItem>
+					<strong>Launched “XING Projects” (Beta)</strong> by successfully pitching and developing
+					a Freelancer Marketplace prototype during Innovation Week, which evolved into a dedicated
+					revenue-generating product.
+				</ListItem>
+			</UnorderedList>
+		</div>
+
+		<div>
+			<div class="mbe-10">
+				<Subheadline class="font-semibold">Web Designer</Subheadline>
+				<div class="flex items-center justify-between mbe-2">
+					<div class="leading-none">
+						<strong
+							><TextLink href="https://www.xing.com">Dumrath & Fassnacht</TextLink
+							></strong
+						>
+					</div>
+					<div class="italic mbe-2 no-common-ligatures">
+						Hamburg, Germany / Sep. 2005 – Dec. 2010
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="mbe-10">
+				<Subheadline class="font-semibold">Media Designer</Subheadline>
+				<div class="flex items-center justify-between mbe-2">
+					<div class="leading-none">
+						<strong
+							><TextLink href="https://www.xing.com">IGS Development</TextLink
+							></strong
+						>
+					</div>
+					<div class="italic mbe-2 no-common-ligatures">
+						Harbke, Germany / Feb. 2002 – Jan. 2005
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<Divider />
+
+		<Headline>Education</Headline>
+
+		<div class="mbe-12">
+			<Subheadline class="font-semibold">Computer Scientist</Subheadline>
+			<div class="flex items-center justify-between mbe-2">
+				<div class="leading-none">
+					<strong
+						><TextLink href="https://www.bib.de">bib International College</TextLink
+						></strong
+					>
+				</div>
+				<div class="italic mbe-2 no-common-ligatures">
+					Hanover, Germany / Oct. 1999 – Sept. 2001
+				</div>
+			</div>
+		</div>
 	</article>
 
 	<aside class="col-span-full md:col-start-10 md:col-end-18">
 		<article>
-			<Headline>{cv.skills.headline}</Headline>
-			{
-				cv.skills.items.map((item) => (
-					<div>
-						<Subheadline class="font-semibold">{item.headline}</Subheadline>
-						<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
-							{item.tags.map((tag, index) => (
-								<ListItem class="inline">
-									{index === item.tags.length - 1
-										? tag.concat('')
-										: tag.concat(', ')}
-								</ListItem>
-							))}
-						</UnorderedList>
-					</div>
-				))
-			}
+			<Headline>Key Skills</Headline>
+			<div>
+				<Subheadline class="font-semibold">Core Competencies</Subheadline>
+				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+					<ListItem>
+						<strong>Design Systems:</strong> Architecture, Tokenization, Versioning, Governance,
+						<q>Swiss Precision</q> Quality Assurance.
+					</ListItem>
+					<ListItem>
+						<strong>Accessibility (A11Y):</strong> WCAG 2.2 AA, ARIA Standards, Inclusive
+						Design, Automated Auditing.
+					</ListItem>
+					<ListItem>
+						<strong>Frontend Architecture:</strong> Monorepo Management, Micro-frontends,
+						Performance Optimization.
+					</ListItem>
+					<ListItem>
+						<strong>Leadership & Mentoring:</strong> Lateral Leadership, Onboarding Programs,
+						Technical Writing, Cross-functional Collaboration.
+					</ListItem>
+				</UnorderedList>
+
+				<Subheadline class="font-semibold">Technologies & Tools</Subheadline>
+				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+					<ListItem>
+						<strong>Languages:</strong> TypeScript, JavaScript (ES6+), HTML5, CSS3, PostCSS,
+						CSS Modules, Sass/SCSS.
+					</ListItem>
+					<ListItem>
+						<strong>Frameworks & Libraries:</strong> React, Redux, Styled Components (v6),
+						Tailwind CSS, Astro, Node.js.
+					</ListItem>
+					<ListItem>
+						<strong>Testing & Analysis:</strong> Jest, Cypress, Component Scanners, Metabase.
+					</ListItem>
+					<ListItem>
+						<strong>DevOps & AI:</strong> Git, GitHub Actions, Docker, Jenkins, GitHub Copilot,
+						Claude, OpenCode, Prompt Engineering.
+					</ListItem>
+					<ListItem>
+						<strong>Design:</strong> Figma, Sketch, Adobe Creative Suite, Affinity.
+					</ListItem>
+				</UnorderedList>
+			</div>
 		</article>
 
 		<article>
-			<Headline>{cv.languages.headline}</Headline>
+			<Headline>Languages</Headline>
 			<UnorderedList>
-				{
-					cv.languages.items.map((item) => (
-						<ListItem>
-							<strong>{item.language}</strong> ({item.level})
-						</ListItem>
-					))
-				}
+				<ListItem>
+					<strong>German:</strong> Native
+				</ListItem>
+				<ListItem>
+					<strong>English:</strong> Fluent (Spoken & Written)
+				</ListItem>
+				<ListItem>
+					<strong>Spanish:</strong> Basic (A2/B1)
+				</ListItem>
+				<ListItem>
+					<strong>Japanese:</strong> Basic (JLPT N3 level)
+				</ListItem>
 			</UnorderedList>
 
 			<article>
-				<Headline>{cv.awards.headline}</Headline>
+				<Headline>Awards & Hackathons</Headline>
 				<UnorderedList>
-					{cv.awards.items.map((item) => <ListItem>{item}</ListItem>)}
+					<ListItem
+						><strong>3x Winner of XING Hackweeks</strong> (2023, 2024, 2025) – <em
+							>Consistently driving innovation in internal tools and AI.</em
+						></ListItem
+					><ListItem
+						><strong>2nd Place AI Hackweek (2023)</strong> (2013, 2015, 2017) – <em
+							>Company-wide innovation awards.</em
+						></ListItem
+					><ListItem
+						><strong>SEMY Award</strong> (2015) – <em
+							>German Search Marketing Award for SEO excellence.</em
+						></ListItem
+					>
 				</UnorderedList>
 			</article>
 		</article>
@@ -147,7 +358,7 @@ const description =
 	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
 
 	<article class="col-span-full">
-		<Headline>{cv.interests.headline}</Headline>
+		<Headline>Interests & Hobbies</Headline>
 		<ul class="columns-1 gap-gap md:columns-2">
 			<InterestsHobbies components={mapping} />
 		</ul>
