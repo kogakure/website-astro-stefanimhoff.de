@@ -33,13 +33,18 @@ const {
 	cover = '/assets/images/branding/og/bonsai.jpg',
 } = Astro.props;
 
-const processedCover = cover.endsWith('.webp') ? cover.replace(/\.webp$/, '.jpg') : cover;
+const ogImage =
+	cover.startsWith('/assets/images/cover/') && cover.endsWith('.webp')
+		? cover
+				.replace('/assets/images/cover/', '/assets/images/branding/og/')
+				.replace(/\.webp$/, '.jpg')
+		: cover;
 
 const currentPath = new URL(Astro.request.url).pathname;
 const fullTitle = `${title} · ${site.description}`;
 const fullDescription = description || site.description;
 const fullUrl = site.url + currentPath;
-const fullImage = site.url + processedCover;
+const fullImage = site.url + ogImage;
 
 const schema = JSON.stringify({
 	'@context': 'https://schema.org/',
