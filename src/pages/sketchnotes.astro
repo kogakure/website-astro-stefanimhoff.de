@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 import { sortBySortKey } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
-import Image from '../components/Image.astro';
+import BasicImage from '../components/BasicImage.astro';
 import Link from '../components/Link.astro';
 import PageTitle from '../components/PageTitle.astro';
 import { Content as Intro } from '../text/sketchnotes/intro.mdx';
@@ -58,7 +58,7 @@ const description = 'This is a collection of Sketchnotes I’ve drawn.';
 						]}
 					>
 						<Link title={data.title} href={`/sketchnotes/${slug}/`}>
-							<Image
+							<BasicImage
 								alt={data.title}
 								class="h-full mbe-10 md:w-full md:object-cover md:!mbe-0 [&_img]:!block [&_img]:!h-full [&_img]:border-solid [&_picture]:!block [&_picture]:!h-full"
 								loading="eager"

@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import BasicImage from '../components/BasicImage.astro';
 
 import type { CollectionEntry } from 'astro:content';
 interface Props {
@@ -27,13 +27,11 @@ const { entries } = Astro.props;
 				>
 					<div class="absolute z-10 h-full w-full">
 						{data.cover ? (
-							<Picture
+							<BasicImage
 								alt={data.title}
-								formats={['avif', 'webp']}
-								height="937"
+								class="!m-0 block !h-full w-full object-cover"
 								role="presentation"
 								src={data.cover}
-								width="1500"
 							/>
 						) : (
 							<div

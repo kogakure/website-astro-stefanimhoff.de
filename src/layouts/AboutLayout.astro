@@ -4,7 +4,7 @@ import { site } from '../data/site';
 
 import GridLayout from './GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
-import Image from '../components/Image.astro';
+import BasicImage from '../components/BasicImage.astro';
 
 const { frontmatter } = Astro.props;
 const schema = JSON.stringify({
@@ -36,10 +36,10 @@ const schema = JSON.stringify({
 		slot="before-content"
 		class="col-start-1 col-end-12 md:col-start-3 md:col-end-10 xl:col-start-15 xl:col-end-18 xl:row-start-2 xl:-scale-x-100 3xl:col-start-14 3xl:col-end-17"
 	>
-		<Image
+		<BasicImage
 			alt="Stefan Imhoff"
 			role="presentation"
-			src="/assets/images/portrait-stefan-imhoff-2025.webp"
+			src="/images/portrait-stefan-imhoff-2025.webp"
 		/>
 	</div>
 	<slot />
