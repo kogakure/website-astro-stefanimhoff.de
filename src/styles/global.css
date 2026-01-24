@@ -237,9 +237,12 @@
 		@apply outline-current;
 	}
 
-	picture,
-	img {
-		@apply block !h-full w-full object-cover;
+	.journal-card img,
+	.journal-card picture,
+	.journal-card-link img,
+	.journal-card-link picture,
+	.figure-content {
+		@apply !h-full w-full object-cover;
 	}
 
 	.journal-card img,
