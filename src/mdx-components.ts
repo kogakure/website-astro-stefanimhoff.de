@@ -3,6 +3,7 @@ import { YouTube } from '@astro-community/astro-embed-youtube';
 import AmazonBook from './components/AmazonBook.astro';
 import AppleTVFlag from './components/AppleTVFlag.astro';
 import Banner from './components/Banner.astro';
+import BasicImage from './components/BasicImage.astro';
 import Blockquote from './components/Blockquote.astro';
 import Book from './components/Book.astro';
 import Bookshelf from './components/Bookshelf.astro';
@@ -38,13 +39,11 @@ import UnorderedList from './components/UnorderedList.astro';
 import Verse from './components/Verse.astro';
 
 export const mapping = {
-	a: TextLink,
-	ProductLink,
 	AmazonBook,
 	AppleTVFlag,
 	Banner,
+	BasicImage,
 	Blockquote,
-	blockquote: Blockquote,
 	Book,
 	Bookshelf,
 	ColorStack,
@@ -54,6 +53,22 @@ export const mapping = {
 	EmailLink,
 	Figure,
 	Flag,
+	Image,
+	MarkdownImage,
+	MoreLink,
+	NetflixFlag,
+	OdyseeVideo,
+	PrimeVideoFlag,
+	ProductLink,
+	ProjectIntro,
+	Pullquote,
+	Ruby,
+	Spotify,
+	ThemeBox,
+	Verse,
+	YouTube,
+	a: TextLink,
+	blockquote: Blockquote,
 	h1: Title,
 	h2: Headline,
 	h3: Subheadline,
@@ -61,24 +76,11 @@ export const mapping = {
 	h5: Subsubheadline,
 	h6: Subsubheadline,
 	hr: Divider,
-	Image,
 	img: MarkdownImage,
 	li: ListItem,
-	MarkdownImage,
-	MoreLink,
-	NetflixFlag,
-	OdyseeVideo,
 	ol: OrderedList,
 	p: Text,
-	PrimeVideoFlag,
-	ProjectIntro,
-	Pullquote,
-	Ruby,
-	Spotify,
-	ThemeBox,
 	ul: UnorderedList,
-	Verse,
-	YouTube,
 };
 
 // Mapping for RSS feed to reduce the size of the feed
@@ -86,6 +88,7 @@ export const rssMapping = {
 	AmazonBook,
 	AppleTVFlag,
 	Banner,
+	BasicImage,
 	Blockquote,
 	Book,
 	Bookshelf,
