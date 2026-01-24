@@ -30,14 +30,12 @@ const {
 	nofollow,
 	noindex,
 	title,
-	cover = '/assets/images/branding/og/bonsai.jpg',
+	cover = '/assets/images/og/bonsai.jpg',
 } = Astro.props;
 
 const ogImage =
-	cover.startsWith('/assets/images/cover/') && cover.endsWith('.webp')
-		? cover
-				.replace('/assets/images/cover/', '/assets/images/branding/og/')
-				.replace(/\.webp$/, '.jpg')
+	cover.startsWith('/images/cover/') && cover.endsWith('.webp')
+		? cover.replace('/images/cover/', '/assets/images/og/').replace(/\.webp$/, '.jpg')
 		: cover;
 
 const currentPath = new URL(Astro.request.url).pathname;
@@ -100,12 +98,12 @@ const webManifest = isProduction && {
 					{ rel: 'icon', href: '/favicon.ico' },
 					{
 						rel: 'icon',
-						href: '/assets/images/branding/favicons/favicon.svg',
+						href: '/assets/images/favicons/favicon.svg',
 						type: 'image/svg+xml',
 					},
 					{
 						rel: 'apple-touch-icon',
-						href: '/assets/images/branding/favicons/apple-touch-icon.png',
+						href: '/assets/images/favicons/apple-touch-icon.png',
 					},
 					{ ...webManifest },
 					{

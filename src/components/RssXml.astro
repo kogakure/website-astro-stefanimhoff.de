@@ -36,10 +36,10 @@ const rssFooterXml = `	</channel>
 					? post.frontmatter.cover.startsWith('/assets/images/cover/') &&
 						post.frontmatter.cover.endsWith('.webp')
 						? post.frontmatter.cover
-								.replace('/assets/images/cover/', '/assets/images/branding/og/')
+								.replace('/assets/images/cover/', '/assets/images/og/')
 								.replace(/\.webp$/, '.jpg')
 						: post.frontmatter.cover
-					: '/assets/images/branding/og/bonsai.jpg')
+					: '/assets/images/og/bonsai.jpg')
 			}" length="0" type="image/jpeg" />
 			<content:encoded><![CDATA[`}
 				/>
