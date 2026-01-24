@@ -10,7 +10,7 @@ import { dateToFormat, dateToISO, wordCount } from '../utils';
 
 import Banner from '../components/Banner.astro';
 import GridLayout from '../layouts/GridLayout.astro';
-import Image from '../components/Image.astro';
+import BasicImage from '../components/BasicImage.astro';
 import ListItem from '../components/ListItem.astro';
 import OrderedList from '../components/OrderedList.astro';
 import PageTitle from '../components/PageTitle.astro';
@@ -94,7 +94,7 @@ const schema = JSON.stringify({
 	</PageTitle>
 	{
 		entry.data.cover && (
-			<Image
+			<BasicImage
 				alt={entry.data.title}
 				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
 				loading="eager"

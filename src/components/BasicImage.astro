@@ -12,8 +12,9 @@ interface Props {
 	height?: string | number;
 	href?: string;
 	loading?: 'lazy' | 'eager';
-	noSpacing?: boolean;
+	noMargin?: boolean;
 	quality?: number;
+	role?: string;
 	size?: 'regular' | 'wide' | 'fullsize';
 	source?: string;
 	sourceUrl?: string;
@@ -29,7 +30,7 @@ const {
 	height,
 	href,
 	loading = 'lazy',
-	noSpacing,
+	noMargin,
 	quality,
 	size,
 	source,
@@ -71,11 +72,11 @@ const wrapperProps = href ? { href } : {};
 
 <figure
 	class:list={[
-		'mbs-0 mie-0 mis-0',
+		'mis mbe-13 mbs-0 mie-0',
 		{
 			'figure-wide': size === 'wide',
 			'figure-fullsize': size === 'fullsize',
-			'mbe-13': true,
+			'!mbe-0': noMargin,
 		},
 		className,
 	]}

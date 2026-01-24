@@ -237,11 +237,9 @@
 		@apply outline-current;
 	}
 
-	.journal-card img,
-	.journal-card picture,
-	.journal-card-link img,
-	.journal-card-link picture {
-		@apply !h-full w-full object-cover;
+	picture,
+	img {
+		@apply block !h-full w-full object-cover;
 	}
 
 	.journal-card img,
