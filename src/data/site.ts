@@ -4,6 +4,6 @@ export const site = {
 	url: 'https://www.stefanimhoff.de',
 	author: 'Stefan Imhoff',
 	tagline: '👨🏻‍💻 Web Developer • ⬜️ Minimalist • 🏛️ Stoic • 🏴 Ancap • ⛩️ Japanophile',
-	faviconPath: '/assets/images/branding/favicons/',
+	faviconPath: '/assets/images/favicons/',
 	x: '@kogakure',
 };
