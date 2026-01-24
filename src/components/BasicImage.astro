@@ -92,13 +92,14 @@ const wrapperProps = href ? { href } : {};
 					alt={alt ?? ''}
 					class="rounded-2"
 					decoding={decoding}
-					formats={['avif', 'webp', 'jpg', 'png']}
+					fallbackFormat="webp"
+					formats={['avif', 'webp']}
+					height={parsedHeight}
 					loading={loading}
 					quality={quality}
 					sizes={sizes}
 					src={localImage}
 					width={parsedWidth}
-					height={parsedHeight}
 				/>
 			) : (
 				<img
