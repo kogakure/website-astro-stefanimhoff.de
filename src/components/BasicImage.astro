@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import TextLink from './TextLink.astro';
+import Link from './Link.astro';
 
 interface Props {
 	alt?: string;
@@ -9,6 +10,7 @@ interface Props {
 	class?: string;
 	decoding?: 'async' | 'sync' | 'auto';
 	height?: string | number;
+	href?: string;
 	loading?: 'lazy' | 'eager';
 	noSpacing?: boolean;
 	quality?: number;
@@ -25,6 +27,7 @@ const {
 	class: className,
 	decoding = 'async',
 	height,
+	href,
 	loading = 'lazy',
 	noSpacing,
 	quality,
@@ -60,6 +63,10 @@ if (src.startsWith('/images')) {
 
 // Define sizes attribute for responsive images
 const sizes = '(max-width: 440px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1100px';
+
+// Determine the tag and specific attributes
+const ImageWrapper = href ? Link : 'div';
+const wrapperProps = href ? { href } : {};
 ---
 
 <figure
@@ -74,7 +81,10 @@ const sizes = '(max-width: 440px) 100vw, (max-width: 768px) 90vw, (max-width: 10
 	]}
 	{...props}
 >
-	<div class="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow">
+	<ImageWrapper
+		class="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow"
+		{...wrapperProps}
+	>
 		{
 			localImage ? (
 				<Picture
@@ -100,7 +110,7 @@ const sizes = '(max-width: 440px) 100vw, (max-width: 768px) 90vw, (max-width: 10
 				/>
 			)
 		}
-	</div>
+	</ImageWrapper>
 	{
 		(caption || source) && (
 			<figcaption class="text-center text-2 mbs-2 [text-wrap:balance]">
