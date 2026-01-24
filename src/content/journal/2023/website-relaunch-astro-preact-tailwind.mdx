@@ -24,24 +24,18 @@ I also introduced some new pages, such as the [tools](/tools/) listing my work e
 
 I've utilized AI a lot for my new website. Not only for coding with [GitHub Copilot](https://github.com/features/copilot), but also [ChatGPT](https://chat.openai.com/) (with [Raycast Pro](https://www.raycast.com/pro)) to debug complex issues during development, generate TypeScript types, or automatically generate code. I used it to write and rewrite text, replace template tags with components, fix typos, and much more. In addition, I used [Stable Diffusion](https://stability.ai/) to create my profile and cover photos. And I used AI image upscaling to increase all old cover photos.
 
-<Figure
-  caption="AI Cover Photos: Bonsai (left), Shinto Gate in a mossy forest (center), and man running from a wave of news (right)"
-  size="wide"
->
-  <Image src="/assets/images/cover/bonsai.webp" alt="Bonsai" />
-  <Image src="/assets/images/cover/shinto-gate.webp" alt="Shinto gate in a mossy forest" />
-  <Image src="/assets/images/cover/news-wave.webp" alt="Man running from a wave of news" />
-</Figure>
-
 Previously, I had cover photos on my website, but I removed them because it was too time-consuming to find a new stock photo for each entry. However, with Stable Diffusion, I can now quickly generate a cover photo that fits the topic while experimenting with different art styles and techniques. I started with a few, such as the Bonsai on the homepage and the last 7 essays. I'll fill in the others over time. Likewise, I'm also planning to write a comprehensive tutorial on how I used Stable Diffusion to generate the bonsai cover image.
 
 ## Development
 
 Recreating my previous website with [Astro](https://astro.build/) was a lot of fun. It was impressive how quickly it was set up and how easy it was to find anything in the documentation. And the speed of Astro is impressive, nearly all of my pages have a perfect 100% rating in [Unlighthouse](https://unlighthouse.dev/).
 
-<Figure caption="Unlighthouse Results" size="wide">
-  <Image src="/assets/images/posts/unlighthouse.webp" alt="unlighthouse results for my website" />
-</Figure>
+<BasicImage
+  caption="Unlighthouse Results"
+  size="wide"
+  src="/images/posts/unlighthouse.webp"
+  alt="unlighthouse results for my website"
+/>
 
 I opted for [Preact](https://preactjs.com/) for components, even though many didn't need interactivity. I'm glad I could use [MDX](https://mdxjs.com/) and map components to markdown elements. **Update:** I moved now to Astro components with a few interactive React components in the meantime.
 
