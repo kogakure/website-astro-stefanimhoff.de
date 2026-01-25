@@ -5,6 +5,7 @@ slug: {{dashCase title}}
 date: {{date}}
 author: Stefan Imhoff
 description: {{description}}
+cover: /assets/images/cover/{{dashCase title}}.webp
 tags: [{{#each tags}}"{{.}}"{{#unless @last}}, {{/unless}}{{/each}}]
 ---
 
