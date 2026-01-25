@@ -20,7 +20,6 @@ import ListItem from './components/ListItem.astro';
 import MarkdownImage from './components/MarkdownImage.astro';
 import MoreLink from './components/MoreLink.astro';
 import NetflixFlag from './components/NetflixFlag.astro';
-import OdyseeVideo from './components/OdyseeVideo.astro';
 import OrderedList from './components/OrderedList.astro';
 import PrimeVideoFlag from './components/PrimeVideoFlag.astro';
 import ProductLink from './components/ProductLink.astro';
@@ -55,7 +54,6 @@ export const mapping = {
 	MarkdownImage,
 	MoreLink,
 	NetflixFlag,
-	OdyseeVideo,
 	PrimeVideoFlag,
 	ProductLink,
 	ProjectIntro,
@@ -79,35 +77,4 @@ export const mapping = {
 	ol: OrderedList,
 	p: Text,
 	ul: UnorderedList,
-};
-
-// Mapping for RSS feed to reduce the size of the feed
-export const rssMapping = {
-	AmazonBook,
-	AppleTVFlag,
-	Banner,
-	Blockquote,
-	Book,
-	Bookshelf,
-	ColorStack,
-	ColorSwatch,
-	DisplayBox,
-	DownloadLink,
-	EmailLink,
-	Figure,
-	Flag,
-	Image,
-	MarkdownImage,
-	MoreLink,
-	NetflixFlag,
-	OdyseeVideo,
-	PrimeVideoFlag,
-	ProductLink,
-	ProjectIntro,
-	Pullquote,
-	Ruby,
-	Spotify,
-	ThemeBox,
-	Verse,
-	YouTube,
 };

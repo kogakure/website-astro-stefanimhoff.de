@@ -13,13 +13,6 @@ import PageTitle from '../components/PageTitle.astro';
 import Image from '../components/Image.astro';
 import JournalList from '../components/JournalList.astro';
 
-/* FIXME: Remove hack as soon as this issue is resolved:
- * Issue: https://github.com/withastro/roadmap/issues/533
- * Proposal: https://github.com/withastro/roadmap/discussions/419
- */
-import WriteFile from '../components/WriteFile.astro';
-import RssXml from '../components/RssXml.astro';
-
 import Headline from '../components/Headline.astro';
 import MoreLink from '../components/MoreLink.astro';
 
@@ -92,7 +85,3 @@ rssPosts.sort(sortMarkdownByDate);
 		<JournalList entries={formattedLatest} />
 	</article>
 </GridLayout>
-
-<WriteFile slot="rss-writer">
-	<RssXml allPosts={isProduction ? rssPosts : []} slot="rss-writer" />
-</WriteFile>

@@ -4,6 +4,7 @@ export * from './is-production';
 export * from './pick-two-random-colors';
 export * from './remark-reading-time';
 export * from './remark-widont';
+export * from './rss-parser';
 export * from './sort-by-alphabet';
 export * from './sort-by-date';
 export * from './sort-by-sortkey';
