@@ -20,21 +20,8 @@ const description =
 	'I’m a Frontend Developer by profession. I worked in Design, Editing, and 3D Animation. These are  projects I created over the last years.';
 ---
 
-<GridLayout
-	title={title}
-	description={description}
-	grid="fullsize"
-	class="grid"
-	backLink="/"
-	innerGrid
->
-	<PageTitle
-		grid="wide"
-		innerGrid
-		class="!col-start-2 !col-end-18 md:!col-start-3 md:!col-end-17"
-	>
-		Projects
-	</PageTitle>
+<GridLayout title={title} description={description} grid="wide" class="grid" backLink="/" innerGrid>
+	<PageTitle grid="fullsize" innerGrid class=""> Projects </PageTitle>
 
 	<article class="col-start-2 col-end-18 md:col-start-6 md:col-end-14">
 		<Intro components={mapping} />
