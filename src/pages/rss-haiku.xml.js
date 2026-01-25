@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import { site } from '../data/site';
 import { sortByDate } from '../utils';
 
-export async function get(context) {
+export async function GET(context) {
 	const haiku = await getCollection('haiku');
 	haiku.sort(sortByDate);
 
@@ -18,7 +18,7 @@ export async function get(context) {
 			pubDate: item.data.date,
 			customData: '<language>en-us</language>',
 			link: `/haiku/${item.slug}/`,
-			content: `<div><p>${item.data.de}</p><hr /><p>${item.data.en}</p></div>`,
+			content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
 		})),
 		customData: `<language>en-us</language>`,
 	});
