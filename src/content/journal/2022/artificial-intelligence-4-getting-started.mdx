@@ -4,7 +4,7 @@ slug: artificial-intelligence-4-getting-started
 date: 2022-12-24
 author: Stefan Imhoff
 description: This is a four-part series of essays that investigates different aspects of AI.
-cover: /images/cover/ai-cover-4.webp
+cover: /assets/images/cover/ai-cover-4.webp
 tags: ["code", "technology", "design", "ai"]
 series: artificial-intelligence
 ---
@@ -20,10 +20,10 @@ If you’re just curious and don’t to pay for the necessary hardware, or creat
 
 If you have an iPad or iPhone, you’re in luck because a free app is available on the App Store that allows using dozens of free image models based on Stable Diffusion. The name of the app is [Draw Things: AI Generation](https://apps.apple.com/app/draw-things-ai-generation/id6444050820), developed by Liu Liu. The app is mind-blowing and I highly recommend it.
 
-<BasicImage
+<Image
   caption="Draw Things app for iOS/iPadOS"
   size="wide"
-  src="/images/posts/ai-draw-things.webp"
+  src="/assets/images/posts/ai-draw-things.webp"
   alt="Draw Things app"
 />
 
@@ -68,10 +68,10 @@ You can find most models available in the Draw Things application on Hugging Fac
 
 To show what the models are capable of, I used my profile picture with different diffusion models. I used the same seed, no prompt, `50` steps, a guidance scale of `13,0`, a strength of `46%`, and the `Euler Ancestral` sampler. 46% as a strength value means it took roughly half of the source photo and the rest was creative. Lower values generate an image that looks like the source image, higher values generate images that look like the style the model was trained on. If you combine it with a prompt, you can get even more creative results, but you can never change the basic geometry of the image. For that, you need to train a new model with your face in Dreambooth.
 
-<BasicImage
+<Image
   caption="My profile picture in different diffusion models"
   size="wide"
-  src="/images/posts/ai-diffusion-models.webp"
+  src="/assets/images/posts/ai-diffusion-models.webp"
   alt="Profile picture in diffusion models"
 />
 
@@ -95,10 +95,10 @@ Some generators allow negative prompts, to exclude specific things from the imag
 
 My first prompt was basic, I asked the AI to generate `a cyberpunk wizard`. The result was impressive, but random luck. I recreated the first two images with the same seed and upscaled the second one to add more detail. But the third image, generated with a new seed, created a complete different picture.
 
-<BasicImage
+<Image
   caption="A cyberpunk wizard"
   size="wide"
-  src="/images/posts/ai-cyberpunk-wizard.webp"
+  src="/assets/images/posts/ai-cyberpunk-wizard.webp"
   alt="Cyberpunk wizard"
 />
 
@@ -130,10 +130,10 @@ A seed is a starting point for generating an AI image. It can be a random value 
 
 Inpainting is a technique used in image processing and computer vision to fill in missing or corrupted parts of an image. Inpainting algorithms can be used to restore damaged or degraded images, remove objects from an image, or fill in gaps in an image. These algorithms work by using information from surrounding pixels in the image to estimate the values of the missing or corrupted pixels. In the context of AI image generation, inpainting can be used to improve the quality of generated images by filling in any missing or incomplete pixels.
 
-<BasicImage
+<Image
   caption="AI Inpainting"
   size="wide"
-  src="/images/posts/ai-inpainting.webp"
+  src="/assets/images/posts/ai-inpainting.webp"
   alt="AI Inpainting"
 />
 

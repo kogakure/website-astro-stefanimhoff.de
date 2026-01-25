@@ -3,7 +3,6 @@ import { YouTube } from '@astro-community/astro-embed-youtube';
 import AmazonBook from './components/AmazonBook.astro';
 import AppleTVFlag from './components/AppleTVFlag.astro';
 import Banner from './components/Banner.astro';
-import BasicImage from './components/BasicImage.astro';
 import Blockquote from './components/Blockquote.astro';
 import Book from './components/Book.astro';
 import Bookshelf from './components/Bookshelf.astro';
@@ -42,7 +41,6 @@ export const mapping = {
 	AmazonBook,
 	AppleTVFlag,
 	Banner,
-	BasicImage,
 	Blockquote,
 	Book,
 	Bookshelf,
@@ -88,7 +86,6 @@ export const rssMapping = {
 	AmazonBook,
 	AppleTVFlag,
 	Banner,
-	BasicImage,
 	Blockquote,
 	Book,
 	Bookshelf,

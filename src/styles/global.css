@@ -245,6 +245,10 @@
 		@apply !h-full w-full object-cover;
 	}
 
+	.figure-content * {
+		@apply rounded-2;
+	}
+
 	.journal-card img,
 	.journal-card-link img {
 		@apply !h-full scale-100 blur-0 brightness-[80%] filter transition duration-300 ease-in-out dark:brightness-[50%];

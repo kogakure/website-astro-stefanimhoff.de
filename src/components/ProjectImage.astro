@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BasicImage from './BasicImage.astro';
+import Image from './Image.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -11,7 +11,7 @@ const { project } = Astro.props;
 
 {
 	project.data.image && (
-		<BasicImage
+		<Image
 			alt={project.data.title}
 			aria-label={project.data.title}
 			class="[&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"

@@ -1,5 +1,5 @@
 ---
-import BasicImage from './BasicImage.astro';
+import Image from './Image.astro';
 import Headline from './Headline.astro';
 
 const { entry } = Astro.props;
@@ -49,7 +49,7 @@ const imageLength = entry.data.images.length;
 						},
 					]}
 				>
-					<BasicImage alt={entry.data.title} src={src} />
+					<Image alt={entry.data.title} src={src} />
 				</div>
 			))
 		}

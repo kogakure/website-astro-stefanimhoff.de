@@ -2,7 +2,7 @@
 import { dateToFormat, dateToISO } from '../utils';
 
 import Pullquote from '../components/Pullquote.astro';
-import BasicImage from '../components/BasicImage.astro';
+import Image from '../components/Image.astro';
 import PageTitle from '../components/PageTitle.astro';
 
 import GridLayout from './GridLayout.astro';
@@ -27,7 +27,7 @@ const gridVariant = frontmatter.grid || grid;
 				slot="before-content"
 				class="col-span-full xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
 			>
-				<BasicImage alt={frontmatter.title} src={frontmatter.cover} />
+				<Image alt={frontmatter.title} src={frontmatter.cover} fullWidth fullHeight />
 			</div>
 		)
 	}

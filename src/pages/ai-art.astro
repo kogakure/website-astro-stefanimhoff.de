@@ -7,7 +7,7 @@ import { sortBySortKey } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
 import PageTitle from '../components/PageTitle.astro';
-import BasicImage from '../components/BasicImage.astro';
+import Image from '../components/Image.astro';
 import Link from '../components/Link.astro';
 import { Content as Intro } from '../text/ai-art/intro.mdx';
 
@@ -65,7 +65,7 @@ const description = 'This is a collection of AI art pieces I’ve created with S
 						]}
 					>
 						<Link title={data.title} href={`/ai-art/${slug}/`}>
-							<BasicImage
+							<Image
 								alt={data.title}
 								class="h-full mbe-10 md:w-full md:object-cover md:!mbe-0 [&_img]:!block [&_img]:!h-full [&_img]:border-solid [&_picture]:!block [&_picture]:!h-full"
 								loading="eager"
