@@ -41,7 +41,7 @@ const title = entry.data.title;
 const description = entry.data.intro || `The detail for project "${entry.data.title}"`;
 ---
 
-<GridLayout title={title} description={description} grid="wide" innerGrid backLink="/projects/">
+<GridLayout title={title} description={description} grid="narrow" innerGrid backLink="/projects/">
 	<PageTitle slot="title">
 		{entry.data.title}
 	</PageTitle>
