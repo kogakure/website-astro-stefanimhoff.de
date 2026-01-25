@@ -1,21 +1,99 @@
 ---
-const { class: className, noMargin, src, ...props } = Astro.props;
+import TextLink from './TextLink.astro';
+import Link from './Link.astro';
+
+interface Props {
+	alt?: string;
+	caption?: string;
+	class?: string;
+	decoding?: 'async' | 'sync' | 'auto';
+	fullHeight?: boolean;
+	fullWidth?: boolean;
+	height?: string | number;
+	href?: string;
+	loading?: 'lazy' | 'eager';
+	noMargin?: boolean;
+	role?: string;
+	size?: 'regular' | 'wide' | 'fullsize';
+	source?: string;
+	sourceUrl?: string;
+	src: string;
+	width?: string | number;
+}
+
+const {
+	alt,
+	caption,
+	class: className,
+	decoding = 'async',
+	fullHeight = false,
+	fullWidth = true,
+	height,
+	href,
+	loading = 'lazy',
+	noMargin,
+	role,
+	size,
+	source,
+	sourceUrl,
+	src,
+	width,
+	...props
+} = Astro.props;
+
+// Determine the tag and specific attributes
+const ImageWrapper = href ? Link : 'div';
+const wrapperProps = href ? { href } : {};
 ---
 
-<div
+<figure
 	class:list={[
-		'image-shadow mbe-10 mbs-0 [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none',
-		{ '!mbe-0': noMargin },
+		'mis block mbe-13 mbs-0 mie-0',
+		{
+			'figure-wide': size === 'wide',
+			'figure-fullsize': size === 'fullsize',
+			'!mbe-0': noMargin,
+			'!h-full': fullHeight,
+			'!w-full': fullWidth,
+		},
 		className,
 	]}
 >
-	<img
+	<ImageWrapper
 		class:list={[
-			'block h-auto w-full rounded-1 border-1 border-solid border-black/[0.1] bg-black/[0.1] shadow shadow-black/10 dark:border-white/[0.1] dark:opacity-[0.87] dark:shadow-white/10',
+			'figure-content gap-6 mbs-0 [&_img]:!max-w-none',
+			{
+				'[&_img]:!h-full': fullHeight,
+				'[&_img]:!w-full': fullWidth,
+			},
 		]}
-		decoding="async"
-		loading="lazy"
-		src={src}
-		{...props}
-	/>
-</div>
+		{...wrapperProps}
+	>
+		<img
+			class:list={['rounded-2 object-cover dark:opacity-[0.87]']}
+			decoding={decoding}
+			loading={loading}
+			src={src}
+			alt={alt ?? ''}
+			width={width}
+			height={height}
+			{...props}
+		/>
+	</ImageWrapper>
+	{
+		(caption || source) && (
+			<figcaption class="text-center text-2 mbs-2 [text-wrap:balance]">
+				{caption}
+				{caption && source ? '–' : ''}
+				{source &&
+					(sourceUrl ? (
+						<cite>
+							<TextLink href={sourceUrl}>{source}</TextLink>
+						</cite>
+					) : (
+						<cite>{source}</cite>
+					))}
+			</figcaption>
+		)
+	}
+</figure>

@@ -10,7 +10,7 @@ import { site } from '../data/site';
 import GridLayout from '../layouts/GridLayout.astro';
 
 import PageTitle from '../components/PageTitle.astro';
-import BasicImage from '../components/BasicImage.astro';
+import Image from '../components/Image.astro';
 import JournalList from '../components/JournalList.astro';
 
 /* FIXME: Remove hack as soon as this issue is resolved:
@@ -49,11 +49,12 @@ rssPosts.sort(sortMarkdownByDate);
 	<div
 		class="col-start-1 col-end-19 md:col-start-1 md:col-end-11 xl:col-end-11 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
 	>
-		<BasicImage
+		<Image
 			alt="Bonsai"
 			loading="eager"
 			role="presentation"
-			src="/images/cover/bonsai.webp"
+			src="/assets/images/cover/bonsai.webp"
+			fullHeight
 		/>
 	</div>
 

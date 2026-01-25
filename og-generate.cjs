@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const inputFolder = './src/images/cover/';
+const inputFolder = './public/assets/images/cover/';
 const outputFolder = './public/assets/images/og/';
 const resizeSize = { width: 1200, height: 675 };
 

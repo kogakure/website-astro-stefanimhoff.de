@@ -10,7 +10,7 @@ const { class: className, caption, size = 'regular', ...props } = Astro.props;
 
 <figure
 	class:list={[
-		'rounded-4 bg-white/50 p-8 mbs-0 mie-0 mis-0 dark:bg-black/80',
+		'rounded-2 mbs-0 mie-0 mis-0',
 		{ 'figure-wide': size === 'wide', 'figure-fullsize': size === 'fullsize', 'mbe-13': true },
 		className,
 	]}
