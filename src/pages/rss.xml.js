@@ -21,6 +21,9 @@ export async function GET(context) {
 		title: site.title,
 		description: site.description,
 		site: context.site,
+		xmlns: {
+			media: 'http://search.yahoo.com/mrss/',
+		},
 		items: [
 			...journal.map((post) => {
 				// Filter out import statements from content
@@ -48,18 +51,37 @@ export async function GET(context) {
 					},
 				});
 
+				// Logic to determine image URL
+				const isWebp =
+					post.data.cover.startsWith('/assets/images/cover/') &&
+					post.data.cover.endsWith('.webp');
+				const imgUrl = isWebp
+					? post.data.cover
+							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
+							.replace(/\.webp$/, '.jpg')
+					: '/assets/images/thumbnail/bonsai.jpg';
+
 				return {
 					title: post.data.title,
 					pubDate: post.data.date,
-					description: `<![CDATA[${post.data.description}]]>`,
+					description: post.data.description,
 					link: `/${post.slug}/`,
-					content: `<![CDATA[${sanitizedContent}]]>`,
+					content: sanitizedContent,
 					enclosure: {
-						url: `${site.url}${post.data.cover.startsWith('/assets/images/cover/') && post.data.cover.endsWith('.webp') ? post.data.cover.replace('/assets/images/cover/', '/assets/images/og/').replace(/\.webp$/, '.jpg') : '/assets/images/og/bonsai.jpg'}`,
+						url:
+							site.url +
+							(isWebp
+								? post.data.cover
+										.replace('/assets/images/cover/', '/assets/images/og/')
+										.replace(/\.webp$/, '.jpg')
+								: '/assets/images/og/bonsai.jpg'),
 						length: 0,
 						type: 'image/jpeg',
 					},
-					customData: '<language>en-us</language>',
+					customData: `
+            <language>en-us</language>
+            <media:thumbnail url="${site.url}${imgUrl}" width="100" height="100" />
+          `,
 				};
 			}),
 			...haiku.map((item) => {
@@ -69,6 +91,15 @@ export async function GET(context) {
 					customData: '<language>en-us</language>',
 					link: `/haiku/${item.slug}/`,
 					content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
+					enclosure: {
+						url: `${site.url}'/assets/images/og/bonsai.jpg`,
+						length: 0,
+						type: 'image/jpeg',
+					},
+					customData: `
+            <language>en-us</language>
+            <media:thumbnail url="${site.url}/assets/images/thumbnail/bonsai.jpg" width="100" height="100" />
+          `,
 				};
 			}),
 		].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()),
