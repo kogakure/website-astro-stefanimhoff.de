@@ -34,8 +34,8 @@ const {
 } = Astro.props;
 
 const ogImage =
-	cover.startsWith('/images/cover/') && cover.endsWith('.webp')
-		? cover.replace('/images/cover/', '/assets/images/og/').replace(/\.webp$/, '.jpg')
+	cover.startsWith('/assets/images/cover/') && cover.endsWith('.webp')
+		? cover.replace('/assets/images/cover/', '/assets/images/og/').replace(/\.webp$/, '.jpg')
 		: cover;
 
 const currentPath = new URL(Astro.request.url).pathname;
