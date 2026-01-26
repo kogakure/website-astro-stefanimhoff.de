@@ -9,6 +9,7 @@ interface Props {
 import { pickTwoRandomColors } from '../utils';
 import Link from '../components/Link.astro';
 import Subsubheadline from './Subsubheadline.astro';
+import ThemeBox from './ThemeBox.astro';
 
 const { entries } = Astro.props;
 ---
@@ -17,38 +18,49 @@ const { entries } = Astro.props;
 	class="col-span-full grid auto-rows-[50px] grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] grid-rows-[50px] gap-[max(25px,_2vw)]"
 >
 	{
-		entries.map(({ slug, data }) => (
-			<li class="journal-card image-shadow group">
-				<Link
-					class="journal-card-link group relative block h-full w-full group-hover:scale-100"
-					href={`/${slug}/`}
-					tabIndex={0}
-					title={data.title}
-				>
-					<div class="absolute z-10 h-full w-full">
-						{data.cover ? (
-							<Image
-								alt={data.title}
-								class="!m-0 block !h-full w-full object-cover"
-								role="presentation"
-								src={data.cover}
-							/>
-						) : (
-							<div
-								class="h-full w-full bg-gray-800 transition duration-300 ease-in-out group-hover:brightness-[90%] group-focus:brightness-[90%] dark:brightness-[50%] dark:group-hover:brightness-[100%] dark:group-focus:brightness-[100%]"
-								style={`background-image: linear-gradient(to bottom left, ${
-									pickTwoRandomColors()[0]
-								} 0%, ${pickTwoRandomColors()[1]} 100%)`}
-							/>
-						)}
-					</div>
-					<div class="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
-						<Subsubheadline as="h2" class="!m-0 leading-tight">
-							{data.title}
-						</Subsubheadline>
-					</div>
-				</Link>
-			</li>
-		))
+		entries.map(({ slug, data }) => {
+			const thumbnail =
+				data.cover &&
+				data.cover.startsWith('/assets/images/cover/') &&
+				data.cover.endsWith('.webp')
+					? data.cover
+							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
+							.replace(/\.webp$/, '.jpg')
+					: null;
+
+			return (
+				<li class="journal-card image-shadow group">
+					<Link
+						class="journal-card-link group relative block h-full w-full group-hover:scale-100"
+						href={`/${slug}/`}
+						tabIndex={0}
+						title={data.title}
+					>
+						<div class="absolute z-10 h-full w-full">
+							{thumbnail ? (
+								<Image
+									alt={data.title}
+									class="!m-0 block !h-full w-full object-cover"
+									role="presentation"
+									src={thumbnail}
+								/>
+							) : (
+								<div
+									class="h-full w-full bg-gray-800 transition duration-300 ease-in-out group-hover:brightness-[90%] group-focus:brightness-[90%] dark:brightness-[50%] dark:group-hover:brightness-[100%] dark:group-focus:brightness-[100%]"
+									style={`background-image: linear-gradient(to bottom left, ${
+										pickTwoRandomColors()[0]
+									} 0%, ${pickTwoRandomColors()[1]} 100%)`}
+								/>
+							)}
+						</div>
+						<div class="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
+							<Subsubheadline as="h2" class="!m-0 leading-tight">
+								{data.title}
+							</Subsubheadline>
+						</div>
+					</Link>
+				</li>
+			);
+		})
 	}
 </ul>

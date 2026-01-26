@@ -8,6 +8,8 @@
 		"dev": "astro dev",
 		"icons:generate": "node icons-generate.cjs",
 		"og:generate": "node og-generate.cjs",
+		"thumbnail:generate": "node thumbnail-generate.cjs",
+		"images": "npm-run-all og:generate thumbnail:generate",
 		"plop": "plop",
 		"prepreview": "pnpm run build",
 		"preview": "astro preview --open",
