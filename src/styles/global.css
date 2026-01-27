@@ -195,10 +195,7 @@
 
 	/** Inputs */
 	input[type='text'] {
-		@apply !rounded-2 border border-shibui-450 outline-none;
-		@apply focus:border-shibui-700 focus:outline-2 focus:outline-offset-2 focus:outline-shibui-700;
-		@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-shibui-700;
-		@apply dark:focus:border-shibui-200 dark:focus:outline-shibui-200 dark:focus-visible:outline-shibui-200;
+		@apply border border-shibui-450 outline-none focus:!border-shibui-950 dark:focus:!border-shibui-50;
 	}
 }
 
