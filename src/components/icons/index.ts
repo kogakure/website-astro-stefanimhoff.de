@@ -8,6 +8,7 @@ export { default as Close } from './Close.tsx';
 export { default as Download } from './Download.tsx';
 export { default as Github } from './Github.tsx';
 export { default as Instagram } from './Instagram.tsx';
+export { default as Logo } from './Logo.tsx';
 export { default as Mail } from './Mail.tsx';
 export { default as MailSend } from './MailSend.tsx';
 export { default as Rss } from './Rss.tsx';
