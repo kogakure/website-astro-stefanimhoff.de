@@ -1,15 +1,13 @@
 ---
-import Backlink from '../components/Backlink.astro';
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 
 export interface Props {
-	backLink?: string;
 	class?: string;
 	navigation?: boolean;
 }
 
-const { backLink, class: className, navigation = true } = Astro.props;
+const { class: className, navigation = true } = Astro.props;
 ---
 
 <header
@@ -19,7 +17,6 @@ const { backLink, class: className, navigation = true } = Astro.props;
 	]}
 	role="banner"
 >
-	<Backlink backLink={backLink} />
 	{navigation && <MainNavigation />}
 	<ThemeToggle />
 </header>
