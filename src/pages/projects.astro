@@ -21,9 +21,11 @@ const description =
 ---
 
 <GridLayout title={title} description={description} grid="wide" class="grid" backLink="/" innerGrid>
-	<PageTitle grid="fullsize" innerGrid class=""> Projects </PageTitle>
+	<PageTitle grid="wide" innerGrid class="">Projects</PageTitle>
 
-	<article class="col-start-2 col-end-18 md:col-start-6 md:col-end-14">
+	<article
+		class="col-start-1 col-end-19 md:col-start-3 md:col-end-13 lg:col-start-4 lg:col-end-12 xl:col-start-5 xl:col-end-11"
+	>
 		<Intro components={mapping} />
 	</article>
 
