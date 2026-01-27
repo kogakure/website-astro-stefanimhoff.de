@@ -2,7 +2,6 @@
 import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
-	backLink?: string;
 	class?: string;
 	cover?: string;
 	description?: string;
@@ -18,7 +17,6 @@ export interface Props {
 }
 
 const {
-	backLink,
 	class: className,
 	cover,
 	description,
@@ -35,7 +33,6 @@ const {
 ---
 
 <BaseLayout
-	backLink={backLink}
 	cover={cover}
 	description={description}
 	footer={footer}

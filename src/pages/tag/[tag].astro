@@ -45,14 +45,7 @@ const description = `These are all the articles categorized with the tag "${titl
 )}".`;
 ---
 
-<GridLayout
-	title={title}
-	description={description}
-	grid="wide"
-	class="grid"
-	innerGrid
-	backLink="/journal/"
->
+<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
 	<PageTitle slot="title" class="capitalize">
 		{tag}
 	</PageTitle>

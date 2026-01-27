@@ -15,14 +15,7 @@ const title = 'Tags';
 const description = 'This is a list of all the tags used in my journal.';
 ---
 
-<GridLayout
-	backLink="/journal/"
-	class="grid"
-	description={description}
-	grid="wide"
-	innerGrid
-	title={title}
->
+<GridLayout class="grid" description={description} grid="wide" innerGrid title={title}>
 	<PageTitle grid="wide" innerGrid>Tags</PageTitle>
 	<aside class="col-start-1 col-end-18 flex flex-wrap gap-y-3">
 		{uniqueTags.map((t) => <TagComponent href={`/tag/${t}/`}>{t}</TagComponent>)}

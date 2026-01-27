@@ -12,7 +12,6 @@ import SearchModal from '../components/SearchModal.astro';
 import Scripts from '../components/Scripts.astro';
 
 export interface Props {
-	backLink?: string;
 	cover?: string;
 	description?: string;
 	footer?: boolean;
@@ -23,7 +22,6 @@ export interface Props {
 }
 
 const {
-	backLink,
 	description,
 	footer = true,
 	header = true,
@@ -165,7 +163,7 @@ const webManifest = isProduction && {
 		class="flex grow flex-col bg-shibui-100 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87]"
 	>
 		<div class="flex h-screen grow flex-col">
-			{header && <PageHeader backLink={backLink} />}
+			{header && <PageHeader />}
 			<div class="page-content flex grow">
 				<main class="h-full w-full" {...pagefind}>
 					<slot />
