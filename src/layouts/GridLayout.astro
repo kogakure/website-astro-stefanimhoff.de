@@ -8,7 +8,7 @@ export interface Props {
 	description?: string;
 	footer?: boolean;
 	gap?: boolean;
-	grid?: 'fullsize' | 'wide' | 'narrow';
+	grid?: 'narrow' | 'wide' | 'fullsize';
 	header?: boolean;
 	innerGrid?: boolean;
 	multicolumn?: boolean;
@@ -51,17 +51,14 @@ const {
 			grid !== 'fullsize' ? (
 				<div
 					class:list={[
-						{ 'col-start-2 col-end-18': grid === 'wide' || grid === 'narrow' },
+						'grid-cols-subgrid',
+						{ grid: innerGrid },
 						{
-							'md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13':
-								grid === 'narrow',
+							'col-start-2 col-end-18 md:col-start-3 md:col-end-17': grid === 'wide',
 						},
-						{ 'md:col-start-3 md:col-end-17': grid === 'wide' },
-						{ 'grid w-full': innerGrid },
-						{ 'grid-cols-16 md:grid-cols-14': innerGrid && grid === 'wide' },
 						{
-							'grid-cols-16 md:grid-cols-10 xl:grid-cols-8 3xl:grid-cols-6':
-								innerGrid && grid === 'narrow',
+							'col-start-2 col-end-18 md:col-start-5 md:col-end-15 lg:col-start-6 lg:col-end-14 xl:col-start-7 xl:col-end-13':
+								grid === 'narrow',
 						},
 						{ 'gap-y-gap': gap },
 						{

@@ -3,7 +3,7 @@ import Title from './Title.astro';
 
 export interface Props {
 	class?: string;
-	grid?: 'fullsize' | 'wide' | 'narrow';
+	grid?: 'narrow' | 'wide' | 'fullsize';
 	innerGrid?: boolean;
 }
 
@@ -12,12 +12,11 @@ const { class: className, grid = 'narrow', innerGrid } = Astro.props;
 
 <Title
 	class:list={[
-		'col-start-2 col-end-18 !mbe-0',
+		'col-start-1 col-end-19 !mbe-0',
 		{
-			'col-start-1 col-end-18': grid === 'fullsize',
-			'md:col-start-3 md:col-end-17': grid === 'wide',
-			'md:col-start-3 md:col-end-15 xl:col-end-14 3xl:col-end-13': grid === 'narrow',
-			'!col-start-1 row-start-1': innerGrid,
+			'col-start-2 col-end-3 md:col-start-3 md:col-end-17': grid === 'narrow',
+			'row-start-1': innerGrid,
+			'!col-start-2 !col-end-18 md:!col-start-3 md:!col-end-17': !innerGrid,
 		},
 		className,
 	]}
