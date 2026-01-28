@@ -93,7 +93,7 @@ const schema = JSON.stringify({
 		entry.data.cover && (
 			<Image
 				alt={entry.data.title}
-				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
+				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none xl:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
 				loading="eager"
 				src={entry.data.cover}
 				fullHeight
