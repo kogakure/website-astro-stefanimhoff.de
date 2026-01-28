@@ -1,6 +1,9 @@
 ---
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import Logo from '../components/Logo.astro';
+
+import SearchLink from './SearchLink.astro';
 
 export interface Props {
 	class?: string;
@@ -17,6 +20,16 @@ const { class: className, navigation = true } = Astro.props;
 	]}
 	role="banner"
 >
-	{navigation && <MainNavigation />}
-	<ThemeToggle />
+	<div
+		class="navigation col-span-5 col-start-2 flex items-center justify-start md:col-span-2 md:col-start-1 md:mis-5 lg:col-span-1 lg:m-0 lg:justify-center"
+	>
+		<Logo />
+	</div>
+	<div
+		class="col-start-7 col-end-18 flex items-center justify-end md:col-start-3 md:col-end-19 md:mie-5"
+	>
+		{navigation && <MainNavigation />}
+		<SearchLink />
+		<ThemeToggle />
+	</div>
 </header>
