@@ -204,6 +204,10 @@
 		@apply underline !decoration-accent decoration-4;
 	}
 
+	.navigation .is-active svg {
+		@apply fill-accent;
+	}
+
 	.image-shadow {
 		@apply relative transition-transform duration-500 ease-in-out;
 

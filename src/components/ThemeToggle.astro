@@ -1,44 +1,47 @@
 ---
-import { Circle } from './icons';
+import { Moon, Sun } from './icons';
 ---
 
-<theme-toggle
-	class="col-span-2 col-start-17 flex h-clickarea w-clickarea items-center justify-center self-center justify-self-center md:col-span-1 md:col-start-18 print:hidden"
->
+<theme-toggle class="flex h-clickarea w-clickarea print:hidden">
 	<button
 		aria-label="Switch color theme"
 		class="group flex h-clickarea w-clickarea cursor-pointer items-center justify-center self-center border-0 text-[0]"
 		data-umami-event="Switch color theme"
 	>
-		<Circle
-			aria-hidden="true"
-			className="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125"
-		/>
+		<div class="h-icon-small w-icon-small">
+			<Sun
+				id="theme-sun"
+				aria-hidden="true"
+				className="icon h-icon-small w-icon-small transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125 dark:hidden"
+			/>
+			<Moon
+				id="theme-moon"
+				aria-hidden="true"
+				className="icon hidden h-icon-small w-icon-small transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125 dark:block"
+			/>
+		</div>
 	</button>
 </theme-toggle>
 
 <script>
 	function initializeThemeToggle() {
-		// Remove no-js class after transitions
-		document.documentElement.classList.remove('no-js');
-
-		// Only define the custom element if it hasn't been defined yet
 		if (!customElements.get('theme-toggle')) {
 			class ThemeToggle extends HTMLElement {
 				constructor() {
 					super();
 					const button = this.querySelector('button')!;
-					const setTheme = (dark: boolean) => {
-						document.documentElement.classList[dark ? 'add' : 'remove']('dark');
-						button.setAttribute('aria-pressed', String(dark));
-					};
 
 					button.addEventListener('click', () => {
-						setTheme(!this.isDark());
+						const newDark = !this.isDark();
+						document.documentElement.classList[newDark ? 'add' : 'remove']('dark');
+						button.setAttribute('aria-pressed', String(newDark));
+						if (typeof localStorage !== 'undefined') {
+							localStorage.setItem('theme', newDark ? 'dark' : 'light');
+						}
 						button.blur();
 					});
 
-					setTheme(this.isDark());
+					button.setAttribute('aria-pressed', String(this.isDark()));
 				}
 
 				isDark() {
@@ -50,16 +53,6 @@ import { Circle } from './icons';
 		}
 	}
 
-	// Run on initial load
 	initializeThemeToggle();
-
-	// Re-run on view transitions
 	document.addEventListener('astro:after-swap', initializeThemeToggle);
 </script>
-
-<style>
-	/* Turn off toggle if JavaScript is disabled */
-	:global(.no-js) theme-toggle {
-		display: none;
-	}
-</style>
