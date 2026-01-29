@@ -15,19 +15,15 @@ const { class: className, navigation = true } = Astro.props;
 
 <header
 	class:list={[
-		'sticky z-50 grid w-full grid-cols-18 grid-rows-[clamp(3rem,_5.55vw,_9rem)] bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden',
+		'sticky z-50 grid w-full grid-cols-[0.25fr,0.25fr,0.5fr,8fr,8fr,0.5fr,0.25fr,0.25fr] grid-rows-[clamp(3rem,_5.55vw,_9rem)] bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden',
 		className,
 	]}
 	role="banner"
 >
-	<div
-		class="navigation col-span-5 col-start-2 flex items-center justify-start md:col-span-2 md:col-start-1 md:mis-5 lg:col-span-1 lg:m-0 lg:justify-center"
-	>
+	<div class="navigation col-start-4 col-end-5 flex items-center justify-start md:col-start-2">
 		<Logo />
 	</div>
-	<div
-		class="col-start-7 col-end-18 flex items-center justify-end md:col-start-3 md:col-end-19 md:mie-5"
-	>
+	<div class="col-start-5 col-end-6 flex items-center justify-end mie-[-10px] md:col-end-8">
 		{navigation && <MainNavigation />}
 		<SearchLink />
 		<ThemeToggle />

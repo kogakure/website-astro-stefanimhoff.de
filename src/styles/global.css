@@ -167,7 +167,7 @@
 
 	/** Images */
 	img.image-border {
-		@apply block h-auto w-full rounded-1 border border-solid border-black/5 bg-black/5 shadow-img dark:border-white/5 dark:bg-white/5 dark:opacity-[0.87];
+		@apply block h-auto w-full rounded-1 border border-solid border-black/5 bg-black/5 shadow-img dark:border-white/5 dark:bg-white/5;
 	}
 
 	img.image-no-border {
