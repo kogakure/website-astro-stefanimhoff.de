@@ -4,6 +4,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import Logo from '../components/Logo.astro';
 
 import SearchLink from './SearchLink.astro';
+import MenuLink from './MenuLink.astro';
 
 export interface Props {
 	class?: string;
@@ -27,5 +28,6 @@ const { class: className, navigation = true } = Astro.props;
 		{navigation && <MainNavigation />}
 		<SearchLink />
 		<ThemeToggle />
+		<MenuLink />
 	</div>
 </header>

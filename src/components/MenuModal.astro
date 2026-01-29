@@ -1,0 +1,92 @@
+---
+import Link from './Link.astro';
+import MenuNavigation from './MenuNavigation.astro';
+import { Close } from './icons';
+---
+
+<dialog id="menu-dialog">
+	<header
+		class="flex h-[clamp(1.5rem,_5.55vw,_9rem)] w-full items-center justify-end overflow-x-hidden block-start-0 md:h-[clamp(4rem,_5.55vw,_9rem)] md:pie-gap md:pis-gap"
+	>
+		<Link
+			id="close-menu"
+			class="relative left-[10px] outline-none transition-transform duration-500 ease-in-out block-start-0 hover:scale-125"
+		>
+			<button
+				aria-label="Close Menu Modal"
+				class="flex h-[2em] w-[2em] cursor-pointer items-center justify-center text-shibui-950 dark:text-shibui-200/[0.87]"
+			>
+				<Close className="icon h-[1.5em] w-[1.5em]" />
+			</button>
+		</Link>
+	</header>
+	<section
+		class="flex h-[calc(100%_-_clamp(1.5rem,_5.55vw,_9rem))] w-full flex-col items-center justify-center overflow-x-hidden md:h-[calc(100%_-_clamp(4rem,_5.55vw,_9rem))] md:pie-gap md:pis-gap"
+	>
+		<MenuNavigation />
+	</section>
+</dialog>
+
+<style is:global>
+	dialog::backdrop {
+		@apply bg-shibui-100 backdrop-blur-md dark:bg-shibui-900 md:bg-shibui-100/60 md:dark:bg-shibui-900/60;
+		animation: show-dimmer 0.2s ease-in-out;
+	}
+
+	dialog.hide::backdrop {
+		animation: hide-dimmer 0.2s ease-in-out;
+	}
+
+	dialog {
+		@apply h-dvh max-w-[950px] rounded-2 md:max-h-[90vh];
+	}
+
+	dialog[open] {
+		@apply w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:dark:bg-shibui-800;
+		animation: show-modal 0.2s ease-in-out;
+	}
+
+	dialog.hide {
+		animation: hide-modal 0.2s ease-in-out;
+	}
+
+	@keyframes show-modal {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes show-dimmer {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes hide-modal {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+	}
+
+	@keyframes hide-dimmer {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>

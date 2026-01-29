@@ -1,0 +1,44 @@
+---
+import data from '../data/subnavigation.json';
+
+import Link from './Link.astro';
+---
+
+<nav class="navigation glow flex gap-15" aria-label="Subnavigation" role="navigation">
+	<ul>
+		<li class="mbe-[20px]">
+			<Link
+				href="/"
+				class="text-5 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
+			>
+				Home
+			</Link>
+		</li>
+		{
+			data.main.map(({ title, url }) => (
+				<li class="mbe-[20px]">
+					<Link
+						href={url}
+						class="text-5 font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
+					>
+						{title}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+	<ul class="mie-10">
+		{
+			data.misc.map(({ title, url }) => (
+				<li class="mbe-[5px]">
+					<Link
+						href={url}
+						class="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
+					>
+						{title}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+</nav>
