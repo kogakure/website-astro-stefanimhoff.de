@@ -115,7 +115,7 @@ module.exports = {
 				20: 'clamp(8.916rem, 17.85vw, 10.699rem)',
 				column: '6.9375vw',
 				layout: 'clamp(1.5rem, 6.9375vw, 4.5rem)',
-				gap: 'clamp(1.5rem, 6.9375vw, 6rem)',
+				gap: 'clamp(1.5rem, 3.46875vw, 3rem)',
 				halfgap: 'calc(clamp(1.5rem, 6.9375vw, 6rem) / 2)',
 				icon: '24px',
 				'icon-small': '20px',
