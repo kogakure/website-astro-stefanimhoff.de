@@ -32,7 +32,7 @@
 
 	function setSearchLink() {
 		const body = document.body;
-		const dialog = document.querySelector('dialog');
+		const dialog = document.querySelector<HTMLDialogElement>('#search-dialog');
 		const openDialogLink = document.getElementById('search-link');
 		const closeDialogLink = document.getElementById('close-search');
 
@@ -76,24 +76,36 @@
 		});
 	}
 
-	function setSearchModalLink() {
-		const dialog = document.querySelector('dialog');
+	function setMenuLink() {
+		const body = document.body;
+		const dialog = document.querySelector<HTMLDialogElement>('#menu-dialog');
+		const openDialogLink = document.getElementById('menu-link');
+		const closeDialogLink = document.getElementById('close-menu');
 
-		dialog?.addEventListener('click', (event) => {
-			if (event.target === dialog) {
-				if (!dialog.classList.contains('hide')) {
-					dialog.classList.add('hide');
-					dialog.addEventListener(
-						'animationend',
-						(animationEvent) => {
-							if (animationEvent.animationName === 'hide-modal') {
-								dialog.close();
-								dialog.classList.remove('hide');
-							}
-						},
-						{ once: true }
-					);
-				}
+		dialog?.addEventListener('close', () => {
+			body.style.overflow = 'auto';
+		});
+
+		openDialogLink?.addEventListener('click', (event) => {
+			event.preventDefault();
+			dialog?.showModal();
+			body.style.overflow = 'hidden';
+		});
+
+		closeDialogLink?.addEventListener('click', (event) => {
+			event.preventDefault();
+			if (!dialog?.classList.contains('hide')) {
+				dialog?.classList.add('hide');
+				dialog?.addEventListener(
+					'animationend',
+					(animationEvent) => {
+						if (animationEvent.animationName === 'hide-modal') {
+							dialog?.close();
+							dialog?.classList.remove('hide');
+						}
+					},
+					{ once: true }
+				);
 			}
 		});
 	}
@@ -122,7 +134,7 @@
 		setActiveLink();
 		setEmailLink();
 		setSearchLink();
-		setSearchModalLink();
+		setMenuLink();
 		setUpLink();
 	}
 

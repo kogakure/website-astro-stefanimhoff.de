@@ -5,7 +5,7 @@ import Link from './Link.astro';
 import { Close } from './icons';
 ---
 
-<dialog>
+<dialog id="search-dialog">
 	<header
 		class="flex h-[clamp(1.5rem,_5.55vw,_9rem)] w-full items-center justify-end overflow-x-hidden block-start-0 md:h-[clamp(4rem,_5.55vw,_9rem)] md:pie-gap md:pis-gap"
 	>
@@ -115,7 +115,7 @@ import { Close } from './icons';
 	}
 
 	.pagefind-ui__results {
-		@apply !grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] !gap-x-gap !pbe-12 lg:!grid;
+		@apply !gap-x-gap !pbe-12 lg:!grid;
 	}
 
 	.pagefind-ui__result {
