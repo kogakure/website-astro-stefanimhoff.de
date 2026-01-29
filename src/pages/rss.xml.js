@@ -26,6 +26,7 @@ export async function GET(context) {
 		},
 		items: [
 			...journal.map((post) => {
+				const { title, subtitle, date, description, cover } = post.data;
 				// Filter out import statements from content
 				const contentWithoutImports = post.body
 					.split('\n')
@@ -52,26 +53,24 @@ export async function GET(context) {
 				});
 
 				// Logic to determine image URL
-				const isWebp =
-					post.data.cover.startsWith('/assets/images/cover/') &&
-					post.data.cover.endsWith('.webp');
+				const isWebp = cover.startsWith('/assets/images/cover/') && cover.endsWith('.webp');
 				const imgUrl = isWebp
-					? post.data.cover
+					? cover
 							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
 							.replace(/\.webp$/, '.jpg')
 					: '/assets/images/thumbnail/bonsai.jpg';
 
 				return {
-					title: post.data.title,
-					pubDate: post.data.date,
-					description: post.data.description,
+					title: subtitle ? `${title}: ${subtitle}` : title,
+					pubDate: date,
+					description: description,
 					link: `/${post.slug}/`,
 					content: sanitizedContent,
 					enclosure: {
 						url:
 							site.url +
 							(isWebp
-								? post.data.cover
+								? cover
 										.replace('/assets/images/cover/', '/assets/images/og/')
 										.replace(/\.webp$/, '.jpg')
 								: '/assets/images/og/bonsai.jpg'),

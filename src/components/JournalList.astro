@@ -9,7 +9,6 @@ interface Props {
 import { pickTwoRandomColors } from '../utils';
 import Link from '../components/Link.astro';
 import Subsubheadline from './Subsubheadline.astro';
-import ThemeBox from './ThemeBox.astro';
 
 const { entries } = Astro.props;
 ---
@@ -55,7 +54,7 @@ const { entries } = Astro.props;
 						</div>
 						<div class="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
 							<Subsubheadline as="h2" class="!m-0 leading-tight">
-								{data.title}
+								{data.subtitle ? `${data.title}: ${data.subtitle}` : data.title}
 							</Subsubheadline>
 						</div>
 					</Link>

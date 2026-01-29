@@ -13,7 +13,7 @@ import GridLayout from '../layouts/GridLayout.astro';
 import Image from '../components/Image.astro';
 import ListItem from '../components/ListItem.astro';
 import OrderedList from '../components/OrderedList.astro';
-import PageTitle from '../components/PageTitle.astro';
+import JournalTitle from '../components/JournalTitle.astro';
 import Pagination from '../components/Pagination.astro';
 import Tag from '../components/Tag.astro';
 import TextLink from '../components/TextLink.astro';
@@ -51,6 +51,7 @@ const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journ
 seriesEntries.sort(sortByDate).reverse();
 
 const title = entry.data.title;
+const subtitle = entry.data.subtitle;
 const description = entry.data.description;
 
 const schema = JSON.stringify({
@@ -84,16 +85,16 @@ const schema = JSON.stringify({
 	innerGrid
 	nofollow={entry.data.nofollow}
 	noindex={entry.data.noindex}
-	title={title}
+	title={subtitle ? `${title}: ${subtitle}` : title}
 >
-	<PageTitle slot="title" class="!text-6">
+	<JournalTitle subtitle={entry.data.subtitle}>
 		{entry.data.title}
-	</PageTitle>
+	</JournalTitle>
 	{
 		entry.data.cover && (
 			<Image
 				alt={entry.data.title}
-				class="col-span-full aspect-video h-auto !mbe-0 xl:col-start-1 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none xl:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
+				class="col-span-full aspect-video h-auto !mbe-0 md:col-start-3 md:col-end-17 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none md:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
 				loading="eager"
 				src={entry.data.cover}
 				fullHeight

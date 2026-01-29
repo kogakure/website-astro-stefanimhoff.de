@@ -3,6 +3,7 @@ import { defineCollection, z } from 'astro:content';
 export const journal = defineCollection({
 	schema: z.object({
 		title: z.string(),
+		subtitle: z.string().optional(),
 		draft: z.boolean().optional().default(false),
 		featured: z.boolean().optional(),
 		author: z.string().default('Stefan Imhoff'),
