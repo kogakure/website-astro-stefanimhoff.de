@@ -8,12 +8,6 @@ interface Props {
 const { class: className, noMargin, src, ...props } = Astro.props;
 ---
 
-<div
-	class:list={[
-		'block h-auto w-full rounded-2 mbe-10 mbs-0 dark:opacity-[0.87]',
-		{ 'mbe-0': noMargin },
-		className,
-	]}
->
+<div class:list={['block h-auto w-full rounded-2 mbe-10 mbs-0', { 'mbe-0': noMargin }, className]}>
 	<img src={src} decoding="async" loading="lazy" {...props} />
 </div>
