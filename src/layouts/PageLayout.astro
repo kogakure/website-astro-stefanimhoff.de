@@ -25,9 +25,15 @@ const gridVariant = frontmatter.grid || grid;
 		frontmatter.cover && (
 			<div
 				slot="before-content"
-				class="col-span-full xl:col-start-1 xl:col-end-14 3xl:col-end-13 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
+				class="col-span-full aspect-video h-auto !mbe-0 md:col-start-3 md:col-end-17 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none [&_img]:!mbe-0 md:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
 			>
-				<Image alt={frontmatter.title} src={frontmatter.cover} fullWidth fullHeight />
+				<Image
+					alt={frontmatter.title}
+					src={frontmatter.cover}
+					fullWidth
+					fullHeight
+					class="!mbe-0"
+				/>
 			</div>
 		)
 	}
