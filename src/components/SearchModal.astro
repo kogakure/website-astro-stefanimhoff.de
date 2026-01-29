@@ -7,17 +7,17 @@ import { Close } from './icons';
 
 <dialog>
 	<header
-		class="flex h-[clamp(3rem,_5.55vw,_9rem)] w-full items-center justify-end block-start-0 md:pie-gap md:pis-gap"
+		class="flex h-[clamp(1.5rem,_5.55vw,_9rem)] w-full items-center justify-end overflow-x-hidden block-start-0 md:h-[clamp(4rem,_5.55vw,_9rem)] md:pie-gap md:pis-gap"
 	>
 		<Link
 			id="close-search"
-			class="transition-transform duration-500 ease-in-out block-start-0 hover:scale-125"
+			class="relative left-[10px] transition-transform duration-500 ease-in-out block-start-0 hover:scale-125"
 		>
 			<button
 				aria-label="Close Search Modal"
 				class="flex h-[2em] w-[2em] cursor-pointer items-center justify-center text-shibui-950 dark:text-shibui-200/[0.87]"
 			>
-				<Close className="icon h-[2em] w-[2em]" />
+				<Close className="icon h-[1.5em] w-[1.5em]" />
 			</button>
 		</Link>
 	</header>
@@ -28,7 +28,7 @@ import { Close } from './icons';
 
 <style is:global>
 	dialog::backdrop {
-		@apply bg-shibui-100 dark:bg-shibui-900;
+		@apply bg-shibui-100 backdrop-blur-md dark:bg-shibui-900 md:bg-shibui-100/60 md:dark:bg-shibui-900/60;
 		animation: show-dimmer 0.2s ease-in-out;
 	}
 
@@ -37,11 +37,11 @@ import { Close } from './icons';
 	}
 
 	dialog {
-		@apply h-full;
+		@apply h-dvh max-w-[950px] rounded-2 md:max-h-[90vh];
 	}
 
 	dialog[open] {
-		@apply m-gap w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87];
+		@apply w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:dark:bg-shibui-800;
 		animation: show-modal 0.2s ease-in-out;
 	}
 
@@ -103,7 +103,7 @@ import { Close } from './icons';
 	}
 
 	.pagefind-ui__search-input {
-		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !rounded-none !border-0 !border-solid !border-black/[0.1] !bg-transparent !text-6 !font-black !leading-normal !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1] dark:!font-extrabold md:!text-7;
+		@apply !h-[clamp(3.3rem,_5vw,_4rem)] !rounded-none !border-0 !border-solid !border-black/[0.1] !bg-transparent !text-6 !font-black !leading-normal !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 dark:!border-white/[0.1] dark:!font-extrabold md:!text-7;
 	}
 
 	.pagefind-ui__search-input::placeholder {
@@ -111,7 +111,7 @@ import { Close } from './icons';
 	}
 
 	.pagefind-ui__search-clear {
-		@apply !h-[clamp(3.3rem,_7.3vw,_8.5rem)] !rounded-sm !bg-transparent !p-2 focus:!outline;
+		@apply !h-[clamp(3.3rem,_5vw,_4rem)] !rounded-sm !bg-transparent !p-2 focus:!outline;
 	}
 
 	.pagefind-ui__results {
@@ -137,7 +137,7 @@ import { Close } from './icons';
 	}
 
 	.pagefind-ui .pagefind-ui__result-excerpt {
-		@apply !text-2;
+		@apply break-normal !text-2;
 	}
 
 	.pagefind-ui__result-excerpt mark {
@@ -145,6 +145,6 @@ import { Close } from './icons';
 	}
 
 	.pagefind-ui__button {
-		@apply !flex !items-center !justify-center !border-0 !bg-transparent !py-12 !text-4 !tracking-tight !text-shibui-950 !mbe-10 !mbs-0 focus:!outline dark:!text-shibui-200/[0.87];
+		@apply !flex !w-[90%] !items-center !justify-center !border-0 !bg-transparent !py-10 !text-4 !tracking-tight !text-shibui-950 mli-auto !mbe-10 !mbs-0 focus:!outline dark:!text-shibui-200/[0.87];
 	}
 </style>
