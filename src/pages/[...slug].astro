@@ -201,11 +201,11 @@ const schema = JSON.stringify({
 		}
 
 		& > figure.figure-wide {
-			@apply md:-mie-[16.65vw] md:-mis-[16.65vw] xl:-mie-[11.1vw] xl:-mis-[11.1vw] [&_img]:w-full [&_img]:max-w-none;
+			@apply md:!w-[calc(100%_+_4_*_5.55vw)] md:-mis-[calc(2_*_5.55vw)] xl:!w-[calc(100%_+_6_*_5.55vw)] xl:-mis-[calc(3_*_5.55vw)] 3xl:!w-[calc(100%_+_8_*_5.55vw)] 3xl:-mis-[calc(4_*_5.55vw)];
 		}
 
 		& > figure.figure-fullsize {
-			@apply -mie-[5.55vw] -mis-[5.55vw] md:-mie-[22.2vw] md:-mis-[22.2vw] xl:-mie-[27.75vw] xl:-mis-[27.75vw] 3xl:-mie-[33.3vw] 3xl:-mis-[33.3vw] [&_img]:w-full [&_img]:max-w-none;
+			@apply !w-[calc(100%_+_2_*_5.55vw)] -mis-[5.55vw] md:!w-[calc(100%_+_8_*_5.55vw)] md:-mis-[calc(5.55vw_*_4)] lg:!w-[calc(100%_+_8_*_5.55vw)] lg:-mis-[calc(5.55vw_*_4)] xl:!w-[calc(100%_+_10_*_5.55vw)] xl:-mis-[calc(5.55vw_*_5)] 3xl:!w-[calc(100%_+_12_*_5.55vw)] 3xl:-mis-[calc(5.55vw_*_6)] [&_img]:rounded-none;
 		}
 
 		& > figure .image-shadow,
