@@ -1,11 +1,14 @@
 ---
+import { Copyright } from './icons';
 import LegalDate from './LegalDate.astro';
 
 import { site } from '../data/site';
 ---
 
 <div class="flex flex-1 shrink-0 items-center">
-	<span class="relative text-[14px] mie-[0.25em] block-start-[1px]">©</span>
+	<span class="relative text-[14px] mie-[0.25em] block-start-[-1px]"
+		><Copyright aria-hidden="true" className="icon h-[15px] w-[15px]" /></span
+	>
 	<span class="shrink-0">
 		<LegalDate />
 	</span>
