@@ -29,7 +29,7 @@ import { Close } from './icons';
 
 <style is:global>
 	dialog::backdrop {
-		@apply bg-shibui-100 backdrop-blur-md dark:bg-shibui-900 md:bg-shibui-100/60 md:dark:bg-shibui-900/60;
+		@apply bg-shibui-100 backdrop-blur-md dark:bg-shibui-900 md:!bg-shibui-900/60 md:dark:bg-shibui-900/60;
 		animation: show-dimmer 0.2s ease-in-out;
 	}
 
@@ -42,7 +42,7 @@ import { Close } from './icons';
 	}
 
 	dialog[open] {
-		@apply w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:dark:bg-shibui-800;
+		@apply w-[calc(100%_-_5.55vw_*_2)] bg-shibui-100 p-0 font-sans font-normal leading-relaxed text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:!bg-shibui-200 md:dark:!bg-shibui-800;
 		animation: show-modal 0.2s ease-in-out;
 	}
 
