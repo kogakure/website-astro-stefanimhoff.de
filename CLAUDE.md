@@ -16,7 +16,28 @@ git checkout -b feature/your-feature-name
 git push -u origin feature/your-feature-name
 ```
 
-After pushing, create a pull request to merge into `master` with gh.
+### Commit Messages
+
+Always use [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `docs:` - Documentation changes
+- `chore:` - Maintenance tasks
+- `refactor:` - Code refactoring
+- `test:` - Test updates
+- `style:` - Code style/formatting changes
+
+### Creating Pull Requests
+
+After pushing, create a pull request using `gh` CLI with the following requirements:
+
+- Assign to `@me`
+- Add one of the existing labels: `bug`, `documentation`, `enhancement`, or `maintenance`
+
+```sh
+gh pr create --title "Your PR title" --body "Description" --assignee @me --label <label-name>
+```
 
 ## Common Commands
 
