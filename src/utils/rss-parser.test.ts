@@ -76,6 +76,12 @@ describe('rss-parser', () => {
     it('should handle siteUrl without trailing slash', () => {
       expect(makeAbsolute('/path', 'https://example.com')).toBe('https://example.com/path');
     });
+
+    it('should handle invalid URLs with fallback', () => {
+      // Invalid URLs that cause URL constructor to throw will use fallback logic
+      const result = makeAbsolute('path/to/file', 'invalid-base');
+      expect(result).toBe('invalid-base/path/to/file');
+    });
   });
 
   describe('fixImagePaths', () => {
@@ -150,6 +156,14 @@ describe('rss-parser', () => {
       const result = replaceImageComponent(attrs, SITE_URL);
 
       expect(result).toContain('<cite><a href="https://example.com">Author</a></cite>');
+    });
+
+    it('should add source without link if no sourceUrl', () => {
+      const attrs = 'src="/test.jpg" alt="Test" source="Author"';
+      const result = replaceImageComponent(attrs, SITE_URL);
+
+      expect(result).toContain('<cite>Author</cite>');
+      expect(result).not.toContain('<a href=');
     });
 
     it('should escape HTML in alt text', () => {
@@ -313,6 +327,23 @@ describe('rss-parser', () => {
       expect(result).toContain('<cite><a href="https://example.com">Article</a></cite>');
     });
 
+    it('should convert relative sourceUrl to absolute', () => {
+      const attrs = 'source="Article" sourceUrl="/blog/post"';
+      const content = '<p>Quote</p>';
+      const result = replaceBlockquoteComponent(attrs, content, SITE_URL);
+
+      expect(result).toContain('<cite><a href="https://www.stefanimhoff.de/blog/post">Article</a></cite>');
+    });
+
+    it('should add source without link if no sourceUrl', () => {
+      const attrs = 'source="Book Title"';
+      const content = '<p>Quote</p>';
+      const result = replaceBlockquoteComponent(attrs, content, SITE_URL);
+
+      expect(result).toContain('<cite>Book Title</cite>');
+      expect(result).not.toContain('<a href=');
+    });
+
     it('should handle custom lang attribute', () => {
       const attrs = 'lang="de"';
       const content = '<p>Zitat</p>';
@@ -360,6 +391,13 @@ describe('rss-parser', () => {
 
       expect(result).toContain('<b>Jane</b>');
       expect(result).toContain('<cite>Book</cite>');
+    });
+
+    it('should add source with link if sourceUrl provided', () => {
+      const attrs = 'text="Quote" source="Article" sourceUrl="/blog/post"';
+      const result = replacePullquoteComponent(attrs, SITE_URL);
+
+      expect(result).toContain('<cite><a href="https://www.stefanimhoff.de/blog/post">Article</a></cite>');
     });
 
     it('should return empty string if no text', () => {
