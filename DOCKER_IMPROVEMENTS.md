@@ -127,9 +127,9 @@ The new Alpine-based Dockerfile has been tested and verified:
 - ✅ Container started successfully: `d0ck4k4-pr-18`
 - ✅ No platform compatibility issues
 
-**Files:**
-- `Dockerfile` - Active optimized version (Alpine-based)
-- `Dockerfile.old` - Backup of original (Debian-based)
+**Active Configuration:**
+- `Dockerfile` - Optimized Alpine-based multi-stage build
+- Original Dockerfile preserved in Git history
 
 ---
 
@@ -202,7 +202,7 @@ ARG PNPM_VERSION=9
 
 ## Questions?
 
-- **Should I delete the old Dockerfile?** `Dockerfile.old` is kept as reference. Can be deleted if not needed.
+- **What happened to the old Dockerfile?** Removed from working directory, preserved in Git history.
 - **Will this work on Coolify?** ✅ **Yes, verified working** (PR #18 preview build successful).
 - **Do I need to change Coolify settings?** No, it auto-detects the Dockerfile.
 - **What about the nginx.conf?** No changes needed, it's copied as-is and working correctly.
