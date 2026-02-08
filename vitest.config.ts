@@ -52,8 +52,5 @@ export default defineConfig({
 
     // Globals for cleaner test syntax
     globals: true,
-
-    // Watch options
-    watch: false,
   },
 });
