@@ -56,7 +56,7 @@ The optimized Alpine-based Dockerfile is now in production use:
 - Pagefind search indexing working
 - Service worker generation functional
 
-The old Dockerfile is backed up as `Dockerfile.old` for reference.
+The original Dockerfile is preserved in Git history if needed for reference.
 
 ## Testing Workflow Summary
 
