@@ -14,6 +14,10 @@
 		"prepreview": "pnpm run build",
 		"preview": "astro preview --open",
 		"start": "astro dev",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:ui": "vitest --ui",
+		"test:coverage": "vitest run --coverage",
 		"webp": "node convert-images.cjs"
 	},
 	"dependencies": {
@@ -50,10 +54,15 @@
 	"devDependencies": {
 		"@svgr/cli": "^8.1.0",
 		"@svgr/core": "^8.1.0",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/preact": "^3.2.4",
+		"@testing-library/user-event": "^14.6.1",
 		"@types/mdast": "^4.0.4",
 		"@types/react": "^18.3.2",
 		"@types/unist": "^3.0.2",
 		"@typescript-eslint/parser": "^8.0.0",
+		"@vitest/coverage-v8": "^4.0.18",
+		"@vitest/ui": "^4.0.18",
 		"cssnano": "^7.0.1",
 		"eslint": "^9.3.0",
 		"eslint-config-prettier": "^9.1.0",
@@ -63,6 +72,7 @@
 		"glob": "^11.0.0",
 		"husky": "^9.0.11",
 		"jimp": "^0.22.12",
+		"jsdom": "^28.0.0",
 		"lint-staged": "^15.2.4",
 		"lodash": "^4.17.21",
 		"markdown-it": "^14.1.0",
@@ -83,7 +93,8 @@
 		"tailwindcss-logical": "^3.0.1",
 		"tailwindcss-opentype": "^1.1.0",
 		"typescript": "^5.4.5",
-		"vite": "^5.2.11"
+		"vite": "^5.2.11",
+		"vitest": "^4.0.18"
 	},
 	"pnpm": {
 		"supportedArchitectures": {
