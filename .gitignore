@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Unlighthouse reports
 .unlighthouse
+
+# Test coverage reports
+coverage/

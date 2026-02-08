@@ -3,6 +3,8 @@
 	"compilerOptions": {
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"strictNullChecks": true
-	}
+		"strictNullChecks": true,
+		"types": ["vitest/globals", "@testing-library/jest-dom"]
+	},
+	"include": ["src/**/*", "src/test/**/*"]
 }
