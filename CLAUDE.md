@@ -1,166 +1,137 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
-Personal website for Stefan Imhoff built with Astro, Preact, and Tailwind CSS. The site features a journal (blog), haiku collection, and project showcase with full-text search via Pagefind.
+Personal website and blog for Stefan Imhoff, featuring journal posts, haiku collection, project showcase, and full-text search. Built with Astro for static generation, Preact for interactive components, and styled with Tailwind CSS.
+
+**Live Site**: https://www.stefanimhoff.de
+
+## Tech Stack
+
+- **Framework**: Astro 4.x (static site generator with view transitions)
+- **UI Libraries**: Preact (React compatibility mode), MDX for content
+- **Styling**: Tailwind CSS with custom plugins (tailwindcss-logical, tailwindcss-opentype)
+- **Search**: Pagefind (full-text search)
+- **Package Manager**: pnpm
+- **Build Tools**: Vite, TypeScript (strict mode)
+- **Quality Tools**: ESLint, Prettier, Husky pre-commit hooks
+
+## Key Directories
+
+```
+src/
+├── components/     # Reusable UI components (Astro/Preact)
+├── content/        # Content collections (journal/, haiku/, projects/)
+├── schema/         # Zod schemas for content validation (src/schema/*.ts)
+├── layouts/        # Page templates (BaseLayout → specialized layouts)
+├── pages/          # File-based routing + dynamic [...slug].astro
+├── utils/          # Pure functions (formatPosts, sortByDate, remark plugins)
+├── data/           # Site config, navigation, colors (src/data/site.ts)
+├── icons/          # SVG icons (generated from source via icons:generate)
+├── styles/         # Global CSS
+└── text/           # Static page content
+
+Root scripts: *.cjs files for asset generation (OG images, thumbnails, icons)
+```
+
+## Essential Commands
+
+### Development
+```sh
+pnpm dev            # Start dev server
+pnpm build          # Build for production
+pnpm preview        # Build + preview production build
+```
+
+### Content Generation
+```sh
+pnpm plop           # Create new journal post (interactive)
+pnpm images         # Generate all images (OG + thumbnails)
+pnpm icons:generate # Convert SVG icons to components
+```
+
+### Code Quality
+```sh
+npx prettier --write <files>
+npx eslint --fix <files>
+npx lint-staged     # Run pre-commit hooks manually
+```
 
 ## Git Workflow
 
-**IMPORTANT**: The `master` branch is protected against direct pushes. Always create a new feature branch for any changes:
+**CRITICAL**: The `master` branch is protected. Always work on feature branches:
 
 ```sh
 git checkout -b feature/your-feature-name
-# Make changes, commit, then push
+# Make changes, commit
 git push -u origin feature/your-feature-name
 ```
 
 ### Commit Messages
-
-Always use [Conventional Commits](https://www.conventionalcommits.org/) format:
-
+Use [Conventional Commits](https://www.conventionalcommits.org/):
 - `feat:` - New feature
 - `fix:` - Bug fix
-- `docs:` - Documentation changes
-- `chore:` - Maintenance tasks
+- `docs:` - Documentation
 - `refactor:` - Code refactoring
-- `test:` - Test updates
-- `style:` - Code style/formatting changes
+- `style:` - Formatting
+- `test:` - Tests
+- `chore:` - Maintenance
 
-### Creating Pull Requests
-
-After pushing, create a pull request using `gh` CLI with the following requirements:
-
-- Assign to `@me`
-- Add one of the existing labels: `bug`, `documentation`, `enhancement`, or `maintenance`
-
+### Pull Requests
+Create PRs with assignment and labels:
 ```sh
-gh pr create --title "Your PR title" --body "Description" --assignee @me --label <label-name>
+gh pr create --title "Title" --body "Description" --assignee @me --label <bug|documentation|enhancement|maintenance>
 ```
 
-## Common Commands
+## Content Collections
 
-### Development
+Three typed collections defined in `src/content/config.ts`:
 
-```sh
-pnpm dev        # Start dev server
-pnpm start      # Alias for dev
-pnpm build      # Build for production
-pnpm preview    # Preview production build (runs build first)
-```
+1. **journal** (`src/content/journal/YYYY/*.mdx`)
+   - Schema: `src/schema/journal.ts`
+   - Required: title, date, tags (predefined enum)
+   - Optional: subtitle, description, cover, series, featured, draft
 
-### Code Quality
+2. **haiku** (`src/content/haiku/*.mdx`)
+   - Schema: `src/schema/haiku.ts`
+   - Minimal frontmatter (title, date)
 
-```sh
-npx prettier --write <files>  # Format files
-npx eslint --fix <files>      # Lint and fix files
-npx lint-staged               # Run pre-commit hooks manually
-```
+3. **projects** (`src/content/projects/*.mdx`)
+   - Schema: `src/schema/projects.ts`
+   - Includes project metadata (URL, sortkey, etc.)
 
-### Content Generation
+All schemas use Zod for type validation.
 
-```sh
-pnpm plop                     # Create new journal post (interactive)
-pnpm images                   # Generate OG images and thumbnails
-pnpm og:generate              # Generate Open Graph images
-pnpm thumbnail:generate       # Generate thumbnails
-pnpm icons:generate           # Generate icon components from SVG
-pnpm webp                     # Convert images to WebP format
-```
+## Key Files
 
-## Architecture
+- `astro.config.mjs` - Astro configuration, integrations (line 26-82)
+- `tailwind.config.cjs` - Custom Tailwind theme (colors, spacing, typography)
+- `src/mdx-components.ts` - Maps HTML elements to custom components (line 39-80)
+- `src/utils/format-posts.ts` - Content filtering/sorting logic
+- `src/utils/remark-reading-time.ts` - Reading time calculation plugin
+- `src/utils/remark-widont.ts` - Typography widow prevention
+- `src/pages/[...slug].astro` - Dynamic route handler for journal posts
 
-### Content Collections
+## Build Features
 
-Three content collections defined in `src/content/config.ts`, with schemas in `src/schema/`:
+Configured in `astro.config.mjs:26-82`:
+- MDX with custom remark plugins (reading time, widont)
+- Pagefind integration for search
+- Service worker (caches fonts/images)
+- Sitemap generation (excludes /cv/, /imprint/)
+- Web manifest for PWA support
+- View transitions
 
-- **journal**: Blog posts organized by year in `src/content/journal/YYYY/`
-- **haiku**: Haiku poems in `src/content/haiku/`
-- **projects**: Project descriptions in `src/content/projects/`
+## Additional Documentation
 
-Each collection has a Zod schema defining frontmatter structure (title, date, tags, etc.)
-
-### Pages & Routing
-
-Pages are in `src/pages/` using Astro's file-based routing:
-
-- Static pages: `index.astro`, `about.mdx`, `cv.astro`, `tools.mdx`, etc.
-- Dynamic routes: `[...slug].astro` for individual posts
-- RSS feeds: `rss.xml.js` and `rss-haiku.xml.js`
-
-### Components & Layouts
-
-- **Layouts**: `src/layouts/` - Page templates
-- **Components**: `src/components/` - Reusable UI components (Astro/Preact)
-- **Icons**: `src/icons/` - SVG icons, generate components with `pnpm icons:generate`
-
-### Styling
-
-Tailwind CSS with custom plugins:
-
-- `tailwindcss-logical` for logical properties
-- `tailwindcss-opentype` for OpenType features
-- Configuration in `tailwind.config.cjs`
-- Global styles in `src/styles/`
-
-### Utilities & Data
-
-- **Utils**: `src/utils/` - Helper functions including:
-  - `remark-reading-time.ts` - Adds reading time to posts
-  - `remark-widont.ts` - Prevents widows in titles
-  - `format-posts.ts`, `sort-by-date.ts`, etc.
-- **Data**: `src/data/` - Site metadata, navigation, colors
-- **Text**: `src/text/` - Static content for pages
-
-### Build Features
-
-Astro integrations configured in `astro.config.mjs`:
-
-- MDX support with custom remark plugins
-- Pagefind for full-text search
-- Service worker for offline support (fonts and images)
-- Automatic sitemap generation (excludes /cv/ and /imprint/)
-- Web manifest generation
-
-### Image Generation Scripts
-
-Root-level `.cjs` scripts for asset generation:
-
-- `og-generate.cjs` - Creates Open Graph images
-- `thumbnail-generate.cjs` - Generates post thumbnails
-- `icons-generate.cjs` - Converts SVGs to React components
-- `convert-images.cjs` - Batch image format conversion
-
-## Creating Content
-
-### New Journal Post
-
-Use Plop for consistent post structure:
-
-```sh
-pnpm plop
-```
-
-This creates a new post in `src/content/journal/YYYY/` with proper frontmatter, including predefined tag options (book, code, design, film, philosophy, poetry, politics, productivity, self-improvement, software, technology, writing).
-
-### Post Structure
-
-Journal posts require:
-
-- `title` (required)
-- `date` (required)
-- `description` (optional but recommended)
-- `tags` (array of predefined tags)
-- `draft` (boolean, defaults to false)
-- `featured` (boolean, optional)
-- `cover` (optional image path)
+Detailed architectural patterns and conventions:
+- `.claude/docs/architectural_patterns.md` - Design patterns, conventions, architecture decisions
 
 ## Development Notes
 
-- Site URL: https://www.stefanimhoff.de
-- Uses pnpm as package manager
-- Husky pre-commit hooks run lint-staged (Prettier + ESLint)
-- Custom Shiki theme defined in `shiki-theme.json`
-- TypeScript with strict null checks enabled
-- React JSX mode for Preact compatibility
+- Journal posts organized by year: `src/content/journal/YYYY/`
+- Tags are constrained by enum in `src/schema/journal.ts:15-34`
+- Custom Shiki syntax theme: `shiki-theme.json`
+- Asset generation scripts use CommonJS (*.cjs)
+- Service worker configured in `astro.config.mjs:58-81`
+- Dark mode via Tailwind's `class` strategy (see `tailwind.config.cjs:4`)
