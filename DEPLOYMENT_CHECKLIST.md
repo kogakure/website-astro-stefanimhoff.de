@@ -110,9 +110,24 @@ With the new Alpine-based Dockerfile:
 - Astro build: ~60 seconds (if code changed)
 - Total: ~30 seconds (if only dependencies changed)
 
-## Next Steps (Optional)
+## Automated CI/CD
 
-Consider adding GitHub Actions to automatically run these checks on every PR:
+**Status**: ✅ **Active**
+
+GitHub Actions workflow (`.github/workflows/docker-build.yml`) runs automatically on every PR:
+
+**What it does:**
+- ✅ Runs unit tests (`pnpm test`)
+- ✅ Validates Docker build (all stages)
+- ✅ Verifies build artifacts exist
+- ✅ Uses GitHub Actions cache for faster builds
+
+**Triggers:**
+- Every pull request to `master`
+- Every push to `master`
+
+**Benefits:**
 - Prevents merging broken builds
 - Catches issues before they reach Coolify
 - Free for public repositories
+- Build cache speeds up subsequent runs
