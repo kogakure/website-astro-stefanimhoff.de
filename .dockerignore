@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+.astro
+
+# Development files
+.vscode
+.idea
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Testing
+coverage
+.vitest
+
+# Git
+.git
+.gitignore
+.github
+
+# CI/CD
+.husky
+
+# Documentation
+README.md
+CLAUDE.md
+*.md
+
+# Environment files
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+.cache
+
+# Editor files
+*.swp
+*.swo
+*~
