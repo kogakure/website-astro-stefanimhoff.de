@@ -114,20 +114,21 @@ With the new Alpine-based Dockerfile:
 
 **Status**: ✅ **Active**
 
-GitHub Actions workflow (`.github/workflows/docker-build.yml`) runs automatically on every PR:
+GitHub Actions workflow (`.github/workflows/tests.yml`) runs automatically on every PR:
 
 **What it does:**
 - ✅ Runs unit tests (`pnpm test`)
-- ✅ Validates Docker build (all stages)
-- ✅ Verifies build artifacts exist
-- ✅ Uses GitHub Actions cache for faster builds
+- ✅ Validates code quality before merge
+
+**Docker build validation:**
+- ✅ Handled by Coolify preview builds (automatic on every PR)
 
 **Triggers:**
 - Every pull request to `master`
 - Every push to `master`
 
 **Benefits:**
-- Prevents merging broken builds
-- Catches issues before they reach Coolify
+- Prevents merging broken tests
+- Fast feedback (no Docker build overhead)
+- Coolify provides full deployment validation
 - Free for public repositories
-- Build cache speeds up subsequent runs

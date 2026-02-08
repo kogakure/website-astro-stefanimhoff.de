@@ -220,7 +220,7 @@ ARG PNPM_VERSION=9
 ### GitHub Actions CI/CD
 
 Automated workflow validates every PR:
-- **File**: `.github/workflows/docker-build.yml`
-- **Jobs**: Test suite + Docker build validation
-- **Cache**: GitHub Actions cache for dependencies
-- **Platform**: linux/amd64 (matches Coolify)
+- **File**: `.github/workflows/tests.yml`
+- **Job**: Unit test suite (`pnpm test`)
+- **Cache**: pnpm dependencies cached
+- **Docker validation**: Handled by Coolify preview builds
