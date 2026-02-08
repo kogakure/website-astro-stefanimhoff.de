@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { sortByDate } from './sort-by-date';
+import { sortByDate, sortMarkdownByDate } from './sort-by-date';
 import { createMockPost } from '../test/fixtures/posts';
 
 describe('sort-by-date', () => {
@@ -74,6 +74,45 @@ describe('sort-by-date', () => {
       posts.sort(sortByDate);
 
       expect(posts).toHaveLength(0);
+    });
+  });
+
+  describe('sortMarkdownByDate', () => {
+    it('should sort markdown posts by date descending (newest first)', () => {
+      const posts = [
+        { frontmatter: { date: '2020-01-01', title: 'Old' } },
+        { frontmatter: { date: '2024-01-01', title: 'New' } },
+        { frontmatter: { date: '2022-01-01', title: 'Middle' } },
+      ];
+
+      posts.sort(sortMarkdownByDate);
+
+      expect(posts[0].frontmatter.title).toBe('New'); // 2024
+      expect(posts[1].frontmatter.title).toBe('Middle'); // 2022
+      expect(posts[2].frontmatter.title).toBe('Old'); // 2020
+    });
+
+    it('should handle ISO date strings', () => {
+      const posts = [
+        { frontmatter: { date: '2020-06-15T10:00:00Z', title: 'First' } },
+        { frontmatter: { date: '2024-06-15T10:00:00Z', title: 'Second' } },
+      ];
+
+      posts.sort(sortMarkdownByDate);
+
+      expect(posts[0].frontmatter.title).toBe('Second');
+      expect(posts[1].frontmatter.title).toBe('First');
+    });
+
+    it('should handle same dates', () => {
+      const posts = [
+        { frontmatter: { date: '2024-01-01', title: 'Post A' } },
+        { frontmatter: { date: '2024-01-01', title: 'Post B' } },
+      ];
+
+      posts.sort(sortMarkdownByDate);
+
+      expect(posts).toHaveLength(2);
     });
   });
 });
