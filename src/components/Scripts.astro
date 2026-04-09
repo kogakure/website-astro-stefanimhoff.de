@@ -3,6 +3,10 @@
 ---
 
 <script>
+	function openCommandMenu() {
+		document.dispatchEvent(new CustomEvent('command-menu:open'));
+	}
+
 	function setActiveLink() {
 		const links = document.querySelectorAll('.navigation a');
 		const currentPath = window.location.pathname;
@@ -22,90 +26,35 @@
 		const button = document.getElementById('up-link');
 		button?.addEventListener('click', (event) => {
 			event.preventDefault();
-			window.scrollTo({
-				top: 0,
-				left: 0,
-				behavior: 'smooth',
-			});
+			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 		});
 	}
 
-	function setSearchLink() {
-		const body = document.body;
-		const dialog = document.querySelector<HTMLDialogElement>('#search-dialog');
-		const openDialogLink = document.getElementById('search-link');
-		const closeDialogLink = document.getElementById('close-search');
+	function setCommandMenuTriggers() {
+		// Search link and menu link both open the command menu
+		const searchLink = document.getElementById('search-link');
+		const menuLink = document.getElementById('menu-link');
 
-		dialog?.addEventListener('close', () => {
-			body.style.overflow = 'auto';
-		});
-
-		openDialogLink?.addEventListener('click', (event) => {
-			const searchInput = dialog?.querySelector('input');
+		searchLink?.addEventListener('click', (event) => {
 			event.preventDefault();
-			dialog?.showModal();
-			searchInput?.focus();
-			body.style.overflow = 'hidden';
+			openCommandMenu();
 		});
 
-		closeDialogLink?.addEventListener('click', (event) => {
+		menuLink?.addEventListener('click', (event) => {
 			event.preventDefault();
-			if (!dialog?.classList.contains('hide')) {
-				dialog?.classList.add('hide');
-				dialog?.addEventListener(
-					'animationend',
-					(animationEvent) => {
-						if (animationEvent.animationName === 'hide-modal') {
-							dialog?.close();
-							dialog?.classList.remove('hide');
-						}
-					},
-					{ once: true }
-				);
-			}
+			openCommandMenu();
 		});
 
+		// "/" key shortcut
 		document.addEventListener('keydown', (event) => {
-			if (event.key === '/') {
-				const searchInput = dialog?.querySelector('input');
+			const target = event.target as HTMLElement;
+			const isInput =
+				target.tagName === 'INPUT' ||
+				target.tagName === 'TEXTAREA' ||
+				target.isContentEditable;
+			if (event.key === '/' && !isInput) {
 				event.preventDefault();
-				dialog?.showModal();
-				searchInput?.focus();
-				body.style.overflow = 'hidden';
-			}
-		});
-	}
-
-	function setMenuLink() {
-		const body = document.body;
-		const dialog = document.querySelector<HTMLDialogElement>('#menu-dialog');
-		const openDialogLink = document.getElementById('menu-link');
-		const closeDialogLink = document.getElementById('close-menu');
-
-		dialog?.addEventListener('close', () => {
-			body.style.overflow = 'auto';
-		});
-
-		openDialogLink?.addEventListener('click', (event) => {
-			event.preventDefault();
-			dialog?.showModal();
-			body.style.overflow = 'hidden';
-		});
-
-		closeDialogLink?.addEventListener('click', (event) => {
-			event.preventDefault();
-			if (!dialog?.classList.contains('hide')) {
-				dialog?.classList.add('hide');
-				dialog?.addEventListener(
-					'animationend',
-					(animationEvent) => {
-						if (animationEvent.animationName === 'hide-modal') {
-							dialog?.close();
-							dialog?.classList.remove('hide');
-						}
-					},
-					{ once: true }
-				);
+				openCommandMenu();
 			}
 		});
 	}
@@ -116,15 +65,13 @@
 		if (currentTarget instanceof HTMLElement) {
 			const { name, domain, tld } = currentTarget.dataset;
 			if (name && domain && tld) {
-				const mailto = `mailto:${name}@${domain}.${tld}`;
-				window.open(mailto, '_blank');
+				window.open(`mailto:${name}@${domain}.${tld}`, '_blank');
 			}
 		}
 	}
 
 	function setEmailLink() {
 		const links = document.querySelectorAll('[data-email-link]');
-
 		links.forEach((link) => {
 			link.addEventListener('click', handleEmailClick);
 		});
@@ -133,13 +80,10 @@
 	function initializeScripts() {
 		setActiveLink();
 		setEmailLink();
-		setSearchLink();
-		setMenuLink();
+		setCommandMenuTriggers();
 		setUpLink();
 	}
 
-	// Initialize on first load
 	initializeScripts();
-
 	document.addEventListener('astro:after-swap', initializeScripts);
 </script>

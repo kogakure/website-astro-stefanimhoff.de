@@ -8,8 +8,7 @@ import { isProduction } from '../utils';
 import ThemeProvider from '../components/ThemeProvider.astro';
 import PageHeader from '../components/PageHeader.astro';
 import PageFooter from '../components/PageFooter.astro';
-import SearchModal from '../components/SearchModal.astro';
-import MenuModal from '../components/MenuModal.astro';
+import CommandMenu from '../components/CommandMenu';
 import Scripts from '../components/Scripts.astro';
 
 export interface Props {
@@ -172,8 +171,7 @@ const webManifest = isProduction && {
 			</div>
 			{footer && <PageFooter />}
 		</div>
-		<SearchModal />
-		<MenuModal />
+		<CommandMenu client:load />
 		<script>
 			console.info(
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
