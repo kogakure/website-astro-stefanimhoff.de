@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { SEO } from 'astro-seo';
 import { site } from '../data/site';
 import { isProduction } from '../utils';
@@ -108,14 +108,14 @@ const webManifest = isProduction && {
 					{
 						as: 'font',
 						crossorigin: '',
-						href: '/assets/fonts/secuela-regular-vf.woff2',
+						href: '/assets/fonts/boska-variable.woff2',
 						rel: 'preload',
 						type: 'font/woff2',
 					},
 					{
 						as: 'font',
 						crossorigin: '',
-						href: '/assets/fonts/secuela-italic-vf.woff2',
+						href: '/assets/fonts/switzer-variable.woff2',
 						rel: 'preload',
 						type: 'font/woff2',
 					},
@@ -147,7 +147,7 @@ const webManifest = isProduction && {
 			document.documentElement.classList.remove('no-js');
 			document.documentElement.classList.add('js');
 		</script>
-		<ViewTransitions />
+		<ClientRouter />
 		<ThemeProvider />
 		{
 			isProduction && (
@@ -181,6 +181,7 @@ const webManifest = isProduction && {
 		</script>
 		<script type="application/ld+json" set:html={schema} />
 		<style is:global>
+@reference "../styles/global.css";
 			.astro-code {
 				@apply overflow-auto rounded-2 p-[1em] font-mono text-code mbe-10 mbs-0;
 			}

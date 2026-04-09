@@ -1,8 +1,7 @@
 import mdx from '@astrojs/mdx';
-import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -15,7 +14,6 @@ import customTheme from './shiki-theme.json';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
-	viewTransitions: true,
 	markdown: {
 		shikiConfig: {
 			theme: customTheme,
@@ -27,9 +25,7 @@ export default defineConfig({
 		mdx({
 			remarkPlugins: [remarkReadingTime, remarkWidont],
 		}),
-		tailwind(),
 		react(),
-		prefetch(),
 		pagefind(),
 		sitemap({
 			filter: (page) =>
@@ -80,6 +76,9 @@ export default defineConfig({
 			},
 		}),
 	],
+	vite: {
+		plugins: [tailwindcss()],
+	},
 	build: {
 		inlineStylesheets: 'always',
 		client: './dist',

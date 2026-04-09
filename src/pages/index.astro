@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 type JournalType = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts, isProduction, sortMarkdownByDate } from '../utils';
+import { formatPosts, isProduction } from '../utils';
 
 import { site } from '../data/site';
 
@@ -28,8 +28,6 @@ const formattedLatest = formatPosts(allPosts, { limit: 6 });
 const title = 'Stefan Imhoff';
 const description = 'Design Engineer from Hamburg, Germany';
 
-const rssPosts = await Astro.glob('../content/journal/**/*.mdx');
-rssPosts.sort(sortMarkdownByDate);
 ---
 
 <GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>

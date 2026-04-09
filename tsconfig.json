@@ -4,7 +4,11 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
 		"strictNullChecks": true,
-		"types": ["vitest/globals", "@testing-library/jest-dom"]
+		"types": ["vitest/globals", "@testing-library/jest-dom"],
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
 	"include": ["src/**/*", "src/test/**/*"]
 }

@@ -1,5 +1,3 @@
-import { YouTube } from '@astro-community/astro-embed-youtube';
-
 import AmazonBook from './components/AmazonBook.astro';
 import AppleTVFlag from './components/AppleTVFlag.astro';
 import Banner from './components/Banner.astro';
@@ -27,6 +25,7 @@ import ProjectIntro from './components/ProjectIntro.astro';
 import Pullquote from './components/Pullquote.astro';
 import Ruby from './components/Ruby.astro';
 import Spotify from './components/Spotify.astro';
+import YouTube from './components/YouTube.astro';
 import Subheadline from './components/Subheadline.astro';
 import Subsubheadline from './components/Subsubheadline.astro';
 import Text from './components/Text.astro';
