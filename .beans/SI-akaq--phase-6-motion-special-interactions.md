@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-akaq
-title: 'Phase 6: Motion & Special Interactions'
+# SI-akaq
+title: "Phase 6: Motion & Special Interactions"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z

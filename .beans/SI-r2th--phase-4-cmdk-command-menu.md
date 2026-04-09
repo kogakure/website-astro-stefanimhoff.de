@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-r2th
-title: 'Phase 4: CMDK Command Menu'
+# SI-r2th
+title: "Phase 4: CMDK Command Menu"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z

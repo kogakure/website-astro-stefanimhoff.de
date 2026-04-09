@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-tfhf
-title: 'Phase 5: Layouts & Pages'
+# SI-tfhf
+title: "Phase 5: Layouts & Pages"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z

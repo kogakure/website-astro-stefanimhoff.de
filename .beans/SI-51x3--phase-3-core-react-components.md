@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-51x3
-title: 'Phase 3: Core React Components'
+# SI-51x3
+title: "Phase 3: Core React Components"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z

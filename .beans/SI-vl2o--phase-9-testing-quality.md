@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-vl2o
-title: 'Phase 9: Testing & Quality'
+# SI-vl2o
+title: "Phase 9: Testing & Quality"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:47Z

@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-5ron
-title: 'Phase 10: Documentation & Launch Prep'
+# SI-5ron
+title: "Phase 10: Documentation & Launch Prep"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:47Z

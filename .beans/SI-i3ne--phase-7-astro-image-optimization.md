@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-i3ne
-title: 'Phase 7: Astro Image Optimization'
+# SI-i3ne
+title: "Phase 7: Astro Image Optimization"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z

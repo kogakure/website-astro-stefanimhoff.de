@@ -1,6 +1,6 @@
 ---
-# stefanimhoff-de-djwt
-title: 'Phase 2: Design System (Tailwind v4 + CSS Tokens)'
+# SI-djwt
+title: "Phase 2: Design System (Tailwind v4 + CSS Tokens)"
 status: todo
 type: feature
 created_at: 2026-04-09T12:14:46Z
