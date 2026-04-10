@@ -5,32 +5,88 @@ import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '../utils';
 
-import GridLayout from '../layouts/GridLayout.astro';
-import PageTitle from '../components/PageTitle.astro';
-import ProjectContainer from '../components/ProjectContainer.astro';
-
-import { Content as Intro } from '../text/projects/intro.mdx';
-
-import { mapping } from '../mdx-components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowCta from '../components/icons/ArrowCta';
 
 const allProjects: Projects[] = await getCollection('projects');
-allProjects.sort(sortBySortKey).reverse();
+const projects = allProjects.sort(sortBySortKey);
 
 const title = 'Work';
 const description =
-	"I'm a Design Engineer by profession. I worked in Design, Editing, and 3D Animation. These are projects I created over the last years.";
+	"I'm a Design Engineer. These are selected projects from the last two decades.";
 ---
 
-<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
-	<PageTitle grid="wide" innerGrid>Work</PageTitle>
+<BaseLayout title={title} description={description}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			Work.
+		</h1>
+	</div>
 
-	<article
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-13 lg:col-start-4 lg:col-end-12 xl:col-start-5 xl:col-end-11"
-	>
-		<Intro components={mapping} />
-	</article>
+	<!-- Introduction -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">
+		<p class="max-w-xl text-3 leading-relaxed text-hai">
+			I am a design engineer by discipline. In previous chapters: editorial design, 3D animation,
+			and a period spent making Flash animations and multimedia CD-ROMs that no longer exist
+			anywhere. I have always believed in working across domains. A specialist in one thing tends
+			to miss the connections.
+		</p>
+		<p class="mt-4 max-w-xl text-3 leading-relaxed text-hai">
+			These are selected projects from the last two decades.
+		</p>
+	</div>
 
-	<section class="col-start-1 col-end-19 grid gap-y-gap">
-		{allProjects.map((project) => <ProjectContainer project={project} />)}
-	</section>
-</GridLayout>
+	<!-- Project list -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32 flex flex-col gap-24">
+		{
+			projects.map((project) => (
+				<article class="flex flex-col gap-6">
+					{/* Project image */}
+					{project.data.image && (
+						<div class="overflow-hidden rounded-2">
+							<img
+								src={project.data.image.src}
+								alt={project.data.title}
+								class="w-full object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+					)}
+
+					{/* Project info */}
+					<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
+						<div>
+							<p class="text-[0.65rem] tracking-widest text-hai italic">
+								{project.data.categories.join(' / ')}
+							</p>
+						</div>
+						<div class="min-w-0">
+							<h2 class="mb-3 font-display text-5 font-bold tracking-tight text-sumi dark:text-washi">
+								{project.data.title}
+							</h2>
+							{project.data.intro && (
+								<p class="max-w-xl text-3 leading-relaxed">{project.data.intro}</p>
+							)}
+							{project.data.more && (
+								<a
+									class="mt-4 inline-flex items-center text-3 font-bold hover:opacity-60 transition-opacity"
+									href={project.data.more.link}
+								>
+									{project.data.more.text || 'View project'}
+									<ArrowCta
+										aria-hidden="true"
+										className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto"
+									/>
+								</a>
+							)}
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</BaseLayout>
