@@ -71,7 +71,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 				data-pagefind-ignore
 			>
 				<div>
-					<span className="block text-[0.65rem] tracking-widest uppercase text-hai">
+					<span className="block text-2 tracking-widest uppercase text-hai">
 						Filter
 					</span>
 				</div>
@@ -122,7 +122,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 						className="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16"
 					>
 						<div>
-							<span className="block text-[0.65rem] tracking-widest text-hai">
+							<span className="block text-2 tracking-widest text-hai">
 								{year}
 							</span>
 						</div>

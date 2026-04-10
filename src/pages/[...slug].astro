@@ -141,7 +141,7 @@ const schema = JSON.stringify({
 				{
 					entry.data.series && seriesEntries.length > 1 && (
 						<div class="mb-8 rounded-2 border border-shibui-200 dark:border-shibui-800 p-4">
-							<p class="text-[0.65rem] tracking-widest uppercase text-hai mb-3">Series</p>
+							<p class="text-2 tracking-widest uppercase text-hai mb-3">Series</p>
 							<ol class="flex flex-col gap-1">
 								{seriesEntries.map((item) => (
 									<li class="text-3">
@@ -180,7 +180,7 @@ const schema = JSON.stringify({
 				<div>
 					{prev.id && (
 						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${prev.id}/`}>
-							<span class="text-[0.65rem] tracking-widest uppercase text-hai">Previous</span>
+							<span class="text-2 tracking-widest uppercase text-hai">Previous</span>
 							<span class="text-3 font-bold text-sumi dark:text-washi">{prev.data.title}</span>
 						</a>
 					)}
@@ -188,7 +188,7 @@ const schema = JSON.stringify({
 				<div class="text-right">
 					{next.id && (
 						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${next.id}/`}>
-							<span class="text-[0.65rem] tracking-widest uppercase text-hai">Next</span>
+							<span class="text-2 tracking-widest uppercase text-hai">Next</span>
 							<span class="text-3 font-bold text-sumi dark:text-washi">{next.data.title}</span>
 						</a>
 					)}
