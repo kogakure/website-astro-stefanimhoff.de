@@ -7,11 +7,11 @@ interface Props {
 const { label, class: className } = Astro.props;
 ---
 
-<section class:list={['grid gap-6 md:grid-cols-[160px_1fr] md:gap-16', className]}>
-	<div class="md:pt-[0.35em]">
+<section class:list={['grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 lg:grid-cols-12 lg:gap-x-8', className]}>
+	<div class="col-span-3 md:col-span-2 lg:col-span-2 md:pt-[0.35em]">
 		<span class="block text-2 tracking-widest uppercase text-hai">{label}</span>
 	</div>
-	<div class="min-w-0 flex-1">
+	<div class="col-span-3 md:col-span-4 lg:col-span-10 min-w-0 flex-1">
 		<slot />
 	</div>
 </section>

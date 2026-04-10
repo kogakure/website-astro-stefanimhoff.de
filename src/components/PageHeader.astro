@@ -24,7 +24,7 @@ const { class: className, navigation = true } = Astro.props;
 		{navigation && <MainNavigation />}
 		<button
 			aria-label="Open command menu"
-			class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center rounded-2 border-0 transition-colors hover:bg-shibui-950/10 focus:bg-shibui-950/10 dark:hover:bg-shibui-50/10 dark:focus:bg-shibui-50/10"
+			class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center rounded-2 border-0 transition-colors duration-100 hover:bg-shibui-950/10 focus:bg-shibui-950/10 dark:hover:bg-shibui-50/10 dark:focus:bg-shibui-50/10"
 			data-umami-event="Command Menu"
 			onclick="document.dispatchEvent(new CustomEvent('command-menu:open'))"
 			type="button"

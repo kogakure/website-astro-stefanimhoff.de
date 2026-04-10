@@ -18,29 +18,30 @@ const description =
 		</h1>
 	</div>
 
-	<!-- Mobile portrait: between title and content, bleeds into left margin -->
-	<div class="lg:hidden mx-auto w-full max-w-[1440px] px-8 pb-10">
-		<div class="-ml-10" style="width: 180px;">
-			<img
-				src="/assets/images/portrait-stefan-imhoff-2026.webp"
-				alt="Portrait of Stefan Imhoff"
-				class="w-full object-cover rounded-2"
-				loading="lazy"
-				decoding="async"
-			/>
-		</div>
-	</div>
-
 	<!-- Content sections -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
-		<!-- INTRODUCTION: manual 3-col grid so portrait gets its own column -->
-		<section class="grid gap-6 md:grid-cols-[160px_1fr_200px] md:gap-16">
-			<!-- Label -->
-			<div>
+		<!-- INTRODUCTION: single portrait using grid rows across breakpoints -->
+		<!-- Mobile: 3-col grid, portrait row-1 spanning 2 cols with left bleed -->
+		<!-- Tablet: 6-col grid, portrait row-1 spanning cols 3-6, label+bio in row-2 -->
+		<!-- Desktop: 3-track grid [160px_1fr_200px], all items in row-1 -->
+		<!-- Mobile: 3-col/16px gutters | Tablet: 6-col/24px gutters | Desktop: 12-col/32px gutters -->
+		<section class="grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0">
+			<!-- Portrait: row-1 always; mobile 2-cols bleed-left; tablet cols 4-6 rows 1-2; desktop cols 10-12 -->
+			<div class="row-start-1 col-span-2 -ml-8 md:col-start-4 md:col-span-3 md:ml-0 md:row-start-1 md:row-span-2 lg:row-span-1 lg:col-start-10 lg:col-span-3 lg:row-start-1 self-start">
+				<img
+					src="/assets/images/portrait-stefan-imhoff-2026.webp"
+					alt="Portrait of Stefan Imhoff"
+					class="w-full object-cover rounded-2 md:-scale-x-100"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+			<!-- Label: mobile row-2 full-width; tablet col 1-3 row-1; desktop col 1-2 -->
+			<div class="col-span-3 row-start-2 md:col-span-3 md:col-start-1 md:row-start-1 lg:col-span-2 lg:col-start-1 lg:row-start-1 md:pt-[0.35em]">
 				<span class="block text-2 tracking-widest uppercase text-hai">Introduction</span>
 			</div>
-			<!-- Bio text -->
-			<div class="min-w-0">
+			<!-- Bio: mobile row-3 full-width; tablet col 1-3 row-2; desktop col 3-9 -->
+			<div class="col-span-3 row-start-3 md:col-span-3 md:col-start-1 md:row-start-2 lg:col-start-3 lg:col-span-7 lg:row-start-1 min-w-0">
 				<div class="flex flex-col gap-5 max-w-xl text-3 leading-relaxed">
 					<p>
 						I am <strong>Stefan Imhoff</strong>—design engineer, writer, and observer—based in
@@ -85,16 +86,6 @@ const description =
 						slowly.
 					</p>
 				</div>
-			</div>
-			<!-- Portrait (desktop only, faces left toward text) -->
-			<div class="max-lg:hidden self-start">
-				<img
-					src="/assets/images/portrait-stefan-imhoff-2026.webp"
-					alt="Portrait of Stefan Imhoff"
-					class="w-full object-cover rounded-2 -scale-x-100"
-					loading="lazy"
-					decoding="async"
-				/>
 			</div>
 		</section>
 

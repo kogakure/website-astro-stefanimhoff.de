@@ -14,7 +14,7 @@ const isActive = (url: string) =>
 					<a
 						class:list={[
 							'px-1 text-sm transition-opacity hover:opacity-60',
-							isActive(url) && 'underline underline-offset-4',
+							isActive(url) && 'underline decoration-beni underline-offset-4',
 						]}
 						data-umami-event={`Nav: ${title}`}
 						href={url}
