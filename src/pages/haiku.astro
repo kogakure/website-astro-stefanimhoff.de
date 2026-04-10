@@ -5,62 +5,82 @@ import { getCollection } from 'astro:content';
 
 import { sortByDate } from '../utils';
 
-import GridLayout from '../layouts/GridLayout.astro';
-import PageTitle from '../components/PageTitle.astro';
-import { Content as Intro } from '../text/haiku/intro.mdx';
-
-import { mapping } from '../mdx-components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
 
 const title = 'Haiku';
 const description =
-	'This is an ever-growing collection of Haiku I have written. My Haiku reflect my own unique perspective on the world, and I hope they bring a bit of beauty and insight to the reader.';
+	'An ever-growing collection of Haiku — three phrases, two images, one cut.';
 ---
 
-<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
-	<PageTitle grid="wide" innerGrid>Haiku</PageTitle>
+<BaseLayout title={title} description={description}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			Haiku
+		</h1>
+	</div>
 
-	<article
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-13 lg:col-start-4 lg:col-end-12 xl:col-start-5 xl:col-end-11"
-	>
-		<Intro components={mapping} />
-	</article>
-
-	<section
-		class="col-start-1 col-end-19 md:col-start-2 md:col-end-18"
-		aria-label="Haiku collection"
-		data-pagefind-ignore
-	>
-		<ol class="grid list-none grid-cols-1 gap-gap sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-			{
-				allHaiku.map(({ id, data }) => (
-					<li class="border border-shibui-200 dark:border-shibui-700">
-						<div class="grid h-full grid-cols-2">
-							<div class="flex items-center justify-center p-8 text-center">
-								<blockquote
-									lang="de"
-									class="m-0 text-3 font-black leading-relaxed not-italic"
-								>
-									{data.de}
-								</blockquote>
-							</div>
-							<div class="flex items-center justify-center bg-shibui-200 p-8 text-center dark:bg-shibui-800">
-								<blockquote
-									lang="en"
-									class="m-0 text-3 font-black leading-relaxed not-italic"
-								>
-									{data.en}
-								</blockquote>
-							</div>
-						</div>
-						<footer class="border-t border-shibui-200 px-4 py-2 text-1 text-shibui-500 dark:border-shibui-700 dark:text-shibui-400">
-							<span class="font-mono">{id}</span>
-						</footer>
+	<!-- Content sections -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+		<!-- INTRODUCTION -->
+		<PageSection label="Introduction">
+			<div class="flex flex-col gap-4 max-w-xl text-3 leading-relaxed">
+				<p>
+					Haiku <span class="font-japanese">(俳句)</span> is the shortest serious form in poetry.
+					Three phrases. Two qualities define it:
+				</p>
+				<ul class="flex flex-col gap-2 pl-[1.25em]">
+					<li class="[text-indent:-1.25em]">
+						<span class="select-none text-sumi dark:text-washi">— </span>
+						<em>kigo</em> <span class="font-japanese">(季語)</span>—a seasonal reference. Heaven,
+						earth, humanity, animals, plants. Time made visible in a single image.
 					</li>
-				))
-			}
-		</ol>
-	</section>
-</GridLayout>
+					<li class="[text-indent:-1.25em]">
+						<span class="select-none text-sumi dark:text-washi">— </span>
+						<em>kiru</em> <span class="font-japanese">(切)</span>—a cut. Two images or ideas held
+						in juxtaposition, separated by a <em>kireji</em>, a cutting word. The space between
+						them is where meaning lives.
+					</li>
+				</ul>
+				<p>
+					Traditionally seventeen syllables: five, seven, five <span class="font-japanese"
+						>(自由律)</span
+					>.
+				</p>
+			</div>
+			<hr class="mt-8 max-w-xl border-shibui-300 dark:border-shibui-700" />
+		</PageSection>
+
+		<!-- HAIKU list -->
+		<PageSection label="Haiku">
+			<ol class="flex flex-col gap-8 list-none" data-pagefind-ignore>
+				{
+					allHaiku.map(({ data }) => (
+						<li>
+							<p class="font-bold text-3 text-sumi dark:text-washi">
+								{data.de
+									.trim()
+									.split('\n')
+									.map((line) => line.trim())
+									.join(' / ')}
+							</p>
+							<p class="text-3 text-hai">
+								{data.en
+									.trim()
+									.split('\n')
+									.map((line) => line.trim())
+									.join(' / ')}
+							</p>
+						</li>
+					))
+				}
+			</ol>
+		</PageSection>
+	</div>
+</BaseLayout>
