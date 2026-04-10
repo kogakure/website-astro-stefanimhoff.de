@@ -121,6 +121,19 @@ const description = 'Design Engineer from Hamburg, Germany';
 	</div>
 </BaseLayout>
 
+<script>
+	if (!CSS.supports('animation-timeline', 'view()')) {
+		const band = document.querySelector('.marquee-band');
+		if (band) {
+			const observer = new IntersectionObserver(
+				([entry]) => band.classList.toggle('is-visible', entry.isIntersecting),
+				{ threshold: 0 },
+			);
+			observer.observe(band);
+		}
+	}
+</script>
+
 <style>
 	@keyframes marquee-scroll {
 		from {
@@ -131,8 +144,29 @@ const description = 'Design Engineer from Hamburg, Germany';
 		}
 	}
 
+	/* Fallback: time-based animation, play/pause via IntersectionObserver */
 	.marquee-track {
 		animation: marquee-scroll 25s linear infinite;
+		animation-play-state: paused;
 		will-change: transform;
+	}
+
+	.marquee-band.is-visible .marquee-track {
+		animation-play-state: running;
+	}
+
+	/* Progressive enhancement: scroll-driven animation */
+	@supports (animation-timeline: view()) {
+		.marquee-band {
+			view-timeline-name: --marquee;
+			view-timeline-axis: block;
+		}
+
+		.marquee-track {
+			animation: marquee-scroll linear;
+			animation-timeline: --marquee;
+			animation-range: entry 0% exit 100%;
+			animation-play-state: running;
+		}
 	}
 </style>
