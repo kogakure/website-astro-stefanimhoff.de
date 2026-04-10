@@ -21,7 +21,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<!-- Hero -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-32">
 		<h1
-			class="hero-title font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+			class="hero-title text-center font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[1.05] tracking-tight text-sumi dark:text-washi"
 		>
 			Stefan Imhoff <em class="font-normal font-display">is a</em><br />
 			Design Engineer<br />
@@ -35,23 +35,23 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mb-16">
 		<!-- ABOUT -->
 		<PageSection label="About">
-			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
 				Nearly two decades at the intersection of design and code. Guided by simplicity, structure,
 				and the discipline of leaving things out.
 			</p>
-			<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/about/">
+			<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/about/">
 				About <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
 			</a>
 		</PageSection>
 
 		<!-- WORK -->
 		<PageSection label="Work">
-			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
 				I build interfaces that hold up under scrutiny — design systems, component libraries, and the
 				invisible layer of decisions that makes a product coherent. For most of the last decade, that
 				work was at XING, Europe's leading professional network.
 			</p>
-			<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/work/">
+			<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/work/">
 				See selected work <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
 			</a>
 		</PageSection>
@@ -75,14 +75,14 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mt-16 mb-32">
 		<!-- WRITING -->
 		<PageSection label="Writing">
-			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
 				Essays on design, code, philosophy, and the examined life. Published here since 2007.
 			</p>
 			<div class="flex flex-col gap-2">
-				<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/writing/">
+				<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/writing/">
 					Read the journal <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
 				</a>
-				<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/rss.xml">
+				<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/rss.xml">
 					Subscribe to RSS Feed <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
 				</a>
 			</div>
@@ -110,7 +110,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 		<!-- CONTACT -->
 		<PageSection label="Contact">
 			<a
-				class="cta-link font-bold hover:opacity-60 transition-opacity"
+				class="cta-link text-3 font-bold hover:opacity-60 transition-opacity"
 				href="mailto:hey@stefanimhoff.de"
 				data-umami-event="Contact: Email"
 			>
@@ -122,6 +122,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 <script>
 	if (!CSS.supports('animation-timeline', 'view()')) {
+		// Fallback: IntersectionObserver play/pause
 		const band = document.querySelector('.marquee-band');
 		if (band) {
 			const observer = new IntersectionObserver(
@@ -130,6 +131,25 @@ const description = 'Design Engineer from Hamburg, Germany';
 			);
 			observer.observe(band);
 		}
+	} else {
+		// Set animation-range directly so scroll() timeline starts at the
+		// equivalent of "entry 75%" and ends just before the page bottom.
+		function setMarqueeRange() {
+			const band = document.querySelector('.marquee-band');
+			const track = document.querySelector('.marquee-track');
+			if (!band || !track) return;
+			const vh = window.innerHeight;
+			const scrollMax = document.documentElement.scrollHeight - vh;
+			if (scrollMax <= 0) return;
+			const bandTop = band.getBoundingClientRect().top + window.scrollY;
+			const bandH = band.offsetHeight;
+			// entry 75% = 75% of band visible = scrolled to bandTop - vh + 0.25*bandH
+			const startScroll = Math.max(0, bandTop - vh + bandH * 0.25);
+			const startPct = ((startScroll / scrollMax) * 100).toFixed(2);
+			track.style.animationRange = `${startPct}% 96%`;
+		}
+		setMarqueeRange();
+		window.addEventListener('resize', setMarqueeRange);
 	}
 </script>
 
@@ -154,17 +174,11 @@ const description = 'Design Engineer from Hamburg, Germany';
 		animation-play-state: running;
 	}
 
-	/* Progressive enhancement: scroll-driven animation */
-	@supports (animation-timeline: view()) {
-		.marquee-band {
-			view-timeline-name: --marquee;
-			view-timeline-axis: block;
-		}
-
+	/* Progressive enhancement: scroll-driven against root scroll */
+	@supports (animation-timeline: scroll()) {
 		.marquee-track {
-			animation: marquee-scroll linear;
-			animation-timeline: --marquee;
-			animation-range: entry 0% exit 100%;
+			animation: marquee-scroll linear both;
+			animation-timeline: scroll(root block);
 			animation-play-state: running;
 		}
 	}
