@@ -1,0 +1,32 @@
+---
+import Title from '../ui/Title';
+import Headline from '../ui/Headline';
+
+export interface Props {
+	class?: string;
+	grid?: 'narrow' | 'wide' | 'fullsize';
+	innerGrid?: boolean;
+	subtitle?: string;
+}
+
+const { class: className, grid = 'narrow', innerGrid, subtitle } = Astro.props;
+---
+
+<div
+	class:list={[
+		'col-end-19 !mbe-0 col-start-1',
+		{
+			'md:col-end-17 col-start-2 col-end-3 md:col-start-3': grid === 'narrow',
+			'row-start-1': innerGrid,
+			'!col-end-18 md:!col-end-17 !col-start-2 md:!col-start-3': !innerGrid,
+		},
+		className,
+	]}
+>
+	<Title className="!m-0 text-[clamp(2.25rem,_4.125vw,_4.125rem)]"><slot /></Title>
+	{
+		subtitle && (
+			<Headline className="!m-0 text-shibui-400 dark:text-shibui-600">{subtitle}</Headline>
+		)
+	}
+</div>

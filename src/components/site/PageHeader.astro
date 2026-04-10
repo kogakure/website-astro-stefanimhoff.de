@@ -1,0 +1,36 @@
+---
+import MainNavigation from './MainNavigation.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import Logo from './Logo.astro';
+import { ListMagnifyingGlass } from '@phosphor-icons/react';
+
+export interface Props {
+	class?: string;
+	navigation?: boolean;
+}
+
+const { class: className, navigation = true } = Astro.props;
+---
+
+<header
+	class:list={[
+		'bg-shibui-100 dark:bg-shibui-900 sticky top-0 z-50 flex items-center justify-between px-8 py-4 print:hidden',
+		className,
+	]}
+	role="banner"
+>
+	<Logo />
+	<div class="flex items-center gap-1">
+		{navigation && <MainNavigation />}
+		<button
+			aria-label="Open command menu"
+			class="h-clickarea w-clickarea rounded-2 hover:bg-shibui-950/10 focus:bg-shibui-950/10 dark:hover:bg-shibui-50/10 dark:focus:bg-shibui-50/10 flex cursor-pointer items-center justify-center border-0 transition-colors duration-100"
+			data-umami-event="Command Menu"
+			onclick="document.dispatchEvent(new CustomEvent('command-menu:open'))"
+			type="button"
+		>
+			<ListMagnifyingGlass aria-hidden="true" className="icon h-icon-small w-icon-small" />
+		</button>
+		<ThemeToggle />
+	</div>
+</header>

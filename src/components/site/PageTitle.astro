@@ -1,0 +1,25 @@
+---
+import Title from '../ui/Title';
+
+export interface Props {
+	class?: string;
+	grid?: 'narrow' | 'wide' | 'fullsize';
+	innerGrid?: boolean;
+}
+
+const { class: className, grid = 'narrow', innerGrid } = Astro.props;
+---
+
+<Title
+	class:list={[
+		'col-end-19 !mbe-0 col-start-1',
+		{
+			'md:col-end-17 col-start-2 col-end-3 md:col-start-3': grid === 'narrow',
+			'row-start-1': innerGrid,
+			'!col-end-18 md:!col-end-17 !col-start-2 md:!col-start-3': !innerGrid,
+		},
+		className,
+	]}
+>
+	<slot />
+</Title>

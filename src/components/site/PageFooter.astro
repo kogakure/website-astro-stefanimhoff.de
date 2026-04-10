@@ -1,0 +1,34 @@
+---
+import { GithubLogo, InstagramLogo, XLogo } from '@phosphor-icons/react';
+import Link from '../ui/Link';
+---
+
+<footer class="flex justify-center pb-8 pt-16 print:hidden" aria-label="Site footer">
+	<Link
+		aria-label="Twitter/X"
+		className="h-clickarea w-clickarea flex cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: 𝕏"
+		href="https://x.com/kogakure"
+		title="𝕏"
+	>
+		<XLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="Instagram"
+		className="h-clickarea w-clickarea flex cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: Instagram"
+		href="https://instagram.com/kogakure"
+		title="Instagram"
+	>
+		<InstagramLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="GitHub"
+		className="h-clickarea w-clickarea flex cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: GitHub"
+		href="https://github.com/kogakure"
+		title="GitHub"
+	>
+		<GithubLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
+</footer>

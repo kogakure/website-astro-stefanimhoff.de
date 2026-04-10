@@ -6,8 +6,10 @@ import { getCollection } from 'astro:content';
 import { formatPosts } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageSection from '../components/PageSection.astro';
-import WritingPage from '../components/WritingPage';
+import PageHeading from '../components/ui/PageHeading';
+import PageSection from '../components/ui/PageSection';
+import TextLink from '../components/ui/TextLink';
+import WritingPage from '../components/interactive/WritingPage';
 
 const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
 const formattedPosts = formatPosts(allPosts, {});
@@ -29,29 +31,21 @@ const description =
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
-		<h1
-			class="font-display italic text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
-		>
-			Writing
-		</h1>
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
+		<PageHeading>Writing</PageHeading>
 	</div>
 
 	<!-- Content sections -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
 		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
-			<p class="max-w-xl text-3 leading-relaxed">
-				Since 2007 I have been writing here — essays on design, code, philosophy, minimalism,
-				Japan, and the life of the mind. A collection of essays on <a
-					class="underline hover:opacity-60 transition-opacity"
-					href="https://www.kogakure.de/en/">Ninja and Ninjutsu</a
-				> grew into a book. Medium featured <a
-					class="underline hover:opacity-60 transition-opacity"
-					href="/attention/">one essay</a
-				> as their recommendation of the day. I also write <a
-					class="underline hover:opacity-60 transition-opacity"
-					href="/haiku/">Haiku</a
+			<p class="text-3 max-w-xl leading-relaxed">
+				Since 2007 I have been writing here — essays on design, code, philosophy,
+				minimalism, Japan, and the life of the mind. A collection of essays on <TextLink
+					href="https://www.kogakure.de/en/">Ninja and Ninjutsu</TextLink
+				> grew into a book. Medium featured <TextLink href="/attention/">one essay</TextLink
+				> as their recommendation of the day. I also write <TextLink href="/haiku/"
+					>Haiku</TextLink
 				>.
 			</p>
 		</PageSection>

@@ -7,8 +7,11 @@ import { formatPosts } from '../utils';
 import { site } from '../data/site';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageSection from '../components/PageSection.astro';
-import ArrowCta from '../components/icons/ArrowCta';
+import DashList from '../components/ui/DashList';
+import DashListItem from '../components/ui/DashListItem';
+import Link from '../components/ui/Link';
+import MoreLink from '../components/ui/MoreLink';
+import PageSection from '../components/ui/PageSection';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
 const latestPosts = formatPosts(allPosts, { limit: 9 });
@@ -19,103 +22,103 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 <BaseLayout title={title} description={description}>
 	<!-- Hero -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-32">
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32 pt-32">
 		<h1
-			class="hero-title font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[1.05] tracking-tight text-sumi dark:text-washi"
+			class="hero-title font-display text-sumi dark:text-washi text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[1.05] tracking-tight"
 		>
-			Stefan Imhoff <em class="font-normal font-display">is a</em><br class="hidden lg:block" />
+			Stefan Imhoff <em class="font-display font-normal">is a</em><br
+				class="hidden lg:block"
+			/>
 			Design Engineer<br class="hidden lg:block" />
 			<span>
-				<em class="font-normal font-display">from</em> <span class="whitespace-nowrap">Hamburg<span class="text-beni ml-4">—</span></span>
+				<em class="font-display font-normal">from</em>
+				<span class="whitespace-nowrap">Hamburg<span class="text-beni ml-4">—</span></span>
 			</span>
 		</h1>
 	</div>
 
 	<!-- Sections above marquee -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mb-16">
+	<div class="mx-auto mb-16 flex w-full max-w-[1440px] flex-col gap-16 px-8">
 		<!-- ABOUT -->
 		<PageSection label="About">
-			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
-				Nearly two decades at the intersection of design and code. Guided by simplicity, structure,
-				and the discipline of leaving things out.
+			<p class="text-3 mb-5 max-w-xl leading-[1.2]">
+				Nearly two decades at the intersection of design and code. Guided by simplicity,
+				structure, and the discipline of leaving things out.
 			</p>
-			<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/about/">
-				About <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
-			</a>
+			<MoreLink href="/about/" text="About" />
 		</PageSection>
 
 		<!-- WORK -->
 		<PageSection label="Work">
-			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
-				I build interfaces that hold up under scrutiny — design systems, component libraries, and the
-				invisible layer of decisions that makes a product coherent. For most of the last decade, that
-				work was at XING, Europe's leading professional network.
+			<p class="text-3 mb-5 max-w-xl leading-[1.2]">
+				I build interfaces that hold up under scrutiny — design systems, component
+				libraries, and the invisible layer of decisions that makes a product coherent. For
+				most of the last decade, that work was at XING, Europe's leading professional
+				network.
 			</p>
-			<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/work/">
-				See selected work <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
-			</a>
+			<MoreLink href="/work/" text="See selected work" />
 		</PageSection>
 	</div>
 
 	<!-- Haiku marquee band -->
-	<div class="marquee-band overflow-hidden py-3 my-4" aria-hidden="true">
+	<div class="marquee-band my-4 overflow-hidden py-3" aria-hidden="true">
 		<div class="marquee-track flex whitespace-nowrap">
-			<span class="marquee-content font-japanese font-bold not-italic text-beni px-12"
-				style="font-size: clamp(3rem, 6vw, 7.5rem);">
+			<span
+				class="marquee-content font-japanese text-beni px-12 font-bold not-italic"
+				style="font-size: clamp(3rem, 6vw, 7.5rem);"
+			>
 				無限の沈黙である私はお前に言葉を與へてやろう
 			</span>
-			<span class="marquee-content font-japanese font-bold not-italic text-beni px-12"
-				style="font-size: clamp(3rem, 6vw, 7.5rem);" aria-hidden="true">
+			<span
+				class="marquee-content font-japanese text-beni px-12 font-bold not-italic"
+				style="font-size: clamp(3rem, 6vw, 7.5rem);"
+				aria-hidden="true"
+			>
 				無限の沈黙である私はお前に言葉を與へてやろう
 			</span>
 		</div>
 	</div>
 
 	<!-- Sections below marquee -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mt-16 mb-32">
+	<div class="mx-auto mb-32 mt-16 flex w-full max-w-[1440px] flex-col gap-16 px-8">
 		<!-- WRITING -->
 		<PageSection label="Writing">
-			<p class="mb-5 max-w-xl text-3 leading-[1.2]">
-				Essays on design, code, philosophy, and the examined life. Published here since 2007.
+			<p class="text-3 mb-5 max-w-xl leading-[1.2]">
+				Essays on design, code, philosophy, and the examined life. Published here since
+				2007.
 			</p>
 			<div class="flex flex-col gap-2">
-				<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/writing/">
-					Read the journal <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
-				</a>
-				<a class="cta-link text-3 font-bold hover:opacity-60 transition-opacity" href="/rss.xml">
-					Subscribe to RSS Feed <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
-				</a>
+				<MoreLink href="/writing/" text="Read the journal" />
+				<MoreLink href="/rss.xml" text="Subscribe to RSS Feed" />
 			</div>
 		</PageSection>
 
 		<!-- LATEST ESSAYS -->
 		<PageSection label="Latest Essays">
-			<ul class="flex flex-col gap-1" data-pagefind-ignore>
+			<DashList data-pagefind-ignore>
 				{
 					latestPosts.map((post) => (
-						<li class="flex items-center gap-2 -ml-[calc(1em+0.5rem)]">
-							<span class="text-beni select-none shrink-0">—</span>
-							<a
-								class="hover:opacity-60 transition-opacity text-3"
+						<DashListItem>
+							<span class="text-beni select-none">— </span>
+							<Link
+								className="hover:opacity-60 transition-opacity text-3"
 								href={`/${post.id}/`}
 							>
 								{post.data.title}
-							</a>
-						</li>
+							</Link>
+						</DashListItem>
 					))
 				}
-			</ul>
+			</DashList>
 		</PageSection>
 
 		<!-- CONTACT -->
 		<PageSection label="Contact">
-			<a
-				class="cta-link text-3 font-bold hover:opacity-60 transition-opacity"
+			<MoreLink
 				href="mailto:hey@stefanimhoff.de"
+				text="hey@stefanimhoff.de"
 				data-umami-event="Contact: Email"
-			>
-				hey@stefanimhoff.de <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
-			</a>
+			/>
 		</PageSection>
 	</div>
 </BaseLayout>
@@ -127,7 +130,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 		if (band) {
 			const observer = new IntersectionObserver(
 				([entry]) => band.classList.toggle('is-visible', entry.isIntersecting),
-				{ threshold: 0 },
+				{ threshold: 0 }
 			);
 			observer.observe(band);
 		}

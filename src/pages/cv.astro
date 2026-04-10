@@ -1,16 +1,16 @@
 ---
-import Divider from '../components/Divider';
-import DownloadLink from '../components/DownloadLink.astro';
-import EmailLink from '../components/EmailLink.astro';
+import Divider from '../components/ui/Divider';
+import DownloadLink from '../components/content/DownloadLink';
+import EmailLink from '../components/content/EmailLink';
 import GridLayout from '../layouts/GridLayout.astro';
-import Headline from '../components/Headline';
-import ListItem from '../components/ListItem';
-import PageTitle from '../components/PageTitle.astro';
-import Subheadline from '../components/Subheadline';
-import Subsubheadline from '../components/Subsubheadline.astro';
-import Text from '../components/Text';
-import TextLink from '../components/TextLink';
-import UnorderedList from '../components/UnorderedList';
+import Headline from '../components/ui/Headline';
+import ListItem from '../components/ui/ListItem';
+import PageTitle from '../components/site/PageTitle.astro';
+import Subheadline from '../components/ui/Subheadline';
+import Subsubheadline from '../components/ui/Subsubheadline';
+import Text from '../components/ui/Text';
+import TextLink from '../components/ui/TextLink';
+import UnorderedList from '../components/ui/UnorderedList';
 
 import { Content as Intro } from '../text/cv/intro.mdx';
 import { Content as InterestsHobbies } from '../text/cv/interests-hobbies.mdx';
@@ -37,10 +37,10 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 		<Intro components={mapping} />
 	</article>
 
-	<article class="col-span-full md:col-start-10 md:col-end-18">
+	<article class="md:col-end-18 col-span-full md:col-start-10">
 		<Headline>Personal Information</Headline>
-		<Subheadline class="font-semibold">Stefan Imhoff</Subheadline>
-		<Text class="!mbe-0">Senior Software Engineer / Design System Authority</Text>
+		<Subheadline className="font-semibold">Stefan Imhoff</Subheadline>
+		<Text className="!mbe-0">Senior Software Engineer / Design System Authority</Text>
 		<ul class="flex list-none flex-wrap items-center gap-2 p-0">
 			<li><TextLink href="https://www.stefanimhoff.de">Website</TextLink></li>
 			<li aria-hidden="true">•</li>
@@ -54,19 +54,19 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 		</ul>
 	</article>
 
-	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
+	<Divider className="!mbe-0 !mbs-0 col-span-full w-[90]" />
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
 		<Headline>Professional Experience</Headline>
 
 		<div>
 			<div class="mbe-10">
-				<Subheadline class="font-semibold">Senior Software Engineer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
+				<Subheadline className="font-semibold">Senior Software Engineer</Subheadline>
+				<div class="mbe-2 flex items-center justify-between">
 					<div class="leading-none">
 						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
 					</div>
-					<div class="italic no-common-ligatures">Remote / Mar. 2020 – Present</div>
+					<div class="no-common-ligatures italic">Remote / Mar. 2020 – Present</div>
 				</div>
 			</div>
 			<Text>
@@ -132,12 +132,12 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 
 		<div>
 			<div class="mbe-10">
-				<Subheadline class="font-semibold">Frontend Engineer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
+				<Subheadline className="font-semibold">Frontend Engineer</Subheadline>
+				<div class="mbe-2 flex items-center justify-between">
 					<div class="leading-none">
 						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
 					</div>
-					<div class="italic mbe-2 no-common-ligatures">
+					<div class="mbe-2 no-common-ligatures italic">
 						Hamburg, Germany / Jan. 2011 – Feb. 2020
 					</div>
 				</div>
@@ -150,9 +150,9 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 				>
 			</Text>
 
-			<div class="flex items-center justify-between mbe-2">
+			<div class="mbe-2 flex items-center justify-between">
 				<Subsubheadline>Onboarding Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2017–2020</div>
+				<div class="mbe-2 no-common-ligatures italic">2017–2020</div>
 			</div>
 			<UnorderedList>
 				<ListItem>
@@ -167,9 +167,9 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 				</ListItem>
 			</UnorderedList>
 
-			<div class="flex items-center justify-between mbe-2">
+			<div class="mbe-2 flex items-center justify-between">
 				<Subsubheadline>SEO Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2015–2017</div>
+				<div class="mbe-2 no-common-ligatures italic">2015–2017</div>
 			</div>
 			<UnorderedList>
 				<ListItem>
@@ -184,9 +184,9 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 				</ListItem>
 			</UnorderedList>
 
-			<div class="flex items-center justify-between mbe-2">
+			<div class="mbe-2 flex items-center justify-between">
 				<Subsubheadline>Mobile Web Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2013–2014</div>
+				<div class="mbe-2 no-common-ligatures italic">2013–2014</div>
 			</div>
 			<UnorderedList>
 				<ListItem>
@@ -200,9 +200,9 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 				</ListItem>
 			</UnorderedList>
 
-			<div class="flex items-center justify-between mbe-2">
+			<div class="mbe-2 flex items-center justify-between">
 				<Subsubheadline>Jobs Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2011–2013</div>
+				<div class="mbe-2 no-common-ligatures italic">2011–2013</div>
 			</div>
 			<UnorderedList>
 				<ListItem>
@@ -219,15 +219,15 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 
 		<div>
 			<div class="mbe-10">
-				<Subheadline class="font-semibold">Web Designer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
+				<Subheadline className="font-semibold">Web Designer</Subheadline>
+				<div class="mbe-2 flex items-center justify-between">
 					<div class="leading-none">
 						<strong
 							><TextLink href="https://www.xing.com">Dumrath & Fassnacht</TextLink
 							></strong
 						>
 					</div>
-					<div class="italic mbe-2 no-common-ligatures">
+					<div class="mbe-2 no-common-ligatures italic">
 						Hamburg, Germany / Sep. 2005 – Dec. 2010
 					</div>
 				</div>
@@ -236,15 +236,15 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 
 		<div>
 			<div class="mbe-10">
-				<Subheadline class="font-semibold">Media Designer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
+				<Subheadline className="font-semibold">Media Designer</Subheadline>
+				<div class="mbe-2 flex items-center justify-between">
 					<div class="leading-none">
 						<strong
 							><TextLink href="https://www.xing.com">IGS Development</TextLink
 							></strong
 						>
 					</div>
-					<div class="italic mbe-2 no-common-ligatures">
+					<div class="mbe-2 no-common-ligatures italic">
 						Harbke, Germany / Feb. 2002 – Jan. 2005
 					</div>
 				</div>
@@ -256,27 +256,27 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 		<Headline>Education</Headline>
 
 		<div class="mbe-12">
-			<Subheadline class="font-semibold">Computer Scientist</Subheadline>
-			<div class="flex items-center justify-between mbe-2">
+			<Subheadline className="font-semibold">Computer Scientist</Subheadline>
+			<div class="mbe-2 flex items-center justify-between">
 				<div class="leading-none">
 					<strong
 						><TextLink href="https://www.bib.de">bib International College</TextLink
 						></strong
 					>
 				</div>
-				<div class="italic mbe-2 no-common-ligatures">
+				<div class="mbe-2 no-common-ligatures italic">
 					Hanover, Germany / Oct. 1999 – Sept. 2001
 				</div>
 			</div>
 		</div>
 	</article>
 
-	<aside class="col-span-full md:col-start-10 md:col-end-18">
+	<aside class="md:col-end-18 col-span-full md:col-start-10">
 		<article>
 			<Headline>Key Skills</Headline>
 			<div>
-				<Subheadline class="font-semibold">Core Competencies</Subheadline>
-				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+				<Subheadline className="font-semibold">Core Competencies</Subheadline>
+				<UnorderedList className="mbe-10 mbs-5 !list-none p-0">
 					<ListItem>
 						<strong>Design Systems:</strong> Architecture, Tokenization, Versioning, Governance,
 						<q>Swiss Precision</q> Quality Assurance.
@@ -295,8 +295,8 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 					</ListItem>
 				</UnorderedList>
 
-				<Subheadline class="font-semibold">Technologies & Tools</Subheadline>
-				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+				<Subheadline className="font-semibold">Technologies & Tools</Subheadline>
+				<UnorderedList className="mbe-10 mbs-5 !list-none p-0">
 					<ListItem>
 						<strong>Languages:</strong> TypeScript, JavaScript (ES6+), HTML5, CSS3, PostCSS,
 						CSS Modules, Sass/SCSS.
@@ -356,11 +356,11 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 			</article>
 		</article>
 	</aside>
-	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
+	<Divider className="!mbe-0 !mbs-0 col-span-full w-[90]" />
 
 	<article class="col-span-full">
 		<Headline>Interests & Hobbies</Headline>
-		<ul class="columns-1 gap-gap md:columns-2">
+		<ul class="gap-gap columns-1 md:columns-2">
 			<InterestsHobbies components={mapping} />
 		</ul>
 	</article>

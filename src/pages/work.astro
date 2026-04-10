@@ -6,47 +6,44 @@ import { getCollection } from 'astro:content';
 import { sortBySortKey } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArrowCta from '../components/icons/ArrowCta';
+import DisplayHeadline from '../components/ui/DisplayHeadline';
+import MoreLink from '../components/ui/MoreLink';
+import PageHeading from '../components/ui/PageHeading';
 
 const allProjects: Projects[] = await getCollection('projects');
 const projects = allProjects.sort(sortBySortKey);
 
 const title = 'Work';
-const description =
-	"I'm a Design Engineer. These are selected projects from the last two decades.";
+const description = "I'm a Design Engineer. These are selected projects from the last two decades.";
 ---
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
-		<h1
-			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
-		>
-			Work.
-		</h1>
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
+		<PageHeading>Work</PageHeading>
 	</div>
 
 	<!-- Introduction -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">
-		<p class="max-w-xl text-3 leading-relaxed text-hai">
-			I am a design engineer by discipline. In previous chapters: editorial design, 3D animation,
-			and a period spent making Flash animations and multimedia CD-ROMs that no longer exist
-			anywhere. I have always believed in working across domains. A specialist in one thing tends
-			to miss the connections.
+		<p class="text-3 text-hai max-w-xl leading-relaxed">
+			I am a design engineer by discipline. In previous chapters: editorial design, 3D
+			animation, and a period spent making Flash animations and multimedia CD-ROMs that no
+			longer exist anywhere. I have always believed in working across domains. A specialist in
+			one thing tends to miss the connections.
 		</p>
-		<p class="mt-4 max-w-xl text-3 leading-relaxed text-hai">
+		<p class="text-3 text-hai mt-4 max-w-xl leading-relaxed">
 			These are selected projects from the last two decades.
 		</p>
 	</div>
 
 	<!-- Project list -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32 flex flex-col gap-24">
+	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-24 px-8 pb-32">
 		{
 			projects.map((project) => (
 				<article class="flex flex-col gap-6">
 					{/* Project image */}
 					{project.data.image && (
-						<div class="overflow-hidden rounded-2">
+						<div class="rounded-2 overflow-hidden">
 							<img
 								src={project.data.image.src}
 								alt={project.data.title}
@@ -60,28 +57,21 @@ const description =
 					{/* Project info */}
 					<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
 						<div>
-							<p class="text-2 tracking-widest text-hai italic">
+							<p class="text-2 text-hai italic tracking-widest">
 								{project.data.categories.join(' / ')}
 							</p>
 						</div>
 						<div class="min-w-0">
-							<h2 class="mb-3 font-display text-5 font-bold tracking-tight text-sumi dark:text-washi">
-								{project.data.title}
-							</h2>
+							<DisplayHeadline className="mb-3">{project.data.title}</DisplayHeadline>
 							{project.data.intro && (
-								<p class="max-w-xl text-3 leading-relaxed">{project.data.intro}</p>
+								<p class="text-3 max-w-xl leading-relaxed">{project.data.intro}</p>
 							)}
 							{project.data.more && (
-								<a
-									class="mt-4 inline-flex items-center text-3 font-bold hover:opacity-60 transition-opacity"
+								<MoreLink
+									className="mt-4"
 									href={project.data.more.link}
-								>
-									{project.data.more.text || 'View project'}
-									<ArrowCta
-										aria-hidden="true"
-										className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto"
-									/>
-								</a>
+									text={project.data.more.text || 'View project'}
+								/>
 							)}
 						</div>
 					</div>

@@ -1,0 +1,17 @@
+---
+import { Copyright } from '../icons';
+import LegalDate from './LegalDate.astro';
+
+import { site } from '../../data/site';
+---
+
+<div class="flex flex-1 shrink-0 items-center">
+	<span class="mie-[0.25em] block-start-[-1px] relative text-[14px]"
+		><Copyright aria-hidden="true" className="icon h-[15px] w-[15px]" /></span
+	>
+	<span class="shrink-0">
+		<LegalDate />
+	</span>
+	<span class="mli-[0.25em]">•</span>
+	<strong class="shrink-0 uppercase tracking-wider">{site.author}</strong>
+</div>

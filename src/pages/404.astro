@@ -1,8 +1,8 @@
 ---
 import GridLayout from '../layouts/GridLayout.astro';
 
-import PageTitle from '../components/PageTitle.astro';
-import Verse from '../components/Verse.astro';
+import PageTitle from '../components/site/PageTitle.astro';
+import Verse from '../components/content/Verse';
 
 import { Content as Haiku } from '../text/404/haiku.mdx';
 import { mapping } from '../mdx-components';
@@ -22,14 +22,14 @@ const description = 'Page not found.';
 >
 	<PageTitle grid="wide" innerGrid>Not Found.</PageTitle>
 	<Verse
-		class="z-10 col-start-1 col-end-17 row-start-2 text-3 italic mbe-10 mbs-10 md:col-start-3 md:col-end-9"
+		className="col-end-17 text-3 mbe-10 mbs-10 z-10 col-start-1 row-start-2 italic md:col-start-3 md:col-end-9"
 		variant="left"
 	>
 		<Haiku components={mapping} />
 	</Verse>
 	<span
 		aria-hidden="true"
-		class="col-start-10 col-end-13 row-start-1 row-end-3 text-9 font-black text-black/[0.05] dark:text-white/[0.05]"
+		class="text-9 col-start-10 col-end-13 row-start-1 row-end-3 font-black text-black/[0.05] dark:text-white/[0.05]"
 		role="img"
 	>
 		404

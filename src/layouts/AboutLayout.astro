@@ -3,8 +3,8 @@ import { dateToFormat, dateToISO } from '../utils';
 import { site } from '../data/site';
 
 import GridLayout from './GridLayout.astro';
-import PageTitle from '../components/PageTitle.astro';
-import Image from '../components/Image.astro';
+import PageTitle from '../components/site/PageTitle.astro';
+import Image from '../components/content/Image';
 
 const { frontmatter } = Astro.props;
 const schema = JSON.stringify({
@@ -34,11 +34,11 @@ const schema = JSON.stringify({
 	</PageTitle>
 	<div
 		slot="before-content"
-		class="col-start-1 col-end-12 md:col-start-3 md:col-end-10 xl:col-start-15 xl:col-end-18 xl:row-start-2 xl:-scale-x-100 3xl:col-start-14 3xl:col-end-17"
+		class="xl:col-start-15 xl:col-end-18 3xl:col-start-14 3xl:col-end-17 col-start-1 col-end-12 md:col-start-3 md:col-end-10 xl:row-start-2 xl:-scale-x-100"
 	>
 		<Image
 			alt="Stefan Imhoff"
-			class="[&_img]:rounded-l-none md:[&_img]:rounded-2"
+			className="md:[&_img]:rounded-2 [&_img]:rounded-l-none"
 			role="presentation"
 			src="/assets/images/portrait-stefan-imhoff-2025.webp"
 		/>

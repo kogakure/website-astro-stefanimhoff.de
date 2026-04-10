@@ -1,0 +1,151 @@
+---
+import Search from 'astro-pagefind/components/Search';
+
+import Link from '../ui/Link';
+import { Close } from '../icons';
+---
+
+<dialog id="search-dialog">
+	<header
+		class="block-start-0 md:pie-gap md:pis-gap flex h-[clamp(1.5rem,_5.55vw,_9rem)] w-full items-center justify-end overflow-x-hidden md:h-[clamp(4rem,_5.55vw,_9rem)]"
+	>
+		<Link
+			id="close-search"
+			className="block-start-0 relative left-[10px] transition-transform duration-500 ease-in-out hover:scale-125"
+		>
+			<button
+				aria-label="Close Search Modal"
+				class="text-shibui-950 dark:text-shibui-200/[0.87] flex h-[2em] w-[2em] cursor-pointer items-center justify-center"
+			>
+				<Close className="icon h-[1.5em] w-[1.5em]" />
+			</button>
+		</Link>
+	</header>
+	<search>
+		<Search />
+	</search>
+</dialog>
+
+<style is:global>
+	@reference "../styles/global.css";
+	dialog::backdrop {
+		@apply bg-shibui-100 dark:bg-shibui-900 md:!bg-shibui-900/60 md:dark:bg-shibui-900/60 backdrop-blur-md;
+		animation: show-dimmer 0.2s ease-in-out;
+	}
+
+	dialog.hide::backdrop {
+		animation: hide-dimmer 0.2s ease-in-out;
+	}
+
+	dialog {
+		@apply rounded-2 h-dvh max-w-[950px] md:max-h-[90vh];
+	}
+
+	dialog[open] {
+		@apply bg-shibui-100 text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:!bg-shibui-200 md:dark:!bg-shibui-800 w-[calc(100%_-_5.55vw_*_2)] p-0 font-sans font-normal leading-relaxed;
+		animation: show-modal 0.2s ease-in-out;
+	}
+
+	dialog.hide {
+		animation: hide-modal 0.2s ease-in-out;
+	}
+
+	@keyframes show-modal {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes show-dimmer {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes hide-modal {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+	}
+
+	@keyframes hide-dimmer {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+
+	.pagefind-ui {
+		@apply pbe-gap common-ligatures md:px-gap !font-sans !font-normal !leading-relaxed;
+	}
+
+	.pagefind-ui__form::before {
+		@apply !hidden;
+	}
+
+	.pagefind-ui__search-input,
+	.pagefind-ui__search-clear {
+		@apply !text-shibui-950 dark:!text-shibui-100;
+	}
+
+	.pagefind-ui__search-input {
+		@apply !text-6 !pis-0 !border-be-2 !border-bs-0 !border-ie-0 !border-is-0 md:!text-7 !h-[clamp(3.3rem,_5vw,_4rem)] !rounded-none !border-0 !border-solid !border-black/[0.1] !bg-transparent !font-black !leading-normal dark:!border-white/[0.1] dark:!font-extrabold;
+	}
+
+	.pagefind-ui__search-input::placeholder {
+		@apply !text-shibui-950 dark:!text-shibui-200/[0.87] !opacity-20 dark:!opacity-30;
+	}
+
+	.pagefind-ui__search-clear {
+		@apply !h-[clamp(3.3rem,_5vw,_4rem)] !rounded-sm !bg-transparent !p-2 focus:!outline;
+	}
+
+	.pagefind-ui__results {
+		@apply !gap-x-gap !pbe-12 lg:!grid;
+	}
+
+	.pagefind-ui__result {
+		@apply !border-be-1 !border-bs-0 !border-ie-0 !border-is-0 !border-solid !border-black/[0.1] dark:!border-white/[0.1];
+	}
+
+	.pagefind-ui__result-inner,
+	.pagefind-ui__message,
+	.pagefind-ui__result-link {
+		@apply !text-shibui-950 dark:!text-shibui-200/[0.87];
+	}
+
+	.pagefind-ui__result-link {
+		@apply !text-shibui-950 !decoration-shibui-900/20 no-common-ligatures hover:!decoration-accent focus:!decoration-accent dark:!text-shibui-100 inline !font-semibold !underline !decoration-4 underline-offset-auto;
+	}
+
+	.pagefind-ui .pagefind-ui__result-link {
+		@apply !text-3 !font-black leading-tight;
+	}
+
+	.pagefind-ui .pagefind-ui__result-excerpt {
+		@apply !text-2 break-normal;
+	}
+
+	.pagefind-ui__result-excerpt mark {
+		@apply !bg-marked !pli-[0.3em] !pbe-[0.2em] !pbs-[0.3em] dark:!bg-marked/[0.7] !rounded !border !border-black/[0.1] !text-black/[0.75];
+	}
+
+	.pagefind-ui__button {
+		@apply !text-4 !text-shibui-950 mli-auto !mbe-10 !mbs-0 dark:!text-shibui-200/[0.87] !flex !w-[90%] !items-center !justify-center !border-0 !bg-transparent !py-10 !tracking-tight focus:!outline;
+	}
+</style>

@@ -1,0 +1,50 @@
+---
+import { CircleHalf } from '@phosphor-icons/react';
+---
+
+<theme-toggle class="h-clickarea w-clickarea flex print:hidden">
+	<button
+		aria-label="Switch color theme"
+		class="h-clickarea w-clickarea rounded-2 hover:bg-shibui-950/10 focus:bg-shibui-950/10 dark:hover:bg-shibui-50/10 dark:focus:bg-shibui-50/10 flex cursor-pointer items-center justify-center self-center border-0 text-[0] transition-colors duration-100"
+		data-umami-event="Switch color theme"
+	>
+		<CircleHalf
+			aria-hidden="true"
+			className="icon h-icon-small w-icon-small transition-transform duration-500 ease-in-out dark:rotate-180"
+		/>
+	</button>
+</theme-toggle>
+
+<script>
+	function initializeThemeToggle() {
+		if (!customElements.get('theme-toggle')) {
+			class ThemeToggle extends HTMLElement {
+				constructor() {
+					super();
+					const button = this.querySelector('button')!;
+
+					button.addEventListener('click', () => {
+						const newDark = !this.isDark();
+						document.documentElement.classList[newDark ? 'add' : 'remove']('dark');
+						button.setAttribute('aria-pressed', String(newDark));
+						if (typeof localStorage !== 'undefined') {
+							localStorage.setItem('theme', newDark ? 'dark' : 'light');
+						}
+						button.blur();
+					});
+
+					button.setAttribute('aria-pressed', String(this.isDark()));
+				}
+
+				isDark() {
+					return document.documentElement.classList.contains('dark');
+				}
+			}
+
+			customElements.define('theme-toggle', ThemeToggle);
+		}
+	}
+
+	initializeThemeToggle();
+	document.addEventListener('astro:after-swap', initializeThemeToggle);
+</script>

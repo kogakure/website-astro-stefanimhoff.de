@@ -6,64 +6,64 @@ import { getCollection } from 'astro:content';
 import { sortByDate } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageSection from '../components/PageSection.astro';
+import DashList from '../components/ui/DashList';
+import DashListItem from '../components/ui/DashListItem';
+import PageHeading from '../components/ui/PageHeading';
+import PageSection from '../components/ui/PageSection';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
 
 const title = 'Haiku';
-const description =
-	'An ever-growing collection of Haiku — three phrases, two images, one cut.';
+const description = 'An ever-growing collection of Haiku — three phrases, two images, one cut.';
 ---
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
-		<h1
-			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
-		>
-			Haiku
-		</h1>
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
+		<PageHeading>Haiku</PageHeading>
 	</div>
 
 	<!-- Content sections -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
 		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
-			<div class="flex flex-col gap-4 max-w-xl text-3 leading-relaxed">
+			<div class="text-3 flex max-w-xl flex-col gap-4 leading-relaxed">
 				<p>
 					Haiku <span class="font-japanese">(俳句)</span> is the shortest serious form in poetry.
 					Three phrases. Two qualities define it:
 				</p>
-				<ul class="flex flex-col gap-2 pl-[1.25em]">
-					<li class="[text-indent:-1.25em]">
-						<span class="select-none text-sumi dark:text-washi">— </span>
-						<em>kigo</em> <span class="font-japanese">(季語)</span>—a seasonal reference. Heaven,
+				<DashList className="gap-2">
+					<DashListItem>
+						<span class="text-sumi dark:text-washi select-none">— </span>
+						<em>kigo</em>
+						<span class="font-japanese">(季語)</span>—a seasonal reference. Heaven,
 						earth, humanity, animals, plants. Time made visible in a single image.
-					</li>
-					<li class="[text-indent:-1.25em]">
-						<span class="select-none text-sumi dark:text-washi">— </span>
-						<em>kiru</em> <span class="font-japanese">(切)</span>—a cut. Two images or ideas held
-						in juxtaposition, separated by a <em>kireji</em>, a cutting word. The space between
-						them is where meaning lives.
-					</li>
-				</ul>
+					</DashListItem>
+					<DashListItem>
+						<span class="text-sumi dark:text-washi select-none">— </span>
+						<em>kiru</em>
+						<span class="font-japanese">(切)</span>—a cut. Two images or ideas held in
+						juxtaposition, separated by a <em>kireji</em>, a cutting word. The space
+						between them is where meaning lives.
+					</DashListItem>
+				</DashList>
 				<p>
 					Traditionally seventeen syllables: five, seven, five <span class="font-japanese"
 						>(自由律)</span
 					>.
 				</p>
 			</div>
-			<hr class="mt-8 max-w-xl border-shibui-300 dark:border-shibui-700" />
+			<hr class="border-shibui-300 dark:border-shibui-700 mt-8 max-w-xl" />
 		</PageSection>
 
 		<!-- HAIKU list -->
 		<PageSection label="Haiku">
-			<ol class="flex flex-col gap-8 list-none" data-pagefind-ignore>
+			<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
 				{
 					allHaiku.map(({ data }) => (
 						<li>
-							<p class="font-bold text-3 text-sumi dark:text-washi">
+							<p class="text-3 text-sumi dark:text-washi font-bold">
 								{data.de
 									.trim()
 									.split('\n')

@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Image from '../content/Image';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+---
+
+{
+	project.data.image && (
+		<Image
+			alt={project.data.title}
+			aria-label={project.data.title}
+			className="[&_img]:!w-full [&_img]:!max-w-none [&_picture]:!w-full [&_picture]:!max-w-none"
+			noMargin
+			src={project.data.image.src}
+		/>
+	)
+}

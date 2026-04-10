@@ -1,0 +1,91 @@
+---
+import { ArrowLeftS, ArrowRightS } from '../icons';
+
+export interface Props {
+	previousUrl?: string;
+	nextUrl?: string;
+	previousText?: string;
+	nextText?: string;
+}
+
+const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
+---
+
+{
+	previousUrl && (
+		<a
+			aria-label={previousText || 'Previous'}
+			class="block-start-[calc(50%_-_20px)] inline-start-[1rem] group fixed rounded-[50%] print:hidden"
+			data-umami-event={previousText || 'Previous'}
+			href={previousUrl}
+			rel="prefetch prev"
+			title={previousText || 'Previous'}
+		>
+			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+				<ArrowLeftS aria-hidden="true" className="icon h-icon w-icon" />
+			</div>
+		</a>
+	)
+}
+{
+	nextUrl && (
+		<a
+			aria-label={nextText || 'Next'}
+			class="block-start-[calc(50%_-_20px)] inline-end-[1rem] group fixed rounded-[50%] print:hidden"
+			data-umami-event={nextText || 'Next'}
+			href={nextUrl}
+			rel="prefetch next"
+			title={nextText || 'Next'}
+		>
+			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+				<ArrowRightS aria-hidden="true" className="icon h-icon w-icon" />
+			</div>
+		</a>
+	)
+}
+
+<script>
+	function initializeScrollListener() {
+		const body = document.body;
+		const scrollUp = 'scroll-up';
+		const scrollDown = 'scroll-down';
+		let lastScroll = 0;
+
+		const scrollHandler = () => {
+			const currentScroll = window.pageYOffset;
+
+			if (currentScroll <= 0) {
+				body.classList.remove(scrollUp);
+				return;
+			}
+
+			if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+				body.classList.remove(scrollUp);
+				body.classList.add(scrollDown);
+			} else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+				body.classList.remove(scrollDown);
+				body.classList.add(scrollUp);
+			}
+			lastScroll = currentScroll;
+		};
+
+		window.addEventListener('scroll', scrollHandler);
+	}
+
+	// Initialize on load
+	initializeScrollListener();
+
+	// Re-initialize after view transitions
+	document.addEventListener('astro:after-swap', initializeScrollListener);
+</script>
+
+<style is:global>
+	@reference "../styles/global.css";
+	.scroll-up .pagination {
+		@apply opacity-100;
+	}
+
+	.scroll-down .pagination {
+		@apply opacity-0;
+	}
+</style>

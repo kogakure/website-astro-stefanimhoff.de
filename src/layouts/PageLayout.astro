@@ -1,9 +1,9 @@
 ---
 import { dateToFormat, dateToISO } from '../utils';
 
-import Pullquote from '../components/Pullquote.astro';
-import Image from '../components/Image.astro';
-import PageTitle from '../components/PageTitle.astro';
+import Pullquote from '../components/content/Pullquote';
+import Image from '../components/content/Image';
+import PageTitle from '../components/site/PageTitle.astro';
 
 import GridLayout from './GridLayout.astro';
 
@@ -25,14 +25,14 @@ const gridVariant = frontmatter.grid || grid;
 		frontmatter.cover && (
 			<div
 				slot="before-content"
-				class="col-span-full aspect-video h-auto !mbe-0 md:col-start-3 md:col-end-17 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none [&_img]:!mbe-0 md:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
+				class="!mbe-0 md:col-end-17 xl:col-end-14 3xl:col-end-13 [&_img]:!mbe-0 md:[&_img]:rounded-2 col-span-full aspect-video h-auto md:col-start-3 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none [&_picture]:!w-full [&_picture]:!max-w-none"
 			>
 				<Image
 					alt={frontmatter.title}
 					src={frontmatter.cover}
 					fullWidth
 					fullHeight
-					class="!mbe-0"
+					className="!mbe-0"
 				/>
 			</div>
 		)

@@ -1,0 +1,38 @@
+---
+import data from '../../data/subnavigation.json';
+
+import Link from '../ui/Link';
+---
+
+<nav class="navigation glow flex gap-12" aria-label="Subnavigation" role="navigation">
+	<ul>
+		{
+			data.main.map(({ title, url }) => (
+				<li>
+					<Link
+						href={url}
+						className="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
+						data-umami-event={`Subnavigation: ${title}`}
+					>
+						{title}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+	<ul class="mie-10">
+		{
+			data.misc.map(({ title, url }) => (
+				<li>
+					<Link
+						href={url}
+						className="font-light decoration-4 underline-offset-auto hover:underline hover:decoration-shibui-900/20 focus:underline focus:decoration-shibui-900/20 dark:hover:decoration-shibui-100/20 dark:focus:decoration-shibui-100/20"
+						data-umami-event={`Subnavigation: ${title}`}
+					>
+						{title}
+					</Link>
+				</li>
+			))
+		}
+	</ul>
+</nav>
