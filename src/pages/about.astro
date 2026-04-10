@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
+import ArrowCta from '../components/icons/ArrowCta';
+
+const title = 'About';
+const description =
+	"I'm Stefan Imhoff—design engineer, writer, and observer—based in Hamburg, Germany.";
+---
+
+<BaseLayout title={title} description={description}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display italic text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			About
+		</h1>
+	</div>
+
+	<!-- Content sections -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+		<!-- INTRODUCTION -->
+		<PageSection label="Introduction">
+			<div class="flex gap-12">
+				<!-- Bio text -->
+				<div class="flex flex-col gap-5 max-w-xl text-3 leading-relaxed">
+					<p>
+						I am <strong>Stefan Imhoff</strong>—design engineer, writer, and observer—based in
+						Hamburg, Germany.
+					</p>
+					<p>
+						I find meaning in ideas. Books on philosophy, science, and economics. <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://raindrop.io/kogakure/podcasts-24118384">Podcasts</a
+						>. <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://www.themoviedb.org/u/kogakure/favorites">Films</a
+						>—particularly <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://www.themoviedb.org/list/8216385-korea?view=grid">Korean</a
+						> and <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://www.themoviedb.org/list/106001-japan?view=grid">Japanese</a
+						> cinema and drama. I believe humans understand the world through narrative, and I try
+						to contribute to that—through <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="/journal/">essays</a
+						>, sketchnotes, <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="/haiku/">Haiku</a
+						>, and a free <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://www.kogakure.de/en/">book on Ninja and Ninjutsu</a
+						>.
+					</p>
+					<p>
+						Outside the screen: <a
+							class="text-beni hover:opacity-60 transition-opacity"
+							href="https://hamburg.stefanimhoff.de/">walking and cycling through Hamburg</a
+						>, calisthenics, ink sketching and watercolour, and a persistent attention to the small
+						things—the quality of light through leaves, the sound of a storm, the particular silence
+						after it passes.
+					</p>
+					<p>
+						I practice minimalism, draw from Stoic philosophy, and hold Japanese aesthetics
+						close—especially the principle of <em>shibui</em> (渋い): quiet beauty that reveals itself
+						slowly.
+					</p>
+				</div>
+
+				<!-- Portrait -->
+				<div class="max-lg:hidden shrink-0" style="width: 200px;">
+					<img
+						src="/assets/images/portrait-stefan-imhoff-2026.webp"
+						alt="Portrait of Stefan Imhoff"
+						class="w-full object-cover rounded-2"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+			</div>
+		</PageSection>
+
+		<!-- LINKS -->
+		<PageSection label="Links">
+			<div class="flex flex-col gap-2">
+				<a
+					class="cta-link font-bold hover:opacity-60 transition-opacity text-3"
+					href="/life-rules/"
+				>
+					Rules and principles I live by <ArrowCta
+						aria-hidden="true"
+						className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto"
+					/>
+				</a>
+				<a class="cta-link font-bold hover:opacity-60 transition-opacity text-3" href="/tools/">
+					Tools I use <ArrowCta
+						aria-hidden="true"
+						className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto"
+					/>
+				</a>
+				<a class="cta-link font-bold hover:opacity-60 transition-opacity text-3" href="/now/">
+					What I am doing now <ArrowCta
+						aria-hidden="true"
+						className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto"
+					/>
+				</a>
+			</div>
+		</PageSection>
+	</div>
+</BaseLayout>
