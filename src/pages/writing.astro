@@ -3,56 +3,60 @@ import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts, pickTwoRandomColors } from '../utils';
+import { formatPosts } from '../utils';
 
-import GridLayout from '../layouts/GridLayout.astro';
-import PageTitle from '../components/PageTitle.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
 import WritingPage from '../components/WritingPage';
 
-import { Content as Intro } from '../text/journal/intro.mdx';
-
-import { mapping } from '../mdx-components';
-
 const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
-const formattedAllPosts = formatPosts(allPosts, {});
+const formattedPosts = formatPosts(allPosts, {});
 
-const uniqueTags = [...new Set(formattedAllPosts.map((entry) => entry.data.tags).flat())];
+const uniqueTags = [...new Set(formattedPosts.flatMap((entry) => entry.data.tags ?? []))];
 uniqueTags.sort((a, b) => a.localeCompare(b));
 
-const posts = formattedAllPosts.map((entry) => {
-	const cover = entry.data.cover;
-	const thumbnail =
-		cover &&
-		cover.startsWith('/assets/images/cover/') &&
-		cover.endsWith('.webp')
-			? cover
-					.replace('/assets/images/cover/', '/assets/images/thumbnail/')
-					.replace(/\.webp$/, '.jpg')
-			: null;
-
-	return {
-		slug: entry.id,
-		title: entry.data.title,
-		subtitle: entry.data.subtitle,
-		tags: entry.data.tags,
-		thumbnail,
-		gradient: pickTwoRandomColors(),
-	};
-});
+const posts = formattedPosts.map((entry) => ({
+	slug: entry.id,
+	title: entry.data.title,
+	tags: entry.data.tags ?? [],
+	year: new Date(entry.data.date).getFullYear(),
+}));
 
 const title = 'Writing';
-const description = 'I am writing essays about various topics in this Journal.';
+const description =
+	'Essays on design, code, philosophy, and the examined life. Published here since 2007.';
 ---
 
-<GridLayout title={title} description={description} grid="wide" innerGrid>
-	<PageTitle grid="wide" innerGrid>Writing</PageTitle>
+<BaseLayout title={title} description={description}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display italic text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			Writing
+		</h1>
+	</div>
 
-	<article
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-13 lg:col-start-4 lg:col-end-12 xl:col-start-5 xl:col-end-11"
-		data-pagefind-ignore
-	>
-		<Intro components={mapping} />
-	</article>
+	<!-- Content sections -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+		<!-- INTRODUCTION -->
+		<PageSection label="Introduction">
+			<p class="max-w-xl text-3 leading-relaxed">
+				Since 2007 I have been writing here — essays on design, code, philosophy, minimalism,
+				Japan, and the life of the mind. A collection of essays on <a
+					class="underline hover:opacity-60 transition-opacity"
+					href="https://www.kogakure.de/en/">Ninja and Ninjutsu</a
+				> grew into a book. Medium featured <a
+					class="underline hover:opacity-60 transition-opacity"
+					href="/attention/">one essay</a
+				> as their recommendation of the day. I also write <a
+					class="underline hover:opacity-60 transition-opacity"
+					href="/haiku/">Haiku</a
+				>.
+			</p>
+		</PageSection>
 
-	<WritingPage client:load allTags={uniqueTags} posts={posts} />
-</GridLayout>
+		<!-- FILTER + ESSAYS (interactive, client-side) -->
+		<WritingPage client:load allTags={uniqueTags} posts={posts} />
+	</div>
+</BaseLayout>

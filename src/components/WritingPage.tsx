@@ -1,13 +1,17 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Funnel } from '@phosphor-icons/react';
-import Tag from './Tag';
-import WritingList, { type PostItem } from './WritingList';
+
+interface PostItem {
+	slug: string;
+	title: string;
+	tags: string[];
+	year: number;
+}
 
 interface Props {
 	allTags: string[];
-	posts: (PostItem & { tags: string[] })[];
+	posts: PostItem[];
 }
 
 export const WritingPage = ({ allTags, posts }: Props) => {
@@ -38,11 +42,6 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 		});
 	};
 
-	const clearFilters = () => {
-		setSelectedTags([]);
-		updateUrl([]);
-	};
-
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
 		const tag = params.get('tag');
@@ -56,45 +55,98 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			? posts.filter((post) => selectedTags.every((tag) => post.tags.includes(tag)))
 			: posts;
 
+	const byYear = filteredPosts.reduce<Record<number, PostItem[]>>((acc, post) => {
+		(acc[post.year] ??= []).push(post);
+		return acc;
+	}, {});
+	const years = Object.keys(byYear)
+		.map(Number)
+		.sort((a, b) => b - a);
+
 	return (
 		<>
-			<aside
-				aria-label="Filter by tags"
-				className="col-start-1 col-end-18 flex flex-wrap items-center gap-y-3"
+			{/* FILTER section */}
+			<section
+				className="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16"
 				data-pagefind-ignore
 			>
-				<span className="mie-3 flex items-center gap-1 text-2 text-shibui-500 dark:text-shibui-400">
-					<Funnel className="h-3 w-3" aria-hidden="true" />
-					Filter
-				</span>
-				{allTags.map((tag) => (
-					<Tag
-						key={tag}
-						active={selectedTags.includes(tag)}
-						onClick={() => toggleTag(tag)}
-					>
-						{tag}
-					</Tag>
-				))}
-				{selectedTags.length > 0 && (
-					<button
-						type="button"
-						onClick={clearFilters}
-						className="mis-2 text-2 text-shibui-500 underline hover:text-shibui-950 dark:text-shibui-400 dark:hover:text-shibui-100"
-					>
-						Clear
-					</button>
-				)}
-			</aside>
-			<nav className="col-start-1 col-end-18" aria-label="Writing">
-				{filteredPosts.length > 0 ? (
-					<WritingList entries={filteredPosts} />
-				) : (
-					<p className="text-3 text-shibui-500 dark:text-shibui-400">
-						No posts found for the selected tags.
+				<div>
+					<span className="block text-[0.65rem] tracking-widest uppercase text-hai">
+						Filter
+					</span>
+				</div>
+				<div className="min-w-0">
+					<p className="text-3 leading-relaxed">
+						{allTags.map((tag, i) => (
+							<span key={tag}>
+								{i > 0 && (
+									<span className="mx-1.5 select-none text-hai" aria-hidden="true">
+										·
+									</span>
+								)}
+								<button
+									type="button"
+									onClick={() => toggleTag(tag)}
+									className={`transition-opacity hover:opacity-60 ${
+										selectedTags.includes(tag)
+											? 'underline decoration-beni decoration-2 underline-offset-2'
+											: ''
+									}`}
+								>
+									{tag}
+								</button>
+							</span>
+						))}
+						{selectedTags.length > 0 && (
+							<button
+								type="button"
+								onClick={() => {
+									setSelectedTags([]);
+									updateUrl([]);
+								}}
+								className="ml-4 text-2 text-hai underline transition-opacity hover:opacity-60"
+							>
+								Clear
+							</button>
+						)}
 					</p>
-				)}
-			</nav>
+					<hr className="mt-8 border-shibui-300 dark:border-shibui-700" />
+				</div>
+			</section>
+
+			{/* Essays grouped by year */}
+			{years.length > 0 ? (
+				years.map((year) => (
+					<section
+						key={year}
+						className="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16"
+					>
+						<div>
+							<span className="block text-[0.65rem] tracking-widest text-hai">
+								{year}
+							</span>
+						</div>
+						<ul className="flex flex-col gap-1 pl-[1.25em] min-w-0">
+							{byYear[year].map((post) => (
+								<li key={post.slug} className="[text-indent:-1.25em]">
+									<span className="select-none text-beni">— </span>
+									<a
+										className="text-3 transition-opacity hover:opacity-60"
+										href={`/${post.slug}/`}
+									>
+										{post.title}
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				))
+			) : (
+				<section className="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
+					<div />
+					<p className="text-3 text-hai">No essays found for the selected tags.</p>
+				</section>
+			)}
 		</>
 	);
 };
