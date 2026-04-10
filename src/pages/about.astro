@@ -12,18 +12,35 @@ const description =
 	<!-- Page title -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
 		<h1
-			class="font-display italic text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
 		>
 			About
 		</h1>
 	</div>
 
+	<!-- Mobile portrait: between title and content, bleeds into left margin -->
+	<div class="lg:hidden mx-auto w-full max-w-[1440px] px-8 pb-10">
+		<div class="-ml-10" style="width: 180px;">
+			<img
+				src="/assets/images/portrait-stefan-imhoff-2026.webp"
+				alt="Portrait of Stefan Imhoff"
+				class="w-full object-cover rounded-2"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</div>
+
 	<!-- Content sections -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
-		<!-- INTRODUCTION -->
-		<PageSection label="Introduction">
-			<div class="flex gap-12">
-				<!-- Bio text -->
+		<!-- INTRODUCTION: manual 3-col grid so portrait gets its own column -->
+		<section class="grid gap-6 md:grid-cols-[160px_1fr_200px] md:gap-16">
+			<!-- Label -->
+			<div>
+				<span class="block text-[0.65rem] tracking-widest uppercase text-hai">Introduction</span>
+			</div>
+			<!-- Bio text -->
+			<div class="min-w-0">
 				<div class="flex flex-col gap-5 max-w-xl text-3 leading-relaxed">
 					<p>
 						I am <strong>Stefan Imhoff</strong>—design engineer, writer, and observer—based in
@@ -68,19 +85,18 @@ const description =
 						slowly.
 					</p>
 				</div>
-
-				<!-- Portrait -->
-				<div class="max-lg:hidden shrink-0" style="width: 200px;">
-					<img
-						src="/assets/images/portrait-stefan-imhoff-2026.webp"
-						alt="Portrait of Stefan Imhoff"
-						class="w-full object-cover rounded-2"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
 			</div>
-		</PageSection>
+			<!-- Portrait (desktop only, faces left toward text) -->
+			<div class="max-lg:hidden self-start">
+				<img
+					src="/assets/images/portrait-stefan-imhoff-2026.webp"
+					alt="Portrait of Stefan Imhoff"
+					class="w-full object-cover rounded-2 -scale-x-100"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		</section>
 
 		<!-- LINKS -->
 		<PageSection label="Links">
