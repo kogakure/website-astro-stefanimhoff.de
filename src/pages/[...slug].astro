@@ -11,7 +11,7 @@ import { dateToFormat, dateToISO, wordCount } from '../utils';
 import { mapping } from '../mdx-components';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Tag from '../components/Tag';
+import Tag from '../components/ui/Tag';
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
@@ -80,17 +80,13 @@ const schema = JSON.stringify({
 	title={subtitle ? `${title}: ${subtitle}` : title}
 >
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-12">
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-12 pt-32">
 		<h1
-			class="font-display italic text-[clamp(3rem,6vw,7rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+			class="font-display text-sumi dark:text-washi text-[clamp(3rem,6vw,7rem)] font-bold italic leading-[0.92] tracking-tight"
 		>
 			{title}
 		</h1>
-		{
-			subtitle && (
-				<p class="mt-4 text-3 text-hai italic">{subtitle}</p>
-			)
-		}
+		{subtitle && <p class="text-3 text-hai mt-4 italic">{subtitle}</p>}
 	</div>
 
 	<!-- Cover image -->
@@ -100,7 +96,7 @@ const schema = JSON.stringify({
 				<img
 					src={entry.data.cover}
 					alt={title}
-					class="w-full rounded-2 object-cover"
+					class="rounded-2 w-full object-cover"
 					loading="eager"
 					decoding="async"
 				/>
@@ -113,7 +109,7 @@ const schema = JSON.stringify({
 		<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
 			<!-- Meta column -->
 			<aside>
-				<div class="flex flex-col gap-4 text-2 text-hai sticky top-8">
+				<div class="text-2 text-hai sticky top-8 flex flex-col gap-4">
 					<div>
 						<time datetime={dateToISO(entry.data.date)}>
 							{dateToFormat(entry.data.date)}
@@ -124,7 +120,7 @@ const schema = JSON.stringify({
 					</div>
 					{
 						entry.data.tags && entry.data.tags.length > 0 && (
-							<div class="flex flex-wrap gap-2 mt-2">
+							<div class="mt-2 flex flex-wrap gap-2">
 								{entry.data.tags
 									.sort((a: string, b: string) => a.localeCompare(b))
 									.map((t: string) => (
@@ -140,15 +136,20 @@ const schema = JSON.stringify({
 			<article class="journal-post min-w-0">
 				{
 					entry.data.series && seriesEntries.length > 1 && (
-						<div class="mb-8 rounded-2 border border-shibui-200 dark:border-shibui-800 p-4">
-							<p class="text-2 tracking-widest uppercase text-hai mb-3">Series</p>
+						<div class="rounded-2 border-shibui-200 dark:border-shibui-800 mb-8 border p-4">
+							<p class="text-2 text-hai mb-3 uppercase tracking-widest">Series</p>
 							<ol class="flex flex-col gap-1">
 								{seriesEntries.map((item) => (
 									<li class="text-3">
 										{entryId === item.id ? (
-											<em class="font-bold text-sumi dark:text-washi">{item.data.title}</em>
+											<em class="text-sumi dark:text-washi font-bold">
+												{item.data.title}
+											</em>
 										) : (
-											<a class="text-beni hover:opacity-60 transition-opacity" href={`/${item.id}/`}>
+											<a
+												class="text-beni transition-opacity hover:opacity-60"
+												href={`/${item.id}/`}
+											>
 												{item.data.title}
 											</a>
 										)}
@@ -161,7 +162,7 @@ const schema = JSON.stringify({
 				<Content components={mapping} />
 				{
 					entry.data.updated && (
-						<footer class="mt-12 text-2 text-hai">
+						<footer class="text-2 text-hai mt-12">
 							<span class="font-bold">Last Updated:</span>{' '}
 							<time datetime={dateToISO(entry.data.updated)}>
 								{dateToFormat(entry.data.updated)}
@@ -176,20 +177,30 @@ const schema = JSON.stringify({
 	<!-- Prev/Next navigation -->
 	{
 		(prev.id || next.id) && (
-			<nav class="mx-auto w-full max-w-[1440px] px-8 pb-16 grid grid-cols-2 gap-8 border-t border-shibui-200 dark:border-shibui-800 pt-8">
+			<nav class="border-shibui-200 dark:border-shibui-800 mx-auto grid w-full max-w-[1440px] grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
 				<div>
 					{prev.id && (
-						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${prev.id}/`}>
-							<span class="text-2 tracking-widest uppercase text-hai">Previous</span>
-							<span class="text-3 font-bold text-sumi dark:text-washi">{prev.data.title}</span>
+						<a
+							class="group flex flex-col gap-1 transition-opacity hover:opacity-60"
+							href={`/${prev.id}/`}
+						>
+							<span class="text-2 text-hai uppercase tracking-widest">Previous</span>
+							<span class="text-3 text-sumi dark:text-washi font-bold">
+								{prev.data.title}
+							</span>
 						</a>
 					)}
 				</div>
 				<div class="text-right">
 					{next.id && (
-						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${next.id}/`}>
-							<span class="text-2 tracking-widest uppercase text-hai">Next</span>
-							<span class="text-3 font-bold text-sumi dark:text-washi">{next.data.title}</span>
+						<a
+							class="group flex flex-col gap-1 transition-opacity hover:opacity-60"
+							href={`/${next.id}/`}
+						>
+							<span class="text-2 text-hai uppercase tracking-widest">Next</span>
+							<span class="text-3 text-sumi dark:text-washi font-bold">
+								{next.data.title}
+							</span>
 						</a>
 					)}
 				</div>
@@ -205,34 +216,34 @@ const schema = JSON.stringify({
 
 	.journal-post {
 		& p {
-			@apply text-3 leading-relaxed mb-5 max-w-[65ch];
+			@apply text-3 mb-5 max-w-[65ch] leading-relaxed;
 		}
 
 		& h2 {
-			@apply font-display text-5 font-bold tracking-tight text-sumi dark:text-washi mt-16 mb-4;
+			@apply font-display text-5 text-sumi dark:text-washi mb-4 mt-16 font-bold tracking-tight;
 		}
 
 		& h3 {
-			@apply text-3 font-bold text-sumi dark:text-washi mt-10 mb-2;
+			@apply text-3 text-sumi dark:text-washi mb-2 mt-10 font-bold;
 		}
 
 		& h4,
 		& h5,
 		& h6 {
-			@apply text-3 font-bold text-sumi dark:text-washi mt-8 mb-2;
+			@apply text-3 text-sumi dark:text-washi mb-2 mt-8 font-bold;
 		}
 
 		& ul,
 		& ol {
-			@apply text-3 leading-relaxed mb-5 max-w-[65ch];
+			@apply text-3 mb-5 max-w-[65ch] leading-relaxed;
 		}
 
 		& ul {
-			@apply list-disc pl-5;
+			@apply list-disc pl-5 md:pl-0;
 		}
 
 		& ol {
-			@apply list-decimal pl-5;
+			@apply list-decimal pl-5 md:pl-0;
 		}
 
 		& li {
@@ -240,7 +251,7 @@ const schema = JSON.stringify({
 		}
 
 		& a {
-			@apply text-beni hover:opacity-60 transition-opacity underline;
+			@apply text-beni underline transition-opacity hover:opacity-60;
 		}
 
 		& strong {
@@ -256,15 +267,15 @@ const schema = JSON.stringify({
 		}
 
 		& blockquote {
-			@apply border-l-2 border-beni pl-4 italic text-hai mb-5 max-w-[65ch];
+			@apply border-beni text-hai mb-5 max-w-[65ch] border-l-2 pl-4 italic;
 		}
 
 		& pre {
-			@apply overflow-auto rounded-2 p-4 font-mono text-code mb-8;
+			@apply rounded-2 text-code mb-8 overflow-auto p-4 font-mono;
 		}
 
 		& code:not(pre code) {
-			@apply font-mono text-code bg-shibui-200 dark:bg-shibui-800 px-1 rounded;
+			@apply text-code bg-shibui-200 dark:bg-shibui-800 rounded px-1 font-mono;
 		}
 
 		& figure {
@@ -277,11 +288,11 @@ const schema = JSON.stringify({
 
 		/** Footnotes */
 		.footnotes {
-			@apply mt-12 border-t border-shibui-200 dark:border-shibui-800 pt-8;
+			@apply border-shibui-200 dark:border-shibui-800 mt-12 border-t pt-8;
 		}
 
 		.footnotes ol {
-			@apply text-2 text-hai list-none p-0 flex flex-col gap-2;
+			@apply text-2 text-hai flex list-none flex-col gap-2 p-0;
 		}
 
 		.footnotes li {
@@ -289,7 +300,7 @@ const schema = JSON.stringify({
 		}
 
 		.footnotes p {
-			@apply !mb-0 !text-2 !text-hai;
+			@apply !text-2 !text-hai !mb-0;
 		}
 
 		.footnotes a {
@@ -297,7 +308,7 @@ const schema = JSON.stringify({
 		}
 
 		[data-footnote-ref] {
-			@apply relative font-light not-italic !text-beni no-underline mis-[0.2em];
+			@apply !text-beni mis-[0.2em] relative font-light not-italic no-underline;
 		}
 	}
 </style>

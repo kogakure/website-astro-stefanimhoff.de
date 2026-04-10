@@ -20,6 +20,7 @@ uniqueTags.sort((a, b) => a.localeCompare(b));
 const posts = formattedPosts.map((entry) => ({
 	slug: entry.id,
 	title: entry.data.title,
+	subtitle: entry.data.subtitle,
 	tags: entry.data.tags ?? [],
 	year: new Date(entry.data.date).getFullYear(),
 }));

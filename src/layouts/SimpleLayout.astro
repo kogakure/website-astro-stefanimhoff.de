@@ -17,9 +17,9 @@ const cover = frontmatter?.cover ?? coverProp;
 
 <BaseLayout title={title} description={description} cover={cover}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
 		<h1
-			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+			class="font-display text-sumi dark:text-washi text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight"
 		>
 			{title}
 		</h1>
@@ -31,7 +31,7 @@ const cover = frontmatter?.cover ?? coverProp;
 				<img
 					src={cover}
 					alt={title}
-					class="w-full rounded-2 object-cover"
+					class="rounded-2 w-full object-cover"
 					loading="eager"
 					decoding="async"
 				/>
@@ -52,28 +52,28 @@ const cover = frontmatter?.cover ?? coverProp;
 
 	.simple-content {
 		& h2 {
-			@apply text-2 tracking-widest uppercase text-hai mt-16 mb-4 first:mt-0;
+			@apply text-2 text-hai mb-4 mt-16 uppercase tracking-widest first:mt-0;
 		}
 
 		& h3 {
-			@apply text-3 font-bold text-sumi dark:text-washi mt-8 mb-2;
+			@apply text-3 text-sumi dark:text-washi mb-2 mt-8 font-bold;
 		}
 
 		& p {
-			@apply text-3 leading-relaxed mb-5 max-w-xl;
+			@apply text-3 mb-5 max-w-xl leading-relaxed;
 		}
 
 		& ul,
 		& ol {
-			@apply text-3 leading-relaxed mb-5 max-w-xl;
+			@apply text-3 mb-5 max-w-xl leading-relaxed;
 		}
 
 		& ul {
-			@apply list-disc pl-5;
+			@apply list-disc pl-5 md:pl-0;
 		}
 
 		& ol {
-			@apply list-decimal pl-5;
+			@apply list-decimal pl-5 md:pl-0;
 		}
 
 		& li {
@@ -81,7 +81,7 @@ const cover = frontmatter?.cover ?? coverProp;
 		}
 
 		& a {
-			@apply text-beni hover:opacity-60 transition-opacity underline;
+			@apply text-beni underline transition-opacity hover:opacity-60;
 		}
 
 		& strong {
@@ -97,15 +97,15 @@ const cover = frontmatter?.cover ?? coverProp;
 		}
 
 		& blockquote {
-			@apply border-l-2 border-beni pl-4 italic text-hai;
+			@apply border-beni text-hai border-l-2 pl-4 italic;
 		}
 
 		& pre {
-			@apply overflow-auto rounded-2 p-4 font-mono text-code mb-8;
+			@apply rounded-2 text-code mb-8 overflow-auto p-4 font-mono;
 		}
 
 		& code:not(pre code) {
-			@apply font-mono text-code bg-shibui-200 dark:bg-shibui-800 px-1 rounded;
+			@apply text-code bg-shibui-200 dark:bg-shibui-800 rounded px-1 font-mono;
 		}
 	}
 </style>

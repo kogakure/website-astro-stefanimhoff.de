@@ -8,6 +8,7 @@ const STORAGE_KEY = 'writing-filter';
 interface PostItem {
 	slug: string;
 	title: string;
+	subtitle?: string;
 	tags: string[];
 	year: number;
 }
@@ -150,7 +151,9 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 										className="text-3 transition-opacity hover:opacity-60"
 										href={`/${post.slug}/`}
 									>
-										{post.title}
+										{post.subtitle
+											? `${post.title}: ${post.subtitle}`
+											: post.title}
 									</a>
 								</li>
 							))}

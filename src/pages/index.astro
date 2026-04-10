@@ -104,7 +104,9 @@ const description = 'Design Engineer from Hamburg, Germany';
 								className="hover:opacity-60 transition-opacity text-3"
 								href={`/${post.id}/`}
 							>
-								{post.data.title}
+								{post.data.subtitle
+									? `${post.data.title}: ${post.data.subtitle}`
+									: post.data.title}
 							</Link>
 						</DashListItem>
 					))

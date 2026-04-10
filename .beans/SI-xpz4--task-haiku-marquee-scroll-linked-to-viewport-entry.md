@@ -1,13 +1,15 @@
 ---
 # SI-xpz4
-title: 'Task: Haiku marquee — scroll-linked to viewport entry/exit'
-status: todo
+title: "Task: Haiku marquee — scroll-linked to viewport entry/exit"
+status: completed
 type: task
+priority: normal
 created_at: 2026-04-10T07:33:21Z
-updated_at: 2026-04-10T07:33:21Z
+updated_at: 2026-04-10T08:12:37Z
 ---
 
 The Japanese poem marquee on the homepage should NOT run continuously. Instead it should:
+
 - Start scrolling when the element enters the viewport
 - Complete (showing all text) just before it exits the viewport
 - Use scroll-driven animation (CSS @scroll-timeline or IntersectionObserver + CSS animation play state)
