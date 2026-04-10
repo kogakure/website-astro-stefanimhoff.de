@@ -1,11 +1,11 @@
 ---
 # SI-0750
 title: 'Phase 5G: Generic Page Template & Simple Pages'
-status: todo
+status: completed
 type: feature
 priority: normal
 created_at: 2026-04-09T21:32:37Z
-updated_at: 2026-04-09T21:32:44Z
+updated_at: 2026-04-10T08:45:30Z
 blocked_by:
     - SI-e0w1
 ---

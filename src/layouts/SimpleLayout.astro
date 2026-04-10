@@ -1,0 +1,111 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+	frontmatter?: any;
+	title?: string;
+	description?: string;
+	cover?: string;
+}
+
+const { frontmatter, title: titleProp, description: descProp, cover: coverProp } = Astro.props;
+
+const title = frontmatter?.title ?? titleProp ?? '';
+const description = frontmatter?.description ?? descProp ?? '';
+const cover = frontmatter?.cover ?? coverProp;
+---
+
+<BaseLayout title={title} description={description} cover={cover}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			{title}
+		</h1>
+	</div>
+
+	{
+		cover && (
+			<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">
+				<img
+					src={cover}
+					alt={title}
+					class="w-full rounded-2 object-cover"
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+
+	<!-- Content -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32">
+		<div class="simple-content max-w-[800px]">
+			<slot />
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	@reference "../styles/global.css";
+
+	.simple-content {
+		& h2 {
+			@apply text-[0.65rem] tracking-widest uppercase text-hai mt-16 mb-4 first:mt-0;
+		}
+
+		& h3 {
+			@apply text-3 font-bold text-sumi dark:text-washi mt-8 mb-2;
+		}
+
+		& p {
+			@apply text-3 leading-relaxed mb-5 max-w-xl;
+		}
+
+		& ul,
+		& ol {
+			@apply text-3 leading-relaxed mb-5 max-w-xl;
+		}
+
+		& ul {
+			@apply list-disc pl-5;
+		}
+
+		& ol {
+			@apply list-decimal pl-5;
+		}
+
+		& li {
+			@apply mb-1;
+		}
+
+		& a {
+			@apply text-beni hover:opacity-60 transition-opacity underline;
+		}
+
+		& strong {
+			@apply font-bold;
+		}
+
+		& em {
+			@apply italic;
+		}
+
+		& hr {
+			@apply border-shibui-300 dark:border-shibui-700 my-12;
+		}
+
+		& blockquote {
+			@apply border-l-2 border-beni pl-4 italic text-hai;
+		}
+
+		& pre {
+			@apply overflow-auto rounded-2 p-4 font-mono text-code mb-8;
+		}
+
+		& code:not(pre code) {
+			@apply font-mono text-code bg-shibui-200 dark:bg-shibui-800 px-1 rounded;
+		}
+	}
+</style>

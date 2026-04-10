@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
+
+const title = 'Colophon';
+const description = 'How this website was designed and built.';
+---
+
+<BaseLayout title={title} description={description}>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-16">
+		<h1
+			class="font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			Colophon
+		</h1>
+	</div>
+
+	<!-- Content sections -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 pb-32">
+		<!-- DESIGN -->
+		<PageSection label="Design">
+			<div class="flex flex-col gap-5 max-w-xl text-3 leading-relaxed">
+				<p>
+					Designed in <a class="text-beni hover:opacity-60 transition-opacity" href="https://www.affinity.studio/">Affinity</a>, guided by the Japanese aesthetic of <em>shibui</em> (渋い)—a restrained, understated beauty rooted in the Muromachi period. Further reading: <a class="text-beni hover:opacity-60 transition-opacity" href="/new-website-2020-inspiration/">the inspiration</a> and <a class="text-beni hover:opacity-60 transition-opacity" href="/new-website-2020-design/">the design process</a>.
+				</p>
+				<p>
+					Typography uses the variable typefaces <a class="text-beni hover:opacity-60 transition-opacity" href="https://productiontype.com/family/boska">Boska</a> by Production Type and <a class="text-beni hover:opacity-60 transition-opacity" href="https://www.fontshare.com/fonts/switzer">Switzer</a> by Fontshare, scaled on the golden ratio and responsive to viewport width.
+				</p>
+				<p>
+					Cover images and the portrait were generated with <a class="text-beni hover:opacity-60 transition-opacity" href="https://stability.ai/">Stable Diffusion</a>, <a class="text-beni hover:opacity-60 transition-opacity" href="https://blackforestlabs.ai/">FLUX</a>, <a class="text-beni hover:opacity-60 transition-opacity" href="https://github.com/lllyasviel/ControlNet">ControlNet</a>, <a class="text-beni hover:opacity-60 transition-opacity" href="https://platform.openai.com/docs/models/gpt-image-1">GPT Image 1</a>, <a class="text-beni hover:opacity-60 transition-opacity" href="https://deepmind.google/models/gemini-image/pro/">Gemini 3 Pro Image</a>, and <a class="text-beni hover:opacity-60 transition-opacity" href="https://www.affinity.studio/">Affinity</a>. Icons are from <a class="text-beni hover:opacity-60 transition-opacity" href="https://remixicon.com/">Remix Icon</a> by <a class="text-beni hover:opacity-60 transition-opacity" href="https://github.com/xiaochunjimmy">Jimmy Cheung</a> and <a class="text-beni hover:opacity-60 transition-opacity" href="https://github.com/wendygaoyuan">Wendy Gao</a>.
+				</p>
+			</div>
+		</PageSection>
+
+		<!-- TECHNOLOGY -->
+		<PageSection label="Technology">
+			<div class="flex flex-col gap-5 max-w-xl text-3 leading-relaxed">
+				<p>
+					Built with <a class="text-beni hover:opacity-60 transition-opacity" href="https://astro.build/">Astro</a>. Written in <a class="text-beni hover:opacity-60 transition-opacity" href="https://neovim.io/">Neovim</a> with <a class="text-beni hover:opacity-60 transition-opacity" href="https://github.com/features/copilot">GitHub Copilot</a>, <a class="text-beni hover:opacity-60 transition-opacity" href="https://code.claude.com/">Claude Code</a>, and <a class="text-beni hover:opacity-60 transition-opacity" href="https://www.raycast.com/pro">Raycast AI</a>. Components in Astro and <a class="text-beni hover:opacity-60 transition-opacity" href="https://react.dev/">React</a>. Content in <a class="text-beni hover:opacity-60 transition-opacity" href="https://mdxjs.com/">MDX</a>. Styled with <a class="text-beni hover:opacity-60 transition-opacity" href="https://tailwindcss.com/">Tailwind CSS</a>. Search via <a class="text-beni hover:opacity-60 transition-opacity" href="https://pagefind.app/">Pagefind</a>. Self-hosted with <a class="text-beni hover:opacity-60 transition-opacity" href="https://coolify.io/">Coolify</a>.
+				</p>
+				<p>
+					Source code is on <a class="text-beni hover:opacity-60 transition-opacity" href="https://github.com/kogakure/website-astro-stefanimhoff.de">GitHub</a>. You are welcome to learn from it. Build your own things.
+				</p>
+				<p class="text-hai text-2">Last updated: December 15th, 2025</p>
+			</div>
+		</PageSection>
+	</div>
+</BaseLayout>

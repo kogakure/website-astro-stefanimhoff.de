@@ -8,17 +8,10 @@ import { site } from '../data/site';
 import { formatPosts, sortByDate } from '../utils';
 import { dateToFormat, dateToISO, wordCount } from '../utils';
 
-import Banner from '../components/Banner';
-import GridLayout from '../layouts/GridLayout.astro';
-import Image from '../components/Image.astro';
-import ListItem from '../components/ListItem';
-import OrderedList from '../components/OrderedList';
-import JournalTitle from '../components/JournalTitle.astro';
-import Pagination from '../components/Pagination.astro';
-import Tag from '../components/Tag';
-import TextLink from '../components/TextLink';
-
 import { mapping } from '../mdx-components';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Tag from '../components/Tag';
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
@@ -39,7 +32,6 @@ export async function getStaticPaths() {
 }
 
 const { entry, prev, next } = Astro.props;
-// Normalise: old API used .slug; new content layer uses .id
 const entryId = entry.id;
 const {
 	Content,
@@ -80,180 +72,232 @@ const schema = JSON.stringify({
 });
 ---
 
-<GridLayout
+<BaseLayout
 	cover={entry.data.cover}
 	description={description}
-	grid="fullsize"
-	innerGrid
 	nofollow={entry.data.nofollow}
 	noindex={entry.data.noindex}
 	title={subtitle ? `${title}: ${subtitle}` : title}
 >
-	<JournalTitle subtitle={entry.data.subtitle}>
-		{entry.data.title}
-	</JournalTitle>
-	{
-		entry.data.cover && (
-			<Image
-				alt={entry.data.title}
-				class="col-span-full aspect-video h-auto !mbe-0 md:col-start-3 md:col-end-17 xl:col-end-14 3xl:col-end-13 print:hidden [&_img]:!w-full [&_img]:!max-w-none [&_img]:rounded-none md:[&_img]:rounded-2 [&_picture]:!w-full [&_picture]:!max-w-none"
-				loading="eager"
-				src={entry.data.cover}
-				fullHeight
-			/>
-		)
-	}
-
-	<aside
-		class:list={[
-			'col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-15 xl:col-end-18 xl:row-start-2 3xl:col-start-14 3xl:col-end-18',
-			{ 'row-start-3': entry.data.cover },
-		]}
-	>
-		<div class="leading-none mbe-6">
-			<em>By</em>{' '}
-			<TextLink href="/about/">{entry.data.author}</TextLink>
-		</div>
-		<div class="leading-tight">
-			<time datetime={dateToISO(entry.data.date)}>{dateToFormat(entry.data.date)}</time>
-		</div>
-		<div class="leading-none mbe-6">
-			{wordCount(entry.body)}{' '}
-			<span class="italic">words</span> • {Math.round(minutesRead)}{' '}
-			<span class="italic">min read</span>
-		</div>
-		<div class="flex flex-wrap gap-y-3">
-			{
-				entry.data.tags
-					.sort((a: string, b: string) => a.localeCompare(b))
-					.map((t: string) => <Tag href={`/writing/?tag=${t}`}>{t}</Tag>)
-			}
-		</div>
-	</aside>
-	<div
-		class="journal-post col-start-2 col-end-18 md:col-start-5 md:col-end-15 xl:col-start-6 xl:col-end-14 3xl:col-start-7 3xl:col-end-13"
-	>
+	<!-- Page title -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-12">
+		<h1
+			class="font-display italic text-[clamp(3rem,6vw,7rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			{title}
+		</h1>
 		{
-			entry.data.series && seriesEntries.length > 1 && (
-				<Banner>
-					<OrderedList class="!mbe-0 !pis-7">
-						{seriesEntries.map((item) => (
-							<ListItem class="!text-[0.85em]">
-								{entryId === item.id ? (
-									<>
-										<i>{item.data.title}</i>
-										📍
-									</>
-								) : (
-									<TextLink href={`/${item.id}/`}>{item.data.title}</TextLink>
-								)}
-							</ListItem>
-						))}
-					</OrderedList>
-				</Banner>
-			)
-		}
-		<Content components={mapping} />
-		{
-			entry.data.updated && (
-				<footer class="mbs-10">
-					<b>Last Updated:</b>
-					<time datetime={dateToISO(entry.data.updated)}>
-						{dateToFormat(entry.data.updated)}
-					</time>
-				</footer>
+			subtitle && (
+				<p class="mt-4 text-3 text-hai italic">{subtitle}</p>
 			)
 		}
 	</div>
 
-	<Pagination
-		nextText="Next"
-		nextUrl={next.id ? `/${next.id}/` : undefined}
-		previousText="Previous"
-		previousUrl={prev.id ? `/${prev.id}/` : undefined}
-	/>
-</GridLayout>
+	<!-- Cover image -->
+	{
+		entry.data.cover && (
+			<div class="mx-auto w-full max-w-[1440px] px-8 pb-12">
+				<img
+					src={entry.data.cover}
+					alt={title}
+					class="w-full rounded-2 object-cover"
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+
+	<!-- Article layout: meta + content -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32">
+		<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
+			<!-- Meta column -->
+			<aside>
+				<div class="flex flex-col gap-4 text-2 text-hai sticky top-8">
+					<div>
+						<time datetime={dateToISO(entry.data.date)}>
+							{dateToFormat(entry.data.date)}
+						</time>
+					</div>
+					<div>
+						{Math.round(minutesRead)} min read
+					</div>
+					{
+						entry.data.tags && entry.data.tags.length > 0 && (
+							<div class="flex flex-wrap gap-2 mt-2">
+								{entry.data.tags
+									.sort((a: string, b: string) => a.localeCompare(b))
+									.map((t: string) => (
+										<Tag href={`/writing/?tag=${t}`}>{t}</Tag>
+									))}
+							</div>
+						)
+					}
+				</div>
+			</aside>
+
+			<!-- Article body -->
+			<article class="journal-post min-w-0">
+				{
+					entry.data.series && seriesEntries.length > 1 && (
+						<div class="mb-8 rounded-2 border border-shibui-200 dark:border-shibui-800 p-4">
+							<p class="text-[0.65rem] tracking-widest uppercase text-hai mb-3">Series</p>
+							<ol class="flex flex-col gap-1">
+								{seriesEntries.map((item) => (
+									<li class="text-3">
+										{entryId === item.id ? (
+											<em class="font-bold text-sumi dark:text-washi">{item.data.title}</em>
+										) : (
+											<a class="text-beni hover:opacity-60 transition-opacity" href={`/${item.id}/`}>
+												{item.data.title}
+											</a>
+										)}
+									</li>
+								))}
+							</ol>
+						</div>
+					)
+				}
+				<Content components={mapping} />
+				{
+					entry.data.updated && (
+						<footer class="mt-12 text-2 text-hai">
+							<span class="font-bold">Last Updated:</span>{' '}
+							<time datetime={dateToISO(entry.data.updated)}>
+								{dateToFormat(entry.data.updated)}
+							</time>
+						</footer>
+					)
+				}
+			</article>
+		</div>
+	</div>
+
+	<!-- Prev/Next navigation -->
+	{
+		(prev.id || next.id) && (
+			<nav class="mx-auto w-full max-w-[1440px] px-8 pb-16 grid grid-cols-2 gap-8 border-t border-shibui-200 dark:border-shibui-800 pt-8">
+				<div>
+					{prev.id && (
+						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${prev.id}/`}>
+							<span class="text-[0.65rem] tracking-widest uppercase text-hai">Previous</span>
+							<span class="text-3 font-bold text-sumi dark:text-washi">{prev.data.title}</span>
+						</a>
+					)}
+				</div>
+				<div class="text-right">
+					{next.id && (
+						<a class="group flex flex-col gap-1 hover:opacity-60 transition-opacity" href={`/${next.id}/`}>
+							<span class="text-[0.65rem] tracking-widest uppercase text-hai">Next</span>
+							<span class="text-3 font-bold text-sumi dark:text-washi">{next.data.title}</span>
+						</a>
+					)}
+				</div>
+			</nav>
+		)
+	}
+</BaseLayout>
 
 <script type="application/ld+json" set:html={schema} />
 
 <style is:global>
-@reference "../styles/global.css";
+	@reference "../styles/global.css";
+
 	.journal-post {
-		& > h2 {
-			@apply text-4 mbe-9;
+		& p {
+			@apply text-3 leading-relaxed mb-5 max-w-[65ch];
 		}
 
-		& > h3,
-		& > h4,
-		& > h5,
-		& > h6 {
-			@apply text-3;
+		& h2 {
+			@apply font-display text-5 font-bold tracking-tight text-sumi dark:text-washi mt-16 mb-4;
 		}
 
-		& h2 + h3,
-		& p + h2,
-		& p + h3,
-		& p + h4,
-		& p + h5,
-		& p + h6 {
-			@apply !mbs-12;
+		& h3 {
+			@apply text-3 font-bold text-sumi dark:text-washi mt-10 mb-2;
 		}
 
-		& > pre {
-			@apply md:mie-[-5.55vw] md:mis-[-5.55vw];
+		& h4,
+		& h5,
+		& h6 {
+			@apply text-3 font-bold text-sumi dark:text-washi mt-8 mb-2;
 		}
 
-		& > figure.figure-wide {
-			@apply md:!w-[calc(100%_+_4_*_5.55vw)] md:mis-[calc(-2_*_5.55vw)];
+		& ul,
+		& ol {
+			@apply text-3 leading-relaxed mb-5 max-w-[65ch];
 		}
 
-		& > figure.figure-fullsize {
-			@apply !w-[calc(100%_+_2_*_5.55vw)] mis-[-5.55vw] md:!w-[calc(100%_+_8_*_5.55vw)] md:mis-[calc(-1_*_5.55vw_*_4)] lg:!w-[calc(100%_+_8_*_5.55vw)] lg:mis-[calc(-1_*_5.55vw_*_4)] xl:!w-[calc(100%_+_10_*_5.55vw)] xl:mis-[calc(-1_*_5.55vw_*_5)] 3xl:!w-[calc(100%_+_12_*_5.55vw)] 3xl:mis-[calc(-1_*_5.55vw_*_6)] [&_img]:rounded-none;
+		& ul {
+			@apply list-disc pl-5;
 		}
 
-		& > figure .image-shadow,
-		& > figure p {
-			@apply m-0;
+		& ol {
+			@apply list-decimal pl-5;
+		}
+
+		& li {
+			@apply mb-1;
+		}
+
+		& a {
+			@apply text-beni hover:opacity-60 transition-opacity underline;
+		}
+
+		& strong {
+			@apply font-bold;
+		}
+
+		& em {
+			@apply italic;
+		}
+
+		& hr {
+			@apply border-shibui-300 dark:border-shibui-700 my-12 max-w-[65ch];
+		}
+
+		& blockquote {
+			@apply border-l-2 border-beni pl-4 italic text-hai mb-5 max-w-[65ch];
+		}
+
+		& pre {
+			@apply overflow-auto rounded-2 p-4 font-mono text-code mb-8;
+		}
+
+		& code:not(pre code) {
+			@apply font-mono text-code bg-shibui-200 dark:bg-shibui-800 px-1 rounded;
+		}
+
+		& figure {
+			@apply mb-8;
+		}
+
+		& img {
+			@apply rounded-2 w-full;
 		}
 
 		/** Footnotes */
 		.footnotes {
-			@apply relative pis-[2rem];
+			@apply mt-12 border-t border-shibui-200 dark:border-shibui-800 pt-8;
 		}
 
 		.footnotes ol {
-			@apply m-0 list-none p-0 [counter-reset:item];
+			@apply text-2 text-hai list-none p-0 flex flex-col gap-2;
 		}
 
-		.footnotes li::before {
-			@apply absolute align-super text-[smaller] font-thin opacity-60 content-[counter(item)] pbs-[0.15rem] inline-start-0 [counter-increment:item];
-		}
-
-		.footnotes .data-footnote-backref {
-			@apply font-light text-accent no-underline;
+		.footnotes li {
+			@apply flex gap-2;
 		}
 
 		.footnotes p {
-			@apply mbe-0;
+			@apply !mb-0 !text-2 !text-hai;
 		}
 
-		.footnotes p a {
-			@apply break-words;
-		}
-
-		.footnotes :target {
-			@apply bg-black/5 p-5 dark:bg-white/5;
+		.footnotes a {
+			@apply !text-beni;
 		}
 
 		[data-footnote-ref] {
-			@apply relative rounded-full font-light not-italic !text-shibui-400 no-underline mis-[0.2em] dark:!text-shibui-100;
-		}
-
-		p:hover [data-footnote-ref],
-		p:focus [data-footnote-ref],
-		[data-footnote-ref]:hover,
-		[data-footnote-ref]:focus {
-			@apply relative rounded-full font-light not-italic !text-accent no-underline mis-[0.2em];
+			@apply relative font-light not-italic !text-beni no-underline mis-[0.2em];
 		}
 	}
 </style>
