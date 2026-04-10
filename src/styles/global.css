@@ -108,12 +108,14 @@
 	--spacing-18: clamp(6.192rem, 11.375vw, 7.43rem);
 	--spacing-19: clamp(7.43rem, 14.0625vw, 8.916rem);
 	--spacing-20: clamp(8.916rem, 17.85vw, 10.699rem);
+	--spacing-24: clamp(4rem, 6.66vw, 6rem);
+	--spacing-32: clamp(5rem, 8.88vw, 8rem);
 	--spacing-column: 6.9375vw;
 	--spacing-layout: clamp(1.5rem, 6.9375vw, 4.5rem);
 	--spacing-gap: clamp(1.5rem, 3.46875vw, 3rem);
 	--spacing-halfgap: calc(clamp(1.5rem, 6.9375vw, 6rem) / 2);
-	--spacing-icon: 24px;
-	--spacing-icon-small: 20px;
+	--spacing-icon: clamp(1.25rem, 1.5vw, 1.5rem);
+	--spacing-icon-small: clamp(1.125rem, 1.375vw, 1.375rem);
 	--spacing-clickarea: 40px;
 
 	/* ----------------------------------------------------------
