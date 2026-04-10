@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 import { site } from '../data/site';
 
@@ -15,7 +15,7 @@ import ListItem from '../components/ListItem';
 import OrderedList from '../components/OrderedList';
 import JournalTitle from '../components/JournalTitle.astro';
 import Pagination from '../components/Pagination.astro';
-import Tag from '../components/Tag.astro';
+import Tag from '../components/Tag';
 import TextLink from '../components/TextLink';
 
 import { mapping } from '../mdx-components';
@@ -26,23 +26,25 @@ export async function getStaticPaths() {
 	const formattedJournalEntries: Journal[] = formatPosts(journalEntries, { sortOrder: 'asc' });
 
 	return formattedJournalEntries.map((entry, index) => ({
-		params: { slug: entry.slug },
+		params: { slug: entry.id },
 		props: {
 			entry,
 			next:
 				index + 1 === numberOfPages
-					? { slug: null, data: null }
+					? { id: null, data: null }
 					: formattedJournalEntries[index + 1],
-			prev: index === 0 ? { slug: null, data: null } : formattedJournalEntries[index - 1],
+			prev: index === 0 ? { id: null, data: null } : formattedJournalEntries[index - 1],
 		},
 	}));
 }
 
 const { entry, prev, next } = Astro.props;
+// Normalise: old API used .slug; new content layer uses .id
+const entryId = entry.id;
 const {
 	Content,
 	remarkPluginFrontmatter: { minutesRead },
-} = await entry.render();
+} = await render(entry);
 
 const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journal) => {
 	return data.series === entry.data.series && !data.draft;
@@ -73,7 +75,7 @@ const schema = JSON.stringify({
 	],
 	mainEntityOfPage: {
 		'@type': 'webPage',
-		id: `${site.url}/${entry.slug}/}`,
+		id: `${site.url}/${entryId}/`,
 	},
 });
 ---
@@ -124,7 +126,7 @@ const schema = JSON.stringify({
 			{
 				entry.data.tags
 					.sort((a: string, b: string) => a.localeCompare(b))
-					.map((t: string) => <Tag href={`/tag/${t}/`}>{t}</Tag>)
+					.map((t: string) => <Tag href={`/writing/?tag=${t}`}>{t}</Tag>)
 			}
 		</div>
 	</aside>
@@ -137,13 +139,13 @@ const schema = JSON.stringify({
 					<OrderedList class="!mbe-0 !pis-7">
 						{seriesEntries.map((item) => (
 							<ListItem class="!text-[0.85em]">
-								{entry.slug === item.slug ? (
+								{entryId === item.id ? (
 									<>
 										<i>{item.data.title}</i>
 										📍
 									</>
 								) : (
-									<TextLink href={`/${item.slug}/`}>{item.data.title}</TextLink>
+									<TextLink href={`/${item.id}/`}>{item.data.title}</TextLink>
 								)}
 							</ListItem>
 						))}
@@ -166,9 +168,9 @@ const schema = JSON.stringify({
 
 	<Pagination
 		nextText="Next"
-		nextUrl={next.slug ? `/${next.slug}/` : undefined}
+		nextUrl={next.id ? `/${next.id}/` : undefined}
 		previousText="Previous"
-		previousUrl={prev.slug ? `/${prev.slug}/` : undefined}
+		previousUrl={prev.id ? `/${prev.id}/` : undefined}
 	/>
 </GridLayout>
 

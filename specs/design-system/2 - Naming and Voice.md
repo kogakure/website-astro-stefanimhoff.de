@@ -1,0 +1,51 @@
+## Naming Rules
+
+- The personal name **Stefan Imhoff** is always written in full. Never abbreviate to initials in running text.
+
+- The Hanko seal mark may stand alone as a visual identity element but never replaces the written name where a name is expected.
+
+- Project names, essay titles, and section labels should favor plainness over cleverness—Kanso.
+
+## Tone of Voice
+
+The voice is calm, direct, and considered. It does not perform enthusiasm. It does not hedge. Likewise, it speaks as though to one person across a table—an equal who appreciates precision and does not need to be persuaded.
+
+| Quality                        | Description                                                                                                             |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| Direct                         | Short, declarative sentences preferred. No filler.                                                                      |
+| Considered                     | Each sentence earns its place. If it can be cut, cut it.                                                                |
+| Personal but not casual        | First person, active voice. No slang, no exclamation marks.                                                             |
+| Philosophical but not academic | References to Japanese aesthetics, Stoic thought, or design theory are woven naturally — never footnoted for authority. |
+
+## Messaging Pillars
+
+1. **Craft**—“I build interfaces that hold up under scrutiny.”
+
+2. **Intersection**—“Nearly two decades at the intersection of design and code.”
+
+3. **Discipline**—“Guided by simplicity, structure, and the discipline of leaving things out.”
+
+## Editorial Style
+
+- **Capitalization:** Sentence case for all headings and labels. ALL CAPS only for captions/meta labels set in Switzer Variable (as per the typographic system).
+
+- **Numerals:** Use figures (not words) for all numbers in body text—“2 decades,” “12-column grid.” Spell out numbers only at the start of a sentence.
+
+- **Punctuation:** Use the em dash (—) with no surrounding spaces. Use the Oxford comma.
+
+- **Spelling:** American English (color, behavior, center).
+
+- **Dates:** Day Month Year—“25 March 2026.” No ordinal suffixes.
+
+## Inclusive Language
+
+Write for people, not personas. Prefer active, concrete language over abstract jargon. When writing about accessibility, frame it as a quality of the work (“the interface is accessible”), not as a favor to a group.
+
+### Examples
+
+| ✗ Avoid                                            | ✓ Prefer                                          |
+| -------------------------------------------------- | ------------------------------------------------- |
+| “I'm super passionate about building amazing UIs!” | “I build interfaces that hold up under scrutiny.” |
+| “Users should be able to…”                         | “People should be able to…”                       |
+| “Check out my awesome work”                        | “See selected work →”                             |
+| “A Brief Overview of My Design Philosophy”         | “Design philosophy”                               |

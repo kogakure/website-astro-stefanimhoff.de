@@ -30,6 +30,14 @@
 	// Run on initial load
 	initializeTheme();
 
-	// Re-run on view transitions
+	// Preserve dark class on the incoming document BEFORE the DOM swap (prevents flash)
+	document.addEventListener('astro:before-swap', (event) => {
+		const isDark = document.documentElement.classList.contains('dark');
+		if (isDark) {
+			event.newDocument.documentElement.classList.add('dark');
+		}
+	});
+
+	// Re-run after swap to ensure observer is re-attached
 	document.addEventListener('astro:after-swap', initializeTheme);
 </script>

@@ -1,25 +1,37 @@
 ---
-import Link from './Link.astro';
-
 import navigation from '../data/navigation.json';
+
+const currentPath = Astro.url.pathname;
+const isActive = (url: string) =>
+	url === '/' ? currentPath === '/' : currentPath.startsWith(url);
 ---
 
-<ul class="flex">
-	<nav class="navigation hidden md:flex" role="navigation" aria-label="Main">
-		<ul class="flex flex-wrap">
-			{
-				navigation.map(({ title, url }) => (
-					<li class="mie-[10px] xs:mie-[5px]">
-						<Link
-							class="rounded-2 pli-3 pbe-2 pbs-3 hover:bg-shibui-950/10 focus:bg-shibui-950/10 hover:dark:bg-shibui-50/10 focus:dark:bg-shibui-50/10"
-							data-umami-event={`Main Navigation: ${title}`}
-							href={url}
-						>
-							{title}
-						</Link>
-					</li>
-				))
-			}
-		</ul>
-	</nav>
-</ul>
+<nav class="hidden items-center md:flex" role="navigation" aria-label="Main">
+	<ul class="nav-list flex items-center">
+		{
+			navigation.map(({ title, url }) => (
+				<li class="nav-item">
+					<a
+						class:list={[
+							'px-1 text-sm transition-opacity hover:opacity-60',
+							isActive(url) && 'underline underline-offset-4',
+						]}
+						data-umami-event={`Nav: ${title}`}
+						href={url}
+					>
+						{title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
+
+<style>
+	.nav-item + .nav-item::before {
+		content: '·';
+		padding: 0 0.4rem;
+		color: var(--color-hai);
+		user-select: none;
+	}
+</style>

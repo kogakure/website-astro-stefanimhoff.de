@@ -77,7 +77,20 @@ export default defineConfig({
 		}),
 	],
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [
+			tailwindcss(),
+			{
+				name: 'pagefind-dev-stub',
+				apply: 'serve',
+				resolveId(id) {
+					if (id === '/pagefind/pagefind.js') return '\0pagefind-stub';
+				},
+				load(id) {
+					if (id === '\0pagefind-stub')
+						return 'export const init = async () => {}; export const search = async () => ({ results: [] });';
+				},
+			},
+		],
 		build: {
 			rollupOptions: {
 				external: ['/pagefind/pagefind.js'],

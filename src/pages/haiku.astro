@@ -6,7 +6,6 @@ import { getCollection } from 'astro:content';
 import { sortByDate } from '../utils';
 
 import GridLayout from '../layouts/GridLayout.astro';
-import Link from '../components/Link.astro';
 import PageTitle from '../components/PageTitle.astro';
 import { Content as Intro } from '../text/haiku/intro.mdx';
 
@@ -29,27 +28,39 @@ const description =
 		<Intro components={mapping} />
 	</article>
 
-	<nav
-		aria-label="Haiku"
-		class="col-start-1 col-end-17 md:col-start-2 md:col-end-14 print:hidden"
+	<section
+		class="col-start-1 col-end-19 md:col-start-2 md:col-end-18"
+		aria-label="Haiku collection"
 		data-pagefind-ignore
 	>
-		<ol
-			class="grid list-none grid-cols-[repeat(auto-fill,_minmax(3rem,_1fr))] justify-items-center gap-[1rem]"
-		>
+		<ol class="grid list-none grid-cols-1 gap-gap sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 			{
-				allHaiku.map(({ slug }) => (
-					<li>
-						<Link
-							class="flex h-[3rem] w-[3rem] items-center justify-center rounded-[50%] bg-black/80 font-semibold text-white/80 hover:!bg-accent focus:!bg-accent dark:bg-white/80 dark:text-black/80 dark:hover:text-white/80 dark:focus:text-white/80"
-							arial-label={`Haiku ${slug}`}
-							href={`/haiku/${slug}/`}
-						>
-							{slug}
-						</Link>
+				allHaiku.map(({ id, data }) => (
+					<li class="border border-shibui-200 dark:border-shibui-700">
+						<div class="grid h-full grid-cols-2">
+							<div class="flex items-center justify-center p-8 text-center">
+								<blockquote
+									lang="de"
+									class="m-0 text-3 font-black leading-relaxed not-italic"
+								>
+									{data.de}
+								</blockquote>
+							</div>
+							<div class="flex items-center justify-center bg-shibui-200 p-8 text-center dark:bg-shibui-800">
+								<blockquote
+									lang="en"
+									class="m-0 text-3 font-black leading-relaxed not-italic"
+								>
+									{data.en}
+								</blockquote>
+							</div>
+						</div>
+						<footer class="border-t border-shibui-200 px-4 py-2 text-1 text-shibui-500 dark:border-shibui-700 dark:text-shibui-400">
+							<span class="font-mono">{id}</span>
+						</footer>
 					</li>
 				))
 			}
 		</ol>
-	</nav>
+	</section>
 </GridLayout>

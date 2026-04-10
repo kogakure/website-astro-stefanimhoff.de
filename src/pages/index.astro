@@ -3,81 +3,136 @@ import type { CollectionEntry } from 'astro:content';
 type JournalType = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts, isProduction } from '../utils';
-
+import { formatPosts } from '../utils';
 import { site } from '../data/site';
 
-import GridLayout from '../layouts/GridLayout.astro';
-
-import PageTitle from '../components/PageTitle.astro';
-import Image from '../components/Image.astro';
-import JournalList from '../components/JournalList.astro';
-
-import Headline from '../components/Headline';
-import MoreLink from '../components/MoreLink';
-
-import { Content as AboutMe } from '../text/homepage/about-me.mdx';
-import { Content as WhatIDo } from '../text/homepage/what-i-do.mdx';
-import { Content as Journal } from '../text/homepage/journal.mdx';
-
-import { mapping } from '../mdx-components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageSection from '../components/PageSection.astro';
+import ArrowCta from '../components/icons/ArrowCta';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
-const formattedLatest = formatPosts(allPosts, { limit: 6 });
+const latestPosts = formatPosts(allPosts, { limit: 9 });
 
 const title = 'Stefan Imhoff';
 const description = 'Design Engineer from Hamburg, Germany';
-
 ---
 
-<GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>
-	<PageTitle class="!text-6 sm:!text-7">
-		{site.title}
-	</PageTitle>
-	<div
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-10 xl:col-end-12 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
-	>
-		<Image
-			alt="Bonsai"
-			class="[&_img]:rounded-none md:[&_img]:rounded-2"
-			loading="eager"
-			role="presentation"
-			src="/assets/images/cover/bonsai.webp"
-			fullHeight
-		/>
+<BaseLayout title={title} description={description}>
+	<!-- Hero -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32 pb-32">
+		<h1
+			class="hero-title font-display text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight text-sumi dark:text-washi"
+		>
+			Stefan Imhoff <em class="font-normal font-display">is a</em><br />
+			Design Engineer<br />
+			<span class="flex items-center gap-4">
+				<span><em class="font-normal font-display">from</em> Hamburg</span>
+				<span class="flex-1 self-center border-t-2 border-beni" style="min-width: 2rem;"></span>
+			</span>
+		</h1>
 	</div>
 
-	<article
-		class="col-start-2 col-end-18 row-start-3 self-center md:col-start-11 md:col-end-17 md:row-start-2 xl:col-start-13 xl:col-end-17"
-	>
-		<Headline>About Me</Headline>
-		<AboutMe components={mapping} />
-		<MoreLink href="/about/" text="Read more about me" />
-	</article>
+	<!-- Sections above marquee -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mb-16">
+		<!-- ABOUT -->
+		<PageSection label="About">
+			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+				Nearly two decades at the intersection of design and code. Guided by simplicity, structure,
+				and the discipline of leaving things out.
+			</p>
+			<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/about/">
+				About <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
+			</a>
+		</PageSection>
 
-	<article
-		class="col-start-2 col-end-18 row-start-4 md:col-start-3 md:col-end-17 md:row-start-3 xl:col-start-5 xl:col-end-15"
-	>
-		<Headline>What I Do</Headline>
-		<div class="columns-1 gap-[2.775vw] mbe-10 md:columns-2 [&_p:last-of-type]:mbe-0">
-			<WhatIDo components={mapping} />
+		<!-- WORK -->
+		<PageSection label="Work">
+			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+				I build interfaces that hold up under scrutiny — design systems, component libraries, and the
+				invisible layer of decisions that makes a product coherent. For most of the last decade, that
+				work was at XING, Europe's leading professional network.
+			</p>
+			<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/work/">
+				See selected work <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
+			</a>
+		</PageSection>
+	</div>
+
+	<!-- Haiku marquee band -->
+	<div class="marquee-band overflow-hidden py-3 my-4" aria-hidden="true">
+		<div class="marquee-track flex whitespace-nowrap">
+			<span class="marquee-content font-japanese font-bold not-italic text-beni px-12"
+				style="font-size: clamp(3rem, 6vw, 7.5rem);">
+				無限の沈黙である私はお前に言葉を與へてやろう
+			</span>
+			<span class="marquee-content font-japanese font-bold not-italic text-beni px-12"
+				style="font-size: clamp(3rem, 6vw, 7.5rem);" aria-hidden="true">
+				無限の沈黙である私はお前に言葉を與へてやろう
+			</span>
 		</div>
-		<MoreLink href="/projects/" text="See what I do" />
-	</article>
+	</div>
 
-	<article
-		class="col-start-2 col-end-18 md:col-start-6 md:col-end-14 xl:col-start-7 xl:col-end-13"
-	>
-		<Headline>Journal</Headline>
-		<Journal components={mapping} />
-		<MoreLink href="/journal/" text="See all Journal Entries" />
-	</article>
+	<!-- Sections below marquee -->
+	<div class="mx-auto w-full max-w-[1440px] px-8 flex flex-col gap-16 mt-16 mb-32">
+		<!-- WRITING -->
+		<PageSection label="Writing">
+			<p class="mb-5 max-w-xl text-3 leading-relaxed">
+				Essays on design, code, philosophy, and the examined life. Published here since 2007.
+			</p>
+			<div class="flex flex-col gap-2">
+				<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/writing/">
+					Read the journal <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
+				</a>
+				<a class="cta-link font-bold hover:opacity-60 transition-opacity" href="/rss.xml">
+					Subscribe to RSS Feed <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
+				</a>
+			</div>
+		</PageSection>
 
-	<article
-		class="min-[1794px]:[&_li:block col-start-2 col-end-18 grid w-full grid-cols-18 gap-y-gap mbe-12 min-[1097px]:[&_li:nth-child(n+5)]:hidden min-[1410px]:[&_li:nth-child(n+5)]:block min-[1411px]:[&_li:nth-child(n+6)]:hidden min-[1793px]:[&_li:nth-child(n+6)]:block"
-		data-pagefind-ignore
-		aria-label="Latest essays"
-	>
-		<JournalList entries={formattedLatest} />
-	</article>
-</GridLayout>
+		<!-- LATEST ESSAYS -->
+		<PageSection label="Latest Essays">
+			<ul class="flex flex-col gap-1 pl-[1.25em]" data-pagefind-ignore>
+				{
+					latestPosts.map((post) => (
+						<li class="[text-indent:-1.25em]">
+							<span class="text-beni select-none">— </span>
+							<a
+								class="hover:opacity-60 transition-opacity text-3"
+								href={`/${post.id}/`}
+							>
+								{post.data.title}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</PageSection>
+
+		<!-- CONTACT -->
+		<PageSection label="Contact">
+			<a
+				class="cta-link font-bold hover:opacity-60 transition-opacity"
+				href="mailto:hey@stefanimhoff.de"
+				data-umami-event="Contact: Email"
+			>
+				hey@stefanimhoff.de <ArrowCta aria-hidden="true" className="text-beni inline-block align-middle ml-2 h-[0.6em] w-auto" />
+			</a>
+		</PageSection>
+	</div>
+</BaseLayout>
+
+<style>
+	@keyframes marquee-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	.marquee-track {
+		animation: marquee-scroll 25s linear infinite;
+		will-change: transform;
+	}
+</style>

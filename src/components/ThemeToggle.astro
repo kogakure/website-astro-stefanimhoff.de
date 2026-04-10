@@ -1,5 +1,5 @@
 ---
-import { Moon, Sun } from './icons';
+import { CircleHalf } from '@phosphor-icons/react';
 ---
 
 <theme-toggle class="flex h-clickarea w-clickarea print:hidden">
@@ -8,18 +8,10 @@ import { Moon, Sun } from './icons';
 		class="group flex h-clickarea w-clickarea cursor-pointer items-center justify-center self-center border-0 text-[0]"
 		data-umami-event="Switch color theme"
 	>
-		<div class="h-icon-small w-icon-small">
-			<Sun
-				id="theme-sun"
-				aria-hidden="true"
-				className="icon h-icon-small w-icon-small transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125 dark:hidden"
-			/>
-			<Moon
-				id="theme-moon"
-				aria-hidden="true"
-				className="icon hidden h-icon-small w-icon-small transition-transform duration-500 ease-in-out group-hover:scale-125 group-focus:scale-125 dark:block"
-			/>
-		</div>
+		<CircleHalf
+			aria-hidden="true"
+			className="icon h-icon-small w-icon-small transition-transform duration-500 ease-in-out group-hover:opacity-60 dark:rotate-180"
+		/>
 	</button>
 </theme-toggle>
 

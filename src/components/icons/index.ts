@@ -1,3 +1,4 @@
+export { default as ArrowCta } from './ArrowCta.tsx';
 export { default as ArrowLeft } from './ArrowLeft.tsx';
 export { default as ArrowLeftS } from './ArrowLeftS.tsx';
 export { default as ArrowRight } from './ArrowRight.tsx';

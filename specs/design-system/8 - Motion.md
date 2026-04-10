@@ -1,0 +1,84 @@
+## Philosophy
+
+Motion in this system is not decoration—it is Datsuzoku, the moment of departure from stillness that makes the stillness meaningful. Every animation must justify its existence: does it orient the user, provide feedback, or reveal structure? If not, it is noise. The site should feel alive the way a garden feels alive—not because everything is moving, but because you sense that movement could happen.
+
+## Easing Curves
+
+Define three custom curves as CSS custom properties. Avoid the default ease keyword—custom curves carry brand identity (“motion equity”).
+
+```css
+:root {
+  /* Entrance — element appears: fast start, gentle landing (ease-out) */
+  --ease-enter: cubic-bezier(0.0, 0.0, 0.38, 0.9);
+
+  /* Exit — element departs: slow start, accelerates away (ease-in) */
+  --ease-exit: cubic-bezier(0.2, 0.0, 1.0, 0.9);
+
+  /* Standard — element moves while visible: smooth and considered (ease-in-out) */
+  --ease-standard: cubic-bezier(0.2, 0.0, 0.38, 0.9);
+}
+```
+
+These curves are adapted from IBM Carbon’s “productive” motion set—deliberately understated, never bouncy, never theatrical. They feel like ink settling onto paper, not like a spring.
+
+## Duration Scale
+
+| Token                   | Duration       | Use                                                      |
+| ----------------------- | -------------- | -------------------------------------------------------- |
+| `--duration-instant`    | 100 ms         | Colour changes, opacity shifts, hover states             |
+| `--duration-fast`       | 200 ms         | Button feedback, icon transitions, small state changes   |
+| `--duration-moderate`   | 300 ms         | Dropdown menus, tooltips, card hover previews            |
+| `--duration-slow`       | 500 ms         | Modal/overlay entrance, page section transitions         |
+| `--duration-deliberate` | 800 – 1.200 ms | Page transitions, the Japanese poem scroll, hero reveals |
+
+Micro-interactions (≤ 200 ms) should feel instantaneous. Larger transitions (300–500 ms) give the user time to follow the change without feeling the interface is sluggish.
+
+## Choreography
+
+- **Stagger, don't synchronize.** When multiple elements enter (e.g. list items loading), stagger them by 50–80 ms each. This creates a visual rhythm—like brushstrokes laid one after another—rather than a wall appearing at once.
+
+- **Direction follows reading.** Elements enter from the left or bottom (the direction of reading progress). They exit in the reverse direction.
+
+- **Hierarchy first.** The hero headline animates before the body text. The body text animates before captions. Primary content always claims attention first.
+
+## State Transitions
+
+| State change                      | Animation                                      | Duration | Easing            |
+| --------------------------------- | ---------------------------------------------- | -------- | ----------------- |
+| Hover (link/button)               | Colour shift                                   | 100 ms   | `--ease-standard` |
+| Hover (card → reveal cover image) | Opacity fade-in + subtle scale (1,0 → 1,02)    | 300 ms   | `--ease-enter`    |
+| Navigation page change            | Cross-fade (outgoing fades, incoming fades in) | 500 ms   | `--ease-standard` |
+| Modal / overlay open              | Opacity 0→1 + translateY(8px → 0)              | 300 ms   | `--ease-enter`    |
+| Modal / overlay close             | Opacity 1→0 + translateY(0 → 8px)              | 200 ms   | `--ease-exit`     |
+
+## Special: The Japanese Poem Scroll
+
+The horizontal scrolling poem (visible on the homepage) should be driven by the user's vertical scroll position—a parallax scroll tied to `scrollY`. As the user scrolls from the section's entry point to its exit, the poem translates from right to left, starting at the left grid column start with the beginning of the sentence and ending at the end of the right grid column ending with the leaving of the viewport like a handscroll (_emakimono_) being unrolled.
+
+- **Trigger:** The poem begins on-screen right when the section enters the viewport.
+- **Completion:** The poem finishes on-screen left when the section exits the viewport.
+- **Rate:** Linear mapping from scroll position—no easing, no snapping. The user controls the speed with their scroll velocity, creating a direct, physical connection. This is _Shizen_ — natural, unforced.
+- **Implementation:** Use `scroll-timeline` or `IntersectionObserver` + `requestAnimationFrame` for smooth performance.
+
+## Micro-Interactions
+
+- **Seal mark (navigation):** On hover, the Hanko subtly rotates 2–3° and returns—like a stamp being gently pressed. Duration: 300 ms, --ease-standard.
+- **Arrow links (“About →”):** On hover, the arrow translates 4px right. Duration: 200 ms, `--ease-enter`.
+- **Text links:** Underline draws from left to right on hover. Duration: 200 ms, --ease-enter.
+
+## Reduced Motion—_Seijaku_
+
+When the user has `prefers-reduced-motion: reduce` enabled, the system strips all positional animation and replaces it with simple opacity fades or no animation at all. Motion is never essential to understanding. The content is complete in stillness—_Seijaku_.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+For a more nuanced approach, override individual animations to fade-only variants rather than removing all motion wholesale.

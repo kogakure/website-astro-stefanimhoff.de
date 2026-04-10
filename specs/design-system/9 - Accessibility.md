@@ -1,0 +1,60 @@
+## Philosophy
+
+Accessibility is not a feature; it is a quality of the work — like structure or restraint. _Kanso_ teaches that beauty lies in the removal of confusion and the exclusion of non-essential elements. A barrier to access is the most non-essential element of all. An interface that excludes people is not minimalist; it is merely incomplete.
+
+## Color Contrast
+
+- All text/background pairings must meet **WCAG 2.1 AA** (≥ 4,5:1 for normal text, ≥ 3:1 for large text). The primary pairings in this system comfortably exceed AA and reach **AAA**.
+- The Hai (`#A0A09C`) muted grey is **below** the 4.5:1 threshold on Washi backgrounds (~2.7:1). Use it only for decorative or large text (≥ 18 px)—never for essential body content.
+- Non-text elements (icons, borders, form controls) must meet ≥ 3:1 against their background.
+- Test all color pairings for deuteranopia, protanopia, and tritanopia. The Beni crimson hue may appear darker/muddier to color-blind users—ensure it is never the sole indicator of meaning. Pair color with shape, position, or text.
+
+## Focus Indicators
+
+- All interactive elements (links, buttons, form inputs) must display a visible focus ring when navigated via keyboard.
+- Focus ring style: 2 px solid Beni (`#900B20`) with a 2 px offset on light backgrounds. On dark backgrounds, use Washi (`#E6E6E6`).
+- Never remove the outline without providing an equivalent custom focus style.
+
+```css
+:focus-visible {
+  outline: 2px solid var(--color-beni);
+  outline-offset: 2px;
+}
+```
+
+## Touch Targets
+
+- All interactive elements must have a minimum touch target of **44 × 44 px** (WCAG 2.5.8).
+- For inline text links, the line-height and padding should produce an effective target that meets this minimum.
+- Icon buttons (e.g., navigation seal, social links) must include sufficient padding even if the visible icon is 24 × 24 px.
+
+## Keyboard Navigation
+
+- All functionality must be operable via keyboard alone. Tab order follows the visual reading order (top-to-bottom, left-to-right).
+- Skip-to-content link as the first focusable element on every page.
+- Modal and overlay components must trap focus within themselves when open, and return focus to the trigger element on close.
+- The Japanese poem scroll must **not** hijack scroll—it moves with the user's natural scroll, not instead of it.
+
+## Alt Text Patterns
+
+| Image type        | Alt text approach                                                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Portrait photo    | “Stefan Imhoff, portrait” — descriptive, not interpretive.                                                                                              |
+| Essay cover image | A brief description of the image content. If the image is purely atmospheric, use `alt=""` (decorative) and ensure the essay title carries the meaning. |
+| Hanko seal mark   | `alt="Stefan Imhoff logo — a circular seal mark"` when it is the sole identifier; `alt=""` when it accompanies the written name.                        |
+| Icons             | `aria-hidden="true"` when paired with a text label. `aria-label="[action]"` when the icon stands alone.                                                 |
+
+## Captions and Transcripts
+
+If video or audio content is introduced in the future, all media must include:
+
+- Synchronized captions (not auto-generated without review).
+- A text transcript is available on the same page.
+- A pause/stop control for any auto-playing media.
+
+## Localization
+
+- The site is primarily in English. Japanese text (the poem, occasional phrases) is marked with `lang="ja"` on the relevant element so screen readers switch pronunciation context.
+- German haiku are marked with `lang="de"`.
+- All Japanese aesthetic terms used in the UI (if any) are accompanied by their English meaning on first use.
+- Right-to-left (RTL) support is not required at this time, but the grid and spacing system is designed with logical properties (`margin-inline`, `padding-block`) to simplify future adaptation.

@@ -11,6 +11,7 @@ import Divider from './components/Divider';
 import DownloadLink from './components/DownloadLink';
 import EmailLink from './components/EmailLink';
 import Figure from './components/Figure';
+import Image from './components/Image';
 import Flag from './components/Flag';
 import Headline from './components/Headline';
 import ListItem from './components/ListItem';
@@ -48,6 +49,7 @@ export const mapping = {
 	EmailLink,
 	Figure,
 	Flag,
+	Image,
 	MoreLink,
 	NetflixFlag,
 	PrimeVideoFlag,

@@ -2,9 +2,7 @@
 import MainNavigation from '../components/MainNavigation.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import Logo from '../components/Logo.astro';
-
-import SearchLink from './SearchLink.astro';
-import MenuLink from './MenuLink.astro';
+import { ListMagnifyingGlass } from '@phosphor-icons/react';
 
 export interface Props {
 	class?: string;
@@ -16,18 +14,23 @@ const { class: className, navigation = true } = Astro.props;
 
 <header
 	class:list={[
-		'sticky z-50 grid w-full grid-cols-[0.25fr,0.25fr,0.5fr,8fr,8fr,0.5fr,0.25fr,0.25fr] grid-rows-[clamp(3rem,_5.55vw,_9rem)] bg-shibui-100 mbe-layout block-start-0 dark:bg-shibui-900 print:hidden',
+		'sticky top-0 z-50 flex items-center justify-between bg-shibui-100 px-8 py-4 dark:bg-shibui-900 print:hidden',
 		className,
 	]}
 	role="banner"
 >
-	<div class="navigation col-start-4 col-end-5 flex items-center justify-start md:col-start-2">
-		<Logo />
-	</div>
-	<div class="col-start-5 col-end-6 flex items-center justify-end mie-[-10px] md:col-end-8">
+	<Logo />
+	<div class="flex items-center gap-1">
 		{navigation && <MainNavigation />}
-		<SearchLink />
+		<button
+			aria-label="Open command menu"
+			class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center rounded-2 border-0 transition-colors hover:bg-shibui-950/10 focus:bg-shibui-950/10 dark:hover:bg-shibui-50/10 dark:focus:bg-shibui-50/10"
+			data-umami-event="Command Menu"
+			onclick="document.dispatchEvent(new CustomEvent('command-menu:open'))"
+			type="button"
+		>
+			<ListMagnifyingGlass aria-hidden="true" className="icon h-icon-small w-icon-small" />
+		</button>
 		<ThemeToggle />
-		<MenuLink />
 	</div>
 </header>

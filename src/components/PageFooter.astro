@@ -1,23 +1,34 @@
 ---
-import Legal from './Legal.astro';
-import RSSLink from './RSSLink.astro';
-import SocialLinks from './SocialLinks.astro';
-import Subnavigation from './Subnavigation.astro';
-import UpLink from './UpLink.astro';
+import { GithubLogo, InstagramLogo, XLogo } from '@phosphor-icons/react';
+import Link from '../components/Link.astro';
 ---
 
-<footer
-	class="grid grid-cols-18 bg-shibui-200 mbs-layout pbe-10 pbs-12 border-bs-2 border-bs-shibui-250 dark:bg-shibui-950 dark:border-bs-shibui-850 print:hidden"
->
-	<div class="col-span-14 col-start-3 sm:col-span-16 sm:col-start-2">
-		<div class="flex flex-col gap-4 mbe-10 sm:flex-row sm:mbe-5">
-			<RSSLink />
-			<Subnavigation />
-		</div>
-		<div class="flex flex-col flex-wrap text-[12px] sm:flex-row sm:gap-4">
-			<Legal />
-			<SocialLinks />
-			<UpLink />
-		</div>
-	</div>
+<footer class="flex justify-center py-16 print:hidden" aria-label="Site footer">
+	<Link
+		aria-label="Twitter/X"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: 𝕏"
+		href="https://x.com/kogakure"
+		title="𝕏"
+	>
+		<XLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="Instagram"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: Instagram"
+		href="https://instagram.com/kogakure"
+		title="Instagram"
+	>
+		<InstagramLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
+	<Link
+		aria-label="GitHub"
+		class="flex h-clickarea w-clickarea cursor-pointer items-center justify-center transition-opacity duration-300 ease-in-out hover:opacity-60 focus:opacity-60"
+		data-umami-event="Social Icon: GitHub"
+		href="https://github.com/kogakure"
+		title="GitHub"
+	>
+		<GithubLogo aria-hidden="true" className="icon h-icon-small w-icon-small" />
+	</Link>
 </footer>

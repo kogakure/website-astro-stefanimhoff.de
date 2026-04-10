@@ -33,8 +33,8 @@ type PagefindResult = {
 
 const navItems = [
 	{ title: 'Home', url: '/', Icon: House },
-	{ title: 'Journal', url: '/journal/', Icon: Article },
-	{ title: 'Projects', url: '/projects/', Icon: Briefcase },
+	{ title: 'Writing', url: '/writing/', Icon: Article },
+	{ title: 'Work', url: '/work/', Icon: Briefcase },
 	{ title: 'Haiku', url: '/haiku/', Icon: Leaf },
 	{ title: 'About', url: '/about/', Icon: User },
 	{ title: 'Colophon', url: '/colophon/', Icon: Info },

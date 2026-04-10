@@ -59,6 +59,8 @@
 	--font-display: 'BoskaVariable', Georgia, 'Times New Roman', serif;
 	--font-sans: 'SwitzerVariable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	--font-mono: 'Fira Code', Operator, Hasklig, Monoid, monospace;
+	--font-japanese: 'Toppan Bunkyu Midashi Mincho', 'YuMincho', 'Hiragino Mincho ProN',
+		'Hiragino Mincho Pro', 'BIZ UDPMincho', 'MS PMincho', 'Noto Serif JP', serif;
 
 	/* Font sizes — legacy scale (backward-compat with old Tailwind config) */
 	--text-1: 0.65em;
