@@ -90,11 +90,11 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 		<!-- LATEST ESSAYS -->
 		<PageSection label="Latest Essays">
-			<ul class="flex flex-col gap-1 pl-[1.25em]" data-pagefind-ignore>
+			<ul class="flex flex-col gap-1" data-pagefind-ignore>
 				{
 					latestPosts.map((post) => (
-						<li class="[text-indent:-1.25em]">
-							<span class="text-beni select-none">— </span>
+						<li class="flex items-center gap-2 -ml-[calc(1em+0.5rem)]">
+							<span class="text-beni select-none shrink-0">—</span>
 							<a
 								class="hover:opacity-60 transition-opacity text-3"
 								href={`/${post.id}/`}
