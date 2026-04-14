@@ -1,18 +1,18 @@
 'use client';
 
 import {
-	Article,
-	Briefcase,
-	Clock,
-	House,
-	Info,
-	Leaf,
-	MagnifyingGlass,
-	Moon,
-	Sun,
-	User,
-	Wrench,
-	X,
+	ArticleIcon,
+	BriefcaseIcon,
+	ClockIcon,
+	HouseIcon,
+	InfoIcon,
+	LeafIcon,
+	MagnifyingGlassIcon,
+	MoonIcon,
+	SunIcon,
+	UserIcon,
+	WrenchIcon,
+	XIcon,
 } from '@phosphor-icons/react';
 import { Command } from 'cmdk';
 import { AnimatePresence, motion } from 'motion/react';
@@ -32,14 +32,14 @@ type PagefindResult = {
 };
 
 const navItems = [
-	{ title: 'Home', url: '/', Icon: House },
-	{ title: 'Writing', url: '/writing/', Icon: Article },
-	{ title: 'Work', url: '/work/', Icon: Briefcase },
-	{ title: 'Haiku', url: '/haiku/', Icon: Leaf },
-	{ title: 'About', url: '/about/', Icon: User },
-	{ title: 'Colophon', url: '/colophon/', Icon: Info },
-	{ title: 'Tools', url: '/tools/', Icon: Wrench },
-	{ title: 'Now', url: '/now/', Icon: Clock },
+	{ title: 'Home', url: '/', Icon: HouseIcon },
+	{ title: 'Writing', url: '/writing/', Icon: ArticleIcon },
+	{ title: 'Work', url: '/work/', Icon: BriefcaseIcon },
+	{ title: 'Haiku', url: '/haiku/', Icon: LeafIcon },
+	{ title: 'About', url: '/about/', Icon: UserIcon },
+	{ title: 'Colophon', url: '/colophon/', Icon: InfoIcon },
+	{ title: 'Tools', url: '/tools/', Icon: WrenchIcon },
+	{ title: 'Now', url: '/now/', Icon: ClockIcon },
 ];
 
 const itemClasses =
@@ -62,6 +62,8 @@ export const CommandMenu = () => {
 	const loadPagefind = useCallback(async () => {
 		if (pagefindRef.current) return;
 		try {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-expect-error – pagefind only exists after build
 			pagefindRef.current = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
 			await pagefindRef.current.init();
 		} catch {
@@ -172,7 +174,7 @@ export const CommandMenu = () => {
 						>
 							{/* Input bar */}
 							<div className="border-be-1 border-be-solid border-be-black/10 pis-4 dark:border-be-white/10 flex items-center">
-								<MagnifyingGlass
+								<MagnifyingGlassIcon
 									className="text-shibui-500 dark:text-shibui-400 h-5 w-5 shrink-0"
 									aria-hidden="true"
 								/>
@@ -188,7 +190,7 @@ export const CommandMenu = () => {
 									className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mie-2 p-2"
 									aria-label="Close command menu"
 								>
-									<X className="h-4 w-4" />
+									<XIcon className="h-4 w-4" />
 								</button>
 							</div>
 
@@ -210,7 +212,7 @@ export const CommandMenu = () => {
 												onSelect={() => navigate(result.url)}
 												className={itemClasses}
 											>
-												<MagnifyingGlass
+												<MagnifyingGlassIcon
 													className="mt-0.5 h-4 w-4 shrink-0 opacity-60"
 													aria-hidden="true"
 												/>
@@ -256,9 +258,15 @@ export const CommandMenu = () => {
 										className={itemClasses}
 									>
 										{isDark ? (
-											<Sun className="h-4 w-4 shrink-0" aria-hidden="true" />
+											<SunIcon
+												className="h-4 w-4 shrink-0"
+												aria-hidden="true"
+											/>
 										) : (
-											<Moon className="h-4 w-4 shrink-0" aria-hidden="true" />
+											<MoonIcon
+												className="h-4 w-4 shrink-0"
+												aria-hidden="true"
+											/>
 										)}
 										{isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 									</Command.Item>

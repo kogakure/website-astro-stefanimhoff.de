@@ -52,7 +52,7 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 		let lastScroll = 0;
 
 		const scrollHandler = () => {
-			const currentScroll = window.pageYOffset;
+			const currentScroll = window.scrollY;
 
 			if (currentScroll <= 0) {
 				body.classList.remove(scrollUp);

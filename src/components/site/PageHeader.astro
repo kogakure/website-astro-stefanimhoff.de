@@ -2,7 +2,7 @@
 import MainNavigation from './MainNavigation.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import Logo from './Logo.astro';
-import { ListMagnifyingGlass } from '@phosphor-icons/react';
+import { ListMagnifyingGlassIcon } from '@phosphor-icons/react';
 
 export interface Props {
 	class?: string;
@@ -29,7 +29,10 @@ const { class: className, navigation = true } = Astro.props;
 			onclick="document.dispatchEvent(new CustomEvent('command-menu:open'))"
 			type="button"
 		>
-			<ListMagnifyingGlass aria-hidden="true" className="icon h-icon-small w-icon-small" />
+			<ListMagnifyingGlassIcon
+				aria-hidden="true"
+				className="icon h-icon-small w-icon-small"
+			/>
 		</button>
 		<ThemeToggle />
 	</div>

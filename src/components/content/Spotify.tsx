@@ -9,7 +9,6 @@ export const Spotify = ({ className, id, ...props }: Props) => (
 	<iframe
 		allow="accelerometer; autoplay; encrypted-media; fullscreeen; picture-in-picture"
 		className={cn('mbe-10 w-full', className)}
-		frameBorder="0"
 		height="352"
 		loading="lazy"
 		src={`https://open.spotify.com/embed/show/${id}?utm_source=generator&theme=0`}

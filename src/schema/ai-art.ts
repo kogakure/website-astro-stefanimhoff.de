@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { z } from 'astro/zod';
+import { defineCollection } from 'astro:content';
 
 export const aiArt = defineCollection({
 	schema: z.object({

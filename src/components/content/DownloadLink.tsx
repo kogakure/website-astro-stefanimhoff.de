@@ -1,4 +1,4 @@
-import { DownloadSimple } from '@phosphor-icons/react';
+import { DownloadSimpleIcon } from '@phosphor-icons/react';
 import type { AnchorHTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
 import { TextLink } from '../ui/TextLink';
@@ -17,7 +17,7 @@ export const DownloadLink = ({ href, text, className, ...props }: Props) => (
 	>
 		{text}
 		<span className="more-icon mis-[0.2em] block-start-[0.2em] relative inline-flex">
-			<DownloadSimple
+			<DownloadSimpleIcon
 				aria-hidden="true"
 				className="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:translate-y-1 group-focus:translate-y-1"
 			/>

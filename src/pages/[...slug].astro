@@ -6,7 +6,7 @@ import { getCollection, render } from 'astro:content';
 import { site } from '../data/site';
 
 import { formatPosts, sortByDate } from '../utils';
-import { dateToFormat, dateToISO, wordCount } from '../utils';
+import { dateToFormat, dateToISO } from '../utils';
 
 import { mapping } from '../mdx-components';
 
@@ -209,7 +209,7 @@ const schema = JSON.stringify({
 	}
 </BaseLayout>
 
-<script type="application/ld+json" set:html={schema} />
+<script is:inline type="application/ld+json" set:html={schema} />
 
 <style is:global>
 	@reference "../styles/global.css";

@@ -142,7 +142,7 @@ const webManifest = isProduction && {
 			}}
 		/>
 
-		<script type="module">
+		<script is:inline>
 			document.documentElement.classList.remove('no-js');
 			document.documentElement.classList.add('js');
 		</script>
@@ -151,6 +151,7 @@ const webManifest = isProduction && {
 		{
 			isProduction && (
 				<script
+					is:inline
 					defer
 					src="https://umami.kogakure.cloud/script.js"
 					data-website-id="ca67348d-b662-4205-a2c1-f1d8e4c68adb"
@@ -177,7 +178,7 @@ const webManifest = isProduction && {
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'
 			);
 		</script>
-		<script type="application/ld+json" set:html={schema} />
+		<script is:inline type="application/ld+json" set:html={schema} />
 		<style is:global>
 			@reference "../styles/global.css";
 			.astro-code {

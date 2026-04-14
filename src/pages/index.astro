@@ -4,7 +4,6 @@ type JournalType = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts } from '../utils';
-import { site } from '../data/site';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DashList from '../components/ui/DashList';
@@ -140,8 +139,8 @@ const description = 'Design Engineer from Hamburg, Germany';
 		// Set animation-range directly so scroll() timeline starts at the
 		// equivalent of "entry 75%" and ends just before the page bottom.
 		function setMarqueeRange() {
-			const band = document.querySelector('.marquee-band');
-			const track = document.querySelector('.marquee-track');
+			const band = document.querySelector<HTMLElement>('.marquee-band');
+			const track = document.querySelector<HTMLElement>('.marquee-track');
 			if (!band || !track) return;
 			const vh = window.innerHeight;
 			const scrollMax = document.documentElement.scrollHeight - vh;
@@ -151,7 +150,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 			// entry 75% = 75% of band visible = scrolled to bandTop - vh + 0.25*bandH
 			const startScroll = Math.max(0, bandTop - vh + bandH * 0.25);
 			const startPct = ((startScroll / scrollMax) * 100).toFixed(2);
-			track.style.animationRange = `${startPct}% 96%`;
+			track.style.setProperty('animation-range', `${startPct}% 96%`);
 		}
 		setMarqueeRange();
 		window.addEventListener('resize', setMarqueeRange);

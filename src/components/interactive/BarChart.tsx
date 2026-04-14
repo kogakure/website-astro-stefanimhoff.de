@@ -1,7 +1,6 @@
 import {
 	Bar,
 	CartesianGrid,
-	Cell,
 	BarChart as RechartsBarChart,
 	ResponsiveContainer,
 	Tooltip,
@@ -44,6 +43,7 @@ export const BarChart = ({ data }: BarChartProps) => {
 	const chartData = data.labels.map((label, i) => ({
 		name: label,
 		value: data.datasets[0]?.data[i] ?? 0,
+		fill: COLORS[i % COLORS.length],
 	}));
 
 	return (
@@ -58,12 +58,8 @@ export const BarChart = ({ data }: BarChartProps) => {
 					interval={0}
 				/>
 				<YAxis tick={{ fontSize: 12 }} />
-				<Tooltip formatter={(value: number) => value.toLocaleString()} />
-				<Bar dataKey="value" radius={[2, 2, 0, 0]}>
-					{chartData.map((_, index) => (
-						<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-					))}
-				</Bar>
+				<Tooltip formatter={(value) => (value as number).toLocaleString()} />
+				<Bar dataKey="value" radius={[2, 2, 0, 0]} />
 			</RechartsBarChart>
 		</ResponsiveContainer>
 	);

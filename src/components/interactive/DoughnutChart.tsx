@@ -1,4 +1,4 @@
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+import { Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
 const COLORS = [
 	'#900B20',
@@ -35,6 +35,7 @@ export const DoughnutChart = ({ data }: DoughnutChartProps) => {
 	const chartData = data.labels.map((label, i) => ({
 		name: label,
 		value: data.datasets[0]?.data[i] ?? 0,
+		fill: COLORS[i % COLORS.length],
 	}));
 
 	return (
@@ -48,12 +49,8 @@ export const DoughnutChart = ({ data }: DoughnutChartProps) => {
 					outerRadius="70%"
 					paddingAngle={2}
 					dataKey="value"
-				>
-					{chartData.map((_, index) => (
-						<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-					))}
-				</Pie>
-				<Tooltip formatter={(value: number) => value.toLocaleString()} />
+				/>
+				<Tooltip formatter={(value) => (value as number).toLocaleString()} />
 				<Legend />
 			</PieChart>
 		</ResponsiveContainer>
