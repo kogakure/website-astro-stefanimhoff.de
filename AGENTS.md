@@ -10,13 +10,13 @@ Personal website and blog for Stefan Imhoff, featuring journal posts, haiku coll
 
 ## Basics
 
-@.claude/architectural_patterns.md
-@.claude/directories.md
-@.claude/tech_stack.md
-@.claude/essential_commands.md
-@.claude/git_workflow.md
-@.claude/content_collections.md
-@.claude/key_files.md
-@.claude/build_features.md
-@.claude/build_features.md
-@.claude/development_notes.md
+@.agents/docs/architectural_patterns.md
+@.agents/docs/directories.md
+@.agents/docs/tech_stack.md
+@.agents/docs/essential_commands.md
+@.agents/docs/git_workflow.md
+@.agents/docs/content_collections.md
+@.agents/docs/key_files.md
+@.agents/docs/build_features.md
+@.agents/docs/build_features.md
+@.agents/docs/development_notes.md
