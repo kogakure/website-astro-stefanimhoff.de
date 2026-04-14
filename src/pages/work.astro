@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import DisplayHeadline from '../components/ui/DisplayHeadline';
 import MoreLink from '../components/ui/MoreLink';
 import PageHeading from '../components/ui/PageHeading';
+import Text from '../components/ui/Text';
 
 const allProjects: Projects[] = await getCollection('projects');
 const projects = allProjects.sort(sortBySortKey);
@@ -25,15 +26,15 @@ const description = "I'm a Design Engineer. These are selected projects from the
 
 	<!-- Introduction -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">
-		<p class="text-3 text-hai max-w-xl leading-relaxed">
+		<Text className="text-hai mbe-4 max-w-xl leading-relaxed">
 			I am a design engineer by discipline. In previous chapters: editorial design, 3D
 			animation, and a period spent making Flash animations and multimedia CD-ROMs that no
 			longer exist anywhere. I have always believed in working across domains. A specialist in
 			one thing tends to miss the connections.
-		</p>
-		<p class="text-3 text-hai mt-4 max-w-xl leading-relaxed">
+		</Text>
+		<Text className="text-hai mbe-0 max-w-xl leading-relaxed">
 			These are selected projects from the last two decades.
-		</p>
+		</Text>
 	</div>
 
 	<!-- Project list -->
@@ -57,14 +58,16 @@ const description = "I'm a Design Engineer. These are selected projects from the
 					{/* Project info */}
 					<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
 						<div>
-							<p class="text-2 text-hai italic tracking-widest">
+							<Text className="text-2 text-hai italic tracking-widest mbe-0">
 								{project.data.categories.join(' / ')}
-							</p>
+							</Text>
 						</div>
 						<div class="min-w-0">
 							<DisplayHeadline className="mb-3">{project.data.title}</DisplayHeadline>
 							{project.data.intro && (
-								<p class="text-3 max-w-xl leading-relaxed">{project.data.intro}</p>
+								<Text className="max-w-xl leading-relaxed mbe-0">
+									{project.data.intro}
+								</Text>
 							)}
 							{project.data.more && (
 								<MoreLink

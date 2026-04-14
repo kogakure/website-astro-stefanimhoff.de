@@ -8,8 +8,10 @@ import { sortByDate } from '../utils';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DashList from '../components/ui/DashList';
 import DashListItem from '../components/ui/DashListItem';
+import Divider from '../components/ui/Divider';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
+import Text from '../components/ui/Text';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
@@ -28,11 +30,11 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
 		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
-			<div class="text-3 flex max-w-xl flex-col gap-4 leading-relaxed">
-				<p>
+			<div class="flex max-w-xl flex-col gap-4 leading-relaxed">
+				<Text className="mbe-0">
 					Haiku <span class="font-japanese">(俳句)</span> is the shortest serious form in poetry.
 					Three phrases. Two qualities define it:
-				</p>
+				</Text>
 				<DashList className="gap-2">
 					<DashListItem>
 						<span class="text-sumi dark:text-washi select-none">— </span>
@@ -48,13 +50,13 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 						between them is where meaning lives.
 					</DashListItem>
 				</DashList>
-				<p>
+				<Text className="mbe-0">
 					Traditionally seventeen syllables: five, seven, five <span class="font-japanese"
 						>(自由律)</span
 					>.
-				</p>
+				</Text>
 			</div>
-			<hr class="border-shibui-300 dark:border-shibui-700 mt-8 max-w-xl" />
+			<Divider className="mbs-8 mbe-0 border-shibui-300 dark:border-shibui-700 max-w-xl" />
 		</PageSection>
 
 		<!-- HAIKU list -->
@@ -63,20 +65,20 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 				{
 					allHaiku.map(({ data }) => (
 						<li>
-							<p class="text-3 text-sumi dark:text-washi font-bold">
+							<Text className="text-sumi dark:text-washi font-bold mbe-0">
 								{data.de
 									.trim()
 									.split('\n')
 									.map((line) => line.trim())
 									.join(' / ')}
-							</p>
-							<p class="text-3 text-hai">
+							</Text>
+							<Text className="text-hai mbe-0">
 								{data.en
 									.trim()
 									.split('\n')
 									.map((line) => line.trim())
 									.join(' / ')}
-							</p>
+							</Text>
 						</li>
 					))
 				}

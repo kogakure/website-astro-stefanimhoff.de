@@ -202,40 +202,28 @@ const iconComponents = [
 
 <BaseLayout title="Design System" description="The Ma (間) Design System — the space between.">
 	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32">
-		<h1
-			class="font-display text-sumi dark:text-washi text-[clamp(3.5rem,7.5vw,9rem)] font-bold leading-[0.92] tracking-tight"
-		>
-			Design System
-		</h1>
-		<p class="text-3 text-hai mt-6 max-w-xl leading-relaxed">
+		<PageHeading>Design System</PageHeading>
+		<Text className="text-hai mbs-6 mbe-0 max-w-xl leading-relaxed">
 			The Ma (間) Design System — the space between. Two letters. Instantly memorable.
-		</p>
+		</Text>
 	</div>
 
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32">
 		<nav class="border-shibui-300 dark:border-shibui-700 my-12 border-b pb-6">
-			<p class="text-2 text-hai mb-3 uppercase tracking-widest">Sections</p>
+			<SectionLabel as="p" className="mbe-3">Sections</SectionLabel>
 			<ol class="columns-2 gap-x-8 sm:columns-3">
 				{
 					sections.map((section) => (
-						<li class="mb-1">
-							<a
-								class="text-beni text-3 transition-opacity hover:opacity-60"
-								href={`#section-${section.data.order}`}
-							>
+						<ListItem className="mbe-1">
+							<TextLink className="text-3" href={`#section-${section.data.order}`}>
 								{section.data.order} — {section.data.title}
-							</a>
-						</li>
+							</TextLink>
+						</ListItem>
 					))
 				}
-				<li class="mb-1">
-					<a
-						class="text-beni text-3 transition-opacity hover:opacity-60"
-						href="#components"
-					>
-						10 — Components
-					</a>
-				</li>
+				<ListItem className="mbe-1">
+					<TextLink className="text-3" href="#components"> 10 — Components </TextLink>
+				</ListItem>
 			</ol>
 		</nav>
 
@@ -249,11 +237,13 @@ const iconComponents = [
 								<span class="text-2 text-hai uppercase tracking-widest">
 									{String(section.data.order).padStart(2, '0')}
 								</span>
-								<h2 class="font-display text-sumi dark:text-washi text-5 mt-2 font-bold tracking-tight">
+								<DisplayHeadline className="mbs-2">
 									{section.data.title}
-								</h2>
+								</DisplayHeadline>
 								{section.data.description && (
-									<p class="text-3 text-hai mt-2">{section.data.description}</p>
+									<Text className="text-hai mbs-2 mbe-0">
+										{section.data.description}
+									</Text>
 								)}
 							</div>
 							<Content components={mapping} />
@@ -265,33 +255,35 @@ const iconComponents = [
 			<section id="components" class="mb-24">
 				<div class="border-shibui-300 dark:border-shibui-700 mb-8 border-b pb-4">
 					<span class="text-2 text-hai uppercase tracking-widest">10</span>
-					<h2
-						class="font-display text-sumi dark:text-washi text-5 mt-2 font-bold tracking-tight"
-					>
-						Components
-					</h2>
-					<p class="text-3 text-hai mt-2">
+					<DisplayHeadline className="mbs-2"> Components </DisplayHeadline>
+					<Text className="text-hai mbs-2 mbe-0">
 						UI primitives and content components used across the site.
-					</p>
+					</Text>
 				</div>
 
 				<!-- UI Components -->
-				<h3 class="text-3 text-sumi dark:text-washi mb-6 mt-16 font-bold">UI Components</h3>
-				<p class="text-3 text-hai mb-8 max-w-xl leading-relaxed">
+				<Subsubheadline
+					as="h3"
+					className="text-sumi dark:text-washi mbe-6 mbs-16 font-bold dark:font-bold"
+					>UI Components</Subsubheadline
+				>
+				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
 					Foundational building blocks for layout, typography, and navigation.
-				</p>
+				</Text>
 
 				{
 					uiComponents.map((item) => (
 						<div class="border-shibui-300 dark:border-shibui-700 rounded-2 mb-8 border p-6">
 							<div class="mb-4 flex items-start justify-between gap-4">
 								<div>
-									<h4 class="text-3 text-sumi dark:text-washi font-bold">
+									<Subsubheadline className="text-sumi dark:text-washi font-bold dark:font-bold mbe-0">
 										<code class="text-code bg-shibui-200 dark:bg-shibui-800 text-2 rounded px-1 font-mono">
 											{`<${item.name}>`}
 										</code>
-									</h4>
-									<p class="text-2 text-hai mt-1">{item.description}</p>
+									</Subsubheadline>
+									<Text className="text-2 text-hai mbs-1 mbe-0">
+										{item.description}
+									</Text>
 								</div>
 								<span class="text-2 text-hai shrink-0 font-mono">{item.file}</span>
 							</div>
@@ -351,24 +343,29 @@ const iconComponents = [
 				}
 
 				<!-- Content Components -->
-				<h3 class="text-3 text-sumi dark:text-washi mb-6 mt-16 font-bold">
+				<Subsubheadline
+					as="h3"
+					className="text-sumi dark:text-washi mbe-6 mbs-16 font-bold dark:font-bold"
+				>
 					Content Components
-				</h3>
-				<p class="text-3 text-hai mb-8 max-w-xl leading-relaxed">
+				</Subsubheadline>
+				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
 					Rich content elements for blog posts, pages, and featured sections.
-				</p>
+				</Text>
 
 				{
 					contentComponents.map((item) => (
 						<div class="border-shibui-300 dark:border-shibui-700 rounded-2 mb-8 border p-6">
 							<div class="mb-4 flex items-start justify-between gap-4">
 								<div>
-									<h4 class="text-3 text-sumi dark:text-washi font-bold">
+									<Subsubheadline className="text-sumi dark:text-washi font-bold dark:font-bold mbe-0">
 										<code class="text-code bg-shibui-200 dark:bg-shibui-800 text-2 rounded px-1 font-mono">
 											{`<${item.name}>`}
 										</code>
-									</h4>
-									<p class="text-2 text-hai mt-1">{item.description}</p>
+									</Subsubheadline>
+									<Text className="text-2 text-hai mbs-1 mbe-0">
+										{item.description}
+									</Text>
 								</div>
 								<span class="text-2 text-hai shrink-0 font-mono">{item.file}</span>
 							</div>
@@ -392,14 +389,18 @@ const iconComponents = [
 									<Banner>This is a banner message.</Banner>
 								)}
 								{item.name === 'ThemeBox' && (
-									<div class="text-3">
-										<p class="mbe-4 font-bold">Light mode:</p>
+									<div>
+										<Text className="mbe-4 font-bold">Light mode:</Text>
 										<div class="border-shibui-200 rounded-2 border bg-white p-4 dark:hidden">
-											<p>Content visible in light mode</p>
+											<Text className="mbe-0">
+												Content visible in light mode
+											</Text>
 										</div>
-										<p class="mbe-4 font-bold">Dark mode:</p>
+										<Text className="mbe-4 font-bold">Dark mode:</Text>
 										<div class="hidden dark:block">
-											<p>Content visible in dark mode</p>
+											<Text className="mbe-0">
+												Content visible in dark mode
+											</Text>
 										</div>
 									</div>
 								)}
@@ -412,25 +413,30 @@ const iconComponents = [
 				}
 
 				<!-- Interactive Components -->
-				<h3 class="text-3 text-sumi dark:text-washi mb-6 mt-16 font-bold">
+				<Subsubheadline
+					as="h3"
+					className="text-sumi dark:text-washi mbe-6 mbs-16 font-bold dark:font-bold"
+				>
 					Interactive Components
-				</h3>
-				<p class="text-3 text-hai mb-8 max-w-xl leading-relaxed">
+				</Subsubheadline>
+				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
 					Client-side interactive components requiring JavaScript state and user
 					interaction.
-				</p>
+				</Text>
 
 				{
 					interactiveComponents.map((item) => (
 						<div class="border-shibui-300 dark:border-shibui-700 rounded-2 mb-8 border p-6">
 							<div class="flex items-start justify-between gap-4">
 								<div>
-									<h4 class="text-3 text-sumi dark:text-washi font-bold">
+									<Subsubheadline className="text-sumi dark:text-washi font-bold dark:font-bold mbe-0">
 										<code class="text-code bg-shibui-200 dark:bg-shibui-800 text-2 rounded px-1 font-mono">
 											{`<${item.name}>`}
 										</code>
-									</h4>
-									<p class="text-2 text-hai mt-1">{item.description}</p>
+									</Subsubheadline>
+									<Text className="text-2 text-hai mbs-1 mbe-0">
+										{item.description}
+									</Text>
 								</div>
 								<span class="text-2 text-hai shrink-0 font-mono">{item.file}</span>
 							</div>
@@ -439,15 +445,18 @@ const iconComponents = [
 				}
 
 				<!-- Icon Components -->
-				<h3 class="text-3 text-sumi dark:text-washi mb-6 mt-16 font-bold">
+				<Subsubheadline
+					as="h3"
+					className="text-sumi dark:text-washi mbe-6 mbs-16 font-bold dark:font-bold"
+				>
 					Icon Components
-				</h3>
-				<p class="text-3 text-hai mb-8 max-w-xl leading-relaxed">
+				</Subsubheadline>
+				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
 					SVG icon components from <code
 						class="text-code bg-shibui-200 dark:bg-shibui-800 text-2 rounded px-1 font-mono"
 						>icons/</code
 					>.
-				</p>
+				</Text>
 
 				<div
 					class="border-shibui-300 dark:border-shibui-700 rounded-2 grid grid-cols-3 gap-3 border p-6 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
+import Text from '../components/ui/Text';
 import TextLink from '../components/ui/TextLink';
 
 const title = 'Colophon';
@@ -18,22 +19,22 @@ const description = 'How this website was designed and built.';
 	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
 		<!-- DESIGN -->
 		<PageSection label="Design">
-			<div class="text-3 flex max-w-xl flex-col gap-5 leading-relaxed">
-				<p>
+			<div class="flex max-w-xl flex-col gap-5 leading-relaxed">
+				<Text className="mbe-0">
 					Designed in <TextLink href="https://www.affinity.studio/">Affinity</TextLink>,
 					guided by the Japanese aesthetic of <em>shibui</em> (渋い)—a restrained, understated
 					beauty rooted in the Muromachi period. Further reading: <TextLink
 						href="/new-website-2020-inspiration/">the inspiration</TextLink
 					> and <TextLink href="/new-website-2020-design/">the design process</TextLink>.
-				</p>
-				<p>
+				</Text>
+				<Text className="mbe-0">
 					Typography uses the variable typefaces <TextLink
 						href="https://productiontype.com/family/boska">Boska</TextLink
 					> by Production Type and <TextLink
 						href="https://www.fontshare.com/fonts/switzer">Switzer</TextLink
 					> by Fontshare, scaled on the golden ratio and responsive to viewport width.
-				</p>
-				<p>
+				</Text>
+				<Text className="mbe-0">
 					Cover images and the portrait were generated with <TextLink
 						href="https://stability.ai/">Stable Diffusion</TextLink
 					>, <TextLink href="https://blackforestlabs.ai/">FLUX</TextLink>, <TextLink
@@ -46,14 +47,14 @@ const description = 'How this website was designed and built.';
 					are from <TextLink href="https://remixicon.com/">Remix Icon</TextLink> by <TextLink
 						href="https://github.com/xiaochunjimmy">Jimmy Cheung</TextLink
 					> and <TextLink href="https://github.com/wendygaoyuan">Wendy Gao</TextLink>.
-				</p>
+				</Text>
 			</div>
 		</PageSection>
 
 		<!-- TECHNOLOGY -->
 		<PageSection label="Technology">
-			<div class="text-3 flex max-w-xl flex-col gap-5 leading-relaxed">
-				<p>
+			<div class="flex max-w-xl flex-col gap-5 leading-relaxed">
+				<Text className="mbe-0">
 					Built with <TextLink href="https://astro.build/">Astro</TextLink>. Written in <TextLink
 						href="https://neovim.io/">Neovim</TextLink
 					> with <TextLink href="https://github.com/features/copilot"
@@ -65,14 +66,14 @@ const description = 'How this website was designed and built.';
 						href="https://tailwindcss.com/">Tailwind CSS</TextLink
 					>. Search via <TextLink href="https://pagefind.app/">Pagefind</TextLink>.
 					Self-hosted with <TextLink href="https://coolify.io/">Coolify</TextLink>.
-				</p>
-				<p>
+				</Text>
+				<Text className="mbe-0">
 					Source code is on <TextLink
 						href="https://github.com/kogakure/website-astro-stefanimhoff.de"
 						>GitHub</TextLink
 					>. You are welcome to learn from it. Build your own things.
-				</p>
-				<p class="text-hai text-2">Last updated: December 15th, 2025</p>
+				</Text>
+				<Text className="text-2 text-hai mbe-0">Last updated: December 15th, 2025</Text>
 			</div>
 		</PageSection>
 	</div>
