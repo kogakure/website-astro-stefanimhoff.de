@@ -42,8 +42,30 @@ const description = "I'm a Design Engineer. These are selected projects from the
 		{
 			projects.map((project) => (
 				<article class="flex flex-col gap-6">
-					{/* Project image */}
-					{project.data.image && (
+					{/* Multiple images grid */}
+					{project.data.images && project.data.images.length > 0 && (
+						<div
+							class:list={[
+								'rounded-2 grid overflow-hidden',
+								{
+									'grid-cols-2': project.data.images.length === 2,
+									'grid-cols-3': project.data.images.length >= 3,
+								},
+							]}
+						>
+							{project.data.images.map((img) => (
+								<img
+									src={img.src}
+									alt={img.alt ?? project.data.title}
+									class="h-full w-full object-cover"
+									loading="lazy"
+									decoding="async"
+								/>
+							))}
+						</div>
+					)}
+					{/* Single image */}
+					{!project.data.images && project.data.image && (
 						<div class="rounded-2 overflow-hidden">
 							<img
 								src={project.data.image.src}

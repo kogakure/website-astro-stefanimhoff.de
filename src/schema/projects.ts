@@ -14,6 +14,14 @@ export const projects = defineCollection({
 				aspectRatio: z.number().optional(),
 			})
 			.optional(),
+		images: z
+			.array(
+				z.object({
+					src: z.string(),
+					alt: z.string().optional(),
+				})
+			)
+			.optional(),
 		sort: z.number().optional(),
 		showcase: z.boolean().optional(),
 		description: z.string().optional(),
