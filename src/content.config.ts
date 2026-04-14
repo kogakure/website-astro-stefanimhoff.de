@@ -98,4 +98,13 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { journal, haiku, projects };
+const designSystem = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/design-system' }),
+	schema: z.object({
+		title: z.string(),
+		order: z.number(),
+		description: z.string().optional(),
+	}),
+});
+
+export const collections = { journal, haiku, projects, 'design-system': designSystem };
