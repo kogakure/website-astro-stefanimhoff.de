@@ -62,54 +62,56 @@
 	--font-japanese: 'Toppan Bunkyu Midashi Mincho', 'YuMincho', 'Hiragino Mincho ProN',
 		'Hiragino Mincho Pro', 'BIZ UDPMincho', 'MS PMincho', 'Noto Serif JP', serif;
 
-	/* Font sizes — legacy scale (backward-compat with old Tailwind config) */
-	--text-1: 0.65em;
-	--text-2: clamp(0.65rem, 0.8125vw, 0.8125rem);
-	--text-2--line-height: 1.625;
-	--text-3: clamp(1rem, 1.25vw, 1.25rem);
-	--text-3--line-height: 1.625;
-	--text-4: clamp(1.25rem, 1.5625vw, 1.5625rem);
-	--text-4--line-height: 1;
-	--text-5: clamp(1.5rem, 1.875vw, 1.875rem);
-	--text-5--line-height: 1;
-	--text-6: clamp(2.25rem, 2.8125vw, 2.8125rem);
-	--text-6--line-height: 1;
-	--text-7: clamp(3.3rem, 4.125vw, 4.125rem);
-	--text-7--line-height: 1;
-	--text-8: clamp(4.5rem, 5.625vw, 5.625rem);
+	/* Font sizes — Ma Design System scale */
+	/* Max values = spec maxima; vw = max_px / 1440 * 100 */
+	--text-1: 0.65em; /* relative sub-element size */
+	--text-2: clamp(0.625rem, 0.972vw, 0.875rem); /* Caption / Footnote — max 14px */
+	--text-2--line-height: 1.4;
+	--text-3: clamp(0.875rem, 1.25vw, 1.125rem); /* Paragraph — max 18px */
+	--text-3--line-height: 1.55;
+	--text-4: clamp(1rem, 1.944vw, 1.75rem); /* H3 Blog — max 28px */
+	--text-4--line-height: 1.2;
+	--text-5: clamp(1.5rem, 2.778vw, 2.5rem); /* H2 Blog / Blog Subtitle — max 40px */
+	--text-5--line-height: 1.15;
+	--text-6: clamp(1.75rem, 3.333vw, 3rem); /* H3 Section — max 48px */
+	--text-6--line-height: 1.15;
+	--text-7: clamp(2.5rem, 5vw, 4.5rem); /* H2 Section — max 72px */
+	--text-7--line-height: 1.1;
+	--text-8: clamp(3rem, 6.667vw, 6rem); /* Blog Title — max 96px */
 	--text-8--line-height: 1;
-	--text-9: clamp(5.5rem, 6.875vw, 6.875rem);
-	--text-9--line-height: 1;
-	--text-code: clamp(0.75rem, 0.9375vw, 0.9375rem);
+	--text-9: clamp(4.5rem, 10vw, 9rem); /* H1 Page Title — max 144px */
+	--text-9--line-height: 0.95;
+	--text-code: clamp(0.75rem, 1.042vw, 0.9375rem); /* Code — max 15px */
 	--text-code--line-height: 1.625;
 
 	/* ----------------------------------------------------------
-	   Spacing — legacy fluid clamp scale (backward-compat)
+	   Spacing — 4px base unit scale (Ma Design System)
+	   Max values = n × 4px; vw = max_px / 1440 * 100
 	   ---------------------------------------------------------- */
 
 	--spacing-0: 0px;
-	--spacing-1: 0.335rem;
-	--spacing-2: clamp(0.335rem, 0.41875vw, 0.402rem);
-	--spacing-3: clamp(0.402rem, 0.5375vw, 0.482rem);
-	--spacing-4: clamp(0.482rem, 0.644375vw, 0.579rem);
-	--spacing-5: clamp(0.579rem, 0.780625vw, 0.694rem);
-	--spacing-6: clamp(0.694rem, 0.935vw, 0.833rem);
-	--spacing-7: clamp(0.833rem, 1.1025vw, 1rem);
-	--spacing-8: clamp(1rem, 1.425vw, 1.2rem);
-	--spacing-9: clamp(1.2rem, 1.785vw, 1.44rem);
-	--spacing-10: clamp(1.44rem, 2.2125vw, 1.728rem);
-	--spacing-11: clamp(1.728rem, 2.765vw, 2.074rem);
-	--spacing-12: clamp(2.074rem, 3.55vw, 2.488rem);
-	--spacing-13: clamp(2.488rem, 4.15vw, 2.986rem);
-	--spacing-14: clamp(2.986rem, 5.04875vw, 3.583rem);
-	--spacing-15: clamp(3.583rem, 6.0875vw, 4.3rem);
-	--spacing-16: clamp(4.3rem, 7.25vw, 5.16rem);
-	--spacing-17: clamp(5.16rem, 9.05vw, 6.192rem);
-	--spacing-18: clamp(6.192rem, 11.375vw, 7.43rem);
-	--spacing-19: clamp(7.43rem, 14.0625vw, 8.916rem);
-	--spacing-20: clamp(8.916rem, 17.85vw, 10.699rem);
-	--spacing-24: clamp(4rem, 6.66vw, 6rem);
-	--spacing-32: clamp(5rem, 8.88vw, 8rem);
+	--spacing-1: 0.25rem; /* 4px — fixed, too small to fluid */
+	--spacing-2: 0.5rem; /* 8px — fixed */
+	--spacing-3: clamp(0.5rem, 0.833vw, 0.75rem); /* 12px max */
+	--spacing-4: clamp(0.75rem, 1.111vw, 1rem); /* 16px max */
+	--spacing-5: clamp(1rem, 1.389vw, 1.25rem); /* 20px max */
+	--spacing-6: clamp(1rem, 1.667vw, 1.5rem); /* 24px max */
+	--spacing-7: clamp(1.25rem, 1.944vw, 1.75rem); /* 28px max */
+	--spacing-8: clamp(1.5rem, 2.222vw, 2rem); /* 32px max */
+	--spacing-9: clamp(1.75rem, 2.5vw, 2.25rem); /* 36px max */
+	--spacing-10: clamp(2rem, 2.778vw, 2.5rem); /* 40px max */
+	--spacing-11: clamp(2rem, 3.056vw, 2.75rem); /* 44px max */
+	--spacing-12: clamp(2.25rem, 3.333vw, 3rem); /* 48px max */
+	--spacing-13: clamp(2.5rem, 3.611vw, 3.25rem); /* 52px max */
+	--spacing-14: clamp(2.5rem, 3.889vw, 3.5rem); /* 56px max */
+	--spacing-15: clamp(2.75rem, 4.167vw, 3.75rem); /* 60px max */
+	--spacing-16: clamp(3rem, 4.444vw, 4rem); /* 64px max */
+	--spacing-17: clamp(3rem, 4.722vw, 4.25rem); /* 68px max */
+	--spacing-18: clamp(3.25rem, 5vw, 4.5rem); /* 72px max */
+	--spacing-19: clamp(3.5rem, 5.278vw, 4.75rem); /* 76px max */
+	--spacing-20: clamp(4rem, 5.556vw, 5rem); /* 80px max */
+	--spacing-24: clamp(5rem, 6.667vw, 6rem); /* 96px max */
+	--spacing-32: clamp(6rem, 8.889vw, 8rem); /* 128px max */
 	--spacing-column: 6.9375vw;
 	--spacing-layout: clamp(1.5rem, 6.9375vw, 4.5rem);
 	--spacing-gap: clamp(1.5rem, 3.46875vw, 3rem);
@@ -171,40 +173,40 @@
    ============================================================ */
 
 @utility mbe-* {
-	margin-block-end: --value(--spacing-*, [length], [percentage]);
+	margin-block-end: --value(--spacing- *, [length], [percentage]);
 }
 @utility mbs-* {
-	margin-block-start: --value(--spacing-*, [length], [percentage]);
+	margin-block-start: --value(--spacing- *, [length], [percentage]);
 }
 @utility mis-* {
-	margin-inline-start: --value(--spacing-*, [length], [percentage]);
+	margin-inline-start: --value(--spacing- *, [length], [percentage]);
 }
 @utility mie-* {
-	margin-inline-end: --value(--spacing-*, [length], [percentage]);
+	margin-inline-end: --value(--spacing- *, [length], [percentage]);
 }
 @utility pbe-* {
-	padding-block-end: --value(--spacing-*, [length], [percentage]);
+	padding-block-end: --value(--spacing- *, [length], [percentage]);
 }
 @utility pbs-* {
-	padding-block-start: --value(--spacing-*, [length], [percentage]);
+	padding-block-start: --value(--spacing- *, [length], [percentage]);
 }
 @utility pis-* {
-	padding-inline-start: --value(--spacing-*, [length], [percentage]);
+	padding-inline-start: --value(--spacing- *, [length], [percentage]);
 }
 @utility pie-* {
-	padding-inline-end: --value(--spacing-*, [length], [percentage]);
+	padding-inline-end: --value(--spacing- *, [length], [percentage]);
 }
 @utility pli-* {
-	padding-inline: --value(--spacing-*, [length], [percentage]);
+	padding-inline: --value(--spacing- *, [length], [percentage]);
 }
 @utility pbl-* {
-	padding-block: --value(--spacing-*, [length], [percentage]);
+	padding-block: --value(--spacing- *, [length], [percentage]);
 }
 @utility mli-auto {
 	margin-inline: auto;
 }
 @utility mli-* {
-	margin-inline: --value(--spacing-*, [length], [percentage]);
+	margin-inline: --value(--spacing- *, [length], [percentage]);
 }
 @utility mbe-auto {
 	margin-block-end: auto;
@@ -219,10 +221,10 @@
 	margin-inline-end: auto;
 }
 @utility block-start-* {
-	inset-block-start: --value(--spacing-*, [length], [percentage]);
+	inset-block-start: --value(--spacing- *, [length], [percentage]);
 }
 @utility inline-start-* {
-	inset-inline-start: --value(--spacing-*, [length], [percentage]);
+	inset-inline-start: --value(--spacing- *, [length], [percentage]);
 }
 
 /* Border utilities */
@@ -231,18 +233,38 @@
 }
 
 /* Logical border widths — static values */
-@utility border-be-0 { border-block-end-width: 0px; }
-@utility border-be-1 { border-block-end-width: 1px; }
-@utility border-be-2 { border-block-end-width: 2px; }
-@utility border-bs-0 { border-block-start-width: 0px; }
-@utility border-bs-1 { border-block-start-width: 1px; }
-@utility border-bs-2 { border-block-start-width: 2px; }
-@utility border-is-0 { border-inline-start-width: 0px; }
-@utility border-ie-0 { border-inline-end-width: 0px; }
+@utility border-be-0 {
+	border-block-end-width: 0px;
+}
+@utility border-be-1 {
+	border-block-end-width: 1px;
+}
+@utility border-be-2 {
+	border-block-end-width: 2px;
+}
+@utility border-bs-0 {
+	border-block-start-width: 0px;
+}
+@utility border-bs-1 {
+	border-block-start-width: 1px;
+}
+@utility border-bs-2 {
+	border-block-start-width: 2px;
+}
+@utility border-is-0 {
+	border-inline-start-width: 0px;
+}
+@utility border-ie-0 {
+	border-inline-end-width: 0px;
+}
 
 /* Logical border styles */
-@utility border-be-solid { border-block-end-style: solid; }
-@utility border-bs-solid { border-block-start-style: solid; }
+@utility border-be-solid {
+	border-block-end-style: solid;
+}
+@utility border-bs-solid {
+	border-block-start-style: solid;
+}
 
 /* Logical border — arbitrary widths */
 @utility border-be-* {
@@ -254,10 +276,10 @@
 
 /* Logical border — colors */
 @utility border-be-* {
-	border-block-end-color: --value(--color-*, [color]);
+	border-block-end-color: --value(--color- *, [color]);
 }
 @utility border-bs-* {
-	border-block-start-color: --value(--color-*, [color]);
+	border-block-start-color: --value(--color- *, [color]);
 }
 @utility small-caps {
 	font-variant-caps: small-caps;
@@ -294,7 +316,7 @@
 	}
 
 	mark {
-		@apply rounded border border-black/[0.1] bg-marked text-black/[0.75] dark:bg-marked/[0.7];
+		@apply bg-marked dark:bg-marked/[0.7] rounded border border-black/[0.1] text-black/[0.75];
 		padding-inline: 0.3em;
 		padding-block-end: 0.2em;
 		padding-block-start: 0.3em;
@@ -312,7 +334,7 @@
 	p code,
 	li code,
 	samp {
-		@apply relative whitespace-normal rounded-[0.3em] bg-code-1 text-2 text-code-2;
+		@apply bg-code-1 text-2 text-code-2 relative whitespace-normal rounded-[0.3em];
 		padding-inline: var(--spacing-3);
 		padding-block-end: var(--spacing-1);
 		padding-block-start: var(--spacing-3);
@@ -320,7 +342,7 @@
 	}
 
 	kbd {
-		@apply inline-block whitespace-nowrap rounded-2 border-1 border-solid border-[#ccc] bg-[#f7f7f7] font-bold leading-5 text-[#333] shadow-beveled dark:bg-[#f7f7f7]/[0.9];
+		@apply rounded-2 border-1 shadow-beveled inline-block whitespace-nowrap border-solid border-[#ccc] bg-[#f7f7f7] font-bold leading-5 text-[#333] dark:bg-[#f7f7f7]/[0.9];
 		font-size: var(--text-code);
 		line-height: 1.625;
 		padding-inline: 0.4em;
@@ -346,7 +368,7 @@
 	blockquote[lang|='en'],
 	[lang|='en'] q,
 	q[lang|='en'] {
-		quotes: '"' '"' ''' ''';
+		quotes: '"' '"' '' ' ' '';
 	}
 
 	[lang|='de'] blockquote,
@@ -368,7 +390,7 @@
 		& p,
 		& ul,
 		& ol {
-			@apply text-3 font-extralight italic opacity-60 mbs-0;
+			@apply text-3 mbs-0 font-extralight italic opacity-60;
 			margin-block-end: var(--spacing-8) !important;
 		}
 
@@ -415,7 +437,7 @@
 		}
 
 		& p {
-			@apply m-0 text-4 font-extrabold leading-none;
+			@apply text-4 m-0 font-extrabold leading-none;
 		}
 
 		& p:first-child::before {
@@ -442,7 +464,7 @@
 
 	/** Images */
 	img.image-border {
-		@apply block h-auto w-full rounded-1 border border-solid border-black/5 bg-black/5 shadow-img dark:border-white/5 dark:bg-white/5;
+		@apply rounded-1 shadow-img block h-auto w-full border border-solid border-black/5 bg-black/5 dark:border-white/5 dark:bg-white/5;
 	}
 
 	img.image-no-border {
@@ -470,7 +492,7 @@
 
 	/** Inputs */
 	input[type='text'] {
-		@apply border border-shibui-450 outline-none focus:border-shibui-950 dark:focus:border-shibui-50;
+		@apply border-shibui-450 focus:border-shibui-950 dark:focus:border-shibui-50 border outline-none;
 	}
 }
 
@@ -479,7 +501,7 @@
    ============================================================ */
 @layer components {
 	.navigation .is-active {
-		@apply underline decoration-accent decoration-4;
+		@apply decoration-accent underline decoration-4;
 	}
 
 	.navigation .is-active svg {
@@ -490,7 +512,7 @@
 		@apply relative transition-transform duration-500 ease-in-out;
 
 		&::after {
-			@apply absolute -z-[1] h-full w-full opacity-0 shadow-subtle transition-opacity duration-500 ease-in-out content-[''];
+			@apply shadow-subtle absolute -z-[1] h-full w-full opacity-0 transition-opacity duration-500 ease-in-out content-[''];
 			inset-block-start: 0;
 			inset-inline-start: 0;
 		}
@@ -507,7 +529,7 @@
 
 	.journal-card,
 	.journal-card-link {
-		@apply relative col-span-2 row-span-3 inline-block overflow-hidden rounded-4 border-1 border-black/25 outline outline-2 outline-offset-2 outline-transparent hover:scale-105 focus:scale-105 dark:border-white/25 md:row-span-5;
+		@apply rounded-4 border-1 relative col-span-2 row-span-3 inline-block overflow-hidden border-black/25 outline outline-2 outline-offset-2 outline-transparent hover:scale-105 focus:scale-105 md:row-span-5 dark:border-white/25;
 	}
 
 	.journal-card-link {
@@ -544,7 +566,7 @@
 
 	/** YouTube embed (iframe-based, replaces lite-youtube) */
 	.youtube-embed {
-		@apply relative aspect-video w-full mbe-10;
+		@apply mbe-10 relative aspect-video w-full;
 	}
 
 	figure > .figure-content > .youtube-embed {

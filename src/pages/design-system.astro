@@ -16,8 +16,6 @@ import PageSection from '../components/ui/PageSection';
 import PageHeading from '../components/ui/PageHeading';
 import MoreLink from '../components/ui/MoreLink';
 import Flag from '../components/ui/Flag';
-import DashList from '../components/ui/DashList';
-import DashListItem from '../components/ui/DashListItem';
 import UnorderedList from '../components/ui/UnorderedList';
 import OrderedList from '../components/ui/OrderedList';
 import ListItem from '../components/ui/ListItem';
@@ -99,11 +97,6 @@ const uiComponents = [
 		name: 'Divider',
 		file: 'ui/Divider.tsx',
 		description: 'Horizontal rule divider with subtle styling.',
-	},
-	{
-		name: 'DashList / DashListItem',
-		file: 'ui/DashList.tsx',
-		description: 'Unordered list with dash bullets.',
 	},
 	{
 		name: 'UnorderedList / ListItem',
@@ -319,12 +312,6 @@ const iconComponents = [
 								{item.name === 'Tag' && <Tag>Tag</Tag>}
 								{item.name === 'Flag' && <Flag label="Flag" href="#" />}
 								{item.name === 'Divider' && <DividerUI />}
-								{item.name === 'DashList / DashListItem' && (
-									<DashList>
-										<DashListItem>Dash list item one</DashListItem>
-										<DashListItem>Dash list item two</DashListItem>
-									</DashList>
-								)}
 								{item.name === 'UnorderedList / ListItem' && (
 									<UnorderedList>
 										<ListItem>Unordered item one</ListItem>

@@ -1,7 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import ListItem from '../ui/ListItem';
 import SectionLabel from '../ui/SectionLabel';
+import UnorderedList from '../ui/UnorderedList';
 
 const STORAGE_KEY = 'writing-filter';
 
@@ -143,10 +145,9 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 								{year}
 							</SectionLabel>
 						</div>
-						<ul className={`${contentCol} flex flex-col gap-1 pl-[1.25em] md:pl-0`}>
+						<UnorderedList className={contentCol}>
 							{byYear[year].map((post) => (
-								<li key={post.slug} className="[text-indent:-1.25em]">
-									<span className="text-beni select-none">— </span>
+								<ListItem key={post.slug}>
 									<a
 										className="text-3 transition-opacity hover:opacity-60"
 										href={`/${post.slug}/`}
@@ -155,9 +156,9 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 											? `${post.title}: ${post.subtitle}`
 											: post.title}
 									</a>
-								</li>
+								</ListItem>
 							))}
-						</ul>
+						</UnorderedList>
 					</section>
 				))
 			) : (

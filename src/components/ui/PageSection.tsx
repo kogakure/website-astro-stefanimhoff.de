@@ -9,15 +9,15 @@ interface Props extends HTMLAttributes<HTMLElement> {
 export const PageSection = ({ label, className, children, ...props }: Props) => (
 	<section
 		className={cn(
-			'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 lg:grid-cols-12 lg:gap-x-8',
+			'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8',
 			className
 		)}
 		{...props}
 	>
-		<div className="col-span-3 md:col-span-2 md:pt-[0.35em] lg:col-span-2">
+		<div className="col-span-3 md:col-span-2 md:pt-[0.35em] xl:col-span-2 xl:col-start-3">
 			<SectionLabel>{label}</SectionLabel>
 		</div>
-		<div className="col-span-3 min-w-0 flex-1 md:col-span-4 lg:col-span-10">{children}</div>
+		<div className="col-span-3 min-w-0 md:col-span-4 xl:col-span-5">{children}</div>
 	</section>
 );
 

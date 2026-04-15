@@ -6,13 +6,15 @@ import { getCollection } from 'astro:content';
 import { sortByDate } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DashList from '../components/ui/DashList';
-import DashListItem from '../components/ui/DashListItem';
 import Divider from '../components/ui/Divider';
 import HaikuItem from '../components/ui/HaikuItem';
+import ListItem from '@/components/ui/ListItem';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
+import Ruby from '@/components/content/Ruby';
 import Text from '../components/ui/Text';
+import UnorderedList from '@/components/ui/UnorderedList';
+import OrderedList from '@/components/ui/OrderedList';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
@@ -31,31 +33,27 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 	<div class="max-w-360 mx-auto flex w-full flex-col px-8 pb-32">
 		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
-			<div class="flex max-w-[90%] flex-col gap-4 leading-relaxed">
+			<div class="flex max-w-[80%] flex-col gap-4 leading-relaxed">
 				<Text className="mbe-0">
-					Haiku <span class="text-beni font-sans">(俳句)</span> is the shortest serious form
-					in poetry. Three phrases. Two qualities define it:
+					Haiku (<Ruby base="俳句" />) is the shortest serious form in poetry. Three
+					phrases. Two qualities define it:
 				</Text>
-				<DashList className="gap-2">
-					<DashListItem>
-						<span class="text-beni select-none">— </span>
+
+				<UnorderedList className="gap-2">
+					<ListItem>
 						<em>kigo</em>
-						<span class="text-beni font-sans">(季語)</span>—a seasonal reference.
-						Heaven, earth, humanity, animals, plants. Time made visible in a single
-						image.
-					</DashListItem>
-					<DashListItem>
-						<span class="text-beni select-none">— </span>
+						(<Ruby base="季語" />)—a seasonal reference. Heaven, earth, humanity,
+						animals, plants. Time made visible in a single image.
+					</ListItem>
+					<ListItem>
 						<em>kiru</em>
 						<span class="text-beni font-sans">(切)</span>—a cut. Two images or ideas
 						held in juxtaposition, separated by a <em>kireji</em>, a cutting word. The
 						space between them is where meaning lives.
-					</DashListItem>
-				</DashList>
+					</ListItem>
+				</UnorderedList>
 				<Text className="mbe-0">
-					Traditionally seventeen syllables: five, seven, five <span
-						class="text-beni font-sans">(自由律)</span
-					>.
+					Traditionally seventeen syllables: five, seven, five (<Ruby base="自由律" />).
 				</Text>
 			</div>
 		</PageSection>

@@ -6,13 +6,13 @@ import { getCollection } from 'astro:content';
 import { formatPosts } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import DashList from '../components/ui/DashList';
-import DashListItem from '../components/ui/DashListItem';
 import Link from '../components/ui/Link';
+import ListItem from '@/components/ui/ListItem';
 import MoreLink from '../components/ui/MoreLink';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
 import Text from '../components/ui/Text';
+import UnorderedList from '@/components/ui/UnorderedList';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
 const latestPosts = formatPosts(allPosts, { limit: 9 });
@@ -94,10 +94,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 		<!-- LATEST ESSAYS -->
 		<PageSection label="Latest Essays">
-			<DashList data-pagefind-ignore>
+			<UnorderedList data-pagefind-ignore>
 				{
 					latestPosts.map((post) => (
-						<DashListItem>
+						<ListItem>
 							<span class="text-beni select-none">— </span>
 							<Link
 								className="hover:opacity-60 transition-opacity text-3"
@@ -107,10 +107,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 									? `${post.data.title}: ${post.data.subtitle}`
 									: post.data.title}
 							</Link>
-						</DashListItem>
+						</ListItem>
 					))
 				}
-			</DashList>
+			</UnorderedList>
 		</PageSection>
 
 		<!-- CONTACT -->

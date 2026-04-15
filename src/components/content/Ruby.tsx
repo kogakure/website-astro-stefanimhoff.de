@@ -3,14 +3,14 @@ import { cn } from '../../lib/utils';
 
 interface Props extends HTMLAttributes<HTMLElement> {
 	base: string;
-	text: string;
+	text?: string;
 }
 
 export const Ruby = ({ base, text, className, ...props }: Props) => (
-	<ruby className={cn(className)} {...props}>
+	<ruby className={cn('text-beni font-sans', className)} {...props}>
 		{base}
 		<rp>（</rp>
-		<rt className="-block-start-[0.3em] relative">{text}</rt>
+		{text && <rt className="-block-start-[0.3em] relative">{text}</rt>}
 		<rp>）</rp>
 	</ruby>
 );

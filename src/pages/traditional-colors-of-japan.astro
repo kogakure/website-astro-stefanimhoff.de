@@ -4,7 +4,7 @@ import GridLayout from '../layouts/GridLayout.astro';
 import AmazonBook from '../components/content/AmazonBook';
 import ColorStack from '../components/content/ColorStack';
 import ColorSwatch from '../components/content/ColorSwatch';
-import PageTitle from '../components/site/PageTitle.astro';
+import PageHeading from '../components/ui/PageHeading';
 
 import { Content as Intro } from '../text/traditional-colors-of-japan/intro.mdx';
 import colors from '../data/colors-japan.json';
@@ -17,7 +17,9 @@ const description =
 ---
 
 <GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
-	<PageTitle grid="wide" innerGrid>The Traditional Colors of&nbsp;Japan</PageTitle>
+	<PageHeading className="col-end-19 mbe-0 col-start-1 row-start-1"
+		>The Traditional Colors of&nbsp;Japan</PageHeading
+	>
 
 	<article class="col-end-17 col-start-1 grid md:col-end-8 xl:content-center">
 		<Intro components={mapping} />
