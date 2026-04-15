@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import DashList from '../components/ui/DashList';
 import DashListItem from '../components/ui/DashListItem';
 import Divider from '../components/ui/Divider';
+import HaikuItem from '../components/ui/HaikuItem';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
 import Text from '../components/ui/Text';
@@ -22,66 +23,49 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
+	<div class="max-w-360 mx-auto w-full px-8 pb-16 pt-32">
 		<PageHeading>Haiku</PageHeading>
 	</div>
 
 	<!-- Content sections -->
-	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
+	<div class="max-w-360 mx-auto flex w-full flex-col px-8 pb-32">
 		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
-			<div class="flex max-w-xl flex-col gap-4 leading-relaxed">
+			<div class="flex max-w-[90%] flex-col gap-4 leading-relaxed">
 				<Text className="mbe-0">
-					Haiku <span class="font-japanese">(俳句)</span> is the shortest serious form in poetry.
-					Three phrases. Two qualities define it:
+					Haiku <span class="text-beni font-sans">(俳句)</span> is the shortest serious form
+					in poetry. Three phrases. Two qualities define it:
 				</Text>
 				<DashList className="gap-2">
 					<DashListItem>
-						<span class="text-sumi dark:text-washi select-none">— </span>
+						<span class="text-beni select-none">— </span>
 						<em>kigo</em>
-						<span class="font-japanese">(季語)</span>—a seasonal reference. Heaven,
-						earth, humanity, animals, plants. Time made visible in a single image.
+						<span class="text-beni font-sans">(季語)</span>—a seasonal reference.
+						Heaven, earth, humanity, animals, plants. Time made visible in a single
+						image.
 					</DashListItem>
 					<DashListItem>
-						<span class="text-sumi dark:text-washi select-none">— </span>
+						<span class="text-beni select-none">— </span>
 						<em>kiru</em>
-						<span class="font-japanese">(切)</span>—a cut. Two images or ideas held in
-						juxtaposition, separated by a <em>kireji</em>, a cutting word. The space
-						between them is where meaning lives.
+						<span class="text-beni font-sans">(切)</span>—a cut. Two images or ideas
+						held in juxtaposition, separated by a <em>kireji</em>, a cutting word. The
+						space between them is where meaning lives.
 					</DashListItem>
 				</DashList>
 				<Text className="mbe-0">
-					Traditionally seventeen syllables: five, seven, five <span class="font-japanese"
-						>(自由律)</span
+					Traditionally seventeen syllables: five, seven, five <span
+						class="text-beni font-sans">(自由律)</span
 					>.
 				</Text>
 			</div>
-			<Divider className="mbs-8 mbe-0 border-shibui-300 dark:border-shibui-700 max-w-xl" />
 		</PageSection>
+
+		<Divider />
 
 		<!-- HAIKU list -->
 		<PageSection label="Haiku">
 			<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
-				{
-					allHaiku.map(({ data }) => (
-						<li>
-							<Text className="text-sumi dark:text-washi font-bold mbe-0">
-								{data.de
-									.trim()
-									.split('\n')
-									.map((line) => line.trim())
-									.join(' / ')}
-							</Text>
-							<Text className="text-hai mbe-0">
-								{data.en
-									.trim()
-									.split('\n')
-									.map((line) => line.trim())
-									.join(' / ')}
-							</Text>
-						</li>
-					))
-				}
+				{allHaiku.map(({ data }) => <HaikuItem de={data.de} en={data.en} />)}
 			</ol>
 		</PageSection>
 	</div>
