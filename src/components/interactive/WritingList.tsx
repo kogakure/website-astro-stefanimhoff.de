@@ -1,4 +1,5 @@
 import { Subsubheadline } from '../ui/Subsubheadline';
+import TextLink from '../ui/TextLink';
 
 export interface PostItem {
 	slug: string;
@@ -14,10 +15,10 @@ interface Props {
 
 export const WritingList = ({ entries }: Props) => {
 	return (
-		<ul className="col-span-full grid auto-rows-[50px] grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] gap-[max(25px,_2vw)]">
+		<ul className="col-span-full grid auto-rows-[50px] grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-[max(25px,2vw)]">
 			{entries.map(({ slug, title, subtitle, thumbnail, gradient }) => (
 				<li key={slug} className="journal-card image-shadow group">
-					<a
+					<TextLink
 						className="journal-card-link group relative block h-full w-full group-hover:scale-100"
 						href={`/${slug}/`}
 						tabIndex={0}
@@ -45,7 +46,7 @@ export const WritingList = ({ entries }: Props) => {
 								{subtitle ? `${title}: ${subtitle}` : title}
 							</Subsubheadline>
 						</div>
-					</a>
+					</TextLink>
 				</li>
 			))}
 		</ul>

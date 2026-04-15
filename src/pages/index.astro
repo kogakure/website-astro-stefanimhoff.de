@@ -6,12 +6,12 @@ import { getCollection } from 'astro:content';
 import { formatPosts } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Link from '../components/ui/Link';
 import ListItem from '@/components/ui/ListItem';
 import MoreLink from '../components/ui/MoreLink';
 import PageHeading from '../components/ui/PageHeading';
 import PageSection from '../components/ui/PageSection';
 import Text from '../components/ui/Text';
+import TextLink from '@/components/ui/TextLink';
 import UnorderedList from '@/components/ui/UnorderedList';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
@@ -98,15 +98,11 @@ const description = 'Design Engineer from Hamburg, Germany';
 				{
 					latestPosts.map((post) => (
 						<ListItem>
-							<span class="text-beni select-none">— </span>
-							<Link
-								className="hover:opacity-60 transition-opacity text-3"
-								href={`/${post.id}/`}
-							>
+							<TextLink href={`/${post.id}/`}>
 								{post.data.subtitle
 									? `${post.data.title}: ${post.data.subtitle}`
 									: post.data.title}
-							</Link>
+							</TextLink>
 						</ListItem>
 					))
 				}

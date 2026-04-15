@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import ListItem from '../ui/ListItem';
 import SectionLabel from '../ui/SectionLabel';
+import TextLink from '../ui/TextLink';
 import UnorderedList from '../ui/UnorderedList';
 
 const STORAGE_KEY = 'writing-filter';
@@ -148,14 +149,11 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 						<UnorderedList className={contentCol}>
 							{byYear[year].map((post) => (
 								<ListItem key={post.slug}>
-									<a
-										className="text-3 transition-opacity hover:opacity-60"
-										href={`/${post.slug}/`}
-									>
+									<TextLink href={`/${post.slug}/`}>
 										{post.subtitle
 											? `${post.title}: ${post.subtitle}`
 											: post.title}
-									</a>
+									</TextLink>
 								</ListItem>
 							))}
 						</UnorderedList>
