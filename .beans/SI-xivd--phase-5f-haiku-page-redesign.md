@@ -6,6 +6,7 @@ type: feature
 priority: normal
 created_at: 2026-04-09T21:32:29Z
 updated_at: 2026-04-10T08:36:08Z
+parent: SI-tfhf
 blocked_by:
   - SI-e0w1
 ---
