@@ -5,7 +5,7 @@ import EmailLink from '../components/content/EmailLink';
 import GridLayout from '../layouts/GridLayout.astro';
 import Headline from '../components/ui/Headline';
 import ListItem from '../components/ui/ListItem';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import Subheadline from '../components/ui/Subheadline';
 import Subsubheadline from '../components/ui/Subsubheadline';
 import Text from '../components/ui/Text';
@@ -30,7 +30,7 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 	noindex={true}
 	title={title}
 >
-	<PageHeading className="col-end-19 mbe-0 col-start-1 row-start-1">Resume</PageHeading>
+	<PageTitle class="col-end-19 mbe-0 col-start-1 row-start-1">Resume</PageTitle>
 
 	<article class="col-span-full md:col-start-1 md:col-end-9">
 		<Headline>Professional Summary</Headline>

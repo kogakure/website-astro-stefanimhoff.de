@@ -15,7 +15,7 @@ Personal website and blog for Stefan Imhoff, featuring journal posts, haiku coll
 | Raw HTML                 | Use instead                      |
 | ------------------------ | -------------------------------- |
 | `<p>`                    | `<Text>`                         |
-| `<h1>` (page title)      | `<PageHeading>`                  |
+| `<h1>` (page title)      | `<PageTitle>`                    |
 | `<h1>` (content)         | `<Title>`                        |
 | `<h2>` (display)         | `<DisplayHeadline>`              |
 | `<h2>` (section)         | `<Headline>`                     |

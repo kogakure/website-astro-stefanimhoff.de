@@ -1,25 +1,21 @@
 ---
+import { cn } from '../../lib/utils';
+
 import Title from '../ui/Title';
 
 export interface Props {
 	class?: string;
-	grid?: 'narrow' | 'wide' | 'fullsize';
-	innerGrid?: boolean;
 }
 
-const { class: className, grid = 'narrow', innerGrid } = Astro.props;
+const { class: className, ...props } = Astro.props;
 ---
 
-<Title
-	class:list={[
-		'col-end-19 !mbe-0 col-start-1',
-		{
-			'md:col-end-17 col-start-2 col-end-3 md:col-start-3': grid === 'narrow',
-			'row-start-1': innerGrid,
-			'!col-end-18 md:!col-end-17 !col-start-2 md:!col-start-3': !innerGrid,
-		},
-		className,
-	]}
+<div
+	class={cn(
+		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0 max-w-360 mx-auto w-full px-8 pb-16 pt-32',
+		className
+	)}
+	{...props}
 >
-	<slot />
-</Title>
+	<Title className="col-span-3 md:col-span-6 xl:col-span-11 xl:col-start-2"><slot /></Title>
+</div>

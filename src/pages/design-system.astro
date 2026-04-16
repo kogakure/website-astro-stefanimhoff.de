@@ -13,7 +13,7 @@ import Subsubheadline from '../components/ui/Subsubheadline';
 import Text from '../components/ui/Text';
 import TextLink from '../components/ui/TextLink';
 import PageSection from '../components/ui/PageSection';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import MoreLink from '../components/ui/MoreLink';
 import Flag from '../components/ui/Flag';
 import UnorderedList from '../components/ui/UnorderedList';
@@ -87,8 +87,8 @@ const uiComponents = [
 		description: 'Section wrapper with integrated SectionLabel.',
 	},
 	{
-		name: 'PageHeading',
-		file: 'ui/PageHeading.tsx',
+		name: 'PageTitle',
+		file: 'site/PageTitle.astro',
 		description: 'Page-level heading with SectionLabel prefix. Polymorphic via `as` prop.',
 	},
 	{ name: 'Tag', file: 'ui/Tag.tsx', description: 'Inline tag/chip with active state support.' },
@@ -194,8 +194,8 @@ const iconComponents = [
 ---
 
 <BaseLayout title="Design System" description="The Ma (間) Design System — the space between.">
-	<div class="mx-auto w-full max-w-[1440px] px-8 pt-32">
-		<PageHeading>Design System</PageHeading>
+	<PageTitle>Design System</PageTitle>
+	<div class="mx-auto w-full max-w-[1440px] px-8 pt-0">
 		<Text className="text-hai mbs-6 mbe-0 max-w-xl leading-relaxed">
 			The Ma (間) Design System — the space between. Two letters. Instantly memorable.
 		</Text>
@@ -306,9 +306,7 @@ const iconComponents = [
 								{item.name === 'PageSection' && (
 									<PageSection label="About">Page section content.</PageSection>
 								)}
-								{item.name === 'PageHeading' && (
-									<PageHeading>PageHeading</PageHeading>
-								)}
+								{item.name === 'PageTitle' && <PageTitle>PageTitle</PageTitle>}
 								{item.name === 'Tag' && <Tag>Tag</Tag>}
 								{item.name === 'Flag' && <Flag label="Flag" href="#" />}
 								{item.name === 'Divider' && <DividerUI />}

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import PageSection from '../components/ui/PageSection';
 import Text from '../components/ui/Text';
 import TextLink from '../components/ui/TextLink';
@@ -11,12 +11,10 @@ const description = 'How this website was designed and built.';
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
-		<PageHeading>Colophon</PageHeading>
-	</div>
+	<PageTitle>Colophon</PageTitle>
 
 	<!-- Content sections -->
-	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">
+	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
 		<!-- DESIGN -->
 		<PageSection label="Design">
 			<div class="flex max-w-xl flex-col gap-5 leading-relaxed">

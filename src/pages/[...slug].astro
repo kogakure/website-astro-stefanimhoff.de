@@ -13,7 +13,7 @@ import { mapping } from '../mdx-components';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ListItem from '../components/ui/ListItem';
 import OrderedList from '../components/ui/OrderedList';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import SectionLabel from '../components/ui/SectionLabel';
 import Tag from '../components/ui/Tag';
 import Text from '../components/ui/Text';
@@ -87,9 +87,7 @@ const schema = JSON.stringify({
 >
 	<!-- Page title -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-12 pt-32">
-		<PageHeading className="text-[clamp(3rem,6vw,7rem)] italic leading-[0.92]"
-			>{title}</PageHeading
-		>
+		<PageTitle class="text-[clamp(3rem,6vw,7rem)] italic leading-[0.92]">{title}</PageTitle>
 		{subtitle && <Text className="text-hai mbs-4 italic mbe-0">{subtitle}</Text>}
 	</div>
 

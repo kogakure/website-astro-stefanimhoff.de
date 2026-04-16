@@ -9,7 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Divider from '../components/ui/Divider';
 import HaikuItem from '../components/ui/HaikuItem';
 import ListItem from '@/components/ui/ListItem';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import PageSection from '../components/ui/PageSection';
 import Ruby from '@/components/content/Ruby';
 import Text from '../components/ui/Text';
@@ -25,9 +25,7 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-16 pt-32">
-		<PageHeading>Haiku</PageHeading>
-	</div>
+	<PageTitle>Haiku</PageTitle>
 
 	<!-- Content sections -->
 	<div class="max-w-360 mx-auto flex w-full flex-col px-8 pb-32">

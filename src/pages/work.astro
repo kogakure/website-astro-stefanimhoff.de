@@ -8,7 +8,7 @@ import { sortBySortKey } from '../utils';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DisplayHeadline from '../components/ui/DisplayHeadline';
 import MoreLink from '../components/ui/MoreLink';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import Text from '../components/ui/Text';
 
 const allProjects: Projects[] = await getCollection('projects');
@@ -20,9 +20,7 @@ const description = "I'm a Design Engineer. These are selected projects from the
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
-		<PageHeading>Work</PageHeading>
-	</div>
+	<PageTitle>Work</PageTitle>
 
 	<!-- Introduction -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">

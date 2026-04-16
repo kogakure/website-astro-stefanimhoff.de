@@ -6,7 +6,8 @@ import { getCollection } from 'astro:content';
 import { formatPosts } from '../utils';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeading from '../components/ui/PageHeading';
+
+import PageTitle from '../components/site/PageTitle.astro';
 import PageSection from '../components/ui/PageSection';
 import Text from '../components/ui/Text';
 import TextLink from '../components/ui/TextLink';
@@ -33,9 +34,7 @@ const description =
 
 <BaseLayout title={title} description={description}>
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
-		<PageHeading>Writing</PageHeading>
-	</div>
+	<PageTitle>Writing</PageTitle>
 
 	<!-- Content sections -->
 	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-16 px-8 pb-32">

@@ -8,8 +8,10 @@ import { formatPosts } from '../utils';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ListItem from '@/components/ui/ListItem';
 import MoreLink from '../components/ui/MoreLink';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 import PageSection from '../components/ui/PageSection';
+import Title from '../components/ui/Title';
+import HomePageSection from '@/components/ui/HomepagePageSection';
 import Text from '../components/ui/Text';
 import TextLink from '@/components/ui/TextLink';
 import UnorderedList from '@/components/ui/UnorderedList';
@@ -23,32 +25,38 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 <BaseLayout title={title} description={description}>
 	<!-- Hero -->
-	<div class="max-w-360 mx-auto flex w-full justify-center px-8 pb-32 pt-32">
-		<PageHeading className="hero-title leading-[1.05]">
-			Stefan Imhoff <em class="font-display font-normal">is a</em><br
-				class="hidden xl:block"
-			/>
-			Design Engineer<br class="hidden xl:block" />
-			<span>
-				<em class="font-display font-normal">from</em>
-				<span class="whitespace-nowrap">Hamburg<span class="text-beni ml-4">—</span></span>
-			</span>
-		</PageHeading>
+	<div
+		class="max-w-360 mx-auto grid grid-cols-3 gap-x-4 gap-y-6 px-8 pb-32 pt-32 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
+	>
+		<div class="col-span-3 flex w-full md:col-span-6 xl:col-span-9 xl:col-start-3">
+			<Title className="hero-title leading-[1.05]">
+				Stefan Imhoff <em class="font-display font-normal">is a</em><br
+					class="hidden xl:block"
+				/>
+				Design Engineer<br class="hidden xl:block" />
+				<span>
+					<em class="font-display font-normal">from</em>
+					<span class="whitespace-nowrap"
+						>Hamburg<span class="text-beni ml-4">—</span></span
+					>
+				</span>
+			</Title>
+		</div>
 	</div>
 
 	<!-- Sections above marquee -->
 	<div class="max-w-360 mx-auto mb-16 flex w-full flex-col gap-16 px-8">
 		<!-- ABOUT -->
-		<PageSection label="About">
+		<HomePageSection label="About">
 			<Text className="mbe-5 leading-[1.2]">
 				Nearly two decades at the intersection of design and code. Guided by simplicity,
 				structure, and the discipline of leaving things out.
 			</Text>
 			<MoreLink href="/about/" text="About" />
-		</PageSection>
+		</HomePageSection>
 
 		<!-- WORK -->
-		<PageSection label="Work">
+		<HomePageSection label="Work">
 			<Text className="mbe-5 leading-[1.2]">
 				I build interfaces that hold up under scrutiny — design systems, component
 				libraries, and the invisible layer of decisions that makes a product coherent. For
@@ -56,7 +64,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 				network.
 			</Text>
 			<MoreLink href="/work/" text="See selected work" />
-		</PageSection>
+		</HomePageSection>
 	</div>
 
 	<!-- Haiku marquee band -->
@@ -81,7 +89,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<!-- Sections below marquee -->
 	<div class="max-w-360 mx-auto mb-32 mt-16 flex w-full flex-col gap-16 px-8">
 		<!-- WRITING -->
-		<PageSection label="Writing">
+		<HomePageSection label="Writing">
 			<Text className="mbe-5 max-w-xl leading-[1.2]">
 				Essays on design, code, philosophy, and the examined life. Published here since
 				2007.
@@ -90,10 +98,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 				<MoreLink href="/writing/" text="Read the journal" />
 				<MoreLink href="/rss.xml" text="Subscribe to RSS Feed" />
 			</div>
-		</PageSection>
+		</HomePageSection>
 
 		<!-- LATEST ESSAYS -->
-		<PageSection label="Latest Essays">
+		<HomePageSection label="Latest Essays">
 			<UnorderedList data-pagefind-ignore>
 				{
 					latestPosts.map((post) => (
@@ -107,16 +115,16 @@ const description = 'Design Engineer from Hamburg, Germany';
 					))
 				}
 			</UnorderedList>
-		</PageSection>
+		</HomePageSection>
 
 		<!-- CONTACT -->
-		<PageSection label="Contact">
+		<HomePageSection label="Contact">
 			<MoreLink
 				href="mailto:hey@stefanimhoff.de"
 				text="hey@stefanimhoff.de"
 				data-umami-event="Contact: Email"
 			/>
-		</PageSection>
+		</HomePageSection>
 	</div>
 </BaseLayout>
 

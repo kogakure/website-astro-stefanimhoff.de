@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import PageHeading from '../components/ui/PageHeading';
+import PageTitle from '../components/site/PageTitle.astro';
 
 export interface Props {
 	frontmatter?: any;
@@ -19,7 +19,7 @@ const cover = frontmatter?.cover ?? coverProp;
 <BaseLayout title={title} description={description} cover={cover}>
 	<!-- Page title -->
 	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16 pt-32">
-		<PageHeading>{title}</PageHeading>
+		<PageTitle>{title}</PageTitle>
 	</div>
 
 	{
