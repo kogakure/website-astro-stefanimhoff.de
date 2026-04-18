@@ -82,12 +82,12 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 		.sort((a, b) => b - a);
 
 	const sectionGrid =
-		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 lg:grid-cols-12 lg:gap-x-8';
-	const labelCol = 'col-span-3 md:col-span-2 lg:col-span-2 md:pt-[0.35em]';
-	const contentCol = 'col-span-3 md:col-span-4 lg:col-span-10 min-w-0';
+		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8';
+	const labelCol = 'col-span-3 md:col-span-2 md:pt-[0.35em] xl:col-span-2 xl:col-start-2';
+	const contentCol = 'col-span-3 min-w-0 md:col-span-5 xl:col-span-6';
 
 	return (
-		<div className="flex flex-col gap-12">
+		<div className="flex flex-col gap-16">
 			{/* FILTER section */}
 			<section className={sectionGrid} data-pagefind-ignore>
 				<div className={labelCol}>
@@ -135,7 +135,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			</section>
 
 			{/* Separator */}
-			<hr className="border-shibui-300 dark:border-shibui-700 -mt-4" />
+			<hr className="border-shibui-300 dark:border-shibui-700" />
 
 			{/* Essays grouped by year */}
 			{years.length > 0 ? (

@@ -17,7 +17,7 @@ export const PageSection = ({ label, className, children, ...props }: Props) => 
 		<div className="col-span-3 md:col-span-2 md:pt-[0.35em] xl:col-span-2 xl:col-start-2">
 			<SectionLabel>{label}</SectionLabel>
 		</div>
-		<div className="col-span-3 min-w-0 md:col-span-5 xl:col-span-4">{children}</div>
+		<div className="col-span-3 min-w-0 md:col-span-5 xl:col-span-6">{children}</div>
 	</section>
 );
 

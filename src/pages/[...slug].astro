@@ -86,15 +86,19 @@ const schema = JSON.stringify({
 	title={subtitle ? `${title}: ${subtitle}` : title}
 >
 	<!-- Page title -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-12 pt-32">
-		<PageTitle class="text-[clamp(3rem,6vw,7rem)] italic leading-[0.92]">{title}</PageTitle>
-		{subtitle && <Text className="text-hai mbs-4 italic mbe-0">{subtitle}</Text>}
-	</div>
+	<PageTitle class="pb-4 text-[clamp(3rem,6vw,7rem)] italic leading-[0.92]">{title}</PageTitle>
+	{
+		subtitle && (
+			<div class="max-w-360 mx-auto w-full px-8 pb-8">
+				<Text className="text-hai italic mbe-0">{subtitle}</Text>
+			</div>
+		)
+	}
 
 	<!-- Cover image -->
 	{
 		entry.data.cover && (
-			<div class="mx-auto w-full max-w-[1440px] px-8 pb-12">
+			<div class="max-w-360 mx-auto w-full px-8 pb-12">
 				<img
 					src={entry.data.cover}
 					alt={title}
@@ -107,7 +111,7 @@ const schema = JSON.stringify({
 	}
 
 	<!-- Article layout: meta + content -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-32">
+	<div class="max-w-360 mx-auto w-full px-8 pb-32">
 		<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
 			<!-- Meta column -->
 			<aside>
@@ -178,7 +182,7 @@ const schema = JSON.stringify({
 	<!-- Prev/Next navigation -->
 	{
 		(prev.id || next.id) && (
-			<nav class="border-shibui-200 dark:border-shibui-800 mx-auto grid w-full max-w-[1440px] grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
+			<nav class="border-shibui-200 dark:border-shibui-800 max-w-360 mx-auto grid w-full grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
 				<div>
 					{prev.id && (
 						<a

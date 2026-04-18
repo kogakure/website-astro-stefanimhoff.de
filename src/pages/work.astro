@@ -22,84 +22,89 @@ const description = "I'm a Design Engineer. These are selected projects from the
 	<!-- Page title -->
 	<PageTitle>Work</PageTitle>
 
-	<!-- Introduction -->
-	<div class="mx-auto w-full max-w-[1440px] px-8 pb-16">
-		<Text className="text-hai mbe-4 max-w-xl leading-relaxed">
-			I am a design engineer by discipline. In previous chapters: editorial design, 3D
-			animation, and a period spent making Flash animations and multimedia CD-ROMs that no
-			longer exist anywhere. I have always believed in working across domains. A specialist in
-			one thing tends to miss the connections.
-		</Text>
-		<Text className="text-hai mbe-0 max-w-xl leading-relaxed">
-			These are selected projects from the last two decades.
-		</Text>
-	</div>
+	<!-- Content -->
+	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
+		<!-- Introduction -->
+		<div>
+			<Text className="text-hai mbe-4 max-w-xl leading-relaxed">
+				I am a design engineer by discipline. In previous chapters: editorial design, 3D
+				animation, and a period spent making Flash animations and multimedia CD-ROMs that no
+				longer exist anywhere. I have always believed in working across domains. A
+				specialist in one thing tends to miss the connections.
+			</Text>
+			<Text className="text-hai mbe-0 max-w-xl leading-relaxed">
+				These are selected projects from the last two decades.
+			</Text>
+		</div>
 
-	<!-- Project list -->
-	<div class="mx-auto flex w-full max-w-[1440px] flex-col gap-24 px-8 pb-32">
-		{
-			projects.map((project) => (
-				<article class="flex flex-col gap-6">
-					{/* Multiple images grid */}
-					{project.data.images && project.data.images.length > 0 && (
-						<div
-							class:list={[
-								'rounded-2 grid overflow-hidden',
-								{
-									'grid-cols-2': project.data.images.length === 2,
-									'grid-cols-3': project.data.images.length >= 3,
-								},
-							]}
-						>
-							{project.data.images.map((img) => (
+		<!-- Project list -->
+		<div class="flex flex-col gap-24">
+			{
+				projects.map((project) => (
+					<article class="flex flex-col gap-6">
+						{/* Multiple images grid */}
+						{project.data.images && project.data.images.length > 0 && (
+							<div
+								class:list={[
+									'rounded-2 grid overflow-hidden',
+									{
+										'grid-cols-2': project.data.images.length === 2,
+										'grid-cols-3': project.data.images.length >= 3,
+									},
+								]}
+							>
+								{project.data.images.map((img) => (
+									<img
+										src={img.src}
+										alt={img.alt ?? project.data.title}
+										class="h-full w-full object-cover"
+										loading="lazy"
+										decoding="async"
+									/>
+								))}
+							</div>
+						)}
+						{/* Single image */}
+						{!project.data.images && project.data.image && (
+							<div class="rounded-2 overflow-hidden">
 								<img
-									src={img.src}
-									alt={img.alt ?? project.data.title}
-									class="h-full w-full object-cover"
+									src={project.data.image.src}
+									alt={project.data.title}
+									class="w-full object-cover"
 									loading="lazy"
 									decoding="async"
 								/>
-							))}
-						</div>
-					)}
-					{/* Single image */}
-					{!project.data.images && project.data.image && (
-						<div class="rounded-2 overflow-hidden">
-							<img
-								src={project.data.image.src}
-								alt={project.data.title}
-								class="w-full object-cover"
-								loading="lazy"
-								decoding="async"
-							/>
-						</div>
-					)}
+							</div>
+						)}
 
-					{/* Project info */}
-					<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
-						<div>
-							<Text className="text-2 text-hai italic tracking-widest mbe-0">
-								{project.data.categories.join(' / ')}
-							</Text>
-						</div>
-						<div class="min-w-0">
-							<DisplayHeadline className="mb-3">{project.data.title}</DisplayHeadline>
-							{project.data.intro && (
-								<Text className="max-w-xl leading-relaxed mbe-0">
-									{project.data.intro}
+						{/* Project info */}
+						<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
+							<div>
+								<Text className="text-2 text-hai italic tracking-widest mbe-0">
+									{project.data.categories.join(' / ')}
 								</Text>
-							)}
-							{project.data.more && (
-								<MoreLink
-									className="mt-4"
-									href={project.data.more.link}
-									text={project.data.more.text || 'View project'}
-								/>
-							)}
+							</div>
+							<div class="min-w-0">
+								<DisplayHeadline className="mb-3">
+									{project.data.title}
+								</DisplayHeadline>
+								{project.data.intro && (
+									<Text className="max-w-xl leading-relaxed mbe-0">
+										{project.data.intro}
+									</Text>
+								)}
+								{project.data.more && (
+									<MoreLink
+										className="mt-4"
+										href={project.data.more.link}
+										text={project.data.more.text || 'View project'}
+									/>
+								)}
+							</div>
 						</div>
-					</div>
-				</article>
-			))
-		}
+					</article>
+				))
+			}
+		</div>
 	</div>
 </BaseLayout>
