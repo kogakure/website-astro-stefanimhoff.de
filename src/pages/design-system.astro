@@ -196,7 +196,7 @@ const iconComponents = [
 <BaseLayout title="Design System" description="The Ma (間) Design System — the space between.">
 	<PageTitle>Design System</PageTitle>
 	<div class="max-w-360 mx-auto w-full px-8 pb-32">
-		<Text className="text-hai mbs-6 mbe-0 max-w-xl leading-relaxed">
+		<Text className="text-hai mbs-6 mbe-0 leading-relaxed">
 			The Ma (間) Design System — the space between. Two letters. Instantly memorable.
 		</Text>
 		<nav class="border-shibui-300 dark:border-shibui-700 my-12 border-b pb-6">
@@ -217,7 +217,7 @@ const iconComponents = [
 			</ol>
 		</nav>
 
-		<div class="design-system-content max-w-[800px]">
+		<div class="design-system-content">
 			{
 				sections.map(async (section) => {
 					const { Content } = await render(section);
@@ -257,7 +257,7 @@ const iconComponents = [
 					className="text-sumi dark:text-washi mbe-6 mbs-16 font-bold dark:font-bold"
 					>UI Components</Subsubheadline
 				>
-				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
+				<Text className="text-hai mbe-8 leading-relaxed">
 					Foundational building blocks for layout, typography, and navigation.
 				</Text>
 
@@ -331,7 +331,7 @@ const iconComponents = [
 				>
 					Content Components
 				</Subsubheadline>
-				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
+				<Text className="text-hai mbe-8 leading-relaxed">
 					Rich content elements for blog posts, pages, and featured sections.
 				</Text>
 
@@ -401,7 +401,7 @@ const iconComponents = [
 				>
 					Interactive Components
 				</Subsubheadline>
-				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
+				<Text className="text-hai mbe-8 leading-relaxed">
 					Client-side interactive components requiring JavaScript state and user
 					interaction.
 				</Text>
@@ -433,7 +433,7 @@ const iconComponents = [
 				>
 					Icon Components
 				</Subsubheadline>
-				<Text className="text-hai mbe-8 max-w-xl leading-relaxed">
+				<Text className="text-hai mbe-8 leading-relaxed">
 					SVG icon components from <code
 						class="text-code bg-shibui-200 dark:bg-shibui-800 text-2 rounded px-1 font-mono"
 						>icons/</code
@@ -471,12 +471,12 @@ const iconComponents = [
 		}
 
 		& p {
-			@apply text-3 mb-5 max-w-xl leading-relaxed;
+			@apply text-3 mb-5 leading-relaxed;
 		}
 
 		& ul,
 		& ol {
-			@apply text-3 mb-5 max-w-xl leading-relaxed;
+			@apply text-3 mb-5 leading-relaxed;
 		}
 
 		& ul {

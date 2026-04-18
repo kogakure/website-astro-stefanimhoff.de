@@ -3,17 +3,16 @@ import type { CollectionEntry } from 'astro:content';
 type JournalType = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts } from '../utils';
+import { formatPosts } from '@/utils';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ListItem from '@/components/ui/ListItem';
-import MoreLink from '../components/ui/MoreLink';
-import PageTitle from '../components/site/PageTitle.astro';
-import PageSection from '../components/ui/PageSection';
-import Title from '../components/ui/Title';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import HomePageSection from '@/components/ui/HomepagePageSection';
-import Text from '../components/ui/Text';
+import JapanesePoem from '@/components/ui/JapanesePoem';
+import ListItem from '@/components/ui/ListItem';
+import MoreLink from '@/components/ui/MoreLink';
+import Text from '@/components/ui/Text';
 import TextLink from '@/components/ui/TextLink';
+import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
@@ -48,7 +47,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<div class="max-w-360 mx-auto mb-16 flex w-full flex-col gap-16 px-8">
 		<!-- ABOUT -->
 		<HomePageSection label="About">
-			<Text className="mbe-5 leading-[1.2]">
+			<Text className="mbe-5">
 				Nearly two decades at the intersection of design and code. Guided by simplicity,
 				structure, and the discipline of leaving things out.
 			</Text>
@@ -57,7 +56,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 		<!-- WORK -->
 		<HomePageSection label="Work">
-			<Text className="mbe-5 leading-[1.2]">
+			<Text className="mbe-5">
 				I build interfaces that hold up under scrutiny — design systems, component
 				libraries, and the invisible layer of decisions that makes a product coherent. For
 				most of the last decade, that work was at XING, Europe's leading professional
@@ -70,19 +69,8 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<!-- Haiku marquee band -->
 	<div class="marquee-band my-4 overflow-hidden py-3" aria-hidden="true">
 		<div class="marquee-track flex whitespace-nowrap">
-			<span
-				class="marquee-content font-japanese text-beni px-12 font-bold not-italic"
-				style="font-size: clamp(3rem, 6vw, 7.5rem);"
-			>
-				無限の沈黙である私はお前に言葉を與へてやろう
-			</span>
-			<span
-				class="marquee-content font-japanese text-beni px-12 font-bold not-italic"
-				style="font-size: clamp(3rem, 6vw, 7.5rem);"
-				aria-hidden="true"
-			>
-				無限の沈黙である私はお前に言葉を與へてやろう
-			</span>
+			<JapanesePoem />
+			<JapanesePoem aria-hidden="true" />
 		</div>
 	</div>
 
@@ -90,7 +78,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 	<div class="max-w-360 mx-auto mb-32 mt-16 flex w-full flex-col gap-16 px-8">
 		<!-- WRITING -->
 		<HomePageSection label="Writing">
-			<Text className="mbe-5 max-w-xl leading-[1.2]">
+			<Text className="mbe-5">
 				Essays on design, code, philosophy, and the examined life. Published here since
 				2007.
 			</Text>
