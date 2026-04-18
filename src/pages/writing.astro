@@ -3,15 +3,15 @@ import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts } from '../utils';
+import { formatPosts } from '@/utils';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
-import PageTitle from '../components/site/PageTitle.astro';
-import PageSection from '../components/ui/PageSection';
-import Text from '../components/ui/Text';
-import TextLink from '../components/ui/TextLink';
-import WritingPage from '../components/interactive/WritingPage';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
+import Text from '@/components/ui/Text';
+import TextLink from '@/components/ui/TextLink';
+import WritingPage from '@/components/interactive/WritingPage';
 
 const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
 const formattedPosts = formatPosts(allPosts, {});

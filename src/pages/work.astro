@@ -3,13 +3,13 @@ import type { CollectionEntry } from 'astro:content';
 type Projects = CollectionEntry<'projects'>;
 import { getCollection } from 'astro:content';
 
-import { sortBySortKey } from '../utils';
+import { sortBySortKey } from '@/utils';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import DisplayHeadline from '../components/ui/DisplayHeadline';
-import MoreLink from '../components/ui/MoreLink';
-import PageTitle from '../components/site/PageTitle.astro';
-import Text from '../components/ui/Text';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DisplayHeadline from '@/components/ui/DisplayHeadline';
+import MoreLink from '@/components/ui/MoreLink';
+import PageTitle from '@/components/site/PageTitle.astro';
+import Text from '@/components/ui/Text';
 
 const allProjects: Projects[] = await getCollection('projects');
 const projects = allProjects.sort(sortBySortKey);

@@ -3,18 +3,17 @@ import type { CollectionEntry } from 'astro:content';
 type Haiku = CollectionEntry<'haiku'>;
 import { getCollection } from 'astro:content';
 
-import { sortByDate } from '../utils';
+import { sortByDate } from '@/utils';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Divider from '../components/ui/Divider';
-import HaikuItem from '../components/ui/HaikuItem';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Divider from '@/components/ui/Divider';
+import HaikuItem from '@/components/ui/HaikuItem';
 import ListItem from '@/components/ui/ListItem';
-import PageTitle from '../components/site/PageTitle.astro';
-import PageSection from '../components/ui/PageSection';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
 import Ruby from '@/components/content/Ruby';
-import Text from '../components/ui/Text';
+import Text from '@/components/ui/Text';
 import UnorderedList from '@/components/ui/UnorderedList';
-import OrderedList from '@/components/ui/OrderedList';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();

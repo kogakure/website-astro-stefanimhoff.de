@@ -3,21 +3,20 @@ import type { CollectionEntry } from 'astro:content';
 type Journal = CollectionEntry<'journal'>;
 import { getCollection, render } from 'astro:content';
 
-import { site } from '../data/site';
+import { site } from '@/data/site';
 
-import { formatPosts, sortByDate } from '../utils';
-import { dateToFormat, dateToISO } from '../utils';
+import { formatPosts, sortByDate, dateToFormat, dateToISO } from '@/utils';
 
-import { mapping } from '../mdx-components';
+import { mapping } from '@/mdx-components';
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ListItem from '../components/ui/ListItem';
-import OrderedList from '../components/ui/OrderedList';
-import PageTitle from '../components/site/PageTitle.astro';
-import SectionLabel from '../components/ui/SectionLabel';
-import Tag from '../components/ui/Tag';
-import Text from '../components/ui/Text';
-import TextLink from '../components/ui/TextLink';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ListItem from '@/components/ui/ListItem';
+import OrderedList from '@/components/ui/OrderedList';
+import PageTitle from '@/components/site/PageTitle.astro';
+import SectionLabel from '@/components/ui/SectionLabel';
+import Tag from '@/components/ui/Tag';
+import Text from '@/components/ui/Text';
+import TextLink from '@/components/ui/TextLink';
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
