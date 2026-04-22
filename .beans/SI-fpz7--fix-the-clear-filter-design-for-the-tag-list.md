@@ -5,7 +5,8 @@ status: todo
 type: bug
 priority: normal
 created_at: 2026-04-16T12:22:43Z
-updated_at: 2026-04-16T13:07:11Z
+updated_at: 2026-04-22T18:15:17Z
+parent: SI-tfhf
 ---
 
 The current clear feature works, but is poorly designed. It needs to be updated to have a consistent design with the rest of the page. The clear button should be more prominent and visually appealing, making it easier for users to find and use.

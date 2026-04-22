@@ -5,7 +5,8 @@ status: todo
 type: task
 priority: normal
 created_at: 2026-04-16T12:41:16Z
-updated_at: 2026-04-16T13:07:22Z
+updated_at: 2026-04-22T18:16:00Z
+parent: SI-tfhf
 ---
 
 The CMDK Menu is already working functionally, but need to be styled according to the design specifications.
