@@ -13,7 +13,7 @@ export const JapanesePoem = ({ as: Tag = 'span', className, ...props }: Props) =
 		)}
 		{...props}
 	>
-		無限の沈黙である私はお前に言葉を與へてやろう
+		無限の沈黙である私はお前に言葉を與へてやろう。
 	</Tag>
 );
 
