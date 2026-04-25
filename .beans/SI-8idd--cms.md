@@ -2,10 +2,10 @@
 # SI-8idd
 title: CMS
 status: draft
-type: task
+type: feature
 priority: normal
 created_at: 2026-04-16T12:58:01Z
-updated_at: 2026-04-16T13:00:03Z
+updated_at: 2026-04-25T15:03:02Z
 ---
 
 The site should at the end integrate a CMS to work on articles and content. Some options to consider are:

@@ -5,8 +5,8 @@ status: todo
 type: bug
 priority: normal
 created_at: 2026-04-10T09:11:21Z
-updated_at: 2026-04-22T18:15:06Z
-parent: SI-tfhf
+updated_at: 2026-04-25T14:55:32Z
+parent: SI-to2g
 ---
 
 The scroll-driven animation for the Japanese haiku marquee band on the homepage is not behaving correctly. The start and end points of the animation need to be tuned.

@@ -1,11 +1,11 @@
 ---
 # SI-4xvy
 title: "Phase 5E: About Page Redesign"
-status: completed
+status: in-progress
 type: feature
 priority: normal
 created_at: 2026-04-09T21:32:22Z
-updated_at: 2026-04-16T09:56:33Z
+updated_at: 2026-04-25T15:02:11Z
 parent: SI-tfhf
 blocked_by:
   - SI-e0w1

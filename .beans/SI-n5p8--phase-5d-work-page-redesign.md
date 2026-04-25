@@ -1,11 +1,11 @@
 ---
 # SI-n5p8
 title: "Phase 5D: Work Page Redesign"
-status: completed
+status: todo
 type: feature
 priority: normal
 created_at: 2026-04-09T21:32:14Z
-updated_at: 2026-04-10T08:28:43Z
+updated_at: 2026-04-25T14:39:43Z
 parent: SI-tfhf
 blocked_by:
   - SI-e0w1
