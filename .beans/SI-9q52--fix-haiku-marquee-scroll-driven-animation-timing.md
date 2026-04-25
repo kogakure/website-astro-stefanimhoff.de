@@ -5,27 +5,8 @@ status: todo
 type: bug
 priority: normal
 created_at: 2026-04-10T09:11:21Z
-updated_at: 2026-04-25T14:55:32Z
+updated_at: 2026-04-25T15:31:02Z
 parent: SI-to2g
 ---
 
-The scroll-driven animation for the Japanese haiku marquee band on the homepage is not behaving correctly. The start and end points of the animation need to be tuned.
-
-## Problems
-
-- Start position is off — animation begins too early or too late relative to the marquee entering the viewport
-- End position is off — animation finishes too late (after the visible content ends)
-
-## Desired behavior
-
-- Animation should start when the marquee is roughly 75% entered from the bottom of the viewport
-- Animation should finish (show last character) near the bottom of the page content, not at absolute scroll 100%
-- No repeat/loop
-
-## Current implementation
-
-Uses `scroll(root block)` timeline with JS-computed `animation-range` set via `track.style.animationRange`. The start % is computed from `getBoundingClientRect` but may be unreliable due to layout timing.
-
-## Fix in
-
-`src/pages/index.astro` — revisit during Phase 6 (Motion & Special Interactions, SI-akaq)
+The scroll-driven animation doesn't work as well as thought. I want to change it back to the earlier implementation using a slow smooth animation band that continuesly scrolls the text through the viewport. There should be no jumps in the animation when the one quote ends and the next one starts. At the moment, the animation is build to just show the same quote, but it should work with different quote components as well. If there are multiple quote components, it should cycle through them and then start again with the first one.
