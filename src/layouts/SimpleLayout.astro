@@ -36,7 +36,9 @@ const cover = frontmatter?.cover ?? coverProp;
 
 	<!-- Content -->
 	<div class="max-w-360 mx-auto w-full px-8 pb-32">
-		<div class="simple-content">
+		<div
+			class="simple-content grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
+		>
 			<slot />
 		</div>
 	</div>
@@ -45,34 +47,25 @@ const cover = frontmatter?.cover ?? coverProp;
 <style is:global>
 	@reference "../styles/global.css";
 
-	.simple-content {
-		display: grid;
-		grid-template-columns: 1fr;
-		row-gap: 0;
-	}
-
-	@media (min-width: 768px) {
-		.simple-content {
-			grid-template-columns: 160px 1fr;
-			column-gap: 4rem;
-		}
-
-		.simple-content > * {
-			grid-column: 2;
-		}
-
-		.simple-content > h2 {
-			grid-column: 1;
-		}
+	.simple-content > * {
+		@apply col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4;
 	}
 
 	.simple-content > h2 {
-		@apply text-2 text-hai self-start uppercase tracking-widest;
-		@apply mt-10 md:mt-0 md:pt-[0.35em];
+		@apply text-2 text-hai col-span-3 self-start uppercase md:col-span-2 md:col-start-1 xl:col-span-2 xl:col-start-2;
+		@apply mb-0 mt-10 font-normal tracking-normal dark:font-normal;
 	}
 
 	.simple-content > h2:first-child {
 		@apply mt-0;
+	}
+
+	.simple-content > h2 + * {
+		@apply xl:mt-10;
+	}
+
+	.simple-content > h2:first-child + * {
+		@apply xl:mt-0;
 	}
 
 	.simple-content > h3 {
@@ -81,12 +74,12 @@ const cover = frontmatter?.cover ?? coverProp;
 
 	.simple-content > p,
 	.simple-content p {
-		@apply text-3 mb-5 max-w-xl leading-relaxed;
+		@apply text-3 mb-5 leading-relaxed;
 	}
 
 	.simple-content > ul,
 	.simple-content > ol {
-		@apply text-3 mb-5 max-w-xl leading-relaxed;
+		@apply text-3 relative -top-1 mb-5 leading-relaxed;
 	}
 
 	.simple-content > ul {
