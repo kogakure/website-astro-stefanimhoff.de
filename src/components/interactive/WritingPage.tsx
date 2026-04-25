@@ -1,9 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import EssayLink from '../ui/EssayLink';
 import ListItem from '../ui/ListItem';
 import SectionLabel from '../ui/SectionLabel';
-import TextLink from '../ui/TextLink';
 import UnorderedList from '../ui/UnorderedList';
 
 const STORAGE_KEY = 'writing-filter';
@@ -149,11 +149,11 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 						<UnorderedList className={contentCol}>
 							{byYear[year].map((post) => (
 								<ListItem key={post.slug}>
-									<TextLink href={`/${post.slug}/`}>
+									<EssayLink href={`/${post.slug}/`}>
 										{post.subtitle
 											? `${post.title}: ${post.subtitle}`
 											: post.title}
-									</TextLink>
+									</EssayLink>
 								</ListItem>
 							))}
 						</UnorderedList>

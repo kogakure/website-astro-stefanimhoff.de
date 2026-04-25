@@ -7,12 +7,12 @@ import { formatPosts } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Marquee from '@/components/interactive/Marquee';
+import EssayLink from '@/components/ui/EssayLink';
 import HomePageSection from '@/components/ui/HomepagePageSection';
 import JapanesePoem from '@/components/ui/JapanesePoem';
 import ListItem from '@/components/ui/ListItem';
 import MoreLink from '@/components/ui/MoreLink';
 import Text from '@/components/ui/Text';
-import TextLink from '@/components/ui/TextLink';
 import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
 
@@ -92,11 +92,11 @@ const description = 'Design Engineer from Hamburg, Germany';
 				{
 					latestPosts.map((post) => (
 						<ListItem>
-							<TextLink href={`/${post.id}/`}>
+							<EssayLink href={`/${post.id}/`}>
 								{post.data.subtitle
 									? `${post.data.title}: ${post.data.subtitle}`
 									: post.data.title}
-							</TextLink>
+							</EssayLink>
 						</ListItem>
 					))
 				}
