@@ -6,6 +6,13 @@ node_modules
 dist
 .astro
 
+# Agentic
+CLAUDE.md
+AGENTS.md
+.agents
+.beans
+.claude
+
 # Development files
 .vscode
 .idea
@@ -16,6 +23,8 @@ pnpm-debug.log*
 # Testing
 coverage
 .vitest
+.playwright
+.playwright-cli
 
 # Git
 .git
@@ -27,7 +36,6 @@ coverage
 
 # Documentation
 README.md
-CLAUDE.md
 *.md
 
 # Environment files
