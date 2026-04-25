@@ -11,6 +11,7 @@ import DownloadLink from './components/content/DownloadLink';
 import EmailLink from './components/content/EmailLink';
 import Figure from './components/content/Figure';
 import Image from './components/content/Image';
+import InlineCode from './components/content/InlineCode';
 import MarkdownImage from './components/content/MarkdownImage';
 import NetflixFlag from './components/content/NetflixFlag';
 import PrimeVideoFlag from './components/content/PrimeVideoFlag';
@@ -62,6 +63,7 @@ export const mapping = {
 	Verse,
 	YouTube,
 	a: TextLink,
+	code: InlineCode,
 	blockquote: Blockquote,
 	h1: Title,
 	h2: Headline,

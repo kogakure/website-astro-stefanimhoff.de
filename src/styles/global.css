@@ -334,11 +334,13 @@
 	p code,
 	li code,
 	samp {
-		@apply bg-code-1 text-2 text-code-2 relative whitespace-normal rounded-[0.3em];
-		padding-inline: var(--spacing-3);
-		padding-block-end: var(--spacing-1);
-		padding-block-start: var(--spacing-3);
-		inset-block-start: -0.2em;
+		@apply relative inline whitespace-normal rounded-[0.3em];
+		@apply font-mono;
+		@apply bg-kiri text-sumi border-nezumi/30 border;
+		@apply dark:bg-code-1 dark:text-code-2 dark:border-white/10;
+		font-size: var(--text-code);
+		padding-inline: 0.4em;
+		padding-block: 0.15em;
 	}
 
 	kbd {
