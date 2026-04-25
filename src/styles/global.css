@@ -577,6 +577,24 @@
 }
 
 /* ============================================================
+   Marquee
+   ============================================================ */
+@keyframes marquee-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.marquee-track {
+	width: max-content;
+	animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
+	will-change: transform;
+}
+
+/* ============================================================
    Reduced Motion — Seijaku (静寂)
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {

@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import { formatPosts } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Marquee from '@/components/interactive/Marquee';
 import HomePageSection from '@/components/ui/HomepagePageSection';
 import JapanesePoem from '@/components/ui/JapanesePoem';
 import ListItem from '@/components/ui/ListItem';
@@ -67,12 +68,9 @@ const description = 'Design Engineer from Hamburg, Germany';
 	</div>
 
 	<!-- Haiku marquee band -->
-	<div class="marquee-band my-4 overflow-hidden py-3" aria-hidden="true">
-		<div class="marquee-track flex whitespace-nowrap">
-			<JapanesePoem />
-			<JapanesePoem aria-hidden="true" />
-		</div>
-	</div>
+	<Marquee client:visible className="my-4">
+		<JapanesePoem />
+	</Marquee>
 
 	<!-- Sections below marquee -->
 	<div class="max-w-360 mx-auto mb-32 mt-16 flex w-full flex-col gap-16 px-8">
@@ -115,67 +113,3 @@ const description = 'Design Engineer from Hamburg, Germany';
 		</HomePageSection>
 	</div>
 </BaseLayout>
-
-<script>
-	if (!CSS.supports('animation-timeline', 'view()')) {
-		// Fallback: IntersectionObserver play/pause
-		const band = document.querySelector('.marquee-band');
-		if (band) {
-			const observer = new IntersectionObserver(
-				([entry]) => band.classList.toggle('is-visible', entry.isIntersecting),
-				{ threshold: 0 }
-			);
-			observer.observe(band);
-		}
-	} else {
-		// Set animation-range directly so scroll() timeline starts at the
-		// equivalent of "entry 75%" and ends just before the page bottom.
-		function setMarqueeRange() {
-			const band = document.querySelector<HTMLElement>('.marquee-band');
-			const track = document.querySelector<HTMLElement>('.marquee-track');
-			if (!band || !track) return;
-			const vh = window.innerHeight;
-			const scrollMax = document.documentElement.scrollHeight - vh;
-			if (scrollMax <= 0) return;
-			const bandTop = band.getBoundingClientRect().top + window.scrollY;
-			const bandH = band.offsetHeight;
-			// entry 75% = 75% of band visible = scrolled to bandTop - vh + 0.25*bandH
-			const startScroll = Math.max(0, bandTop - vh + bandH * 0.25);
-			const startPct = ((startScroll / scrollMax) * 100).toFixed(2);
-			track.style.setProperty('animation-range', `${startPct}% 96%`);
-		}
-		setMarqueeRange();
-		window.addEventListener('resize', setMarqueeRange);
-	}
-</script>
-
-<style>
-	@keyframes marquee-scroll {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(-50%);
-		}
-	}
-
-	/* Fallback: time-based animation, play/pause via IntersectionObserver */
-	.marquee-track {
-		animation: marquee-scroll 25s linear infinite;
-		animation-play-state: paused;
-		will-change: transform;
-	}
-
-	.marquee-band.is-visible .marquee-track {
-		animation-play-state: running;
-	}
-
-	/* Progressive enhancement: scroll-driven against root scroll */
-	@supports (animation-timeline: scroll()) {
-		.marquee-track {
-			animation: marquee-scroll linear both;
-			animation-timeline: scroll(root block);
-			animation-play-state: running;
-		}
-	}
-</style>
