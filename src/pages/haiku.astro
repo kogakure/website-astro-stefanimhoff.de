@@ -55,7 +55,9 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 			</div>
 		</PageSection>
 
-		<Divider />
+		<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+			<Divider className="col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4" />
+		</div>
 
 		<!-- HAIKU list -->
 		<PageSection label="Haiku">

@@ -1,11 +1,11 @@
 ---
 # SI-22b7
 title: Divider on Haiku page is too wide
-status: todo
+status: completed
 type: bug
 priority: normal
 created_at: 2026-04-22T18:24:27Z
-updated_at: 2026-04-22T18:29:09Z
+updated_at: 2026-04-25T14:20:27Z
 parent: SI-pu42
 ---
 
