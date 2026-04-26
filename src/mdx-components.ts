@@ -23,14 +23,29 @@ import Spotify from './components/content/Spotify';
 import ThemeBox from './components/content/ThemeBox';
 import Verse from './components/content/Verse';
 import YouTube from './components/content/YouTube';
+import CodeBlock from './components/ui/CodeBlock';
 import Divider from './components/ui/Divider';
+import Em from './components/ui/Em';
 import Flag from './components/ui/Flag';
+import FootnoteSection from './components/ui/FootnoteSection';
 import Headline from './components/ui/Headline';
+import LineBreak from './components/ui/LineBreak';
 import ListItem from './components/ui/ListItem';
 import MoreLink from './components/ui/MoreLink';
 import OrderedList from './components/ui/OrderedList';
+import Strikethrough from './components/ui/Strikethrough';
+import Strong from './components/ui/Strong';
 import Subheadline from './components/ui/Subheadline';
+import Subscript from './components/ui/Subscript';
 import Subsubheadline from './components/ui/Subsubheadline';
+import Superscript from './components/ui/Superscript';
+import Table from './components/ui/Table';
+import TableBody from './components/ui/TableBody';
+import TableCell from './components/ui/TableCell';
+import TableHead from './components/ui/TableHead';
+import TableHeaderCell from './components/ui/TableHeaderCell';
+import TableRow from './components/ui/TableRow';
+import TaskCheckbox from './components/ui/TaskCheckbox';
 import Text from './components/ui/Text';
 import TextLink from './components/ui/TextLink';
 import Title from './components/ui/Title';
@@ -63,8 +78,11 @@ export const mapping = {
 	Verse,
 	YouTube,
 	a: TextLink,
-	code: InlineCode,
 	blockquote: Blockquote,
+	br: LineBreak,
+	code: InlineCode,
+	del: Strikethrough,
+	em: Em,
 	h1: Title,
 	h2: Headline,
 	h3: Subheadline,
@@ -73,8 +91,20 @@ export const mapping = {
 	h6: Subsubheadline,
 	hr: Divider,
 	img: MarkdownImage,
+	input: TaskCheckbox,
 	li: ListItem,
 	ol: OrderedList,
 	p: Text,
+	pre: CodeBlock,
+	section: FootnoteSection,
+	strong: Strong,
+	sub: Subscript,
+	sup: Superscript,
+	table: Table,
+	tbody: TableBody,
+	td: TableCell,
+	th: TableHeaderCell,
+	thead: TableHead,
+	tr: TableRow,
 	ul: UnorderedList,
 };

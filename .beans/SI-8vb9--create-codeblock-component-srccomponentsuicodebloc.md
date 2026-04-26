@@ -1,11 +1,16 @@
 ---
 # SI-8vb9
 title: Create CodeBlock component (src/components/ui/CodeBlock.tsx)
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-04-26T07:35:53Z
-updated_at: 2026-04-26T07:35:53Z
+updated_at: 2026-04-26T11:24:09Z
 parent: SI-a9qx
 ---
 
 Wraps <pre>. Default classes ported from SimpleLayout.astro:84 — rounded-2 text-code mbe-8 overflow-auto p-4 font-mono.
+
+## Summary of Changes
+
+Component created at src/components/ui/. Follows existing pattern: cn() merge, HTMLAttributes typing, named + default export.

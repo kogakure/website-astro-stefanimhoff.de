@@ -1,5 +1,6 @@
 import type { BlockquoteHTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
+import { Text } from '../ui/Text';
 import { TextLink } from '../ui/TextLink';
 
 interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
@@ -31,7 +32,7 @@ export const Pullquote = ({
 		)}
 		{...props}
 	>
-		<p dangerouslySetInnerHTML={{ __html: text }} />
+		<Text dangerouslySetInnerHTML={{ __html: text }} />
 		{(author || source) && (
 			<footer className="text-2 mbs-6 font-normal opacity-60">
 				{author && <b className="font-normal">{author}</b>}

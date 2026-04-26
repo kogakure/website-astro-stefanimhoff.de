@@ -6,6 +6,7 @@ import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
+import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
 import { remarkReadingTime, remarkWidont } from './src/utils';
 
@@ -23,7 +24,7 @@ export default defineConfig({
 	},
 	integrations: [
 		mdx({
-			remarkPlugins: [remarkReadingTime, remarkWidont],
+			remarkPlugins: [remarkGfm, remarkReadingTime, remarkWidont],
 		}),
 		react(),
 		pagefind(),

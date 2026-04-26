@@ -1,9 +1,11 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import Divider from '../ui/Divider';
 import EssayLink from '../ui/EssayLink';
 import ListItem from '../ui/ListItem';
 import SectionLabel from '../ui/SectionLabel';
+import Text from '../ui/Text';
 import UnorderedList from '../ui/UnorderedList';
 
 const STORAGE_KEY = 'writing-filter';
@@ -94,7 +96,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 					<SectionLabel>Filter</SectionLabel>
 				</div>
 				<div className={contentCol}>
-					<p className="text-3 leading-relaxed">
+					<Text className="leading-relaxed">
 						{allTags.map((tag, i) => (
 							<span key={tag}>
 								{i > 0 && (
@@ -130,12 +132,12 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 								Clear
 							</button>
 						)}
-					</p>
+					</Text>
 				</div>
 			</section>
 
 			{/* Separator */}
-			<hr className="border-shibui-300 dark:border-shibui-700" />
+			<Divider className="border-shibui-300 dark:border-shibui-700" />
 
 			{/* Essays grouped by year */}
 			{years.length > 0 ? (
@@ -162,9 +164,9 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			) : (
 				<section className={sectionGrid}>
 					<div className={labelCol} />
-					<p className={`${contentCol} text-3 text-hai`}>
+					<Text className={`${contentCol} text-hai`}>
 						No essays found for the selected tags.
-					</p>
+					</Text>
 				</section>
 			)}
 		</div>

@@ -1,11 +1,16 @@
 ---
 # SI-2a60
 title: Replace raw <p>/<hr> in WritingPage.tsx with Text/Divider
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-04-26T07:36:13Z
-updated_at: 2026-04-26T07:36:13Z
+updated_at: 2026-04-26T11:27:51Z
 parent: SI-0ph1
 ---
 
 src/components/interactive/WritingPage.tsx — line 97 (<p className=text-3 leading-relaxed>) and 165 (<p className={contentCol} text-3 text-hai>) → <Text>. Line 138 (<hr className=border-shibui-300>) → <Divider>. Skip <section> elements (layout grids, not content semantics).
+
+## Summary of Changes
+
+Replaced raw <p>/<hr> in src/components/interactive/WritingPage.tsx with Text and Divider. Imported both from '../ui/'.
