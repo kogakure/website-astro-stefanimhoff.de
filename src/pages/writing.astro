@@ -9,9 +9,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import PageTitle from '@/components/site/PageTitle.astro';
 import PageSection from '@/components/ui/PageSection';
-import Text from '@/components/ui/Text';
-import TextLink from '@/components/ui/TextLink';
 import WritingPage from '@/components/interactive/WritingPage';
+
+import { Content as WritingIntro } from '@/text/writing/intro.mdx';
+import { mapping } from '@/mdx-components';
 
 const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
 const formattedPosts = formatPosts(allPosts, {});
@@ -37,15 +38,7 @@ const description =
 
 	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32 pt-16">
 		<PageSection label="Introduction">
-			<Text className="mbe-0">
-				Since 2007 I have been writing here — essays on design, code, philosophy,
-				minimalism, Japan, and the life of the mind. A collection of essays on <TextLink
-					href="https://www.kogakure.de/en/">Ninja and Ninjutsu</TextLink
-				> grew into a book. Medium featured <TextLink href="/attention/">one essay</TextLink
-				> as their recommendation of the day. I also write <TextLink href="/haiku/"
-					>Haiku</TextLink
-				>.
-			</Text>
+			<WritingIntro components={mapping} />
 		</PageSection>
 
 		<WritingPage client:load allTags={uniqueTags} posts={posts} />

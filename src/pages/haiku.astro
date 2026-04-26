@@ -8,12 +8,11 @@ import { sortByDate } from '@/utils';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Divider from '@/components/ui/Divider';
 import HaikuItem from '@/components/ui/HaikuItem';
-import ListItem from '@/components/ui/ListItem';
 import PageTitle from '@/components/site/PageTitle.astro';
 import PageSection from '@/components/ui/PageSection';
-import Ruby from '@/components/content/Ruby';
-import Text from '@/components/ui/Text';
-import UnorderedList from '@/components/ui/UnorderedList';
+
+import { Content as HaikuIntro } from '@/text/haiku/intro.mdx';
+import { mapping } from '@/mdx-components';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
@@ -27,31 +26,8 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 
 	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
 		<PageSection label="Introduction">
-			<div class="flex flex-col gap-4 leading-relaxed">
-				<Text className="mbe-0">
-					Haiku (<Ruby base="俳句" />) is the shortest serious form in poetry. Three
-					phrases. Two qualities define it:
-				</Text>
-
-				<UnorderedList className="gap-2">
-					<ListItem>
-						<em>kigo</em>
-						(<Ruby base="季語" />)—a seasonal reference. Heaven, earth, humanity,
-						animals, plants. Time made visible in a single image.
-					</ListItem>
-					<ListItem>
-						<em>kiru</em>
-						(<span class="text-beni font-sans">切</span>)—a cut. Two images or ideas
-						held in juxtaposition, separated by a <em>kireji</em>, a cutting word. The
-						space between them is where meaning lives.
-					</ListItem>
-				</UnorderedList>
-				<Text className="mbe-0">
-					Traditionally seventeen syllables: five, seven, five (<Ruby
-						base="自由"
-						text="じゆう"
-					/><Ruby base="律" text="りつ" />).
-				</Text>
+			<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4 leading-relaxed [&ul]:gap-2">
+				<HaikuIntro components={mapping} />
 			</div>
 		</PageSection>
 

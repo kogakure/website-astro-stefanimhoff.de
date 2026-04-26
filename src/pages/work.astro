@@ -11,6 +11,9 @@ import MoreLink from '@/components/ui/MoreLink';
 import PageTitle from '@/components/site/PageTitle.astro';
 import Text from '@/components/ui/Text';
 
+import { Content as WorkIntro } from '@/text/work/intro.mdx';
+import { mapping } from '@/mdx-components';
+
 const allProjects: Projects[] = await getCollection('projects');
 const projects = allProjects.sort(sortBySortKey);
 
@@ -22,17 +25,8 @@ const description = "I'm a Design Engineer. These are selected projects from the
 	<PageTitle>Work</PageTitle>
 
 	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
-		<!-- Introduction -->
-		<div>
-			<Text className="text-hai mbe-4 leading-relaxed">
-				I am a design engineer by discipline. In previous chapters: editorial design, 3D
-				animation, and a period spent making Flash animations and multimedia CD-ROMs that no
-				longer exist anywhere. I have always believed in working across domains. A
-				specialist in one thing tends to miss the connections.
-			</Text>
-			<Text className="text-hai mbe-0 leading-relaxed">
-				These are selected projects from the last two decades.
-			</Text>
+		<div class="*:mbe-4 [&>*:last-child]:mbe-0">
+			<WorkIntro components={mapping} />
 		</div>
 
 		<!-- Project list -->

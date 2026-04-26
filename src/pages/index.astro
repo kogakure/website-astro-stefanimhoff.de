@@ -16,6 +16,11 @@ import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
 
+import { Content as About } from '@/text/homepage/about.mdx';
+import { Content as Work } from '@/text/homepage/work.mdx';
+import { Content as Writing } from '@/text/homepage/writing.mdx';
+import { mapping } from '@/mdx-components';
+
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
 const latestPosts = formatPosts(allPosts, { limit: 9 });
 
@@ -46,20 +51,12 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 	<div class="max-w-360 mx-auto mb-16 flex w-full flex-col gap-16 px-8">
 		<HomePageSection label="About">
-			<Text className="mbe-5">
-				Nearly two decades at the intersection of design and code. Guided by simplicity,
-				structure, and the discipline of leaving things out.
-			</Text>
+			<About components={mapping} />
 			<MoreLink href="/about/" text="About" />
 		</HomePageSection>
 
 		<HomePageSection label="Work">
-			<Text className="mbe-5">
-				I build interfaces that hold up under scrutiny — design systems, component
-				libraries, and the invisible layer of decisions that makes a product coherent. For
-				most of the last decade, that work was at XING, Europe's leading professional
-				network.
-			</Text>
+			<Work components={mapping} />
 			<MoreLink href="/work/" text="See selected work" />
 		</HomePageSection>
 	</div>
@@ -70,10 +67,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 
 	<div class="max-w-360 mx-auto mb-32 mt-16 flex w-full flex-col gap-16 px-8">
 		<HomePageSection label="Writing">
-			<Text className="mbe-5">
-				Essays on design, code, philosophy, and the examined life. Published here since
-				2007.
-			</Text>
+			<Writing components={mapping} />
 			<div class="flex flex-col gap-2">
 				<MoreLink href="/writing/" text="Read the journal" />
 				<MoreLink href="/rss.xml" text="Subscribe to RSS Feed" />

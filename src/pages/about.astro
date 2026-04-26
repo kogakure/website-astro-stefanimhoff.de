@@ -3,10 +3,10 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import MoreLink from '@/components/ui/MoreLink';
 import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
-import Ruby from '@/components/content/Ruby';
 import SectionLabel from '@/components/ui/SectionLabel';
-import Text from '@/components/ui/Text';
-import TextLink from '@/components/ui/TextLink';
+
+import { Content as AboutIntro } from '@/text/about/intro.mdx';
+import { mapping } from '@/mdx-components';
 
 const title = 'About';
 const description =
@@ -41,47 +41,8 @@ const description =
 			<div
 				class="col-span-3 row-start-3 min-w-0 md:col-span-4 md:col-start-1 md:row-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
 			>
-				<div class="flex flex-col gap-5 leading-relaxed">
-					<Text className="mbe-0">
-						I am <strong>Stefan Imhoff</strong>—design engineer, writer, and
-						observer—based in Hamburg, Germany.
-					</Text>
-					<Text className="mbe-0">
-						I find meaning in ideas. Books on philosophy, science, and economics. <TextLink
-							href="https://raindrop.io/kogakure/podcasts-24118384">Podcasts</TextLink
-						>. <TextLink href="https://www.themoviedb.org/u/kogakure/favorites"
-							>Films</TextLink
-						>—particularly <TextLink
-							href="https://www.themoviedb.org/list/8216385-korea?view=grid"
-							>Korean</TextLink
-						> and <TextLink
-							href="https://www.themoviedb.org/list/106001-japan?view=grid"
-							>Japanese</TextLink
-						> cinema and drama. I believe humans understand the world through narrative,
-						and I try to contribute to that—through <TextLink href="/journal/"
-							>essays</TextLink
-						>, sketchnotes, <TextLink href="/haiku/">Haiku</TextLink>, and a free <TextLink
-							href="https://www.kogakure.de/en/">book on Ninja and Ninjutsu</TextLink
-						>.
-					</Text>
-					<Text className="mbe-0">
-						Outside the screen: <TextLink href="https://hamburg.stefanimhoff.de/"
-							>walking and cycling through Hamburg</TextLink
-						>, calisthenics, ink sketching and watercolour, and a persistent attention
-						to the small things—the quality of light through leaves (<Ruby
-							base="木"
-							text="こ"
-						/><Ruby base="漏" text="も" /><Ruby base="れ" /><Ruby
-							base="日"
-							text="び"
-						/>), the sound of a storm, the particular silence after it passes.
-					</Text>
-					<Text className="mbe-0">
-						I practice minimalism, draw from Stoic philosophy, and hold Japanese
-						aesthetics close—especially the principle of <em>shibui</em> (<Ruby
-							base="渋い"
-						/>): quiet beauty that reveals itself slowly.
-					</Text>
+				<div class="*:mbe-0 flex flex-col gap-5 leading-relaxed">
+					<AboutIntro components={mapping} />
 				</div>
 			</div>
 		</section>
