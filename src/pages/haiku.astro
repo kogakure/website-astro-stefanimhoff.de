@@ -23,12 +23,9 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 ---
 
 <BaseLayout title={title} description={description}>
-	<!-- Page title -->
 	<PageTitle>Haiku</PageTitle>
 
-	<!-- Content sections -->
 	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
-		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
 			<div class="flex flex-col gap-4 leading-relaxed">
 				<Text className="mbe-0">
@@ -62,7 +59,6 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 			<Divider className="col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4" />
 		</div>
 
-		<!-- HAIKU list -->
 		<PageSection label="Haiku">
 			<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
 				{allHaiku.map(({ data }) => <HaikuItem de={data.de} en={data.en} />)}

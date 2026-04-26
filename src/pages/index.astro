@@ -44,9 +44,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 		</div>
 	</div>
 
-	<!-- Sections above marquee -->
 	<div class="max-w-360 mx-auto mb-16 flex w-full flex-col gap-16 px-8">
-		<!-- ABOUT -->
 		<HomePageSection label="About">
 			<Text className="mbe-5">
 				Nearly two decades at the intersection of design and code. Guided by simplicity,
@@ -55,7 +53,6 @@ const description = 'Design Engineer from Hamburg, Germany';
 			<MoreLink href="/about/" text="About" />
 		</HomePageSection>
 
-		<!-- WORK -->
 		<HomePageSection label="Work">
 			<Text className="mbe-5">
 				I build interfaces that hold up under scrutiny — design systems, component
@@ -67,14 +64,11 @@ const description = 'Design Engineer from Hamburg, Germany';
 		</HomePageSection>
 	</div>
 
-	<!-- Haiku marquee band -->
 	<Marquee client:visible className="my-4">
 		<JapanesePoem />
 	</Marquee>
 
-	<!-- Sections below marquee -->
 	<div class="max-w-360 mx-auto mb-32 mt-16 flex w-full flex-col gap-16 px-8">
-		<!-- WRITING -->
 		<HomePageSection label="Writing">
 			<Text className="mbe-5">
 				Essays on design, code, philosophy, and the examined life. Published here since
@@ -86,7 +80,6 @@ const description = 'Design Engineer from Hamburg, Germany';
 			</div>
 		</HomePageSection>
 
-		<!-- LATEST ESSAYS -->
 		<HomePageSection label="Latest Essays">
 			<UnorderedList className="relative top-1.5" data-pagefind-ignore>
 				{
@@ -103,7 +96,6 @@ const description = 'Design Engineer from Hamburg, Germany';
 			</UnorderedList>
 		</HomePageSection>
 
-		<!-- CONTACT -->
 		<HomePageSection label="Contact">
 			<MoreLink
 				href="mailto:hey@stefanimhoff.de"

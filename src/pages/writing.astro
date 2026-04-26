@@ -33,12 +33,9 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-	<!-- Page title -->
 	<PageTitle>Writing</PageTitle>
 
-	<!-- Content sections -->
 	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32 pt-16">
-		<!-- INTRODUCTION -->
 		<PageSection label="Introduction">
 			<Text className="mbe-0">
 				Since 2007 I have been writing here — essays on design, code, philosophy,
@@ -51,7 +48,6 @@ const description =
 			</Text>
 		</PageSection>
 
-		<!-- FILTER + ESSAYS (interactive, client-side) -->
 		<WritingPage client:load allTags={uniqueTags} posts={posts} />
 	</div>
 </BaseLayout>
