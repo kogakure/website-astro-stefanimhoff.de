@@ -16,3 +16,5 @@ cover: string;
 author: string;
 description?: string;
 ```
+
+What else is missing?
