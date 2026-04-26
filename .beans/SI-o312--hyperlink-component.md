@@ -1,11 +1,11 @@
 ---
 # SI-o312
 title: Hyperlink Component
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-04-25T15:13:58Z
-updated_at: 2026-04-25T15:15:25Z
+updated_at: 2026-04-26T07:24:19Z
 parent: SI-ec1h
 ---
 
