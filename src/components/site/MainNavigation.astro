@@ -12,8 +12,8 @@ const isActive = (url: string) => (url === '/' ? currentPath === '/' : currentPa
 				<li class="nav-item">
 					<a
 						class:list={[
-							'px-1 text-sm transition-opacity hover:opacity-60',
-							isActive(url) && 'decoration-beni underline underline-offset-4',
+							'decoration-beni hover:text-beni px-1 text-sm underline-offset-4 transition-colors',
+							isActive(url) && 'underline',
 						]}
 						data-umami-event={`Nav: ${title}`}
 						href={url}
