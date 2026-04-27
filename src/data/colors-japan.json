@@ -2,1501 +2,2501 @@
 	{
 		"id": "1",
 		"name": "Pink",
+		"kanji": "撫子色",
+		"hiragana": "なでしこいろ",
 		"description": "The vivid pink of Dianthus chinesis flowers.",
-		"color": "#DC9FB4"
+		"color": "#DC9FB4",
+		"rgb": { "r": 220, "g": 159, "b": 180 },
+		"cmyk": { "c": 2, "m": 43, "y": 3, "k": 0 }
 	},
 	{
 		"id": "2",
 		"name": "Orchid Pink",
+		"kanji": "紅梅色",
+		"hiragana": "こうばいいろ",
 		"description": "The purplish pink of orchids.",
-		"color": "#E16B8C"
+		"color": "#E16B8C",
+		"rgb": { "r": 225, "g": 107, "b": 140 },
+		"cmyk": { "c": 0, "m": 73, "y": 24, "k": 0 }
 	},
 	{
 		"id": "3",
 		"name": "Raspberry Red",
+		"kanji": "蘇芳",
+		"hiragana": "すおう",
 		"description": "The rich purplish red of raspberries.",
-		"color": "#8E354A"
+		"color": "#8E354A",
+		"rgb": { "r": 142, "g": 53, "b": 74 },
+		"cmyk": { "c": 51, "m": 93, "y": 58, "k": 10 }
 	},
 	{
 		"id": "4",
 		"name": "Old Rose",
+		"kanji": "退紅",
+		"hiragana": "たいこう",
 		"description": "A soft, light red; a washed-out vermilion.",
-		"color": "#F8C3CD"
+		"color": "#F8C3CD",
+		"rgb": { "r": 248, "g": 195, "b": 205 },
+		"cmyk": { "c": 0, "m": 31, "y": 9, "k": 0 }
 	},
 	{
 		"id": "5",
 		"name": "Baby Pink",
+		"kanji": "一斤染",
+		"hiragana": "いっこんぞめ",
 		"description": "A soft pink.",
-		"color": "#F4A7B9"
+		"color": "#F4A7B9",
+		"rgb": { "r": 244, "g": 167, "b": 185 },
+		"cmyk": { "c": 0, "m": 48, "y": 15, "k": 0 }
 	},
 	{
 		"id": "6",
 		"name": "Mulberry",
+		"kanji": "桑染・桑の実色",
+		"hiragana": "くわぞめ・くわのみいろ",
 		"description": "The dark reddish-purple of ripe mulberries.",
-		"color": "#64363C"
+		"color": "#64363C",
+		"rgb": { "r": 100, "g": 54, "b": 60 },
+		"cmyk": { "c": 69, "m": 86, "y": 65, "k": 35 }
 	},
 	{
 		"id": "7",
 		"name": "Fuchsia Pink",
+		"kanji": "桃色",
+		"hiragana": "ももいろ",
 		"description": "The pink of fuchsia flowers.",
-		"color": "#F596AA"
+		"color": "#F596AA",
+		"rgb": { "r": 245, "g": 150, "b": 170 },
+		"cmyk": { "c": 0, "m": 55, "y": 19, "k": 0 }
 	},
 	{
 		"id": "8",
 		"name": "Strawberry",
+		"kanji": "苺色",
+		"hiragana": "いちごいろ",
 		"description": "The rich red of strawberries.",
-		"color": "#B5495B"
+		"color": "#B5495B",
+		"rgb": { "r": 181, "g": 73, "b": 91 },
+		"cmyk": { "c": 2, "m": 70, "y": 38, "k": 30 }
 	},
 	{
 		"id": "9",
 		"name": "Rose Pink",
+		"kanji": "薄紅",
+		"hiragana": "うすべに",
 		"description": "The pale vermilion of classic pink roses.",
-		"color": "#E87A90"
+		"color": "#E87A90",
+		"rgb": { "r": 232, "g": 122, "b": 144 },
+		"cmyk": { "c": 0, "m": 64, "y": 26, "k": 0 }
 	},
 	{
 		"id": "10",
 		"name": "Signal Red",
+		"kanji": "今様色",
+		"hiragana": "いまよういろ",
 		"description": "A deep red.",
-		"color": "#D05A6E"
+		"color": "#D05A6E",
+		"rgb": { "r": 208, "g": 90, "b": 110 },
+		"cmyk": { "c": 0, "m": 75, "y": 38, "k": 20 }
 	},
 	{
 		"id": "11",
 		"name": "Cherry Pink",
+		"kanji": "中紅",
+		"hiragana": "なかべに",
 		"description": "A pink with a hint of purple.",
-		"color": "#DB4D6D"
+		"color": "#DB4D6D",
+		"rgb": { "r": 219, "g": 77, "b": 109 },
+		"cmyk": { "c": 5, "m": 83, "y": 40, "k": 0 }
 	},
 	{
 		"id": "12",
 		"name": "Cherry Blossom",
+		"kanji": "桜色",
+		"hiragana": "さくらいろ",
 		"description": "The pink of cherry blossoms, the Japanese national flower.",
-		"color": "#FEDFE1"
+		"color": "#FEDFE1",
+		"rgb": { "r": 254, "g": 223, "b": 225 },
+		"cmyk": { "c": 0, "m": 17, "y": 6, "k": 0 }
 	},
 	{
 		"id": "13",
 		"name": "Rose Gray",
+		"kanji": "梅鼠",
+		"hiragana": "うめねずみ",
 		"description": "Gray with a hint of rose-red.",
-		"color": "#9E7A7A"
+		"color": "#9E7A7A",
+		"rgb": { "r": 158, "g": 122, "b": 122 },
+		"cmyk": { "c": 48, "m": 59, "y": 49, "k": 0 }
 	},
 	{
 		"id": "14",
 		"name": "Rose Red",
+		"kanji": "韓紅花・深紅",
+		"hiragana": "からくれない・こきくれない",
 		"description": "The familiar red of roses.",
-		"color": "#D0104C"
+		"color": "#D0104C",
+		"rgb": { "r": 208, "g": 16, "b": 76 },
+		"cmyk": { "c": 15, "m": 98, "y": 61, "k": 0 }
 	},
 	{
 		"id": "15",
 		"name": "Crimson",
+		"kanji": "臙脂色",
+		"hiragana": "えんじいろ",
 		"description": "A deep red originally derived from the cochineal insect.",
-		"color": "#9F353A"
+		"color": "#9F353A",
+		"rgb": { "r": 159, "g": 53, "b": 58 },
+		"cmyk": { "c": 42, "m": 93, "y": 68, "k": 6 }
 	},
 	{
 		"id": "16",
 		"name": "Carmine",
+		"kanji": "紅・べに",
+		"hiragana": "くれない・べに",
 		"description": "A bright red originally derived from the cochineal insect.",
-		"color": "#CB1B45"
+		"color": "#CB1B45",
+		"rgb": { "r": 203, "g": 27, "b": 69 },
+		"cmyk": { "c": 0, "m": 100, "y": 65, "k": 10 }
 	},
 	{
 		"id": "17",
 		"name": "Pink",
+		"kanji": "鴇羽色・鴇色",
+		"hiragana": "ときはいろ・ときいろ",
 		"description": "The color of fringed pinks, also known as Dianthus or pink carnations.",
-		"color": "#EEA9A9"
+		"color": "#EEA9A9",
+		"rgb": { "r": 238, "g": 169, "b": 169 },
+		"cmyk": { "c": 2, "m": 45, "y": 27, "k": 0 }
 	},
 	{
 		"id": "18",
 		"name": "Old Rose",
+		"kanji": "長春色",
+		"hiragana": "ちょうしゅんいろ",
 		"description": "A faded rose-red.",
-		"color": "#BF6766"
+		"color": "#BF6766",
+		"rgb": { "r": 191, "g": 103, "b": 102 },
+		"cmyk": { "c": 25, "m": 70, "y": 53, "k": 0 }
 	},
 	{
 		"id": "19",
 		"name": "Chocolate Brown",
+		"kanji": "深緋・黒緋",
+		"hiragana": "こきあけ・くろあけ",
 		"description": "A deep, rich brown.",
-		"color": "#86473F"
+		"color": "#86473F",
+		"rgb": { "r": 134, "g": 71, "b": 63 },
+		"cmyk": { "c": 54, "m": 75, "y": 65, "k": 14 }
 	},
 	{
 		"id": "20",
 		"name": "Silver Pink",
+		"kanji": "桜鼠",
+		"hiragana": "さくらねずみ",
 		"description": "Pink with a hint of silver.",
-		"color": "#B19693"
+		"color": "#B19693",
+		"rgb": { "r": 177, "g": 150, "b": 147 },
+		"cmyk": { "c": 34, "m": 46, "y": 39, "k": 0 }
 	},
 	{
 		"id": "21",
 		"name": "French Rose",
+		"kanji": "甚三紅",
+		"hiragana": "じんざもみ",
 		"description": "A bright crimson.",
-		"color": "#EB7A77"
+		"color": "#EB7A77",
+		"rgb": { "r": 235, "g": 122, "b": 119 },
+		"cmyk": { "c": 0, "m": 65, "y": 46, "k": 0 }
 	},
 	{
 		"id": "22",
 		"name": "Russet Brown",
+		"kanji": "小豆色",
+		"hiragana": "あずきいろ",
 		"description": "A deep reddish brown.",
-		"color": "#954A45"
+		"color": "#954A45",
+		"rgb": { "r": 149, "g": 74, "b": 69 },
+		"cmyk": { "c": 48, "m": 78, "y": 66, "k": 10 }
 	},
 	{
 		"id": "23",
 		"name": "Corinth Pink",
+		"kanji": "蘇芳香",
+		"hiragana": "すおうこう",
 		"description": "A reddish-brown used on ancient Greek pottery from Corinth.",
-		"color": "#A96360"
+		"color": "#A96360",
+		"rgb": { "r": 169, "g": 99, "b": 96 },
+		"cmyk": { "c": 42, "m": 70, "y": 58, "k": 1 }
 	},
 	{
 		"id": "24",
 		"name": "Geranium",
+		"kanji": "赤紅",
+		"hiragana": "あかべに",
 		"description": "The strong red of geraniums, flowering perennials in the geraniaceae family.",
-		"color": "#CB4042"
+		"color": "#CB4042",
+		"rgb": { "r": 203, "g": 64, "b": 66 },
+		"cmyk": { "c": 15, "m": 85, "y": 68, "k": 0 }
 	},
 	{
 		"id": "25",
 		"name": "Cardinal",
+		"kanji": "真朱",
+		"hiragana": "しんしゅ",
 		"description": "A vivid red, named for the color of the cassocks worn by cardinals of the Roman Catholic Church.",
-		"color": "#AB3B3A"
+		"color": "#AB3B3A",
+		"rgb": { "r": 171, "g": 59, "b": 58 },
+		"cmyk": { "c": 35, "m": 85, "y": 70, "k": 2 }
 	},
 	{
 		"id": "26",
 		"name": "Silver Pink",
+		"kanji": "灰桜色",
+		"hiragana": "はいざくらいろ",
 		"description": "Pink with a hint of silver.",
-		"color": "#D7C4BB"
+		"color": "#D7C4BB",
+		"rgb": { "r": 215, "g": 196, "b": 187 },
+		"cmyk": { "c": 2, "m": 12, "y": 12, "k": 10 }
 	},
 	{
 		"id": "27",
 		"name": "Dark Cardinal",
+		"kanji": "栗梅",
+		"hiragana": "くりうめ",
 		"description": "A dark reddish brown.",
-		"color": "#904840"
+		"color": "#904840",
+		"rgb": { "r": 144, "g": 72, "b": 64 },
+		"cmyk": { "c": 50, "m": 78, "y": 68, "k": 13 }
 	},
 	{
 		"id": "28",
 		"name": "Garnet",
+		"kanji": "海老茶",
+		"hiragana": "えびちゃ",
 		"description": "A dark red of garnets.",
-		"color": "#734338"
+		"color": "#734338",
+		"rgb": { "r": 115, "g": 67, "b": 56 },
+		"cmyk": { "c": 55, "m": 77, "y": 68, "k": 27 }
 	},
 	{
 		"id": "29",
 		"name": "Blood Red",
+		"kanji": "銀朱",
+		"hiragana": "ぎんしゅ",
 		"description": "A pure, clear red.",
-		"color": "#C73E3A"
+		"color": "#C73E3A",
+		"rgb": { "r": 199, "g": 62, "b": 58 },
+		"cmyk": { "c": 16, "m": 86, "y": 70, "k": 0 }
 	},
 	{
 		"id": "30",
 		"name": "Woodland Brown",
+		"kanji": "黒鳶",
+		"hiragana": "くろとび",
 		"description": "The deep brown of a woodland floor.",
-		"color": "#554236"
+		"color": "#554236",
+		"rgb": { "r": 85, "g": 66, "b": 54 },
+		"cmyk": { "c": 71, "m": 74, "y": 69, "k": 41 }
 	},
 	{
 		"id": "31",
 		"name": "Pompeian Red",
+		"kanji": "紅鳶",
+		"hiragana": "べにとび",
 		"description": "A reddish-brown reminiscent of the houses of Pompeii.",
-		"color": "#994639"
+		"color": "#994639",
+		"rgb": { "r": 153, "g": 70, "b": 57 },
+		"cmyk": { "c": 40, "m": 82, "y": 72, "k": 11 }
 	},
 	{
 		"id": "32",
 		"name": "Salmon Pink",
+		"kanji": "曙色",
+		"hiragana": "あけぼのいろ",
 		"description": "The bright pink of salmon.",
-		"color": "#F19483"
+		"color": "#F19483",
+		"rgb": { "r": 241, "g": 148, "b": 131 },
+		"cmyk": { "c": 35, "m": 57, "y": 47, "k": 0 }
 	},
 	{
 		"id": "33",
 		"name": "Amber Red",
+		"kanji": "紅樺",
+		"hiragana": "べにかば",
 		"description": "Red with a hint of orange.",
-		"color": "#B54434"
+		"color": "#B54434",
+		"rgb": { "r": 181, "g": 68, "b": 52 },
+		"cmyk": { "c": 35, "m": 87, "y": 79, "k": 1 }
 	},
 	{
 		"id": "34",
 		"name": "Ash Rose",
+		"kanji": "水がき・鴇浅葱",
+		"hiragana": "みずがき・ときあさぎ",
 		"description": "A pale rose with a hint of ash gray.",
-		"color": "#B9887D"
+		"color": "#B9887D",
+		"rgb": { "r": 185, "g": 136, "b": 125 },
+		"cmyk": { "c": 30, "m": 54, "y": 46, "k": 0 }
 	},
 	{
 		"id": "35",
 		"name": "Coral Pink",
+		"kanji": "珊瑚朱色",
+		"hiragana": "さんごしゅいろ",
 		"description": "The characteristic pink of coral.",
-		"color": "#F17C67"
+		"color": "#F17C67",
+		"rgb": { "r": 241, "g": 124, "b": 103 },
+		"cmyk": { "c": 0, "m": 65, "y": 58, "k": 0 }
 	},
 	{
 		"id": "36",
 		"name": "Oxblood Red",
+		"kanji": "紅檜皮",
+		"hiragana": "べにひわだ",
 		"description": "A rich reddish brown.",
-		"color": "#884C3A"
+		"color": "#884C3A",
+		"rgb": { "r": 136, "g": 76, "b": 58 },
+		"cmyk": { "c": 52, "m": 74, "y": 70, "k": 18 }
 	},
 	{
 		"id": "37",
 		"name": "Poppy Red",
+		"kanji": "猩猩緋",
+		"hiragana": "しょうじょうひ",
 		"description": "A strong red with a hint of orange.",
-		"color": "#E83015"
+		"color": "#E83015",
+		"rgb": { "r": 232, "g": 48, "b": 21 },
+		"cmyk": { "c": 0, "m": 89, "y": 79, "k": 0 }
 	},
 	{
 		"id": "38",
 		"name": "Red Lead",
+		"kanji": "鉛丹色",
+		"hiragana": "えんたんいろ",
 		"description": "A bright reddish-orange, named for the pigment red lead or minium.",
-		"color": "#D75455"
+		"color": "#D75455",
+		"rgb": { "r": 215, "g": 84, "b": 85 },
+		"cmyk": { "c": 0, "m": 72, "y": 63, "k": 7 }
 	},
 	{
 		"id": "39",
 		"name": "Copper Rose",
+		"kanji": "芝蕗茶",
+		"hiragana": "しかんちゃ",
 		"description": "Rose red with a hint of copper.",
-		"color": "#B55D4C"
+		"color": "#B55D4C",
+		"rgb": { "r": 181, "g": 93, "b": 76 },
+		"cmyk": { "c": 37, "m": 72, "y": 68, "k": 0 }
 	},
 	{
 		"id": "40",
 		"name": "Mahogany",
+		"kanji": "檜皮色",
+		"hiragana": "ひわだいろ",
 		"description": "The deep reddish-brown of mahogany wood.",
-		"color": "#854836"
+		"color": "#854836",
+		"rgb": { "r": 133, "g": 72, "b": 54 },
+		"cmyk": { "c": 49, "m": 73, "y": 70, "k": 18 }
 	},
 	{
 		"id": "41",
 		"name": "Brick Dust",
+		"kanji": "柿渋色・柿色",
+		"hiragana": "かきしぶいろ・かきいろ",
 		"description": "A dull brick red.",
-		"color": "#A35E47"
+		"color": "#A35E47",
+		"rgb": { "r": 163, "g": 94, "b": 71 },
+		"cmyk": { "c": 43, "m": 72, "y": 71, "k": 4 }
 	},
 	{
 		"id": "42",
 		"name": "Scarlett",
+		"kanji": "緋",
+		"hiragana": "あけ",
 		"description": "A vivid red with a hint of yellow.",
-		"color": "#CC543A"
+		"color": "#CC543A",
+		"rgb": { "r": 204, "g": 84, "b": 58 },
+		"cmyk": { "c": 17, "m": 79, "y": 74, "k": 0 }
 	},
 	{
 		"id": "43",
 		"name": "Auburn Brown",
+		"kanji": "鳶色",
+		"hiragana": "とびいろ",
 		"description": "A red-brown color.",
-		"color": "#724832"
+		"color": "#724832",
+		"rgb": { "r": 114, "g": 72, "b": 50 },
+		"cmyk": { "c": 0, "m": 73, "y": 70, "k": 26 }
 	},
 	{
 		"id": "44",
 		"name": "Tomato Red",
+		"kanji": "紅緋",
+		"hiragana": "べにひ",
 		"description": "A color of a ripe tomato.",
-		"color": "#F75C2F"
+		"color": "#F75C2F",
+		"rgb": { "r": 247, "g": 92, "b": 47 },
+		"cmyk": { "c": 0, "m": 75, "y": 74, "k": 0 }
 	},
 	{
 		"id": "45",
 		"name": "Chestnut",
+		"kanji": "栗皮茶・栗皮色",
+		"hiragana": "くりかわちゃ・くりかわいろ",
 		"description": "The reddish brown of chestnuts.",
-		"color": "#6A4028"
+		"color": "#6A4028",
+		"rgb": { "r": 106, "g": 64, "b": 40 },
+		"cmyk": { "c": 58, "m": 74, "y": 72, "k": 30 }
 	},
 	{
 		"id": "46",
 		"name": "Copper Brown",
+		"kanji": "弁柄色",
+		"hiragana": "べんがらいろ",
 		"description": "A rich coppery brown.",
-		"color": "#9A5034"
+		"color": "#9A5034",
+		"rgb": { "r": 154, "g": 80, "b": 52 },
+		"cmyk": { "c": 44, "m": 74, "y": 75, "k": 12 }
 	},
 	{
 		"id": "47",
 		"name": "Burnt Orange",
+		"kanji": "照柿",
+		"hiragana": "てりがき",
 		"description": "A deep orange.",
-		"color": "#C46243"
+		"color": "#C46243",
+		"rgb": { "r": 196, "g": 98, "b": 67 },
+		"cmyk": { "c": 24, "m": 72, "y": 72, "k": 0 }
 	},
 	{
 		"id": "48",
 		"name": "Garnet Brown",
+		"kanji": "江戸茶",
+		"hiragana": "えどちゃ",
 		"description": "A reddish brown.",
-		"color": "#AF5F3C"
+		"color": "#AF5F3C",
+		"rgb": { "r": 175, "g": 95, "b": 60 },
+		"cmyk": { "c": 38, "m": 70, "y": 71, "k": 3 }
 	},
 	{
 		"id": "49",
 		"name": "Indian Pink",
+		"kanji": "洗朱",
+		"hiragana": "あらいしゅ",
 		"description": "A pale vermilion.",
-		"color": "#FB966E"
+		"color": "#FB966E",
+		"rgb": { "r": 251, "g": 150, "b": 110 },
+		"cmyk": { "c": 0, "m": 54, "y": 56, "k": 0 }
 	},
 	{
 		"id": "50",
 		"name": "Arabian Red",
+		"kanji": "首塩茶・羊羮色",
+		"hiragana": "ももしおちゃ・ようかんいろ",
 		"description": "A dark red.",
-		"color": "#724938"
+		"color": "#724938",
+		"rgb": { "r": 114, "g": 73, "b": 56 },
+		"cmyk": { "c": 61, "m": 70, "y": 68, "k": 25 }
 	},
 	{
 		"id": "51",
 		"name": "Cinnamon",
+		"kanji": "唐茶",
+		"hiragana": "からちゃ",
 		"description": "The light reddish-brown of cinnamon.",
-		"color": "#B47157"
+		"color": "#B47157",
+		"rgb": { "r": 180, "g": 113, "b": 87 },
+		"cmyk": { "c": 38, "m": 64, "y": 65, "k": 0 }
 	},
 	{
 		"id": "52",
 		"name": "Melon Pink",
+		"kanji": "ときがら茶",
+		"hiragana": "ときがらちゃ",
 		"description": "The orange-pink of cantaloupe melon.",
-		"color": "#DB8E71"
+		"color": "#DB8E71",
+		"rgb": { "r": 219, "g": 142, "b": 113 },
+		"cmyk": { "c": 10, "m": 55, "y": 57, "k": 0 }
 	},
 	{
 		"id": "53",
 		"name": "Orange Vermilion",
+		"kanji": "黄丹",
+		"hiragana": "おうに・おうたん",
 		"description": "A strong orange vermilion.",
-		"color": "#F05E1C"
+		"color": "#F05E1C",
+		"rgb": { "r": 240, "g": 94, "b": 28 },
+		"cmyk": { "c": 0, "m": 72, "y": 90, "k": 0 }
 	},
 	{
 		"id": "54",
 		"name": "Flamingo",
+		"kanji": "縹・蘇比",
+		"hiragana": "そひ・そひ",
 		"description": "The pale crimson of flamingo plumage.",
-		"color": "#ED784A"
+		"color": "#ED784A",
+		"rgb": { "r": 237, "g": 120, "b": 74 },
+		"cmyk": { "c": 0, "m": 65, "y": 73, "k": 0 }
 	},
 	{
 		"id": "55",
 		"name": "Coral Rust",
+		"kanji": "遠州茶",
+		"hiragana": "えんしゅうちゃ",
 		"description": "Coral pink with a hint of brown.",
-		"color": "#CA7853"
+		"color": "#CA7853",
+		"rgb": { "r": 202, "g": 120, "b": 83 },
+		"cmyk": { "c": 21, "m": 64, "y": 67, "k": 0 }
 	},
 	{
 		"id": "56",
 		"name": "Etruscan Orange",
+		"kanji": "樺茶",
+		"hiragana": "かばちゃ",
 		"description": "The orange with a hint of brown characteristic of Etruscan art.",
-		"color": "#B35C37"
+		"color": "#B35C37",
+		"rgb": { "r": 179, "g": 92, "b": 55 },
+		"cmyk": { "c": 36, "m": 72, "y": 76, "k": 2 }
 	},
 	{
 		"id": "57",
 		"name": "Burnt Umber",
+		"kanji": "焦茶",
+		"hiragana": "こげちゃ",
 		"description": "A deep reddish chocolate brown.",
-		"color": "#563F2E"
+		"color": "#563F2E",
+		"rgb": { "r": 86, "g": 63, "b": 46 },
+		"cmyk": { "c": 68, "m": 73, "y": 71, "k": 40 }
 	},
 	{
 		"id": "58",
 		"name": "Cork",
+		"kanji": "赤香色",
+		"hiragana": "あこういろ",
 		"description": "The light brown of the bark of the cork tree.",
-		"color": "#E3916E"
+		"color": "#E3916E",
+		"rgb": { "r": 227, "g": 145, "b": 110 },
+		"cmyk": { "c": 5, "m": 55, "y": 60, "k": 0 }
 	},
 	{
 		"id": "59",
 		"name": "Brick Red",
+		"kanji": "雀茶",
+		"hiragana": "すずめちゃ",
 		"description": "A mellow reddish brown.",
-		"color": "#8F5A3C"
+		"color": "#8F5A3C",
+		"rgb": { "r": 143, "g": 90, "b": 60 },
+		"cmyk": { "c": 52, "m": 69, "y": 73, "k": 15 }
 	},
 	{
 		"id": "60",
 		"name": "Flesh",
+		"kanji": "宍色・肉色",
+		"hiragana": "ししいろ・にくいろ",
 		"description": "A peach-hued skin color.",
-		"color": "#F0A986"
+		"color": "#F0A986",
+		"rgb": { "r": 240, "g": 169, "b": 134 },
+		"cmyk": { "c": 0, "m": 47, "y": 50, "k": 0 }
 	},
 	{
 		"id": "61",
 		"name": "Etruscan Rose",
+		"kanji": "宗伝唐茶",
+		"hiragana": "そうでんからちゃ",
 		"description": "A soft pinkish brown.",
-		"color": "#A0674B"
+		"color": "#A0674B",
+		"rgb": { "r": 160, "g": 103, "b": 75 },
+		"cmyk": { "c": 48, "m": 66, "y": 70, "k": 6 }
 	},
 	{
 		"id": "62",
 		"name": "Burnt Sienna",
+		"kanji": "蒲色・樺色",
+		"hiragana": "かばいろ・かばいろ",
 		"description": "An orange-brown.",
-		"color": "#C1693C"
+		"color": "#C1693C",
+		"rgb": { "r": 193, "g": 105, "b": 60 },
+		"cmyk": { "c": 26, "m": 70, "y": 78, "k": 0 }
 	},
 	{
 		"id": "63",
 		"name": "Apricot Buff",
+		"kanji": "深支子",
+		"hiragana": "こきくちなし・ふかきくちなし",
 		"description": "A dull apricot yellow.",
-		"color": "#FB9966"
+		"color": "#FB9966",
+		"rgb": { "r": 251, "g": 153, "b": 102 },
+		"cmyk": { "c": 0, "m": 53, "y": 65, "k": 0 }
 	},
 	{
 		"id": "64",
 		"name": "Nut Brown",
+		"kanji": "胡桃色",
+		"hiragana": "くるみいろ",
 		"description": "The brown of ripe walnuts.",
-		"color": "#947A6D"
+		"color": "#947A6D",
+		"rgb": { "r": 148, "g": 122, "b": 109 },
+		"cmyk": { "c": 51, "m": 56, "y": 57, "k": 1 }
 	},
 	{
 		"id": "65",
 		"name": "Terra Cotta",
+		"kanji": "代緒色",
+		"hiragana": "たいしゃいろ",
 		"description": "A rich brownish orange, as in unglazed roof titles.",
-		"color": "#A36336"
+		"color": "#A36336",
+		"rgb": { "r": 163, "g": 99, "b": 54 },
+		"cmyk": { "c": 38, "m": 67, "y": 82, "k": 3 }
 	},
 	{
 		"id": "66",
 		"name": "Salmon Buff",
+		"kanji": "浅柿",
+		"hiragana": "あらいがき",
 		"description": "A dull, pale orange.",
-		"color": "#E79460"
+		"color": "#E79460",
+		"rgb": { "r": 231, "g": 148, "b": 96 },
+		"cmyk": { "c": 0, "m": 53, "y": 67, "k": 0 }
 	},
 	{
 		"id": "67",
 		"name": "Golden Brown",
+		"kanji": "黄檗染",
+		"hiragana": "こうろぜん",
 		"description": "A rich golden brown.",
-		"color": "#7D532C"
+		"color": "#7D532C",
+		"rgb": { "r": 125, "g": 83, "b": 44 },
+		"cmyk": { "c": 55, "m": 68, "y": 78, "k": 23 }
 	},
 	{
 		"id": "68",
 		"name": "Red Fallow",
+		"kanji": "赤朽葉",
+		"hiragana": "あかくちば",
 		"description": "Tan with a hint of red.",
-		"color": "#C78550"
+		"color": "#C78550",
+		"rgb": { "r": 199, "g": 133, "b": 80 },
+		"cmyk": { "c": 5, "m": 52, "y": 70, "k": 14 }
 	},
 	{
 		"id": "69",
 		"name": "Bronze",
+		"kanji": "礪茶",
+		"hiragana": "とのちゃ",
 		"description": "The clean brown of unweathered bronze.",
-		"color": "#985F2A"
+		"color": "#985F2A",
+		"rgb": { "r": 152, "g": 95, "b": 42 },
+		"cmyk": { "c": 48, "m": 66, "y": 79, "k": 7 }
 	},
 	{
 		"id": "70",
 		"name": "Peach Beige",
+		"kanji": "赤白橡",
+		"hiragana": "あかしろつるばみ",
 		"description": "A beige with a touch of pink.",
-		"color": "#E1A679"
+		"color": "#E1A679",
+		"rgb": { "r": 225, "g": 166, "b": 121 },
+		"cmyk": { "c": 6, "m": 42, "y": 55, "k": 0 }
 	},
 	{
 		"id": "71",
 		"name": "Tobacco Brown",
+		"kanji": "煎茶色",
+		"hiragana": "せんちゃいろ",
 		"description": "A warm light brown.",
-		"color": "#855B32"
+		"color": "#855B32",
+		"rgb": { "r": 133, "g": 91, "b": 50 },
+		"cmyk": { "c": 55, "m": 66, "y": 75, "k": 14 }
 	},
 	{
 		"id": "72",
 		"name": "Saffron Yellow",
+		"kanji": "黄橙染・柑子色",
+		"hiragana": "かんぞういろ・こうじいろ",
 		"description": "The golden yellow of dried saffron stigmas.",
-		"color": "#FC9F4D"
+		"color": "#FC9F4D",
+		"rgb": { "r": 252, "g": 159, "b": 77 },
+		"cmyk": { "c": 0, "m": 49, "y": 72, "k": 0 }
 	},
 	{
 		"id": "73",
 		"name": "Light Apricot",
+		"kanji": "洒落柿",
+		"hiragana": "しゃれがき",
 		"description": "A pale ripe apricot color.",
-		"color": "#FFBA84"
+		"color": "#FFBA84",
+		"rgb": { "r": 255, "g": 186, "b": 132 },
+		"cmyk": { "c": 0, "m": 36, "y": 53, "k": 0 }
 	},
 	{
 		"id": "74",
 		"name": "Majolica Orange",
+		"kanji": "紅鬱金",
+		"hiragana": "べにうこん",
 		"description": "The orange found in Majolica ceramics.",
-		"color": "#E98B2A"
+		"color": "#E98B2A",
+		"rgb": { "r": 233, "g": 139, "b": 42 },
+		"cmyk": { "c": 0, "m": 52, "y": 80, "k": 0 }
 	},
 	{
 		"id": "75",
 		"name": "Peach Buff",
+		"kanji": "梅染",
+		"hiragana": "うめぞめ",
 		"description": "A pale reddish tan.",
-		"color": "#E9A368"
+		"color": "#E9A368",
+		"rgb": { "r": 233, "g": 163, "b": 104 },
+		"cmyk": { "c": 3, "m": 45, "y": 62, "k": 0 }
 	},
 	{
 		"id": "76",
 		"name": "Ocher Beige",
+		"kanji": "枇杷茶",
+		"hiragana": "びわちゃ",
 		"description": "A pale yellow-brown.",
-		"color": "#B17844"
+		"color": "#B17844",
+		"rgb": { "r": 177, "g": 120, "b": 68 },
+		"cmyk": { "c": 35, "m": 58, "y": 75, "k": 0 }
 	},
 	{
 		"id": "77",
 		"name": "Fawn",
+		"kanji": "丁子茶",
+		"hiragana": "ちょうじちゃ",
 		"description": "A golden brown, seen in some fawn’s coats.",
-		"color": "#96632E"
+		"color": "#96632E",
+		"rgb": { "r": 150, "g": 99, "b": 46 },
+		"cmyk": { "c": 30, "m": 61, "y": 76, "k": 9 }
 	},
 	{
 		"id": "78",
 		"name": "Russet Gold",
+		"kanji": "墨法度・吉岡染",
+		"hiragana": "けんぽうぞめ・よしおかぞめ",
 		"description": "Gold with a touch of brown.",
-		"color": "#43341B"
+		"color": "#43341B",
+		"rgb": { "r": 67, "g": 52, "b": 27 },
+		"cmyk": { "c": 76, "m": 71, "y": 73, "k": 47 }
 	},
 	{
 		"id": "79",
 		"name": "Amber",
+		"kanji": "琥珀色",
+		"hiragana": "こはくいろ",
 		"description": "The golden yellow of amber.",
-		"color": "#CA7A2C"
+		"color": "#CA7A2C",
+		"rgb": { "r": 202, "g": 122, "b": 44 },
+		"cmyk": { "c": 20, "m": 58, "y": 85, "k": 0 }
 	},
 	{
 		"id": "80",
 		"name": "Vanilla",
+		"kanji": "薄柿",
+		"hiragana": "うすがき",
 		"description": "Pale vanilla extract.",
-		"color": "#ECB88A"
+		"color": "#ECB88A",
+		"rgb": { "r": 236, "g": 184, "b": 138 },
+		"cmyk": { "c": 0, "m": 34, "y": 52, "k": 0 }
 	},
 	{
 		"id": "81",
 		"name": "Russet Brown",
+		"kanji": "伽羅色",
+		"hiragana": "きゃらいろ",
 		"description": "A deep reddish brown.",
-		"color": "#78552B"
+		"color": "#78552B",
+		"rgb": { "r": 120, "g": 85, "b": 43 },
+		"cmyk": { "c": 58, "m": 62, "y": 72, "k": 16 }
 	},
 	{
 		"id": "82",
 		"name": "Buff",
+		"kanji": "丁子染・香染",
+		"hiragana": "ちょうじぞめ・こうぞめ",
 		"description": "A light yellow-brown, the color of buffalo leather.",
-		"color": "#B07736"
+		"color": "#B07736",
+		"rgb": { "r": 176, "g": 119, "b": 54 },
+		"cmyk": { "c": 36, "m": 57, "y": 79, "k": 0 }
 	},
 	{
 		"id": "83",
 		"name": "Drab",
+		"kanji": "柴染",
+		"hiragana": "ふしぞめ",
 		"description": "A light olive brown.",
-		"color": "#967249"
+		"color": "#967249",
+		"rgb": { "r": 150, "g": 114, "b": 73 },
+		"cmyk": { "c": 50, "m": 56, "y": 71, "k": 5 }
 	},
 	{
 		"id": "84",
 		"name": "Fallow",
+		"kanji": "朽葉色",
+		"hiragana": "くちばいろ",
 		"description": "The pale brown of sandy soil in fallow fields.",
-		"color": "#E2943B"
+		"color": "#E2943B",
+		"rgb": { "r": 226, "g": 148, "b": 59 },
+		"cmyk": { "c": 7, "m": 49, "y": 80, "k": 0 }
 	},
 	{
 		"id": "85",
 		"name": "Brown Gold",
+		"kanji": "金茶",
+		"hiragana": "きんちゃ",
 		"description": "A gold with a hint of brown.",
-		"color": "#C7802D"
+		"color": "#C7802D",
+		"rgb": { "r": 199, "g": 128, "b": 45 },
+		"cmyk": { "c": 20, "m": 56, "y": 89, "k": 0 }
 	},
 	{
 		"id": "86",
 		"name": "Raw Sienna",
+		"kanji": "狐色",
+		"hiragana": "きつねいろ",
 		"description": "A brownish-yellow.",
-		"color": "#9B6E23"
+		"color": "#9B6E23",
+		"rgb": { "r": 155, "g": 110, "b": 35 },
+		"cmyk": { "c": 46, "m": 57, "y": 80, "k": 4 }
 	},
 	{
 		"id": "87",
 		"name": "Sepia",
+		"kanji": "煤竹色",
+		"hiragana": "すすたけいろ",
 		"description": "A dark brown like the pigment derived from cuttlefish ink.",
-		"color": "#6E552F"
+		"color": "#6E552F",
+		"rgb": { "r": 110, "g": 85, "b": 47 },
+		"cmyk": { "c": 62, "m": 63, "y": 73, "k": 21 }
 	},
 	{
 		"id": "88",
 		"name": "Champagne",
+		"kanji": "薄香",
+		"hiragana": "うすこう",
 		"description": "The pale straw color of champagne.",
-		"color": "#EBB471"
+		"color": "#EBB471",
+		"rgb": { "r": 235, "g": 180, "b": 113 },
+		"cmyk": { "c": 0, "m": 34, "y": 60, "k": 0 }
 	},
 	{
 		"id": "89",
 		"name": "Peach",
+		"kanji": "砥粉色",
+		"hiragana": "とのこいろ",
 		"description": "A soft pinkish-orange, the color of peach flesh.",
-		"color": "#D7B98E"
+		"color": "#D7B98E",
+		"rgb": { "r": 215, "g": 185, "b": 142 },
+		"cmyk": { "c": 5, "m": 20, "y": 38, "k": 15 }
 	},
 	{
 		"id": "90",
 		"name": "Maple Sugar",
+		"kanji": "銀すすたけ",
+		"hiragana": "ぎんすすたけ",
 		"description": "The light brown of maple sugar.",
-		"color": "#82663A"
+		"color": "#82663A",
+		"rgb": { "r": 130, "g": 102, "b": 58 },
+		"cmyk": { "c": 54, "m": 58, "y": 76, "k": 10 }
 	},
 	{
 		"id": "91",
 		"name": "Yellow Ocher",
+		"kanji": "黄土色",
+		"hiragana": "おうどいろ",
 		"description": "A natural yellow-brown pigment.",
-		"color": "#B68E55"
+		"color": "#B68E55",
+		"rgb": { "r": 182, "g": 142, "b": 85 },
+		"cmyk": { "c": 31, "m": 45, "y": 66, "k": 0 }
 	},
 	{
 		"id": "92",
 		"name": "Ecru",
+		"kanji": "白茶",
+		"hiragana": "しらちゃ",
 		"description": "The very pale brown of unbleached linen or silk.",
-		"color": "#BC9F77"
+		"color": "#BC9F77",
+		"rgb": { "r": 188, "g": 159, "b": 119 },
+		"cmyk": { "c": 32, "m": 40, "y": 57, "k": 0 }
 	},
 	{
 		"id": "93",
 		"name": "Old Gold",
+		"kanji": "媚茶",
+		"hiragana": "こびちゃ",
 		"description": "A dark yellow.",
-		"color": "#876633"
+		"color": "#876633",
+		"rgb": { "r": 135, "g": 102, "b": 51 },
+		"cmyk": { "c": 58, "m": 59, "y": 78, "k": 14 }
 	},
 	{
 		"id": "94",
 		"name": "Maple Leaf",
+		"kanji": "黄唐茶・黄富茶",
+		"hiragana": "きがらちゃ・きがらちゃ",
 		"description": "A golden brown.",
-		"color": "#C18A26"
+		"color": "#C18A26",
+		"rgb": { "r": 193, "g": 138, "b": 38 },
+		"cmyk": { "c": 28, "m": 48, "y": 83, "k": 0 }
 	},
 	{
 		"id": "95",
 		"name": "Marigold",
+		"kanji": "山吹色",
+		"hiragana": "やまぶきいろ",
 		"description": "The bright yellow of the marigold, a member of the chrysanthemum family native to Mexico.",
-		"color": "#FFB11B"
+		"color": "#FFB11B",
+		"rgb": { "r": 255, "g": 177, "b": 27 },
+		"cmyk": { "c": 0, "m": 37, "y": 87, "k": 0 }
 	},
 	{
 		"id": "96",
 		"name": "Gold",
+		"kanji": "山吹茶",
+		"hiragana": "やまぶきちゃ",
 		"description": "The warm yellow of the metal gold.",
-		"color": "#D19826"
+		"color": "#D19826",
+		"rgb": { "r": 209, "g": 152, "b": 38 },
+		"cmyk": { "c": 17, "m": 44, "y": 89, "k": 0 }
 	},
 	{
 		"id": "97",
 		"name": "Yellow Gold",
+		"kanji": "植染",
+		"hiragana": "はじぞめ",
 		"description": "The yellow of the metal gold.",
-		"color": "#DDA52D"
+		"color": "#DDA52D",
+		"rgb": { "r": 221, "g": 165, "b": 45 },
+		"cmyk": { "c": 8, "m": 40, "y": 83, "k": 0 }
 	},
 	{
 		"id": "98",
 		"name": "Buff",
+		"kanji": "桑染・桑茶",
+		"hiragana": "くわぞめ・くわちゃ",
 		"description": "A light yellow-brown, the color of buffalo leather.",
-		"color": "#C99833"
+		"color": "#C99833",
+		"rgb": { "r": 201, "g": 152, "b": 51 },
+		"cmyk": { "c": 25, "m": 44, "y": 83, "k": 0 }
 	},
 	{
 		"id": "99",
 		"name": "York Yellow",
+		"kanji": "玉子色",
+		"hiragana": "たまごいろ",
 		"description": "The rich yellow of egg yolks.",
-		"color": "#F9BF45"
+		"color": "#F9BF45",
+		"rgb": { "r": 249, "g": 191, "b": 69 },
+		"cmyk": { "c": 0, "m": 29, "y": 74, "k": 0 }
 	},
 	{
 		"id": "100",
 		"name": "Flax",
+		"kanji": "白橡",
+		"hiragana": "しろつるばみ",
 		"description": "A pale yellowish gray.",
-		"color": "#DCB879"
+		"color": "#DCB879",
+		"rgb": { "r": 220, "g": 184, "b": 121 },
+		"cmyk": { "c": 16, "m": 30, "y": 60, "k": 0 }
 	},
 	{
 		"id": "101",
 		"name": "Curry Yellow",
+		"kanji": "黄橡",
+		"hiragana": "きつるばみ",
 		"description": "The rich yellow of turmeric.",
-		"color": "#BA9132"
+		"color": "#BA9132",
+		"rgb": { "r": 186, "g": 145, "b": 50 },
+		"cmyk": { "c": 31, "m": 44, "y": 77, "k": 0 }
 	},
 	{
 		"id": "102",
 		"name": "Maize",
+		"kanji": "玉蜀黍色",
+		"hiragana": "とうもろこしいろ",
 		"description": "The yellow of kernels of ripe maize (corn).",
-		"color": "#E8B647"
+		"color": "#E8B647",
+		"rgb": { "r": 232, "g": 182, "b": 71 },
+		"cmyk": { "c": 4, "m": 29, "y": 71, "k": 0 }
 	},
 	{
 		"id": "103",
 		"name": "Sun Gold",
+		"kanji": "花葉色",
+		"hiragana": "はなばいろ",
 		"description": "The true gold of the sun.",
-		"color": "#F7C242"
+		"color": "#F7C242",
+		"rgb": { "r": 247, "g": 194, "b": 66 },
+		"cmyk": { "c": 0, "m": 25, "y": 72, "k": 0 }
 	},
 	{
 		"id": "104",
 		"name": "Tawny Olive",
+		"kanji": "生壁色",
+		"hiragana": "なまかべいろ",
 		"description": "Olive green with a hint of brown.",
-		"color": "#7D6C46"
+		"color": "#7D6C46",
+		"rgb": { "r": 125, "g": 108, "b": 70 },
+		"cmyk": { "c": 58, "m": 56, "y": 70, "k": 8 }
 	},
 	{
 		"id": "105",
 		"name": "Cream",
+		"kanji": "鳥の子色",
+		"hiragana": "とりのこいろ",
 		"description": "A pale yellowish white.",
-		"color": "#DAC9A6"
+		"color": "#DAC9A6",
+		"rgb": { "r": 218, "g": 201, "b": 166 },
+		"cmyk": { "c": 14, "m": 20, "y": 39, "k": 0 }
 	},
 	{
 		"id": "106",
 		"name": "Straw",
+		"kanji": "浅黄",
+		"hiragana": "うすき",
 		"description": "The delicate yellow of dry straw.",
-		"color": "#FAD689"
+		"color": "#FAD689",
+		"rgb": { "r": 250, "g": 214, "b": 137 },
+		"cmyk": { "c": 0, "m": 17, "y": 53, "k": 0 }
 	},
 	{
 		"id": "107",
 		"name": "Honeysweet",
+		"kanji": "黄朽葉",
+		"hiragana": "きくちば",
 		"description": "Honey yellow.",
-		"color": "#D9AB42"
+		"color": "#D9AB42",
+		"rgb": { "r": 217, "g": 171, "b": 66 },
+		"cmyk": { "c": 14, "m": 33, "y": 75, "k": 0 }
 	},
 	{
 		"id": "108",
 		"name": "Naples Yellow",
+		"kanji": "支子・梔子",
+		"hiragana": "くちなし・くちなし",
 		"description": "A muted reddish-yellow pigment containing lead antimonate.",
-		"color": "#F6C555"
+		"color": "#F6C555",
+		"rgb": { "r": 246, "g": 197, "b": 85 },
+		"cmyk": { "c": 0, "m": 25, "y": 70, "k": 0 }
 	},
 	{
 		"id": "109",
 		"name": "Sunflower",
+		"kanji": "藤黄",
+		"hiragana": "とうおう",
 		"description": "The yellow of sunflower petals.",
-		"color": "#FFC408"
+		"color": "#FFC408",
+		"rgb": { "r": 255, "g": 196, "b": 8 },
+		"cmyk": { "c": 0, "m": 25, "y": 86, "k": 0 }
 	},
 	{
 		"id": "110",
 		"name": "Golden Yellow",
+		"kanji": "鬱金色",
+		"hiragana": "うこんいろ",
 		"description": "A vivid yellow.",
-		"color": "#EFBB24"
+		"color": "#EFBB24",
+		"rgb": { "r": 239, "g": 187, "b": 36 },
+		"cmyk": { "c": 3, "m": 29, "y": 88, "k": 0 }
 	},
 	{
 		"id": "111",
 		"name": "Mustard",
+		"kanji": "芥子色",
+		"hiragana": "からしいろ",
 		"description": "The dull yellow of mustard.",
-		"color": "#CAAD5F"
+		"color": "#CAAD5F",
+		"rgb": { "r": 202, "g": 173, "b": 95 },
+		"cmyk": { "c": 0, "m": 16, "y": 70, "k": 27 }
 	},
 	{
 		"id": "112",
 		"name": "Oriental Gold",
+		"kanji": "肥後煤竹",
+		"hiragana": "ひごすすたけ",
 		"description": "A muted gold.",
-		"color": "#8D742A"
+		"color": "#8D742A",
+		"rgb": { "r": 141, "g": 116, "b": 42 },
+		"cmyk": { "c": 55, "m": 53, "y": 82, "k": 7 }
 	},
 	{
 		"id": "113",
 		"name": "Citron Gray",
+		"kanji": "利休白茶",
+		"hiragana": "りきゅうしらちゃ",
 		"description": "Gray with a touch of green.",
-		"color": "#B4A582"
+		"color": "#B4A582",
+		"rgb": { "r": 180, "g": 165, "b": 130 },
+		"cmyk": { "c": 36, "m": 33, "y": 54, "k": 0 }
 	},
 	{
 		"id": "114",
 		"name": "Covert Gray",
+		"kanji": "灰汁色",
+		"hiragana": "あくいろ",
 		"description": "An olive gray.",
-		"color": "#877F6C"
+		"color": "#877F6C",
+		"rgb": { "r": 135, "g": 127, "b": 108 },
+		"cmyk": { "c": 58, "m": 51, "y": 60, "k": 1 }
 	},
 	{
 		"id": "115",
 		"name": "Dusty Olive",
+		"kanji": "利休茶",
+		"hiragana": "りきゅうちゃ",
 		"description": "A dull olive green",
-		"color": "#897D55"
+		"color": "#897D55",
+		"rgb": { "r": 137, "g": 125, "b": 85 },
+		"cmyk": { "c": 57, "m": 50, "y": 70, "k": 3 }
 	},
 	{
 		"id": "116",
 		"name": "Beech",
+		"kanji": "路考茶",
+		"hiragana": "ろこうちゃ",
 		"description": "A blonde tan.",
-		"color": "#74673E"
+		"color": "#74673E",
+		"rgb": { "r": 116, "g": 103, "b": 62 },
+		"cmyk": { "c": 64, "m": 57, "y": 73, "k": 10 }
 	},
 	{
 		"id": "117",
 		"name": "Oil Yellow",
+		"kanji": "菜種油色",
+		"hiragana": "なたねゆいろ",
 		"description": "A deep yellow with a hint of green.",
-		"color": "#A28C37"
+		"color": "#A28C37",
+		"rgb": { "r": 162, "g": 140, "b": 55 },
+		"cmyk": { "c": 46, "m": 42, "y": 84, "k": 0 }
 	},
 	{
 		"id": "118",
 		"name": "Seaweed",
+		"kanji": "鶯茶",
+		"hiragana": "うぐいすちゃ",
 		"description": "A grayish olive.",
-		"color": "#6C6024"
+		"color": "#6C6024",
+		"rgb": { "r": 108, "g": 96, "b": 36 },
+		"cmyk": { "c": 64, "m": 56, "y": 78, "k": 16 }
 	},
 	{
 		"id": "119",
 		"name": "Seaweed Yellow",
+		"kanji": "黄海松茶",
+		"hiragana": "きみるちゃ",
 		"description": "A grayish-olive yellow.",
-		"color": "#867835"
+		"color": "#867835",
+		"rgb": { "r": 134, "g": 120, "b": 53 },
+		"cmyk": { "c": 57, "m": 48, "y": 78, "k": 6 }
 	},
 	{
 		"id": "120",
 		"name": "Seaweed Brown",
+		"kanji": "海松茶",
+		"hiragana": "みるちゃ",
 		"description": "A grayish brown.",
-		"color": "#62592C"
+		"color": "#62592C",
+		"rgb": { "r": 98, "g": 89, "b": 44 },
+		"cmyk": { "c": 68, "m": 59, "y": 75, "k": 22 }
 	},
 	{
 		"id": "121",
 		"name": "Chrome Lemon",
+		"kanji": "刈安色",
+		"hiragana": "かりやすいろ",
 		"description": "A natural yellow pigment made of lead chromate.",
-		"color": "#E9CD4C"
+		"color": "#E9CD4C",
+		"rgb": { "r": 233, "g": 205, "b": 76 },
+		"cmyk": { "c": 7, "m": 4, "y": 74, "k": 0 }
 	},
 	{
 		"id": "122",
 		"name": "Canary",
+		"kanji": "菜の花色",
+		"hiragana": "なのはないろ",
 		"description": "A bright yellow with a hint of green.",
-		"color": "#F7D94C"
+		"color": "#F7D94C",
+		"rgb": { "r": 247, "g": 217, "b": 76 },
+		"cmyk": { "c": 2, "m": 11, "y": 75, "k": 0 }
 	},
 	{
 		"id": "123",
 		"name": "Lemon Yellow",
+		"kanji": "黄蘗",
+		"hiragana": "きはだ",
 		"description": "A vivid yellow, the color of lemon peel.",
-		"color": "#FBE251"
+		"color": "#FBE251",
+		"rgb": { "r": 251, "g": 226, "b": 81 },
+		"cmyk": { "c": 0, "m": 5, "y": 73, "k": 0 }
 	},
 	{
 		"id": "124",
 		"name": "Chartreuse Yellow",
+		"kanji": "蒸栗色",
+		"hiragana": "むしぐりいろ",
 		"description": "A greenish yellow.",
-		"color": "#D9CD90"
+		"color": "#D9CD90",
+		"rgb": { "r": 217, "g": 205, "b": 144 },
+		"cmyk": { "c": 16, "m": 15, "y": 52, "k": 0 }
 	},
 	{
 		"id": "125",
 		"name": "Olive Yellow",
+		"kanji": "青朽葉",
+		"hiragana": "あおくちば",
 		"description": "Yellow with a hint of olive green.",
-		"color": "#ADA142"
+		"color": "#ADA142",
+		"rgb": { "r": 173, "g": 161, "b": 66 },
+		"cmyk": { "c": 38, "m": 31, "y": 76, "k": 0 }
 	},
 	{
 		"id": "126",
 		"name": "Citron Yellow",
+		"kanji": "女郎花色",
+		"hiragana": "おみなえしいろ",
 		"description": "A grayish-green yellow.",
-		"color": "#DDD23B"
+		"color": "#DDD23B",
+		"rgb": { "r": 221, "g": 210, "b": 59 },
+		"cmyk": { "c": 16, "m": 9, "y": 82, "k": 0 }
 	},
 	{
 		"id": "127",
 		"name": "Light Olive Yellow",
+		"kanji": "鶸茶",
+		"hiragana": "ひわちゃ",
 		"description": "Pale yellow with a hint of olive green.",
-		"color": "#A5A051"
+		"color": "#A5A051",
+		"rgb": { "r": 165, "g": 160, "b": 81 },
+		"cmyk": { "c": 45, "m": 33, "y": 76, "k": 0 }
 	},
 	{
 		"id": "128",
 		"name": "Apple Green",
+		"kanji": "鶸色",
+		"hiragana": "ひわいろ",
 		"description": "A crisp yellow-green.",
-		"color": "#BEC23F"
+		"color": "#BEC23F",
+		"rgb": { "r": 190, "g": 194, "b": 63 },
+		"cmyk": { "c": 32, "m": 15, "y": 85, "k": 0 }
 	},
 	{
 		"id": "129",
 		"name": "Sage Green",
+		"kanji": "鶯色",
+		"hiragana": "うぐいすいろ",
 		"description": "The gray-green of sage.",
-		"color": "#6C6A2D"
+		"color": "#6C6A2D",
+		"rgb": { "r": 108, "g": 106, "b": 45 },
+		"cmyk": { "c": 67, "m": 54, "y": 84, "k": 14 }
 	},
 	{
 		"id": "130",
 		"name": "Citron Green",
+		"kanji": "柳茶",
+		"hiragana": "やなぎちゃ",
 		"description": "A light grayish yellow green.",
-		"color": "#939650"
+		"color": "#939650",
+		"rgb": { "r": 147, "g": 150, "b": 80 },
+		"cmyk": { "c": 32, "m": 37, "y": 73, "k": 0 }
 	},
 	{
 		"id": "131",
 		"name": "Moss Green",
+		"kanji": "苔色",
+		"hiragana": "こけいろ",
 		"description": "A dullish yellow-green.",
-		"color": "#838A2D"
+		"color": "#838A2D",
+		"rgb": { "r": 131, "g": 138, "b": 45 },
+		"cmyk": { "c": 62, "m": 41, "y": 83, "k": 2 }
 	},
 	{
 		"id": "132",
 		"name": "Elm Green",
+		"kanji": "麴塵・青白橡",
+		"hiragana": "きくじん・あおしろつるばみ",
 		"description": "A grayish olive green.",
-		"color": "#B1B479"
+		"color": "#B1B479",
+		"rgb": { "r": 177, "g": 180, "b": 121 },
+		"cmyk": { "c": 37, "m": 23, "y": 63, "k": 0 }
 	},
 	{
 		"id": "133",
 		"name": "Drab",
+		"kanji": "璃寛茶",
+		"hiragana": "りかんちゃ",
 		"description": "A light olive brown.",
-		"color": "#616138"
+		"color": "#616138",
+		"rgb": { "r": 97, "g": 97, "b": 56 },
+		"cmyk": { "c": 72, "m": 58, "y": 73, "k": 19 }
 	},
 	{
 		"id": "134",
 		"name": "Dark Olive",
+		"kanji": "藍媚茶",
+		"hiragana": "あいこびちゃ",
 		"description": "A dark olive green.",
-		"color": "#4B4E2A"
+		"color": "#4B4E2A",
+		"rgb": { "r": 75, "g": 78, "b": 42 },
+		"cmyk": { "c": 76, "m": 61, "y": 74, "k": 30 }
 	},
 	{
 		"id": "135",
 		"name": "Sea Moss",
+		"kanji": "海松色",
+		"hiragana": "みるいろ",
 		"description": "Grayish olive green.",
-		"color": "#5B622E"
+		"color": "#5B622E",
+		"rgb": { "r": 91, "g": 98, "b": 46 },
+		"cmyk": { "c": 72, "m": 56, "y": 78, "k": 20 }
 	},
 	{
 		"id": "136",
 		"name": "Bronze Green",
+		"kanji": "千歳茶",
+		"hiragana": "せんさいちゃ",
 		"description": "A grayish olive.",
-		"color": "#B1B479"
+		"color": "#B1B479",
+		"rgb": { "r": 77, "g": 81, "b": 57 },
+		"cmyk": { "c": 77, "m": 61, "y": 70, "k": 30 }
 	},
 	{
 		"id": "137",
 		"name": "Silver Sage",
+		"kanji": "梅幸茶・草柳",
+		"hiragana": "ばいこうちゃ・くさやなぎ",
 		"description": "A sage green with a hint of silver.",
-		"color": "#89916B"
+		"color": "#89916B",
+		"rgb": { "r": 137, "g": 145, "b": 107 },
+		"cmyk": { "c": 57, "m": 38, "y": 63, "k": 0 }
 	},
 	{
 		"id": "138",
 		"name": "Fresh Green",
+		"kanji": "鶸萌黄",
+		"hiragana": "ひわもえぎ",
 		"description": "The bright green of new growth.",
-		"color": "#90B44B"
+		"color": "#90B44B",
+		"rgb": { "r": 144, "g": 180, "b": 75 },
+		"cmyk": { "c": 56, "m": 13, "y": 77, "k": 0 }
 	},
 	{
 		"id": "139",
 		"name": "Willow",
+		"kanji": "柳染",
+		"hiragana": "やなぎぞめ",
 		"description": "The yellow-green of willow leaves.",
-		"color": "#91AD70"
+		"color": "#91AD70",
+		"rgb": { "r": 145, "g": 173, "b": 112 },
+		"cmyk": { "c": 56, "m": 24, "y": 65, "k": 0 }
 	},
 	{
 		"id": "140",
 		"name": "Mist Green",
+		"kanji": "裏柳・裏葉柳",
+		"hiragana": "うらやなぎ・うらはやなぎ",
 		"description": "The delicate grayish green of the backs of willow leaves.",
-		"color": "#B5CAA0"
+		"color": "#B5CAA0",
+		"rgb": { "r": 181, "g": 202, "b": 160 },
+		"cmyk": { "c": 36, "m": 10, "y": 45, "k": 0 }
 	},
 	{
 		"id": "141",
 		"name": "Slate Olive",
+		"kanji": "岩井茶",
+		"hiragana": "いわいちゃ",
 		"description": "An olive green with a hint of slate blue.",
-		"color": "#646A58"
+		"color": "#646A58",
+		"rgb": { "r": 100, "g": 106, "b": 88 },
+		"cmyk": { "c": 69, "m": 52, "y": 63, "k": 7 }
 	},
 	{
 		"id": "142",
 		"name": "Spring Green",
+		"kanji": "萌黄",
+		"hiragana": "もえぎ",
 		"description": "The characteristic vital green of spring growth.",
-		"color": "#7BA23F"
+		"color": "#7BA23F",
+		"rgb": { "r": 123, "g": 162, "b": 63 },
+		"cmyk": { "c": 70, "m": 23, "y": 86, "k": 0 }
 	},
 	{
 		"id": "143",
 		"name": "Apple Green",
+		"kanji": "苗色・淡萌黄",
+		"hiragana": "なえいろ・うすもえぎ",
 		"description": "The clear green of green apples.",
-		"color": "#86C166"
+		"color": "#86C166",
+		"rgb": { "r": 134, "g": 193, "b": 102 },
+		"cmyk": { "c": 57, "m": 1, "y": 72, "k": 0 }
 	},
 	{
 		"id": "144",
 		"name": "Deep Sea Moss",
+		"kanji": "柳煤竹",
+		"hiragana": "やなぎすすたけ",
 		"description": "A deep grayed green.",
-		"color": "#4A593D"
+		"color": "#4A593D",
+		"rgb": { "r": 74, "g": 89, "b": 61 },
+		"cmyk": { "c": 76, "m": 57, "y": 70, "k": 17 }
 	},
 	{
 		"id": "145",
 		"name": "Jade Green",
+		"kanji": "松葉色",
+		"hiragana": "まつばいろ",
 		"description": "A bluish green.",
-		"color": "#42602D"
+		"color": "#42602D",
+		"rgb": { "r": 66, "g": 96, "b": 45 },
+		"cmyk": { "c": 80, "m": 55, "y": 79, "k": 20 }
 	},
 	{
 		"id": "146",
 		"name": "Cactus",
+		"kanji": "青丹",
+		"hiragana": "あおに",
 		"description": "A yellow-green with a hint of gray.",
-		"color": "#516E41"
+		"color": "#516E41",
+		"rgb": { "r": 81, "g": 110, "b": 65 },
+		"cmyk": { "c": 76, "m": 51, "y": 75, "k": 12 }
 	},
 	{
 		"id": "147",
 		"name": "Light Green",
+		"kanji": "薄青",
+		"hiragana": "うすあお",
 		"description": "A light true green.",
-		"color": "#91B493"
+		"color": "#91B493",
+		"rgb": { "r": 145, "g": 180, "b": 147 },
+		"cmyk": { "c": 57, "m": 19, "y": 52, "k": 0 }
 	},
 	{
 		"id": "148",
 		"name": "Eggshell Green",
+		"kanji": "柳鼠・豆がら茶",
+		"hiragana": "やなぎねずみ・まめがらちゃ",
 		"description": "The delicate bluish green of robin’s eggs.",
-		"color": "#808F7C"
+		"color": "#808F7C",
+		"rgb": { "r": 128, "g": 143, "b": 124 },
+		"cmyk": { "c": 61, "m": 41, "y": 53, "k": 0 }
 	},
 	{
 		"id": "149",
 		"name": "Evergreen",
+		"kanji": "常磐色",
+		"hiragana": "ときわいろ",
 		"description": "A rich leaf green.",
-		"color": "#1B813E"
+		"color": "#1B813E",
+		"rgb": { "r": 27, "g": 129, "b": 62 },
+		"cmyk": { "c": 82, "m": 0, "y": 78, "k": 40 }
 	},
 	{
 		"id": "150",
 		"name": "Porcelain Green",
+		"kanji": "若竹色",
+		"hiragana": "わかたけいろ",
 		"description": "A vivid yellow-green.",
-		"color": "#5DAC81"
+		"color": "#5DAC81",
+		"rgb": { "r": 93, "g": 172, "b": 129 },
+		"cmyk": { "c": 68, "m": 13, "y": 59, "k": 0 }
 	},
 	{
 		"id": "151",
 		"name": "Bottle Green",
+		"kanji": "千歳緑",
+		"hiragana": "ちとせみどり・せんさいみどり",
 		"description": "A dark green often found in glass bottles.",
-		"color": "#36563C"
+		"color": "#36563C",
+		"rgb": { "r": 54, "g": 86, "b": 60 },
+		"cmyk": { "c": 83, "m": 55, "y": 69, "k": 22 }
 	},
 	{
 		"id": "152",
 		"name": "Malachite Green",
+		"kanji": "緑",
+		"hiragana": "みどり",
 		"description": "The rich, true green of malachite.",
-		"color": "#227D51"
+		"color": "#227D51",
+		"rgb": { "r": 34, "g": 125, "b": 81 },
+		"cmyk": { "c": 86, "m": 36, "y": 70, "k": 0 }
 	},
 	{
 		"id": "153",
 		"name": "Opal Green",
+		"kanji": "白緑",
+		"hiragana": "びゃくろく",
 		"description": "The milky green of opals.",
-		"color": "#A8D8B9"
+		"color": "#A8D8B9",
+		"rgb": { "r": 168, "g": 216, "b": 185 },
+		"cmyk": { "c": 44, "m": 0, "y": 37, "k": 0 }
 	},
 	{
 		"id": "154",
 		"name": "Antique Green",
+		"kanji": "老竹色",
+		"hiragana": "おいたけいろ",
 		"description": "The dull green of marble.",
-		"color": "#6A8372"
+		"color": "#6A8372",
+		"rgb": { "r": 106, "g": 131, "b": 114 },
+		"cmyk": { "c": 71, "m": 46, "y": 60, "k": 2 }
 	},
 	{
 		"id": "155",
 		"name": "Almond Green",
+		"kanji": "木賊色",
+		"hiragana": "とくさいろ",
 		"description": "The deep bluish-green of the backs of almonds leaves.",
-		"color": "#2D6D4B"
+		"color": "#2D6D4B",
+		"rgb": { "r": 45, "g": 109, "b": 75 },
+		"cmyk": { "c": 86, "m": 46, "y": 70, "k": 8 }
 	},
 	{
 		"id": "156",
 		"name": "Forest Green",
+		"kanji": "御納戸茶",
+		"hiragana": "おなんどちゃ",
 		"description": "A dull, deep green.",
-		"color": "#465D4C"
+		"color": "#465D4C",
+		"rgb": { "r": 70, "g": 93, "b": 76 },
+		"cmyk": { "c": 81, "m": 60, "y": 68, "k": 22 }
 	},
 	{
 		"id": "157",
 		"name": "Verdigris",
+		"kanji": "緑青",
+		"hiragana": "ろくしょう",
 		"description": "The bluish-green of the patina that forms on copper.",
-		"color": "#24936E"
+		"color": "#24936E",
+		"rgb": { "r": 36, "g": 147, "b": 110 },
+		"cmyk": { "c": 83, "m": 23, "y": 63, "k": 0 }
 	},
 	{
 		"id": "158",
 		"name": "Ripple Green",
+		"kanji": "錆青磁",
+		"hiragana": "さびせいじ",
 		"description": "A delicate blue-green.",
-		"color": "#86A697"
+		"color": "#86A697",
+		"rgb": { "r": 134, "g": 166, "b": 151 },
+		"cmyk": { "c": 58, "m": 30, "y": 45, "k": 0 }
 	},
 	{
 		"id": "159",
 		"name": "Jewel Green",
+		"kanji": "青竹色",
+		"hiragana": "あおたけいろ",
 		"description": "A deep emerald green.",
-		"color": "#00896C"
+		"color": "#00896C",
+		"rgb": { "r": 0, "g": 137, "b": 108 },
+		"cmyk": { "c": 92, "m": 28, "y": 67, "k": 0 }
 	},
 	{
 		"id": "160",
 		"name": "Lincoln Green",
+		"kanji": "ビロード",
+		"hiragana": "ビロード",
 		"description": "A deep green used in tartan.",
-		"color": "#096148"
+		"color": "#096148",
+		"rgb": { "r": 9, "g": 97, "b": 72 },
+		"cmyk": { "c": 93, "m": 54, "y": 71, "k": 20 }
 	},
 	{
 		"id": "161",
 		"name": "Green Duck",
+		"kanji": "虫襖・虫青",
+		"hiragana": "むしあお・むしあお",
 		"description": "Mallard green.",
-		"color": "#20604F"
+		"color": "#20604F",
+		"rgb": { "r": 32, "g": 96, "b": 79 },
+		"cmyk": { "c": 89, "m": 55, "y": 67, "k": 17 }
 	},
 	{
 		"id": "162",
 		"name": "Olive Drab",
+		"kanji": "藍海松茶",
+		"hiragana": "あいみるちゃ",
 		"description": "A dull olive green.",
-		"color": "#0F4C3A"
+		"color": "#0F4C3A",
+		"rgb": { "r": 15, "g": 76, "b": 58 },
+		"cmyk": { "c": 89, "m": 60, "y": 67, "k": 30 }
 	},
 	{
 		"id": "163",
 		"name": "Chinese Green",
+		"kanji": "沈香茶",
+		"hiragana": "とのちゃ",
 		"description": "Overglaze green in Chinese ceramics.",
-		"color": "#4F726C"
+		"color": "#4F726C",
+		"rgb": { "r": 79, "g": 114, "b": 108 },
+		"cmyk": { "c": 77, "m": 50, "y": 57, "k": 4 }
 	},
 	{
 		"id": "164",
 		"name": "Sea Green",
+		"kanji": "青緑",
+		"hiragana": "あおみどり",
 		"description": "The blue-green of the sea.",
-		"color": "#00AA90"
+		"color": "#00AA90",
+		"rgb": { "r": 0, "g": 170, "b": 144 },
+		"cmyk": { "c": 88, "m": 0, "y": 53, "k": 0 }
 	},
 	{
 		"id": "165",
 		"name": "Celadon",
+		"kanji": "青磁色・秘色",
+		"hiragana": "せいじいろ・ひそく",
 		"description": "The gray-green of celadon porcelains.",
-		"color": "#69B0AC"
+		"color": "#69B0AC",
+		"rgb": { "r": 105, "g": 176, "b": 172 },
+		"cmyk": { "c": 61, "m": 14, "y": 34, "k": 0 }
 	},
 	{
 		"id": "166",
 		"name": "Fir Green",
+		"kanji": "鉄色",
+		"hiragana": "てついろ",
 		"description": "The blue-green of fir needles.",
-		"color": "#26453D"
+		"color": "#26453D",
+		"rgb": { "r": 38, "g": 69, "b": 61 },
+		"cmyk": { "c": 90, "m": 63, "y": 66, "k": 30 }
 	},
 	{
 		"id": "167",
 		"name": "Aqua Green",
+		"kanji": "水浅葱",
+		"hiragana": "みずあさぎ",
 		"description": "A blue-green color.",
-		"color": "#66BAB7"
+		"color": "#66BAB7",
+		"rgb": { "r": 102, "g": 186, "b": 183 },
+		"cmyk": { "c": 68, "m": 10, "y": 33, "k": 0 }
 	},
 	{
 		"id": "168",
 		"name": "Turquoise Blue",
+		"kanji": "青碧",
+		"hiragana": "せいへき",
 		"description": "The vivid blue-green of turquoises.",
-		"color": "#268785"
+		"color": "#268785",
+		"rgb": { "r": 38, "g": 135, "b": 133 },
+		"cmyk": { "c": 85, "m": 35, "y": 50, "k": 0 }
 	},
 	{
 		"id": "169",
 		"name": "Blue Conifer",
+		"kanji": "錆鉄御納戸",
+		"hiragana": "さびてつおなんど",
 		"description": "The muted blue-green of pine needles.",
-		"color": "#405B55"
+		"color": "#405B55",
+		"rgb": { "r": 64, "g": 91, "b": 85 },
+		"cmyk": { "c": 83, "m": 59, "y": 60, "k": 13 }
 	},
 	{
 		"id": "170",
 		"name": "Canton Blue",
+		"kanji": "高麗納戸",
+		"hiragana": "こうらいなんど",
 		"description": "A bright navy blue.",
-		"color": "#305A56"
+		"color": "#305A56",
+		"rgb": { "r": 48, "g": 90, "b": 86 },
+		"cmyk": { "c": 88, "m": 58, "y": 61, "k": 15 }
 	},
 	{
 		"id": "171",
 		"name": "Pale Ultramarine",
+		"kanji": "白群",
+		"hiragana": "びゃくぐん",
 		"description": "A pale true blue.",
-		"color": "#78C2C4"
+		"color": "#78C2C4",
+		"rgb": { "r": 120, "g": 194, "b": 196 },
+		"cmyk": { "c": 52, "m": 0, "y": 20, "k": 0 }
 	},
 	{
 		"id": "172",
 		"name": "Dun",
+		"kanji": "御召茶",
+		"hiragana": "おめしちゃ",
 		"description": "A grayish olive green.",
-		"color": "#376B6D"
+		"color": "#376B6D",
+		"rgb": { "r": 55, "g": 107, "b": 109 },
+		"cmyk": { "c": 87, "m": 54, "y": 54, "k": 5 }
 	},
 	{
 		"id": "173",
 		"name": "Horizon Blue",
+		"kanji": "瓶覗・覗色",
+		"hiragana": "かめのぞき・のぞきいろ",
 		"description": "The pale sky-blue visible on the horizon.",
-		"color": "#A5DEE4"
+		"color": "#A5DEE4",
+		"rgb": { "r": 165, "g": 222, "b": 228 },
+		"cmyk": { "c": 42, "m": 0, "y": 11, "k": 0 }
 	},
 	{
 		"id": "174",
 		"name": "Aqua Gray",
+		"kanji": "深川鼠・湊鼠",
+		"hiragana": "ふかがわねずみ・みなとねずみ",
 		"description": "A gray-aqua mixture.",
-		"color": "#77969A"
+		"color": "#77969A",
+		"rgb": { "r": 119, "g": 150, "b": 154 },
+		"cmyk": { "c": 63, "m": 38, "y": 40, "k": 0 }
 	},
 	{
 		"id": "175",
 		"name": "Light Saxe Blue",
+		"kanji": "錆浅葱",
+		"hiragana": "さびあさぎ",
 		"description": "A dull blue-green.",
-		"color": "#6699A1"
+		"color": "#6699A1",
+		"rgb": { "r": 102, "g": 153, "b": 161 },
+		"cmyk": { "c": 66, "m": 30, "y": 34, "k": 0 }
 	},
 	{
 		"id": "176",
 		"name": "Pale Aqua",
+		"kanji": "水色",
+		"hiragana": "みずいろ",
 		"description": "A pale sky blue.",
-		"color": "#81C7D4"
+		"color": "#81C7D4",
+		"rgb": { "r": 129, "g": 199, "b": 212 },
+		"cmyk": { "c": 55, "m": 6, "y": 17, "k": 0 }
 	},
 	{
 		"id": "177",
 		"name": "Turquoise Blue",
+		"kanji": "浅葱色",
+		"hiragana": "あさぎいろ",
 		"description": "The blue-green of turquoises.",
-		"color": "#33A6B8"
+		"color": "#33A6B8",
+		"rgb": { "r": 51, "g": 166, "b": 184 },
+		"cmyk": { "c": 82, "m": 18, "y": 27, "k": 0 }
 	},
 	{
 		"id": "178",
 		"name": "Tapestry Blue",
+		"kanji": "御納戸色",
+		"hiragana": "おなんどいろ",
 		"description": "A dark blue with a hint of gray.",
-		"color": "#0C4842"
+		"color": "#0C4842",
+		"rgb": { "r": 12, "g": 72, "b": 66 },
+		"cmyk": { "c": 92, "m": 65, "y": 62, "k": 25 }
 	},
 	{
 		"id": "179",
 		"name": "Marine Blue",
+		"kanji": "藍色",
+		"hiragana": "あいいろ",
 		"description": "The deep indigo blue of Marine Corps uniforms.",
-		"color": "#0D5661"
+		"color": "#0D5661",
+		"rgb": { "r": 13, "g": 86, "b": 97 },
+		"cmyk": { "c": 95, "m": 63, "y": 56, "k": 17 }
 	},
 	{
 		"id": "180",
 		"name": "Cerulean Blue",
+		"kanji": "新橋色・金春色",
+		"hiragana": "しんばしいろ・こんぱるいろ",
 		"description": "A vivid sky blue.",
-		"color": "#0089A7"
+		"color": "#0089A7",
+		"rgb": { "r": 0, "g": 137, "b": 167 },
+		"cmyk": { "c": 95, "m": 31, "y": 30, "k": 9 }
 	},
 	{
 		"id": "181",
 		"name": "Goblin Blue",
+		"kanji": "錆御納戸",
+		"hiragana": "さびおなんど",
 		"description": "A dull blue-green.",
-		"color": "#336774"
+		"color": "#336774",
+		"rgb": { "r": 51, "g": 103, "b": 116 },
+		"cmyk": { "c": 87, "m": 56, "y": 52, "k": 6 }
 	},
 	{
 		"id": "182",
 		"name": "Electric Blue",
+		"kanji": "鉄御納戸",
+		"hiragana": "てつおなんど",
 		"description": "A vivid blue with a hint of green.",
-		"color": "#255359"
+		"color": "#255359",
+		"rgb": { "r": 37, "g": 83, "b": 89 },
+		"cmyk": { "c": 90, "m": 63, "y": 59, "k": 21 }
 	},
 	{
 		"id": "183",
 		"name": "Saxe Blue",
+		"kanji": "花浅葱",
+		"hiragana": "はなあさぎ",
 		"description": "A cobalt blue associated with the region of Germany known as Saxony.",
-		"color": "#1E88A8"
+		"color": "#1E88A8",
+		"rgb": { "r": 30, "g": 136, "b": 168 },
+		"cmyk": { "c": 90, "m": 32, "y": 23, "k": 0 }
 	},
 	{
 		"id": "184",
 		"name": "Smoke Blue",
+		"kanji": "藍鼠",
+		"hiragana": "あいねずみ",
 		"description": "The gray-blue of smoke.",
-		"color": "#566C73"
+		"color": "#566C73",
+		"rgb": { "r": 86, "g": 108, "b": 115 },
+		"cmyk": { "c": 78, "m": 57, "y": 52, "k": 7 }
 	},
 	{
 		"id": "185",
 		"name": "Smoke Blue",
+		"kanji": "舛花色",
+		"hiragana": "ますはないろ",
 		"description": "A dull blue.",
-		"color": "#577C8A"
+		"color": "#577C8A",
+		"rgb": { "r": 87, "g": 124, "b": 138 },
+		"cmyk": { "c": 78, "m": 48, "y": 42, "k": 0 }
 	},
 	{
 		"id": "186",
 		"name": "Sky Blue",
+		"kanji": "空色",
+		"hiragana": "そらいろ",
 		"description": "The blue of a clear sky.",
-		"color": "#58B2DC"
+		"color": "#58B2DC",
+		"rgb": { "r": 88, "g": 178, "b": 220 },
+		"cmyk": { "c": 72, "m": 13, "y": 7, "k": 0 }
 	},
 	{
 		"id": "187",
 		"name": "Oriental Blue",
+		"kanji": "熨斗目花色",
+		"hiragana": "のしめはないろ",
 		"description": "A deep grayed blue.",
-		"color": "#2B5F75"
+		"color": "#2B5F75",
+		"rgb": { "r": 43, "g": 95, "b": 117 },
+		"cmyk": { "c": 92, "m": 60, "y": 47, "k": 4 }
 	},
 	{
 		"id": "188",
 		"name": "Azure Blue",
+		"kanji": "千草色",
+		"hiragana": "ちぐさいろ",
 		"description": "The blue of a perfectly clear sky.",
-		"color": "#3A8FB7"
+		"color": "#3A8FB7",
+		"rgb": { "r": 58, "g": 143, "b": 183 },
+		"cmyk": { "c": 83, "m": 31, "y": 17, "k": 0 }
 	},
 	{
 		"id": "189",
 		"name": "Slate Blue",
+		"kanji": "御召御納戸",
+		"hiragana": "おめしおなんど",
 		"description": "The gray-blue of slate.",
-		"color": "#2E5C6E"
+		"color": "#2E5C6E",
+		"rgb": { "r": 46, "g": 92, "b": 110 },
+		"cmyk": { "c": 90, "m": 63, "y": 51, "k": 7 }
 	},
 	{
 		"id": "190",
 		"name": "Sapphire Blue",
+		"kanji": "縹・花田",
+		"hiragana": "はなだ・はなだ",
 		"description": "The blue of sapphires.",
-		"color": "#006284"
+		"color": "#006284",
+		"rgb": { "r": 0, "g": 98, "b": 132 },
+		"cmyk": { "c": 100, "m": 60, "y": 41, "k": 2 }
 	},
 	{
 		"id": "191",
 		"name": "Forget Me Not Blue",
+		"kanji": "勿忘草色",
+		"hiragana": "わすれなぐさいろ",
 		"description": "A clear, medium blue.",
-		"color": "#7DB9DE"
+		"color": "#7DB9DE",
+		"rgb": { "r": 125, "g": 185, "b": 222 },
+		"cmyk": { "c": 52, "m": 10, "y": 0, "k": 0 }
 	},
 	{
 		"id": "192",
 		"name": "Ultramarine",
+		"kanji": "群青色",
+		"hiragana": "ぐんじょういろ",
 		"description": "The color of the blue pigment made from powdered lapis lazuli.",
-		"color": "#51A8DD"
+		"color": "#51A8DD",
+		"rgb": { "r": 81, "g": 168, "b": 221 },
+		"cmyk": { "c": 67, "m": 21, "y": 0, "k": 0 }
 	},
 	{
 		"id": "193",
 		"name": "Cobalt Blue",
+		"kanji": "露草色",
+		"hiragana": "つゆくさいろ",
 		"description": "A sky blue named for a pigment of cobalt oxide and alumina.",
-		"color": "#2EA9DF"
+		"color": "#2EA9DF",
+		"rgb": { "r": 46, "g": 169, "b": 223 },
+		"cmyk": { "c": 73, "m": 20, "y": 0, "k": 0 }
 	},
 	{
 		"id": "194",
 		"name": "Midnight Blue",
+		"kanji": "黒橡",
+		"hiragana": "くろつるばみ",
 		"description": "Blue black.",
-		"color": "#0B1013"
+		"color": "#0B1013",
+		"rgb": { "r": 11, "g": 16, "b": 19 },
+		"cmyk": { "c": 92, "m": 78, "y": 64, "k": 48 }
 	},
 	{
 		"id": "195",
 		"name": "Navy Blue",
+		"kanji": "紺",
+		"hiragana": "こん",
 		"description": "A deep blue of British navy uniforms.",
-		"color": "#0F2540"
+		"color": "#0F2540",
+		"rgb": { "r": 15, "g": 37, "b": 64 },
+		"cmyk": { "c": 100, "m": 85, "y": 50, "k": 24 }
 	},
 	{
 		"id": "196",
 		"name": "Indigo",
+		"kanji": "褐色",
+		"hiragana": "かちいろ・かちんいろ",
 		"description": "A dark blue produced by dyeing with indigo.",
-		"color": "#08192D"
+		"color": "#08192D",
+		"rgb": { "r": 8, "g": 25, "b": 45 },
+		"cmyk": { "c": 100, "m": 86, "y": 60, "k": 45 }
 	},
 	{
 		"id": "197",
 		"name": "Lapis Lazuli",
+		"kanji": "瑠璃色",
+		"hiragana": "るりいろ",
 		"description": "The soft, slightly purplish blue associated with the semi-precious stone.",
-		"color": "#005CAF"
+		"color": "#005CAF",
+		"rgb": { "r": 0, "g": 92, "b": 175 },
+		"cmyk": { "c": 97, "m": 65, "y": 0, "k": 0 }
 	},
 	{
 		"id": "198",
 		"name": "Royal Blue",
+		"kanji": "瑠璃紺",
+		"hiragana": "るりこん",
 		"description": "A rich purplish blue associated with the British royal family.",
-		"color": "#0B346E"
+		"color": "#0B346E",
+		"rgb": { "r": 11, "g": 52, "b": 110 },
+		"cmyk": { "c": 100, "m": 85, "y": 39, "k": 4 }
 	},
 	{
 		"id": "199",
 		"name": "Salvia Blue",
+		"kanji": "紅碧・紅掛空色",
+		"hiragana": "べにみどり・べにかけそらいろ",
 		"description": "The purplish blue of salvia flowers.",
-		"color": "#7B90D2"
+		"color": "#7B90D2",
+		"rgb": { "r": 123, "g": 144, "b": 210 },
+		"cmyk": { "c": 64, "m": 44, "y": 0, "k": 0 }
 	},
 	{
 		"id": "200",
 		"name": "Lavender Gray",
+		"kanji": "藤鼠",
+		"hiragana": "ふじねずみ",
 		"description": "Gray with a hint of pale purple.",
-		"color": "#6E75A4"
+		"color": "#6E75A4",
+		"rgb": { "r": 110, "g": 117, "b": 164 },
+		"cmyk": { "c": 69, "m": 56, "y": 17, "k": 0 }
 	},
 	{
 		"id": "201",
 		"name": "Steel Gray",
+		"kanji": "鉄紺色",
+		"hiragana": "てっこんいろ",
 		"description": "A gray with the dark bluish hue of steel.",
-		"color": "#261E47"
+		"color": "#261E47",
+		"rgb": { "r": 38, "g": 30, "b": 71 },
+		"cmyk": { "c": 80, "m": 65, "y": 0, "k": 77 }
 	},
 	{
 		"id": "202",
 		"name": "Prussian Blue",
+		"kanji": "紺青色",
+		"hiragana": "こんじょういろ",
 		"description": "A deep blue produced with ferric ferrocynide.",
-		"color": "#113285"
+		"color": "#113285",
+		"rgb": { "r": 17, "g": 50, "b": 133 },
+		"cmyk": { "c": 100, "m": 85, "y": 15, "k": 0 }
 	},
 	{
 		"id": "203",
 		"name": "Gentian Blue",
+		"kanji": "紅掛花色",
+		"hiragana": "べにかけはないろ",
 		"description": "The soft, purplish blue of gentian flowers.",
-		"color": "#4E4F97"
+		"color": "#4E4F97",
+		"rgb": { "r": 78, "g": 79, "b": 151 },
+		"cmyk": { "c": 82, "m": 70, "y": 14, "k": 0 }
 	},
 	{
 		"id": "204",
 		"name": "Victoria Violet",
+		"kanji": "紺桔梗",
+		"hiragana": "こんききょう",
 		"description": "A deep purple",
-		"color": "#211E55"
+		"color": "#211E55",
+		"rgb": { "r": 33, "g": 30, "b": 85 },
+		"cmyk": { "c": 100, "m": 90, "y": 42, "k": 12 }
 	},
 	{
 		"id": "205",
 		"name": "Wisteria",
+		"kanji": "藤色",
+		"hiragana": "ふじいろ",
 		"description": "The purple of wisteria blossoms.",
-		"color": "#8B81C3"
+		"color": "#8B81C3",
+		"rgb": { "r": 139, "g": 129, "b": 195 },
+		"cmyk": { "c": 58, "m": 52, "y": 0, "k": 0 }
 	},
 	{
 		"id": "206",
 		"name": "Aster",
+		"kanji": "二藍",
+		"hiragana": "ふたあい",
 		"description": "A dull bluish-purple.",
-		"color": "#70649A"
+		"color": "#70649A",
+		"rgb": { "r": 112, "g": 100, "b": 154 },
+		"cmyk": { "c": 72, "m": 67, "y": 21, "k": 0 }
 	},
 	{
 		"id": "207",
 		"name": "Helitrope",
+		"kanji": "楝色",
+		"hiragana": "おうちいろ",
 		"description": "A pink-purple, midway between violet and magenta.",
-		"color": "#9B90C2"
+		"color": "#9B90C2",
+		"rgb": { "r": 155, "g": 144, "b": 194 },
+		"cmyk": { "c": 42, "m": 42, "y": 0, "k": 0 }
 	},
 	{
 		"id": "208",
 		"name": "Mauve",
+		"kanji": "藤紫",
+		"hiragana": "ふじむらさき",
 		"description": "The color of the first aniline die, a pale grayed pink-lilac.",
-		"color": "#8A6BBE"
+		"color": "#8A6BBE",
+		"rgb": { "r": 138, "g": 107, "b": 190 },
+		"cmyk": { "c": 58, "m": 60, "y": 0, "k": 0 }
 	},
 	{
 		"id": "209",
 		"name": "Bell Flower",
+		"kanji": "桔梗色",
+		"hiragana": "ききょういろ",
 		"description": "A bluish-violet.",
-		"color": "#6A4C9C"
+		"color": "#6A4C9C",
+		"rgb": { "r": 106, "g": 76, "b": 156 },
+		"cmyk": { "c": 75, "m": 75, "y": 10, "k": 0 }
 	},
 	{
 		"id": "210",
 		"name": "Heliotrope",
+		"kanji": "紫苑色",
+		"hiragana": "しおんいろ",
 		"description": "A light pinkish-purple.",
-		"color": "#8F77B5"
+		"color": "#8F77B5",
+		"rgb": { "r": 143, "g": 119, "b": 181 },
+		"cmyk": { "c": 55, "m": 58, "y": 1, "k": 0 }
 	},
 	{
 		"id": "211",
 		"name": "Skark",
+		"kanji": "滅紫",
+		"hiragana": "めっし・けしむらさき",
 		"description": "A deep gray with a hint of purple.",
-		"color": "#533D5B"
+		"color": "#533D5B",
+		"rgb": { "r": 83, "g": 61, "b": 91 },
+		"cmyk": { "c": 82, "m": 80, "y": 48, "k": 15 }
 	},
 	{
 		"id": "212",
 		"name": "Pale Lilac",
+		"kanji": "薄色",
+		"hiragana": "うすいろ",
 		"description": "The pale purple of lilacs.",
-		"color": "#B28FCE"
+		"color": "#B28FCE",
+		"rgb": { "r": 178, "g": 143, "b": 206 },
+		"cmyk": { "c": 43, "m": 51, "y": 0, "k": 0 }
 	},
 	{
 		"id": "213",
 		"name": "Crocus",
+		"kanji": "半色",
+		"hiragana": "はしたいろ",
 		"description": "The pale purple of crocus flowers.",
-		"color": "#986DB2"
+		"color": "#986DB2",
+		"rgb": { "r": 152, "g": 109, "b": 178 },
+		"cmyk": { "c": 55, "m": 63, "y": 0, "k": 0 }
 	},
 	{
 		"id": "214",
 		"name": "Royal Purple",
+		"kanji": "江戸紫",
+		"hiragana": "えどむらさき",
 		"description": "A reddish purple.",
-		"color": "#77428D"
+		"color": "#77428D",
+		"rgb": { "r": 119, "g": 66, "b": 141 },
+		"cmyk": { "c": 60, "m": 74, "y": 0, "k": 14 }
 	},
 	{
 		"id": "215",
 		"name": "Pansy",
+		"kanji": "紫紺",
+		"hiragana": "しこん",
 		"description": "The deep violet of pansy petals.",
-		"color": "#3C2F41"
+		"color": "#3C2F41",
+		"rgb": { "r": 60, "g": 47, "b": 65 },
+		"cmyk": { "c": 88, "m": 84, "y": 60, "k": 45 }
 	},
 	{
 		"id": "216",
 		"name": "Deep Royal Purple",
+		"kanji": "深紫",
+		"hiragana": "こきむらさき・ふかむらさき",
 		"description": "A deep reddish purple.",
-		"color": "#4A225D"
+		"color": "#4A225D",
+		"rgb": { "r": 74, "g": 34, "b": 93 },
+		"cmyk": { "c": 90, "m": 93, "y": 43, "k": 16 }
 	},
 	{
 		"id": "217",
 		"name": "Violet",
+		"kanji": "菫色",
+		"hiragana": "すみれいろ",
 		"description": "The color of violet blossoms; the name Newton gave to the purple end of the visible spectrum.",
-		"color": "#66327C"
+		"color": "#66327C",
+		"rgb": { "r": 102, "g": 50, "b": 124 },
+		"cmyk": { "c": 74, "m": 83, "y": 22, "k": 0 }
 	},
 	{
 		"id": "218",
 		"name": "Purple",
+		"kanji": "紫",
+		"hiragana": "むらさき",
 		"description": "A mixture of red and blue, with many hies, including lavender and lilac; the unmodified term usually refers to a reddish purple.",
-		"color": "#592C63"
+		"color": "#592C63",
+		"rgb": { "r": 89, "g": 44, "b": 99 },
+		"cmyk": { "c": 81, "m": 87, "y": 40, "k": 7 }
 	},
 	{
 		"id": "219",
 		"name": "Iris",
+		"kanji": "菖蒲色",
+		"hiragana": "あやめいろ",
 		"description": "The soft reddish-purple of Japanese irises.",
-		"color": "#6F3381"
+		"color": "#6F3381",
+		"rgb": { "r": 111, "g": 51, "b": 129 },
+		"cmyk": { "c": 71, "m": 87, "y": 14, "k": 0 }
 	},
 	{
 		"id": "220",
 		"name": "Prune",
+		"kanji": "藤煤竹",
+		"hiragana": "ふじすすたけ",
 		"description": "A deep gray with a touch of purple.",
-		"color": "#574C57"
+		"color": "#574C57",
+		"rgb": { "r": 87, "g": 76, "b": 87 },
+		"cmyk": { "c": 75, "m": 70, "y": 57, "k": 25 }
 	},
 	{
 		"id": "221",
 		"name": "Lilac",
+		"kanji": "紅藤",
+		"hiragana": "べにふじ",
 		"description": "A pale purple.",
-		"color": "#B481BB"
+		"color": "#B481BB",
+		"rgb": { "r": 180, "g": 129, "b": 187 },
+		"cmyk": { "c": 38, "m": 60, "y": 0, "k": 0 }
 	},
 	{
 		"id": "222",
 		"name": "Dusky Purple",
+		"kanji": "黒紅・黒紅梅",
+		"hiragana": "くろべに・くろこうばい",
 		"description": "A dark, blackish purple.",
-		"color": "#3F2B36"
+		"color": "#3F2B36",
+		"rgb": { "r": 63, "g": 43, "b": 54 },
+		"cmyk": { "c": 86, "m": 85, "y": 64, "k": 50 }
 	},
 	{
 		"id": "223",
 		"name": "Eggplant",
+		"kanji": "茄子紺",
+		"hiragana": "なすこん",
 		"description": "A brownish purple.",
-		"color": "#572A3F"
+		"color": "#572A3F",
+		"rgb": { "r": 87, "g": 42, "b": 63 },
+		"cmyk": { "c": 40, "m": 73, "y": 10, "k": 73 }
 	},
 	{
 		"id": "224",
 		"name": "Plum Purple",
+		"kanji": "葡萄鼠",
+		"hiragana": "ぶどうねずみ・えびねずみ",
 		"description": "The grayed purple of plums.",
-		"color": "#5E3D50"
+		"color": "#5E3D50",
+		"rgb": { "r": 94, "g": 61, "b": 80 },
+		"cmyk": { "c": 73, "m": 77, "y": 54, "k": 17 }
 	},
 	{
 		"id": "225",
 		"name": "Lilac Hazy",
+		"kanji": "鳩羽鼠",
+		"hiragana": "はとばねずみ",
 		"description": "A dull pale purple.",
-		"color": "#72636E"
+		"color": "#72636E",
+		"rgb": { "r": 114, "g": 99, "b": 110 },
+		"cmyk": { "c": 68, "m": 72, "y": 51, "k": 6 }
 	},
 	{
 		"id": "226",
 		"name": "Amethyst",
+		"kanji": "杜若・江戸紫",
+		"hiragana": "かきつばた・えどむらさき",
 		"description": "A vivid reddish purple.",
-		"color": "#622954"
+		"color": "#622954",
+		"rgb": { "r": 98, "g": 41, "b": 84 },
+		"cmyk": { "c": 77, "m": 92, "y": 48, "k": 21 }
 	},
 	{
 		"id": "227",
 		"name": "Amethyst Mauve",
+		"kanji": "葡萄",
+		"hiragana": "えびぞめ",
 		"description": "A grayed amethyst.",
-		"color": "#6D2E5B"
+		"color": "#6D2E5B",
+		"rgb": { "r": 109, "g": 46, "b": 91 },
+		"cmyk": { "c": 71, "m": 89, "y": 48, "k": 12 }
 	},
 	{
 		"id": "228",
 		"name": "Peony Purple",
+		"kanji": "牡丹",
+		"hiragana": "ぼうたん・ぼたん",
 		"description": "A vivid reddish-purple.",
-		"color": "#C1328E"
+		"color": "#C1328E",
+		"rgb": { "r": 193, "g": 50, "b": 142 },
+		"cmyk": { "c": 25, "m": 91, "y": 8, "k": 0 }
 	},
 	{
 		"id": "229",
 		"name": "Amaranth Purple",
+		"kanji": "梅紫",
+		"hiragana": "うめむらさき",
 		"description": "A deep reddish-purple.",
-		"color": "#A8497A"
+		"color": "#A8497A",
+		"rgb": { "r": 168, "g": 73, "b": 122 },
+		"cmyk": { "c": 45, "m": 80, "y": 37, "k": 0 }
 	},
 	{
 		"id": "230",
 		"name": "Plum",
+		"kanji": "似紫",
+		"hiragana": "にせむらさき",
 		"description": "A deep grayed purple.",
-		"color": "#562E37"
+		"color": "#562E37",
+		"rgb": { "r": 86, "g": 46, "b": 55 },
+		"cmyk": { "c": 75, "m": 84, "y": 62, "k": 42 }
 	},
 	{
 		"id": "231",
 		"name": "Azalea Pink",
+		"kanji": "躑躅色",
+		"hiragana": "つつじいろ",
 		"description": "The pinkish purple of azalea blossoms.",
-		"color": "#E03C8A"
+		"color": "#E03C8A",
+		"rgb": { "r": 224, "g": 60, "b": 138 },
+		"cmyk": { "c": 0, "m": 80, "y": 3, "k": 0 }
 	},
 	{
 		"id": "232",
 		"name": "Indian Purple",
+		"kanji": "紫鳶",
+		"hiragana": "むらさきとび",
 		"description": "A purple with a hint of brown.",
-		"color": "#60373E"
+		"color": "#60373E",
+		"rgb": { "r": 96, "g": 55, "b": 62 },
+		"cmyk": { "c": 70, "m": 78, "y": 61, "k": 30 }
 	},
 	{
 		"id": "233",
 		"name": "Snow White",
+		"kanji": "白練",
+		"hiragana": "しろねり",
 		"description": "Pure white.",
-		"color": "#FFFFFB"
+		"color": "#FFFFFB",
+		"rgb": { "r": 252, "g": 250, "b": 242 },
+		"cmyk": { "c": 0, "m": 3, "y": 11, "k": 0 }
 	},
 	{
 		"id": "234",
 		"name": "Chalk",
+		"kanji": "胡粉",
+		"hiragana": "ごふん",
 		"description": "White with a hint of yellow.",
-		"color": "#FCFAF2"
+		"color": "#FCFAF2",
+		"rgb": { "r": 255, "g": 255, "b": 251 },
+		"cmyk": { "c": 0, "m": 0, "y": 2, "k": 0 }
 	},
 	{
 		"id": "235",
 		"name": "Pearl Gray",
+		"kanji": "白鼠・銀色",
+		"hiragana": "しろねずみ・しろがねいろ",
 		"description": "A pale, warm gray.",
-		"color": "#BDC0BA"
+		"color": "#BDC0BA",
+		"rgb": { "r": 189, "g": 192, "b": 186 },
+		"cmyk": { "c": 31, "m": 23, "y": 28, "k": 0 }
 	},
 	{
 		"id": "236",
 		"name": "Silver Gray",
+		"kanji": "銀鼠・錫色",
+		"hiragana": "ぎんねずみ・すずいろ",
 		"description": "A silvery gray.",
-		"color": "#91989F"
+		"color": "#91989F",
+		"rgb": { "r": 145, "g": 152, "b": 159 },
+		"cmyk": { "c": 52, "m": 39, "y": 36, "k": 0 }
 	},
 	{
 		"id": "237",
 		"name": "Lead Gray",
+		"kanji": "鉛色",
+		"hiragana": "なまりいろ",
 		"description": "A medium gray.",
-		"color": "#787878"
+		"color": "#787878",
+		"rgb": { "r": 120, "g": 120, "b": 120 },
+		"cmyk": { "c": 8, "m": 0, "y": 0, "k": 73 }
 	},
 	{
 		"id": "238",
 		"name": "Ash Gray",
+		"kanji": "灰色",
+		"hiragana": "はいいろ",
 		"description": "A medium gray.",
-		"color": "#828282"
+		"color": "#828282",
+		"rgb": { "r": 130, "g": 130, "b": 130 },
+		"cmyk": { "c": 0, "m": 0, "y": 0, "k": 70 }
 	},
 	{
 		"id": "239",
 		"name": "Mouse Gray",
+		"kanji": "素鼠",
+		"hiragana": "すねずみ",
 		"description": "Medium gray.",
-		"color": "#787D7B"
+		"color": "#787D7B",
+		"rgb": { "r": 120, "g": 125, "b": 123 },
+		"cmyk": { "c": 65, "m": 53, "y": 53, "k": 0 }
 	},
 	{
 		"id": "240",
 		"name": "Celadon Gray",
+		"kanji": "利休鼠",
+		"hiragana": "りきゅうねずみ",
 		"description": "A gray with a hint of celadon.",
-		"color": "#707C74"
+		"color": "#707C74",
+		"rgb": { "r": 112, "g": 124, "b": 116 },
+		"cmyk": { "c": 66, "m": 50, "y": 54, "k": 1 }
 	},
 	{
 		"id": "241",
 		"name": "Olive Gray",
+		"kanji": "鈍色",
+		"hiragana": "にびいろ",
 		"description": "Gray with a hint of olive green.",
-		"color": "#656765"
+		"color": "#656765",
+		"rgb": { "r": 101, "g": 103, "b": 101 },
+		"cmyk": { "c": 5, "m": 0, "y": 0, "k": 80 }
 	},
 	{
 		"id": "242",
 		"name": "Steel Gray",
+		"kanji": "青鈍",
+		"hiragana": "あおにび",
 		"description": "A greenish-gray.",
-		"color": "#535953"
+		"color": "#535953",
+		"rgb": { "r": 83, "g": 89, "b": 83 },
+		"cmyk": { "c": 78, "m": 63, "y": 62, "k": 20 }
 	},
 	{
 		"id": "243",
 		"name": "Dove Gray",
+		"kanji": "丼鼠・溝鼠",
+		"hiragana": "どぶねずみ・どぶねずみ",
 		"description": "A dark gray.",
-		"color": "#4F4F48"
+		"color": "#4F4F48",
+		"rgb": { "r": 79, "g": 79, "b": 72 },
+		"cmyk": { "c": 78, "m": 65, "y": 65, "k": 30 }
 	},
 	{
 		"id": "244",
 		"name": "Black Berry",
+		"kanji": "紅消鼠",
+		"hiragana": "べにけしねずみ",
 		"description": "The dark purple of blackberries.",
-		"color": "#52433D"
+		"color": "#52433D",
+		"rgb": { "r": 82, "g": 67, "b": 61 },
+		"cmyk": { "c": 73, "m": 69, "y": 63, "k": 30 }
 	},
 	{
 		"id": "245",
 		"name": "Dark Slate",
+		"kanji": "藍墨茶",
+		"hiragana": "あいすみちゃ",
 		"description": "A dark gray with a hint of blue.",
-		"color": "#373C38"
+		"color": "#373C38",
+		"rgb": { "r": 55, "g": 60, "b": 56 },
+		"cmyk": { "c": 86, "m": 72, "y": 68, "k": 47 }
 	},
 	{
 		"id": "246",
 		"name": "African Brown",
+		"kanji": "梹榔子染",
+		"hiragana": "びんろうじぞめ",
 		"description": "Blackish brown.",
-		"color": "#3A3226"
+		"color": "#3A3226",
+		"rgb": { "r": 58, "g": 50, "b": 38 },
+		"cmyk": { "c": 79, "m": 72, "y": 72, "k": 50 }
 	},
 	{
 		"id": "247",
 		"name": "Charcoal Gray",
+		"kanji": "消炭色",
+		"hiragana": "けしずみいろ",
 		"description": "The blackish gray of charcoal.",
-		"color": "#434343"
+		"color": "#434343",
+		"rgb": { "r": 67, "g": 67, "b": 67 },
+		"cmyk": { "c": 0, "m": 0, "y": 0, "k": 88 }
 	},
 	{
 		"id": "248",
 		"name": "Charcoal Gray",
+		"kanji": "墨色・墨染",
+		"hiragana": "すみいろ・すみぞめ",
 		"description": "The grey-black of charcoal.",
-		"color": "#1C1C1C"
+		"color": "#1C1C1C",
+		"rgb": { "r": 28, "g": 28, "b": 28 },
+		"cmyk": { "c": 92, "m": 78, "y": 73, "k": 66 }
 	},
 	{
 		"id": "249",
 		"name": "Lamp Black",
+		"kanji": "黒色",
+		"hiragana": "くろいろ",
 		"description": "True black; the darkest color.",
-		"color": "#080808"
+		"color": "#080808",
+		"rgb": { "r": 8, "g": 8, "b": 8 },
+		"cmyk": { "c": 91, "m": 84, "y": 74, "k": 71 }
 	},
 	{
 		"id": "250",
 		"name": "Ivory Black",
+		"kanji": "呂色・蝋色",
+		"hiragana": "ろいろ",
 		"description": "Lacquer black.",
-		"color": "#0C0C0C"
+		"color": "#0C0C0C",
+		"rgb": { "r": 12, "g": 12, "b": 12 },
+		"cmyk": { "c": 0, "m": 0, "y": 0, "k": 100 }
 	}
 ]

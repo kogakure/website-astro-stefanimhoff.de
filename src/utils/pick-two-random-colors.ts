@@ -3,8 +3,12 @@ import colorsJson from '../data/colors-japan.json';
 interface Color {
 	id: string;
 	name: string;
+	kanji: string;
+	hiragana: string;
 	description: string;
 	color: string;
+	rgb: { r: number; g: number; b: number };
+	cmyk: { c: number; m: number; y: number; k: number };
 }
 
 export const pickTwoRandomColors = (): [string, string] => {
