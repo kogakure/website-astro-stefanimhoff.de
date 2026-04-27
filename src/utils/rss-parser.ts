@@ -470,9 +470,10 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		replaceSpotifyComponent(attributes)
 	);
 
-	// <ColorSwatch ... />
-	processed = processed.replace(/<ColorSwatch([\s\S]*?)\/>/g, (_match, attributes: string) =>
-		replaceColorSwatchComponent(attributes)
+	// <ColorSwatch ... />, <ColorSwatchPrimary ... />, <ColorSwatchMini ... />
+	processed = processed.replace(
+		/<ColorSwatch(?:Primary|Mini)?([\s\S]*?)\/>/g,
+		(_match, attributes: string) => replaceColorSwatchComponent(attributes)
 	);
 
 	// <ColorStack>...</ColorStack> and <BookShelf>...</BookShelf>

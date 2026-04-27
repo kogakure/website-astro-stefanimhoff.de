@@ -6,6 +6,8 @@ import { mapping } from '@/mdx-components';
 import Banner from '@/components/content/Banner';
 import Blockquote from '@/components/content/Blockquote';
 import ColorSwatch from '@/components/content/ColorSwatch';
+import ColorSwatchMini from '@/components/content/ColorSwatchMini';
+import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
 import DisplayBox from '@/components/content/DisplayBox';
 import DisplayHeadline from '@/components/ui/DisplayHeadline';
 import DividerUI from '@/components/ui/Divider';
@@ -112,9 +114,19 @@ const uiComponents = [
 
 const contentComponents = [
 	{
+		name: 'ColorSwatchPrimary',
+		file: 'content/ColorSwatchPrimary.tsx',
+		description: 'Large color swatch with centered kanji and auto-contrast text.',
+	},
+	{
 		name: 'ColorSwatch',
 		file: 'content/ColorSwatch.tsx',
-		description: 'Interactive color swatch card with flip animation.',
+		description: 'Secondary color swatch card with name, kanji, hex, and description.',
+	},
+	{
+		name: 'ColorSwatchMini',
+		file: 'content/ColorSwatchMini.tsx',
+		description: 'Inline mini color swatch for use next to hex values.',
 	},
 	{
 		name: 'Blockquote',
@@ -352,12 +364,28 @@ const iconComponents = [
 								<span class="text-2 text-hai shrink-0 font-mono">{item.file}</span>
 							</div>
 							<div class="border-shibui-200 dark:border-shibui-700 rounded-2 dark:bg-shibui-900 border bg-white p-4">
+								{item.name === 'ColorSwatchPrimary' && (
+									<ColorSwatchPrimary
+										color="#900B20"
+										name="Beni"
+										kanji="紅"
+										hiragana="べに"
+										description="A bright red originally derived from the cochineal insect."
+									/>
+								)}
 								{item.name === 'ColorSwatch' && (
 									<ColorSwatch
 										color="#900B20"
-										title="Beni"
-										description="Crimson, deep red — accent color"
+										name="Beni"
+										kanji="紅"
+										description="A bright red originally derived from the cochineal insect."
 									/>
+								)}
+								{item.name === 'ColorSwatchMini' && (
+									<span class="flex items-center gap-2">
+										<ColorSwatchMini color="#900B20" />
+										<code class="font-mono text-sm">#900B20</code>
+									</span>
 								)}
 								{item.name === 'Blockquote' && (
 									<Blockquote>

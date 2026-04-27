@@ -1,11 +1,11 @@
 ---
 # SI-2060
 title: Extend colors-japan.json with kanji, hiragana, RGB, CMYK
-status: in-progress
+status: completed
 type: task
 priority: normal
 created_at: 2026-04-26T12:02:32Z
-updated_at: 2026-04-26T12:02:44Z
+updated_at: 2026-04-27T13:52:58Z
 ---
 
 Extend each of the 250 entries in `src/data/colors-japan.json` with original Japanese name (kanji), reading (hiragana), and book-printed RGB + CMYK values from _Traditional Colors of Japan_ by Nobyoshi Hamada. Faithful transcription from book photographs (algorithmic CMYK conversion would not match the book's print process). Future swatch UI redesign will consume these fields.

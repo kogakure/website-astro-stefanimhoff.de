@@ -3,7 +3,7 @@ import GridLayout from '@/layouts/GridLayout.astro';
 
 import AmazonBook from '@/components/content/AmazonBook';
 import ColorStack from '@/components/content/ColorStack';
-import ColorSwatch from '@/components/content/ColorSwatch';
+import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
 import PageTitle from '@/components/site/PageTitle.astro';
 
 import { Content as Intro } from '@/text/traditional-colors-of-japan/intro.mdx';
@@ -38,12 +38,16 @@ const description =
 		/>
 	</article>
 
-	<ColorStack>
+	<ColorStack className="grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
 		{
-			colors.map(({ name, description, color }) => (
-				<div>
-					<ColorSwatch color={color} title={name} description={description} />
-				</div>
+			colors.map(({ name, kanji, hiragana, description, color }) => (
+				<ColorSwatchPrimary
+					color={color}
+					name={name}
+					kanji={kanji}
+					hiragana={hiragana}
+					description={description}
+				/>
 			))
 		}
 	</ColorStack>

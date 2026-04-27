@@ -6,6 +6,8 @@ import Book from './components/content/Book';
 import Bookshelf from './components/content/Bookshelf';
 import ColorStack from './components/content/ColorStack';
 import ColorSwatch from './components/content/ColorSwatch';
+import ColorSwatchMini from './components/content/ColorSwatchMini';
+import ColorSwatchPrimary from './components/content/ColorSwatchPrimary';
 import DisplayBox from './components/content/DisplayBox';
 import DownloadLink from './components/content/DownloadLink';
 import EmailLink from './components/content/EmailLink';
@@ -60,6 +62,8 @@ export const mapping = {
 	Bookshelf,
 	ColorStack,
 	ColorSwatch,
+	ColorSwatchMini,
+	ColorSwatchPrimary,
 	DisplayBox,
 	DownloadLink,
 	EmailLink,

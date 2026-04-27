@@ -6,43 +6,38 @@ interface Props extends HTMLAttributes<HTMLElement> {
 	className?: string;
 	color: string;
 	description?: string;
+	hiragana?: string;
 	kanji?: string;
 	name?: string;
-	title?: string;
 }
 
-export const ColorSwatch = ({
+export const ColorSwatchPrimary = ({
 	className,
 	color,
 	description,
+	hiragana,
 	kanji,
 	name,
-	title,
 	...props
 }: Props) => {
-	const label = name ?? title;
 	const light = isVeryLightColor(color);
 	const contrastColor = getContrastColor(color);
+	const textColor = contrastColor === 'dark' ? 'var(--color-sumi)' : 'var(--color-washi)';
 
 	return (
 		<div className={cn('w-full', className)} {...props}>
-			{/* Color field */}
+			{/* Color field with centered kanji */}
 			<div
 				className={cn(
-					'rounded-bs-2 aspect-4/3 w-full',
+					'rounded-bs-2 relative flex aspect-[3/2] w-full items-center justify-center',
 					light && 'border-usuzumi/40 border-[1px] border-b-0'
 				)}
 				style={{ backgroundColor: color }}
 			>
 				{kanji && (
 					<span
-						className="flex h-full items-end justify-end p-2 font-serif text-[1.25rem] opacity-60"
-						style={{
-							color:
-								contrastColor === 'dark'
-									? 'var(--color-sumi)'
-									: 'var(--color-washi)',
-						}}
+						className="px-4 text-center font-sans text-[1.25rem] leading-snug"
+						style={{ color: textColor }}
 					>
 						{kanji}
 					</span>
@@ -51,17 +46,13 @@ export const ColorSwatch = ({
 
 			{/* Info area */}
 			<div className="pbs-3">
-				{label && (
-					<div className="flex items-baseline justify-between gap-2">
-						<span className="text-3 text-sumi dark:text-washi truncate font-medium">
-							{label}
-							{kanji && (
-								<span className="mie-0 mis-2 text-hai font-normal">{kanji}</span>
-							)}
-						</span>
-					</div>
+				{name && (
+					<span className="text-3 text-sumi dark:text-washi block truncate font-semibold">
+						{name}
+					</span>
 				)}
-				<p className="text-2 text-hai font-mono">{color}</p>
+				<span className="text-2 text-hai font-mono">{color}</span>
+
 				{description && (
 					<p className="text-2 mbs-1 text-hai overflow-hidden [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]">
 						{description}
@@ -72,4 +63,4 @@ export const ColorSwatch = ({
 	);
 };
 
-export default ColorSwatch;
+export default ColorSwatchPrimary;
