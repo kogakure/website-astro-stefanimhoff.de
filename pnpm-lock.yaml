@@ -100,6 +100,9 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
     devDependencies:
+      '@eslint/js':
+        specifier: ^9.9.0
+        version: 9.9.0
       '@svgr/cli':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.5.4)
@@ -154,6 +157,9 @@ importers:
       glob:
         specifier: ^11.0.0
         version: 11.0.0
+      globals:
+        specifier: ^17.5.0
+        version: 17.5.0
       happy-dom:
         specifier: ^20.5.0
         version: 20.5.0
@@ -3514,6 +3520,10 @@ packages:
 
   globals@15.9.0:
     resolution: {integrity: sha512-SmSKyLLKFbSr6rptvP8izbyxJL4ILwqO9Jg23UA0sDlGlu58V59D1//I3vlc0KJphVdUR7vMjHIplYnzBxorQA==}
+    engines: {node: '>=18'}
+
+  globals@17.5.0:
+    resolution: {integrity: sha512-qoV+HK2yFl/366t2/Cb3+xxPUo5BuMynomoDmiaZBIdbs+0pYbjfZU+twLhGKp4uCZ/+NbtpVepH5bGCxRyy2g==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -10613,6 +10623,8 @@ snapshots:
   globals@14.0.0: {}
 
   globals@15.9.0: {}
+
+  globals@17.5.0: {}
 
   globalthis@1.0.4:
     dependencies:

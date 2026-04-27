@@ -53,7 +53,8 @@ export async function GET(context) {
 				});
 
 				// Logic to determine image URL
-				const isWebp = cover.startsWith('/assets/images/cover/') && cover.endsWith('.webp');
+				const isWebp =
+					cover?.startsWith('/assets/images/cover/') && cover?.endsWith('.webp');
 				const imgUrl = isWebp
 					? cover
 							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
@@ -87,11 +88,10 @@ export async function GET(context) {
 				return {
 					title: `Haiku ${item.slug}`,
 					pubDate: item.data.date,
-					customData: '<language>en-us</language>',
 					link: `/haiku/${item.slug}/`,
 					content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
 					enclosure: {
-						url: `${site.url}'/assets/images/og/bonsai.jpg`,
+						url: `${site.url}/assets/images/og/bonsai.jpg`,
 						length: 0,
 						type: 'image/jpeg',
 					},
