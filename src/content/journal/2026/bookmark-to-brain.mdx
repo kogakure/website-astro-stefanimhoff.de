@@ -1,0 +1,65 @@
+---
+title: From Bookmark to Brain
+subtitle: A streamlined pipeline that turns saved links into lasting knowledge
+slug: bookmark-to-brain
+date: 2026-04-27
+author: Stefan Imhoff
+description: Build a five-layer personal knowledge system with Raindrop.io, Readwise, Obsidian, and Anki—plus n8n automation—to capture, search, and remember anything fast.
+tags: ["productivity", "software", "technology"]
+---
+
+People often ask me how I remember and respond to so many requests or questions so quickly. My secret isn't a large brain or memory palace techniques; I use a five-layer system for storing information.
+
+1. Bookmarks
+2. Highlights
+3. Literature notes
+4. Notes
+5. Brain
+
+The key is to automate and streamline the process with the right tools. I've used some for nearly a decade and others more recently. When I discover a tool that enhances my workflow, I evaluate it, but I don't overhaul everything just for a new tool.
+
+## Bookmarks
+
+My entry point for anything digital is [Raindrop.io](https://raindrop.io/), where I bookmark interesting content from various sources like Inoreader, 𝕏, LinkedIn, and newsletters.
+
+Raindrop.io offers convenient bookmarking through browser extensions or mobile devices. Its affordable premium plan includes full-text search, offline article access, and powerful AI features that suggest tags and collections. Bookmarks are categorized into notes, highlights, reminders, links, videos, articles, audios, documents, images, and books, aiding in the next step.
+
+Finding anything again is easy with the full-text search, [built-in AI](https://help.raindrop.io/stella), [MCP](https://developer.raindrop.io/mcp/mcp), or [Raycast AI agent](https://www.raycast.com/lardissone/raindrop-io). I appreciate the “broken links” feature that shows deleted articles or missing pages. You wouldn’t believe how much COVID-19 propaganda was quietly removed; I counted thousands of links. Thankfully, Raindrop.io stored them offline.
+
+I don’t read in Raindrop.io; it’s not designed for that. Instead, I use a self-hosted n8n instance to transfer content to other apps hosted on a budget €8 Hetzner <abbr title="Virtual private server">VPS</abbr> via [Coolify](https://coolify.io/). When I star an item in [Inoreader](https://www.inoreader.com/), n8n automatically moves it to my Raindrop.io inbox. Multiple workflows analyze the contents in my inbox every few minutes.
+
+One workflow checks categories in Readwise—articles, videos, podcasts, documents, and books—and sends them via the [Readwise API](https://readwise.io/reader_api) using n8n.
+
+Another workflow sends articles to Instapaper for reading on my Rakuten Kobo device.
+
+A third workflow backs up all bookmarks to my self-hosted [Karakeep](https://karakeep.app/) instance.
+
+N8n offers more, allowing complex workflows, AI content processing, automatic social media publishing, data storage in tables, and email sending, all through a beginner-friendly interface.
+
+## Highlights
+
+Most of my highlights are created in [Readwise](https://readwise.io/) or on my e-ink device. I've been a Readwise customer for 5 years and would likely keep it last if I had to cut expenses. Readwise is invaluable for content enthusiasts, with [Readwise Reader](https://readwise.io/read) collecting everything I want to read or watch later.
+
+The highlight feature is exceptional, offering built-in audio with natural AI voices for articles, PDFs, and ebooks. For videos, it provides an AI-enhanced transcript. Podcasts sent to the inbox can be requested for full transcripts with timestamps in seconds, even for my [Aethervox Patreon](https://www.patreon.com/cw/aethervoxehrenfeld) subscription. You can read PDFs in text mode and upload ebooks, while Readwise collects highlights from over 35 services, including Kindle, Instapaper, 𝕏, Apple Books, Goodreads, and Kobo. It also allows scanning physical books with your phone or using the CLI.
+
+Highlights can be exported to various applications like Notion, Obsidian, Apple Notes, Logseq, Roam Research, Evernote, OneNote, and more. The Readwise API enables custom workflows.
+
+I regularly export all my highlights and full text to my hard drive in [Obsidian](https://www.patreon.com/cw/aethervoxehrenfeld), where they are stored, [synced with all my devices](https://obsidian.md/sync), and versioned with [Git](https://git-scm.com/).
+
+Highlights can be searched using full text search in Readwise and Readwise Reader, analyzed with the built-in AI chat and tools, or accessed via external AI agents through [MCP](https://readwise.io/mcp) or the [Readwise CLI](https://readwise.io/cli). They offer various useful agentic skills.
+
+## Literature Notes
+
+I create literature notes in Obsidian for specific books, articles, videos, or podcasts using exported highlights and AI summaries of key insights. Each note starts with an AI-generated summary, followed by links to individual insights. I frequently use the Obsidian “[Note Refactor](https://github.com/lynchjames/note-refactor-obsidian)” plugin.
+
+## Notes
+
+I create individual notes for my Obsidian Zettelkasten, distilling key aspects in my words and linking them with Wikilinks and tags. I use [Claude Code](https://claude.com/product/claude-code) and [OpenCode “Go”](https://opencode.ai/go) models to uncover connections and insights in my notes. Additionally, I experiment with new AI skills, [having made a few public](https://github.com/kogakure/skills), with more to come.
+
+## Brain
+
+The last level of my system is my brain, where I remember things of specific importance. Some interests are fleeting, while others, like economics, history, and libertarianism, have captivated me for years.
+
+Readwise offers a great feature for retention with its spaced repetition system, delivering 5 highlights daily via carousel or email. You can choose to keep, bury, or memorize them and adjust sliders for topics and sources, such as preferring books over articles. I have custom carousels for stoic highlights, economic insights, and Japanese philosophy.
+
+When I'm eager to learn, I create cards in [Anki](https://apps.ankiweb.net/), one of my favorite apps. Its spaced memorization is impressive, allowing for various card types like cloze deletions and image occlusions. Over 1.5 years, I completed 26,000 reviews of more than 6,000 Japanese cards, and I also use Anki for poems and technical knowledge.
