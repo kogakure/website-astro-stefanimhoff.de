@@ -1,54 +1,61 @@
 ---
-import GridLayout from '@/layouts/GridLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
 import AmazonBook from '@/components/content/AmazonBook';
 import ColorStack from '@/components/content/ColorStack';
 import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
+import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
 
-import { Content as Intro } from '@/text/traditional-colors-of-japan/intro.mdx';
-import colors from '@/data/colors-japan.json';
+import { readFileSync } from 'node:fs';
 
+import { Content as Intro } from '@/text/traditional-colors-of-japan/intro.mdx';
 import { mapping } from '@/mdx-components';
+
+interface ColorEntry {
+	color: string;
+	description?: string;
+	hiragana?: string;
+	kanji?: string;
+	name: string;
+}
+
+const colors: ColorEntry[] = JSON.parse(
+	readFileSync(new URL('../data/colors-japan.json', import.meta.url), 'utf-8')
+);
 
 const title = 'The Traditional Colors of Japan';
 const description =
-	'I took the time and converted all colors in the book “Traditional Colors of Japan” by Nobyoshi Hamada into an ASE file free to download.';
+	'I took the time and converted all colors in the book "Traditional Colors of Japan" by Nobyoshi Hamada into an ASE file free to download.';
 ---
 
-<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
-	<PageTitle class="col-end-19 mbe-0 col-start-1 row-start-1"
-		>The Traditional Colors of&nbsp;Japan</PageTitle
-	>
+<BaseLayout title={title} description={description}>
+	<PageTitle>The Traditional Colors of&nbsp;Japan</PageTitle>
 
-	<article class="col-end-17 col-start-1 grid md:col-end-8 xl:content-center">
-		<Intro components={mapping} />
-	</article>
+	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32 pt-16">
+		<PageSection label="Introduction">
+			<Intro components={mapping} />
+		</PageSection>
 
-	<article class="col-end-17 col-start-1 flex grid-cols-2 md:col-start-9 md:justify-end">
-		<AmazonBook
-			alt="The Traditional Colors of Japan"
-			asin="475624100X"
-			className="max-w-75 me-[1.5vw] [&_img]:self-end"
-		/>
-		<AmazonBook
-			alt="Traditional Japanese Color Palette"
-			asin="475624114X"
-			className="max-w-75 ms-[1.5vw] [&_img]:self-end"
-		/>
-	</article>
+		<PageSection label="Books">
+			<div class="flex gap-6">
+				<AmazonBook alt="The Traditional Colors of Japan" asin="475624100X" />
+				<AmazonBook alt="Traditional Japanese Color Palette" asin="475624114X" />
+			</div>
+		</PageSection>
 
-	<ColorStack className="grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
-		{
-			colors.map(({ name, kanji, hiragana, description, color }) => (
-				<ColorSwatchPrimary
-					color={color}
-					name={name}
-					kanji={kanji}
-					hiragana={hiragana}
-					description={description}
-				/>
-			))
-		}
-	</ColorStack>
-</GridLayout>
+		<ColorStack className="grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
+			{
+				colors.map(({ name, kanji, hiragana, description, color }) => (
+					<ColorSwatchPrimary
+						color={color}
+						name={name}
+						kanji={kanji}
+						hiragana={hiragana}
+						description={description}
+					/>
+				))
+			}
+		</ColorStack>
+	</div>
+</BaseLayout>

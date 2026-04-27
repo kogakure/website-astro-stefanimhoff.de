@@ -1,7 +1,9 @@
 import type { HTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
 
-interface Props extends HTMLAttributes<HTMLElement> {}
+interface Props extends HTMLAttributes<HTMLElement> {
+	className?: string;
+}
 
 export const ColorStack = ({ className, children, ...props }: Props) => (
 	<article
