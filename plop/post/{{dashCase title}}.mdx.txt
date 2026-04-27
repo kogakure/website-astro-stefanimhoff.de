@@ -1,6 +1,7 @@
 ---
 draft: true
 title: {{titleCase title}}
+subtitle: {{titleCase subtitle}
 slug: {{dashCase title}}
 date: {{date}}
 author: Stefan Imhoff
