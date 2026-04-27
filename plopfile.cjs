@@ -40,6 +40,11 @@ module.exports = function (plop) {
 			},
 			{
 				type: 'input',
+				name: 'subtitle',
+				message: 'Subtitle (optional)',
+			},
+			{
+				type: 'input',
 				name: 'description',
 				message: 'Description',
 			},
