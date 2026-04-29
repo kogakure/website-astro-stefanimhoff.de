@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal website and blog for Stefan Imhoff, featuring journal posts, haiku collection, project showcase, and full-text search. Built with Astro for static generation, Preact for interactive components, and styled with Tailwind CSS.
+Personal website and blog for Stefan Imhoff, featuring journal posts, haiku collection, project showcase, and full-text search. Built with Astro for static generation, React for interactive components, and styled with Tailwind CSS.
 
 **Live Site**: https://www.stefanimhoff.de
 

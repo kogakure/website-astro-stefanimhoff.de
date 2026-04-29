@@ -5,7 +5,7 @@
 
 # stefanimhoff.de
 
-This is the source of my [personal website][si] build with [Astro], [Preact], and [Tailwind CSS].
+This is the source of my [personal website][si] build with [Astro], [React], and [Tailwind CSS].
 
 ## Installation
 
@@ -34,6 +34,6 @@ In _easier_ words: **This is not a free theme**. Learn from it. Remix. Reuse. Bu
 [creative commons license]: https://creativecommons.org/licenses/by-nc-sa/4.0/
 [astro]: https://astro.build/
 [tailwind css]: https://tailwindcss.com/
-[preact]: https://preactjs.com/
+[react]: https://react.dev/
 [journal]: https://www.stefanimhoff.de/journal/
 [si]: https://www.stefanimhoff.de/

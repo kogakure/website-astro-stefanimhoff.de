@@ -2,7 +2,7 @@
 
 ```
 src/
-├── components/     # Reusable UI components (Astro/Preact)
+├── components/     # Reusable UI components (Astro/React)
 ├── content/        # Content collections (journal/, haiku/, projects/)
 ├── schema/         # Zod schemas for content validation (src/schema/*.ts)
 ├── layouts/        # Page templates (BaseLayout → specialized layouts)

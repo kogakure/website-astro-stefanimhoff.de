@@ -144,7 +144,7 @@ Separate build scripts generate optimized assets from source files:
 
    - `og-generate.cjs` - Generates Open Graph preview images for posts
    - `thumbnail-generate.cjs` - Creates thumbnail images
-   - `icons-generate.cjs` - Converts SVG icons to React/Preact components
+   - `icons-generate.cjs` - Converts SVG icons to React components
    - `convert-images.cjs` - Batch image format conversion (WebP)
 
 2. **Execution**:

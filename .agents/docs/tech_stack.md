@@ -1,7 +1,7 @@
 ## Tech Stack
 
 - **Framework**: Astro 4.x (static site generator with view transitions)
-- **UI Libraries**: Preact (React compatibility mode), MDX for content
+- **UI Libraries**: React, MDX for content
 - **Styling**: Tailwind CSS with custom plugins (tailwindcss-logical, tailwindcss-opentype)
 - **Search**: Pagefind (full-text search)
 - **Package Manager**: pnpm
