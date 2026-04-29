@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { getPreviewUrl } from '../../utils/preview-url';
+import ClearFiltersButton from '../ui/ClearFiltersButton';
 import Divider from '../ui/Divider';
 import EssayLink from '../ui/EssayLink';
 import ListItem from '../ui/ListItem';
@@ -122,19 +123,14 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 								</button>
 							</span>
 						))}
-						{selectedTags.length > 0 && (
-							<button
-								type="button"
-								onClick={() => {
-									setSelectedTags([]);
-									updateUrl([]);
-								}}
-								className="text-2 text-hai ml-4 underline transition-opacity hover:opacity-60"
-							>
-								Clear
-							</button>
-						)}
 					</Text>
+					<ClearFiltersButton
+						count={selectedTags.length}
+						onClick={() => {
+							setSelectedTags([]);
+							updateUrl([]);
+						}}
+					/>
 				</div>
 			</section>
 
