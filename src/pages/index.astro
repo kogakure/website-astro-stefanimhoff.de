@@ -12,7 +12,6 @@ import HomePageSection from '@/components/ui/HomepagePageSection';
 import JapanesePoem from '@/components/ui/JapanesePoem';
 import ListItem from '@/components/ui/ListItem';
 import MoreLink from '@/components/ui/MoreLink';
-import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
 
@@ -20,6 +19,7 @@ import { Content as About } from '@/text/homepage/about.mdx';
 import { Content as Work } from '@/text/homepage/work.mdx';
 import { Content as Writing } from '@/text/homepage/writing.mdx';
 import { mapping } from '@/mdx-components';
+import { getPreviewUrl } from '@/utils/preview-url';
 
 const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
 const latestPosts = formatPosts(allPosts, { limit: 9 });
@@ -79,7 +79,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 				{
 					latestPosts.map((post) => (
 						<ListItem>
-							<EssayLink href={`/${post.id}/`}>
+							<EssayLink
+								href={`/${post.id}/`}
+								data-hover-preview={getPreviewUrl(post.data.cover)}
+							>
 								{post.data.subtitle
 									? `${post.data.title}: ${post.data.subtitle}`
 									: post.data.title}

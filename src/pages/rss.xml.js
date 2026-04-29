@@ -56,10 +56,8 @@ export async function GET(context) {
 				const isWebp =
 					cover?.startsWith('/assets/images/cover/') && cover?.endsWith('.webp');
 				const imgUrl = isWebp
-					? cover
-							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
-							.replace(/\.webp$/, '.jpg')
-					: '/assets/images/thumbnail/bonsai.jpg';
+					? cover.replace('/assets/images/cover/', '/assets/images/preview/')
+					: '/assets/images/preview/bonsai.webp';
 
 				return {
 					title: subtitle ? `${title}: ${subtitle}` : title,
@@ -80,7 +78,7 @@ export async function GET(context) {
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}${imgUrl}" width="100" height="100" />
+            <media:thumbnail url="${site.url}${imgUrl}" width="800" height="450" />
           `,
 				};
 			}),
@@ -97,7 +95,7 @@ export async function GET(context) {
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}/assets/images/thumbnail/bonsai.jpg" width="100" height="100" />
+            <media:thumbnail url="${site.url}/assets/images/preview/bonsai.webp" width="800" height="450" />
           `,
 				};
 			}),

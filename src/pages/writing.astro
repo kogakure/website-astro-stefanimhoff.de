@@ -26,6 +26,7 @@ const posts = formattedPosts.map((entry) => ({
 	subtitle: entry.data.subtitle,
 	tags: entry.data.tags ?? [],
 	year: new Date(entry.data.date).getFullYear(),
+	cover: entry.data.cover,
 }));
 
 const title = 'Writing';

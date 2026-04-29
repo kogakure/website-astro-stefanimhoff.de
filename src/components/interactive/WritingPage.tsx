@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { getPreviewUrl } from '../../utils/preview-url';
 import Divider from '../ui/Divider';
 import EssayLink from '../ui/EssayLink';
 import ListItem from '../ui/ListItem';
@@ -16,6 +17,7 @@ interface PostItem {
 	subtitle?: string;
 	tags: string[];
 	year: number;
+	cover?: string;
 }
 
 interface Props {
@@ -151,7 +153,10 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 						<UnorderedList className={contentCol}>
 							{byYear[year].map((post) => (
 								<ListItem key={post.slug}>
-									<EssayLink href={`/${post.slug}/`}>
+									<EssayLink
+										href={`/${post.slug}/`}
+										data-hover-preview={getPreviewUrl(post.cover)}
+									>
 										{post.subtitle
 											? `${post.title}: ${post.subtitle}`
 											: post.title}
