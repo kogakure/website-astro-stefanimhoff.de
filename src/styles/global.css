@@ -364,7 +364,32 @@
 	}
 
 	::selection {
-		background-color: var(--color-beni-pale);
+		background-color: var(--color-usuzumi);
+		color: var(--color-sumi);
+	}
+
+	.dark ::selection {
+		background-color: var(--color-nezumi);
+		color: var(--color-washi);
+	}
+
+	::search-text {
+		background-color: var(--color-usuzumi);
+		color: var(--color-sumi);
+	}
+
+	::search-text:current {
+		background-color: var(--color-hai);
+		color: var(--color-sumi);
+	}
+
+	.dark ::search-text {
+		background-color: var(--color-nezumi);
+		color: var(--color-washi);
+	}
+
+	.dark ::search-text:current {
+		background-color: var(--color-usuzumi);
 		color: var(--color-sumi);
 	}
 
