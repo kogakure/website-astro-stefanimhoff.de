@@ -174,7 +174,7 @@ const webManifest = isProduction && {
 			{footer && <PageFooter />}
 		</div>
 		<CommandMenu client:load />
-		<HoverPreview client:load />
+		<HoverPreview client:load transition:persist />
 		<script>
 			console.info(
 				'👋 I see you’re interested in the source code of this site? You can find it here 👉 https://github.com/kogakure/website-astro-stefanimhoff.de'

@@ -8,6 +8,7 @@ const FALLBACK_URL = getPreviewUrl();
 export const HoverPreview = () => {
 	const imgRef = useRef<HTMLImageElement>(null);
 	const activeUrlRef = useRef<string | null>(null);
+	const cloneRef = useRef<HTMLImageElement | null>(null);
 	const targetX = useRef(0);
 	const targetY = useRef(0);
 	const currentX = useRef(0);
@@ -67,14 +68,42 @@ export const HoverPreview = () => {
 			hide();
 		};
 
-		// Hide immediately when navigating away from a post with no cover.
-		// For real covers, keep visible so the view transition can morph it.
 		const onBeforePreparation = () => {
-			if (!img.style.getPropertyValue('view-transition-name')) hide();
+			const url = activeUrlRef.current;
+			if (!url || url === FALLBACK_URL) {
+				hide();
+				return;
+			}
+			// Place a non-persisted clone at the exact screen position of the
+			// floating img so the view transition captures it in the old-state
+			// screenshot and morphs it into the article cover.
+			const rect = img.getBoundingClientRect();
+			const clone = document.createElement('img');
+			clone.src = img.src;
+			clone.setAttribute('alt', '');
+			clone.style.cssText = [
+				'position:fixed',
+				`left:${rect.left}px`,
+				`top:${rect.top}px`,
+				`width:${rect.width}px`,
+				`height:${rect.height}px`,
+				'view-transition-name:post-cover',
+				'pointer-events:none',
+				'border-radius:0.375rem',
+				'z-index:50',
+				'object-fit:cover',
+			].join(';');
+			document.body.appendChild(clone);
+			cloneRef.current = clone;
+			// Hide and clear VTN on the persisted img to avoid name conflicts.
+			hide();
 		};
 
-		// Always reset after the new page is fully loaded.
-		const onPageLoad = () => hide();
+		const onPageLoad = () => {
+			cloneRef.current?.remove();
+			cloneRef.current = null;
+			hide();
+		};
 
 		document.addEventListener('mousemove', onMouseMove);
 		document.addEventListener('mouseover', onMouseOver);
