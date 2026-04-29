@@ -11,7 +11,7 @@ import PageTitle from '@/components/site/PageTitle.astro';
 import PageSection from '@/components/ui/PageSection';
 import WritingPage from '@/components/interactive/WritingPage';
 
-import { Content as WritingIntro } from '@/text/writing/intro.mdx';
+import { Content as WritingIntro } from '@/content/text/writing/intro.mdx';
 import { mapping } from '@/mdx-components';
 
 const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
