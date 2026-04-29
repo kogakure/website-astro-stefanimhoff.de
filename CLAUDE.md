@@ -8,6 +8,16 @@ Personal website and blog for Stefan Imhoff, featuring journal posts, haiku coll
 
 **IMPORTANT**: before you do anything else, run the `beans prime` command and heed its output.
 
+## shadcn/ui
+
+This project uses **shadcn/ui** as its UI component base. Components are installed via `pnpm dlx shadcn@latest add <component>` and land in `src/components/ui/`. The `components.json` in the root configures paths and style.
+
+- **Style**: `new-york`
+- **Tailwind**: v4 — `tailwind.config` is `""` in `components.json`
+- **CSS variables**: defined in `src/styles/global.css` under `/* shadcn/ui CSS Variables */`, mapped to the Ma Design System tokens (e.g. `--color-beni`, `--color-sumi`). Dark mode overrides in `.dark {}` block above the logical-property utilities.
+- **`cn()` util**: `src/lib/utils.ts` — already used by all components.
+- **Do NOT install `@radix-ui/*` packages directly** — always go through `shadcn add` so components, deps, and styles stay consistent.
+
 ## Components-First Rule
 
 **Always use existing UI components instead of raw HTML elements.** Before writing `<p>`, `<h1>`–`<h6>`, `<hr>`, `<ul>`, `<ol>`, `<li>`, or `<a>` in `.astro` or `.tsx` files, check `src/components/ui/` first.

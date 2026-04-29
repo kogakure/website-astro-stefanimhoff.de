@@ -45,7 +45,13 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 			<li><TextLink href="https://www.stefanimhoff.de">Website</TextLink></li>
 			<li aria-hidden="true">•</li>
 			<li>
-				<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} />
+				<EmailLink
+					data-domain="stefanimhoff"
+					data-name="cv"
+					data-tld="de"
+					client:load
+					text="hey@stefanimhoff.de"
+				/>
 			</li>
 			<li aria-hidden="true">•</li>
 			<li><DownloadLink href="/downloads/resume-stefan-imhoff.zip" text="Resume" /></li>

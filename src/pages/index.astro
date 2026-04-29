@@ -11,6 +11,7 @@ import EssayLink from '@/components/ui/EssayLink';
 import HomePageSection from '@/components/ui/HomepagePageSection';
 import JapanesePoem from '@/components/ui/JapanesePoem';
 import ListItem from '@/components/ui/ListItem';
+import EmailLink from '@/components/content/EmailLink';
 import MoreLink from '@/components/ui/MoreLink';
 import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
@@ -94,10 +95,13 @@ const description = 'Design Engineer from Hamburg, Germany';
 		</HomePageSection>
 
 		<HomePageSection label="Contact">
-			<MoreLink
-				href="mailto:hey@stefanimhoff.de"
+			<EmailLink
+				data-name="hey"
+				data-domain="stefanimhoff"
+				data-tld="de"
 				text="hey@stefanimhoff.de"
 				data-umami-event="Contact: Email"
+				client:load
 			/>
 		</HomePageSection>
 	</div>

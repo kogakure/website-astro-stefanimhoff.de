@@ -121,6 +121,50 @@
 	--spacing-clickarea: 40px;
 
 	/* ----------------------------------------------------------
+	   shadcn/ui CSS Variables — mapped to Ma Design System
+	   ---------------------------------------------------------- */
+
+	--background: var(--color-washi);
+	--foreground: var(--color-sumi);
+	--card: var(--color-kiri);
+	--card-foreground: var(--color-sumi);
+	--popover: var(--color-washi);
+	--popover-foreground: var(--color-sumi);
+	--primary: var(--color-beni);
+	--primary-foreground: oklch(1 0 0);
+	--secondary: var(--color-kiri);
+	--secondary-foreground: var(--color-sumi);
+	--muted: var(--color-kiri);
+	--muted-foreground: var(--color-hai);
+	--accent: var(--color-kiri);
+	--accent-foreground: var(--color-sumi);
+	--destructive: var(--color-beni);
+	--border: var(--color-usuzumi);
+	--input: var(--color-usuzumi);
+	--ring: var(--color-beni);
+	--radius: 0.375rem;
+
+	/* Tailwind v4: expose as --color-* so utility classes resolve */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+
+	/* ----------------------------------------------------------
 	   Border Radius (legacy)
 	   ---------------------------------------------------------- */
 
@@ -162,6 +206,28 @@
 	--duration-moderate: 300ms;
 	--duration-slow: 500ms;
 	--duration-deliberate: 800ms;
+}
+
+/* shadcn/ui dark mode overrides */
+.dark {
+	--background: var(--color-yoru);
+	--foreground: var(--color-washi);
+	--card: var(--color-sumi);
+	--card-foreground: var(--color-washi);
+	--popover: var(--color-sumi);
+	--popover-foreground: var(--color-washi);
+	--primary: var(--color-beni-light);
+	--primary-foreground: var(--color-yoru);
+	--secondary: var(--color-sumi);
+	--secondary-foreground: var(--color-washi);
+	--muted: var(--color-sumi);
+	--muted-foreground: var(--color-nezumi);
+	--accent: var(--color-sumi);
+	--accent-foreground: var(--color-washi);
+	--destructive: var(--color-beni-light);
+	--border: var(--color-nezumi);
+	--input: var(--color-nezumi);
+	--ring: var(--color-beni-light);
 }
 
 /* ============================================================

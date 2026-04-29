@@ -59,27 +59,8 @@
 		});
 	}
 
-	function handleEmailClick(event: Event) {
-		event.preventDefault();
-		const currentTarget = event.currentTarget;
-		if (currentTarget instanceof HTMLElement) {
-			const { name, domain, tld } = currentTarget.dataset;
-			if (name && domain && tld) {
-				window.open(`mailto:${name}@${domain}.${tld}`, '_blank');
-			}
-		}
-	}
-
-	function setEmailLink() {
-		const links = document.querySelectorAll('[data-email-link]');
-		links.forEach((link) => {
-			link.addEventListener('click', handleEmailClick);
-		});
-	}
-
 	function initializeScripts() {
 		setActiveLink();
-		setEmailLink();
 		setCommandMenuTriggers();
 		setUpLink();
 	}
