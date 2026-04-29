@@ -8,9 +8,9 @@ export const TextLink = ({ className, children, ...props }: Props) => (
 	<Link
 		className={cn(
 			'text-beni visited:text-beni-muted active:text-beni-dark no-underline',
-			'bg-gradient-to-r from-current to-current bg-[length:0%_1px] bg-[position:0_100%] bg-no-repeat',
-			'transition-[background-size] duration-200 ease-[var(--ease-enter)]',
-			'hover:text-beni hover:bg-[length:100%_1px]',
+			'bg-linear-to-r bg-size-[0%_1px] bg-position-[0_100%] from-current to-current bg-no-repeat',
+			'ease-enter transition-[background-size] duration-200',
+			'hover:text-beni hover:bg-size-[100%_1px]',
 			className
 		)}
 		{...props}

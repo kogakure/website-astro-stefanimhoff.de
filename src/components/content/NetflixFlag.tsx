@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
 export const NetflixFlag = ({ className, id, ...props }: Props) => (
 	<Link
 		className={cn(
-			'rounded-1 border-1 pli-[0.3em] pbe-0 pbs-[0.1em] border-solid border-red-600 bg-red-600 font-mono text-[0.7em] text-white decoration-0 print:border-gray-500 print:bg-transparent',
+			'rounded-1 border-1 pbe-0 pbs-[0.1em] border-solid border-red-600 bg-red-600 px-[0.3em] font-mono text-[0.7em] text-white decoration-0 print:border-gray-500 print:bg-transparent',
 			className
 		)}
 		data-umami-event={`Netflix: ${id}`}

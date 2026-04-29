@@ -1,3 +1,4 @@
+// TODO: Is this still needed?
 import type { ReactNode } from 'react';
 
 interface Props {

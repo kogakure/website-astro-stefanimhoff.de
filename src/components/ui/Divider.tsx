@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLHRElement> {}
 export const Divider = ({ className, ...props }: Props) => (
 	<hr
 		className={cn(
-			'mbe-14 mbs-14 border-be-1 border-bs-0 border-ie-0 border-is-0 border-solid border-black/[0.1] dark:border-white/[0.1]',
+			'mbe-14 mbs-14 border-be-1 border-bs-0 border-ie-0 border-is-0 border-solid border-black/10 dark:border-white/10',
 			className
 		)}
 		{...props}

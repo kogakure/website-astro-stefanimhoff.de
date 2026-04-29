@@ -19,12 +19,6 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '../../lib/utils';
 
-declare global {
-	interface Window {
-		openCommandMenu?: () => void;
-	}
-}
-
 type PagefindResult = {
 	url: string;
 	meta: { title: string };
@@ -62,7 +56,6 @@ export const CommandMenu = () => {
 	const loadPagefind = useCallback(async () => {
 		if (pagefindRef.current) return;
 		try {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-expect-error – pagefind only exists after build
 			pagefindRef.current = await import(/* @vite-ignore */ '/pagefind/pagefind.js');
 			await pagefindRef.current.init();
@@ -103,11 +96,17 @@ export const CommandMenu = () => {
 
 	// Global opener for Astro scripts / header buttons
 	useEffect(() => {
-		window.openCommandMenu = () => setOpen(true);
+		if (typeof window !== 'undefined') {
+			// @ts-expect-error -- global opener for Astro scripts / header buttons
+			window.openCommandMenu = () => setOpen(true);
+		}
 		const handler = () => setOpen(true);
 		document.addEventListener('command-menu:open', handler);
 		return () => {
-			delete window.openCommandMenu;
+			if (typeof window !== 'undefined') {
+				// @ts-expect-error -- global opener for Astro scripts / header buttons
+				delete window.openCommandMenu;
+			}
 			document.removeEventListener('command-menu:open', handler);
 		};
 	}, []);
@@ -129,7 +128,9 @@ export const CommandMenu = () => {
 
 	const navigate = (url: string) => {
 		close();
-		window.location.href = url;
+		if (typeof window !== 'undefined') {
+			window.location.href = url;
+		}
 	};
 
 	const toggleTheme = () => {
@@ -162,7 +163,7 @@ export const CommandMenu = () => {
 						role="dialog"
 						aria-modal="true"
 						aria-label="Command menu"
-						className="fixed inset-x-0 top-[10vh] z-50 mx-auto w-[calc(100%-2rem)] max-w-[640px]"
+						className="max-w-160 fixed inset-x-0 top-[10vh] z-50 mx-auto w-[calc(100%-2rem)]"
 						initial={{ opacity: 0, y: -8 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -8 }}

@@ -1,3 +1,4 @@
+// TODO: YouTube Light is preferred, because the default YouTube embed comes with over a MB of Scripts before the video is even started.
 import type { HTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
 

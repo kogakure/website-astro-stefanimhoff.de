@@ -15,7 +15,6 @@ export const ColorSwatchPrimary = ({
 	className,
 	color,
 	description,
-	hiragana,
 	kanji,
 	name,
 	...props
@@ -29,7 +28,7 @@ export const ColorSwatchPrimary = ({
 			{/* Color field with centered kanji */}
 			<div
 				className={cn(
-					'rounded-bs-2 relative flex aspect-[3/2] w-full items-center justify-center',
+					'rounded-bs-2 aspect-3/2 relative flex w-full items-center justify-center',
 					light && 'border-usuzumi/40 border-[1px] border-b-0'
 				)}
 				style={{ backgroundColor: color }}

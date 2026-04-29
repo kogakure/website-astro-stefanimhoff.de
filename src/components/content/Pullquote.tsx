@@ -25,7 +25,7 @@ export const Pullquote = ({
 	<blockquote
 		lang={lang}
 		className={cn(
-			'pullquote mbe-10 p-9 [text-wrap:balance]',
+			'pullquote mbe-10 text-balance p-9',
 			alignment === 'center' && 'text-center',
 			alignment === 'left' && 'text-left',
 			className

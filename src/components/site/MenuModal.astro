@@ -6,22 +6,22 @@ import { Close } from '../icons';
 
 <dialog id="menu-dialog">
 	<header
-		class="block-start-0 md:pie-gap md:pis-gap flex h-[clamp(1.5rem,_5.55vw,_9rem)] w-full items-center justify-end overflow-x-hidden md:h-[clamp(4rem,_5.55vw,_9rem)]"
+		class="block-start-0 md:pie-gap md:pis-gap flex h-[clamp(1.5rem,5.55vw,9rem)] w-full items-center justify-end overflow-x-hidden md:h-[clamp(4rem,5.55vw,9rem)]"
 	>
 		<Link
 			id="close-menu"
-			className="block-start-0 relative left-[10px] outline-none transition-transform duration-500 ease-in-out hover:scale-125"
+			className="block-start-0 relative left-2.5 outline-none transition-transform duration-500 ease-in-out hover:scale-125"
 		>
 			<button
 				aria-label="Close Menu Modal"
-				class="text-shibui-950 dark:text-shibui-200/[0.87] flex h-[2em] w-[2em] cursor-pointer items-center justify-center"
+				class="text-shibui-950 dark:text-shibui-200/87 flex h-[2em] w-[2em] cursor-pointer items-center justify-center"
 			>
 				<Close className="icon h-[1.5em] w-[1.5em]" />
 			</button>
 		</Link>
 	</header>
 	<section
-		class="md:pie-gap md:pis-gap flex h-[calc(100%_-_clamp(1.5rem,_5.55vw,_9rem))] w-full flex-col items-center justify-center overflow-x-hidden md:h-[calc(100%_-_clamp(4rem,_5.55vw,_9rem))]"
+		class="md:pie-gap md:pis-gap flex h-[calc(100%-clamp(1.5rem,5.55vw,9rem))] w-full flex-col items-center justify-center overflow-x-hidden md:h-[calc(100%-clamp(4rem,5.55vw,9rem))]"
 	>
 		<MenuNavigation />
 	</section>
@@ -30,7 +30,7 @@ import { Close } from '../icons';
 <style is:global>
 	@reference "../styles/global.css";
 	dialog::backdrop {
-		@apply bg-shibui-100 dark:bg-shibui-900 md:!bg-shibui-900/60 md:dark:bg-shibui-900/60 backdrop-blur-md;
+		@apply bg-shibui-100 dark:bg-shibui-900 md:bg-shibui-900/60! md:dark:bg-shibui-900/60 backdrop-blur-md;
 		animation: show-dimmer 0.2s ease-in-out;
 	}
 
@@ -39,11 +39,11 @@ import { Close } from '../icons';
 	}
 
 	dialog {
-		@apply rounded-2 h-dvh max-w-[950px] md:max-h-[90vh];
+		@apply rounded-2 max-w-237.5 h-dvh md:max-h-[90vh];
 	}
 
 	dialog[open] {
-		@apply bg-shibui-100 text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/[0.87] md:!bg-shibui-200 md:dark:!bg-shibui-800 w-[calc(100%_-_5.55vw_*_2)] p-0 font-sans font-normal leading-relaxed;
+		@apply bg-shibui-100 text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-shibui-200/87 md:bg-shibui-200! md:dark:bg-shibui-800! w-[calc(100%-5.55vw*2)] p-0 font-sans font-normal leading-relaxed;
 		animation: show-modal 0.2s ease-in-out;
 	}
 

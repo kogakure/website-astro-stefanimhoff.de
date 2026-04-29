@@ -6,7 +6,7 @@ type Props = HTMLAttributes<HTMLElement>;
 export const FootnoteSection = ({ className, children, ...props }: Props) => (
 	<section
 		className={cn(
-			'text-2 mbs-12 pbs-6 border-bs-1 border-black/[0.1] dark:border-white/[0.1]',
+			'text-2 mbs-12 pbs-6 border-bs-1 border-black/10 dark:border-white/10',
 			className
 		)}
 		{...props}

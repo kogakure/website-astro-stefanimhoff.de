@@ -18,7 +18,7 @@ const { project } = Astro.props;
 >
 	{project.data.categories.join(' / ')}
 </small>
-<Headline className="!mbs-1">{project.data.title}</Headline>
+<Headline className="mbs-1!">{project.data.title}</Headline>
 <Text>{project.data.intro}</Text>
 {
 	project.data.more && (

@@ -8,7 +8,7 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
 export const Book = ({ alt = '', className, src, ...props }: Props) => (
 	<div
 		className={cn(
-			'rounded-2 relative box-border grid h-auto max-w-[250px] shrink grow justify-self-center overflow-hidden border border-black/5 shadow-sm transition-shadow duration-300 ease-in-out hover:shadow-md dark:border-white/5',
+			'rounded-2 max-w-62.5 relative box-border grid h-auto shrink grow justify-self-center overflow-hidden border border-black/5 shadow-sm transition-shadow duration-300 ease-in-out hover:shadow-md dark:border-white/5',
 			className
 		)}
 		tabIndex={0}

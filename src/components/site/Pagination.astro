@@ -15,13 +15,13 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 	previousUrl && (
 		<a
 			aria-label={previousText || 'Previous'}
-			class="block-start-[calc(50%_-_20px)] inline-start-[1rem] group fixed rounded-[50%] print:hidden"
+			class="inset-bs-[calc(50%-20px)] inset-s-[1rem] rounded-50 group fixed print:hidden"
 			data-umami-event={previousText || 'Previous'}
 			href={previousUrl}
 			rel="prefetch prev"
 			title={previousText || 'Previous'}
 		>
-			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+			<div class="pagination h-clickarea w-clickarea rounded-50 flex cursor-pointer items-center justify-center bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
 				<ArrowLeftS aria-hidden="true" className="icon h-icon w-icon" />
 			</div>
 		</a>
@@ -31,13 +31,13 @@ const { nextText, nextUrl, previousText, previousUrl } = Astro.props;
 	nextUrl && (
 		<a
 			aria-label={nextText || 'Next'}
-			class="block-start-[calc(50%_-_20px)] inline-end-[1rem] group fixed rounded-[50%] print:hidden"
+			class="inset-bs-[calc(50%-20px)] inline-end-[1rem] rounded-50 group fixed print:hidden"
 			data-umami-event={nextText || 'Next'}
 			href={nextUrl}
 			rel="prefetch next"
 			title={nextText || 'Next'}
 		>
-			<div class="pagination flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-[50%] bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
+			<div class="pagination h-clickarea w-clickarea rounded-50 flex cursor-pointer items-center justify-center bg-black/5 outline-none transition-opacity duration-500 ease-in-out group-hover:bg-black/20 group-focus:bg-black/20 dark:bg-white/5 dark:group-hover:bg-white/20 dark:group-focus:bg-white/20">
 				<ArrowRightS aria-hidden="true" className="icon h-icon w-icon" />
 			</div>
 		</a>

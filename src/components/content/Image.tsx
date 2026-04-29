@@ -54,18 +54,18 @@ const Image = ({
 				'mis mbe-13 mbs-0 mie-0 block',
 				size === 'wide' && 'figure-wide',
 				size === 'fullsize' && 'figure-fullsize',
-				noMargin && '!mbe-0',
-				fullHeight && '!h-full',
-				fullWidth && '!w-full',
+				noMargin && 'mbe-0!',
+				fullHeight && 'h-full!',
+				fullWidth && 'w-full!',
 				className
 			)}
 			{...props}
 		>
-			<div className="figure-content mbs-0 gap-6 [&_img]:!max-w-none">
+			<div className="figure-content mbs-0 [&_img]:max-w-none! gap-6">
 				{href ? <a href={href}>{imgEl}</a> : imgEl}
 			</div>
 			{(caption || source) && (
-				<figcaption className="text-2 mbs-2 text-center [text-wrap:balance]">
+				<figcaption className="text-2 mbs-2 text-balance text-center">
 					{caption}
 					{caption && source ? '–' : ''}
 					{source &&

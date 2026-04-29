@@ -16,13 +16,11 @@ export const Figure = ({ caption, className, size = 'regular', children, ...prop
 		)}
 		{...props}
 	>
-		<div className="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:flex-grow">
+		<div className="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:grow">
 			{children}
 		</div>
 		{caption && (
-			<figcaption className="text-2 mbs-2 text-center [text-wrap:balance]">
-				{caption}
-			</figcaption>
+			<figcaption className="text-2 mbs-2 text-balance text-center">{caption}</figcaption>
 		)}
 	</figure>
 );

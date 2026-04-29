@@ -28,13 +28,13 @@ export const WritingList = ({ entries }: Props) => {
 							{thumbnail ? (
 								<img
 									alt={title}
-									className="!m-0 block !h-full w-full object-cover"
+									className="m-0! h-full! block w-full object-cover"
 									role="presentation"
 									src={thumbnail}
 								/>
 							) : (
 								<div
-									className="h-full w-full bg-gray-800 transition duration-300 ease-in-out group-hover:brightness-[90%] group-focus:brightness-[90%] dark:brightness-[50%] dark:group-hover:brightness-[100%] dark:group-focus:brightness-[100%]"
+									className="h-full w-full bg-gray-800 transition duration-300 ease-in-out group-hover:brightness-90 group-focus:brightness-90 dark:brightness-50 dark:group-hover:brightness-100 dark:group-focus:brightness-100"
 									style={{
 										backgroundImage: `linear-gradient(to bottom left, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
 									}}
@@ -42,7 +42,7 @@ export const WritingList = ({ entries }: Props) => {
 							)}
 						</div>
 						<div className="absolute z-20 flex h-full w-full flex-col items-center justify-center p-10 text-center leading-tight text-white">
-							<Subsubheadline as="h2" className="!m-0 leading-tight">
+							<Subsubheadline as="h2" className="m-0! leading-tight">
 								{subtitle ? `${title}: ${subtitle}` : title}
 							</Subsubheadline>
 						</div>

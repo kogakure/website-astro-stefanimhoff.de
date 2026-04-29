@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { cn } from '../../lib/utils';
 import ArrowCta from '../icons/ArrowCta';
 import { Link } from '../ui/Link';
