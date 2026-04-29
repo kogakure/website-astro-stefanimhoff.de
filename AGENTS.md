@@ -8,6 +8,8 @@ Personal website and blog for Stefan Imhoff, featuring journal posts, haiku coll
 
 **IMPORTANT**: before you do anything else, run the `beans prime` command and heed its output.
 
+**IMPORTANT**: Always read and follow @DESIGN.md for all UI decisions.
+
 ## Components-First Rule
 
 **Always use existing UI components instead of raw HTML elements.** Before writing `<p>`, `<h1>`–`<h6>`, `<hr>`, `<ul>`, `<ol>`, `<li>`, or `<a>` in `.astro` or `.tsx` files, check `src/components/ui/` first.
