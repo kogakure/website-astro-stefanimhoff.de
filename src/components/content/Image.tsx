@@ -29,7 +29,7 @@ const Image = ({
 	href,
 	loading = 'lazy',
 	noMargin,
-	size,
+	size: _size,
 	source,
 	sourceUrl,
 	src,
@@ -52,8 +52,6 @@ const Image = ({
 		<figure
 			className={cn(
 				'mis mbe-13 mbs-0 mie-0 block',
-				size === 'wide' && 'figure-wide',
-				size === 'fullsize' && 'figure-fullsize',
 				noMargin && 'mbe-0!',
 				fullHeight && 'h-full!',
 				fullWidth && 'w-full!',

@@ -409,7 +409,7 @@ All font sizes use `clamp()` for fluid scaling. The `vw` value is calculated as 
 | Token     | Role                         | Max Size | Line Height | Tracking | CSS Variable  |
 | --------- | ---------------------------- | -------- | ----------- | -------- | ------------- |
 | text-9    | H1 Page Title (Boska)        | 144px    | 0.95        | −25%     | `--text-9`    |
-| text-8    | Blog Title (Boska)           | 96px     | 1.0         | −15%     | `--text-8`    |
+| text-8    | Blog Title (Boska)           | 72px     | 1.0         | −15%     | `--text-8`    |
 | text-7    | H2 Section (Switzer)         | 72px     | 1.1         | −10%     | `--text-7`    |
 | text-6    | H3 Section (Switzer)         | 48px     | 1.15        | −5%      | `--text-6`    |
 | text-5    | H2 Blog / Subtitle (Switzer) | 40px     | 1.15        | −5%      | `--text-5`    |

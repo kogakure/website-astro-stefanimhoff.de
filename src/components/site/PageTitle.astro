@@ -5,9 +5,10 @@ import Title from '../ui/Title';
 
 export interface Props {
 	class?: string;
+	titleClass?: string;
 }
 
-const { class: className, ...props } = Astro.props;
+const { class: className, titleClass, ...props } = Astro.props;
 ---
 
 <div
@@ -17,5 +18,7 @@ const { class: className, ...props } = Astro.props;
 	)}
 	{...props}
 >
-	<Title className="col-span-3 md:col-span-6 xl:col-span-11 xl:col-start-2"><slot /></Title>
+	<Title className={cn('col-span-3 md:col-span-6 xl:col-span-11 xl:col-start-2', titleClass)}
+		><slot /></Title
+	>
 </div>

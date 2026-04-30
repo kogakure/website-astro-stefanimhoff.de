@@ -5,16 +5,16 @@ import { getCollection, render } from 'astro:content';
 
 import { site } from '@/data/site';
 
-import { formatPosts, sortByDate, dateToFormat, dateToISO } from '@/utils';
+import { formatPosts, sortByDate, dateToFormat, dateToISO, wordCount } from '@/utils';
 
 import { mapping } from '@/mdx-components';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ListItem from '@/components/ui/ListItem';
 import OrderedList from '@/components/ui/OrderedList';
+import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
-import Tag from '@/components/ui/Tag';
 import Text from '@/components/ui/Text';
 import TextLink from '@/components/ui/TextLink';
 
@@ -42,6 +42,8 @@ const {
 	Content,
 	remarkPluginFrontmatter: { minutesRead },
 } = await render(entry);
+
+const words = wordCount(entry.body ?? '');
 
 const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journal) => {
 	return data.series === entry.data.series && !data.draft;
@@ -84,104 +86,110 @@ const schema = JSON.stringify({
 	noindex={entry.data.noindex}
 	title={subtitle ? `${title}: ${subtitle}` : title}
 >
-	<PageTitle class="pb-4 text-[clamp(3rem,6vw,7rem)] italic leading-[0.92]">{title}</PageTitle>
+	<PageTitle
+		class="pb-6"
+		titleClass="text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.0] tracking-[-0.04em] font-bold"
+		>{title}</PageTitle
+	>
+
 	{
 		subtitle && (
-			<div class="max-w-360 mx-auto w-full px-8 pb-8">
-				<Text className="text-hai italic mbe-0">{subtitle}</Text>
+			<div class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-8 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+				<Text className="col-span-3 text-[clamp(1.25rem,2.083vw,1.875rem)] leading-[1.3] text-sumi dark:text-washi tracking-[-0.05em] mbe-0 md:col-span-6 xl:col-span-8 xl:col-start-2">
+					{subtitle}
+				</Text>
 			</div>
 		)
 	}
 
-	<!-- Cover image -->
 	{
 		entry.data.cover && (
-			<div class="max-w-360 mx-auto w-full px-8 pb-12">
-				<img
-					src={entry.data.cover}
-					alt={title}
-					class="rounded-2 w-full object-cover"
-					loading="eager"
-					decoding="async"
-					style="view-transition-name: post-cover"
-				/>
+			<div class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-12 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+				<div class="col-span-3 md:col-span-6 xl:col-span-11 xl:col-start-2">
+					<img
+						src={entry.data.cover}
+						alt={title}
+						class="rounded-2 w-full object-cover"
+						loading="eager"
+						decoding="async"
+						style="view-transition-name: post-cover"
+					/>
+				</div>
 			</div>
 		)
 	}
 
-	<!-- Article layout: meta + content -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-32">
-		<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
-			<!-- Meta column -->
-			<aside>
-				<div class="text-2 text-hai sticky top-8 flex flex-col gap-4">
-					<div>
-						<time datetime={dateToISO(entry.data.date)}>
-							{dateToFormat(entry.data.date)}
-						</time>
-					</div>
-					<div>
-						{Math.round(minutesRead)} min read
-					</div>
-					{
-						entry.data.tags && entry.data.tags.length > 0 && (
-							<div class="mt-2 flex flex-wrap gap-2">
-								{entry.data.tags
-									.sort((a: string, b: string) => a.localeCompare(b))
-									.map((t: string) => (
-										<Tag href={`/writing/?tag=${t}`}>{t}</Tag>
-									))}
-							</div>
-						)
-					}
-				</div>
-			</aside>
+	<!-- Article layout: meta sidebar + content -->
+	<div
+		class:list={[
+			'max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-8 px-8 pb-32 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8',
+			!entry.data.cover && 'pt-24',
+		]}
+	>
+		<!-- Left sidebar (TOC placeholder, populated in SI-mebe) -->
+		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-2"></aside>
 
-			<!-- Article body -->
-			<article class="journal-post min-w-0">
-				{
-					entry.data.series && seriesEntries.length > 1 && (
-						<div class="rounded-2 border-shibui-200 dark:border-shibui-800 mb-8 border p-4">
-							<SectionLabel as="p" className="mbe-3">
-								Series
-							</SectionLabel>
-							<OrderedList className="flex flex-col gap-1 mbe-0 pis-0">
-								{seriesEntries.map((item) => (
-									<ListItem className="mbe-1">
-										{entryId === item.id ? (
-											<em class="text-sumi dark:text-washi font-bold">
-												{item.data.title}
-											</em>
-										) : (
-											<TextLink href={`/${item.id}/`}>
-												{item.data.title}
-											</TextLink>
-										)}
-									</ListItem>
-								))}
-							</OrderedList>
-						</div>
-					)
-				}
-				<Content components={mapping} />
-				{
-					entry.data.updated && (
-						<footer class="text-2 text-hai mt-12">
-							<span class="font-bold">Last Updated:</span>{' '}
-							<time datetime={dateToISO(entry.data.updated)}>
-								{dateToFormat(entry.data.updated)}
-							</time>
-						</footer>
-					)
-				}
-			</article>
-		</div>
+		<!-- Article body -->
+		<article
+			class="journal-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4"
+		>
+			{
+				entry.data.series && seriesEntries.length > 1 && (
+					<div class="rounded-2 border-usuzumi dark:border-nezumi mb-8 border p-4">
+						<SectionLabel as="p" className="mbe-3">
+							Series
+						</SectionLabel>
+						<OrderedList className="flex flex-col gap-1 mbe-0 pis-0">
+							{seriesEntries.map((item) => (
+								<ListItem className="mbe-1">
+									{entryId === item.id ? (
+										<em class="text-sumi dark:text-washi font-bold">
+											{item.data.title}
+										</em>
+									) : (
+										<TextLink href={`/${item.id}/`}>{item.data.title}</TextLink>
+									)}
+								</ListItem>
+							))}
+						</OrderedList>
+					</div>
+				)
+			}
+			<Content components={mapping} />
+			{
+				entry.data.updated && (
+					<footer class="text-2 text-hai mt-12">
+						<span class="font-bold">Last Updated:</span>{' '}
+						<time datetime={dateToISO(entry.data.updated)}>
+							{dateToFormat(entry.data.updated)}
+						</time>
+					</footer>
+				)
+			}
+		</article>
+
+		<!-- Right meta sidebar -->
+		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-10">
+			<div class="sticky top-8 flex flex-col gap-6">
+				<SectionLabel as="p" className="mbe-0">Meta</SectionLabel>
+				<UnorderedList className="text-sumi dark:text-washi">
+					<ListItem>
+						<time datetime={dateToISO(entry.data.date)}>
+							{dateToFormat(entry.data.date, 'D MMMM YYYY')}
+						</time>
+					</ListItem>
+					<ListItem>
+						{words.toLocaleString('en-US')} words · {Math.round(minutesRead)} min read
+					</ListItem>
+				</UnorderedList>
+			</div>
+		</aside>
 	</div>
 
 	<!-- Prev/Next navigation -->
 	{
 		(prev.id || next.id) && (
-			<nav class="border-shibui-200 dark:border-shibui-800 max-w-360 mx-auto grid w-full grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
+			<nav class="border-usuzumi dark:border-nezumi max-w-360 mx-auto grid w-full grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
 				<div>
 					{prev.id && (
 						<a
@@ -220,38 +228,40 @@ const schema = JSON.stringify({
 
 	.journal-post {
 		& p {
-			@apply text-3 mb-5 leading-relaxed;
+			@apply text-3 mbe-8 mbs-0 leading-relaxed;
 		}
 
 		& h2 {
-			@apply font-display text-5 text-sumi dark:text-washi mb-4 mt-16 font-bold tracking-tight;
+			@apply text-5 text-sumi dark:text-washi mbe-4 mbs-16 font-bold;
+			letter-spacing: -0.05em;
 		}
 
 		& h3 {
-			@apply text-3 text-sumi dark:text-washi mb-2 mt-10 font-bold;
+			@apply text-4 text-sumi dark:text-washi mbe-2 mbs-10 font-bold;
+			letter-spacing: -0.02em;
 		}
 
 		& h4,
 		& h5,
 		& h6 {
-			@apply text-3 text-sumi dark:text-washi mb-2 mt-8 font-bold;
+			@apply text-3 text-sumi dark:text-washi mbe-2 mbs-8 font-bold;
 		}
 
 		& ul,
 		& ol {
-			@apply text-3 mb-5 leading-relaxed;
+			@apply text-3 mbe-8 leading-relaxed;
 		}
 
 		& ul {
-			@apply list-disc pl-5 md:pl-0;
+			@apply pis-5 md:pis-0 list-disc;
 		}
 
 		& ol {
-			@apply list-decimal pl-5 md:pl-0;
+			@apply pis-5 md:pis-0 list-decimal;
 		}
 
 		& li {
-			@apply mb-1;
+			@apply mbe-1;
 		}
 
 		& a {
@@ -267,23 +277,23 @@ const schema = JSON.stringify({
 		}
 
 		& hr {
-			@apply border-shibui-300 dark:border-shibui-700 my-12;
+			@apply border-usuzumi dark:border-nezumi mbe-12 mbs-12;
 		}
 
 		& blockquote {
-			@apply border-beni text-hai mb-5 border-l-2 pl-4 italic;
+			@apply border-beni text-hai mbe-8 pis-4 border-s-2 italic;
 		}
 
 		& pre {
-			@apply rounded-2 text-code mb-8 overflow-auto p-4 font-mono;
+			@apply rounded-2 text-code mbe-8 overflow-auto p-4 font-mono;
 		}
 
 		& code:not(pre code) {
-			@apply text-code bg-shibui-200 dark:bg-shibui-800 rounded px-1 font-mono;
+			@apply text-code bg-kiri dark:bg-yoru rounded px-1 font-mono;
 		}
 
 		& figure {
-			@apply mb-8;
+			@apply mbe-8;
 		}
 
 		& img {
@@ -292,7 +302,7 @@ const schema = JSON.stringify({
 
 		/** Footnotes */
 		.footnotes {
-			@apply border-shibui-200 dark:border-shibui-800 mt-12 border-t pt-8;
+			@apply border-usuzumi dark:border-nezumi mbs-12 pbs-8 border-t;
 		}
 
 		.footnotes ol {
@@ -304,7 +314,7 @@ const schema = JSON.stringify({
 		}
 
 		.footnotes p {
-			@apply text-2! text-hai! mb-0!;
+			@apply text-2! text-hai! mbe-0!;
 		}
 
 		.footnotes a {
