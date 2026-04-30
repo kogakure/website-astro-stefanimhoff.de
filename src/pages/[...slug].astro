@@ -16,8 +16,14 @@ import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
 import PostNavigation from '@/components/site/PostNavigation.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
+import TableOfContents from '@/components/interactive/TableOfContents';
 import Text from '@/components/ui/Text';
 import TextLink from '@/components/ui/TextLink';
+
+interface TocHeading {
+	id: string;
+	text: string;
+}
 
 export async function getStaticPaths() {
 	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
@@ -41,8 +47,10 @@ const { entry, prev, next } = Astro.props;
 const entryId = entry.id;
 const {
 	Content,
-	remarkPluginFrontmatter: { minutesRead },
+	remarkPluginFrontmatter: { minutesRead, headings = [] },
 } = await render(entry);
+
+const tocHeadings: TocHeading[] = headings;
 
 const words = wordCount(entry.body ?? '');
 
@@ -127,8 +135,16 @@ const schema = JSON.stringify({
 			!entry.data.cover && 'pt-24',
 		]}
 	>
-		<!-- Left sidebar (TOC placeholder, populated in SI-mebe) -->
-		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-2"></aside>
+		<!-- Left sidebar: Table of contents -->
+		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-2">
+			{
+				tocHeadings.length > 1 && (
+					<div class="xl:sticky xl:top-24">
+						<TableOfContents headings={tocHeadings} client:load transition:persist />
+					</div>
+				)
+			}
+		</aside>
 
 		<!-- Article body -->
 		<article
@@ -196,6 +212,10 @@ const schema = JSON.stringify({
 	@reference "../styles/global.css";
 
 	.journal-post {
+		:where(h2, h3, h4) {
+			scroll-margin-block-start: var(--spacing-24);
+		}
+
 		.footnotes ol {
 			@apply list-none gap-2 p-0;
 		}

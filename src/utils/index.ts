@@ -3,6 +3,7 @@ export * from './format-posts';
 export * from './is-production';
 export * from './pick-two-random-colors';
 export * from './remark-reading-time';
+export * from './remark-toc';
 export * from './remark-widont';
 export * from './rss-parser';
 export * from './sort-by-alphabet';
