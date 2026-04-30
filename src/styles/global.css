@@ -410,16 +410,11 @@
 	}
 
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
-	pre {
-		@apply whitespace-pre;
-	}
-
 	.astro-code {
 		@apply border-1 border-solid dark:border-white/20;
 	}
 
-	p code,
-	li code,
+	:not(pre) > code,
 	samp {
 		@apply relative inline whitespace-normal rounded-[0.3em];
 		@apply font-mono;
