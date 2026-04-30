@@ -14,6 +14,7 @@ import ListItem from '@/components/ui/ListItem';
 import OrderedList from '@/components/ui/OrderedList';
 import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
+import PostNavigation from '@/components/site/PostNavigation.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Text from '@/components/ui/Text';
 import TextLink from '@/components/ui/TextLink';
@@ -105,7 +106,7 @@ const schema = JSON.stringify({
 	{
 		entry.data.cover && (
 			<div class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-12 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-				<div class="col-span-3 md:col-span-6 xl:col-span-11 xl:col-start-2">
+				<div class="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2">
 					<img
 						src={entry.data.cover}
 						alt={title}
@@ -170,7 +171,7 @@ const schema = JSON.stringify({
 
 		<!-- Right meta sidebar -->
 		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-10">
-			<div class="sticky top-8 flex flex-col gap-6">
+			<div class="sticky top-24 flex flex-col gap-6">
 				<SectionLabel as="p" className="mbe-0">Meta</SectionLabel>
 				<UnorderedList className="text-sumi dark:text-washi">
 					<ListItem>
@@ -186,39 +187,7 @@ const schema = JSON.stringify({
 		</aside>
 	</div>
 
-	<!-- Prev/Next navigation -->
-	{
-		(prev.id || next.id) && (
-			<nav class="border-usuzumi dark:border-nezumi max-w-360 mx-auto grid w-full grid-cols-2 gap-8 border-t px-8 pb-16 pt-8">
-				<div>
-					{prev.id && (
-						<a
-							class="group flex flex-col gap-1 transition-opacity hover:opacity-60"
-							href={`/${prev.id}/`}
-						>
-							<span class="text-2 text-hai uppercase tracking-widest">Previous</span>
-							<span class="text-3 text-sumi dark:text-washi font-bold">
-								{prev.data.title}
-							</span>
-						</a>
-					)}
-				</div>
-				<div class="text-right">
-					{next.id && (
-						<a
-							class="group flex flex-col gap-1 transition-opacity hover:opacity-60"
-							href={`/${next.id}/`}
-						>
-							<span class="text-2 text-hai uppercase tracking-widest">Next</span>
-							<span class="text-3 text-sumi dark:text-washi font-bold">
-								{next.data.title}
-							</span>
-						</a>
-					)}
-				</div>
-			</nav>
-		)
-	}
+	<PostNavigation prev={prev} next={next} />
 </BaseLayout>
 
 <script is:inline type="application/ld+json" set:html={schema} />
@@ -227,86 +196,8 @@ const schema = JSON.stringify({
 	@reference "../styles/global.css";
 
 	.journal-post {
-		& p {
-			@apply text-3 mbe-8 mbs-0 leading-relaxed;
-		}
-
-		& h2 {
-			@apply text-5 text-sumi dark:text-washi mbe-4 mbs-16 font-bold;
-			letter-spacing: -0.05em;
-		}
-
-		& h3 {
-			@apply text-4 text-sumi dark:text-washi mbe-2 mbs-10 font-bold;
-			letter-spacing: -0.02em;
-		}
-
-		& h4,
-		& h5,
-		& h6 {
-			@apply text-3 text-sumi dark:text-washi mbe-2 mbs-8 font-bold;
-		}
-
-		& ul,
-		& ol {
-			@apply text-3 mbe-8 leading-relaxed;
-		}
-
-		& ul {
-			@apply pis-5 md:pis-0 list-disc;
-		}
-
-		& ol {
-			@apply pis-5 md:pis-0 list-decimal;
-		}
-
-		& li {
-			@apply mbe-1;
-		}
-
-		& a {
-			@apply text-beni underline transition-opacity hover:opacity-60;
-		}
-
-		& strong {
-			@apply font-bold;
-		}
-
-		& em {
-			@apply italic;
-		}
-
-		& hr {
-			@apply border-usuzumi dark:border-nezumi mbe-12 mbs-12;
-		}
-
-		& blockquote {
-			@apply border-beni text-hai mbe-8 pis-4 border-s-2 italic;
-		}
-
-		& pre {
-			@apply rounded-2 text-code mbe-8 overflow-auto p-4 font-mono;
-		}
-
-		& code:not(pre code) {
-			@apply text-code bg-kiri dark:bg-yoru rounded px-1 font-mono;
-		}
-
-		& figure {
-			@apply mbe-8;
-		}
-
-		& img {
-			@apply rounded-2 w-full;
-		}
-
-		/** Footnotes */
-		.footnotes {
-			@apply border-usuzumi dark:border-nezumi mbs-12 pbs-8 border-t;
-		}
-
 		.footnotes ol {
-			@apply text-2 text-hai flex list-none flex-col gap-2 p-0;
+			@apply list-none gap-2 p-0;
 		}
 
 		.footnotes li {
@@ -314,15 +205,11 @@ const schema = JSON.stringify({
 		}
 
 		.footnotes p {
-			@apply text-2! text-hai! mbe-0!;
-		}
-
-		.footnotes a {
-			@apply text-beni!;
+			@apply mbe-0!;
 		}
 
 		[data-footnote-ref] {
-			@apply text-beni! relative ms-[0.2em] font-light not-italic no-underline;
+			@apply relative ms-[0.2em] font-light not-italic no-underline;
 		}
 	}
 </style>

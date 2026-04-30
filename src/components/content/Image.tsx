@@ -59,7 +59,7 @@ const Image = ({
 			)}
 			{...props}
 		>
-			<div className="figure-content mbs-0 [&_img]:max-w-none! gap-6">
+			<div className="figure-content mbs-0 gap-6 [&_img]:w-full [&_img]:max-w-full">
 				{href ? <a href={href}>{imgEl}</a> : imgEl}
 			</div>
 			{(caption || source) && (

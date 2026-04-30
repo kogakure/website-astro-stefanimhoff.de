@@ -1,11 +1,11 @@
 ---
 # SI-rj73
 title: Next/Previous Links
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-04-16T12:36:06Z
-updated_at: 2026-04-25T15:08:20Z
+updated_at: 2026-04-30T15:47:11Z
 parent: SI-vqr1
 ---
 

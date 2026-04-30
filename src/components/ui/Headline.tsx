@@ -6,13 +6,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 export const Headline = ({ as: Tag = 'h2', className, children, ...props }: Props) => (
-	<Tag
-		className={cn(
-			'text-5 mbe-10 text-balance font-black tracking-tight dark:font-extrabold',
-			className
-		)}
-		{...props}
-	>
+	<Tag className={cn('text-5 mbe-10 text-balance font-normal', className)} {...props}>
 		{children}
 	</Tag>
 );

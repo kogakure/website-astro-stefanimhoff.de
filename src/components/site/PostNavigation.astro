@@ -1,0 +1,65 @@
+---
+import ArrowCta from '../icons/ArrowCta';
+
+export interface NavEntry {
+	id: string | null;
+	data: { title?: string } | null;
+}
+
+export interface Props {
+	prev: NavEntry;
+	next: NavEntry;
+}
+
+const { prev, next } = Astro.props;
+
+const hasNav = Boolean(prev.id || next.id);
+
+const linkBase =
+	'group flex items-baseline gap-2 text-3 font-normal text-sumi dark:text-washi hover:text-beni active:text-beni-dark ease-enter transition-colors duration-200';
+
+const arrowBase =
+	'text-beni ease-enter inline-block h-[0.6em] w-auto shrink-0 align-middle transition-transform duration-200';
+---
+
+{
+	hasNav && (
+		<nav
+			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-16 pt-12 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+			aria-label="Post navigation"
+		>
+			<div class="col-span-3 grid grid-cols-2 gap-8 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+				<div>
+					{prev.id && prev.data && (
+						<a
+							class:list={[linkBase, 'justify-start text-left']}
+							href={`/${prev.id}/`}
+							rel="prev"
+						>
+							<ArrowCta
+								aria-hidden="true"
+								className={`${arrowBase} rotate-180 group-hover:-translate-x-1`}
+							/>
+							<span class="text-balance">{prev.data.title}</span>
+						</a>
+					)}
+				</div>
+				<div class="text-right">
+					{next.id && next.data && (
+						<a
+							class:list={[linkBase, 'justify-end text-right']}
+							href={`/${next.id}/`}
+							rel="next"
+						>
+							<span class="text-balance">{next.data.title}</span>
+							<ArrowCta
+								aria-hidden="true"
+								className={`${arrowBase} group-hover:translate-x-1`}
+							/>
+						</a>
+					)}
+				</div>
+			</div>
+		</nav>
+	)
+}

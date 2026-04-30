@@ -6,7 +6,7 @@ interface Props extends OlHTMLAttributes<HTMLOListElement> {}
 export const OrderedList = ({ className, children, ...props }: Props) => (
 	<ol
 		className={cn(
-			'text-3 marker:text-beni flex list-decimal flex-col gap-1 pl-[1.25em] md:pl-0',
+			'text-3 marker:text-beni mbe-10 flex list-decimal flex-col gap-3 pl-[1.25em] md:pl-0',
 			className
 		)}
 		{...props}
