@@ -10,19 +10,24 @@ import { formatPosts, sortByDate, dateToFormat, dateToISO, wordCount } from '@/u
 import { mapping } from '@/mdx-components';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import SeriesStepper from '@/components/interactive/SeriesStepper';
 import ListItem from '@/components/ui/ListItem';
-import OrderedList from '@/components/ui/OrderedList';
 import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
 import PostNavigation from '@/components/site/PostNavigation.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
 import TableOfContents from '@/components/interactive/TableOfContents';
 import Text from '@/components/ui/Text';
-import TextLink from '@/components/ui/TextLink';
 
 interface TocHeading {
 	id: string;
 	text: string;
+}
+
+interface SeriesStep {
+	id: string;
+	title: string;
+	subtitle?: string;
 }
 
 export async function getStaticPaths() {
@@ -59,6 +64,12 @@ const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journ
 });
 
 seriesEntries.sort(sortByDate).reverse();
+
+const seriesSteps: SeriesStep[] = seriesEntries.map((item) => ({
+	id: item.id,
+	title: item.data.title,
+	subtitle: item.data.subtitle,
+}));
 
 const title = entry.data.title;
 const subtitle = entry.data.subtitle;
@@ -151,25 +162,14 @@ const schema = JSON.stringify({
 			class="journal-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4"
 		>
 			{
-				entry.data.series && seriesEntries.length > 1 && (
-					<div class="rounded-2 border-usuzumi dark:border-nezumi mb-8 border p-4">
-						<SectionLabel as="p" className="mbe-3">
-							Series
-						</SectionLabel>
-						<OrderedList className="flex flex-col gap-1 mbe-0 pis-0">
-							{seriesEntries.map((item) => (
-								<ListItem className="mbe-1">
-									{entryId === item.id ? (
-										<em class="text-sumi dark:text-washi font-bold">
-											{item.data.title}
-										</em>
-									) : (
-										<TextLink href={`/${item.id}/`}>{item.data.title}</TextLink>
-									)}
-								</ListItem>
-							))}
-						</OrderedList>
-					</div>
+				entry.data.series && seriesSteps.length > 1 && (
+					<SeriesStepper
+						steps={seriesSteps}
+						currentId={entryId}
+						seriesName={entry.data.series}
+						client:load
+						transition:persist
+					/>
 				)
 			}
 			<Content components={mapping} />

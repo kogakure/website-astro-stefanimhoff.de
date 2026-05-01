@@ -3,7 +3,7 @@ import ArrowCta from '../icons/ArrowCta';
 
 export interface NavEntry {
 	id: string | null;
-	data: { title?: string } | null;
+	data: { title?: string; subtitle?: string } | null;
 }
 
 export interface Props {
@@ -40,7 +40,11 @@ const arrowBase =
 								aria-hidden="true"
 								className={`${arrowBase} rotate-180 group-hover:-translate-x-1`}
 							/>
-							<span class="text-balance">{prev.data.title}</span>
+							<span class="text-balance">
+								{prev.data.subtitle
+									? `${prev.data.title}: ${prev.data.subtitle}`
+									: prev.data.title}
+							</span>
 						</a>
 					)}
 				</div>
@@ -51,7 +55,11 @@ const arrowBase =
 							href={`/${next.id}/`}
 							rel="next"
 						>
-							<span class="text-balance">{next.data.title}</span>
+							<span class="text-balance">
+								{next.data.subtitle
+									? `${next.data.title}: ${next.data.subtitle}`
+									: next.data.title}
+							</span>
 							<ArrowCta
 								aria-hidden="true"
 								className={`${arrowBase} group-hover:translate-x-1`}
