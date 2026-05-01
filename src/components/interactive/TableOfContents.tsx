@@ -2,7 +2,7 @@
 
 import { Minus, Plus } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'motion/react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { cn } from '../../lib/utils';
 
