@@ -57,7 +57,7 @@ export async function GET(context) {
 					cover?.startsWith('/assets/images/cover/') && cover?.endsWith('.webp');
 				const imgUrl = isWebp
 					? cover.replace('/assets/images/cover/', '/assets/images/preview/')
-					: '/assets/images/preview/bonsai.webp';
+					: '/assets/images/preview/ma.webp';
 
 				return {
 					title: subtitle ? `${title}: ${subtitle}` : title,
@@ -72,7 +72,7 @@ export async function GET(context) {
 								? cover
 										.replace('/assets/images/cover/', '/assets/images/og/')
 										.replace(/\.webp$/, '.jpg')
-								: '/assets/images/og/bonsai.jpg'),
+								: '/assets/images/og/ma.jpg'),
 						length: 0,
 						type: 'image/jpeg',
 					},
@@ -89,13 +89,13 @@ export async function GET(context) {
 					link: `/haiku/${item.slug}/`,
 					content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
 					enclosure: {
-						url: `${site.url}/assets/images/og/bonsai.jpg`,
+						url: `${site.url}/assets/images/og/ma.jpg`,
 						length: 0,
 						type: 'image/jpeg',
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}/assets/images/preview/bonsai.webp" width="800" height="450" />
+            <media:thumbnail url="${site.url}/assets/images/preview/ma.webp" width="800" height="450" />
           `,
 				};
 			}),

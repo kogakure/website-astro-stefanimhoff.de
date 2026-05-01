@@ -1,4 +1,4 @@
-const FALLBACK = '/assets/images/preview/bonsai.webp';
+const FALLBACK = '/assets/images/preview/ma.webp';
 
 export const getPreviewUrl = (cover?: string): string => {
 	if (!cover) return FALLBACK;

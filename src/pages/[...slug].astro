@@ -82,9 +82,7 @@ const schema = JSON.stringify({
 	description: entry.data.description,
 	datePublished: entry.data.date,
 	dateModified: entry.data.updated,
-	image: [
-		entry.data.cover ? site.url + entry.data.cover : `${site.url}/assets/images/og/bonsai.jpg`,
-	],
+	image: [entry.data.cover ? site.url + entry.data.cover : `${site.url}/assets/images/og/ma.jpg`],
 	author: [
 		{
 			'@type': 'Person',
