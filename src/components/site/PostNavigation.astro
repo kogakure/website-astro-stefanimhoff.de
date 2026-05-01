@@ -1,6 +1,4 @@
 ---
-import ArrowCta from '../icons/ArrowCta';
-
 export interface NavEntry {
 	id: string | null;
 	data: { title?: string; subtitle?: string } | null;
@@ -13,13 +11,24 @@ export interface Props {
 
 const { prev, next } = Astro.props;
 
-const hasNav = Boolean(prev.id || next.id);
+const hasPrev = Boolean(prev.id && prev.data);
+const hasNext = Boolean(next.id && next.data);
+const hasNav = hasPrev || hasNext;
+const hasBoth = hasPrev && hasNext;
 
 const linkBase =
-	'group flex items-baseline gap-2 text-3 font-normal text-sumi dark:text-washi hover:text-beni active:text-beni-dark ease-enter transition-colors duration-200';
+	'group ease-enter relative flex flex-col gap-3 px-6 py-6 transition-colors duration-200 md:px-8 md:py-8';
 
-const arrowBase =
-	'text-beni ease-enter inline-block h-[0.6em] w-auto shrink-0 align-middle transition-transform duration-200';
+const labelBase =
+	'text-2 text-hai dark:text-nezumi flex items-center gap-3 uppercase tracking-wide';
+
+const strokeBase =
+	'bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 transition-transform duration-200';
+
+const titleBase =
+	'text-3 text-sumi dark:text-washi text-balance font-bold ease-enter transition-colors duration-200 group-hover:text-beni dark:group-hover:text-beni-light';
+
+const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 ---
 
 {
@@ -28,42 +37,58 @@ const arrowBase =
 			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-16 pt-12 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 			aria-label="Post navigation"
 		>
-			<div class="col-span-3 grid grid-cols-2 gap-8 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
-				<div>
-					{prev.id && prev.data && (
+			<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+				<div
+					class:list={[
+						'rounded-2 border-usuzumi dark:border-nezumi grid border',
+						hasBoth ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1',
+					]}
+				>
+					{hasPrev && prev.data && (
 						<a
-							class:list={[linkBase, 'justify-start text-left']}
+							class:list={[
+								linkBase,
+								'text-left',
+								hasBoth &&
+									'border-usuzumi dark:border-nezumi border-b md:border-b-0 md:border-r',
+							]}
 							href={`/${prev.id}/`}
 							rel="prev"
 						>
-							<ArrowCta
-								aria-hidden="true"
-								className={`${arrowBase} rotate-180 group-hover:-translate-x-1`}
-							/>
-							<span class="text-balance">
-								{prev.data.subtitle
-									? `${prev.data.title}: ${prev.data.subtitle}`
-									: prev.data.title}
+							<span class={labelBase}>
+								<span
+									aria-hidden="true"
+									class:list={[
+										strokeBase,
+										'origin-right group-hover:scale-x-150',
+									]}
+								/>
+								Previous
 							</span>
+							<span class={titleBase}>{prev.data.title}</span>
+							{prev.data.subtitle && (
+								<span class={subtitleBase}>{prev.data.subtitle}</span>
+							)}
 						</a>
 					)}
-				</div>
-				<div class="text-right">
-					{next.id && next.data && (
+
+					{hasNext && next.data && (
 						<a
-							class:list={[linkBase, 'justify-end text-right']}
+							class:list={[linkBase, 'items-end text-right']}
 							href={`/${next.id}/`}
 							rel="next"
 						>
-							<span class="text-balance">
-								{next.data.subtitle
-									? `${next.data.title}: ${next.data.subtitle}`
-									: next.data.title}
+							<span class:list={[labelBase, 'justify-end']}>
+								Next
+								<span
+									aria-hidden="true"
+									class:list={[strokeBase, 'origin-left group-hover:scale-x-150']}
+								/>
 							</span>
-							<ArrowCta
-								aria-hidden="true"
-								className={`${arrowBase} group-hover:translate-x-1`}
-							/>
+							<span class={titleBase}>{next.data.title}</span>
+							{next.data.subtitle && (
+								<span class={subtitleBase}>{next.data.subtitle}</span>
+							)}
 						</a>
 					)}
 				</div>
