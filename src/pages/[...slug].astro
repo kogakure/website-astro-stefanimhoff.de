@@ -216,16 +216,20 @@ const schema = JSON.stringify({
 			scroll-margin-block-start: var(--spacing-24);
 		}
 
+		.footnotes h2 {
+			@apply text-2! text-hai! mbe-4! font-normal! uppercase! tracking-normal!;
+		}
+
 		.footnotes ol {
-			@apply list-none gap-2 p-0;
+			@apply list-decimal! text-2! gap-0! mbe-0! flex! flex-col! pl-[1.5em]!;
 		}
 
 		.footnotes li {
-			@apply flex gap-2;
+			@apply mbe-2!;
 		}
 
 		.footnotes p {
-			@apply mbe-0!;
+			@apply text-2! mbe-0! font-normal! dark:font-normal!;
 		}
 
 		[data-footnote-ref] {
