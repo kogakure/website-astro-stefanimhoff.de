@@ -66,7 +66,15 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 				</SectionLabel>
 
 				{/* Horizontal mini-progress (decorative, aria-hidden) */}
-				<div className="relative flex flex-1 items-center" aria-hidden="true">
+				<motion.div
+					className="relative flex flex-1 items-center"
+					aria-hidden="true"
+					animate={{ opacity: open ? 0 : 1 }}
+					transition={
+						prefersReducedMotion ? { duration: 0 } : { duration: 0.2, ease: EASE_ENTER }
+					}
+					style={{ pointerEvents: open ? 'none' : undefined }}
+				>
 					{/* Full background grey line */}
 					<div className="bg-hai dark:bg-nezumi absolute inset-x-0 h-px" />
 					{/* Crimson overlay from first dot up to current */}
@@ -95,7 +103,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 							);
 						})}
 					</div>
-				</div>
+				</motion.div>
 
 				<span className="text-2 text-hai dark:text-nezumi shrink-0 uppercase">
 					Part {currentIndex + 1} of {steps.length}

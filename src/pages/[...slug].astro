@@ -144,8 +144,29 @@ const schema = JSON.stringify({
 			!entry.data.cover && 'pt-24',
 		]}
 	>
+		<!-- Right meta sidebar (DOM-first for mobile/tablet stacking order) -->
+		<aside
+			class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-10 xl:row-start-1"
+		>
+			<div class="sticky top-24 flex flex-col gap-6">
+				<SectionLabel as="p" className="mbe-0">Meta</SectionLabel>
+				<UnorderedList className="text-sumi dark:text-washi">
+					<ListItem>
+						<time datetime={dateToISO(entry.data.date)}>
+							{dateToFormat(entry.data.date, 'D MMMM YYYY')}
+						</time>
+					</ListItem>
+					<ListItem>
+						{words.toLocaleString('en-US')} words · {Math.round(minutesRead)} min read
+					</ListItem>
+				</UnorderedList>
+			</div>
+		</aside>
+
 		<!-- Left sidebar: Table of contents -->
-		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-2">
+		<aside
+			class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-2 xl:row-start-1"
+		>
 			{
 				tocHeadings.length > 1 && (
 					<div class="xl:sticky xl:top-24">
@@ -157,7 +178,7 @@ const schema = JSON.stringify({
 
 		<!-- Article body -->
 		<article
-			class="journal-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4"
+			class="journal-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
 		>
 			{
 				entry.data.series && seriesSteps.length > 1 && (
@@ -182,23 +203,6 @@ const schema = JSON.stringify({
 				)
 			}
 		</article>
-
-		<!-- Right meta sidebar -->
-		<aside class="col-span-3 md:col-span-6 xl:col-span-2 xl:col-start-10">
-			<div class="sticky top-24 flex flex-col gap-6">
-				<SectionLabel as="p" className="mbe-0">Meta</SectionLabel>
-				<UnorderedList className="text-sumi dark:text-washi">
-					<ListItem>
-						<time datetime={dateToISO(entry.data.date)}>
-							{dateToFormat(entry.data.date, 'D MMMM YYYY')}
-						</time>
-					</ListItem>
-					<ListItem>
-						{words.toLocaleString('en-US')} words · {Math.round(minutesRead)} min read
-					</ListItem>
-				</UnorderedList>
-			</div>
-		</aside>
 	</div>
 
 	<PostNavigation prev={prev} next={next} />
