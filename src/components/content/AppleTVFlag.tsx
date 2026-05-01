@@ -20,7 +20,7 @@ export const AppleTVFlag = ({ className, id, ...props }: Props) => (
 		<span className="hidden" aria-hidden="true">
 			[
 		</span>
-		Apple TV+
+		tv
 		<span className="hidden" aria-hidden="true">
 			]
 		</span>

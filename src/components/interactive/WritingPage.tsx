@@ -89,7 +89,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 	const sectionGrid =
 		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8';
 	const labelCol = 'col-span-3 md:col-span-2 md:pt-[0.35em] xl:col-span-2 xl:col-start-2';
-	const contentCol = 'col-span-3 min-w-0 md:col-span-5 xl:col-span-6';
+	const contentCol = 'mbe-0 col-span-3 min-w-0 md:col-span-5 xl:col-span-6';
 
 	return (
 		<div className="flex flex-col gap-16">
