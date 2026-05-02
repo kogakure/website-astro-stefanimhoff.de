@@ -23,6 +23,7 @@ import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
 import PostNavigation from '@/components/site/PostNavigation.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
+import LightboxRoot from '@/components/interactive/LightboxRoot';
 import TableOfContents from '@/components/interactive/TableOfContents';
 import Text from '@/components/ui/Text';
 
@@ -213,6 +214,7 @@ const schema = JSON.stringify({
 	</div>
 
 	<PostNavigation prev={prev} next={next} />
+	<LightboxRoot client:load transition:persist />
 </BaseLayout>
 
 <script is:inline type="application/ld+json" set:html={schema} />

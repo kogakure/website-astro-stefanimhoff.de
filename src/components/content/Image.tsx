@@ -5,6 +5,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 	alt?: string;
 	caption?: string;
 	decoding?: 'async' | 'sync' | 'auto';
+	enableLightbox?: boolean;
 	fullHeight?: boolean;
 	fullWidth?: boolean;
 	height?: string | number;
@@ -23,6 +24,7 @@ const Image = ({
 	caption,
 	className,
 	decoding = 'async',
+	enableLightbox = true,
 	fullHeight = false,
 	fullWidth = true,
 	height,
@@ -36,15 +38,28 @@ const Image = ({
 	width,
 	...props
 }: Props) => {
+	const lightbox = enableLightbox && !href;
 	const imgEl = (
 		<img
-			className="rounded-2 object-cover"
+			className={cn(
+				'rounded-2 object-cover',
+				lightbox &&
+					'cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]'
+			)}
 			decoding={decoding}
 			loading={loading}
 			src={src}
 			alt={alt ?? ''}
 			width={width}
 			height={height}
+			{...(lightbox
+				? {
+						'data-lightbox': 'true' as const,
+						tabIndex: 0,
+						role: 'button' as const,
+						'aria-label': 'Open image in lightbox',
+					}
+				: {})}
 		/>
 	);
 
