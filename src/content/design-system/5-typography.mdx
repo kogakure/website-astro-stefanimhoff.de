@@ -2,84 +2,117 @@
 title: Typography
 order: 5
 description: Two typefaces. One tension.
+kanji: 字
+principle: Kanso
+group: tokens
 ---
+
+import TypeScale from "../../components/design-system/TypeScale";
+import TypeSpecimen from "../../components/design-system/TypeSpecimen";
+import ItalicComparison from "../../components/design-system/ItalicComparison";
+import JapaneseSpecimen from "../../components/design-system/JapaneseSpecimen";
 
 ## Philosophy
 
-Two typefaces. One tension. **Boska Variable** (designed by Barbara Bigosińska, released via Fontshare/Indian Type Foundry) is a high-contrast Didone with calligraphic ink traps that evoke the pressure variation of a Sumi-e brush. **Switzer Variable** (designed by Jérémie Hornus, Indian Type Foundry/Fontshare) is a neo-grotesque that descends from the Swiss International Style. Together they form the same dialogue that runs through the entire identity: the expressive and the rational, the Eastern and the Western, the felt and the measured.
+Two typefaces. One tension. **Boska Variable** (Barbara Bigosińska, Fontshare / ITF) is a high-contrast Didone with calligraphic ink traps that evoke the pressure variation of a sumi-e brush. **Switzer Variable** (Jérémie Hornus, ITF / Fontshare) is a neo-grotesque descended from the Swiss International Style. Together they form the same dialogue that runs through the entire identity: the expressive and the rational, the Eastern and the Western, the felt and the measured.
 
-## Why These Fonts?
+## Type Scale
 
-Boska carries the emotional register of the brand. Its extreme stroke contrast—thick stems meeting near-invisible hairlines—mirrors the visual logic of Japanese calligraphy, where the weight of a line is never uniform and always intentional. At large sizes, the negative space inside its letterforms becomes as important as the forms themselves. This is _ma_—the Japanese concept of meaningful emptiness—applied to type.
+All sizes are fluid — `clamp()` with `vw` units, capped at spec maximum. Every token maps to a CSS variable.
 
-Switzer holds the system together. Where Boska performs, Switzer organizes. Its clean geometry and even stroke weight provide the structural grid that Swiss design demands: nothing decorative, nothing superfluous. It is the voice of clarity speaking alongside the voice of expression.
+<TypeScale />
 
-Both fonts are variable, which is not incidental. Variability means control—the ability to compress, expand, and tune each letterform to its exact context without switching faces. This is a system built for precision.
+| Token     | Role                  | Max   | Line Height | Tracking |
+| --------- | --------------------- | ----- | ----------- | -------- |
+| text-9    | H1 Page Title (Boska) | 144px | 0.95        | −25%     |
+| text-8    | Blog Title (Boska)    | 96px  | 1.0         | −15%     |
+| text-7    | H2 Section (Switzer)  | 72px  | 1.1         | −10%     |
+| text-6    | H3 Section (Switzer)  | 48px  | 1.15        | −5%      |
+| text-5    | H2 Blog / Subtitle    | 40px  | 1.15        | −5%      |
+| text-4    | H3 Blog (Switzer)     | 28px  | 1.2         | −2%      |
+| text-3    | Paragraph (Switzer)   | 18px  | 1.55        | −2%      |
+| text-2    | Caption / Footnote    | 14px  | 1.4         | 0        |
+| text-code | Code (Fira Code)      | 15px  | 1.625       | 0        |
 
-## Typeface Roles
+## Boska — Display
 
-| Typeface                 | Role                                                                                        | Weights used            |
-| ------------------------ | ------------------------------------------------------------------------------------------- | ----------------------- |
-| **Boska Variable, Bold** | Display headlines (H0, H1). The voice of drama and gesture.                                 | Bold (variable axis)    |
-| **Switzer Variable**     | Everything else — H2, H3, paragraphs, captions, footnotes, UI elements. The voice of order. | Regular (variable axis) |
+Boska carries the emotional register of the brand. Its extreme stroke contrast — thick stems meeting near-invisible hairlines — mirrors the visual logic of Japanese calligraphy. Reserved exclusively for H0 and H1 display headings. Never in body copy.
 
-## Typographic System
+<TypeSpecimen
+  token="text-9"
+  font="display"
+  role="H1 Page Title"
+  size="144px max"
+  lineHeight="0.95"
+  tracking="−25%"
+  weight="bold"
+  sampleText="Ma 間"
+/>
 
-### Philosophy
+<TypeSpecimen
+  token="text-8"
+  font="display"
+  role="Blog Title"
+  size="96px max"
+  lineHeight="1.0"
+  tracking="−15%"
+  weight="bold"
+  sampleText="The space between."
+/>
 
-The typographic system is built on contrast as a principle, not as an accident. Display type is set in Boska Bold at extreme sizes with aggressive negative tracking (−25% to −50%), collapsing the space between letters until the words become almost architectural—dense, monolithic, structural. This is type as image. At these scales, individual letterforms dissolve into texture; the reader feels the word before they read it.
+## Switzer — Body & UI
 
-### Hierarchy & Scale
+Switzer holds the system together. Where Boska performs, Switzer organises. Its clean geometry and even stroke weight provide the structural grid: nothing decorative, nothing superfluous.
 
-Below the display level, the system transitions entirely to Switzer Variable. Headings are set at 72px with restrained tracking (−5% to −10%), maintaining legibility while preserving the tightness that gives the system its character. Paragraphs breathe at 18px with slight tracking, designed for sustained reading without visual fatigue. Captions are set in uppercase—a nod to the labelling conventions of Swiss grid-based design, where metadata is always subordinate but never invisible.
+<TypeSpecimen
+  token="text-7"
+  font="sans"
+  role="H2 Section"
+  size="72px max"
+  lineHeight="1.1"
+  tracking="−10%"
+  sampleText="Typography"
+/>
 
-### Voice in Type
+<TypeSpecimen
+  token="text-3"
+  font="sans"
+  role="Paragraph"
+  size="18px max"
+  lineHeight="1.55"
+  tracking="−2%"
+  sampleText="The typographic system is built on contrast as a principle, not as an accident. Display type is set in Boska Bold at extreme sizes — type as image."
+/>
 
-The system does not shout at every level. It reserves its drama for the moments that earn it. A hero headline in Boska at 516px is a statement; a footnote in Switzer at 10px is a whisper. The distance between those two extremes is where the identity lives—in the deliberate, considered movement from the monumental to the minimal. This is the typographic equivalent of _wabi-sabi_: finding beauty in the relationship between the grand and the understated.
+## Italic — Boska vs Switzer
 
-| Element              | Typeface         | Size     | Tracking | Weight  | Case      | HTML mapping                        |
-| -------------------- | ---------------- | -------- | -------- | ------- | --------- | ----------------------------------- |
-| **H0** (Hero)        | Boska Variable   | 516 px   | −50%     | Bold    | Sentence  | Heros only                          |
-| **H1** (Page Title)  | Boska Variable   | 144 px   | −25%     | Bold    | Sentence  | `<h1>` on landing pages             |
-| **Blog Title**       | Boska Variable   | 72-96 px | −15%     | Bold    | Sentence  | `<h1>` on blog posts                |
-| **Blog Subtitle**    | Switzer Variable | 24-30 px | −5%      | Regular | Sentence  | `<h2>` (first one, subtitle role)   |
-| **H2** (Section)     | Switzer Variable | 72 px    | −10%     | Regular | Sentence  | ⁠`<h2>` on landing pages            |
-| **H2** (Blog)        | Switzer Variable | 40 px    | −5%      | Regular | Sentence  | `<h2>` in blog content              |
-| **H3** (Sub-section) | Switzer Variable | 48 px    | −5%      | Regular | Sentence  | `<h3>` on landing pages             |
-| **H3** (Blog)        | Switzer Variable | 28 px    | −2%      | Regular | Sentence  | `<h3>` in blog content              |
-| **H4** (Tertiary)    | Switzer Variable | 14 px    | 0        | Regular | Uppercase | `<h4>`, mapped to caption, uppercas |
-| **Paragraph**        | Switzer Variable | 18 px    | −2%      | Regular | Sentence  | `⁠<p>`                              |
-| **Caption**          | Switzer Variable | 14 px    | 0        | Regular | Uppercase | Labels, metadata, uppercase         |
-| **Footnote**         | Switzer Variable | 10 px    | 0        | Regular | Sentence  | `<small>`, references               |
+Boska's italic is a true cursive with swash characters. Reserve it for emphasis within display headings. Switzer Italic is a slanted roman for body and UI emphasis.
 
-## Line Height
+<ItalicComparison />
 
-| Element            | Line height                                 |
-| ------------------ | ------------------------------------------- |
-| Display (H0, H1)   | 0,9 – 1,0 (tight, architectural)            |
-| Headings (H2, H3)  | 1,1 – 1,2                                   |
-| Paragraph          | 1,5 – 1,6 (optimised for sustained reading) |
-| Caption / Footnote | 1,4                                         |
+**Rule:** Boska Italic only at display scale (text-7 and above). Never in body copy.
 
-## Line Length
+## Japanese Stack
 
-Paragraph text should not exceed **65–75 characters** per line (including spaces). This is the optimal measure for reading comfort and aligns with the typographic traditions of both Swiss and Japanese book design.
+Japanese text uses a dedicated Mincho stack that echoes Boska's calligraphic DNA. Always mark with `lang="ja"`.
 
-## Web Fallbacks
+<JapaneseSpecimen />
 
-| Primary          | Fallback stack                                   |
-| ---------------- | ------------------------------------------------ |
-| Boska Variable   | `Georgia, 'Times New Roman', serif`              |
-| Switzer Variable | `'Helvetica Neue', Helvetica, Arial, sans-serif` |
+## Font Stacks
 
-## Language Support
+```css
+--font-display: "BoskaVariable", Georgia, "Times New Roman", serif;
+--font-sans: "SwitzerVariable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+--font-mono: "Fira Code", Operator, Hasklig, Monoid, monospace;
+--font-japanese: "Toppan Bunkyu Midashi Mincho", "YuMincho", "Hiragino Mincho ProN",
+  "Hiragino Mincho Pro", "BIZ UDPMincho", "MS PMincho", "Noto Serif JP", serif;
+```
 
-Both typefaces include Latin Extended character sets with full German support (ä, ö, ü, ß). For Japanese text (the scrolling poem, journal quotations), pair with a system font stack: `'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif` for the serif/Mincho feel that echoes Boska's calligraphic DNA.
+## Rules
 
-## Italic Usage
-
-Boska's italic is a true cursive with swash characters—visible in the hero ("is a"). Reserve Boska Italic for:
-
-- Emphasis within display headings
-- Subheadings or pull quotes that need a tonal shift
-- Never in body copy—Switzer handles all running text
+- Boska only for H0 and H1. Never in body copy, UI, or components.
+- Display type: aggressive negative tracking (−15% to −50%). Type as image.
+- Body text: −2% tracking, 18px max, 65–75 characters per line maximum.
+- Captions and labels: Switzer, uppercase. A nod to Swiss labelling conventions.
+- Sentence case for all headings. ALL CAPS only for captions and meta labels.
+- Japanese text must use `--font-japanese` and be marked with `lang="ja"`.

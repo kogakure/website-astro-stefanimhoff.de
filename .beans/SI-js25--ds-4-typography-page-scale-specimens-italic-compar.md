@@ -1,10 +1,11 @@
 ---
 # SI-js25
 title: "DS-4: Typography page — scale, specimens, italic comparison"
-status: todo
+status: in-progress
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:41Z
-updated_at: 2026-05-02T17:57:41Z
+updated_at: 2026-05-02T18:14:19Z
 parent: SI-p04a
 ---
 
