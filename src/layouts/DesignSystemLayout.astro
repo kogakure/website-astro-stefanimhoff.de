@@ -20,8 +20,23 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 ---
 
 <BaseLayout title={title} description={description}>
+	<!-- Breadcrumb -->
+	<nav aria-label="Breadcrumb" class="max-w-360 mx-auto w-full px-8 pt-8">
+		<ol class="text-hai flex items-center gap-2 font-mono text-xs">
+			<li>
+				<a
+					href="/design-system/"
+					class="hover:text-sumi dark:hover:text-washi transition-colors duration-200"
+					>Design System</a
+				>
+			</li>
+			<li aria-hidden="true" class="text-usuzumi">/</li>
+			<li class="text-nezumi" aria-current="page">{title}</li>
+		</ol>
+	</nav>
+
 	<!-- Hero strip -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-10 pt-24">
+	<div class="max-w-360 mx-auto w-full px-8 pb-10 pt-8">
 		<div
 			class="mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 		>
