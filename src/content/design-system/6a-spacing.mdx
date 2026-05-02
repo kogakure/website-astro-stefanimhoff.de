@@ -1,0 +1,48 @@
+---
+title: Spacing
+order: 6.5
+description: Every measurement snaps to multiples of 4px.
+kanji: 間
+principle: Seijaku
+group: tokens
+slug: spacing
+---
+
+import SpacingScale from "../../components/design-system/SpacingScale";
+import SpacingPicker from "../../components/design-system/SpacingPicker";
+
+## Philosophy
+
+Space is not the absence of content. In Ma (間), the emptiness _is_ the substance. The spacing scale is built on a 4px base unit — a rhythm that is mathematically clean, perceptually coherent, and deeply influenced by the Japanese _ken_, the modular unit from which all architecture grows.
+
+## Spacing Scale
+
+Every token is a fluid `clamp()` value. Small values (spacing-1, spacing-2) are fixed; larger values scale with viewport width, capped at their maximum.
+
+<SpacingScale />
+
+| Token        | Max   | CSS Variable   | Use                          |
+| ------------ | ----- | -------------- | ---------------------------- |
+| `spacing-1`  | 4px   | `--spacing-1`  | Tight gaps — icon + label    |
+| `spacing-2`  | 8px   | `--spacing-2`  | Default gap — tags, metadata |
+| `spacing-3`  | 12px  | `--spacing-3`  | Compact component padding    |
+| `spacing-4`  | 16px  | `--spacing-4`  | Standard padding             |
+| `spacing-6`  | 24px  | `--spacing-6`  | Tablet gutters, list gaps    |
+| `spacing-8`  | 32px  | `--spacing-8`  | Desktop gutters, margins     |
+| `spacing-12` | 48px  | `--spacing-12` | Typographic block separation |
+| `spacing-16` | 64px  | `--spacing-16` | Major section breaks         |
+| `spacing-24` | 96px  | `--spacing-24` | Hero whitespace              |
+| `spacing-32` | 128px | `--spacing-32` | Maximum vertical ma          |
+
+## Spacing Picker
+
+Adjust gap and padding to preview how spacing tokens compose in a container.
+
+<SpacingPicker client:load />
+
+## Decision Rules
+
+- **Never invent a spacing value.** If it is not in the scale, question whether it belongs.
+- **Prefer larger spacing for section breaks.** The emptiness between sections is the design.
+- **Never use margin for rhythm within a component.** Use gap (Flexbox/Grid) instead — it is reversible and does not collapse.
+- **Logical properties only.** Use `margin-block`, `padding-inline`, `gap` — never `margin-top`, `padding-left`. The system includes custom Tailwind utilities: `mbe-*`, `mbs-*`, `mis-*`, `mie-*`, `pbe-*`, `pbs-*`, `pis-*`, `pie-*`.

@@ -1,64 +1,53 @@
 ---
-title: Layout and Grids
+title: Layout & Grids
 order: 6
 description: The grid is the tatami mat of the design.
+kanji: 格
+principle: Fukinsei
+group: tokens
 ---
+
+import BreakpointTable from "../../components/design-system/BreakpointTable";
+import GridOverlay from "../../components/design-system/GridOverlay";
 
 ## Philosophy
 
-The grid is the tatami mat of the design—a modular system that structures space without dictating content. Like asymmetry in Zen composition (_Fukinsei_), the most compelling layouts use the grid not to fill evenly but to create deliberate tension between occupied and empty zones. The empty column is as designed as the full one. The margin is _ma_.
+The grid is the tatami mat of the design — a modular system that structures space without dictating content. Like asymmetry in Zen composition (_Fukinsei_), the most compelling layouts use the grid not to fill evenly but to create deliberate tension between occupied and empty zones. The empty column is as designed as the full one. The margin is _ma_.
 
-## Grid System
+## Breakpoints
 
-| Breakpoint             | Columns | Margins | Gutters | Max content width |
-| ---------------------- | ------- | ------- | ------- | ----------------- |
-| Desktop (≥ 1280 px)    | 12      | 32 px   | 32 px   | 1440 px           |
-| Tablet (768 – 1279 px) | 6       | 32 px   | 24 px   | Fluid             |
-| Mobile (< 768 px)      | 3       | 16 px   | 16 px   | Fluid             |
+<BreakpointTable />
 
-The 12-column grid is divisible by 2, 3, 4, and 6—offering the flexibility to compose asymmetric layouts (e.g., a 5 + 7 split for the work section and a 3 + 9 for journal entries with labels in the narrow column).
+The 12-column grid is divisible by 2, 3, 4, and 6 — offering the flexibility to compose asymmetric layouts (e.g., a 5 + 7 split for the work section and a 3 + 9 for journal entries with labels in the narrow column).
 
-## The 4px Base Unit
+## Grid Overlay
 
-The 4px base unit creates a spatial rhythm that is both mathematically clean and perceptually coherent. Every measurement in the system—padding, margin, gap, border-radius, and icon size—snaps to multiples of 4. The reason is optical and technical:
+Toggle between breakpoints to see how the column structure changes.
 
-- **Divisibility:** 4 divides evenly into all common screen densities (1×, 1,5×, 2×, 3×). An 8px base forces larger jumps; 4px allows finer control when the design calls for subtlety—the difference between 12px and 16px of padding is noticeable.
-
-- **Scale harmony:** A 4px unit paired with a 12-column grid produces a consistent mathematical language—4, 8, 12, 16, 24, 32, 48, 64, 96—where each step has a clear relationship to the surrounding ones.
-
-- **Japanese influence:** The _ken_ (間) is the traditional Japanese modular unit for architecture. A base unit functions identically—it is the invisible module from which all visible structure grows.
-
-## Spacing Scale (Tokens)
-
-| Token      | Value  | Use                                                                            |
-| ---------- | ------ | ------------------------------------------------------------------------------ |
-| `space-1`  | 4 px   | Tight internal gaps — between icon and label, inline elements                  |
-| `space-2`  | 8 px   | Default gap between small elements — tags, metadata                            |
-| `space-3`  | 12 px  | Padding inside compact components — buttons, badges                            |
-| `space-4`  | 16 px  | Standard component padding, mobile margins                                     |
-| `space-6`  | 24 px  | Gutter width (tablet), gap between list items                                  |
-| `space-8`  | 32 px  | Section padding (small), desktop gutters/margins                               |
-| `space-12` | 48 px  | Separation between typographic blocks                                          |
-| `space-16` | 64 px  | Major section breaks                                                           |
-| `space-24` | 96 px  | Hero whitespace, page-level breathing room                                     |
-| `space-32` | 128 px | Maximum vertical ma — the emptiness that defines the page's serenity (Seijaku) |
+<GridOverlay client:load />
 
 ## Composition Patterns
 
-- **Asymmetric split (Fukinsei):** Content occupies 7–9 columns; the remaining space is deliberate void. Labels sit in the narrow column, body text in the wide one.
+**Asymmetric split (Fukinsei):** Content occupies 7–9 columns; the remaining space is deliberate void. Labels sit in the narrow column, body text in the wide one.
 
-- **Full-bleed moments (Datsuzoku):** The Japanese poem strip breaks the grid entirely, edge to edge. This is the controlled exception—_Datsuzoku_—freedom from convention that makes the convention visible.
+**Full-bleed moments (Datsuzoku):** The Japanese poem strip breaks the grid entirely, edge to edge. This is the controlled exception — _Datsuzoku_ — freedom from convention that makes the convention visible.
 
-- **Centred minimal (Seijaku):** Some pages use a centered column of 6–8 grid units maximum, surrounded by generous margins. The emptiness is the design.
+**Centred minimal (Seijaku):** Some pages use a centred column of 6–8 grid units maximum, surrounded by generous margins. The emptiness is the design.
+
+## The 4px Base Unit
+
+Every measurement in the system snaps to multiples of 4px. The reason is optical and technical:
+
+- **Divisibility:** 4 divides evenly into all common screen densities (1×, 1.5×, 2×, 3×). An 8px base forces larger jumps; 4px allows finer control.
+- **Scale harmony:** 4px paired with a 12-column grid produces a consistent mathematical language — 4, 8, 12, 16, 24, 32, 48, 64, 96 — where each step has a clear relationship to the surrounding ones.
+- **Japanese influence:** The _ken_ (間) is the traditional Japanese modular unit for architecture. A base unit functions identically — the invisible module from which all visible structure grows.
 
 ## Responsive Behavior
 
-As the viewport narrows, the grid simplifies, but the spacing ratios are preserved. Convert all pixel values to `rem` and use `clamp()` for fluid sizing:
+Convert all pixel values to `rem`. Use `clamp()` for fluid sizing. Use logical properties for all spacing.
 
 ```css
-/* Example: Section padding */
-padding-block: clamp(2rem, 5vw, 6rem);
-
-/* Example: H1 size */
-font-size: clamp(3rem, 8vw + 1rem, 9rem);
+--spacing-layout: clamp(1.5rem, 6.9375vw, 4.5rem); /* outer page margins */
+--spacing-gap: clamp(1.5rem, 3.46875vw, 3rem); /* grid column gap */
+--spacing-column: 6.9375vw; /* single grid column */
 ```
