@@ -40,7 +40,7 @@ export const TypeSpecimen = ({
 						fontSize: `var(--${token})`,
 						lineHeight,
 						letterSpacing: tracking
-							? `calc(${tracking.replace('−', '-').replace('%', '')} * 0.01em)`
+							? `calc(${tracking.replace('−', '-').replace('%', '')} * 0.001em)`
 							: undefined,
 						fontWeight: weight,
 						color: 'var(--color-sumi)',

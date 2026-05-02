@@ -128,7 +128,7 @@ export const TypeScale = () => (
 							color: 'var(--color-sumi)',
 							letterSpacing:
 								entry.tracking !== '0'
-									? `calc(${entry.tracking.replace('−', '-').replace('%', '')} * 0.01em)`
+									? `calc(${entry.tracking.replace('−', '-').replace('%', '')} * 0.001em)`
 									: undefined,
 						}}
 					>

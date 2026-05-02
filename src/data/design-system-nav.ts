@@ -37,8 +37,6 @@ export const designSystemNav: NavGroup[] = [
 		items: [
 			{ title: 'Imagery', slug: 'imagery', kanji: '像' },
 			{ title: 'Accessibility', slug: 'accessibility', kanji: '道' },
-			{ title: 'Quotes & Italics', slug: 'quotes-and-italics', kanji: '引' },
-			{ title: 'Print', slug: 'print', kanji: '刷' },
 		],
 	},
 	{

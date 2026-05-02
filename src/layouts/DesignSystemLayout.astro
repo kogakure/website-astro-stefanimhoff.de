@@ -158,5 +158,15 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 		:where(h2, h3, h4) {
 			scroll-margin-block-start: var(--spacing-24);
 		}
+
+		/* Space between all direct children — tables, code blocks, islands */
+		> * + * {
+			margin-block-start: var(--spacing-8);
+		}
+
+		/* Headings pull tighter to what follows them */
+		> :where(h2, h3, h4) + * {
+			margin-block-start: var(--spacing-4);
+		}
 	}
 </style>
