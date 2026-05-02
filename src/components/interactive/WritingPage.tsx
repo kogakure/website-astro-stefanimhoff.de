@@ -150,7 +150,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 							{byYear[year].map((post) => (
 								<ListItem key={post.slug}>
 									<EssayLink
-										href={`/${post.slug}/`}
+										href={`/writing/${post.slug}/`}
 										data-hover-preview={getPreviewUrl(post.cover)}
 									>
 										{post.subtitle

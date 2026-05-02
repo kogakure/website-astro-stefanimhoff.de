@@ -196,7 +196,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 												</span>
 											) : (
 												<TextLink
-													href={`/${step.id}/`}
+													href={`/writing/${step.id}/`}
 													className="text-balance"
 												>
 													{step.title}

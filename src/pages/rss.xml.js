@@ -63,7 +63,7 @@ export async function GET(context) {
 					title: subtitle ? `${title}: ${subtitle}` : title,
 					pubDate: date,
 					description: description,
-					link: `/${post.slug}/`,
+					link: `/writing/${post.id.split('/').pop()}/`,
 					content: sanitizedContent,
 					enclosure: {
 						url:

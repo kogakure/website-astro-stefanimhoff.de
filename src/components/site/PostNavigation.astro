@@ -52,7 +52,7 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 								hasBoth &&
 									'border-usuzumi dark:border-nezumi border-b md:border-b-0 md:border-r',
 							]}
-							href={`/${prev.id}/`}
+							href={`/writing/${prev.id.split('/').pop()}/`}
 							rel="prev"
 						>
 							<span class={labelBase}>
@@ -75,7 +75,7 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 					{hasNext && next.data && (
 						<a
 							class:list={[linkBase, 'items-end text-right']}
-							href={`/${next.id}/`}
+							href={`/writing/${next.id.split('/').pop()}/`}
 							rel="next"
 						>
 							<span class:list={[labelBase, 'justify-end']}>

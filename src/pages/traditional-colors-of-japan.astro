@@ -7,10 +7,9 @@ import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
 import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
 
-import { readFileSync } from 'node:fs';
-
 import { Content as Intro } from '@/content/text/traditional-colors-of-japan/intro.mdx';
 import { mapping } from '@/mdx-components';
+import colorsData from '@/data/colors-japan.json';
 
 interface ColorEntry {
 	color: string;
@@ -20,9 +19,7 @@ interface ColorEntry {
 	name: string;
 }
 
-const colors: ColorEntry[] = JSON.parse(
-	readFileSync(new URL('../data/colors-japan.json', import.meta.url), 'utf-8')
-);
+const colors: ColorEntry[] = colorsData as ColorEntry[];
 
 const title = 'The Traditional Colors of Japan';
 const description =

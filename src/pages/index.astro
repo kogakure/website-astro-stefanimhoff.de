@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 type WritingType = CollectionEntry<'writing'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts } from '@/utils';
+import { formatPosts, getWritingSlug } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Marquee from '@/components/interactive/Marquee';
@@ -81,7 +81,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 					latestPosts.map((post) => (
 						<ListItem>
 							<EssayLink
-								href={`/${post.id}/`}
+								href={`/writing/${getWritingSlug(post.id)}/`}
 								data-hover-preview={getPreviewUrl(post.data.cover)}
 							>
 								{post.data.subtitle

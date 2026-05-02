@@ -20,7 +20,7 @@ export const WritingList = ({ entries }: Props) => {
 				<li key={slug} className="writing-card image-shadow group">
 					<TextLink
 						className="writing-card-link group relative block h-full w-full group-hover:scale-100"
-						href={`/${slug}/`}
+						href={`/writing/${slug}/`}
 						tabIndex={0}
 						title={title}
 					>

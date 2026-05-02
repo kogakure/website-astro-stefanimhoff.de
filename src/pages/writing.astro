@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 type Writing = CollectionEntry<'writing'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts } from '@/utils';
+import { formatPosts, getWritingSlug } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 
@@ -21,7 +21,7 @@ const uniqueTags = [...new Set(formattedPosts.flatMap((entry) => entry.data.tags
 uniqueTags.sort((a, b) => a.localeCompare(b));
 
 const posts = formattedPosts.map((entry) => ({
-	slug: entry.id,
+	slug: getWritingSlug(entry.id),
 	title: entry.data.title,
 	subtitle: entry.data.subtitle,
 	tags: entry.data.tags ?? [],

@@ -5,7 +5,14 @@ import { getCollection, render } from 'astro:content';
 
 import { site } from '@/data/site';
 
-import { formatPosts, sortByDate, dateToFormat, dateToISO, wordCount } from '@/utils';
+import {
+	formatPosts,
+	sortByDate,
+	dateToFormat,
+	dateToISO,
+	wordCount,
+	getWritingSlug,
+} from '@/utils';
 
 import { mapping } from '@/mdx-components';
 
@@ -36,7 +43,7 @@ export async function getStaticPaths() {
 	const formattedWritingEntries: Writing[] = formatPosts(writingEntries, { sortOrder: 'asc' });
 
 	return formattedWritingEntries.map((entry, index) => ({
-		params: { slug: entry.id },
+		params: { slug: getWritingSlug(entry.id) },
 		props: {
 			entry,
 			next:
@@ -66,7 +73,7 @@ const seriesEntries: Writing[] = await getCollection('writing', ({ data }: Writi
 seriesEntries.sort(sortByDate).reverse();
 
 const seriesSteps: SeriesStep[] = seriesEntries.map((item) => ({
-	id: item.id,
+	id: getWritingSlug(item.id),
 	title: item.data.title,
 	subtitle: item.data.subtitle,
 }));
@@ -92,7 +99,7 @@ const schema = JSON.stringify({
 	],
 	mainEntityOfPage: {
 		'@type': 'webPage',
-		id: `${site.url}/${entryId}/`,
+		id: `${site.url}/writing/${getWritingSlug(entryId)}/`,
 	},
 });
 ---
@@ -184,7 +191,7 @@ const schema = JSON.stringify({
 				entry.data.series && seriesSteps.length > 1 && (
 					<SeriesStepper
 						steps={seriesSteps}
-						currentId={entryId}
+						currentId={getWritingSlug(entryId)}
 						seriesName={entry.data.series}
 						client:load
 						transition:persist
@@ -211,7 +218,7 @@ const schema = JSON.stringify({
 <script is:inline type="application/ld+json" set:html={schema} />
 
 <style is:global>
-	@reference "../styles/global.css";
+	@reference "../../styles/global.css";
 
 	.writing-post {
 		:where(h2, h3, h4) {
