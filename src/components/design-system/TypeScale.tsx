@@ -125,6 +125,7 @@ export const TypeScale = () => (
 									: entry.token === 'text-code'
 										? 'var(--font-mono)'
 										: 'var(--font-sans)',
+							fontWeight: entry.font === 'display' ? 700 : undefined,
 							color: 'var(--color-sumi)',
 							letterSpacing:
 								entry.tracking !== '0'

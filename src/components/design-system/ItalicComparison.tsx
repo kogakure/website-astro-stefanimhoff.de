@@ -12,6 +12,7 @@ export const ItalicComparison = () => (
 						fontFamily: 'var(--font-display)',
 						fontSize: 'var(--text-6)',
 						lineHeight: 1.15,
+						fontWeight: 700,
 						fontStyle: 'italic',
 						color: 'var(--color-sumi)',
 						margin: 0,
