@@ -2,7 +2,12 @@
 title: Brand Foundations
 order: 1
 description: To create work that removes confusion and decoration.
+kanji: 本
+principle: Fukinsei
+group: foundations
 ---
+
+import PrincipleCard from "../../components/design-system/PrincipleCard";
 
 ## Purpose—_Kanso_ 簡素
 
@@ -12,17 +17,59 @@ To create work that removes confusion and decoration—interfaces, systems, and 
 
 To build a body of work—digital, written, and designed—that suggests rather than declares. Work that rewards sustained attention; that reveals new layers over time, like a shibui object whose beauty compounds with each encounter.
 
-## Values
+## Seven Principles
 
-- **Simplicity (Kanso 簡素)**—Exclude the non-essential. Clarity is not the absence of complexity; it is the resolution of it.
-
-- **Structure (Fukinsei 不均齊)**—Asymmetry, not chaos. A 12-column grid is not a cage but a field of tension; the interesting decisions happen where the grid is deliberately broken.
-
-- **Restraint (Koko 考古)**—Let the work weather. Favor decisions that age well over those that trend well. An austere palette, a limited set of typefaces, a mark that does not explain itself.
-
-- **Craft (Shizen 自然)**—Naturalness without pretension. Code that reads cleanly, type that is set with care, and photographs that are not over-processed. The hand should be present but not performing.
-
-- **Patience (Seijaku 静寂)**—Tranquility in the work invites tranquility in the viewer. White space is not empty; it is ma (間)—the substance between things.
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <PrincipleCard
+    kanji="簡素"
+    romaji="Kanso"
+    japanese="簡素"
+    principle="Simplicity"
+    gloss="Exclude the non-essential. Clarity is the resolution of complexity, not its absence."
+  />
+  <PrincipleCard
+    kanji="不均齊"
+    romaji="Fukinsei"
+    japanese="不均齊"
+    principle="Asymmetry"
+    gloss="A 12-column grid is not a cage but a field of tension. Break it deliberately."
+  />
+  <PrincipleCard
+    kanji="考古"
+    romaji="Koko"
+    japanese="考古"
+    principle="Austerity"
+    gloss="Let the work weather. Favour decisions that age well over those that trend well."
+  />
+  <PrincipleCard
+    kanji="自然"
+    romaji="Shizen"
+    japanese="自然"
+    principle="Naturalness"
+    gloss="Code that reads cleanly, type set with care, photographs not over-processed."
+  />
+  <PrincipleCard
+    kanji="幽玄"
+    romaji="Yūgen"
+    japanese="幽玄"
+    principle="Subtlety"
+    gloss="Work that suggests rather than declares, revealing new layers over time."
+  />
+  <PrincipleCard
+    kanji="脱俗"
+    romaji="Datsuzoku"
+    japanese="脱俗"
+    principle="Detachment"
+    gloss="The controlled exception that makes the convention visible."
+  />
+  <PrincipleCard
+    kanji="静寂"
+    romaji="Seijaku"
+    japanese="静寂"
+    principle="Tranquility"
+    gloss="White space is not empty; it is ma — the substance between things."
+  />
+</div>
 
 ## Positioning
 
@@ -31,9 +78,7 @@ A design engineer who operates at the seam between visual design and front-end e
 ## Audience Segments
 
 - **Primary:** Design and engineering teams seeking a collaborator who understands both sides—someone who can design the system and build it.
-
 - **Secondary:** Readers interested in the intersection of design, code, philosophy, and the examined life.
-
 - **Tertiary:** The broader design community encountering the work through portfolios, conference talks, or journal essays.
 
 ## Personality/Attributes

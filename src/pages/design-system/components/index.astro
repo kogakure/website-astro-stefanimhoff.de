@@ -1,0 +1,382 @@
+---
+import DesignSystemLayout from '@/layouts/DesignSystemLayout.astro';
+
+// UI components
+import Text from '@/components/ui/Text';
+import Headline from '@/components/ui/Headline';
+import Subheadline from '@/components/ui/Subheadline';
+import Subsubheadline from '@/components/ui/Subsubheadline';
+import Title from '@/components/ui/Title';
+import SectionLabel from '@/components/ui/SectionLabel';
+import TextLink from '@/components/ui/TextLink';
+import MoreLink from '@/components/ui/MoreLink';
+import Divider from '@/components/ui/Divider';
+import Tag from '@/components/ui/Tag';
+import { UnorderedList } from '@/components/ui/UnorderedList';
+import { OrderedList } from '@/components/ui/OrderedList';
+import { ListItem } from '@/components/ui/ListItem';
+import Strong from '@/components/ui/Strong';
+import Em from '@/components/ui/Em';
+
+// Content components
+import Banner from '@/components/content/Banner';
+import Blockquote from '@/components/content/Blockquote';
+import Pullquote from '@/components/content/Pullquote';
+import InlineCode from '@/components/content/InlineCode';
+import ColorSwatch from '@/components/content/ColorSwatch';
+import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
+import ColorSwatchMini from '@/components/content/ColorSwatchMini';
+import ColorStack from '@/components/content/ColorStack';
+
+// Showcase wrapper
+import ComponentShowcase from '@/components/design-system/ComponentShowcase';
+---
+
+<DesignSystemLayout
+	title="Components"
+	description="Every UI, content, and interactive component in the Ma system."
+	kanji="部"
+	order={10}
+	currentSlug="components"
+>
+	<p class="text-hai mbe-10 font-mono text-xs uppercase tracking-wider">UI Primitives</p>
+
+	<ComponentShowcase
+		name="Text"
+		importPath="components/ui/Text"
+		category="ui"
+		description="Body copy paragraph. Default element: <p>. Accepts as prop for semantic override."
+		props={[
+			{ name: 'as', type: 'ElementType', default: '"p"', description: 'Rendered element' },
+			{ name: 'className', type: 'string', description: 'Tailwind class override' },
+			{ name: 'children', type: 'ReactNode', description: 'Content' },
+		]}
+	>
+		<Text
+			>The space between. Nearly two decades at the intersection of design and code have led
+			to a single conviction: the discipline of leaving things out is the discipline that
+			matters most.</Text
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Title"
+		importPath="components/ui/Title"
+		category="ui"
+		description="H1 for page content (not the page hero). Boska display."
+	>
+		<Title>The space between</Title>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Headline"
+		importPath="components/ui/Headline"
+		category="ui"
+		description="H2 section heading. Switzer, text-5."
+		props={[
+			{ name: 'as', type: 'ElementType', default: '"h2"', description: 'Rendered element' },
+		]}
+	>
+		<Headline>Section heading</Headline>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Subheadline"
+		importPath="components/ui/Subheadline"
+		category="ui"
+		description="H3 heading. Switzer, text-4."
+	>
+		<Subheadline>Sub-section heading</Subheadline>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Subsubheadline"
+		importPath="components/ui/Subsubheadline"
+		category="ui"
+		description="H4 heading. Switzer, text-3 bold."
+	>
+		<Subsubheadline>Minor heading</Subsubheadline>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="SectionLabel"
+		importPath="components/ui/SectionLabel"
+		category="ui"
+		description="Uppercase mono label for section titles and metadata."
+	>
+		<SectionLabel>Design tokens</SectionLabel>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="TextLink"
+		importPath="components/ui/TextLink"
+		category="ui"
+		description="Inline hyperlink. Beni, underline-on-hover slide animation."
+	>
+		<Text
+			>Read more about <TextLink href="#">Ma design principles</TextLink> and how they inform every
+			decision in the system.</Text
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="MoreLink"
+		importPath="components/ui/MoreLink"
+		category="ui"
+		description="Navigation arrow link with animated arrow translation."
+		props={[
+			{ name: 'href', type: 'string', description: 'Link destination' },
+			{ name: 'text', type: 'string', description: 'Link label' },
+		]}
+	>
+		<MoreLink href="#" text="View all essays" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Divider"
+		importPath="components/ui/Divider"
+		category="ui"
+		description="Horizontal rule. Usuzumi, 1px."
+	>
+		<Divider />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Tag"
+		importPath="components/ui/Tag"
+		category="ui"
+		description="Filter tag / label pill. Supports active state, href for nav, or onClick for filter."
+		props={[
+			{
+				name: 'active',
+				type: 'boolean',
+				default: 'false',
+				description: 'Active/selected state',
+			},
+			{ name: 'href', type: 'string', description: 'Renders as <a> when provided' },
+			{
+				name: 'onClick',
+				type: '() => void',
+				description: 'Renders as <button> when provided',
+			},
+		]}
+	>
+		<div class="flex flex-wrap gap-2">
+			<Tag href="#">Design</Tag>
+			<Tag href="#" active>Typography</Tag>
+			<Tag href="#">Motion</Tag>
+			<Tag href="#">Color</Tag>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="UnorderedList / OrderedList / ListItem"
+		importPath="components/ui/UnorderedList"
+		category="ui"
+		description="Styled list primitives. Always use ListItem as children."
+	>
+		<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+			<UnorderedList>
+				<ListItem>Exclude the non-essential</ListItem>
+				<ListItem>Favour decisions that age well</ListItem>
+				<ListItem>The discipline of leaving things out</ListItem>
+			</UnorderedList>
+			<OrderedList>
+				<ListItem>Establish the grid</ListItem>
+				<ListItem>Set the type</ListItem>
+				<ListItem>Add colour sparingly</ListItem>
+			</OrderedList>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Strong / Em"
+		importPath="components/ui/Strong"
+		category="ui"
+		description="Inline text emphasis. Strong: Switzer Bold. Em: Switzer Italic."
+	>
+		<Text
+			>The system is built on <Strong>contrast as a principle</Strong>, not as an accident.
+			Display type is set in <Em>Boska Bold</Em> at extreme sizes.</Text
+		>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">
+		Content Components
+	</p>
+
+	<ComponentShowcase
+		name="Banner"
+		importPath="components/content/Banner"
+		category="content"
+		description="Aside callout. Default and accent (left Beni border) tones. Optional collapsible disclosure."
+		props={[
+			{
+				name: 'tone',
+				type: '"default" | "accent"',
+				default: '"default"',
+				description: 'Visual emphasis',
+			},
+			{
+				name: 'summary',
+				type: 'string',
+				description: 'Renders as <details> with this summary label',
+			},
+			{ name: 'open', type: 'boolean', description: 'Initial open state for disclosure' },
+		]}
+	>
+		<div class="flex flex-col gap-4">
+			<Banner>
+				<Text
+					>Default banner — informational callout with neutral styling on Kiri background.</Text
+				>
+			</Banner>
+			<Banner tone="accent">
+				<Text
+					>Accent banner — left Beni border draws attention. Use for important notes.</Text
+				>
+			</Banner>
+			<Banner summary="Collapsible banner">
+				<Text
+					>This content is hidden behind a disclosure. The summary label acts as the
+					trigger.</Text
+				>
+			</Banner>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Blockquote"
+		importPath="components/content/Blockquote"
+		category="content"
+		description="Styled blockquote with optional attribution."
+	>
+		<Blockquote>
+			<Text>The discipline of leaving things out is the discipline that matters most.</Text>
+		</Blockquote>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Pullquote"
+		importPath="components/content/Pullquote"
+		category="content"
+		description="Large display quote for editorial emphasis. Boska, full-bleed within column."
+	>
+		<Pullquote>The space between is not empty — it is ma.</Pullquote>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="InlineCode"
+		importPath="components/content/InlineCode"
+		category="content"
+		description="Inline code span. Fira Code, Kiri background, radius-1."
+	>
+		<Text
+			>Use <InlineCode>var(--color-beni)</InlineCode> for accent elements. Never use <InlineCode
+				>--color-sumi</InlineCode
+			> on near-black backgrounds.</Text
+		>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">
+		Color Components
+	</p>
+
+	<ComponentShowcase
+		name="ColorSwatchPrimary"
+		importPath="components/content/ColorSwatchPrimary"
+		category="content"
+		description="Large color swatch card with hex, name, kanji, and usage description."
+		props={[
+			{ name: 'color', type: 'string', description: 'Hex color value' },
+			{ name: 'name', type: 'string', description: 'Color name' },
+			{ name: 'kanji', type: 'string', description: 'Japanese character' },
+			{ name: 'description', type: 'string', description: 'Usage description' },
+		]}
+	>
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+			<ColorSwatchPrimary
+				color="#900B20"
+				name="Beni"
+				kanji="紅"
+				description="Accent, links, focus ring"
+			/>
+			<ColorSwatchPrimary
+				color="#0E0D0C"
+				name="Sumi"
+				kanji="墨"
+				description="Primary text, headings"
+			/>
+			<ColorSwatchPrimary
+				color="#E6E6E6"
+				name="Washi"
+				kanji="和紙"
+				description="Primary background"
+			/>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="ColorSwatch"
+		importPath="components/content/ColorSwatch"
+		category="content"
+		description="Standard color swatch with name, hex, optional kanji and description."
+		props={[
+			{ name: 'color', type: 'string', description: 'Hex color value' },
+			{ name: 'name', type: 'string', description: 'Color name' },
+			{ name: 'kanji', type: 'string', description: 'Japanese character (optional)' },
+			{ name: 'description', type: 'string', description: 'Usage note (optional)' },
+		]}
+	>
+		<div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+			<ColorSwatch color="#F2F2F0" name="Kiri" description="Card backgrounds" />
+			<ColorSwatch color="#C8C8C4" name="Usuzumi" description="Borders, dividers" />
+			<ColorSwatch color="#A0A09C" name="Hai" description="Muted text, captions" />
+			<ColorSwatch color="#6B6B67" name="Nezumi" description="Mid-tone borders" />
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="ColorSwatchMini"
+		importPath="components/content/ColorSwatchMini"
+		category="content"
+		description="Inline 16×16 color chip. Used within text or dense tables."
+		props={[{ name: 'color', type: 'string', description: 'Hex color value' }]}
+	>
+		<p
+			class="flex flex-wrap items-center gap-3 font-mono text-sm"
+			style="color: var(--color-sumi)"
+		>
+			<span class="flex items-center gap-1.5"><ColorSwatchMini color="#900B20" /> Beni</span>
+			<span class="flex items-center gap-1.5"
+				><ColorSwatchMini color="#B83A4E" /> Beni Light</span
+			>
+			<span class="flex items-center gap-1.5"
+				><ColorSwatchMini color="#C75566" /> Beni Muted</span
+			>
+			<span class="flex items-center gap-1.5"
+				><ColorSwatchMini color="#F2D5DA" /> Beni Pale</span
+			>
+			<span class="flex items-center gap-1.5"
+				><ColorSwatchMini color="#6A0818" /> Beni Dark</span
+			>
+		</p>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="ColorStack"
+		importPath="components/content/ColorStack"
+		category="content"
+		description="Grid wrapper for grouping ColorSwatch cards into a responsive strip."
+	>
+		<ColorStack>
+			<ColorSwatch color="#1A1918" name="Yoru" description="Dark surface, footer" />
+			<ColorSwatch color="#0E0D0C" name="Sumi" description="Primary text" />
+			<ColorSwatch color="#6B6B67" name="Nezumi" description="Mid borders" />
+			<ColorSwatch color="#A0A09C" name="Hai" description="Muted text" />
+			<ColorSwatch color="#C8C8C4" name="Usuzumi" description="Dividers" />
+			<ColorSwatch color="#E6E6E6" name="Washi" description="Background" />
+			<ColorSwatch color="#F2F2F0" name="Kiri" description="Cards" />
+		</ColorStack>
+	</ComponentShowcase>
+</DesignSystemLayout>

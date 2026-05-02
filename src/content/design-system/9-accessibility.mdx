@@ -2,7 +2,14 @@
 title: Accessibility
 order: 9
 description: Accessibility is not a feature; it is a quality of the work.
+kanji: 誰
+principle: Kanso
+group: guidelines
 ---
+
+import FocusRingDemo from "../../components/design-system/FocusRingDemo";
+import TouchTargetOverlay from "../../components/design-system/TouchTargetOverlay";
+import AltTextTable from "../../components/design-system/AltTextTable";
 
 ## Philosophy
 
@@ -17,9 +24,9 @@ Accessibility is not a feature; it is a quality of the work — like structure o
 
 ## Focus Indicators
 
-- All interactive elements (links, buttons, form inputs) must display a visible focus ring when navigated via keyboard.
-- Focus ring style: 2 px solid Beni (`#900B20`) with a 2 px offset on light backgrounds. On dark backgrounds, use Washi (`#E6E6E6`).
-- Never remove the outline without providing an equivalent custom focus style.
+All interactive elements must display a visible focus ring on keyboard navigation. Focus ring: 2 px solid Beni, 2 px offset on light backgrounds; Washi on dark backgrounds. Never remove `outline` without an equivalent replacement.
+
+<FocusRingDemo client:load />
 
 ```css
 :focus-visible {
@@ -30,9 +37,9 @@ Accessibility is not a feature; it is a quality of the work — like structure o
 
 ## Touch Targets
 
-- All interactive elements must have a minimum touch target of **44 × 44 px** (WCAG 2.5.8).
-- For inline text links, the line-height and padding should produce an effective target that meets this minimum.
-- Icon buttons (e.g., navigation seal, social links) must include sufficient padding even if the visible icon is 24 × 24 px.
+All interactive elements must have a minimum touch target of **44 × 44 px** (WCAG 2.5.8). Icon buttons must include sufficient padding even if the visible icon is 24 × 24 px.
+
+<TouchTargetOverlay />
 
 ## Keyboard Navigation
 
@@ -43,12 +50,7 @@ Accessibility is not a feature; it is a quality of the work — like structure o
 
 ## Alt Text Patterns
 
-| Image type        | Alt text approach                                                                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Portrait photo    | "Stefan Imhoff, portrait" — descriptive, not interpretive.                                                                                              |
-| Essay cover image | A brief description of the image content. If the image is purely atmospheric, use `alt=""` (decorative) and ensure the essay title carries the meaning. |
-| Hanko seal mark   | `alt="Stefan Imhoff logo — a circular seal mark"` when it is the sole identifier; `alt=""` when it accompanies the written name.                        |
-| Icons             | `aria-hidden="true"` when paired with a text label. `aria-label="[action]"` when the icon stands alone.                                                 |
+<AltTextTable />
 
 ## Captions and Transcripts
 
