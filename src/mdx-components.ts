@@ -30,6 +30,7 @@ import Em from './components/ui/Em';
 import Flag from './components/ui/Flag';
 import FootnoteSection from './components/ui/FootnoteSection';
 import Headline from './components/ui/Headline';
+import Inserted from './components/ui/Inserted';
 import LineBreak from './components/ui/LineBreak';
 import ListItem from './components/ui/ListItem';
 import Marked from './components/ui/Marked';
@@ -95,6 +96,7 @@ export const mapping = {
 	hr: Divider,
 	img: MarkdownImage,
 	input: TaskCheckbox,
+	ins: Inserted,
 	li: ListItem,
 	mark: Marked,
 	ol: OrderedList,

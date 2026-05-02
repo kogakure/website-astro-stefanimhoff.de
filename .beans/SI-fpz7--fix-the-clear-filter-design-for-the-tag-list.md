@@ -1,11 +1,11 @@
 ---
 # SI-fpz7
 title: Fix the 'clear' filter design for the Tag list
-status: todo
+status: completed
 type: bug
 priority: normal
 created_at: 2026-04-16T12:22:43Z
-updated_at: 2026-04-25T14:55:05Z
+updated_at: 2026-05-02T16:59:08Z
 parent: SI-yj2e
 ---
 
