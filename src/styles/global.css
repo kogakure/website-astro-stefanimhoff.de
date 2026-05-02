@@ -663,6 +663,32 @@
 }
 
 /* ============================================================
+   Banner Disclosure Animation
+   ============================================================ */
+
+.banner-disclosure {
+	interpolate-size: allow-keywords;
+}
+
+.banner-disclosure > summary {
+	list-style: none;
+}
+
+.banner-disclosure::details-content {
+	block-size: 0;
+	overflow: clip;
+	opacity: 0;
+	transition:
+		block-size var(--duration-moderate) var(--ease-enter),
+		opacity var(--duration-fast) var(--ease-enter);
+}
+
+.banner-disclosure[open]::details-content {
+	block-size: auto;
+	opacity: 1;
+}
+
+/* ============================================================
    Marquee
    ============================================================ */
 @keyframes marquee-scroll {
