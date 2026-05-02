@@ -27,3 +27,11 @@ export function getContrastColor(hex: string): 'light' | 'dark' {
 export function isVeryLightColor(hex: string): boolean {
 	return getRelativeLuminance(hex) > 0.85;
 }
+
+export function getContrastRatio(hex1: string, hex2: string): number {
+	const l1 = getRelativeLuminance(hex1);
+	const l2 = getRelativeLuminance(hex2);
+	const lighter = Math.max(l1, l2);
+	const darker = Math.min(l1, l2);
+	return (lighter + 0.05) / (darker + 0.05);
+}
