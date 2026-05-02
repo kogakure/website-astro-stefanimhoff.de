@@ -1,8 +1,8 @@
-import { designSystem, haiku, journal, projects } from '../schema';
+import { designSystem, haiku, projects, writing } from '../schema';
 
 export const collections = {
 	'design-system': designSystem,
 	haiku: haiku,
-	journal: journal,
+	writing: writing,
 	projects: projects,
 };

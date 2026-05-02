@@ -11,16 +11,16 @@ The site uses Astro's content collections for type-safe content management:
 1. **Schema Definition** (`src/schema/*.ts`):
 
    - Each collection has a Zod schema defining frontmatter structure
-   - Example: `src/schema/journal.ts:4-40` - defines required/optional fields, enums for tags
+   - Example: `src/schema/writing.ts:4-40` - defines required/optional fields, enums for tags
    - Schemas provide compile-time type safety and runtime validation
 
 2. **Collection Registration** (`src/content/config.ts:1-7`):
 
    - Imports schemas and exports collection configuration
-   - Collections: `journal`, `haiku`, `projects`
+   - Collections: `writing`, `haiku`, `projects`
 
 3. **Content Organization**:
-   - Journal: Year-based folders (`src/content/journal/YYYY/`)
+   - Writing: Year-based folders (`src/content/writing/YYYY/`)
    - Each collection type has its own directory under `src/content/`
 
 **Benefits**: TypeScript inference, validation, autocomplete for frontmatter fields.
@@ -192,7 +192,7 @@ Strong typing enforced via TypeScript strict mode and Zod schemas:
 
 1. **Content Types**:
 
-   - `CollectionEntry<'journal'>` - Type from schema
+   - `CollectionEntry<'writing'>` - Type from schema
    - Example: `src/pages/[...slug].astro:2-3`
    - Autocomplete for frontmatter fields
 
@@ -206,7 +206,7 @@ Strong typing enforced via TypeScript strict mode and Zod schemas:
 
    - Typed parameters and return values
    - Generic types where appropriate
-   - Example: `formatPosts()` takes `CollectionEntry<'journal'>[]`
+   - Example: `formatPosts()` takes `CollectionEntry<'writing'>[]`
 
 4. **Schema Validation**:
    - Zod schemas in `src/schema/*.ts`
@@ -260,12 +260,12 @@ Astro's file-based routing with static path generation:
 
    - `index.astro` → `/`
    - `about.mdx` → `/about/`
-   - `journal.astro` → `/journal/`
+   - `writing.astro` → `/writing/`
 
 2. **Dynamic Routes** (`src/pages/[...slug].astro`):
 
    - `getStaticPaths()` at line 23-38
-   - Fetches all journal entries
+   - Fetches all writing entries
    - Returns array of { params, props }
    - Each entry becomes a static page at build time
 

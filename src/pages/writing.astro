@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-type Journal = CollectionEntry<'journal'>;
+type Writing = CollectionEntry<'writing'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts } from '@/utils';
@@ -14,7 +14,7 @@ import WritingPage from '@/components/interactive/WritingPage';
 import { Content as WritingIntro } from '@/content/text/writing/intro.mdx';
 import { mapping } from '@/mdx-components';
 
-const allPosts = await getCollection('journal', ({ data }: Journal) => !data.draft);
+const allPosts = await getCollection('writing', ({ data }: Writing) => !data.draft);
 const formattedPosts = formatPosts(allPosts, {});
 
 const uniqueTags = [...new Set(formattedPosts.flatMap((entry) => entry.data.tags ?? []))];

@@ -3,7 +3,7 @@
 ```
 src/
 ├── components/     # Reusable UI components (Astro/React)
-├── content/        # Content collections (journal/, haiku/, projects/)
+├── content/        # Content collections (writing/, haiku/, projects/)
 ├── schema/         # Zod schemas for content validation (src/schema/*.ts)
 ├── layouts/        # Page templates (BaseLayout → specialized layouts)
 ├── pages/          # File-based routing + dynamic [...slug].astro

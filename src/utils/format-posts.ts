@@ -3,7 +3,7 @@ import { sortByAlphabet, sortByDate } from '.';
 import type { CollectionEntry } from 'astro:content';
 
 export const formatPosts = (
-	posts: CollectionEntry<'journal'>[],
+	posts: CollectionEntry<'writing'>[],
 	{
 		removeDrafts = true,
 		removeFuture = false,
@@ -19,8 +19,8 @@ export const formatPosts = (
 		sortOrder?: 'asc' | 'desc';
 		limit?: number;
 	}
-): CollectionEntry<'journal'>[] => {
-	const filteredPosts = posts.reduce((acc: CollectionEntry<'journal'>[], post) => {
+): CollectionEntry<'writing'>[] => {
+	const filteredPosts = posts.reduce((acc: CollectionEntry<'writing'>[], post) => {
 		const { date, draft, featured } = post.data;
 
 		// Remove draft content

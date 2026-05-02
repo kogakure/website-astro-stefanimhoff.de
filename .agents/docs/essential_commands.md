@@ -11,7 +11,7 @@ pnpm preview        # Build + preview production build
 ### Content Generation
 
 ```sh
-pnpm plop           # Create new journal post (interactive)
+pnpm plop           # Create new writing post (interactive)
 pnpm images         # Generate all images (OG + thumbnails)
 pnpm icons:generate # Convert SVG icons to components
 ```

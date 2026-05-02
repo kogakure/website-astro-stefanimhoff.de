@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-type JournalType = CollectionEntry<'journal'>;
+type WritingType = CollectionEntry<'writing'>;
 import { getCollection } from 'astro:content';
 
 import { formatPosts } from '@/utils';
@@ -22,7 +22,7 @@ import { Content as Writing } from '@/content/text/homepage/writing.mdx';
 import { mapping } from '@/mdx-components';
 import { getPreviewUrl } from '@/utils/preview-url';
 
-const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
+const allPosts = await getCollection('writing', ({ data }: WritingType) => !data.draft);
 const latestPosts = formatPosts(allPosts, { limit: 9 });
 
 const title = 'Stefan Imhoff';
@@ -70,7 +70,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 		<HomePageSection label="Writing">
 			<Writing components={mapping} />
 			<div class="flex flex-col gap-2">
-				<MoreLink href="/writing/" text="Read the journal" />
+				<MoreLink href="/writing/" text="Read the writing" />
 				<MoreLink href="/rss.xml" text="Subscribe to RSS Feed" />
 			</div>
 		</HomePageSection>

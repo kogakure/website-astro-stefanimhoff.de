@@ -25,7 +25,7 @@ For more tasks have a look into the `package.json`.
 
 All content is copyrighted by _Stefan Imhoff_ unless otherwise stated. Feel free to learn from the Source Code and reuse code for your projects.
 
-The essays in my [Journal] of this website are licensed under a [Creative Commons license].
+The essays in my [Writing] of this website are licensed under a [Creative Commons license].
 
 The use of my design—the unique combination of layout, photos, or illustrations—my private photos, personal data and logo are only allowed with written permission.
 
@@ -35,5 +35,5 @@ In _easier_ words: **This is not a free theme**. Learn from it. Remix. Reuse. Bu
 [astro]: https://astro.build/
 [tailwind css]: https://tailwindcss.com/
 [react]: https://react.dev/
-[journal]: https://www.stefanimhoff.de/journal/
+[writing]: https://www.stefanimhoff.de/writing/
 [si]: https://www.stefanimhoff.de/

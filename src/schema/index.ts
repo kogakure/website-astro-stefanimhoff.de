@@ -1,4 +1,4 @@
 export * from './design-system';
 export * from './haiku';
-export * from './journal';
 export * from './projects';
+export * from './writing';

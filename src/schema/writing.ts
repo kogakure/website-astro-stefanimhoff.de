@@ -1,7 +1,7 @@
 import { z } from 'astro/zod';
 import { defineCollection } from 'astro:content';
 
-export const journal = defineCollection({
+export const writing = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		subtitle: z.string().optional(),

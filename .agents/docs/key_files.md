@@ -6,4 +6,4 @@
 - `src/utils/format-posts.ts` - Content filtering/sorting logic
 - `src/utils/remark-reading-time.ts` - Reading time calculation plugin
 - `src/utils/remark-widont.ts` - Typography widow prevention
-- `src/pages/[...slug].astro` - Dynamic route handler for journal posts
+- `src/pages/[...slug].astro` - Dynamic route handler for writing posts

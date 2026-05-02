@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-type Journal = CollectionEntry<'journal'>;
+type Writing = CollectionEntry<'writing'>;
 import { getCollection, render } from 'astro:content';
 
 import { site } from '@/data/site';
@@ -31,19 +31,19 @@ interface SeriesStep {
 }
 
 export async function getStaticPaths() {
-	const journalEntries = await getCollection('journal', ({ data }: Journal) => !data.draft);
-	const numberOfPages = journalEntries.length;
-	const formattedJournalEntries: Journal[] = formatPosts(journalEntries, { sortOrder: 'asc' });
+	const writingEntries = await getCollection('writing', ({ data }: Writing) => !data.draft);
+	const numberOfPages = writingEntries.length;
+	const formattedWritingEntries: Writing[] = formatPosts(writingEntries, { sortOrder: 'asc' });
 
-	return formattedJournalEntries.map((entry, index) => ({
+	return formattedWritingEntries.map((entry, index) => ({
 		params: { slug: entry.id },
 		props: {
 			entry,
 			next:
 				index + 1 === numberOfPages
 					? { id: null, data: null }
-					: formattedJournalEntries[index + 1],
-			prev: index === 0 ? { id: null, data: null } : formattedJournalEntries[index - 1],
+					: formattedWritingEntries[index + 1],
+			prev: index === 0 ? { id: null, data: null } : formattedWritingEntries[index - 1],
 		},
 	}));
 }
@@ -59,7 +59,7 @@ const tocHeadings: TocHeading[] = headings;
 
 const words = wordCount(entry.body ?? '');
 
-const seriesEntries: Journal[] = await getCollection('journal', ({ data }: Journal) => {
+const seriesEntries: Writing[] = await getCollection('writing', ({ data }: Writing) => {
 	return data.series === entry.data.series && !data.draft;
 });
 
@@ -178,7 +178,7 @@ const schema = JSON.stringify({
 
 		<!-- Article body -->
 		<article
-			class="journal-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
+			class="writing-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
 		>
 			{
 				entry.data.series && seriesSteps.length > 1 && (
@@ -213,7 +213,7 @@ const schema = JSON.stringify({
 <style is:global>
 	@reference "../styles/global.css";
 
-	.journal-post {
+	.writing-post {
 		:where(h2, h3, h4) {
 			scroll-margin-block-start: var(--spacing-24);
 		}

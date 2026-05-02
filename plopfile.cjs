@@ -61,7 +61,7 @@ module.exports = function (plop) {
 			return [
 				{
 					type: 'addMany',
-					destination: `${currentDir}/src/content/journal/${year}`,
+					destination: `${currentDir}/src/content/writing/${year}`,
 					base: `${templatePath}/post`,
 					templateFiles: '**/*.txt',
 					stripExtensions: ['txt'],

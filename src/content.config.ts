@@ -2,8 +2,8 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { defineCollection } from 'astro:content';
 
-const journal = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/journal' }),
+const writing = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/writing' }),
 	schema: z.object({
 		title: z.string(),
 		subtitle: z.string().optional(),
@@ -115,4 +115,4 @@ const designSystem = defineCollection({
 	}),
 });
 
-export const collections = { journal, haiku, projects, 'design-system': designSystem };
+export const collections = { writing, haiku, projects, 'design-system': designSystem };

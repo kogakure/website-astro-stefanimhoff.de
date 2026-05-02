@@ -11,9 +11,9 @@ const parser = new MarkdownIt({ html: true });
 import { stripMDXComponents } from '../utils';
 
 export async function GET(context) {
-	const journal = await getCollection('journal', ({ data }) => !data.draft);
+	const writing = await getCollection('writing', ({ data }) => !data.draft);
 	const haiku = await getCollection('haiku');
-	journal.sort(sortByDate);
+	writing.sort(sortByDate);
 	haiku.sort(sortByDate);
 
 	return rss({
@@ -25,7 +25,7 @@ export async function GET(context) {
 			media: 'http://search.yahoo.com/mrss/',
 		},
 		items: [
-			...journal.map((post) => {
+			...writing.map((post) => {
 				const { title, subtitle, date, description, cover } = post.data;
 				// Filter out import statements from content
 				const contentWithoutImports = post.body

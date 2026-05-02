@@ -2,9 +2,9 @@
 
 Three typed collections defined in `src/content/config.ts`:
 
-1. **journal** (`src/content/journal/YYYY/*.mdx`)
+1. **writing** (`src/content/writing/YYYY/*.mdx`)
 
-   - Schema: `src/schema/journal.ts`
+   - Schema: `src/schema/writing.ts`
    - Required: title, date, tags (predefined enum)
    - Optional: subtitle, description, cover, series, featured, draft
 
