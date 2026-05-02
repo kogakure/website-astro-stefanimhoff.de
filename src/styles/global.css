@@ -648,6 +648,10 @@
 		@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
 	}
 
+	.writing-post :is(p, ul, ol) {
+		@apply max-w-prose;
+	}
+
 	/** YouTube embed (iframe-based, replaces lite-youtube) */
 	.youtube-embed {
 		@apply mbe-10 relative aspect-video w-full;
