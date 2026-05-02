@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Hanko from '../icons/Hanko';
 
 const SIZE = 48;

@@ -1,6 +1,5 @@
-'use client';
-
 import { useState } from 'react';
+import { Switch } from '../ui/switch';
 
 export const ReducedMotionDemo = () => {
 	const [reduced, setReduced] = useState(false);
@@ -8,32 +7,21 @@ export const ReducedMotionDemo = () => {
 
 	const trigger = () => setKey((k) => k + 1);
 
-	const transition = reduced
-		? 'opacity 0.001ms linear'
-		: 'opacity 300ms cubic-bezier(0, 0, 0.38, 0.9), transform 300ms cubic-bezier(0, 0, 0.38, 0.9)';
+	const animName = reduced ? 'ds-rm-reduced' : 'ds-rm-full';
+	const animDuration = reduced ? '300ms' : '500ms';
+	const animEase = reduced ? 'linear' : 'cubic-bezier(0, 0, 0.38, 0.9)';
 
 	return (
 		<div className="flex flex-col gap-5">
 			<div className="flex items-center gap-4">
-				<button
-					role="switch"
-					aria-checked={reduced}
-					onClick={() => {
-						setReduced((r) => !r);
+				<Switch
+					checked={reduced}
+					onCheckedChange={(val) => {
+						setReduced(val);
 						setKey((k) => k + 1);
 					}}
-					className="relative flex h-6 w-11 cursor-pointer items-center rounded-full transition-colors"
-					style={{
-						backgroundColor: reduced ? 'var(--color-sumi)' : 'var(--color-beni)',
-						border: 'none',
-						outline: 'none',
-					}}
-				>
-					<span
-						className="absolute h-4 w-4 rounded-full bg-white shadow transition-transform"
-						style={{ transform: reduced ? 'translateX(24px)' : 'translateX(4px)' }}
-					/>
-				</button>
+					className="data-[state=checked]:bg-(--color-beni) data-[state=unchecked]:bg-(--color-sumi)"
+				/>
 				<span className="font-mono text-xs" style={{ color: 'var(--color-sumi)' }}>
 					{reduced
 						? 'prefers-reduced-motion: reduce'
@@ -66,28 +54,27 @@ export const ReducedMotionDemo = () => {
 						height: 72,
 						borderRadius: '4px',
 						backgroundColor: 'var(--color-beni)',
-						transition,
-						animation: `ds-rm-demo 400ms ${reduced ? '0.001ms' : 'cubic-bezier(0, 0, 0.38, 0.9)'} forwards`,
+						animation: `${animName} ${animDuration} ${animEase} both`,
 					}}
 				/>
 			</div>
 
 			<style>{`
-				@keyframes ds-rm-demo {
-					from { opacity: 0; transform: translateY(16px); }
-					to   { opacity: 1; transform: translateY(0); }
+				@keyframes ds-rm-full {
+					from { opacity: 0; transform: translateY(24px) scale(0.85); }
+					to   { opacity: 1; transform: translateY(0)    scale(1);    }
+				}
+				@keyframes ds-rm-reduced {
+					from { opacity: 0; }
+					to   { opacity: 1; }
 				}
 			`}</style>
 
-			{reduced && (
-				<p
-					className="font-mono text-[11px]"
-					style={{ color: 'var(--color-hai)', margin: 0 }}
-				>
-					Positional animation stripped. Opacity crossfade only — content remains
-					comprehensible in stillness (Seijaku).
-				</p>
-			)}
+			<p className="font-mono text-[11px]" style={{ color: 'var(--color-hai)', margin: 0 }}>
+				{reduced
+					? 'Reduced: opacity fade only — no positional movement (Seijaku).'
+					: 'Normal: slide up + scale in + fade — full spatial animation.'}
+			</p>
 		</div>
 	);
 };
