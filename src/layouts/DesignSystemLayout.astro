@@ -1,0 +1,162 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/interactive/TableOfContents';
+import DesignSystemNav from '../components/site/DesignSystemNav.astro';
+
+export interface Props {
+	title: string;
+	description?: string;
+	kanji?: string;
+	order?: number;
+	headings?: Array<{ id: string; text: string }>;
+	currentSlug?: string;
+	prev?: { title: string; slug: string } | null;
+	next?: { title: string; slug: string } | null;
+}
+
+const { title, description, kanji, order, headings = [], currentSlug, prev, next } = Astro.props;
+
+const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0') : null;
+---
+
+<BaseLayout title={title} description={description}>
+	<!-- Hero strip -->
+	<div class="max-w-360 mx-auto w-full px-8 pb-10 pt-24">
+		<div
+			class="mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+		>
+			{
+				orderStr && (
+					<div class="col-span-1 flex flex-col gap-1 xl:col-span-1 xl:col-start-1">
+						<span class="text-hai font-mono text-xs uppercase tracking-wider">
+							{orderStr}
+						</span>
+						{kanji && (
+							<span class="font-japanese text-usuzumi dark:text-nezumi text-[2.5rem] leading-none">
+								{kanji}
+							</span>
+						)}
+					</div>
+				)
+			}
+			<div
+				class:list={[
+					'col-span-2 md:col-span-5 xl:col-span-9',
+					orderStr ? 'xl:col-start-2' : 'col-span-3 xl:col-span-10 xl:col-start-2',
+				]}
+			>
+				<h1
+					class="font-display text-sumi dark:text-washi mbe-3 text-[clamp(2.5rem,5vw,4rem)] leading-[1.0] tracking-[-0.04em]"
+				>
+					{title}
+				</h1>
+				{description && <p class="text-hai text-3 mbe-0">{description}</p>}
+			</div>
+		</div>
+		<div class="border-usuzumi dark:border-nezumi mbs-8 border-t"></div>
+	</div>
+
+	<!-- Three-column body -->
+	<div
+		class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-32 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<!-- Left nav sidebar -->
+		<aside
+			class="mbe-10 xl:mbe-0 col-span-3 xl:col-span-2 xl:col-start-1 xl:row-start-1"
+			aria-label="Design system navigation"
+		>
+			<div class="xl:sticky xl:top-24">
+				<DesignSystemNav currentSlug={currentSlug} />
+			</div>
+		</aside>
+
+		<!-- Article body -->
+		<article
+			class="design-system-article col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-7 xl:col-start-3 xl:row-start-1"
+		>
+			<slot />
+		</article>
+
+		<!-- Right rail: Table of Contents -->
+		{
+			headings.length > 1 && (
+				<aside class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-11 xl:row-start-1">
+					<div class="xl:sticky xl:top-24">
+						<TableOfContents headings={headings} client:load transition:persist />
+					</div>
+				</aside>
+			)
+		}
+	</div>
+
+	<!-- Prev / next navigation -->
+	{
+		(prev || next) && (
+			<nav
+				class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-16 pt-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+				aria-label="Design system section navigation"
+			>
+				<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-7 xl:col-start-3">
+					<div
+						class:list={[
+							'rounded-2 border-usuzumi dark:border-nezumi grid border',
+							prev && next ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1',
+						]}
+					>
+						{prev && (
+							<a
+								class:list={[
+									'ease-enter group relative flex flex-col gap-3 px-6 py-6 text-left transition-colors duration-200 md:px-8 md:py-8',
+									prev &&
+										next &&
+										'border-usuzumi dark:border-nezumi border-b md:border-b-0 md:border-r',
+								]}
+								href={`/design-system/${prev.slug}/`}
+								rel="prev"
+							>
+								<span class="text-hai dark:text-nezumi text-2 flex items-center gap-3 uppercase tracking-wide">
+									<span
+										aria-hidden="true"
+										class="bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 origin-right transition-transform duration-200 group-hover:scale-x-150"
+									/>
+									Previous
+								</span>
+								<span class="text-3 text-sumi dark:text-washi ease-enter group-hover:text-beni dark:group-hover:text-beni-light text-balance font-bold transition-colors duration-200">
+									{prev.title}
+								</span>
+							</a>
+						)}
+						{next && (
+							<a
+								class="ease-enter group relative flex flex-col items-end gap-3 px-6 py-6 text-right transition-colors duration-200 md:px-8 md:py-8"
+								href={`/design-system/${next.slug}/`}
+								rel="next"
+							>
+								<span class="text-hai dark:text-nezumi text-2 flex items-center gap-3 uppercase tracking-wide">
+									Next
+									<span
+										aria-hidden="true"
+										class="bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 origin-left transition-transform duration-200 group-hover:scale-x-150"
+									/>
+								</span>
+								<span class="text-3 text-sumi dark:text-washi ease-enter group-hover:text-beni dark:group-hover:text-beni-light text-balance font-bold transition-colors duration-200">
+									{next.title}
+								</span>
+							</a>
+						)}
+					</div>
+				</div>
+			</nav>
+		)
+	}
+</BaseLayout>
+
+<style is:global>
+	@reference "../styles/global.css";
+
+	.design-system-article {
+		:where(h2, h3, h4) {
+			scroll-margin-block-start: var(--spacing-24);
+		}
+	}
+</style>

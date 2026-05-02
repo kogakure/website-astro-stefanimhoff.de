@@ -1,0 +1,56 @@
+---
+import { cn } from '../../lib/utils';
+import { designSystemNav } from '../../data/design-system-nav';
+import SectionLabel from '../ui/SectionLabel';
+
+export interface Props {
+	currentSlug?: string;
+}
+
+const { currentSlug } = Astro.props;
+---
+
+<nav aria-label="Design system sections">
+	{
+		designSystemNav.map((group) => (
+			<div class="mbe-6">
+				<SectionLabel as="p" className="mbe-3">
+					{group.label}
+				</SectionLabel>
+				<ul class="flex flex-col gap-0.5">
+					{group.items.map((item) => {
+						const isActive = item.slug === currentSlug;
+						return (
+							<li>
+								<a
+									href={`/design-system/${item.slug}/`}
+									class={cn(
+										'text-2 flex items-center gap-2 rounded-sm py-1 transition-colors duration-200',
+										isActive
+											? 'text-beni dark:text-beni-light font-medium'
+											: 'text-hai hover:text-sumi dark:hover:text-washi'
+									)}
+									aria-current={isActive ? 'page' : undefined}
+								>
+									<span class="font-japanese text-[0.8em] opacity-50">
+										{item.kanji}
+									</span>
+									{item.title}
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		))
+	}
+
+	<div class="border-usuzumi dark:border-nezumi mt-2 border-t pt-6">
+		<a
+			href="/design-system/"
+			class="text-2 text-hai hover:text-sumi dark:hover:text-washi transition-colors duration-200"
+		>
+			↑ Overview
+		</a>
+	</div>
+</nav>

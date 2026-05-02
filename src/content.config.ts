@@ -112,6 +112,11 @@ const designSystem = defineCollection({
 		title: z.string(),
 		order: z.number(),
 		description: z.string().optional(),
+		slug: z.string().optional(),
+		kanji: z.string().optional(),
+		principle: z.string().optional(),
+		group: z.enum(['foundations', 'tokens', 'guidelines', 'components']).optional(),
+		parent: z.string().optional(),
 	}),
 });
 

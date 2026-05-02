@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import { mapping } from '@/mdx-components';
+import DesignSystemLayout from '@/layouts/DesignSystemLayout.astro';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('design-system', ({ data }) => data.order > 0);
+	const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+	const N = sorted.length;
+
+	return sorted.map((entry, i) => {
+		const slug = entry.data.slug ?? entry.id.replace(/^\d+[a-z]?-/, '');
+		return {
+			params: { slug },
+			props: {
+				entry,
+				prev: i > 0 ? sorted[i - 1] : null,
+				next: i < N - 1 ? sorted[i + 1] : null,
+			},
+		};
+	});
+}
+
+const { entry, prev, next } = Astro.props;
+const { slug } = Astro.params;
+
+const {
+	Content,
+	remarkPluginFrontmatter: { headings = [] },
+} = await render(entry);
+
+const prevSlug = prev ? (prev.data.slug ?? prev.id.replace(/^\d+[a-z]?-/, '')) : null;
+const nextSlug = next ? (next.data.slug ?? next.id.replace(/^\d+[a-z]?-/, '')) : null;
+---
+
+<DesignSystemLayout
+	title={entry.data.title}
+	description={entry.data.description}
+	kanji={entry.data.kanji}
+	order={entry.data.order}
+	headings={headings}
+	currentSlug={slug}
+	prev={prev ? { title: prev.data.title, slug: prevSlug! } : null}
+	next={next ? { title: next.data.title, slug: nextSlug! } : null}
+>
+	<Content components={mapping} />
+</DesignSystemLayout>
