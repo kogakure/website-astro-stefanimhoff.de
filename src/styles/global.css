@@ -471,31 +471,12 @@
 
 	/** Blockquote */
 	blockquote {
-		& p,
-		& ul,
-		& ol {
-			@apply text-3 mbs-0 font-extralight italic opacity-60;
-			margin-block-end: var(--spacing-8) !important;
-		}
-
-		& p:last-child {
-			margin-block-end: 0 !important;
-		}
-
-		& > footer {
-			margin-block-start: calc(var(--spacing-5) * -1) !important;
-		}
-
-		&:nth-last-child(2) {
-			@apply mbe-5;
-		}
-
 		& strong {
 			@apply font-bold italic;
 		}
 
 		& sup {
-			@apply font-normal;
+			@apply font-normal not-italic;
 		}
 	}
 
@@ -512,33 +493,6 @@
 			@apply not-italic;
 			margin-inline-end: 0.1em;
 		}
-	}
-
-	/** Pullquote */
-	.pullquote {
-		&::before {
-			@apply hidden;
-		}
-
-		& p {
-			@apply text-4 m-0 font-extrabold leading-none;
-		}
-
-		& p:first-child::before {
-			@apply font-normal content-[open-quote];
-		}
-
-		& p:nth-of-type(1):first-letter {
-			margin-inline-start: -0.4em;
-		}
-
-		& p:nth-last-of-type(1)::after {
-			@apply font-normal content-[close-quote];
-		}
-	}
-
-	.pullquote[lang|='ja'] {
-		@apply font-normal;
 	}
 
 	/** Cite */

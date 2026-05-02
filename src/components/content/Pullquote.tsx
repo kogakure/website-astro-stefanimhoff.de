@@ -1,7 +1,6 @@
 import type { BlockquoteHTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
-import { Text } from '../ui/Text';
-import { TextLink } from '../ui/TextLink';
+import QuoteAttribution from '../ui/QuoteAttribution';
 
 interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
 	alignment?: 'center' | 'left';
@@ -13,7 +12,7 @@ interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
 }
 
 export const Pullquote = ({
-	alignment = 'center',
+	alignment = 'left',
 	author,
 	className,
 	lang = 'en',
@@ -25,28 +24,18 @@ export const Pullquote = ({
 	<blockquote
 		lang={lang}
 		className={cn(
-			'pullquote mbe-10 text-balance p-9',
+			'pullquote mbe-12 mbs-12 mis-8 md:mis-12',
 			alignment === 'center' && 'text-center',
 			alignment === 'left' && 'text-left',
 			className
 		)}
 		{...props}
 	>
-		<Text dangerouslySetInnerHTML={{ __html: text }} />
-		{(author || source) && (
-			<footer className="text-2 mbs-6 font-normal opacity-60">
-				{author && <b className="font-normal">{author}</b>}
-				{author && source && ', '}
-				{source &&
-					(sourceUrl ? (
-						<cite>
-							<TextLink href={sourceUrl}>{source}</TextLink>
-						</cite>
-					) : (
-						<cite>{source}</cite>
-					))}
-			</footer>
-		)}
+		<p
+			className="font-display text-5 mbe-0 text-balance italic"
+			dangerouslySetInnerHTML={{ __html: text }}
+		/>
+		<QuoteAttribution author={author} source={source} sourceUrl={sourceUrl} />
 	</blockquote>
 );
 

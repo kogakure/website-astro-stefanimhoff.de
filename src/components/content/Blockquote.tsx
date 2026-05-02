@@ -1,6 +1,6 @@
 import type { BlockquoteHTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
-import { TextLink } from '../ui/TextLink';
+import QuoteAttribution from '../ui/QuoteAttribution';
 
 interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
 	author?: string;
@@ -21,27 +21,13 @@ export const Blockquote = ({
 	<blockquote
 		lang={lang}
 		className={cn(
-			'mbe-12 mbs-12 mie-8 mis-8 md:mie-10 md:mis-10 relative overflow-hidden',
+			'mbe-12 mbs-12 mis-8 md:mis-12 [&_p]:mbe-8 [&_p:last-of-type]:mbe-0 [&_p]:text-balance [&_p]:italic',
 			className
 		)}
 		{...props}
 	>
 		{children}
-		{(author || source) && (
-			<footer className="text-2 mbs-6 font-normal opacity-60">
-				{(author || source) && '—'}
-				{author && <b className="font-normal">{author}</b>}
-				{author && source && ','}
-				{source &&
-					(sourceUrl ? (
-						<cite>
-							<TextLink href={sourceUrl}>{source}</TextLink>
-						</cite>
-					) : (
-						<cite>{source}</cite>
-					))}
-			</footer>
-		)}
+		<QuoteAttribution author={author} source={source} sourceUrl={sourceUrl} />
 	</blockquote>
 );
 
