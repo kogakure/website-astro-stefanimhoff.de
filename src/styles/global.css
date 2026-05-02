@@ -48,7 +48,6 @@
 	--color-shibui-850: #272522;
 	--color-shibui-900: #1b1917;
 	--color-shibui-950: #0e0d0c;
-	--color-marked: #e6f028;
 	--color-code-1: #1e2229;
 	--color-code-2: #abb2bf;
 
@@ -400,13 +399,6 @@
 
 	ins {
 		@apply decoration-dashed decoration-[0.15em];
-	}
-
-	mark {
-		@apply bg-marked dark:bg-marked/[0.7] rounded border border-black/[0.1] text-black/[0.75];
-		padding-inline: 0.3em;
-		padding-block-end: 0.2em;
-		padding-block-start: 0.3em;
 	}
 
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */

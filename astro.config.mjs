@@ -8,7 +8,7 @@ import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
-import { remarkReadingTime, remarkTableOfContents, remarkWidont } from './src/utils';
+import { remarkMark, remarkReadingTime, remarkTableOfContents, remarkWidont } from './src/utils';
 
 import customTheme from './shiki-theme.json';
 
@@ -24,7 +24,13 @@ export default defineConfig({
 	},
 	integrations: [
 		mdx({
-			remarkPlugins: [remarkGfm, remarkReadingTime, remarkTableOfContents, remarkWidont],
+			remarkPlugins: [
+				remarkGfm,
+				remarkMark,
+				remarkReadingTime,
+				remarkTableOfContents,
+				remarkWidont,
+			],
 		}),
 		react(),
 		pagefind(),

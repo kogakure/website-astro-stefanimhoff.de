@@ -32,6 +32,7 @@ import FootnoteSection from './components/ui/FootnoteSection';
 import Headline from './components/ui/Headline';
 import LineBreak from './components/ui/LineBreak';
 import ListItem from './components/ui/ListItem';
+import Marked from './components/ui/Marked';
 import MoreLink from './components/ui/MoreLink';
 import OrderedList from './components/ui/OrderedList';
 import Strikethrough from './components/ui/Strikethrough';
@@ -95,6 +96,7 @@ export const mapping = {
 	img: MarkdownImage,
 	input: TaskCheckbox,
 	li: ListItem,
+	mark: Marked,
 	ol: OrderedList,
 	p: Text,
 	pre: CodeBlock,
