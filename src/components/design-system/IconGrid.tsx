@@ -1,35 +1,61 @@
-import * as Icons from '../icons';
+import {
+	CaretDownIcon,
+	CircleHalfIcon,
+	DownloadSimpleIcon,
+	GithubLogoIcon,
+	InstagramLogoIcon,
+	ListMagnifyingGlassIcon,
+	Minus,
+	Plus,
+	XIcon,
+	XLogoIcon,
+} from '@phosphor-icons/react';
 
-const EXCLUDE = new Set(['Hanko']);
-
-const iconEntries = Object.entries(Icons).filter(([name]) => !EXCLUDE.has(name)) as [
-	string,
-	React.ComponentType<React.SVGProps<SVGSVGElement>>,
-][];
-
-const toLabel = (name: string) => name.replace(/([A-Z])/g, ' $1').trim();
+const icons: {
+	name: string;
+	component: React.ComponentType<{ size?: number; weight?: string }>;
+	usage: string;
+}[] = [
+	{ name: 'CaretDownIcon', component: CaretDownIcon, usage: 'Banner disclosure, SeriesStepper' },
+	{ name: 'CircleHalfIcon', component: CircleHalfIcon, usage: 'Theme toggle' },
+	{ name: 'DownloadSimpleIcon', component: DownloadSimpleIcon, usage: 'DownloadLink' },
+	{ name: 'GithubLogoIcon', component: GithubLogoIcon, usage: 'Footer social' },
+	{ name: 'InstagramLogoIcon', component: InstagramLogoIcon, usage: 'Footer social' },
+	{
+		name: 'ListMagnifyingGlassIcon',
+		component: ListMagnifyingGlassIcon,
+		usage: 'Search trigger',
+	},
+	{ name: 'Minus', component: Minus, usage: 'TableOfContents collapse' },
+	{ name: 'Plus', component: Plus, usage: 'TableOfContents expand' },
+	{ name: 'XIcon', component: XIcon, usage: 'Close / clear filters' },
+	{ name: 'XLogoIcon', component: XLogoIcon, usage: 'Footer social' },
+];
 
 export const IconGrid = () => (
 	<div className="overflow-hidden rounded-md" style={{ backgroundColor: 'var(--color-kiri)' }}>
-		<div className="grid grid-cols-4 gap-px sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10">
-			{iconEntries.map(([name, Icon]) => (
+		<div className="grid grid-cols-2 gap-px sm:grid-cols-3 md:grid-cols-5">
+			{icons.map(({ name, component: Icon, usage }) => (
 				<div
 					key={name}
-					className="group flex flex-col items-center gap-2 p-4"
+					className="flex flex-col items-center gap-3 p-5"
 					style={{ backgroundColor: 'var(--color-kiri)' }}
-					title={name}
 				>
-					<Icon
-						width={24}
-						height={24}
-						style={{ color: 'var(--color-sumi)', fill: 'currentColor' }}
-					/>
-					<span
-						className="text-center font-mono text-[9px] leading-tight"
-						style={{ color: 'var(--color-hai)' }}
-					>
-						{toLabel(name)}
-					</span>
+					<Icon size={24} weight="regular" />
+					<div className="flex flex-col items-center gap-0.5 text-center">
+						<span
+							className="font-mono text-[10px] font-medium"
+							style={{ color: 'var(--color-beni)' }}
+						>
+							{name}
+						</span>
+						<span
+							className="font-mono text-[9px]"
+							style={{ color: 'var(--color-hai)' }}
+						>
+							{usage}
+						</span>
+					</div>
 				</div>
 			))}
 		</div>
@@ -40,7 +66,7 @@ export const IconGrid = () => (
 				color: 'var(--color-hai)',
 			}}
 		>
-			{iconEntries.length} icons · 24 × 24 px · Sumi fill
+			{icons.length} icons · Phosphor Regular · 24 × 24 px
 		</div>
 	</div>
 );
