@@ -1,7 +1,7 @@
 ---
 # SI-wri5
 title: "DS-5: Layout & grid + spacing pages"
-status: in-progress
+status: done
 type: task
 created_at: 2026-05-02T17:57:56Z
 updated_at: 2026-05-02T17:57:56Z

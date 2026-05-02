@@ -1,7 +1,7 @@
 ---
 # SI-js25
 title: "DS-4: Typography page — scale, specimens, italic comparison"
-status: in-progress
+status: done
 type: task
 priority: normal
 created_at: 2026-05-02T17:57:41Z
