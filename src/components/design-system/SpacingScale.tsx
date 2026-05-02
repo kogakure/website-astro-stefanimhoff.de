@@ -33,17 +33,20 @@ export const SpacingScale = () => (
 				>
 					{entry.token}
 				</span>
-				<div className="flex flex-1 items-center gap-3">
-					<div
-						className="h-4 shrink-0 rounded-sm"
-						style={{
-							width: `${(entry.maxPx / MAX_PX) * 100}%`,
-							backgroundColor: 'var(--color-beni)',
-							opacity: 0.7 + (entry.maxPx / MAX_PX) * 0.3,
-						}}
-					/>
+				<div className="flex min-w-0 flex-1 items-center gap-3">
+					<div className="min-w-0 flex-1">
+						<div
+							className="h-4 rounded-sm"
+							style={{
+								width: `${(entry.maxPx / MAX_PX) * 100}%`,
+								maxWidth: '100%',
+								backgroundColor: 'var(--color-beni)',
+								opacity: 0.7 + (entry.maxPx / MAX_PX) * 0.3,
+							}}
+						/>
+					</div>
 					<span
-						className="shrink-0 font-mono text-[11px]"
+						className="w-10 shrink-0 font-mono text-[11px]"
 						style={{ color: 'var(--color-hai)' }}
 					>
 						{entry.maxPx}px

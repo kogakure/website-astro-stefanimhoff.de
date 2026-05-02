@@ -43,6 +43,7 @@ export const TypeSpecimen = ({
 							? `calc(${tracking.replace('−', '-').replace('%', '')} * 0.001em)`
 							: undefined,
 						fontWeight: weight,
+						fontStyle: 'normal',
 						color: 'var(--color-sumi)',
 						margin: 0,
 					}}
