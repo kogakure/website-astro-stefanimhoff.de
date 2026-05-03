@@ -15,8 +15,8 @@ export const designSystemNav: NavGroup[] = [
 		group: 'foundations',
 		label: 'Foundations',
 		items: [
-			{ title: 'Brand Foundations', slug: 'brand-foundations', kanji: '基' },
-			{ title: 'Naming & Voice', slug: 'naming-and-voice', kanji: '声' },
+			{ title: 'Brand Foundations', slug: 'brand-foundations', kanji: '本' },
+			{ title: 'Naming & Voice', slug: 'naming-and-voice', kanji: '言' },
 			{ title: 'Logo', slug: 'logo', kanji: '印' },
 		],
 	},
