@@ -1,3 +1,5 @@
+import { isVeryLightColor } from '../../lib/color-contrast';
+import { cn } from '../../lib/utils';
 import Hanko from '../icons/Hanko';
 
 interface Variant {
@@ -44,7 +46,10 @@ export const LogoSpecimen = () => (
 		{variants.map((v) => (
 			<div
 				key={v.label}
-				className="overflow-hidden rounded-md"
+				className={cn(
+					'overflow-hidden rounded-md',
+					isVeryLightColor(v.bg) && 'border-usuzumi/40 border'
+				)}
 				style={{ backgroundColor: v.bg }}
 			>
 				<div className="flex items-center justify-center" style={{ height: 200 }}>

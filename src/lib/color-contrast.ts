@@ -25,7 +25,7 @@ export function getContrastColor(hex: string): 'light' | 'dark' {
 }
 
 export function isVeryLightColor(hex: string): boolean {
-	return getRelativeLuminance(hex) > 0.85;
+	return getRelativeLuminance(hex) > 0.7;
 }
 
 export function getContrastRatio(hex1: string, hex2: string): number {

@@ -31,6 +31,11 @@ const {
 
 const prevSlug = prev ? (prev.data.slug ?? prev.id.replace(/^\d+[a-z]?-/, '')) : null;
 const nextSlug = next ? (next.data.slug ?? next.id.replace(/^\d+[a-z]?-/, '')) : null;
+
+const prevPage = prev ? { title: prev.data.title, slug: prevSlug! } : null;
+const nextPage = next
+	? { title: next.data.title, slug: nextSlug! }
+	: { title: 'Components', slug: 'components' };
 ---
 
 <DesignSystemLayout
@@ -40,8 +45,8 @@ const nextSlug = next ? (next.data.slug ?? next.id.replace(/^\d+[a-z]?-/, '')) :
 	order={entry.data.order}
 	headings={headings}
 	currentSlug={slug}
-	prev={prev ? { title: prev.data.title, slug: prevSlug! } : null}
-	next={next ? { title: next.data.title, slug: nextSlug! } : null}
+	prev={prevPage}
+	next={nextPage}
 >
 	<Content components={mapping} />
 </DesignSystemLayout>
