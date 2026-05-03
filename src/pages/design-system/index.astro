@@ -144,7 +144,7 @@ const sections = [
 			<!-- First row: 3 cards -->
 			{
 				principles.slice(0, 3).map((p) => (
-					<div class="col-span-1 md:col-span-2 xl:col-span-4">
+					<div class="col-span-3 md:col-span-2 xl:col-span-4">
 						<PrincipleCard
 							kanji={p.kanji}
 							romaji={p.romaji}
@@ -160,7 +160,7 @@ const sections = [
 			<!-- Second row: 4 cards (Fukinsei — last card shifted right) -->
 			{
 				principles.slice(3, 6).map((p) => (
-					<div class="col-span-1 md:col-span-2 xl:col-span-3">
+					<div class="col-span-3 md:col-span-2 xl:col-span-3">
 						<PrincipleCard
 							kanji={p.kanji}
 							romaji={p.romaji}
@@ -173,7 +173,7 @@ const sections = [
 				))
 			}
 			<!-- Seventh card: offset right (Fukinsei) -->
-			<div class="col-span-1 md:col-span-2 xl:col-span-3 xl:col-start-10">
+			<div class="col-span-3 md:col-span-2 xl:col-span-3 xl:col-start-10">
 				<PrincipleCard
 					kanji={principles[6].kanji}
 					romaji={principles[6].romaji}
