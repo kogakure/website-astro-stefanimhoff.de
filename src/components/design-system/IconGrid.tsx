@@ -1,6 +1,5 @@
-import React from 'react';
-
 import {
+	type Icon,
 	CaretDownIcon,
 	CircleHalfIcon,
 	DownloadSimpleIcon,
@@ -13,11 +12,7 @@ import {
 	XLogoIcon,
 } from '@phosphor-icons/react';
 
-const icons: {
-	name: string;
-	component: React.ComponentType<{ size?: number; weight?: string }>;
-	usage: string;
-}[] = [
+const icons: { name: string; component: Icon; usage: string }[] = [
 	{ name: 'CaretDownIcon', component: CaretDownIcon, usage: 'Banner disclosure, SeriesStepper' },
 	{ name: 'CircleHalfIcon', component: CircleHalfIcon, usage: 'Theme toggle' },
 	{ name: 'DownloadSimpleIcon', component: DownloadSimpleIcon, usage: 'DownloadLink' },
