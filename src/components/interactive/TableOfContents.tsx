@@ -1,6 +1,6 @@
 'use client';
 
-import { Minus, Plus } from '@phosphor-icons/react';
+import { MinusIcon, PlusIcon } from '@phosphor-icons/react';
 import { AnimatePresence, motion } from 'motion/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -87,7 +87,11 @@ export const TableOfContents = ({ headings }: Props) => {
 					aria-hidden="true"
 					className="text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center xl:hidden"
 				>
-					{open ? <Minus size={12} weight="bold" /> : <Plus size={12} weight="bold" />}
+					{open ? (
+						<MinusIcon size={12} weight="bold" />
+					) : (
+						<PlusIcon size={12} weight="bold" />
+					)}
 				</span>
 				<SectionLabel as="p" className="mbe-0">
 					Table of Contents

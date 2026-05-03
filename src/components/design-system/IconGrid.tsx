@@ -6,8 +6,8 @@ import {
 	GithubLogoIcon,
 	InstagramLogoIcon,
 	ListMagnifyingGlassIcon,
-	Minus,
-	Plus,
+	MinusIcon,
+	PlusIcon,
 	XIcon,
 	XLogoIcon,
 } from '@phosphor-icons/react';
@@ -23,8 +23,8 @@ const icons: { name: string; component: Icon; usage: string }[] = [
 		component: ListMagnifyingGlassIcon,
 		usage: 'Search trigger',
 	},
-	{ name: 'Minus', component: Minus, usage: 'TableOfContents collapse' },
-	{ name: 'Plus', component: Plus, usage: 'TableOfContents expand' },
+	{ name: 'MinusIcon', component: MinusIcon, usage: 'TableOfContents collapse' },
+	{ name: 'PlusIcon', component: PlusIcon, usage: 'TableOfContents expand' },
 	{ name: 'XIcon', component: XIcon, usage: 'Close / clear filters' },
 	{ name: 'XLogoIcon', component: XLogoIcon, usage: 'Footer social' },
 ];

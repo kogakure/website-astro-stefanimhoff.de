@@ -46,7 +46,7 @@ export const ContrastMatrix = () => (
 				</tr>
 			</thead>
 			<tbody>
-				{foregrounds.map((fg, i) => (
+				{foregrounds.map((fg) => (
 					<tr
 						key={fg.hex}
 						style={{
