@@ -19,6 +19,7 @@ import PrimeVideoFlag from './components/content/PrimeVideoFlag';
 import ProductLink from './components/content/ProductLink';
 import ProjectIntro from './components/content/ProjectIntro';
 import Pullquote from './components/content/Pullquote';
+import RSSText from './components/content/RSSText';
 import Ruby from './components/content/Ruby';
 import Spotify from './components/content/Spotify';
 import ThemeBox from './components/content/ThemeBox';
@@ -77,6 +78,7 @@ export const mapping = {
 	ProductLink,
 	ProjectIntro,
 	Pullquote,
+	RSSText,
 	Ruby,
 	Spotify,
 	ThemeBox,

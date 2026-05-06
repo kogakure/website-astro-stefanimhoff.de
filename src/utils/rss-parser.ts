@@ -482,6 +482,12 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		(_match, _tag, content: string) => replaceWrapperComponent(content)
 	);
 
+	// <RSSText>...</RSSText> — strip wrapper tags but preserve inner content
+	processed = processed.replace(
+		/<RSSText\b[^>]*>([\s\S]*?)<\/RSSText>/g,
+		(_match, content: string) => content
+	);
+
 	// Remove any other self-closing components e.g. <Foo bar="baz" />
 	const removedSelfClosing = processed.replace(/<([A-Z][\w\d]*)\b[^>]*?\/>/g, '');
 
