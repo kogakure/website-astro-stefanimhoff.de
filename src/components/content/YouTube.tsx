@@ -1,4 +1,3 @@
-// TODO: YouTube Light is preferred, because the default YouTube embed comes with over a MB of Scripts before the video is even started.
 import type { HTMLAttributes } from 'react';
 import { cn } from '../../lib/utils';
 
@@ -8,20 +7,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const YouTube = ({ className, id, title = 'YouTube video', ...props }: Props) => (
-	<div
-		className={cn('mbe-10 relative w-full', className)}
-		style={{ aspectRatio: '16/9' }}
-		{...props}
-	>
-		<iframe
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowFullScreen
-			className="absolute inset-0 h-full w-full"
-			loading="lazy"
-			referrerPolicy="strict-origin-when-cross-origin"
-			src={`https://www.youtube-nocookie.com/embed/${id}`}
-			title={title}
-		/>
+	<div className={cn('mbe-10 w-full', className)} {...props}>
+		{/* @ts-expect-error — lite-youtube is a web component, no JSX types available */}
+		<lite-youtube videoid={id} playlabel={title} params="rel=0" />
 	</div>
 );
 

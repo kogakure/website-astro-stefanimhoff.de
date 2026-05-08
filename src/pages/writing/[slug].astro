@@ -16,6 +16,7 @@ import {
 
 import { mapping } from '@/mdx-components';
 
+import 'lite-youtube-embed/src/lite-yt-embed.css';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SeriesStepper from '@/components/interactive/SeriesStepper';
 import ListItem from '@/components/ui/ListItem';
@@ -217,6 +218,9 @@ const schema = JSON.stringify({
 	<LightboxRoot client:load transition:persist />
 </BaseLayout>
 
+<script>
+	import 'lite-youtube-embed';
+</script>
 <script is:inline type="application/ld+json" set:html={schema} />
 
 <style is:global>
