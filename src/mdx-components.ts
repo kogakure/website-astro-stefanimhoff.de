@@ -15,6 +15,7 @@ import Figure from './components/content/Figure';
 import Image from './components/content/Image';
 import MarkdownImage from './components/content/MarkdownImage';
 import NetflixFlag from './components/content/NetflixFlag';
+import Platform from './components/content/Platform';
 import PrimeVideoFlag from './components/content/PrimeVideoFlag';
 import ProductLink from './components/content/ProductLink';
 import ProjectIntro from './components/content/ProjectIntro';
@@ -74,6 +75,7 @@ export const mapping = {
 	Image,
 	MoreLink,
 	NetflixFlag,
+	Platform,
 	PrimeVideoFlag,
 	ProductLink,
 	ProjectIntro,
