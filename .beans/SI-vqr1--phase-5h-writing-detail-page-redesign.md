@@ -1,11 +1,11 @@
 ---
 # SI-vqr1
 title: "Phase 5H: Writing Detail Page Redesign"
-status: in-progress
+status: completed
 type: feature
 priority: normal
 created_at: 2026-04-25T14:56:34Z
-updated_at: 2026-04-30T10:11:40Z
+updated_at: 2026-05-08T16:43:28Z
 ---
 
 The detail page for each blog post needs to be redesigned according to the spec sheet in ./specs/designs/

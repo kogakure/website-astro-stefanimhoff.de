@@ -1,39 +1,88 @@
 'use client';
 
 import {
-	ArticleIcon,
+	ArrowLeftIcon,
+	BookOpenIcon,
 	BriefcaseIcon,
 	ClockIcon,
+	FlagIcon,
+	HeartIcon,
 	HouseIcon,
 	InfoIcon,
 	LeafIcon,
 	MagnifyingGlassIcon,
 	MoonIcon,
+	PaintBrushIcon,
+	PencilSimpleIcon,
+	ScrollIcon,
 	SunIcon,
-	UserIcon,
 	WrenchIcon,
-	XIcon,
 } from '@phosphor-icons/react';
 import { Command } from 'cmdk';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '../../lib/utils';
 
+type View = 'menu' | 'search';
+
 type PagefindResult = {
 	url: string;
-	meta: { title: string };
+	meta: { title: string; image?: string };
 	excerpt: string;
 };
 
+const MOCK_SEARCH: PagefindResult[] = [
+	{
+		url: '/writing/the-art-of-minimalism/',
+		meta: { title: 'The Art of Minimalism' },
+		excerpt:
+			'Less is more. A meditation on reducing the <mark>noise</mark> in everyday life and finding clarity.',
+	},
+	{
+		url: '/writing/japanese-aesthetics/',
+		meta: { title: 'Japanese Aesthetics' },
+		excerpt:
+			'Exploring wabi-sabi, ma, and the <mark>beauty</mark> of impermanence in design and life.',
+	},
+	{
+		url: '/haiku/morning-mist/',
+		meta: { title: 'Morning Mist' },
+		excerpt:
+			'Morning mist rises / across the bamboo forest / <mark>silence</mark> speaks aloud.',
+	},
+	{
+		url: '/writing/stoicism-and-productivity/',
+		meta: { title: 'Stoicism and Productivity' },
+		excerpt: 'Applying stoic principles to modern <mark>work</mark> and deliberate focus.',
+	},
+	{
+		url: '/writing/the-value-of-slowness/',
+		meta: { title: 'The Value of Slowness' },
+		excerpt:
+			'In a world obsessed with <mark>speed</mark>, slowness is a radical and necessary act.',
+	},
+];
+
 const navItems = [
 	{ title: 'Home', url: '/', Icon: HouseIcon },
-	{ title: 'Writing', url: '/writing/', Icon: ArticleIcon },
+	{ title: 'About', url: '/about/', Icon: InfoIcon },
 	{ title: 'Work', url: '/work/', Icon: BriefcaseIcon },
+	{ title: 'Writing', url: '/writing/', Icon: PencilSimpleIcon },
+];
+
+const linkItems = [
 	{ title: 'Haiku', url: '/haiku/', Icon: LeafIcon },
-	{ title: 'About', url: '/about/', Icon: UserIcon },
-	{ title: 'Colophon', url: '/colophon/', Icon: InfoIcon },
+	{ title: 'Colophon', url: '/colophon/', Icon: BookOpenIcon },
 	{ title: 'Tools', url: '/tools/', Icon: WrenchIcon },
 	{ title: 'Now', url: '/now/', Icon: ClockIcon },
+	{ title: 'Life Rules', url: '/life-rules/', Icon: HeartIcon },
+	{
+		title: 'Traditional Colors of Japan',
+		url: '/traditional-colors-of-japan/',
+		Icon: PaintBrushIcon,
+	},
+	{ title: 'Libertarianism', url: '/libertarianism/', Icon: FlagIcon },
+	{ title: 'Imprint', url: '/imprint/', Icon: ScrollIcon },
 ];
 
 const itemClasses =
@@ -44,14 +93,20 @@ const groupHeadingClasses =
 
 export const CommandMenu = () => {
 	const [open, setOpen] = useState(false);
+	const [view, setView] = useState<View>('menu');
 	const [query, setQuery] = useState('');
 	const [results, setResults] = useState<PagefindResult[]>([]);
 	const [isDark, setIsDark] = useState(false);
 	const pagefindRef = useRef<any>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	useEffect(() => {
 		setIsDark(document.documentElement.classList.contains('dark'));
 	}, [open]);
+
+	useEffect(() => {
+		if (open) inputRef.current?.focus();
+	}, [view, open]);
 
 	const loadPagefind = useCallback(async () => {
 		if (pagefindRef.current) return;
@@ -64,12 +119,24 @@ export const CommandMenu = () => {
 		}
 	}, []);
 
+	// Pagefind search (search view only)
 	useEffect(() => {
-		if (!query.trim() || !open) {
+		if (view !== 'search' || !open || !query.trim()) {
 			setResults([]);
 			return;
 		}
 		const timer = setTimeout(async () => {
+			if (import.meta.env.DEV) {
+				const q = query.toLowerCase();
+				setResults(
+					MOCK_SEARCH.filter(
+						(r) =>
+							r.meta.title.toLowerCase().includes(q) ||
+							r.excerpt.toLowerCase().includes(q)
+					).slice(0, 8)
+				);
+				return;
+			}
 			await loadPagefind();
 			if (!pagefindRef.current) return;
 			const res = await pagefindRef.current.search(query);
@@ -77,9 +144,9 @@ export const CommandMenu = () => {
 			setResults(data);
 		}, 150);
 		return () => clearTimeout(timer);
-	}, [query, open, loadPagefind]);
+	}, [query, view, open, loadPagefind]);
 
-	// Cmd+K / Ctrl+K shortcut
+	// Cmd+K / Ctrl+K + ESC
 	useEffect(() => {
 		const handler = (e: KeyboardEvent) => {
 			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -87,31 +154,46 @@ export const CommandMenu = () => {
 				setOpen((o) => !o);
 			}
 			if (e.key === 'Escape' && open) {
-				setOpen(false);
+				if (view === 'search' && query) {
+					setQuery('');
+				} else if (view === 'search') {
+					setView('menu');
+				} else {
+					setOpen(false);
+				}
 			}
 		};
 		document.addEventListener('keydown', handler);
 		return () => document.removeEventListener('keydown', handler);
-	}, [open]);
+	}, [open, view, query]);
 
-	// Global opener for Astro scripts / header buttons
+	// Global openers
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			// @ts-expect-error -- global opener for Astro scripts / header buttons
 			window.openCommandMenu = () => setOpen(true);
 		}
-		const handler = () => setOpen(true);
-		document.addEventListener('command-menu:open', handler);
+		const openMenu = () => {
+			setView('menu');
+			setOpen(true);
+		};
+		const openSearch = () => {
+			setView('search');
+			setOpen(true);
+		};
+		document.addEventListener('command-menu:open', openMenu);
+		document.addEventListener('command-menu:open-search', openSearch);
 		return () => {
 			if (typeof window !== 'undefined') {
 				// @ts-expect-error -- global opener for Astro scripts / header buttons
 				delete window.openCommandMenu;
 			}
-			document.removeEventListener('command-menu:open', handler);
+			document.removeEventListener('command-menu:open', openMenu);
+			document.removeEventListener('command-menu:open-search', openSearch);
 		};
 	}, []);
 
-	// Lock body scroll when open
+	// Lock scroll
 	useEffect(() => {
 		document.body.style.overflow = open ? 'hidden' : '';
 		return () => {
@@ -119,9 +201,12 @@ export const CommandMenu = () => {
 		};
 	}, [open]);
 
-	// Reset query on close
+	// Reset on close
 	useEffect(() => {
-		if (!open) setQuery('');
+		if (!open) {
+			setQuery('');
+			setView('menu');
+		}
 	}, [open]);
 
 	const close = () => setOpen(false);
@@ -139,6 +224,16 @@ export const CommandMenu = () => {
 		localStorage.setItem('theme', newDark ? 'dark' : 'light');
 		setIsDark(newDark);
 		close();
+	};
+
+	const goToSearch = () => {
+		setQuery('');
+		setView('search');
+	};
+
+	const goToMenu = () => {
+		setQuery('');
+		setView('menu');
 	};
 
 	return (
@@ -170,126 +265,186 @@ export const CommandMenu = () => {
 						transition={{ duration: 0.2, ease: [0.0, 0.0, 0.38, 0.9] }}
 					>
 						<Command
-							className="rounded-2 bg-kiri shadow-beveled dark:bg-yoru overflow-hidden"
+							className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"
 							loop
+							shouldFilter={view === 'menu'}
 						>
 							{/* Input bar */}
-							<div className="border-be-1 border-be-solid border-be-black/10 pis-4 dark:border-be-white/10 flex items-center">
-								<MagnifyingGlassIcon
-									className="text-shibui-500 dark:text-shibui-400 h-5 w-5 shrink-0"
-									aria-hidden="true"
-								/>
+							<div className="border-be-1 border-be-solid border-be-black/10 dark:border-be-white/10 flex items-center">
+								{view === 'search' && (
+									<button
+										onClick={goToMenu}
+										className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mis-2 shrink-0 p-2"
+										aria-label="Back to navigation"
+										type="button"
+									>
+										<ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+									</button>
+								)}
 								<Command.Input
+									ref={inputRef}
 									value={query}
 									onValueChange={setQuery}
-									placeholder="Search or navigate…"
-									className="pis-3 text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full bg-transparent outline-none"
+									placeholder={
+										view === 'menu' ? 'Type a command…' : 'Search the site…'
+									}
+									className={cn(
+										'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none',
+										view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
+									)}
 									autoFocus
 								/>
-								<button
-									onClick={close}
-									className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mie-2 p-2"
-									aria-label="Close command menu"
-								>
-									<XIcon className="h-4 w-4" />
-								</button>
 							</div>
 
 							<Command.List className="pbe-2 pbs-2 max-h-[60vh] overflow-y-auto">
-								<Command.Empty className="text-2 text-shibui-400 py-8 text-center">
-									No results found.
-								</Command.Empty>
+								{/* Menu view */}
+								{view === 'menu' && (
+									<>
+										<Command.Empty className="text-2 text-shibui-400 py-8 text-center">
+											No results found.
+										</Command.Empty>
 
-								{/* Search results */}
-								{results.length > 0 && (
-									<Command.Group
-										heading="Search Results"
-										className={groupHeadingClasses}
-									>
-										{results.map((result) => (
-											<Command.Item
-												key={result.url}
-												value={`search:${result.url}`}
-												onSelect={() => navigate(result.url)}
-												className={itemClasses}
-											>
-												<MagnifyingGlassIcon
-													className="mt-0.5 h-4 w-4 shrink-0 opacity-60"
-													aria-hidden="true"
-												/>
-												<div className="min-w-0 flex-1">
-													<div className="text-3 truncate font-semibold">
-														{result.meta.title}
-													</div>
-													<div
-														className={cn(
-															'text-2 truncate opacity-60',
-															'data-[selected=true]:opacity-80'
-														)}
-														dangerouslySetInnerHTML={{
-															__html: result.excerpt,
-														}}
-													/>
-												</div>
-											</Command.Item>
-										))}
-									</Command.Group>
-								)}
-
-								{/* Navigation */}
-								<Command.Group heading="Navigate" className={groupHeadingClasses}>
-									{navItems.map(({ title, url, Icon }) => (
 										<Command.Item
-											key={url}
-											value={title}
-											onSelect={() => navigate(url)}
+											value="Search"
+											onSelect={goToSearch}
 											className={itemClasses}
 										>
-											<Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
-											{title}
+											<MagnifyingGlassIcon
+												className="h-4 w-4 shrink-0"
+												aria-hidden="true"
+											/>
+											Search
 										</Command.Item>
-									))}
-								</Command.Group>
 
-								{/* Theme toggle */}
-								<Command.Group heading="Theme" className={groupHeadingClasses}>
-									<Command.Item
-										value={isDark ? 'light mode' : 'dark mode'}
-										onSelect={toggleTheme}
-										className={itemClasses}
-									>
-										{isDark ? (
-											<SunIcon
-												className="h-4 w-4 shrink-0"
-												aria-hidden="true"
-											/>
-										) : (
-											<MoonIcon
-												className="h-4 w-4 shrink-0"
-												aria-hidden="true"
-											/>
+										<Command.Group
+											heading="Navigation"
+											className={groupHeadingClasses}
+										>
+											{navItems.map(({ title, url, Icon }) => (
+												<Command.Item
+													key={url}
+													value={title}
+													onSelect={() => navigate(url)}
+													className={itemClasses}
+												>
+													<Icon
+														className="h-4 w-4 shrink-0"
+														aria-hidden="true"
+													/>
+													{title}
+												</Command.Item>
+											))}
+										</Command.Group>
+
+										<Command.Group
+											heading="Links"
+											className={groupHeadingClasses}
+										>
+											{linkItems.map(({ title, url, Icon }) => (
+												<Command.Item
+													key={url}
+													value={title}
+													onSelect={() => navigate(url)}
+													className={itemClasses}
+												>
+													<Icon
+														className="h-4 w-4 shrink-0"
+														aria-hidden="true"
+													/>
+													{title}
+												</Command.Item>
+											))}
+										</Command.Group>
+
+										<Command.Group
+											heading="Theme"
+											className={groupHeadingClasses}
+										>
+											<Command.Item
+												value={
+													isDark
+														? 'Switch to light mode'
+														: 'Switch to dark mode'
+												}
+												onSelect={toggleTheme}
+												className={itemClasses}
+											>
+												{isDark ? (
+													<SunIcon
+														className="h-4 w-4 shrink-0"
+														aria-hidden="true"
+													/>
+												) : (
+													<MoonIcon
+														className="h-4 w-4 shrink-0"
+														aria-hidden="true"
+													/>
+												)}
+												{isDark
+													? 'Switch to light mode'
+													: 'Switch to dark mode'}
+											</Command.Item>
+										</Command.Group>
+									</>
+								)}
+
+								{/* Search view */}
+								{view === 'search' && (
+									<>
+										{!query.trim() && (
+											<div className="text-2 text-shibui-400 py-8 text-center">
+												Type to search posts, haiku and projects.
+											</div>
 										)}
-										{isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-									</Command.Item>
-								</Command.Group>
+										{query.trim() && results.length === 0 && (
+											<div className="text-2 text-shibui-400 py-8 text-center">
+												Nothing found for &lsquo;{query}&rsquo;.
+											</div>
+										)}
+										{results.length > 0 && (
+											<Command.Group className={groupHeadingClasses}>
+												{results.map((result) => (
+													<Command.Item
+														key={result.url}
+														value={`${result.meta.title} ${result.url}`}
+														onSelect={() => navigate(result.url)}
+														className={itemClasses}
+													>
+														<div className="min-w-0 flex-1">
+															<div className="text-3 truncate font-semibold">
+																{result.meta.title}
+															</div>
+															<div
+																className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi truncate opacity-60 [&_mark]:rounded-[2px] [&_mark]:px-[0.2em]"
+																dangerouslySetInnerHTML={{
+																	__html: result.excerpt,
+																}}
+															/>
+														</div>
+													</Command.Item>
+												))}
+											</Command.Group>
+										)}
+									</>
+								)}
 							</Command.List>
 
 							{/* Footer hint */}
 							<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 flex items-center justify-end gap-4 px-4 py-2">
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 px-1 font-mono text-[0.7em]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										↑↓
 									</kbd>{' '}
 									navigate
 								</span>
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 px-1 font-mono text-[0.7em]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										↵
 									</kbd>{' '}
 									select
 								</span>
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 px-1 font-mono text-[0.7em]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										esc
 									</kbd>{' '}
 									close

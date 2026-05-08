@@ -54,7 +54,7 @@
 				target.isContentEditable;
 			if (event.key === '/' && !isInput) {
 				event.preventDefault();
-				openCommandMenu();
+				document.dispatchEvent(new CustomEvent('command-menu:open-search'));
 			}
 		});
 	}
