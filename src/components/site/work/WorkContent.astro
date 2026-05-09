@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import DisplayHeadline from '@/components/ui/DisplayHeadline';
+import MoreLink from '@/components/ui/MoreLink';
+import SectionLabel from '@/components/ui/SectionLabel';
+import Text from '@/components/ui/Text';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+	className?: string;
+}
+
+const { entry, className } = Astro.props;
+const { title, categories, intro, more } = entry.data;
+---
+
+<div class:list={['flex flex-col gap-4', className]}>
+	<SectionLabel as="p" className="mbe-0">{categories.join(' / ')}</SectionLabel>
+	<DisplayHeadline as="h2" className="mbe-0">{title}</DisplayHeadline>
+	{intro && <Text className="mbe-0">{intro}</Text>}
+	{more && <MoreLink href={more.link} text={more.text ?? 'View project'} />}
+</div>

@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkItemFullBleed from './WorkItemFullBleed.astro';
+import WorkItemGallery2 from './WorkItemGallery2.astro';
+import WorkItemGallery3 from './WorkItemGallery3.astro';
+import WorkItemIconGrid from './WorkItemIconGrid.astro';
+import WorkItemImageLeft from './WorkItemImageLeft.astro';
+import WorkItemImageRight from './WorkItemImageRight.astro';
+import WorkItemTextOnly from './WorkItemTextOnly.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+
+function resolveLayout(entry: CollectionEntry<'work'>) {
+	if (entry.data.variant) return entry.data.variant;
+	const imageCount = entry.data.images?.length ?? 0;
+	if (imageCount >= 3) return 'gallery-3';
+	if (imageCount === 2) return 'gallery-2';
+	if (entry.data.image) return 'image-left';
+	return 'text-only';
+}
+
+const variant = resolveLayout(entry);
+---
+
+{variant === 'image-left' && <WorkItemImageLeft entry={entry} />}
+{variant === 'image-right' && <WorkItemImageRight entry={entry} />}
+{variant === 'gallery-2' && <WorkItemGallery2 entry={entry} />}
+{variant === 'gallery-3' && <WorkItemGallery3 entry={entry} />}
+{variant === 'icon-grid' && <WorkItemIconGrid entry={entry} />}
+{variant === 'full-bleed' && <WorkItemFullBleed entry={entry} />}
+{variant === 'text-only' && <WorkItemTextOnly entry={entry} />}

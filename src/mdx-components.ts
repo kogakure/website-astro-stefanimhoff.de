@@ -18,7 +18,6 @@ import NetflixFlag from './components/content/NetflixFlag';
 import Platform from './components/content/Platform';
 import PrimeVideoFlag from './components/content/PrimeVideoFlag';
 import ProductLink from './components/content/ProductLink';
-import ProjectIntro from './components/content/ProjectIntro';
 import Pullquote from './components/content/Pullquote';
 import RSSText from './components/content/RSSText';
 import Ruby from './components/content/Ruby';
@@ -78,7 +77,6 @@ export const mapping = {
 	Platform,
 	PrimeVideoFlag,
 	ProductLink,
-	ProjectIntro,
 	Pullquote,
 	RSSText,
 	Ruby,

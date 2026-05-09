@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkContent from './WorkContent.astro';
+import WorkImage from './WorkImage.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const images = entry.data.images ?? [];
+---
+
+<article
+	class="grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+>
+	<div class="col-span-3 grid grid-cols-3 gap-4 md:col-span-6 xl:col-span-12">
+		{images.map((img) => <WorkImage src={img.src} alt={img.alt ?? entry.data.title} />)}
+	</div>
+	<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+		<WorkContent entry={entry} />
+	</div>
+</article>

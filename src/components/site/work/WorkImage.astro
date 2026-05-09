@@ -1,0 +1,13 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	className?: string;
+}
+
+const { src, alt, className } = Astro.props;
+---
+
+<div class:list={['rounded-2 overflow-hidden', className]}>
+	<img src={src} alt={alt} class="h-full w-full object-cover" loading="lazy" decoding="async" />
+</div>

@@ -393,7 +393,7 @@ export const CommandMenu = () => {
 									<>
 										{!query.trim() && (
 											<div className="text-2 text-shibui-400 py-8 text-center">
-												Type to search posts, haiku and projects.
+												Type to search posts, haiku and work.
 											</div>
 										)}
 										{query.trim() && results.length === 0 && (

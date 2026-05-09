@@ -53,12 +53,22 @@ const haiku = defineCollection({
 	}),
 });
 
-const projects = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+const work = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/work' }),
 	schema: z.object({
 		title: z.string(),
 		date: z.date(),
-		format: z.enum(['100-end', '100-start', '50-end', '50-start', '70-end', '70-start']),
+		variant: z
+			.enum([
+				'image-left',
+				'image-right',
+				'gallery-2',
+				'gallery-3',
+				'icon-grid',
+				'full-bleed',
+				'text-only',
+			])
+			.optional(),
 		image: z
 			.object({
 				src: z.string(),
@@ -76,7 +86,6 @@ const projects = defineCollection({
 			)
 			.optional(),
 		sort: z.number().optional(),
-		showcase: z.boolean().optional(),
 		description: z.string().optional(),
 		intro: z.string().optional(),
 		categories: z.array(
@@ -100,9 +109,6 @@ const projects = defineCollection({
 				link: z.string(),
 			})
 			.optional(),
-		class: z.string().optional(),
-		noindex: z.boolean().optional(),
-		nofollow: z.boolean().optional(),
 	}),
 });
 
@@ -120,4 +126,4 @@ const designSystem = defineCollection({
 	}),
 });
 
-export const collections = { writing, haiku, projects, 'design-system': designSystem };
+export const collections = { writing, haiku, work, 'design-system': designSystem };

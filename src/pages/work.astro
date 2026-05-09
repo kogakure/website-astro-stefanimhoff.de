@@ -1,21 +1,19 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-type Projects = CollectionEntry<'projects'>;
 import { getCollection } from 'astro:content';
 
 import { sortBySortKey } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import DisplayHeadline from '@/components/ui/DisplayHeadline';
-import MoreLink from '@/components/ui/MoreLink';
+import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
-import Text from '@/components/ui/Text';
+import WorkItem from '@/components/site/work/WorkItem.astro';
 
 import { Content as WorkIntro } from '@/content/text/work/intro.mdx';
 import { mapping } from '@/mdx-components';
 
-const allProjects: Projects[] = await getCollection('projects');
-const projects = allProjects.sort(sortBySortKey);
+const allWork: CollectionEntry<'work'>[] = await getCollection('work');
+const workEntries = allWork.sort(sortBySortKey);
 
 const title = 'Work';
 const description = "I'm a Design Engineer. These are selected projects from the last two decades.";
@@ -24,79 +22,13 @@ const description = "I'm a Design Engineer. These are selected projects from the
 <BaseLayout title={title} description={description}>
 	<PageTitle>Work</PageTitle>
 
-	<div class="max-w-360 mx-auto flex w-full flex-col gap-16 px-8 pb-32">
-		<div class="*:mbe-4 [&>*:last-child]:mbe-0">
+	<div class="max-w-360 pbe-32 mx-auto flex w-full flex-col gap-24 px-8">
+		<PageSection label="Introduction">
 			<WorkIntro components={mapping} />
-		</div>
+		</PageSection>
 
-		<!-- Project list -->
 		<div class="flex flex-col gap-24">
-			{
-				projects.map((project) => (
-					<article class="flex flex-col gap-6">
-						{/* Multiple images grid */}
-						{project.data.images && project.data.images.length > 0 && (
-							<div
-								class:list={[
-									'rounded-2 grid overflow-hidden',
-									{
-										'grid-cols-2': project.data.images.length === 2,
-										'grid-cols-3': project.data.images.length >= 3,
-									},
-								]}
-							>
-								{project.data.images.map((img) => (
-									<img
-										src={img.src}
-										alt={img.alt ?? project.data.title}
-										class="h-full w-full object-cover"
-										loading="lazy"
-										decoding="async"
-									/>
-								))}
-							</div>
-						)}
-						{/* Single image */}
-						{!project.data.images && project.data.image && (
-							<div class="rounded-2 overflow-hidden">
-								<img
-									src={project.data.image.src}
-									alt={project.data.title}
-									class="w-full object-cover"
-									loading="lazy"
-									decoding="async"
-								/>
-							</div>
-						)}
-
-						{/* Project info */}
-						<div class="grid gap-6 md:grid-cols-[160px_1fr] md:gap-16">
-							<div>
-								<Text className="text-2 text-hai italic tracking-widest mbe-0">
-									{project.data.categories.join(' / ')}
-								</Text>
-							</div>
-							<div class="min-w-0">
-								<DisplayHeadline className="mb-3">
-									{project.data.title}
-								</DisplayHeadline>
-								{project.data.intro && (
-									<Text className="leading-relaxed mbe-0">
-										{project.data.intro}
-									</Text>
-								)}
-								{project.data.more && (
-									<MoreLink
-										className="mt-4"
-										href={project.data.more.link}
-										text={project.data.more.text || 'View project'}
-									/>
-								)}
-							</div>
-						</div>
-					</article>
-				))
-			}
+			{workEntries.map((entry) => <WorkItem entry={entry} />)}
 		</div>
 	</div>
 </BaseLayout>
