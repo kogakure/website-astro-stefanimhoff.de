@@ -1,11 +1,11 @@
 ---
 # SI-to2g
 title: "Phase 5B: Homepage Redesign"
-status: in-progress
+status: completed
 type: feature
 priority: normal
 created_at: 2026-04-09T21:31:58Z
-updated_at: 2026-04-25T14:55:42Z
+updated_at: 2026-05-09T13:30:08Z
 parent: SI-tfhf
 blocked_by:
   - SI-e0w1

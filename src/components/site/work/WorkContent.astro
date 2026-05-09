@@ -1,23 +1,44 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 
-import DisplayHeadline from '@/components/ui/DisplayHeadline';
 import MoreLink from '@/components/ui/MoreLink';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Text from '@/components/ui/Text';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
-	className?: string;
 }
 
-const { entry, className } = Astro.props;
+const { entry } = Astro.props;
 const { title, categories, intro, more } = entry.data;
+
+const introParagraphs = Array.isArray(intro) ? intro : intro ? [intro] : [];
+const moreLinks = Array.isArray(more) ? more : more ? [more] : [];
 ---
 
-<div class:list={['flex flex-col gap-4', className]}>
-	<SectionLabel as="p" className="mbe-0">{categories.join(' / ')}</SectionLabel>
-	<DisplayHeadline as="h2" className="mbe-0">{title}</DisplayHeadline>
-	{intro && <Text className="mbe-0">{intro}</Text>}
-	{more && <MoreLink href={more.link} text={more.text ?? 'View project'} />}
+<div
+	class="mbe-8 md:mbe-12 xl:mbe-16 col-span-3 grid grid-cols-3 gap-x-4 gap-y-6 md:col-span-6 md:grid-cols-6 md:gap-x-6 xl:col-span-12 xl:grid-cols-12 xl:gap-x-8"
+>
+	<div
+		class="col-span-3 flex flex-col gap-2 self-start md:col-span-6 xl:col-span-4 xl:col-start-2"
+	>
+		<h2 class="text-5 text-sumi dark:text-washi mbe-0 font-sans tracking-tight">
+			{title}
+		</h2>
+		<SectionLabel as="p" className="mbe-0">{categories.join(' / ')}</SectionLabel>
+	</div>
+	<div
+		class="col-span-3 flex flex-col gap-4 self-center md:col-span-5 xl:col-span-5 xl:col-start-6"
+	>
+		{introParagraphs.map((p) => <Text className="mbe-0">{p}</Text>)}
+		{
+			moreLinks.length > 0 && (
+				<div class="mbs-2 flex flex-col gap-2">
+					{moreLinks.map((m) => (
+						<MoreLink href={m.link} text={m.text ?? 'View project'} />
+					))}
+				</div>
+			)
+		}
+	</div>
 </div>

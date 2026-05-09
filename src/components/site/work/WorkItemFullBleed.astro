@@ -11,23 +11,23 @@ const { entry } = Astro.props;
 const image = entry.data.image;
 ---
 
-<article
-	class="grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
->
+<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+	<WorkContent entry={entry} />
 	{
 		image && (
 			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-6 xl:col-span-12">
 				<img
 					src={image.src}
 					alt={entry.data.title}
-					class="h-full w-full object-cover"
+					data-lightbox="true"
+					tabindex="0"
+					role="button"
+					aria-label="Open image in lightbox"
+					class="w-full cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
 					loading="lazy"
 					decoding="async"
 				/>
 			</div>
 		)
 	}
-	<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
-		<WorkContent entry={entry} />
-	</div>
 </article>

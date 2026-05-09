@@ -9,5 +9,15 @@ const { src, alt, className } = Astro.props;
 ---
 
 <div class:list={['rounded-2 overflow-hidden', className]}>
-	<img src={src} alt={alt} class="h-full w-full object-cover" loading="lazy" decoding="async" />
+	<img
+		src={src}
+		alt={alt}
+		data-lightbox="true"
+		tabindex="0"
+		role="button"
+		aria-label="Open image in lightbox"
+		class="h-full w-full cursor-zoom-in object-cover transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
+		loading="lazy"
+		decoding="async"
+	/>
 </div>

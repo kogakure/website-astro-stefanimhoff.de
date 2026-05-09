@@ -7,13 +7,14 @@ export const work = defineCollection({
 		date: z.date(),
 		variant: z
 			.enum([
-				'image-left',
-				'image-right',
 				'gallery-2',
+				'gallery-2-stagger',
 				'gallery-3',
-				'icon-grid',
+				'gallery-3-stagger',
 				'full-bleed',
+				'image-inset',
 				'text-only',
+				'featured',
 			])
 			.optional(),
 		image: z
@@ -34,7 +35,9 @@ export const work = defineCollection({
 			.optional(),
 		sort: z.number().optional(),
 		description: z.string().optional(),
-		intro: z.string().optional(),
+		intro: z.union([z.string(), z.array(z.string())]).optional(),
+		imageOffset: z.enum(['24', '32']).optional(),
+		sectionLabel: z.string().optional(),
 		categories: z.array(
 			z.enum([
 				'Design',
@@ -51,10 +54,18 @@ export const work = defineCollection({
 			])
 		),
 		more: z
-			.object({
-				text: z.string().optional(),
-				link: z.string(),
-			})
+			.union([
+				z.object({
+					text: z.string().optional(),
+					link: z.string(),
+				}),
+				z.array(
+					z.object({
+						text: z.string().optional(),
+						link: z.string(),
+					})
+				),
+			])
 			.optional(),
 	}),
 });

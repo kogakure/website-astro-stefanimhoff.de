@@ -16,15 +16,22 @@ const images = entry.data.images ?? [];
 	<WorkContent entry={entry} />
 	{
 		images[0] && (
-			<div class="col-span-3 md:col-span-4 xl:col-span-8">
+			<div class="col-span-3 md:col-span-4 md:col-start-1 md:row-start-2 xl:col-span-8 xl:col-start-1 xl:row-start-2">
 				<WorkImage src={images[0].src} alt={images[0].alt ?? entry.data.title} />
 			</div>
 		)
 	}
 	{
 		images[1] && (
-			<div class="mbs-6 md:mbs-32 xl:mbs-32 col-span-3 md:col-span-2 xl:col-span-4">
+			<div class="mbs-6 md:mbs-32 xl:mbs-32 col-span-3 md:col-span-2 md:col-start-5 md:row-span-2 md:row-start-2 xl:col-span-4 xl:col-start-9 xl:row-span-2 xl:row-start-2">
 				<WorkImage src={images[1].src} alt={images[1].alt ?? entry.data.title} />
+			</div>
+		)
+	}
+	{
+		images[2] && (
+			<div class="mbs-6 md:mbs-8 xl:mbs-8 col-span-3 md:col-span-3 md:col-start-2 md:row-start-3 xl:col-span-5 xl:col-start-4 xl:row-start-3">
+				<WorkImage src={images[2].src} alt={images[2].alt ?? entry.data.title} />
 			</div>
 		)
 	}

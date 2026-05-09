@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkContent from './WorkContent.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, images = [] } = entry.data;
+const [primary, ...gallery] = images;
+---
+
+<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+	<WorkContent entry={entry} />
+
+	<!-- Full-bleed primary image -->
+	{
+		primary && (
+			<div class="rounded-2 mbe-6 md:mbe-8 xl:mbe-8 col-span-3 overflow-hidden md:col-span-6 xl:col-span-12">
+				<img
+					src={primary.src}
+					alt={primary.alt ?? title}
+					data-lightbox="true"
+					tabindex="0"
+					role="button"
+					aria-label="Open image in lightbox"
+					class="w-full cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+
+	<!-- Gallery image 1: col-start-2, col-span-5 -->
+	{
+		gallery[0] && (
+			<div class="rounded-2 mbe-6 md:mbe-0 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-2">
+				<img
+					src={gallery[0].src}
+					alt={gallery[0].alt ?? title}
+					data-lightbox="true"
+					tabindex="0"
+					role="button"
+					aria-label="Open image in lightbox"
+					class="w-full cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+
+	<!-- Gallery image 2: col-start-7, col-span-5 -->
+	{
+		gallery[1] && (
+			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-7">
+				<img
+					src={gallery[1].src}
+					alt={gallery[1].alt ?? title}
+					data-lightbox="true"
+					tabindex="0"
+					role="button"
+					aria-label="Open image in lightbox"
+					class="w-full cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+</article>

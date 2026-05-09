@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import { sortBySortKey } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import LightboxRoot from '@/components/interactive/LightboxRoot';
 import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
 import WorkItem from '@/components/site/work/WorkItem.astro';
@@ -27,8 +28,10 @@ const description = "I'm a Design Engineer. These are selected projects from the
 			<WorkIntro components={mapping} />
 		</PageSection>
 
-		<div class="flex flex-col gap-24">
+		<div class="flex flex-col gap-32">
 			{workEntries.map((entry) => <WorkItem entry={entry} />)}
 		</div>
 	</div>
+
+	<LightboxRoot client:load transition:persist />
 </BaseLayout>

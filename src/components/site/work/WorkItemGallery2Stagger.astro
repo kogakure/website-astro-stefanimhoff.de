@@ -10,20 +10,22 @@ interface Props {
 
 const { entry } = Astro.props;
 const images = entry.data.images ?? [];
+const offset = entry.data.imageOffset ?? '24';
+const offsetClass = offset === '32' ? 'md:mbs-32 xl:mbs-32' : 'md:mbs-24 xl:mbs-24';
 ---
 
 <article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 	<WorkContent entry={entry} />
 	{
 		images[0] && (
-			<div class="col-span-3 md:col-span-4 xl:col-span-8">
+			<div class="col-span-3 md:col-span-3 xl:col-span-6">
 				<WorkImage src={images[0].src} alt={images[0].alt ?? entry.data.title} />
 			</div>
 		)
 	}
 	{
 		images[1] && (
-			<div class="mbs-6 md:mbs-32 xl:mbs-32 col-span-3 md:col-span-2 xl:col-span-4">
+			<div class:list={['mbs-6 col-span-3 md:col-span-3 xl:col-span-6', offsetClass]}>
 				<WorkImage src={images[1].src} alt={images[1].alt ?? entry.data.title} />
 			</div>
 		)

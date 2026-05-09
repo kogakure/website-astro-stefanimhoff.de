@@ -8,24 +8,17 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const images = entry.data.images ?? [];
-const offsets = ['', 'md:mbs-32 xl:mbs-32', 'md:mbs-16 xl:mbs-16'];
+const image = entry.data.image;
 ---
 
 <article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 	<WorkContent entry={entry} />
 	{
-		images.map((img, i) => (
-			<div
-				class:list={[
-					'rounded-2 col-span-3 overflow-hidden md:col-span-2 xl:col-span-4',
-					i > 0 && 'mbs-6 md:mbs-0',
-					offsets[i],
-				]}
-			>
+		image && (
+			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-6 xl:col-span-10 xl:col-start-2">
 				<img
-					src={img.src}
-					alt={img.alt ?? entry.data.title}
+					src={image.src}
+					alt={entry.data.title}
 					data-lightbox="true"
 					tabindex="0"
 					role="button"
@@ -35,6 +28,6 @@ const offsets = ['', 'md:mbs-32 xl:mbs-32', 'md:mbs-16 xl:mbs-16'];
 					decoding="async"
 				/>
 			</div>
-		))
+		)
 	}
 </article>
