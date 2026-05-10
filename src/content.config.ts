@@ -2,6 +2,109 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { defineCollection } from 'astro:content';
 
+const linkSchema = z.object({
+	kind: z.enum(['apple', 'spotify', 'amazon', 'youtube', 'web', 'instagram', 'patreon']),
+	url: z.string().url().or(z.literal('')).nullish(),
+	label: z.string().optional(),
+});
+
+const books = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/books' }),
+	schema: z.object({
+		title: z.string(),
+		subtitle: z.string().optional(),
+		author: z.string().optional(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+		paid: z.boolean().optional().default(false),
+		cover: z.string().optional(),
+		asin: z.string().optional(),
+		links: z.array(linkSchema).optional(),
+		description: z.string().optional(),
+		category: z.string().optional(),
+	}),
+});
+
+const audiobooks = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/audiobooks' }),
+	schema: z.object({
+		title: z.string(),
+		subtitle: z.string().optional(),
+		author: z.string().optional(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+		paid: z.boolean().optional().default(false),
+		cover: z.string().optional(),
+		links: z.array(linkSchema).optional(),
+		description: z.string().optional(),
+	}),
+});
+
+const podcasts = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/podcasts' }),
+	schema: z.object({
+		title: z.string(),
+		subtitle: z.string().optional(),
+		moderator: z.string().optional(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+		paid: z.boolean().optional().default(false),
+		cover: z.string().optional(),
+		links: z.array(linkSchema).optional(),
+		description: z.string().nullish(),
+	}),
+});
+
+const videos = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/videos' }),
+	schema: z.object({
+		title: z.string(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+		youtubeId: z.string().optional(),
+		url: z.string().url(),
+		channel: z.string().optional(),
+		description: z.string().optional(),
+		kind: z.enum(['video', 'playlist', 'channel']).default('video'),
+		cover: z.string().optional(),
+	}),
+});
+
+const articles = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
+	schema: z.object({
+		title: z.string(),
+		url: z.string().url(),
+		author: z.string().optional(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+		description: z.string().optional(),
+	}),
+});
+
+const organizations = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/organizations' }),
+	schema: z.object({
+		title: z.string(),
+		url: z.string().url(),
+		description: z.string().optional(),
+		topic: z.string(),
+		sort: z.number().optional(),
+		language: z.enum(['en', 'de', 'ja']).optional(),
+		featured: z.boolean().optional(),
+	}),
+});
+
 const writing = defineCollection({
 	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/writing' }),
 	schema: z.object({
@@ -137,4 +240,15 @@ const designSystem = defineCollection({
 	}),
 });
 
-export const collections = { writing, haiku, work, 'design-system': designSystem };
+export const collections = {
+	writing,
+	haiku,
+	work,
+	'design-system': designSystem,
+	books,
+	audiobooks,
+	podcasts,
+	videos,
+	articles,
+	organizations,
+};

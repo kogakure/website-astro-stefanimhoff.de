@@ -1,8 +1,10 @@
 import AmazonBook from './components/content/AmazonBook';
 import AppleTVFlag from './components/content/AppleTVFlag';
+import AudioCard from './components/content/AudioCard';
 import Banner from './components/content/Banner';
 import Blockquote from './components/content/Blockquote';
 import Book from './components/content/Book';
+import BookCard from './components/content/BookCard';
 import Bookshelf from './components/content/Bookshelf';
 import ColorStack from './components/content/ColorStack';
 import ColorSwatch from './components/content/ColorSwatch';
@@ -24,6 +26,7 @@ import Ruby from './components/content/Ruby';
 import Spotify from './components/content/Spotify';
 import ThemeBox from './components/content/ThemeBox';
 import Verse from './components/content/Verse';
+import VideoCard from './components/content/VideoCard';
 import YouTube from './components/content/YouTube';
 import CodeBlock from './components/ui/CodeBlock';
 import Divider from './components/ui/Divider';
@@ -57,6 +60,9 @@ import UnorderedList from './components/ui/UnorderedList';
 
 export const mapping = {
 	AmazonBook,
+	AudioCard,
+	BookCard,
+	VideoCard,
 	AppleTVFlag,
 	Banner,
 	Blockquote,
