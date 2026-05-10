@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal website and blog for Stefan Imhoff, featuring writing posts, haiku collection, project showcase, and full-text search. Built with Astro for static generation, React for interactive components, and styled with Tailwind CSS.
+Personal website and blog for Stefan Imhoff, featuring writing posts, haiku collection, work showcase, and full-text search. Built with Astro for static generation, React for interactive components, and styled with Tailwind CSS.
 
 **Live Site**: https://www.stefanimhoff.de
 
@@ -32,13 +32,13 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 
 Use `className` prop to override default styles via `cn()` / tailwind-merge when needed. Only use raw HTML when a component requires fighting against too many defaults (e.g. custom `list-none flex` layouts).
 
-@.agents/docs/architectural_patterns.md
-@.agents/docs/directories.md
-@.agents/docs/tech_stack.md
-@.agents/docs/essential_commands.md
-@.agents/docs/git_workflow.md
-@.agents/docs/content_collections.md
-@.agents/docs/key_files.md
-@.agents/docs/build_features.md
-@.agents/docs/build_features.md
-@.agents/docs/development_notes.md
+@docs/architectural_patterns.md
+@docs/directories.md
+@docs/tech_stack.md
+@docs/essential_commands.md
+@docs/git_workflow.md
+@docs/content_collections.md
+@docs/key_files.md
+@docs/build_features.md
+@docs/build_features.md
+@docs/development_notes.md
