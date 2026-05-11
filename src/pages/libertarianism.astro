@@ -19,6 +19,10 @@ import { Content as Intro } from '@/content/text/libertarianism/intro.mdx';
 import { Content as Principles } from '@/content/text/libertarianism/principles.mdx';
 import { Content as Concepts } from '@/content/text/libertarianism/concepts.mdx';
 import { mapping } from '@/mdx-components';
+import { roadmapLibertarianism } from '@/data/roadmap-libertarianism';
+import { resolveRoadmap } from '@/utils/resolve-roadmap';
+import Roadmap from '@/components/interactive/Roadmap';
+import Text from '@/components/ui/Text';
 
 type Books = CollectionEntry<'books'>;
 type Audiobooks = CollectionEntry<'audiobooks'>;
@@ -47,6 +51,13 @@ const [books, audiobooks, podcasts, videos, publications, organizations] = (
 	Articles[],
 	Organizations[],
 ];
+
+const roadmapMilestones = resolveRoadmap(roadmapLibertarianism, {
+	books,
+	audiobooks,
+	podcasts,
+	videos,
+});
 
 const cover = '/assets/images/cover/anarcho-capitalist-city.webp';
 const title = 'Libertarianism';
@@ -85,6 +96,17 @@ const description =
 				<Concepts components={mapping} />
 			</div>
 		</PageSection>
+
+		{
+			roadmapMilestones.length > 0 && (
+				<PageSection label="Roadmap">
+					<Text className="mbe-4">
+						New to these ideas? Follow the path. Each step deepens the last.
+					</Text>
+					<Roadmap milestones={roadmapMilestones} />
+				</PageSection>
+			)
+		}
 
 		{
 			books.length > 0 && (
