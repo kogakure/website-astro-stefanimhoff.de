@@ -367,6 +367,7 @@ The Ma palette maps to shadcn/ui's semantic variables in `global.css`. These are
 - Beni on Kiri: ~8.1:1 — passes AAA.
 - Washi on Yoru: ~13.4:1 — passes AAA.
 - Beni on Sumi: 2.08:1 — **fails all levels. Never use this pairing.**
+- Beni Light on Yoru: ~3.14:1 — passes AA for large/bold text. Use for links, arrows, and logo in dark mode.
 - Hai on Washi: ~2.7:1 — **fails for body text. Large text (≥ 18px) or decorative only.**
 - For crimson-on-dark contexts, use Beni Light (#B83A4E) or switch to Washi text.
 
@@ -525,6 +526,7 @@ All components are built on **shadcn/ui** primitives, customised to Ma tokens in
 - Hover: Beni Light.
 - Visited: Beni Muted.
 - Arrow links ("About →"): arrow translates 4px right on hover (200ms, `--ease-enter`).
+- Dark mode: swap base Beni → Beni Light. Visited stays Beni Muted. Pattern: `text-beni dark:text-beni-light`.
 
 ### Cards / Journal Cards
 

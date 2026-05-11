@@ -22,6 +22,8 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 	const text = dark ? 'var(--color-washi)' : 'var(--color-sumi)';
 	const ring = dark ? DARK_FOCUS_STYLE : FOCUS_STYLE;
 	const border = dark ? 'var(--color-nezumi)' : 'var(--color-usuzumi)';
+	const btnBg = dark ? '#B83A4E' : '#900B20';
+	const linkColor = dark ? '#B83A4E' : '#900B20';
 
 	return (
 		<div className="overflow-hidden rounded-md" style={{ backgroundColor: bg }}>
@@ -42,7 +44,7 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 					<button
 						style={{
 							...(focused === 'button' ? ring : {}),
-							backgroundColor: 'var(--color-beni)',
+							backgroundColor: btnBg,
 							color: '#fff',
 							border: 'none',
 							borderRadius: 'var(--radius-4)',
@@ -66,7 +68,7 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 						href="#"
 						style={{
 							...(focused === 'link' ? ring : {}),
-							color: 'var(--color-beni)',
+							color: linkColor,
 							fontFamily: 'var(--font-sans)',
 							fontSize: 'var(--text-3)',
 							textDecoration: 'underline',

@@ -16,12 +16,9 @@ const tokens = [
 	{ label: 'spacing-32 · 128px', value: '128px' },
 ];
 
-const selectStyle: React.CSSProperties = {
+const selectBaseStyle: React.CSSProperties = {
 	fontFamily: 'var(--font-mono)',
 	fontSize: '0.75rem',
-	color: 'var(--color-sumi)',
-	backgroundColor: 'var(--color-kiri)',
-	border: '1px solid var(--color-usuzumi)',
 	borderRadius: '4px',
 	padding: '6px 10px',
 	outline: 'none',
@@ -44,7 +41,8 @@ export const SpacingPicker = () => {
 					<select
 						value={gapIdx}
 						onChange={(e) => setGapIdx(Number(e.target.value))}
-						style={selectStyle}
+						className="border-usuzumi dark:border-nezumi bg-kiri dark:bg-sumi text-sumi dark:text-washi border"
+						style={selectBaseStyle}
 					>
 						{tokens.map((t, i) => (
 							<option key={t.value} value={i}>
@@ -60,7 +58,8 @@ export const SpacingPicker = () => {
 					<select
 						value={padIdx}
 						onChange={(e) => setPadIdx(Number(e.target.value))}
-						style={selectStyle}
+						className="border-usuzumi dark:border-nezumi bg-kiri dark:bg-sumi text-sumi dark:text-washi border"
+						style={selectBaseStyle}
 					>
 						{tokens.map((t, i) => (
 							<option key={t.value} value={i}>
@@ -72,23 +71,16 @@ export const SpacingPicker = () => {
 			</div>
 
 			<div
-				className="overflow-hidden rounded-md"
-				style={{
-					backgroundColor: 'var(--color-kiri)',
-					padding: pad,
-					border: '1px solid var(--color-usuzumi)',
-				}}
+				className="border-usuzumi dark:border-nezumi bg-kiri dark:bg-sumi overflow-hidden rounded-md border"
+				style={{ padding: pad }}
 			>
 				<div className="flex flex-col" style={{ gap }}>
 					{['Element A', 'Element B', 'Element C'].map((label) => (
 						<div
 							key={label}
-							className="flex items-center rounded"
+							className="border-usuzumi dark:border-nezumi bg-washi dark:bg-yoru text-sumi dark:text-washi flex items-center rounded border"
 							style={{
-								backgroundColor: 'var(--color-washi)',
-								border: '1px solid var(--color-usuzumi)',
 								padding: '12px 16px',
-								color: 'var(--color-sumi)',
 								fontSize: 'var(--text-2)',
 								fontFamily: 'var(--font-sans)',
 							}}
@@ -102,10 +94,10 @@ export const SpacingPicker = () => {
 					style={{ color: 'var(--color-hai)' }}
 				>
 					<span>
-						gap: <span style={{ color: 'var(--color-beni)' }}>{gap}</span>
+						gap: <span className="text-beni dark:text-beni-light">{gap}</span>
 					</span>
 					<span>
-						padding: <span style={{ color: 'var(--color-beni)' }}>{pad}</span>
+						padding: <span className="text-beni dark:text-beni-light">{pad}</span>
 					</span>
 				</div>
 			</div>

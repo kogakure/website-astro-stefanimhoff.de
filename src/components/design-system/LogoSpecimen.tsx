@@ -21,12 +21,12 @@ const variants: Variant[] = [
 		note: 'Primary — 7.46:1 WCAG AAA',
 	},
 	{
-		label: 'On Sumi',
-		bg: '#0E0D0C',
-		fill: '#E6E6E6',
-		ringColor: 'rgba(230,230,230,0.2)',
+		label: 'On Yoru',
+		bg: '#1A1918',
+		fill: '#B83A4E',
+		ringColor: 'rgba(184,58,78,0.3)',
 		textColor: '#A0A09C',
-		note: 'Dark context — Washi fill, 13.4:1',
+		note: 'Dark context — Beni Light, 3.14:1',
 	},
 	{
 		label: 'On Beni',
@@ -77,10 +77,7 @@ export const LogoSpecimen = () => (
 					</div>
 				</div>
 				<div className="px-4 py-3" style={{ borderTop: `1px solid ${v.ringColor}` }}>
-					<div
-						className="font-mono text-xs font-medium"
-						style={{ color: v.fill === '#900B20' ? '#900B20' : v.fill }}
-					>
+					<div className="font-mono text-xs font-medium" style={{ color: v.fill }}>
 						{v.label}
 					</div>
 					<div className="font-mono text-[10px]" style={{ color: v.textColor }}>

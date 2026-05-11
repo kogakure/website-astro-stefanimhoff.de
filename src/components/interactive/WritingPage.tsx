@@ -115,7 +115,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 									onClick={() => toggleTag(tag)}
 									className={`transition-opacity hover:opacity-60 ${
 										selectedTags.includes(tag)
-											? 'decoration-beni underline decoration-2 underline-offset-2'
+											? 'decoration-beni dark:decoration-beni-light underline decoration-2 underline-offset-2'
 											: ''
 									}`}
 								>

@@ -2,7 +2,18 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const curves = [
+interface Curve {
+	name: string;
+	cssVar: string;
+	p1x: number;
+	p1y: number;
+	p2x: number;
+	p2y: number;
+	colorLight: string;
+	colorDark: string;
+}
+
+const curves: Curve[] = [
 	{
 		name: 'Enter',
 		cssVar: '--ease-enter',
@@ -10,7 +21,8 @@ const curves = [
 		p1y: 0,
 		p2x: 0.38,
 		p2y: 0.9,
-		color: 'var(--color-beni)',
+		colorLight: '#900B20',
+		colorDark: '#B83A4E',
 	},
 	{
 		name: 'Exit',
@@ -19,7 +31,8 @@ const curves = [
 		p1y: 0,
 		p2x: 1,
 		p2y: 0.9,
-		color: 'var(--color-nezumi)',
+		colorLight: '#6B6B67',
+		colorDark: '#6B6B67',
 	},
 	{
 		name: 'Standard',
@@ -28,7 +41,8 @@ const curves = [
 		p1y: 0,
 		p2x: 0.38,
 		p2y: 0.9,
-		color: 'var(--color-sumi)',
+		colorLight: '#0E0D0C',
+		colorDark: '#E6E6E6',
 	},
 ];
 
@@ -57,8 +71,20 @@ function buildPath(p1x: number, p1y: number, p2x: number, p2y: number): string {
 
 export const EasingComparison = () => {
 	const [t, setT] = useState(0);
+	const [isDark, setIsDark] = useState(false);
 	const rafRef = useRef<number | null>(null);
 	const startRef = useRef<number | null>(null);
+
+	useEffect(() => {
+		const update = () => setIsDark(document.documentElement.classList.contains('dark'));
+		update();
+		const observer = new MutationObserver(update);
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ['class'],
+		});
+		return () => observer.disconnect();
+	}, []);
 
 	const play = () => {
 		if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -89,8 +115,8 @@ export const EasingComparison = () => {
 		<div className="flex flex-col gap-4">
 			<button
 				onClick={play}
-				className="rounded-md"
-				style={{ backgroundColor: 'var(--color-kiri)', padding: 0, cursor: 'pointer' }}
+				className="bg-kiri dark:bg-sumi rounded-md"
+				style={{ padding: 0, cursor: 'pointer' }}
 				title="Play all three curves"
 				aria-label="Play all three easing curves"
 			>
@@ -129,12 +155,13 @@ export const EasingComparison = () => {
 						const path = buildPath(c.p1x, c.p1y, c.p2x, c.p2y);
 						const cx = cubicBezier(t, 0, c.p1x, c.p2x, 1);
 						const cy = cubicBezier(t, 0, c.p1y, c.p2y, 1);
+						const color = isDark ? c.colorDark : c.colorLight;
 						return (
 							<g key={c.name}>
 								<path
 									d={path}
 									fill="none"
-									stroke={c.color}
+									stroke={color}
 									strokeWidth="1.5"
 									strokeLinecap="round"
 								/>
@@ -143,7 +170,7 @@ export const EasingComparison = () => {
 										cx={PAD + cx * INNER}
 										cy={PAD + (1 - cy) * INNER}
 										r={3.5}
-										fill={c.color}
+										fill={color}
 									/>
 								)}
 							</g>
@@ -157,7 +184,7 @@ export const EasingComparison = () => {
 					<div key={c.name} className="flex items-center gap-1.5">
 						<span
 							className="inline-block size-2.5 rounded-sm"
-							style={{ backgroundColor: c.color }}
+							style={{ backgroundColor: isDark ? c.colorDark : c.colorLight }}
 						/>
 						<span
 							className="font-mono text-[11px]"

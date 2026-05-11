@@ -20,45 +20,37 @@ const lines: Line[] = [
 ];
 
 export const JapaneseSpecimen = () => (
-	<div className="overflow-hidden rounded-md" style={{ backgroundColor: 'var(--color-kiri)' }}>
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 		<div className="flex flex-col">
 			{lines.map((line, i) => (
 				<div
 					key={i}
-					className="flex flex-col gap-1 p-5 md:p-6"
-					style={i > 0 ? { borderTop: '1px solid var(--color-usuzumi)' } : undefined}
+					className={`flex flex-col gap-1 p-5 md:p-6${i > 0 ? 'border-usuzumi dark:border-nezumi border-t' : ''}`}
 				>
 					<p
 						lang="ja"
+						className="text-sumi dark:text-washi"
 						style={{
 							fontFamily: 'var(--font-japanese)',
 							fontSize: i === 0 ? 'var(--text-7)' : 'var(--text-5)',
 							lineHeight: i === 0 ? 1.1 : 1.3,
-							color: 'var(--color-sumi)',
 							margin: 0,
 						}}
 					>
 						{line.japanese}
 					</p>
 					<div className="flex flex-wrap gap-x-4 gap-y-0.5">
-						<span
-							className="font-mono text-xs italic"
-							style={{ color: 'var(--color-nezumi)' }}
-						>
-							{line.romaji}
-						</span>
-						<span className="font-mono text-xs" style={{ color: 'var(--color-hai)' }}>
-							{line.translation}
-						</span>
+						<span className="text-nezumi font-mono text-xs italic">{line.romaji}</span>
+						<span className="text-hai font-mono text-xs">{line.translation}</span>
 					</div>
 				</div>
 			))}
 		</div>
-		<div className="px-6 py-3" style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
-			<span className="font-mono text-xs" style={{ color: 'var(--color-beni)' }}>
+		<div className="border-usuzumi dark:border-nezumi border-t px-6 py-3">
+			<span className="text-beni dark:text-beni-light font-mono text-xs">
 				--font-japanese
 			</span>
-			<span className="mis-4 font-mono text-[10px]" style={{ color: 'var(--color-hai)' }}>
+			<span className="mis-4 text-hai font-mono text-[10px]">
 				Toppan Bunkyu Midashi Mincho · YuMincho · Hiragino Mincho ProN · Noto Serif JP
 			</span>
 		</div>

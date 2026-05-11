@@ -1,11 +1,8 @@
 export const PhosphorNote = () => (
-	<div className="overflow-hidden rounded-md" style={{ backgroundColor: 'var(--color-kiri)' }}>
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 		<div className="flex flex-col gap-4 p-6 md:flex-row md:items-start md:gap-8">
 			<div className="shrink-0">
-				<div
-					className="font-mono text-xs font-medium"
-					style={{ color: 'var(--color-beni)' }}
-				>
+				<div className="text-beni dark:text-beni-light font-mono text-xs font-medium">
 					Phosphor Icons
 				</div>
 				<div className="font-mono text-[10px]" style={{ color: 'var(--color-hai)' }}>
@@ -29,21 +26,15 @@ export const PhosphorNote = () => (
 							>
 								{item.rule}
 							</div>
-							<div
-								className="font-mono text-[11px]"
-								style={{ color: 'var(--color-sumi)' }}
-							>
+							<div className="text-sumi dark:text-washi font-mono text-[11px]">
 								{item.value}
 							</div>
 						</div>
 					))}
 				</div>
 				<div
-					className="border-t pt-3 font-mono text-[10px]"
-					style={{
-						borderColor: 'var(--color-usuzumi)',
-						color: 'var(--color-hai)',
-					}}
+					className="border-usuzumi dark:border-nezumi border-t pt-3 font-mono text-[10px]"
+					style={{ color: 'var(--color-hai)' }}
 				>
 					Icons do not replace text labels — they accompany them. Kanso: clarity over
 					cleverness.

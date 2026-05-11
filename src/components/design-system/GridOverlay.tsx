@@ -21,26 +21,18 @@ export const GridOverlay = () => {
 					<button
 						key={v.id}
 						onClick={() => setActive(v.id)}
-						className="rounded px-3 py-1.5 font-mono text-xs transition-colors"
-						style={{
-							backgroundColor:
-								active === v.id ? 'var(--color-beni)' : 'var(--color-kiri)',
-							color: active === v.id ? '#fff' : 'var(--color-nezumi)',
-							border:
-								active === v.id
-									? '1px solid var(--color-beni)'
-									: '1px solid var(--color-usuzumi)',
-						}}
+						className={`rounded px-3 py-1.5 font-mono text-xs transition-colors ${
+							active === v.id
+								? 'bg-beni dark:bg-beni-light border-beni dark:border-beni-light border text-white'
+								: 'bg-kiri dark:bg-sumi border-usuzumi dark:border-nezumi text-nezumi border'
+						}`}
 					>
 						{v.label}
 					</button>
 				))}
 			</div>
 
-			<div
-				className="overflow-hidden rounded-md"
-				style={{ backgroundColor: 'var(--color-kiri)', padding: '0' }}
-			>
+			<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 				<div
 					style={{
 						display: 'grid',
@@ -63,26 +55,14 @@ export const GridOverlay = () => {
 					))}
 				</div>
 
-				<div
-					className="flex flex-wrap gap-x-6 gap-y-1 px-4 py-3"
-					style={{ borderTop: '1px solid var(--color-usuzumi)' }}
-				>
-					<span className="font-mono text-[11px]" style={{ color: 'var(--color-beni)' }}>
+				<div className="border-usuzumi dark:border-nezumi flex flex-wrap gap-x-6 gap-y-1 border-t px-4 py-3">
+					<span className="text-beni dark:text-beni-light font-mono text-[11px]">
 						{view.cols} columns
 					</span>
-					<span className="font-mono text-[11px]" style={{ color: 'var(--color-hai)' }}>
-						{view.gutters} gutter
-					</span>
-					<span className="font-mono text-[11px]" style={{ color: 'var(--color-hai)' }}>
-						{view.margins} margin
-					</span>
+					<span className="text-hai font-mono text-[11px]">{view.gutters} gutter</span>
+					<span className="text-hai font-mono text-[11px]">{view.margins} margin</span>
 					{active === 'desktop' && (
-						<span
-							className="font-mono text-[11px]"
-							style={{ color: 'var(--color-hai)' }}
-						>
-							1440px max
-						</span>
+						<span className="text-hai font-mono text-[11px]">1440px max</span>
 					)}
 				</div>
 			</div>

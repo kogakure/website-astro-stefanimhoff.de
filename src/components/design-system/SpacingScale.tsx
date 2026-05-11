@@ -27,20 +27,16 @@ export const SpacingScale = () => (
 	<div className="flex flex-col gap-2">
 		{entries.map((entry) => (
 			<div key={entry.token} className="flex items-center gap-4">
-				<span
-					className="w-28 shrink-0 font-mono text-[11px]"
-					style={{ color: 'var(--color-beni)' }}
-				>
+				<span className="text-beni dark:text-beni-light w-28 shrink-0 font-mono text-[11px]">
 					{entry.token}
 				</span>
 				<div className="flex min-w-0 flex-1 items-center gap-3">
 					<div className="min-w-0 flex-1">
 						<div
-							className="h-4 rounded-sm"
+							className="bg-beni dark:bg-beni-light h-4 rounded-sm"
 							style={{
 								width: `${(entry.maxPx / MAX_PX) * 100}%`,
 								maxWidth: '100%',
-								backgroundColor: 'var(--color-beni)',
 								opacity: 0.7 + (entry.maxPx / MAX_PX) * 0.3,
 							}}
 						/>

@@ -11,7 +11,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 export const DownloadLink = ({ href, text, className, ...props }: Props) => (
 	<Link
 		className={cn(
-			'text-beni visited:text-beni-muted active:text-beni-dark group inline-flex items-baseline no-underline',
+			'text-beni dark:text-beni-light visited:text-beni-muted active:text-beni-dark group inline-flex items-baseline no-underline',
 			className
 		)}
 		href={href}

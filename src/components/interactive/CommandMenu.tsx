@@ -16,6 +16,7 @@ import {
 	PencilSimpleIcon,
 	ScrollIcon,
 	SunIcon,
+	SwatchesIcon,
 	WrenchIcon,
 } from '@phosphor-icons/react';
 import { Command } from 'cmdk';
@@ -71,6 +72,7 @@ const navItems = [
 ];
 
 const linkItems = [
+	{ title: 'Design System', url: '/design-system/', Icon: SwatchesIcon },
 	{ title: 'Haiku', url: '/haiku/', Icon: LeafIcon },
 	{ title: 'Colophon', url: '/colophon/', Icon: BookOpenIcon },
 	{ title: 'Tools', url: '/tools/', Icon: WrenchIcon },
@@ -86,7 +88,7 @@ const linkItems = [
 ];
 
 const itemClasses =
-	'flex cursor-pointer items-center gap-3 rounded-1 px-4 py-3 text-shibui-950 outline-none data-[selected=true]:bg-beni data-[selected=true]:text-kiri dark:text-shibui-100';
+	'flex cursor-pointer items-center gap-3 rounded-1 px-4 py-3 text-shibui-950 outline-none data-[selected=true]:bg-beni dark:data-[selected=true]:bg-beni-light data-[selected=true]:text-kiri dark:text-shibui-100';
 
 const groupHeadingClasses =
 	'[&_[cmdk-group-heading]]:px-4 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-shibui-400 [&_[cmdk-group-heading]]:dark:text-shibui-600';

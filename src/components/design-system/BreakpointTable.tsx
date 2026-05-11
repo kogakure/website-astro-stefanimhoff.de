@@ -63,8 +63,8 @@ export const BreakpointTable = () => (
 					].map((h) => (
 						<th
 							key={h}
-							className="pb-3 pr-4 font-normal"
-							style={{ color: 'var(--color-hai)', fontSize: 'var(--text-2)' }}
+							className="text-hai pb-3 pr-4 font-normal"
+							style={{ fontSize: 'var(--text-2)' }}
 						>
 							{h}
 						</th>
@@ -73,65 +73,34 @@ export const BreakpointTable = () => (
 			</thead>
 			<tbody>
 				{breakpoints.map((bp) => (
-					<tr key={bp.value} style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
+					<tr key={bp.value} className="border-usuzumi dark:border-nezumi border-t">
 						<td className="py-3 pr-4">
 							<span
-								className="font-medium"
-								style={{
-									color: 'var(--color-sumi)',
-									fontSize: 'var(--text-2)',
-								}}
+								className="text-sumi dark:text-washi font-medium"
+								style={{ fontSize: 'var(--text-2)' }}
 							>
 								{bp.name}
 							</span>
 						</td>
 						<td className="py-3 pr-4">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-beni)' }}
-							>
+							<span className="text-beni dark:text-beni-light font-mono text-xs">
 								{bp.cssVar}
 							</span>
 						</td>
 						<td className="py-3 pr-4">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-hai)' }}
-							>
-								{bp.value}
-							</span>
+							<span className="text-hai font-mono text-xs">{bp.value}</span>
 						</td>
 						<td className="py-3 pr-4">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-hai)' }}
-							>
-								{bp.columns}
-							</span>
+							<span className="text-hai font-mono text-xs">{bp.columns}</span>
 						</td>
 						<td className="py-3 pr-4">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-hai)' }}
-							>
-								{bp.margins}
-							</span>
+							<span className="text-hai font-mono text-xs">{bp.margins}</span>
 						</td>
 						<td className="py-3 pr-4">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-hai)' }}
-							>
-								{bp.gutters}
-							</span>
+							<span className="text-hai font-mono text-xs">{bp.gutters}</span>
 						</td>
 						<td className="py-3">
-							<span
-								className="font-mono text-xs"
-								style={{ color: 'var(--color-hai)' }}
-							>
-								{bp.maxWidth}
-							</span>
+							<span className="text-hai font-mono text-xs">{bp.maxWidth}</span>
 						</td>
 					</tr>
 				))}

@@ -1,15 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Switch } from '../ui/switch';
 
 export const ReducedMotionDemo = () => {
 	const [reduced, setReduced] = useState(false);
 	const [key, setKey] = useState(0);
+	const [isDark, setIsDark] = useState(false);
+
+	useEffect(() => {
+		const update = () => setIsDark(document.documentElement.classList.contains('dark'));
+		update();
+		const observer = new MutationObserver(update);
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ['class'],
+		});
+		return () => observer.disconnect();
+	}, []);
 
 	const trigger = () => setKey((k) => k + 1);
 
 	const animName = reduced ? 'ds-rm-reduced' : 'ds-rm-full';
 	const animDuration = reduced ? '300ms' : '500ms';
 	const animEase = reduced ? 'linear' : 'cubic-bezier(0, 0, 0.38, 0.9)';
+	const boxColor = isDark ? '#B83A4E' : '#900B20';
 
 	return (
 		<div className="flex flex-col gap-5">
@@ -20,9 +33,9 @@ export const ReducedMotionDemo = () => {
 						setReduced(val);
 						setKey((k) => k + 1);
 					}}
-					className="data-[state=checked]:bg-(--color-beni) data-[state=unchecked]:bg-(--color-sumi)"
+					className="data-[state=checked]:bg-(--color-beni) dark:data-[state=checked]:bg-(--color-beni-light) data-[state=unchecked]:bg-(--color-sumi)"
 				/>
-				<span className="font-mono text-xs" style={{ color: 'var(--color-sumi)' }}>
+				<span className="text-sumi dark:text-washi font-mono text-xs">
 					{reduced
 						? 'prefers-reduced-motion: reduce'
 						: 'prefers-reduced-motion: no-preference'}
@@ -32,20 +45,16 @@ export const ReducedMotionDemo = () => {
 			<div className="flex gap-4">
 				<button
 					onClick={trigger}
-					className="rounded px-4 py-2 font-mono text-xs text-white"
-					style={{
-						backgroundColor: 'var(--color-beni)',
-						border: 'none',
-						cursor: 'pointer',
-					}}
+					className="bg-beni dark:bg-beni-light rounded px-4 py-2 font-mono text-xs text-white"
+					style={{ border: 'none', cursor: 'pointer' }}
 				>
 					Trigger animation
 				</button>
 			</div>
 
 			<div
-				className="flex items-center justify-center rounded-md"
-				style={{ backgroundColor: 'var(--color-kiri)', height: 140 }}
+				className="bg-kiri dark:bg-sumi flex items-center justify-center rounded-md"
+				style={{ height: 140 }}
 			>
 				<div
 					key={key}
@@ -53,7 +62,7 @@ export const ReducedMotionDemo = () => {
 						width: 72,
 						height: 72,
 						borderRadius: '4px',
-						backgroundColor: 'var(--color-beni)',
+						backgroundColor: boxColor,
 						animation: `${animName} ${animDuration} ${animEase} both`,
 					}}
 				/>

@@ -23,7 +23,7 @@ export const DurationBar = () => (
 		{durations.map((d) => (
 			<div key={d.token} className="flex items-center gap-4">
 				<div className="flex w-28 shrink-0 flex-col gap-0.5">
-					<span className="font-mono text-[11px]" style={{ color: 'var(--color-beni)' }}>
+					<span className="text-beni dark:text-beni-light font-mono text-[11px]">
 						{d.ms}ms
 					</span>
 					<span className="font-mono text-[10px]" style={{ color: 'var(--color-hai)' }}>
@@ -32,10 +32,9 @@ export const DurationBar = () => (
 				</div>
 				<div className="flex flex-1 items-center gap-3">
 					<div
-						className="h-3 rounded-sm"
+						className="bg-sumi dark:bg-washi h-3 rounded-sm"
 						style={{
 							width: `${(d.ms / MAX_MS) * 100}%`,
-							backgroundColor: 'var(--color-sumi)',
 							opacity: 0.15 + (d.ms / MAX_MS) * 0.75,
 						}}
 					/>

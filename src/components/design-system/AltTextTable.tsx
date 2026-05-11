@@ -37,22 +37,15 @@ const rows = [
 ];
 
 export const AltTextTable = () => (
-	<div
-		className="overflow-hidden rounded-md"
-		style={{ border: '1px solid var(--color-usuzumi)' }}
-	>
+	<div className="border-usuzumi dark:border-nezumi overflow-hidden rounded-md border">
 		<table className="w-full border-collapse font-mono text-[11px]">
 			<thead>
-				<tr style={{ backgroundColor: 'var(--color-kiri)' }}>
+				<tr className="bg-kiri dark:bg-sumi">
 					{['Image type', 'Pattern', 'Example'].map((h) => (
 						<th
 							key={h}
-							className="px-4 py-2 text-left"
-							style={{
-								color: 'var(--color-nezumi)',
-								borderBottom: '1px solid var(--color-usuzumi)',
-								fontWeight: 500,
-							}}
+							className="border-usuzumi dark:border-nezumi border-b px-4 py-2 text-left font-medium"
+							style={{ color: 'var(--color-nezumi)' }}
 						>
 							{h}
 						</th>
@@ -61,21 +54,16 @@ export const AltTextTable = () => (
 			</thead>
 			<tbody>
 				{rows.map((row, i) => (
-					<tr
-						key={row.type}
-						style={{
-							backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-kiri)',
-						}}
-					>
+					<tr key={row.type} className={i % 2 !== 0 ? 'bg-kiri dark:bg-sumi' : ''}>
 						<td
-							className="px-4 py-2.5 align-top"
-							style={{ color: 'var(--color-beni)', whiteSpace: 'nowrap' }}
+							className="text-beni dark:text-beni-light px-4 py-2.5 align-top"
+							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.type}
 						</td>
 						<td
-							className="px-4 py-2.5 align-top"
-							style={{ color: 'var(--color-sumi)', whiteSpace: 'nowrap' }}
+							className="text-sumi dark:text-washi px-4 py-2.5 align-top"
+							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.pattern}
 						</td>

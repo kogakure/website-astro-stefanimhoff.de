@@ -47,7 +47,7 @@ export const EmailLink = ({
 				<TooltipTrigger asChild>
 					<Link
 						className={cn(
-							'text-3 hover:text-beni active:text-beni-dark ease-enter group font-bold transition-colors duration-200',
+							'text-3 hover:text-beni dark:hover:text-beni-light active:text-beni-dark ease-enter group font-bold transition-colors duration-200',
 							className
 						)}
 						href="#"
@@ -57,7 +57,7 @@ export const EmailLink = ({
 						{text}
 						<ArrowCta
 							aria-hidden="true"
-							className="text-beni group-active:text-beni-dark ease-enter ml-2 inline-block h-[0.6em] w-auto align-middle transition-transform duration-200 group-hover:translate-x-1"
+							className="text-beni dark:text-beni-light group-active:text-beni-dark ease-enter ml-2 inline-block h-[0.6em] w-auto align-middle transition-transform duration-200 group-hover:translate-x-1"
 						/>
 					</Link>
 				</TooltipTrigger>

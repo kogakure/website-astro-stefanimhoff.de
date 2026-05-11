@@ -31,21 +31,20 @@ export const TouchTargetOverlay = () => (
 				>
 					{/* 44×44 hit-box overlay */}
 					<div
-						className="pointer-events-none absolute inset-0"
-						style={{
-							border: '1.5px dashed var(--color-beni)',
-							borderRadius: 'var(--radius-2)',
-							opacity: 0.6,
-						}}
+						className="border-beni dark:border-beni-light pointer-events-none absolute inset-0 border-[1.5px] border-dashed opacity-60"
+						style={{ borderRadius: 'var(--radius-2)' }}
 						aria-hidden="true"
 					/>
 					{/* Actual icon */}
-					<div style={{ color: 'var(--color-sumi)', width: ex.size, height: ex.size }}>
+					<div
+						className="text-sumi dark:text-washi"
+						style={{ width: ex.size, height: ex.size }}
+					>
 						{ex.icon}
 					</div>
 				</div>
 				<div className="flex flex-col items-center gap-0.5">
-					<span className="font-mono text-[10px]" style={{ color: 'var(--color-sumi)' }}>
+					<span className="text-sumi dark:text-washi font-mono text-[10px]">
 						{ex.label}
 					</span>
 					<span className="font-mono text-[9px]" style={{ color: 'var(--color-hai)' }}>

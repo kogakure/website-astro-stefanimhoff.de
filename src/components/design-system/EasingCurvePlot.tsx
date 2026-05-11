@@ -81,13 +81,10 @@ export const EasingCurvePlot = ({ name, p1x, p1y, p2x, p2y, role, cssVar }: Prop
 	const cp2y = PAD + (1 - p2y) * INNER;
 
 	return (
-		<div
-			className="flex flex-col items-center gap-3 rounded-md p-4"
-			style={{ backgroundColor: 'var(--color-kiri)' }}
-		>
+		<div className="bg-kiri dark:bg-sumi flex flex-col items-center gap-3 rounded-md p-4">
 			<button
 				onClick={play}
-				className="group relative cursor-pointer"
+				className="text-beni dark:text-beni-light group relative cursor-pointer"
 				title={`Play ${name} animation`}
 				aria-label={`Play ${name} animation`}
 			>
@@ -146,30 +143,25 @@ export const EasingCurvePlot = ({ name, p1x, p1y, p2x, p2y, role, cssVar }: Prop
 					<circle cx={cp1x} cy={cp1y} r={2.5} fill="var(--color-hai)" />
 					<circle cx={cp2x} cy={cp2y} r={2.5} fill="var(--color-hai)" />
 
-					{/* Curve */}
+					{/* Curve — uses currentColor from parent .text-beni dark:text-beni-light */}
 					<path
 						d={path}
 						fill="none"
-						stroke="var(--color-beni)"
+						stroke="currentColor"
 						strokeWidth="2"
 						strokeLinecap="round"
 					/>
 
 					{/* Animated dot */}
-					{t > 0 && t < 1 && (
-						<circle cx={dotX} cy={dotY} r={4} fill="var(--color-beni)" />
-					)}
+					{t > 0 && t < 1 && <circle cx={dotX} cy={dotY} r={4} fill="currentColor" />}
 				</svg>
 			</button>
 
 			<div className="flex flex-col items-center gap-0.5 text-center">
-				<span
-					className="font-mono text-xs font-medium"
-					style={{ color: 'var(--color-sumi)' }}
-				>
+				<span className="text-sumi dark:text-washi font-mono text-xs font-medium">
 					{name}
 				</span>
-				<span className="font-mono text-[10px]" style={{ color: 'var(--color-beni)' }}>
+				<span className="text-beni dark:text-beni-light font-mono text-[10px]">
 					{cssVar}
 				</span>
 				<span className="font-mono text-[10px]" style={{ color: 'var(--color-hai)' }}>

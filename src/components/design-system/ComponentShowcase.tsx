@@ -24,23 +24,11 @@ export const ComponentShowcase = ({
 	props,
 	children,
 }: Props) => (
-	<div
-		className="overflow-hidden rounded-md"
-		style={{ border: '1px solid var(--color-usuzumi)' }}
-	>
+	<div className="border-usuzumi dark:border-nezumi overflow-hidden rounded-md border">
 		{/* Header */}
-		<div
-			className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-4 py-3"
-			style={{
-				borderBottom: '1px solid var(--color-usuzumi)',
-				backgroundColor: 'var(--color-kiri)',
-			}}
-		>
+		<div className="border-usuzumi bg-kiri dark:border-nezumi dark:bg-sumi flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b px-4 py-3">
 			<div className="flex items-baseline gap-3">
-				<code
-					className="font-mono text-xs font-medium"
-					style={{ color: 'var(--color-beni)' }}
-				>
+				<code className="text-beni dark:text-beni-light font-mono text-xs font-medium">
 					{name}
 				</code>
 				{category && (
@@ -59,40 +47,31 @@ export const ComponentShowcase = ({
 		{/* Description */}
 		{description && (
 			<div
-				className="px-4 py-2 font-mono text-[11px]"
-				style={{
-					color: 'var(--color-hai)',
-					borderBottom: '1px solid var(--color-usuzumi)',
-					backgroundColor: 'var(--color-kiri)',
-				}}
+				className="border-usuzumi bg-kiri dark:border-nezumi dark:bg-sumi border-b px-4 py-2 font-mono text-[11px]"
+				style={{ color: 'var(--color-hai)' }}
 			>
 				{description}
 			</div>
 		)}
 		{/* Live demo */}
-		<div className="p-6" style={{ backgroundColor: 'var(--color-washi)' }}>
-			{children}
-		</div>
+		<div className="bg-washi dark:bg-yoru p-6">{children}</div>
 		{/* Props table */}
 		{props && props.length > 0 && (
-			<details style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
+			<details className="border-usuzumi dark:border-nezumi border-t">
 				<summary
-					className="cursor-pointer px-4 py-2 font-mono text-[10px] uppercase tracking-wider"
-					style={{ color: 'var(--color-hai)', backgroundColor: 'var(--color-kiri)' }}
+					className="bg-kiri dark:bg-sumi cursor-pointer px-4 py-2 font-mono text-[10px] uppercase tracking-wider"
+					style={{ color: 'var(--color-hai)' }}
 				>
 					Props ({props.length})
 				</summary>
 				<table className="w-full border-collapse font-mono text-[10px]">
 					<thead>
-						<tr style={{ backgroundColor: 'var(--color-kiri)' }}>
+						<tr className="bg-kiri dark:bg-sumi">
 							{['Prop', 'Type', 'Default', 'Description'].map((h) => (
 								<th
 									key={h}
-									className="px-4 py-1.5 text-left"
-									style={{
-										color: 'var(--color-nezumi)',
-										borderBottom: '1px solid var(--color-usuzumi)',
-									}}
+									className="border-usuzumi dark:border-nezumi border-b px-4 py-1.5 text-left"
+									style={{ color: 'var(--color-nezumi)' }}
 								>
 									{h}
 								</th>
@@ -103,12 +82,12 @@ export const ComponentShowcase = ({
 						{props.map((row) => (
 							<tr
 								key={row.name}
-								style={{ borderBottom: '1px solid var(--color-usuzumi)' }}
+								className="border-usuzumi dark:border-nezumi border-b"
 							>
-								<td className="px-4 py-1.5" style={{ color: 'var(--color-beni)' }}>
+								<td className="text-beni dark:text-beni-light px-4 py-1.5">
 									{row.name}
 								</td>
-								<td className="px-4 py-1.5" style={{ color: 'var(--color-sumi)' }}>
+								<td className="text-sumi dark:text-washi px-4 py-1.5">
 									{row.type}
 								</td>
 								<td className="px-4 py-1.5" style={{ color: 'var(--color-hai)' }}>

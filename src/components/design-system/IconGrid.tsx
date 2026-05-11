@@ -30,20 +30,16 @@ const icons: { name: string; component: Icon; usage: string }[] = [
 ];
 
 export const IconGrid = () => (
-	<div className="overflow-hidden rounded-md" style={{ backgroundColor: 'var(--color-kiri)' }}>
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 		<div className="grid grid-cols-2 gap-px sm:grid-cols-3 md:grid-cols-5">
 			{icons.map(({ name, component: Icon, usage }) => (
 				<div
 					key={name}
-					className="flex flex-col items-center gap-3 p-5"
-					style={{ backgroundColor: 'var(--color-kiri)' }}
+					className="bg-kiri dark:bg-sumi flex flex-col items-center gap-3 p-5"
 				>
 					<Icon size={24} weight="regular" />
 					<div className="flex flex-col items-center gap-0.5 text-center">
-						<span
-							className="font-mono text-[10px] font-medium"
-							style={{ color: 'var(--color-beni)' }}
-						>
+						<span className="text-beni dark:text-beni-light font-mono text-[10px] font-medium">
 							{name}
 						</span>
 						<span
@@ -57,11 +53,8 @@ export const IconGrid = () => (
 			))}
 		</div>
 		<div
-			className="px-4 py-3 font-mono text-[10px]"
-			style={{
-				borderTop: '1px solid var(--color-usuzumi)',
-				color: 'var(--color-hai)',
-			}}
+			className="border-usuzumi dark:border-nezumi border-t px-4 py-3 font-mono text-[10px]"
+			style={{ color: 'var(--color-hai)' }}
 		>
 			{icons.length} icons · Phosphor Regular · 24 × 24 px
 		</div>

@@ -29,12 +29,10 @@ export const TypeSpecimen = ({
 	const text = sampleText ?? 'The space between.';
 
 	return (
-		<div
-			className="overflow-hidden rounded-md"
-			style={{ backgroundColor: 'var(--color-kiri)' }}
-		>
+		<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 			<div className="p-6 md:p-8">
 				<p
+					className="text-sumi dark:text-washi"
 					style={{
 						fontFamily: fontFamilyMap[font],
 						fontSize: `var(--${token})`,
@@ -44,20 +42,14 @@ export const TypeSpecimen = ({
 							: undefined,
 						fontWeight: weight,
 						fontStyle: 'normal',
-						color: 'var(--color-sumi)',
 						margin: 0,
 					}}
 				>
 					{text}
 				</p>
 			</div>
-			<div
-				className="flex flex-wrap gap-x-6 gap-y-1 px-6 py-3"
-				style={{ borderTop: '1px solid var(--color-usuzumi)' }}
-			>
-				<span className="font-mono text-xs" style={{ color: 'var(--color-beni)' }}>
-					{token}
-				</span>
+			<div className="border-usuzumi dark:border-nezumi flex flex-wrap gap-x-6 gap-y-1 border-t px-6 py-3">
+				<span className="text-beni dark:text-beni-light font-mono text-xs">{token}</span>
 				<span className="font-mono text-xs" style={{ color: 'var(--color-hai)' }}>
 					{role}
 				</span>

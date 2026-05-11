@@ -103,7 +103,7 @@ export const TypeScale = () => (
 				style={{ borderBottom: '1px solid var(--color-usuzumi)' }}
 			>
 				<div className="flex shrink-0 flex-col gap-0.5 md:w-40">
-					<span className="font-mono text-xs" style={{ color: 'var(--color-beni)' }}>
+					<span className="text-beni dark:text-beni-light font-mono text-xs">
 						{entry.token}
 					</span>
 					<span className="font-mono text-[10px]" style={{ color: 'var(--color-hai)' }}>
@@ -115,7 +115,7 @@ export const TypeScale = () => (
 				</div>
 				<div className="min-w-0 flex-1 overflow-hidden">
 					<span
-						className="block truncate"
+						className="text-sumi dark:text-washi block truncate"
 						style={{
 							fontSize: `var(${entry.cssVar})`,
 							lineHeight: entry.lineHeight,
@@ -126,7 +126,6 @@ export const TypeScale = () => (
 										? 'var(--font-mono)'
 										: 'var(--font-sans)',
 							fontWeight: entry.font === 'display' ? 700 : undefined,
-							color: 'var(--color-sumi)',
 							letterSpacing:
 								entry.tracking !== '0'
 									? `calc(${entry.tracking.replace('−', '-').replace('%', '')} * 0.001em)`

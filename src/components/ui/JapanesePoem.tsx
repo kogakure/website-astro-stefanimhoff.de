@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 export const JapanesePoem = ({ as: Tag = 'span', className, children, ...props }: Props) => (
 	<Tag
 		className={cn(
-			'marquee-content font-japanese text-beni px-12 text-[clamp(3rem,6vw,7.5rem)] font-bold not-italic',
+			'marquee-content font-japanese text-beni dark:text-beni-light px-12 text-[clamp(3rem,6vw,7.5rem)] font-bold not-italic',
 			className
 		)}
 		{...props}
