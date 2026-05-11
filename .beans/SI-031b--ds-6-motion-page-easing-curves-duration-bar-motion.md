@@ -1,10 +1,11 @@
 ---
 # SI-031b
 title: "DS-6: Motion page — easing curves, duration bar, motion demo"
-status: done
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:56Z
-updated_at: 2026-05-02T17:57:56Z
+updated_at: 2026-05-11T17:27:56Z
 parent: SI-p04a
 ---
 

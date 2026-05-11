@@ -1,10 +1,11 @@
 ---
 # SI-wri5
 title: "DS-5: Layout & grid + spacing pages"
-status: done
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:56Z
-updated_at: 2026-05-02T17:57:56Z
+updated_at: 2026-05-11T17:27:42Z
 parent: SI-p04a
 ---
 
