@@ -185,7 +185,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 										</div>
 
 										{/* Content */}
-										<div className="pbl-1.5 min-w-0 flex-1">
+										<div className="pbl-[0.375rem] min-w-0 flex-1">
 											<span className="sr-only">{srLabel(state)}: </span>
 											<span className="text-2 text-hai dark:text-nezumi mie-1 tabular-nums">
 												{number}.
@@ -203,7 +203,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 												</TextLink>
 											)}
 											{step.subtitle && (
-												<p className="text-2 text-hai dark:text-nezumi mbe-0 mbs-0.5 text-balance">
+												<p className="text-2 text-hai dark:text-nezumi mbe-0 mbs-[0.125rem] text-balance">
 													{step.subtitle}
 												</p>
 											)}

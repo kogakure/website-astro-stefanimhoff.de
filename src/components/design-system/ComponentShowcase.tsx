@@ -70,7 +70,7 @@ export const ComponentShowcase = ({
 							{['Prop', 'Type', 'Default', 'Description'].map((h) => (
 								<th
 									key={h}
-									className="border-usuzumi dark:border-nezumi border-be-1e-1 pli-4 pbl-1.5 text-start"
+									className="border-usuzumi dark:border-nezumi border-be-1e-1 pli-4 pbl-[0.375rem] text-start"
 									style={{ color: 'var(--color-nezumi)' }}
 								>
 									{h}
@@ -84,16 +84,22 @@ export const ComponentShowcase = ({
 								key={row.name}
 								className="border-usuzumi dark:border-nezumi border-be-1"
 							>
-								<td className="text-beni dark:text-beni-light pli-4 pbl-1.5">
+								<td className="text-beni dark:text-beni-light pli-4 pbl-[0.375rem]">
 									{row.name}
 								</td>
-								<td className="text-sumi dark:text-washi pli-4 pbl-1.5">
+								<td className="text-sumi dark:text-washi pli-4 pbl-[0.375rem]">
 									{row.type}
 								</td>
-								<td className="pli-4 pbl-1.5" style={{ color: 'var(--color-hai)' }}>
+								<td
+									className="pli-4 pbl-[0.375rem]"
+									style={{ color: 'var(--color-hai)' }}
+								>
 									{row.default ?? '—'}
 								</td>
-								<td className="pli-4 pbl-1.5" style={{ color: 'var(--color-hai)' }}>
+								<td
+									className="pli-4 pbl-[0.375rem]"
+									style={{ color: 'var(--color-hai)' }}
+								>
 									{row.description}
 								</td>
 							</tr>

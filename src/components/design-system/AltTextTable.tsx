@@ -56,19 +56,19 @@ export const AltTextTable = () => (
 				{rows.map((row, i) => (
 					<tr key={row.type} className={i % 2 !== 0 ? 'bg-kiri dark:bg-sumi' : ''}>
 						<td
-							className="text-beni dark:text-beni-light pli-4 pbl-2.5 align-top"
+							className="text-beni dark:text-beni-light pli-4 pbl-[0.625rem] align-top"
 							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.type}
 						</td>
 						<td
-							className="text-sumi dark:text-washi pli-4 pbl-2.5 align-top"
+							className="text-sumi dark:text-washi pli-4 pbl-[0.625rem] align-top"
 							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.pattern}
 						</td>
 						<td
-							className="pli-4 pbl-2.5 align-top"
+							className="pli-4 pbl-[0.625rem] align-top"
 							style={{ color: 'var(--color-hai)' }}
 						>
 							{row.example}

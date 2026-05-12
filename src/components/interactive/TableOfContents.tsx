@@ -126,7 +126,7 @@ export const TableOfContents = ({ headings }: Props) => {
 											href={`#${id}`}
 											onClick={(event) => handleClick(event, id)}
 											className={cn(
-												'pis-4 pbl-1.5 block leading-snug transition-colors duration-200',
+												'pis-4 pbl-[0.375rem] block leading-snug transition-colors duration-200',
 												isActive
 													? 'text-beni dark:text-beni-light'
 													: 'text-hai hover:text-sumi dark:hover:text-washi'

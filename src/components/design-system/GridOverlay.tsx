@@ -21,7 +21,7 @@ export const GridOverlay = () => {
 					<button
 						key={v.id}
 						onClick={() => setActive(v.id)}
-						className={`pli-3 pbl-1.5 rounded font-mono text-xs transition-colors ${
+						className={`pli-3 pbl-[0.375rem] rounded font-mono text-xs transition-colors ${
 							active === v.id
 								? 'bg-beni dark:bg-beni-light border-beni dark:border-beni-light border text-white'
 								: 'bg-kiri dark:bg-sumi border-usuzumi dark:border-nezumi text-nezumi border'

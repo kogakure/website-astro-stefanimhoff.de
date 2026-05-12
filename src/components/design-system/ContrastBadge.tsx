@@ -22,7 +22,7 @@ export const ContrastBadge = ({ fg, bg, className }: Props) => {
 			<div className="flex gap-1">
 				<span
 					className={cn(
-						'pli-1 pbl-0.5 rounded font-mono text-[9px] font-bold leading-none',
+						'pli-1 pbl-[0.125rem] rounded font-mono text-[9px] font-bold leading-none',
 						passAA
 							? 'bg-beni text-white'
 							: passLargeAA
@@ -34,7 +34,7 @@ export const ContrastBadge = ({ fg, bg, className }: Props) => {
 				</span>
 				<span
 					className={cn(
-						'pli-1 pbl-0.5 rounded font-mono text-[9px] font-bold leading-none',
+						'pli-1 pbl-[0.125rem] rounded font-mono text-[9px] font-bold leading-none',
 						passAAA ? 'bg-beni text-white' : 'bg-usuzumi/40 text-hai'
 					)}
 				>
