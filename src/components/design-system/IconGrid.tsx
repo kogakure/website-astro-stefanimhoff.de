@@ -53,7 +53,7 @@ export const IconGrid = () => (
 			))}
 		</div>
 		<div
-			className="border-usuzumi dark:border-nezumi border-t px-4 py-3 font-mono text-[10px]"
+			className="border-usuzumi dark:border-nezumi border-bs-1 pli-4 pbl-3 font-mono text-[10px]"
 			style={{ color: 'var(--color-hai)' }}
 		>
 			{icons.length} icons · Phosphor Regular · 24 × 24 px

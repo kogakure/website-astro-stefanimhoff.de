@@ -33,7 +33,7 @@ export const PhosphorNote = () => (
 					))}
 				</div>
 				<div
-					className="border-usuzumi dark:border-nezumi border-t pt-3 font-mono text-[10px]"
+					className="border-usuzumi dark:border-nezumi border-bs-1 pbs-3 font-mono text-[10px]"
 					style={{ color: 'var(--color-hai)' }}
 				>
 					Icons do not replace text labels — they accompany them. Kanso: clarity over

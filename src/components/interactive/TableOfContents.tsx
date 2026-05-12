@@ -81,7 +81,7 @@ export const TableOfContents = ({ headings }: Props) => {
 				onClick={() => setOpen((v) => !v)}
 				aria-expanded={open}
 				aria-controls="toc-list"
-				className="flex w-full items-center gap-2 bg-transparent p-0 text-left xl:pointer-events-none xl:cursor-default"
+				className="flex w-full items-center gap-2 bg-transparent p-0 text-start xl:pointer-events-none xl:cursor-default"
 			>
 				<span
 					aria-hidden="true"
@@ -109,7 +109,7 @@ export const TableOfContents = ({ headings }: Props) => {
 						transition={{ duration: 0.25, ease: EASE_ENTER }}
 						className="overflow-hidden"
 					>
-						<ol className="border-usuzumi dark:border-nezumi mbs-4 relative flex list-none flex-col border-l">
+						<ol className="border-usuzumi dark:border-nezumi mbs-4 border-is-1 relative flex list-none flex-col">
 							{headings.map(({ id, text }) => {
 								const isActive = id === activeId;
 								return (
@@ -118,7 +118,7 @@ export const TableOfContents = ({ headings }: Props) => {
 											<motion.span
 												layoutId="toc-indicator"
 												aria-hidden="true"
-												className="bg-beni dark:bg-beni-light absolute -left-px top-0 h-full w-px"
+												className="bg-beni dark:bg-beni-light -inline-start-px block-start-0 absolute h-full w-px"
 												transition={{ duration: 0.25, ease: EASE_ENTER }}
 											/>
 										)}
@@ -126,7 +126,7 @@ export const TableOfContents = ({ headings }: Props) => {
 											href={`#${id}`}
 											onClick={(event) => handleClick(event, id)}
 											className={cn(
-												'pis-4 block py-1.5 leading-snug transition-colors duration-200',
+												'pis-4 pbl-1.5 block leading-snug transition-colors duration-200',
 												isActive
 													? 'text-beni dark:text-beni-light'
 													: 'text-hai hover:text-sumi dark:hover:text-washi'

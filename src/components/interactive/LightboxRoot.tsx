@@ -122,7 +122,7 @@ export const LightboxRoot = () => {
 						key="lb-close"
 						ref={closeBtnRef}
 						onClick={close}
-						className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 fixed right-4 top-4 z-[52] p-2"
+						className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 inline-end-4 block-start-4 fixed z-[52] p-2"
 						aria-label="Close lightbox"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}

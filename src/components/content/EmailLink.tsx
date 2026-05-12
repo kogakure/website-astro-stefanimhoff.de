@@ -57,7 +57,7 @@ export const EmailLink = ({
 						{text}
 						<ArrowCta
 							aria-hidden="true"
-							className="text-beni dark:text-beni-light group-active:text-beni-dark ease-enter ml-2 inline-block h-[0.6em] w-auto align-middle transition-transform duration-200 group-hover:translate-x-1"
+							className="text-beni dark:text-beni-light group-active:text-beni-dark ease-enter mis-2 inline-block h-[0.6em] w-auto align-middle transition-transform duration-200 group-hover:translate-x-1"
 						/>
 					</Link>
 				</TooltipTrigger>

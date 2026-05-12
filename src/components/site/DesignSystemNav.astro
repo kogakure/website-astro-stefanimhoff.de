@@ -25,7 +25,7 @@ const { currentSlug } = Astro.props;
 								<a
 									href={`/design-system/${item.slug}/`}
 									class={cn(
-										'text-2 flex items-center gap-2 rounded-sm py-1 transition-colors duration-200',
+										'text-2 pbl-1 flex items-center gap-2 rounded-sm transition-colors duration-200',
 										isActive
 											? 'text-beni dark:text-beni-light font-medium'
 											: 'text-nezumi hover:text-sumi dark:hover:text-washi'
@@ -45,7 +45,7 @@ const { currentSlug } = Astro.props;
 		))
 	}
 
-	<div class="border-usuzumi dark:border-nezumi mt-2 border-t pt-6">
+	<div class="border-usuzumi dark:border-nezumi mbs-2 border-bs-1 pbs-6">
 		<a
 			href="/design-system/"
 			class="text-2 text-hai hover:text-sumi dark:hover:text-washi transition-colors duration-200"

@@ -23,17 +23,17 @@ const backgrounds: ColorEntry[] = [
 
 export const ContrastMatrix = () => (
 	<div className="overflow-x-auto">
-		<table className="w-full text-left" style={{ borderCollapse: 'collapse' }}>
+		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>
 					<th
-						className="text-hai text-2 pb-3 pr-4 font-normal"
+						className="text-hai text-2 pbe-3 pie-4 font-normal"
 						style={{ minWidth: '6rem' }}
 					>
 						fg \ bg
 					</th>
 					{backgrounds.map((bg) => (
-						<th key={bg.hex} className="pb-3 pr-2 text-center">
+						<th key={bg.hex} className="pbe-3 pie-2 text-center">
 							<div className="flex flex-col items-center gap-1">
 								<span
 									className="inline-block size-5 rounded-sm border border-black/10"
@@ -53,7 +53,7 @@ export const ContrastMatrix = () => (
 							borderTop: '1px solid var(--color-usuzumi)',
 						}}
 					>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<div className="flex items-center gap-2">
 								<span
 									className="inline-block size-4 rounded-sm border border-black/10"
@@ -65,7 +65,7 @@ export const ContrastMatrix = () => (
 							</div>
 						</td>
 						{backgrounds.map((bg) => (
-							<td key={bg.hex} className="py-3 pr-2 text-center">
+							<td key={bg.hex} className="pbl-3 pie-2 text-center">
 								<div
 									className="inline-flex items-center justify-center rounded p-2"
 									style={{ backgroundColor: bg.hex, minWidth: '4.5rem' }}

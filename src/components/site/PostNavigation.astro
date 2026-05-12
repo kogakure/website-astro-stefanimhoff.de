@@ -17,7 +17,7 @@ const hasNav = hasPrev || hasNext;
 const hasBoth = hasPrev && hasNext;
 
 const linkBase =
-	'group ease-enter relative flex flex-col gap-3 px-6 py-6 transition-colors duration-200 md:px-8 md:py-8';
+	'group ease-enter relative flex flex-col gap-3 pli-6 pbl-6 transition-colors duration-200 md:pli-8 md:pbl-8';
 
 const labelBase =
 	'text-2 text-hai dark:text-nezumi flex items-center gap-3 uppercase tracking-wide';
@@ -34,7 +34,7 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 {
 	hasNav && (
 		<nav
-			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-16 pt-12 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+			class="max-w-360 pli-8 pbe-16 pbs-12 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 			aria-label="Post navigation"
 		>
 			<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
@@ -48,9 +48,9 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 						<a
 							class:list={[
 								linkBase,
-								'text-left',
+								'text-start',
 								hasBoth &&
-									'border-usuzumi dark:border-nezumi border-b md:border-b-0 md:border-r',
+									'border-usuzumi dark:border-nezumi border-be-1 md:border-be-0 md:border-ie-1',
 							]}
 							href={`/writing/${prev.id?.split('/').pop() ?? ''}/`}
 							rel="prev"
@@ -74,7 +74,7 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 
 					{hasNext && next.data && (
 						<a
-							class:list={[linkBase, 'items-end text-right']}
+							class:list={[linkBase, 'items-end text-end']}
 							href={`/writing/${next.id?.split('/').pop() ?? ''}/`}
 							rel="next"
 						>

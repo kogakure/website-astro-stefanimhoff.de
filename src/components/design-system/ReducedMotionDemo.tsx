@@ -45,7 +45,7 @@ export const ReducedMotionDemo = () => {
 			<div className="flex gap-4">
 				<button
 					onClick={trigger}
-					className="bg-beni dark:bg-beni-light rounded px-4 py-2 font-mono text-xs text-white"
+					className="bg-beni dark:bg-beni-light pli-4 pbl-2 rounded font-mono text-xs text-white"
 					style={{ border: 'none', cursor: 'pointer' }}
 				>
 					Trigger animation

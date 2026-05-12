@@ -46,7 +46,7 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Toolti
 	if (!active || !payload?.length) return null;
 	const item = payload[0];
 	return (
-		<div className="flex items-center gap-2 rounded-md border border-[#C8C8C4] bg-[#E6E6E6] px-3 py-2 text-sm shadow-sm dark:border-[#6B6B67] dark:bg-[#1A1918]">
+		<div className="pli-3 pbl-2 flex items-center gap-2 rounded-md border border-[#C8C8C4] bg-[#E6E6E6] text-sm shadow-sm dark:border-[#6B6B67] dark:bg-[#1A1918]">
 			<span
 				className="inline-block h-3 w-3 flex-shrink-0 rounded-sm border border-black/25 dark:border-white/25"
 				style={{ backgroundColor: item.payload.fill }}
@@ -61,7 +61,7 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Toolti
 const renderLegend = ({ payload }: { payload?: LegendPayloadEntry[] }) => {
 	if (!payload) return null;
 	return (
-		<ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 pt-2">
+		<ul className="pbs-2 flex flex-wrap justify-center gap-x-4 gap-y-1">
 			{payload.map((entry, index) => (
 				<li key={index} className="flex items-center gap-1.5">
 					<span

@@ -13,19 +13,19 @@ const entries: PrintEntry[] = [
 
 export const PrintSpec = () => (
 	<div className="overflow-x-auto">
-		<table className="w-full text-left" style={{ borderCollapse: 'collapse' }}>
+		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>
-					<th className="text-hai text-2 pb-3 pr-4 font-normal">Colour</th>
-					<th className="text-hai text-2 pb-3 pr-4 font-normal">Hex</th>
-					<th className="text-hai text-2 pb-3 pr-4 font-normal">CMYK</th>
-					<th className="text-hai text-2 pb-3 font-normal">Pantone</th>
+					<th className="text-hai text-2 pbe-3 pie-4 font-normal">Colour</th>
+					<th className="text-hai text-2 pbe-3 pie-4 font-normal">Hex</th>
+					<th className="text-hai text-2 pbe-3 pie-4 font-normal">CMYK</th>
+					<th className="text-hai text-2 pbe-3 font-normal">Pantone</th>
 				</tr>
 			</thead>
 			<tbody>
 				{entries.map((e) => (
-					<tr key={e.hex} style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
-						<td className="py-3 pr-4">
+					<tr key={e.hex} style={{ borderBlockStart: '1px solid var(--color-usuzumi)' }}>
+						<td className="pbl-3 pie-4">
 							<div className="flex items-center gap-2">
 								<span
 									className="inline-block size-5 rounded-sm border border-black/10"
@@ -36,13 +36,13 @@ export const PrintSpec = () => (
 								</span>
 							</div>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{e.hex}</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{e.cmyk}</span>
 						</td>
-						<td className="py-3">
+						<td className="pbl-3">
 							<span className="text-2 text-hai">{e.pantone}</span>
 						</td>
 					</tr>

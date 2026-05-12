@@ -44,7 +44,7 @@ export const AltTextTable = () => (
 					{['Image type', 'Pattern', 'Example'].map((h) => (
 						<th
 							key={h}
-							className="border-usuzumi dark:border-nezumi border-b px-4 py-2 text-left font-medium"
+							className="border-usuzumi dark:border-nezumi border-be-1 pli-4 pbl-2 text-start font-medium"
 							style={{ color: 'var(--color-nezumi)' }}
 						>
 							{h}
@@ -56,18 +56,21 @@ export const AltTextTable = () => (
 				{rows.map((row, i) => (
 					<tr key={row.type} className={i % 2 !== 0 ? 'bg-kiri dark:bg-sumi' : ''}>
 						<td
-							className="text-beni dark:text-beni-light px-4 py-2.5 align-top"
+							className="text-beni dark:text-beni-light pli-4 pbl-2.5 align-top"
 							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.type}
 						</td>
 						<td
-							className="text-sumi dark:text-washi px-4 py-2.5 align-top"
+							className="text-sumi dark:text-washi pli-4 pbl-2.5 align-top"
 							style={{ whiteSpace: 'nowrap' }}
 						>
 							{row.pattern}
 						</td>
-						<td className="px-4 py-2.5 align-top" style={{ color: 'var(--color-hai)' }}>
+						<td
+							className="pli-4 pbl-2.5 align-top"
+							style={{ color: 'var(--color-hai)' }}
+						>
 							{row.example}
 						</td>
 					</tr>

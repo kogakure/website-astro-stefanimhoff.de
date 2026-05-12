@@ -139,7 +139,7 @@ export const MotionDemo = () => {
 				<div className="flex items-end">
 					<button
 						onClick={play}
-						className="bg-beni dark:bg-beni-light rounded px-4 py-2 font-mono text-xs text-white transition-colors"
+						className="bg-beni dark:bg-beni-light pli-4 pbl-2 rounded font-mono text-xs text-white transition-colors"
 						style={{ border: 'none', cursor: 'pointer' }}
 					>
 						Play ▶

@@ -56,7 +56,7 @@ export const RoadmapMilestone = ({
 			<Link
 				aria-label={`${ordinal}. ${title}`}
 				className={cn(
-					'rounded-2 group flex flex-1 items-start gap-4 px-3 py-3',
+					'rounded-2 pli-3 pbl-3 group flex flex-1 items-start gap-4',
 					'transition-colors duration-200',
 					'hover:bg-kiri dark:hover:bg-sumi/60'
 				)}
@@ -103,7 +103,7 @@ export const RoadmapMilestone = ({
 					</div>
 
 					{note && (
-						<p className="text-2 text-muted-foreground mbe-0 mt-0.5 italic">{note}</p>
+						<p className="text-2 text-muted-foreground mbe-0 mbs-0.5 italic">{note}</p>
 					)}
 				</div>
 			</Link>

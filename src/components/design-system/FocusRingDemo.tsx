@@ -28,8 +28,8 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 	return (
 		<div className="overflow-hidden rounded-md" style={{ backgroundColor: bg }}>
 			<div
-				className="flex flex-col gap-1 px-3 py-2"
-				style={{ borderBottom: `1px solid ${border}` }}
+				className="pli-3 pbl-2 flex flex-col gap-1"
+				style={{ borderBlockEnd: `1px solid ${border}` }}
 			>
 				<span
 					className="font-mono text-[10px] uppercase tracking-wider"

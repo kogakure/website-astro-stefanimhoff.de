@@ -49,7 +49,7 @@ const breakpoints: BreakpointEntry[] = [
 
 export const BreakpointTable = () => (
 	<div className="overflow-x-auto">
-		<table className="w-full text-left" style={{ borderCollapse: 'collapse' }}>
+		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>
 					{[
@@ -63,7 +63,7 @@ export const BreakpointTable = () => (
 					].map((h) => (
 						<th
 							key={h}
-							className="text-hai pb-3 pr-4 font-normal"
+							className="text-hai pbe-3 pie-4 font-normal"
 							style={{ fontSize: 'var(--text-2)' }}
 						>
 							{h}
@@ -73,8 +73,8 @@ export const BreakpointTable = () => (
 			</thead>
 			<tbody>
 				{breakpoints.map((bp) => (
-					<tr key={bp.value} className="border-usuzumi dark:border-nezumi border-t">
-						<td className="py-3 pr-4">
+					<tr key={bp.value} className="border-usuzumi dark:border-nezumi border-bs-1">
+						<td className="pbl-3 pie-4">
 							<span
 								className="text-sumi dark:text-washi font-medium"
 								style={{ fontSize: 'var(--text-2)' }}
@@ -82,24 +82,24 @@ export const BreakpointTable = () => (
 								{bp.name}
 							</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-beni dark:text-beni-light font-mono text-xs">
 								{bp.cssVar}
 							</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{bp.value}</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{bp.columns}</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{bp.margins}</span>
 						</td>
-						<td className="py-3 pr-4">
+						<td className="pbl-3 pie-4">
 							<span className="text-hai font-mono text-xs">{bp.gutters}</span>
 						</td>
-						<td className="py-3">
+						<td className="pbl-3">
 							<span className="text-hai font-mono text-xs">{bp.maxWidth}</span>
 						</td>
 					</tr>

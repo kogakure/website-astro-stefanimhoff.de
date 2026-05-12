@@ -90,7 +90,7 @@ export const SpacingPicker = () => {
 					))}
 				</div>
 				<div
-					className="mt-4 flex gap-4 font-mono text-[11px]"
+					className="mbs-4 flex gap-4 font-mono text-[11px]"
 					style={{ color: 'var(--color-hai)' }}
 				>
 					<span>

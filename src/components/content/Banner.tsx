@@ -11,7 +11,7 @@ const bannerVariants = cva(
 		variants: {
 			tone: {
 				default: '',
-				accent: 'border-l-2 border-l-beni dark:border-l-beni-light',
+				accent: 'border-is-2 border-is-beni dark:border-is-beni-light',
 			},
 		},
 		defaultVariants: { tone: 'default' },
@@ -27,7 +27,7 @@ export const Banner = ({ className, open, summary, tone, children, ...props }: P
 	<aside className={cn(bannerVariants({ tone }), className)} {...props}>
 		{summary ? (
 			<details open={open} className="banner-disclosure group">
-				<summary className="ease-enter flex cursor-pointer list-none items-center gap-3 px-6 py-5 transition-colors duration-200 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] [&::-webkit-details-marker]:hidden">
+				<summary className="ease-enter pli-6 pbl-5 flex cursor-pointer list-none items-center gap-3 transition-colors duration-200 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] [&::-webkit-details-marker]:hidden">
 					<SectionLabel as="span" className="mbe-0 flex-1">
 						{summary}
 					</SectionLabel>
@@ -38,7 +38,7 @@ export const Banner = ({ className, open, summary, tone, children, ...props }: P
 						<CaretDownIcon size={12} weight="bold" />
 					</span>
 				</summary>
-				<div className="px-6 pb-6">{children}</div>
+				<div className="pli-6 pbe-6">{children}</div>
 			</details>
 		) : (
 			<div className="p-6">{children}</div>

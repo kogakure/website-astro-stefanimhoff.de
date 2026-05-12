@@ -51,7 +51,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 	return (
 		<nav
 			aria-label={seriesName ? `Series: ${seriesName}` : 'Series navigation'}
-			className="rounded-2 border-usuzumi dark:border-nezumi mb-8 border p-4"
+			className="rounded-2 border-usuzumi dark:border-nezumi mbe-8 border p-4"
 		>
 			{/* Header — always visible, click to toggle the body */}
 			<button
@@ -59,7 +59,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 				onClick={() => setOpen((v) => !v)}
 				aria-expanded={open}
 				aria-controls="series-list"
-				className="flex w-full items-center gap-3 bg-transparent p-0 text-left"
+				className="flex w-full items-center gap-3 bg-transparent p-0 text-start"
 			>
 				<SectionLabel as="span" className="mbe-0 shrink-0">
 					Series
@@ -76,11 +76,11 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 					style={{ pointerEvents: open ? 'none' : undefined }}
 				>
 					{/* Full background grey line */}
-					<div className="bg-hai dark:bg-nezumi absolute inset-x-0 h-px" />
+					<div className="bg-hai dark:bg-nezumi inline-start-0 inline-end-0 absolute h-px" />
 					{/* Crimson overlay from first dot up to current */}
 					{currentIndex > 0 && (
 						<div
-							className="bg-beni dark:bg-beni-light absolute left-0 h-px"
+							className="bg-beni dark:bg-beni-light inline-start-0 absolute h-px"
 							style={{
 								width: `${(currentIndex / (steps.length - 1)) * 100}%`,
 							}}
@@ -153,8 +153,8 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 												layoutId="series-indicator"
 												aria-hidden="true"
 												layout={prefersReducedMotion ? false : true}
-												className="bg-beni dark:bg-beni-light absolute top-0 h-full w-px"
-												style={{ left: '4.5px' }}
+												className="bg-beni dark:bg-beni-light block-start-0 absolute h-full w-px"
+												style={{ insetInlineStart: '4.5px' }}
 												transition={{ duration: 0.25, ease: EASE_ENTER }}
 											/>
 										)}
@@ -185,9 +185,9 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 										</div>
 
 										{/* Content */}
-										<div className="min-w-0 flex-1 py-1.5">
+										<div className="pbl-1.5 min-w-0 flex-1">
 											<span className="sr-only">{srLabel(state)}: </span>
-											<span className="text-2 text-hai dark:text-nezumi mr-1 tabular-nums">
+											<span className="text-2 text-hai dark:text-nezumi mie-1 tabular-nums">
 												{number}.
 											</span>
 											{state === 'current' ? (
@@ -203,7 +203,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 												</TextLink>
 											)}
 											{step.subtitle && (
-												<p className="text-2 text-hai dark:text-nezumi mbe-0 mt-0.5 text-balance">
+												<p className="text-2 text-hai dark:text-nezumi mbe-0 mbs-0.5 text-balance">
 													{step.subtitle}
 												</p>
 											)}

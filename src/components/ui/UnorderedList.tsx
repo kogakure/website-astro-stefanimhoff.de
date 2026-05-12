@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLUListElement> {}
 export const UnorderedList = ({ className, children, ...props }: Props) => (
 	<ul
 		className={cn(
-			'text-3 [&>li]:before:text-beni dark:[&>li]:before:text-beni-light mbe-10 flex list-none flex-col gap-3 md:-ml-6 [&>li]:relative [&>li]:pl-6 [&>li]:before:absolute [&>li]:before:left-0 [&>li]:before:content-["—"]',
+			'text-3 [&>li]:before:text-beni dark:[&>li]:before:text-beni-light mbe-10 md:-mis-6 [&>li]:pis-6 [&>li]:before:inline-start-0 flex list-none flex-col gap-3 [&>li]:relative [&>li]:before:absolute [&>li]:before:content-["—"]',
 			className
 		)}
 		{...props}

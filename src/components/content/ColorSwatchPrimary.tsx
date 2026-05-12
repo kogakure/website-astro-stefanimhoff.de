@@ -35,7 +35,7 @@ export const ColorSwatchPrimary = ({
 			>
 				{kanji && (
 					<span
-						className="px-4 text-center font-sans text-[1.25rem] leading-snug"
+						className="pli-4 text-center font-sans text-[1.25rem] leading-snug"
 						style={{ color: textColor }}
 					>
 						{kanji}

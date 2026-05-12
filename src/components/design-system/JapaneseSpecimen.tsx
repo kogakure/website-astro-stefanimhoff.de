@@ -25,7 +25,7 @@ export const JapaneseSpecimen = () => (
 			{lines.map((line, i) => (
 				<div
 					key={i}
-					className={`flex flex-col gap-1 p-5 md:p-6${i > 0 ? 'border-usuzumi dark:border-nezumi border-t' : ''}`}
+					className={`flex flex-col gap-1 p-5 md:p-6${i > 0 ? 'border-usuzumi dark:border-nezumi border-bs-1' : ''}`}
 				>
 					<p
 						lang="ja"
@@ -46,7 +46,7 @@ export const JapaneseSpecimen = () => (
 				</div>
 			))}
 		</div>
-		<div className="border-usuzumi dark:border-nezumi border-t px-6 py-3">
+		<div className="border-usuzumi dark:border-nezumi border-bs-1 pli-6 pbl-3">
 			<span className="text-beni dark:text-beni-light font-mono text-xs">
 				--font-japanese
 			</span>

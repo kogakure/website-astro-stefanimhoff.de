@@ -95,12 +95,15 @@ const scale: ScaleEntry[] = [
 const SAMPLE = 'The space between';
 
 export const TypeScale = () => (
-	<div className="mbe-0 flex flex-col" style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
+	<div
+		className="mbe-0 flex flex-col"
+		style={{ borderBlockStart: '1px solid var(--color-usuzumi)' }}
+	>
 		{scale.map((entry) => (
 			<div
 				key={entry.token}
-				className="flex flex-col gap-2 py-5 md:flex-row md:items-baseline md:gap-8"
-				style={{ borderBottom: '1px solid var(--color-usuzumi)' }}
+				className="pbl-5 flex flex-col gap-2 md:flex-row md:items-baseline md:gap-8"
+				style={{ borderBlockEnd: '1px solid var(--color-usuzumi)' }}
 			>
 				<div className="flex shrink-0 flex-col gap-0.5 md:w-40">
 					<span className="text-beni dark:text-beni-light font-mono text-xs">

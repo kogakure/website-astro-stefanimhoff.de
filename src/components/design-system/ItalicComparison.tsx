@@ -18,7 +18,7 @@ export const ItalicComparison = () => (
 					{SAMPLE}
 				</p>
 			</div>
-			<div className="border-usuzumi dark:border-nezumi border-t px-6 py-3">
+			<div className="border-usuzumi dark:border-nezumi border-bs-1 pli-6 pbl-3">
 				<span className="text-beni dark:text-beni-light font-mono text-xs">
 					Boska Italic
 				</span>
@@ -43,7 +43,7 @@ export const ItalicComparison = () => (
 					{SAMPLE}
 				</p>
 			</div>
-			<div className="border-usuzumi dark:border-nezumi border-t px-6 py-3">
+			<div className="border-usuzumi dark:border-nezumi border-bs-1 pli-6 pbl-3">
 				<span className="text-beni dark:text-beni-light font-mono text-xs">
 					Switzer Italic
 				</span>

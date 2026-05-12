@@ -21,7 +21,7 @@ export const GridOverlay = () => {
 					<button
 						key={v.id}
 						onClick={() => setActive(v.id)}
-						className={`rounded px-3 py-1.5 font-mono text-xs transition-colors ${
+						className={`pli-3 pbl-1.5 rounded font-mono text-xs transition-colors ${
 							active === v.id
 								? 'bg-beni dark:bg-beni-light border-beni dark:border-beni-light border text-white'
 								: 'bg-kiri dark:bg-sumi border-usuzumi dark:border-nezumi text-nezumi border'
@@ -55,7 +55,7 @@ export const GridOverlay = () => {
 					))}
 				</div>
 
-				<div className="border-usuzumi dark:border-nezumi flex flex-wrap gap-x-6 gap-y-1 border-t px-4 py-3">
+				<div className="border-usuzumi dark:border-nezumi border-bs-1 pli-4 pbl-3 flex flex-wrap gap-x-6 gap-y-1">
 					<span className="text-beni dark:text-beni-light font-mono text-[11px]">
 						{view.cols} columns
 					</span>

@@ -3,7 +3,7 @@ import { cn } from '../../lib/utils';
 import QuoteAttribution from '../ui/QuoteAttribution';
 
 interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
-	alignment?: 'center' | 'left';
+	alignment?: 'center' | 'start';
 	author?: string;
 	lang?: string;
 	source?: string;
@@ -12,7 +12,7 @@ interface Props extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
 }
 
 export const Pullquote = ({
-	alignment = 'left',
+	alignment = 'start',
 	author,
 	className,
 	lang = 'en',
@@ -26,7 +26,7 @@ export const Pullquote = ({
 		className={cn(
 			'pullquote mbe-12 mbs-12 mis-8 md:mis-12',
 			alignment === 'center' && 'text-center',
-			alignment === 'left' && 'text-left',
+			alignment === 'start' && 'text-start',
 			className
 		)}
 		{...props}

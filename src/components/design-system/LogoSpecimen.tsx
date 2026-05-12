@@ -76,7 +76,10 @@ export const LogoSpecimen = () => (
 						/>
 					</div>
 				</div>
-				<div className="px-4 py-3" style={{ borderTop: `1px solid ${v.ringColor}` }}>
+				<div
+					className="pli-4 pbl-3"
+					style={{ borderBlockStart: `1px solid ${v.ringColor}` }}
+				>
 					<div className="font-mono text-xs font-medium" style={{ color: v.fill }}>
 						{v.label}
 					</div>

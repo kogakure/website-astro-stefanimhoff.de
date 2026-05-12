@@ -88,10 +88,10 @@ const linkItems = [
 ];
 
 const itemClasses =
-	'flex cursor-pointer items-center gap-3 rounded-1 px-4 py-3 text-shibui-950 outline-none data-[selected=true]:bg-beni dark:data-[selected=true]:bg-beni-light data-[selected=true]:text-kiri dark:text-shibui-100';
+	'flex cursor-pointer items-center gap-3 rounded-1 pli-4 pbl-3 text-shibui-950 outline-none data-[selected=true]:bg-beni dark:data-[selected=true]:bg-beni-light data-[selected=true]:text-kiri dark:text-shibui-100';
 
 const groupHeadingClasses =
-	'[&_[cmdk-group-heading]]:px-4 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-shibui-400 [&_[cmdk-group-heading]]:dark:text-shibui-600';
+	'[&_[cmdk-group-heading]]:pli-4 [&_[cmdk-group-heading]]:pbl-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-shibui-400 [&_[cmdk-group-heading]]:dark:text-shibui-600';
 
 export const CommandMenu = () => {
 	const [open, setOpen] = useState(false);
@@ -260,7 +260,7 @@ export const CommandMenu = () => {
 						role="dialog"
 						aria-modal="true"
 						aria-label="Command menu"
-						className="max-w-160 fixed inset-x-0 top-[10vh] z-50 mx-auto w-[calc(100%-2rem)]"
+						className="max-w-160 inline-start-0 inline-end-0 block-start-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
 						initial={{ opacity: 0, y: -8 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -8 }}
@@ -302,7 +302,7 @@ export const CommandMenu = () => {
 								{/* Menu view */}
 								{view === 'menu' && (
 									<>
-										<Command.Empty className="text-2 text-shibui-400 py-8 text-center">
+										<Command.Empty className="text-2 text-shibui-400 pbl-8 text-center">
 											No results found.
 										</Command.Empty>
 
@@ -394,12 +394,12 @@ export const CommandMenu = () => {
 								{view === 'search' && (
 									<>
 										{!query.trim() && (
-											<div className="text-2 text-shibui-400 py-8 text-center">
+											<div className="text-2 text-shibui-400 pbl-8 text-center">
 												Type to search posts, haiku and work.
 											</div>
 										)}
 										{query.trim() && results.length === 0 && (
-											<div className="text-2 text-shibui-400 py-8 text-center">
+											<div className="text-2 text-shibui-400 pbl-8 text-center">
 												Nothing found for &lsquo;{query}&rsquo;.
 											</div>
 										)}
@@ -432,21 +432,21 @@ export const CommandMenu = () => {
 							</Command.List>
 
 							{/* Footer hint */}
-							<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 flex items-center justify-end gap-4 px-4 py-2">
+							<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										↑↓
 									</kbd>{' '}
 									navigate
 								</span>
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										↵
 									</kbd>{' '}
 									select
 								</span>
 								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 px-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 										esc
 									</kbd>{' '}
 									close

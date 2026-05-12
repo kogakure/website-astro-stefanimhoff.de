@@ -48,7 +48,7 @@ export const TypeSpecimen = ({
 					{text}
 				</p>
 			</div>
-			<div className="border-usuzumi dark:border-nezumi flex flex-wrap gap-x-6 gap-y-1 border-t px-6 py-3">
+			<div className="border-usuzumi dark:border-nezumi border-bs-1 pli-6 pbl-3 flex flex-wrap gap-x-6 gap-y-1">
 				<span className="text-beni dark:text-beni-light font-mono text-xs">{token}</span>
 				<span className="font-mono text-xs" style={{ color: 'var(--color-hai)' }}>
 					{role}

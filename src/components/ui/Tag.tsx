@@ -9,7 +9,7 @@ interface Props {
 }
 
 const baseClasses =
-	'relative inline-flex min-w-[40px] items-center justify-center rounded-2 border border-shibui-300 bg-shibui-200 px-3 py-1 text-1 font-normal capitalize leading-none text-shibui-950 mie-1 dark:border-shibui-700 dark:bg-shibui-800 dark:text-shibui-100 print:hidden transition-colors duration-150';
+	'relative inline-flex min-w-[40px] items-center justify-center rounded-2 border border-shibui-300 bg-shibui-200 pli-3 pbl-1 text-1 font-normal capitalize leading-none text-shibui-950 mie-1 dark:border-shibui-700 dark:bg-shibui-800 dark:text-shibui-100 print:hidden transition-colors duration-150';
 
 const activeClasses =
 	'border-beni/25 bg-beni text-kiri hover:bg-beni-light focus:bg-beni-light dark:border-beni/50 dark:bg-beni dark:text-kiri dark:hover:bg-beni-light dark:focus:bg-beni-light';

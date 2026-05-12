@@ -84,7 +84,10 @@ export const LogoDontList = () => (
 						/>
 					</svg>
 				</div>
-				<div className="px-3 py-2" style={{ borderTop: '1px solid var(--color-usuzumi)' }}>
+				<div
+					className="pli-3 pbl-2"
+					style={{ borderBlockStart: '1px solid var(--color-usuzumi)' }}
+				>
 					<div
 						className="font-mono text-[10px] font-medium"
 						style={{ color: 'var(--color-beni)' }}

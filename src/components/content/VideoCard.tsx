@@ -81,7 +81,7 @@ export const VideoCard = ({
 					/>
 				</div>
 				{kind !== 'video' && (
-					<div className="absolute right-2 top-2">
+					<div className="inline-end-2 block-start-2 absolute">
 						<Badge>{kindLabel[kind]}</Badge>
 					</div>
 				)}

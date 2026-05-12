@@ -21,7 +21,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 
 <BaseLayout title={title} description={description}>
 	<!-- Breadcrumb -->
-	<nav aria-label="Breadcrumb" class="max-w-360 mx-auto w-full px-8 pt-8">
+	<nav aria-label="Breadcrumb" class="max-w-360 pli-8 pbs-8 mx-auto w-full">
 		<ol class="text-hai flex items-center gap-2 font-mono text-xs">
 			<li>
 				<a
@@ -36,7 +36,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 	</nav>
 
 	<!-- Hero strip -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-10 pt-8">
+	<div class="max-w-360 pli-8 pbe-10 pbs-8 mx-auto w-full">
 		<div
 			class="mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 		>
@@ -68,19 +68,19 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 				{description && <p class="text-hai text-3 mbe-0">{description}</p>}
 			</div>
 		</div>
-		<div class="border-usuzumi dark:border-nezumi mbs-8 border-t"></div>
+		<div class="border-usuzumi dark:border-nezumi mbs-8 border-bs-1"></div>
 	</div>
 
 	<!-- Three-column body -->
 	<div
-		class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-32 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+		class="max-w-360 pli-8 pbe-32 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 	>
 		<!-- Left nav sidebar -->
 		<aside
 			class="mbe-10 xl:mbe-0 col-span-3 xl:col-span-2 xl:col-start-1 xl:row-start-1"
 			aria-label="Design system navigation"
 		>
-			<div class="xl:sticky xl:top-24">
+			<div class="xl:block-start-24 xl:sticky">
 				<DesignSystemNav currentSlug={currentSlug} />
 			</div>
 		</aside>
@@ -96,7 +96,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 		{
 			headings.length > 1 && (
 				<aside class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-11 xl:row-start-1">
-					<div class="xl:sticky xl:top-24">
+					<div class="xl:block-start-24 xl:sticky">
 						<TableOfContents headings={headings} client:load transition:persist />
 					</div>
 				</aside>
@@ -108,7 +108,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 	{
 		(prev || next) && (
 			<nav
-				class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-16 pt-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+				class="max-w-360 pli-8 pbe-16 pbs-4 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 				aria-label="Design system section navigation"
 			>
 				<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-7 xl:col-start-3">
@@ -121,10 +121,10 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 						{prev && (
 							<a
 								class:list={[
-									'ease-enter group relative flex flex-col gap-3 px-6 py-6 text-left transition-colors duration-200 md:px-8 md:py-8',
+									'ease-enter pli-6 pbl-6 md:pli-8 md:pbl-8 group relative flex flex-col gap-3 text-start transition-colors duration-200',
 									prev &&
 										next &&
-										'border-usuzumi dark:border-nezumi border-b md:border-b-0 md:border-r',
+										'border-usuzumi dark:border-nezumi border-be-1 md:border-be-0 md:border-ie-1',
 								]}
 								href={`/design-system/${prev.slug}/`}
 								rel="prev"
@@ -143,7 +143,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 						)}
 						{next && (
 							<a
-								class="ease-enter group relative flex flex-col items-end gap-3 px-6 py-6 text-right transition-colors duration-200 md:px-8 md:py-8"
+								class="ease-enter pli-6 pbl-6 md:pli-8 md:pbl-8 group relative flex flex-col items-end gap-3 text-end transition-colors duration-200"
 								href={`/design-system/${next.slug}/`}
 								rel="next"
 							>
