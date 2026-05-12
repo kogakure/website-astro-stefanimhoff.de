@@ -287,6 +287,12 @@
 @utility inline-start-* {
 	inset-inline-start: --value(--spacing- *, [length], [percentage]);
 }
+@utility inline-end-* {
+	inset-inline-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility block-end-* {
+	inset-block-end: --value(--spacing- *, [length], [percentage]);
+}
 
 /* Border utilities */
 @utility border-1 {
@@ -342,6 +348,42 @@
 @utility border-bs-* {
 	border-block-start-color: --value(--color- *, [color]);
 }
+
+/* Logical border — inline-start/end static widths */
+@utility border-is-1 {
+	border-inline-start-width: 1px;
+}
+@utility border-is-2 {
+	border-inline-start-width: 2px;
+}
+@utility border-ie-1 {
+	border-inline-end-width: 1px;
+}
+@utility border-ie-2 {
+	border-inline-end-width: 2px;
+}
+/* Logical border — inline-start/end styles */
+@utility border-is-solid {
+	border-inline-start-style: solid;
+}
+@utility border-ie-solid {
+	border-inline-end-style: solid;
+}
+/* Logical border — inline-start/end arbitrary widths */
+@utility border-is-* {
+	border-inline-start-width: --value([length]);
+}
+@utility border-ie-* {
+	border-inline-end-width: --value([length]);
+}
+/* Logical border — inline-start/end colors */
+@utility border-is-* {
+	border-inline-start-color: --value(--color- *, [color]);
+}
+@utility border-ie-* {
+	border-inline-end-color: --value(--color- *, [color]);
+}
+
 @utility small-caps {
 	font-variant-caps: small-caps;
 }
