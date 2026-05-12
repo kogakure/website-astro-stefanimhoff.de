@@ -1,10 +1,11 @@
 ---
 # SI-pgi6
 title: "DS-9: Accessibility page — focus ring, touch target, alt text"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:56Z
-updated_at: 2026-05-02T17:57:56Z
+updated_at: 2026-05-12T16:50:37Z
 parent: SI-p04a
 ---
 

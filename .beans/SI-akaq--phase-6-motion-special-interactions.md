@@ -1,35 +1,16 @@
 ---
 # SI-akaq
 title: "Phase 6: Motion & Special Interactions"
-status: todo
+status: in-progress
 type: feature
 priority: normal
 created_at: 2026-04-09T12:14:46Z
-updated_at: 2026-04-25T15:04:42Z
+updated_at: 2026-05-12T16:53:27Z
 ---
 
 ## Phase 6 — Motion & Special Interactions
 
 **Goal:** Implement Framer Motion animations per the Ma spec.
-
-### Hover preview on essay titles
-
-```tsx
-// FloatingPreview.tsx
-// On mouseenter title → show cover thumbnail that follows cursor
-// Framer Motion: AnimatePresence + motion.div with x/y from useMouse
-// 300ms --ease-enter, opacity 0→1, scale 0.95→1
-```
-
-### Japanese poem scroll (homepage)
-
-```tsx
-// ParallaxPoem.tsx
-// Horizontal scroll linked to vertical scroll position
-// Framer Motion: useScroll + useTransform
-// Maps scrollYProgress [0, 1] → x [100vw, -100vw]
-// Linear, no easing (user controls speed)
-```
 
 ### Page transitions
 

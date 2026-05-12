@@ -1,11 +1,11 @@
 ---
 # SI-tfhf
 title: "Phase 5: Layouts & Pages"
-status: in-progress
+status: completed
 type: epic
 priority: normal
 created_at: 2026-04-09T12:14:46Z
-updated_at: 2026-04-22T18:15:37Z
+updated_at: 2026-05-12T16:51:06Z
 ---
 
 **Goal:** Implement all pages and layouts using the new design.

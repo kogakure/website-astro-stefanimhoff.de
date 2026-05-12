@@ -1,10 +1,11 @@
 ---
 # SI-ei8h
 title: "DS-7: Logo page — specimen, size strip, don'ts"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:56Z
-updated_at: 2026-05-02T17:57:56Z
+updated_at: 2026-05-12T16:50:43Z
 parent: SI-p04a
 ---
 

@@ -1,10 +1,11 @@
 ---
 # SI-jrz3
 title: "DS-13: Polish — TOC, prev/next, breadcrumbs, dark mode QA, a11y"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:58:11Z
-updated_at: 2026-05-02T17:58:11Z
+updated_at: 2026-05-12T16:50:46Z
 parent: SI-p04a
 ---
 

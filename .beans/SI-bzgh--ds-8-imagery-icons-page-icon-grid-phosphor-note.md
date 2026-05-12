@@ -1,10 +1,11 @@
 ---
 # SI-bzgh
 title: "DS-8: Imagery & icons page — icon grid, Phosphor note"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:57:56Z
-updated_at: 2026-05-02T17:57:56Z
+updated_at: 2026-05-12T16:50:40Z
 parent: SI-p04a
 ---
 

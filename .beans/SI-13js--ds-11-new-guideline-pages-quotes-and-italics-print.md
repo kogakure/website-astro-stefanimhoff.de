@@ -1,10 +1,11 @@
 ---
 # SI-13js
 title: "DS-11: New guideline pages — quotes-and-italics, print"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:58:11Z
-updated_at: 2026-05-02T17:58:11Z
+updated_at: 2026-05-12T16:50:51Z
 parent: SI-p04a
 ---
 

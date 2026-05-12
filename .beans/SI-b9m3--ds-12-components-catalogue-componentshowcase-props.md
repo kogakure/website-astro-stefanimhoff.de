@@ -1,10 +1,11 @@
 ---
 # SI-b9m3
 title: "DS-12: Components catalogue — ComponentShowcase, PropsTable, data file"
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-02T17:58:11Z
-updated_at: 2026-05-02T17:58:11Z
+updated_at: 2026-05-12T16:50:49Z
 parent: SI-p04a
 ---
 
