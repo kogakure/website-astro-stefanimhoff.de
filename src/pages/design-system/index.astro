@@ -76,7 +76,7 @@ const sections = [
 	description="The space between. Two letters. A design system built on the idea that empty space is the design."
 >
 	<!-- Cover image -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-16 pt-24">
+	<div class="max-w-360 pli-8 pbe-16 pbs-24 mx-auto w-full">
 		<Image
 			src={coverImage}
 			alt="Ma Design System — the gate with light passing through"
@@ -89,11 +89,11 @@ const sections = [
 
 	<!-- Hero: asymmetric 3+9 -->
 	<div
-		class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 px-8 pb-20 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+		class="max-w-360 pli-8 pbe-20 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 	>
 		<!-- Left accent (kanji + tagline) -->
 		<div
-			class="col-span-3 flex flex-col justify-end gap-4 pb-2 md:col-span-2 xl:col-span-3 xl:col-start-1"
+			class="pbe-2 col-span-3 flex flex-col justify-end gap-4 md:col-span-2 xl:col-span-3 xl:col-start-1"
 		>
 			<span
 				class="font-japanese text-usuzumi dark:text-nezumi leading-none"
@@ -122,12 +122,12 @@ const sections = [
 	</div>
 
 	<!-- Divider -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-20">
-		<div class="border-usuzumi dark:border-nezumi border-t"></div>
+	<div class="max-w-360 pli-8 pbe-20 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
 	</div>
 
 	<!-- Seven principles (asymmetric 3+4 grid) -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-20">
+	<div class="max-w-360 pli-8 pbe-20 mx-auto w-full">
 		<div
 			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-4 md:grid-cols-6 md:gap-x-6 md:gap-y-6 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-8"
 		>
@@ -187,12 +187,12 @@ const sections = [
 	</div>
 
 	<!-- Divider -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-16">
-		<div class="border-usuzumi dark:border-nezumi border-t"></div>
+	<div class="max-w-360 pli-8 pbe-16 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
 	</div>
 
 	<!-- Section index -->
-	<div class="max-w-360 mx-auto w-full px-8 pb-32">
+	<div class="max-w-360 pli-8 pbe-32 mx-auto w-full">
 		<div
 			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 		>
@@ -209,7 +209,7 @@ const sections = [
 							<li>
 								<a
 									href={`/design-system/${s.slug}/`}
-									class="section-link border-usuzumi dark:border-nezumi group flex items-center gap-6 border-b py-5 transition-colors duration-200 first:border-t hover:no-underline"
+									class="section-link border-usuzumi dark:border-nezumi border-be-1 pbl-5 first:border-bs-1 group flex items-center gap-6 transition-colors duration-200 hover:no-underline"
 								>
 									<span class="text-usuzumi dark:text-nezumi w-8 shrink-0 font-mono text-xs">
 										{s.order}
