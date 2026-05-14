@@ -29,7 +29,7 @@ export const ColorSwatchPrimary = ({
 			<div
 				className={cn(
 					'rounded-bs-2 aspect-3/2 relative flex w-full items-center justify-center',
-					light && 'border-usuzumi/40 border-[1px]'
+					light && 'border-usuzumi/40 border-1'
 				)}
 				style={{ backgroundColor: color }}
 			>

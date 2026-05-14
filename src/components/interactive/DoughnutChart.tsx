@@ -46,12 +46,12 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Toolti
 	if (!active || !payload?.length) return null;
 	const item = payload[0];
 	return (
-		<div className="pli-3 pbl-2 flex items-center gap-2 rounded-md border border-[#C8C8C4] bg-[#E6E6E6] text-sm shadow-sm dark:border-[#6B6B67] dark:bg-[#1A1918]">
+		<div className="pli-3 pbl-2 border-usuzumi bg-washi dark:border-nezumi dark:bg-yoru flex items-center gap-2 rounded-md border text-sm shadow-sm">
 			<span
 				className="inline-block size-3 flex-shrink-0 rounded-sm border border-black/25 dark:border-white/25"
 				style={{ backgroundColor: item.payload.fill }}
 			/>
-			<span className="text-[#0E0D0C] dark:text-[#E6E6E6]">
+			<span className="text-sumi dark:text-washi">
 				{item.name}: {item.value.toLocaleString()}
 			</span>
 		</div>

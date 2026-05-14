@@ -18,7 +18,7 @@ export const MarkdownImage = ({ className, noMargin, src, alt = '', ...props }: 
 			tabIndex={0}
 			role="button"
 			aria-label="Open image in lightbox"
-			className="cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]"
+			className="ease-enter cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
 			{...props}
 		/>
 	</div>

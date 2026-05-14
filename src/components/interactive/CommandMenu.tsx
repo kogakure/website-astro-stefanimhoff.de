@@ -418,7 +418,7 @@ export const CommandMenu = () => {
 																	{result.meta.title}
 																</div>
 																<div
-																	className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi truncate opacity-60 [&_mark]:rounded-[2px] [&_mark]:px-[0.2em]"
+																	className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi [&_mark]:rounded-1 truncate opacity-60 [&_mark]:px-[0.2em]"
 																	dangerouslySetInnerHTML={{
 																		__html: result.excerpt,
 																	}}

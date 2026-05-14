@@ -44,7 +44,7 @@ const Image = ({
 			className={cn(
 				'rounded-2 object-cover',
 				lightbox &&
-					'cursor-zoom-in transition-[transform,filter] duration-200 ease-[cubic-bezier(0,0,0.38,0.9)] hover:scale-[1.01] hover:brightness-[1.03]'
+					'ease-enter cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]'
 			)}
 			decoding={decoding}
 			loading={loading}

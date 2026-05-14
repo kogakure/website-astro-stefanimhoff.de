@@ -30,7 +30,7 @@ export const ColorSwatch = ({
 			<div
 				className={cn(
 					'rounded-bs-2 aspect-4/3 w-full',
-					light && 'border-usuzumi/40 border-[1px]'
+					light && 'border-usuzumi/40 border-1'
 				)}
 				style={{ backgroundColor: color }}
 			>

@@ -14,7 +14,7 @@ export const ColorSwatchMini = ({ className, color, ...props }: Props) => {
 		<span
 			className={cn(
 				'inline-block size-4 rounded-sm align-middle',
-				light && 'border-usuzumi/40 border-[1px]',
+				light && 'border-usuzumi/40 border-1',
 				className
 			)}
 			style={{ backgroundColor: color }}
