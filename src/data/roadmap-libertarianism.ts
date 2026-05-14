@@ -40,4 +40,9 @@ export const roadmapLibertarianism: RoadmapEntry[] = [
 		slug: 'man-economy-and-state',
 		note: 'A comprehensive, rigorous development of Austrian economics from first principles—best tackled after you’ve built foundational intuition.',
 	},
+	{
+		type: 'audiobook',
+		slug: 'human-action',
+		note: 'The masterwork of Austrian economics that builds a unified, praxeological framework for understanding purposeful human behavior, market coordination, and the limits of intervention.',
+	},
 ];
