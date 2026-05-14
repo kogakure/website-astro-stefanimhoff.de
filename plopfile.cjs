@@ -8,11 +8,15 @@ const year = moment().format('YYYY');
 
 module.exports = function (plop) {
 	const tags = [
+		'ai',
 		'book',
 		'code',
 		'design',
 		'download',
 		'film',
+		'japan',
+		'minimalism',
+		'personal',
 		'philosophy',
 		'poetry',
 		'politics',
