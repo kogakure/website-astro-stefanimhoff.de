@@ -77,17 +77,17 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 	>
 		<!-- Left nav sidebar -->
 		<aside
-			class="mbe-10 xl:mbe-0 col-span-3 xl:col-span-2 xl:col-start-1 xl:row-start-1"
+			class="mbe-10 md:mbe-0 col-span-3 md:col-span-2 md:row-start-1 xl:col-span-2 xl:col-start-1 xl:row-start-1"
 			aria-label="Design system navigation"
 		>
-			<div class="xl:block-start-24 xl:sticky">
+			<div class="md:block-start-24 md:sticky">
 				<DesignSystemNav currentSlug={currentSlug} />
 			</div>
 		</aside>
 
 		<!-- Article body -->
 		<article
-			class="design-system-article col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-7 xl:col-start-3 xl:row-start-1"
+			class="design-system-article col-span-3 min-w-0 md:col-span-4 md:col-start-3 md:row-start-1 xl:col-span-7 xl:col-start-3 xl:row-start-1"
 		>
 			<slot />
 		</article>
@@ -95,7 +95,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 		<!-- Right rail: Table of Contents -->
 		{
 			headings.length > 1 && (
-				<aside class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-11 xl:row-start-1">
+				<aside class="col-span-3 md:col-span-4 md:col-start-3 xl:col-span-2 xl:col-start-11 xl:row-start-1">
 					<div class="xl:block-start-24 xl:sticky">
 						<TableOfContents headings={headings} client:load transition:persist />
 					</div>
@@ -111,7 +111,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 				class="max-w-360 pli-8 pbe-16 pbs-4 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 				aria-label="Design system section navigation"
 			>
-				<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-7 xl:col-start-3">
+				<div class="col-span-3 md:col-span-4 md:col-start-3 xl:col-span-7 xl:col-start-3">
 					<div
 						class:list={[
 							'rounded-2 border-usuzumi dark:border-nezumi grid border',

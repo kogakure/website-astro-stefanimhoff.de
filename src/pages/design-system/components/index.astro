@@ -1,5 +1,6 @@
 ---
 import DesignSystemLayout from '@/layouts/DesignSystemLayout.astro';
+import 'lite-youtube-embed/src/lite-yt-embed.css';
 
 // UI components
 import Text from '@/components/ui/Text';
@@ -28,8 +29,69 @@ import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
 import ColorSwatchMini from '@/components/content/ColorSwatchMini';
 import ColorStack from '@/components/content/ColorStack';
 
+// Additional UI components
+import { Strikethrough } from '@/components/ui/Strikethrough';
+import { Inserted } from '@/components/ui/Inserted';
+import { Marked } from '@/components/ui/Marked';
+import { Subscript } from '@/components/ui/Subscript';
+import { Superscript } from '@/components/ui/Superscript';
+import { Table } from '@/components/ui/Table';
+import { TableHead } from '@/components/ui/TableHead';
+import { TableBody } from '@/components/ui/TableBody';
+import { TableRow } from '@/components/ui/TableRow';
+import { TableHeaderCell } from '@/components/ui/TableHeaderCell';
+import { TableCell } from '@/components/ui/TableCell';
+import { CodeBlock } from '@/components/ui/CodeBlock';
+import { FootnoteSection } from '@/components/ui/FootnoteSection';
+import { TaskCheckbox } from '@/components/ui/TaskCheckbox';
+import { Badge } from '@/components/ui/Badge';
+import { Link } from '@/components/ui/Link';
+import { EssayLink } from '@/components/ui/EssayLink';
+import { Flag } from '@/components/ui/Flag';
+import { HaikuItem } from '@/components/ui/HaikuItem';
+import { JapanesePoem } from '@/components/ui/JapanesePoem';
+import { QuoteAttribution } from '@/components/ui/QuoteAttribution';
+import { Switch } from '@/components/ui/switch';
+// Tooltip omitted from SSR demo — TooltipContent uses ReactDOM.createPortal (portal-based, breaks SSR)
+
+// Additional content components
+import { AudioCard } from '@/components/content/AudioCard';
+import { BookCard } from '@/components/content/BookCard';
+import { VideoCard } from '@/components/content/VideoCard';
+import { MediaLinkRow } from '@/components/content/MediaLinkRow';
+import { AppleTVFlag } from '@/components/content/AppleTVFlag';
+import { NetflixFlag } from '@/components/content/NetflixFlag';
+import { PrimeVideoFlag } from '@/components/content/PrimeVideoFlag';
+import { Platform } from '@/components/content/Platform';
+import { AmazonBook } from '@/components/content/AmazonBook';
+import { Book } from '@/components/content/Book';
+import { Bookshelf } from '@/components/content/Bookshelf';
+import { YouTube } from '@/components/content/YouTube';
+import { Spotify } from '@/components/content/Spotify';
+import { Figure } from '@/components/content/Figure';
+import ContentImage from '@/components/content/Image';
+import { MarkdownImage } from '@/components/content/MarkdownImage';
+import { DownloadLink } from '@/components/content/DownloadLink';
+import { EmailLink } from '@/components/content/EmailLink';
+import { ProductLink } from '@/components/content/ProductLink';
+import { Ruby } from '@/components/content/Ruby';
+import { Verse } from '@/components/content/Verse';
+// RSSText renders null — no demo component needed
+
+// Interactive components
+// BarChart / DoughnutChart: Recharts ResponsiveContainer needs DOM — use client:visible in MDX
+// HoverPreview: no visible SSR output — activated via data-hover-preview anchors
+import { LightboxRoot } from '@/components/interactive/LightboxRoot';
+import { TableOfContents } from '@/components/interactive/TableOfContents';
+import { Marquee } from '@/components/interactive/Marquee';
+import { Roadmap } from '@/components/interactive/Roadmap';
+import { SeriesStepper } from '@/components/interactive/SeriesStepper';
+
 // Showcase wrapper
 import ComponentShowcase from '@/components/design-system/ComponentShowcase';
+
+const sampleImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="800" height="450" fill="#900B20"/><text x="400" y="225" text-anchor="middle" dominant-baseline="middle" fill="#E6E6E6" font-family="sans-serif" font-size="18">Sample image</text></svg>')}`;
+const sampleBookImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="300"><rect width="200" height="300" fill="#900B20"/><text x="100" y="150" text-anchor="middle" dominant-baseline="middle" fill="#E6E6E6" font-family="sans-serif" font-size="12">Book cover</text></svg>')}`;
 ---
 
 <DesignSystemLayout
@@ -200,6 +262,258 @@ import ComponentShowcase from '@/components/design-system/ComponentShowcase';
 			>The system is built on <Strong>contrast as a principle</Strong>, not as an accident.
 			Display type is set in <Em>Boska Bold</Em> at extreme sizes.</Text
 		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Strikethrough / Inserted / Marked"
+		importPath="components/ui/Strikethrough"
+		category="ui"
+		description="Semantic inline marks. Strikethrough: deleted text (del). Inserted: added text (ins). Marked: highlighted text (mark)."
+	>
+		<Text
+			><Strikethrough>deleted content</Strikethrough>{' '}was replaced by{' '}
+			<Inserted>inserted content</Inserted>{' '}and some text is{' '}
+			<Marked>highlighted for emphasis</Marked>.</Text
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Subscript / Superscript"
+		importPath="components/ui/Subscript"
+		category="ui"
+		description="Inline typographic positioning. Subscript renders sub. Superscript renders sup."
+	>
+		<Text
+			>Water is H<Subscript>2</Subscript>O. A footnote reference<Superscript>1</Superscript> links
+			to the note.</Text
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Table"
+		importPath="components/ui/Table"
+		category="ui"
+		description="Full table family: Table, TableHead, TableBody, TableRow, TableHeaderCell, TableCell. Responsive with overflow-x-auto."
+	>
+		<Table>
+			<TableHead>
+				<TableRow>
+					<TableHeaderCell>Component</TableHeaderCell>
+					<TableHeaderCell>Element</TableHeaderCell>
+					<TableHeaderCell>Purpose</TableHeaderCell>
+				</TableRow>
+			</TableHead>
+			<TableBody>
+				<TableRow>
+					<TableCell>Text</TableCell>
+					<TableCell>p</TableCell>
+					<TableCell>Body copy paragraph</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>Headline</TableCell>
+					<TableCell>h2</TableCell>
+					<TableCell>Section heading</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>Tag</TableCell>
+					<TableCell>a / button / span</TableCell>
+					<TableCell>Filter label pill</TableCell>
+				</TableRow>
+			</TableBody>
+		</Table>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="CodeBlock"
+		importPath="components/ui/CodeBlock"
+		category="ui"
+		description="Styled pre element for code blocks. Fira Code, Kiri background, overflow-x-auto."
+	>
+		<CodeBlock
+			>{
+				`const greeting = (name: string) => \`Hello, \${name}!\`;\ngreeting('Ma Design System');`
+			}</CodeBlock
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="FootnoteSection"
+		importPath="components/ui/FootnoteSection"
+		category="ui"
+		description="Semantic container for footnotes at the end of essay content. Renders section.footnotes with muted text-2 sizing."
+	>
+		<FootnoteSection>
+			<Text className="text-2 text-hai mbe-0"
+				>1. Boska Variable, Barbara Bigosińska, Fontshare/ITF, 2022.</Text
+			>
+		</FootnoteSection>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="TaskCheckbox"
+		importPath="components/ui/TaskCheckbox"
+		category="ui"
+		description="Disabled styled checkbox for GFM task list items (- [ ] / - [x] syntax in MDX)."
+	>
+		<div class="flex flex-col gap-2">
+			<label class="flex items-center gap-2">
+				<TaskCheckbox />
+				<Text className="mbe-0">Unchecked task item</Text>
+			</label>
+			<label class="flex items-center gap-2">
+				<TaskCheckbox defaultChecked />
+				<Text className="mbe-0">Checked task item</Text>
+			</label>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Badge"
+		importPath="components/ui/Badge"
+		category="ui"
+		description="Small status/label chip. Variants: default, favorite (Beni), paid, language."
+		props={[
+			{
+				name: 'variant',
+				type: '"default" | "favorite" | "paid" | "language"',
+				default: '"default"',
+				description: 'Visual variant',
+			},
+		]}
+	>
+		<div class="flex flex-wrap gap-2">
+			<Badge>Default</Badge>
+			<Badge variant="favorite">Favorite</Badge>
+			<Badge variant="paid">Paid</Badge>
+			<Badge variant="language">DE</Badge>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Link"
+		importPath="components/ui/Link"
+		category="ui"
+		description="Base anchor element. Auto-detects external URLs — adds rel noopener and target _blank."
+		props={[{ name: 'href', type: 'string', default: '"#"', description: 'Link destination' }]}
+	>
+		<div class="flex gap-6">
+			<Link href="#">Internal link</Link>
+			<Link href="https://stefanimhoff.de">External link ↗</Link>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="EssayLink"
+		importPath="components/ui/EssayLink"
+		category="ui"
+		description="Unstyled link that reveals Beni colour on hover. Used in essay list cards as a wrapper link."
+	>
+		<EssayLink href="#">The discipline of leaving things out — an essay on minimalism</EssayLink
+		>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Flag"
+		importPath="components/ui/Flag"
+		category="ui"
+		description="Inline monospace label tag. Renders as Link when href provided, otherwise span."
+		props={[
+			{ name: 'label', type: 'string', description: 'Text displayed inside the flag' },
+			{ name: 'href', type: 'string', description: 'Renders as Link when provided' },
+		]}
+	>
+		<Text>
+			A generic flag <Flag label="NEW" /> used inline. Also linkable: <Flag
+				href="#"
+				label="tv"
+			/>.
+		</Text>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="HaikuItem"
+		importPath="components/ui/HaikuItem"
+		category="ui"
+		description="Renders a single haiku with German original and English translation. Newlines become ` / ` separators."
+		props={[
+			{
+				name: 'de',
+				type: 'string',
+				description: 'German haiku text (newline-separated lines)',
+			},
+			{ name: 'en', type: 'string', description: 'English translation' },
+		]}
+	>
+		<ul class="list-none">
+			<HaikuItem
+				de={`Im Herbstwind weht\nein gelbes Blatt vom Baum —\nStille danach.`}
+				en="In the autumn wind / a yellow leaf falls from the tree — / silence after."
+			/>
+		</ul>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="JapanesePoem"
+		importPath="components/ui/JapanesePoem"
+		category="ui"
+		description="Large display Japanese text strip. Used inside Marquee for full-bleed poem (Datsuzoku). Renders default poem when no children."
+		props={[
+			{ name: 'as', type: 'ElementType', default: '"span"', description: 'Rendered element' },
+		]}
+	>
+		<div class="overflow-hidden">
+			<JapanesePoem />
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="QuoteAttribution"
+		importPath="components/ui/QuoteAttribution"
+		category="ui"
+		description="Attribution footer for Blockquote. — Author, Source (optional link). Renders null when neither author nor source provided."
+		props={[
+			{ name: 'author', type: 'string', description: 'Author name' },
+			{ name: 'source', type: 'string', description: 'Work title' },
+			{ name: 'sourceUrl', type: 'string', description: 'Optional link for source' },
+		]}
+	>
+		<QuoteAttribution author="Ludwig Wittgenstein" source="Tractatus Logico-Philosophicus" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Switch"
+		importPath="components/ui/switch"
+		category="ui"
+		description="shadcn/ui Switch toggle. Two sizes: default and sm."
+		props={[
+			{
+				name: 'size',
+				type: '"default" | "sm"',
+				default: '"default"',
+				description: 'Toggle size',
+			},
+		]}
+	>
+		<div class="flex items-center gap-6">
+			<Switch />
+			<Switch defaultChecked />
+			<Switch size="sm" />
+			<Switch size="sm" defaultChecked />
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Tooltip"
+		importPath="components/ui/tooltip"
+		category="ui"
+		description="shadcn/ui Tooltip. Wrap trigger in TooltipTrigger, content in TooltipContent. Requires TooltipProvider at root. Use client:load — TooltipContent uses a portal and requires the DOM."
+	>
+		<p class="text-hai font-mono text-xs">
+			Requires <code class="text-beni">client:load</code> — portal-based, SSR-safe demo not possible.
+			Pattern: <code class="text-sumi dark:text-washi"
+				>TooltipProvider &gt; Tooltip &gt; TooltipTrigger + TooltipContent</code
+			>
+		</p>
 	</ComponentShowcase>
 
 	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">
@@ -380,4 +694,579 @@ import ComponentShowcase from '@/components/design-system/ComponentShowcase';
 			<ColorSwatch color="#F2F2F0" name="Kiri" description="Cards" />
 		</ColorStack>
 	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Media Cards</p>
+
+	<ComponentShowcase
+		name="AudioCard"
+		importPath="components/content/AudioCard"
+		category="content"
+		description="Card for audiobooks and podcasts. Cover image with placeholder icon fallback. Badges for featured/paid/language."
+		props={[
+			{ name: 'title', type: 'string', description: 'Card title (required)' },
+			{
+				name: 'kind',
+				type: '"audiobook" | "podcast"',
+				description: 'Sets placeholder icon and contributor label',
+			},
+			{ name: 'author', type: 'string', description: 'Audiobook author' },
+			{ name: 'moderator', type: 'string', description: 'Podcast host' },
+			{ name: 'cover', type: 'string', description: 'Cover image URL' },
+			{ name: 'featured', type: 'boolean', description: 'Shows Favorite badge' },
+			{ name: 'paid', type: 'boolean', description: 'Shows Paid badge' },
+			{ name: 'language', type: 'string', description: 'Shows language badge' },
+			{
+				name: 'links',
+				type: 'MediaLink[]',
+				description: 'Platform links rendered via MediaLinkRow',
+			},
+		]}
+	>
+		<div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+			<AudioCard
+				title="Anatomy of the State"
+				kind="audiobook"
+				author="Murray N. Rothbard"
+				cover="/assets/images/audiobooks/libertarianism/anatomy-of-the-state.webp"
+				featured
+			/>
+			<AudioCard
+				title="Aethervox Patreon"
+				kind="podcast"
+				moderator="Christian Schneider"
+				cover="/assets/images/podcasts/libertarianism/aethervox-patreon.webp"
+				paid
+				language="DE"
+			/>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="BookCard"
+		importPath="components/content/BookCard"
+		category="content"
+		description="Card for book entries. Optional ASIN auto-generates Amazon cover and link."
+		props={[
+			{ name: 'title', type: 'string', description: 'Book title (required)' },
+			{ name: 'author', type: 'string', description: 'Author name' },
+			{ name: 'asin', type: 'string', description: 'Auto-generates Amazon cover and link' },
+			{ name: 'cover', type: 'string', description: 'Override cover image URL' },
+			{ name: 'featured', type: 'boolean', description: 'Favorite badge' },
+		]}
+	>
+		<div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+			<BookCard
+				title="Anatomy of the State"
+				author="Murray N. Rothbard"
+				asin="1933550481"
+				featured
+			/>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="VideoCard"
+		importPath="components/content/VideoCard"
+		category="content"
+		description="Card for video entries. Auto-generates YouTube thumbnail from youtubeId. Play overlay on hover."
+		props={[
+			{ name: 'title', type: 'string', description: 'Video title (required)' },
+			{ name: 'url', type: 'string', description: 'Link URL (required)' },
+			{ name: 'youtubeId', type: 'string', description: 'YouTube ID for thumbnail' },
+			{
+				name: 'kind',
+				type: '"video" | "playlist" | "channel"',
+				default: '"video"',
+				description: 'Shows badge for non-video types',
+			},
+			{ name: 'channel', type: 'string', description: 'Channel name' },
+			{ name: 'featured', type: 'boolean', description: 'Favorite badge' },
+		]}
+	>
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+			<VideoCard
+				title="EVERY ANGEL IS TERRIFYING"
+				url="https://www.youtube.com/watch?v=FECyn_sGk4M"
+				youtubeId="FECyn_sGk4M"
+				channel="PRAXIS"
+				featured
+			/>
+			<VideoCard
+				title="Out of Frame"
+				url="https://www.youtube.com/playlist?list=PLa5yyWoUx0nXUeSpxDMqznYqIjjcgLKmc"
+				kind="playlist"
+				cover="/assets/images/videos/libertarianism/playlist-out-of-frame.webp"
+				channel="Foundation for Economic Education"
+			/>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="MediaLinkRow"
+		importPath="components/content/MediaLinkRow"
+		category="content"
+		description="Horizontal row of platform icon links. Renders null when all links have no url."
+		props={[
+			{
+				name: 'links',
+				type: 'MediaLink[]',
+				description: 'Array of { kind, url?, label? } objects',
+			},
+		]}
+	>
+		<MediaLinkRow
+			links={[
+				{ kind: 'spotify', url: '#' },
+				{ kind: 'apple', url: '#' },
+				{ kind: 'youtube', url: '#' },
+				{ kind: 'patreon', url: '#' },
+				{ kind: 'amazon', url: '#' },
+				{ kind: 'web', url: '#' },
+			]}
+		/>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Platform Flags</p>
+
+	<ComponentShowcase
+		name="AppleTVFlag / NetflixFlag / PrimeVideoFlag"
+		importPath="components/content/AppleTVFlag"
+		category="content"
+		description="Inline branded service badges. Each links to the show on its platform via id prop."
+		props={[{ name: 'id', type: 'string', description: 'Platform-specific show ID' }]}
+	>
+		<Text>
+			Watch it on <AppleTVFlag id="tvs.sin-city" /> or <NetflixFlag id="70136920" /> or <PrimeVideoFlag
+				id="B00I6SB0KA"
+			/>.
+		</Text>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Platform"
+		importPath="components/content/Platform"
+		category="content"
+		description="Generic platform icon badge. Renders a 16×16 device icon with accessible label."
+		props={[
+			{
+				name: 'kind',
+				type: '"iphone" | "desktop" | "appletv" | "web"',
+				description: 'Platform type',
+			},
+		]}
+	>
+		<div class="flex flex-wrap items-center gap-6">
+			<span class="flex items-center gap-1.5"><Platform kind="iphone" /> iPhone / iPad</span>
+			<span class="flex items-center gap-1.5"><Platform kind="desktop" /> Desktop</span>
+			<span class="flex items-center gap-1.5"><Platform kind="appletv" /> Apple TV</span>
+			<span class="flex items-center gap-1.5"><Platform kind="web" /> Web</span>
+		</div>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Books</p>
+
+	<ComponentShowcase
+		name="Book"
+		importPath="components/content/Book"
+		category="content"
+		description="Book cover image card with border, shadow, and hover state. Max width 250px."
+		props={[
+			{ name: 'src', type: 'string', description: 'Cover image URL (required)' },
+			{ name: 'alt', type: 'string', description: 'Accessible description' },
+		]}
+	>
+		<Book className="w-fit" src={sampleBookImg} alt="Sample book cover" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="AmazonBook"
+		importPath="components/content/AmazonBook"
+		category="content"
+		description="Linkable Book component that auto-generates Amazon cover URL and affiliate link from ASIN."
+		props={[
+			{ name: 'asin', type: 'string', description: 'Amazon Standard Identification Number' },
+			{ name: 'alt', type: 'string', description: 'Accessible book title' },
+		]}
+	>
+		<AmazonBook asin="1933550481" alt="Anatomy of the State" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Bookshelf"
+		importPath="components/content/Bookshelf"
+		category="content"
+		description="Auto-fill grid for Book/AmazonBook components. Columns min 150px, auto-fill."
+	>
+		<Bookshelf>
+			<Book src={sampleBookImg} alt="Book one" />
+			<Book src={sampleBookImg} alt="Book two" />
+			<Book src={sampleBookImg} alt="Book three" />
+		</Bookshelf>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Embeds</p>
+
+	<ComponentShowcase
+		name="YouTube"
+		importPath="components/content/YouTube"
+		category="content"
+		description="Responsive YouTube embed via lite-youtube web component. Requires client-side JS."
+		props={[
+			{ name: 'id', type: 'string', description: 'YouTube video ID (required)' },
+			{
+				name: 'title',
+				type: 'string',
+				default: '"YouTube video"',
+				description: 'Accessible play label',
+			},
+		]}
+	>
+		<YouTube id="FECyn_sGk4M" title="Sample YouTube video" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Spotify"
+		importPath="components/content/Spotify"
+		category="content"
+		description="Spotify show/episode embed iframe. Height fixed at 352px."
+		props={[{ name: 'id', type: 'string', description: 'Spotify show ID (required)' }]}
+	>
+		<Spotify id="5dBTH298yyPuJVmileTsFK" />
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Images</p>
+
+	<ComponentShowcase
+		name="Figure"
+		importPath="components/content/Figure"
+		category="content"
+		description="figure/figcaption wrapper. Supports multi-image side-by-side via flex children and [&_div]:grow."
+		props={[
+			{ name: 'caption', type: 'string', description: 'Figcaption text' },
+			{
+				name: 'size',
+				type: '"regular" | "wide" | "fullsize"',
+				description: 'Layout hint (used by MDX grid context)',
+			},
+		]}
+	>
+		<Figure caption="The Ma kanji — gate with light passing through.">
+			<img src={sampleImg} alt="Sample figure image" class="rounded-2 w-full" />
+		</Figure>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Image"
+		importPath="components/content/Image"
+		category="content"
+		description="Rich image with optional lightbox, caption, and source attribution."
+		props={[
+			{ name: 'src', type: 'string', description: 'Image URL (required)' },
+			{ name: 'alt', type: 'string', description: 'Accessible description' },
+			{ name: 'caption', type: 'string', description: 'Figcaption text' },
+			{
+				name: 'enableLightbox',
+				type: 'boolean',
+				default: 'true',
+				description: 'Click to expand',
+			},
+			{ name: 'source', type: 'string', description: 'Attribution source text' },
+			{ name: 'sourceUrl', type: 'string', description: 'Attribution URL' },
+		]}
+	>
+		<ContentImage src={sampleImg} alt="Sample image" caption="Sample caption" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="MarkdownImage"
+		importPath="components/content/MarkdownImage"
+		category="content"
+		description="Lightbox-enabled image auto-mapped to bare ![]() markdown syntax in MDX."
+		props={[
+			{ name: 'src', type: 'string', description: 'Image URL' },
+			{ name: 'alt', type: 'string', description: 'Accessible description' },
+			{ name: 'noMargin', type: 'boolean', description: 'Suppresses bottom margin' },
+		]}
+	>
+		<MarkdownImage src={sampleImg} alt="Markdown image" />
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">Inline Content</p>
+
+	<ComponentShowcase
+		name="DownloadLink"
+		importPath="components/content/DownloadLink"
+		category="content"
+		description="Download link with animated download icon. Underline slides in on hover."
+		props={[
+			{ name: 'href', type: 'string', description: 'File URL (required)' },
+			{ name: 'text', type: 'string', description: 'Link label (required)' },
+		]}
+	>
+		<DownloadLink href="#" text="Download Ma Design Tokens (JSON)" />
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="EmailLink"
+		importPath="components/content/EmailLink"
+		category="content"
+		description="Obfuscated mailto link. Click copies assembled email to clipboard, shows tooltip confirmation."
+		props={[
+			{ name: 'data-name', type: 'string', description: 'Email username' },
+			{ name: 'data-domain', type: 'string', description: 'Domain without TLD' },
+			{ name: 'data-tld', type: 'string', description: 'Top-level domain' },
+			{ name: 'text', type: 'string', default: '"Email"', description: 'Link label' },
+		]}
+	>
+		<EmailLink
+			data-name="hello"
+			data-domain="stefanimhoff"
+			data-tld="de"
+			text="Write an email"
+		/>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="ProductLink"
+		importPath="components/content/ProductLink"
+		category="content"
+		description="Inline Amazon affiliate link via ASIN. Renders as TextLink with product tracking."
+		props={[
+			{ name: 'asin', type: 'string', description: 'Amazon ASIN' },
+			{ name: 'text', type: 'string', description: 'Link label' },
+		]}
+	>
+		<Text>
+			Read <ProductLink asin="020530902X" text="The Elements of Style" /> for clear, direct prose.
+		</Text>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Ruby"
+		importPath="components/content/Ruby"
+		category="content"
+		description="Ruby annotation for CJK and phonetic text. Renders ruby/rt with optional reading above base."
+		props={[
+			{ name: 'base', type: 'string', description: 'Base text (required)' },
+			{ name: 'text', type: 'string', description: 'Annotation text (rt element)' },
+		]}
+	>
+		<Text>The kanji <Ruby base="間" text="ま" /> means the space between.</Text>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Verse"
+		importPath="components/content/Verse"
+		category="content"
+		description="Blockquote for poetry with preserved whitespace (pre inside blockquote). Variants: center and left."
+		props={[
+			{
+				name: 'variant',
+				type: '"center" | "left"',
+				default: '"center"',
+				description: 'Alignment variant',
+			},
+		]}
+	>
+		<div class="grid gap-6 md:grid-cols-2">
+			<Verse>{`Still waters —\na leaf falls without a sound.\nThe space between.`}</Verse>
+			<Verse variant="left"
+				>{`Still waters —\na leaf falls without a sound.\nThe space between.`}</Verse
+			>
+		</div>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="RSSText"
+		importPath="components/content/RSSText"
+		category="content"
+		description="No-op component — renders null. Placeholder for RSS-only content that should not appear on the web."
+	>
+		<Text className="text-2 text-hai mbe-0"
+			>Renders nothing — placeholder for RSS-only content.</Text
+		>
+	</ComponentShowcase>
+
+	<p class="text-hai mbe-10 mbs-16 font-mono text-xs uppercase tracking-wider">
+		Interactive Components
+	</p>
+
+	<ComponentShowcase
+		name="BarChart"
+		importPath="components/interactive/BarChart"
+		category="interactive"
+		description="Bar chart powered by Recharts. Accepts Chart.js-compatible data shape."
+		props={[
+			{
+				name: 'data',
+				type: '{ labels: string[]; datasets: { data: number[] }[] }',
+				description: 'Chart data',
+			},
+		]}
+	>
+		<p class="text-hai font-mono text-xs">
+			Requires <code class="text-beni">client:visible</code> — Recharts{' '}
+			<code class="text-sumi dark:text-washi">ResponsiveContainer</code> needs DOM measurement.
+			Usage: <code class="text-sumi dark:text-washi"
+				>{'<BarChart client:visible data={chartData} />'}</code
+			>
+		</p>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="DoughnutChart"
+		importPath="components/interactive/DoughnutChart"
+		category="interactive"
+		description="Doughnut chart powered by Recharts. Custom tooltip and legend."
+		props={[
+			{
+				name: 'data',
+				type: '{ labels: string[]; datasets: { data: number[] }[] }',
+				description: 'Chart data',
+			},
+		]}
+	>
+		<p class="text-hai font-mono text-xs">
+			Requires <code class="text-beni">client:visible</code> — Recharts{' '}
+			<code class="text-sumi dark:text-washi">ResponsiveContainer</code> needs DOM measurement.
+			Usage: <code class="text-sumi dark:text-washi"
+				>{'<DoughnutChart client:visible data={chartData} />'}</code
+			>
+		</p>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Marquee"
+		importPath="components/interactive/Marquee"
+		category="interactive"
+		description="Continuous horizontal scroll ticker. Auto-measures content width and sets animation duration via CSS custom property."
+		props={[
+			{
+				name: 'pixelsPerSecond',
+				type: 'number',
+				default: '65',
+				description: 'Scroll speed in px/s',
+			},
+		]}
+	>
+		<Marquee>
+			<JapanesePoem />
+		</Marquee>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="Roadmap"
+		importPath="components/interactive/Roadmap"
+		category="interactive"
+		description="Vertical timeline list of RoadmapMilestone entries connected by a crimson dot rail."
+		props={[
+			{
+				name: 'milestones',
+				type: 'RoadmapMilestoneData[]',
+				description: 'Array of milestone entries',
+			},
+		]}
+	>
+		<Roadmap
+			milestones={[
+				{
+					kind: 'book',
+					title: 'The Elements of Style',
+					contributor: 'Strunk & White',
+					href: '#',
+					note: '',
+				},
+				{
+					kind: 'audiobook',
+					title: 'The Making of the Atomic Bomb',
+					contributor: 'Richard Rhodes',
+					href: '#',
+					note: '',
+					featured: true,
+				},
+				{
+					kind: 'podcast',
+					title: 'Hardcore History',
+					contributor: 'Dan Carlin',
+					href: '#',
+					note: '',
+					language: 'EN',
+				},
+			]}
+		/>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="SeriesStepper"
+		importPath="components/interactive/SeriesStepper"
+		category="interactive"
+		description="Collapsible series navigator with progress rail. Shows current position in a multi-part essay series."
+		props={[
+			{ name: 'steps', type: 'SeriesStep[]', description: 'Series steps with id and title' },
+			{ name: 'currentId', type: 'string', description: 'ID of the currently active step' },
+			{ name: 'seriesName', type: 'string', description: 'Accessible series label' },
+		]}
+	>
+		<SeriesStepper
+			steps={[
+				{ id: 'part-1', title: 'The Case for Ma: Space as Design' },
+				{ id: 'part-2', title: 'Colour Restraint — One Hue, Seven Shades' },
+				{ id: 'part-3', title: 'Type as Image: Boska and the Brush' },
+			]}
+			currentId="part-2"
+			seriesName="Ma Design System Essays"
+		/>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="TableOfContents"
+		importPath="components/interactive/TableOfContents"
+		category="interactive"
+		description="In-page TOC with active section tracking via IntersectionObserver. Collapsed on mobile, expanded on xl+."
+		props={[
+			{
+				name: 'headings',
+				type: '{ id: string; text: string }[]',
+				description: 'Section headings to track',
+			},
+		]}
+	>
+		<TableOfContents
+			headings={[
+				{ id: 'color', text: 'Color' },
+				{ id: 'typography', text: 'Typography' },
+				{ id: 'spacing', text: 'Spacing' },
+				{ id: 'motion', text: 'Motion' },
+			]}
+		/>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="HoverPreview"
+		importPath="components/interactive/HoverPreview"
+		category="interactive"
+		description="Global floating image preview. Mounts a single hidden img that follows the cursor over data-hover-preview anchors. No visible initial state."
+	>
+		<Text className="text-2 text-hai mbe-0">
+			No visible output — renders a hidden positioned img that activates on anchors with{' '}
+			<code>data-hover-preview</code> attribute.
+		</Text>
+	</ComponentShowcase>
+
+	<ComponentShowcase
+		name="LightboxRoot"
+		importPath="components/interactive/LightboxRoot"
+		category="interactive"
+		description="Global lightbox portal. Listens for clicks on data-lightbox=true images and renders a full-screen modal. No visible initial state."
+	>
+		<Text className="text-2 text-hai mbe-0">
+			Active on this page — click the Image or MarkdownImage showcase above to trigger it.
+		</Text>
+	</ComponentShowcase>
 </DesignSystemLayout>
+
+<LightboxRoot client:load />
+
+<script>
+	import 'lite-youtube-embed';
+</script>
