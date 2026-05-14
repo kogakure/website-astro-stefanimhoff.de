@@ -75,7 +75,7 @@
 	--text-6--line-height: 1.15;
 	--text-7: clamp(2.5rem, 5vw, 4.5rem); /* H2 Section — max 72px */
 	--text-7--line-height: 1.1;
-	--text-8: clamp(3rem, 6.667vw, 6rem); /* Blog Title — max 96px */
+	--text-8: clamp(2.5rem, 5vw, 4.5rem); /* Blog Title — max 72px */
 	--text-8--line-height: 1;
 	--text-9: clamp(4.5rem, 10vw, 9rem); /* H1 Page Title — max 144px */
 	--text-9--line-height: 0.95;

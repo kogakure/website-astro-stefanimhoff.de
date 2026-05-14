@@ -192,11 +192,6 @@ components:
     textColor: "{colors.sumi}"
     rounded: "{rounded.lg}"
     padding: "{spacing.space-6}"
-  card-journal:
-    backgroundColor: "{colors.kiri}"
-    textColor: "{colors.sumi}"
-    rounded: "{rounded.lg}"
-
   # Inputs
   input:
     backgroundColor: "{colors.washi}"
@@ -297,10 +292,10 @@ The voice is calm, direct, and considered. It does not perform enthusiasm. It do
 ### Technical Context
 
 - **Framework:** Astro with React islands
-- **Styling:** Tailwind CSS v4 with `@theme` directive
-- **Component library:** shadcn/ui, customised to Ma tokens
+- **Styling:** Tailwind CSS v4 with `@theme` directive; dark mode wired via `@variant dark (&:where(.dark, .dark *))`. Logical-property and OpenType utilities live in `@utility` blocks in `global.css` — `tailwindcss-logical` and `tailwindcss-opentype` are not installed.
+- **Component library:** shadcn/ui used selectively (`switch`, `tooltip`). Most Ma components are bespoke, tokenised primitives.
 - **Dark mode:** Class-based (`.dark` class on root element)
-- **CSS architecture:** `global.css` defines all tokens; components use Tailwind utilities referencing these tokens
+- **CSS architecture:** `global.css` defines all tokens in `@theme`; a `--color-*` alias block at lines 146–163 re-exposes shadcn semantic vars for Tailwind v4 utility generation; components use Tailwind utilities referencing these tokens
 - **All sizes are fluid:** Font sizes and spacing use `clamp()` with `vw` units, capped at their spec maximum
 
 ## Colors
@@ -375,11 +370,9 @@ The Ma palette maps to shadcn/ui's semantic variables in `global.css`. These are
 
 The following tokens exist in `global.css` for backward compatibility and should be migrated:
 
-- `--color-shibui-*` (50–950 scale) — replace with Ma named tokens. `shibui-950` = Sumi, `shibui-50` ≈ Kiri.
-- `--color-marked: #e6f028` — yellow-green highlight for `<mark>` elements. Not a Ma colour. Consider replacing with Beni Pale or Usuzumi.
-- `--color-code-1: #1e2229` and `--color-code-2: #abb2bf` — code block colours. Replace with Yoru (background) and Washi/Hai (text) for dark code blocks.
-- `--color-accent: #900b20` — legacy hex duplicate of Beni. Replace references with `var(--color-beni)`.
-- Hardcoded hex values in `kbd` styles (`#ccc`, `#f7f7f7`, `#333`) — replace with Ma tokens.
+- `--color-shibui-*` (50–950 scale) — replace with Ma named tokens. `shibui-950` = Sumi, `shibui-50` ≈ Kiri. Still actively used in `input[type='text']` border and `samp/code` dark styles.
+- `--color-code-1: #1e2229` and `--color-code-2: #abb2bf` — code block colours still used for dark-mode `samp/code` styles. Replace with Yoru (background) and Washi/Hai (text).
+- Hardcoded hex values in `kbd` styles (`#ccc`, `#f7f7f7`, `#333`, `#ffffff`) — still present. Replace with Ma tokens.
 
 ## Typography
 
@@ -479,46 +472,76 @@ Ma does not use elevation through shadows as a primary design tool. Visual hiera
 - **Whitespace** — the space between elements is the primary depth cue.
 - **Borders** — Nezumi at 1px, or `border-black/5` for subtle image borders.
 
-**Legacy exception:** `--shadow-subtle` and `--shadow-img` exist in `global.css` for the `.image-shadow` hover effect on journal cards. This is a Datsuzoku moment — the controlled exception. These shadows should not be used elsewhere. No new shadow tokens should be created.
+**Legacy exception:** `--shadow-beveled` exists in `global.css` for the `kbd` element only (`box-shadow: 0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff`). This is a Datsuzoku moment — the controlled exception. No new shadow tokens should be created.
 
 ## Shapes
 
 Border radius tokens in the system:
 
-| Token | Value | CSS Variable  | Use                                   |
-| ----- | ----- | ------------- | ------------------------------------- |
-| none  | 0px   | —             | Sharp edges where needed              |
-| sm    | 2px   | `--radius-1`  | Inline code, subtle rounding          |
-| md    | 5px   | `--radius-2`  | Figure content, general components    |
-| lg    | 8px   | `--radius-4`  | Cards, journal cards, buttons, inputs |
-| xl    | 25px  | `--radius-25` | Pills, special elements               |
-| full  | 50%   | `--radius-50` | Hanko seal mark only                  |
+| Token | Value | CSS Variable  | Use                                |
+| ----- | ----- | ------------- | ---------------------------------- |
+| none  | 0px   | —             | Sharp edges where needed           |
+| sm    | 2px   | `--radius-1`  | Inline code, subtle rounding       |
+| md    | 5px   | `--radius-2`  | Figure content, general components |
+| lg    | 8px   | `--radius-4`  | Cards, buttons, inputs             |
+| xl    | 25px  | `--radius-25` | Pills, special elements            |
+| full  | 50%   | `--radius-50` | Hanko seal mark only               |
 
 The shadcn/ui `--radius` is set to `0.375rem` (6px). Components should prefer the Ma radius tokens above.
 
 Do not mix sharp and rounded corners in the same view. The Hanko seal mark is the only circular element in the system.
 
+## Motion
+
+Motion is functional, not decorative. Easing curves and durations are tokenised in `global.css` (lines 194–201) and surfaced as Tailwind utilities (`ease-enter`, `ease-exit`, `ease-standard`, `duration-fast`, etc.).
+
+### Easing
+
+| Token    | CSS Variable      | Curve                             | Use                                   |
+| -------- | ----------------- | --------------------------------- | ------------------------------------- |
+| Enter    | `--ease-enter`    | `cubic-bezier(0, 0, 0.38, 0.9)`   | Elements arriving / hover affordances |
+| Exit     | `--ease-exit`     | `cubic-bezier(0.2, 0, 1, 0.9)`    | Elements leaving                      |
+| Standard | `--ease-standard` | `cubic-bezier(0.2, 0, 0.38, 0.9)` | Symmetric in-out movements            |
+
+### Duration
+
+| Token      | CSS Variable            | Value | Use                                |
+| ---------- | ----------------------- | ----- | ---------------------------------- |
+| Instant    | `--duration-instant`    | 100ms | Acknowledgements (focus rings)     |
+| Fast       | `--duration-fast`       | 200ms | Hover states, micro-feedback       |
+| Moderate   | `--duration-moderate`   | 300ms | UI affordances, modal entrances    |
+| Slow       | `--duration-slow`       | 500ms | Page-level reveals                 |
+| Deliberate | `--duration-deliberate` | 800ms | Hero animation, intentional pacing |
+
+`prefers-reduced-motion` is respected. Canonical usage examples and demos in `src/content/design-system/9-motion.mdx`.
+
 ## Components
 
-All components are built on **shadcn/ui** primitives, customised to Ma tokens in `global.css`. Components live in `src/components/` with four subdirectories:
+Components live in `src/components/` with six subdirectories:
 
-- `src/components/ui/` — shadcn/ui primitives (Button, Dialog, Card, Input, etc.)
-- `src/components/content/` — content rendering (essays, journal entries, etc.)
-- `src/components/interactive/` — client-side hydrated islands
-- `src/components/site/` — structural/layout (Header, Footer, Navigation, etc.)
+- `src/components/ui/` — presentational primitives: Text, Title, Headline, Subheadline, Subsubheadline, Divider, Link, TextLink, MoreLink, EssayLink, UnorderedList, OrderedList, ListItem, Tag, Badge, SectionLabel, PageSection, HomepagePageSection, Table family (Table, TableHead, TableBody, TableRow, TableHeaderCell, TableCell), HaikuItem, JapanesePoem, Flag, Marked, Strong, Em, Inserted, Strikethrough, Subscript, Superscript, LineBreak, QuoteAttribution, FootnoteSection, CodeBlock, TaskCheckbox, ClearFiltersButton, plus shadcn-style `switch` and `tooltip`.
+- `src/components/content/` — MDX content blocks: Image, MarkdownImage, Figure, Blockquote, Pullquote, Banner, InlineCode, Verse, Ruby, AmazonBook, Book, BookCard, Bookshelf, AudioCard, VideoCard, YouTube, Spotify, ColorStack, ColorSwatch family, Platform, AppleTVFlag, NetflixFlag, PrimeVideoFlag, DownloadLink, EmailLink, ProductLink, MediaLinkRow, RSSText.
+- `src/components/interactive/` — client-side hydrated islands: WritingPage, CommandMenu, BarChart, DoughnutChart, HoverPreview, LightboxRoot, Marquee, Roadmap, RoadmapMilestone, SeriesStepper, TableOfContents.
+- `src/components/site/` — Astro-only infrastructure (requires `Astro.url`, `getCollection`, `astro:transitions`, `is:inline`/`is:global`): PageHeader, PageFooter, PageTitle, MainNavigation, DesignSystemNav, ThemeProvider, ThemeToggle, Scripts, Logo, PostNavigation, plus `site/work/` family.
+- `src/components/design-system/` — specimen components rendered on `/design-system/*` documentation pages only. Not for use in pages or content.
+- `src/components/icons/` — SVG icon components: ArrowCta, Hanko.
 
 ### Architecture Rules
 
 - **Pages must never contain direct UI implementation.** Pages in `src/pages/` only import and compose components. Visual styling belongs in components, not pages. This is Kanso — simplicity through separation.
-- **Every new component must be built on a shadcn/ui primitive** from `src/components/ui/`. When a shadcn/ui primitive exists, it must be used as the base. No reimplementing buttons, inputs, dialogs, or selects from scratch.
+- **shadcn/ui used selectively.** Today the system uses shadcn `switch` and `tooltip` directly. Other common primitives (Button, Dialog, Card, Input, Select) have not been adopted — Ma components such as `Text`, `Headline`, `Link`, `Tag`, and `CodeBlock` are bespoke and fully tokenised. Where a shadcn primitive is genuinely appropriate, use it.
 - **No third-party UI libraries** alongside shadcn/ui. One system, one source.
 
 ### Buttons
 
-- **Primary:** Beni background, white text, radius-4 (8px). Hover → Beni Light. Active → Beni Dark.
-- **Secondary:** Transparent background, Sumi text, radius-4. Hover → Kiri background.
+No generic Button primitive exists. Interactive affordances are bespoke per context (link styles, theme toggle, etc.). The only "button-like" component is `ClearFiltersButton` in `ui/`.
+
+When a Button primitive is added, it must follow Ma tokens:
+
+- **Primary intent:** Beni background, white text, radius-4 (8px). Hover → Beni Light. Active → Beni Dark.
+- **Secondary intent:** Transparent background, Sumi text, radius-4. Hover → Kiri background.
 - **Ghost:** No background, no border. Text inherits context colour.
-- All buttons use Switzer Variable. Never Boska.
+- All buttons: Switzer Variable. Never Boska.
 
 ### Links
 
@@ -528,7 +551,12 @@ All components are built on **shadcn/ui** primitives, customised to Ma tokens in
 - Arrow links ("About →"): arrow translates 4px right on hover (200ms, `--ease-enter`).
 - Dark mode: swap base Beni → Beni Light. Visited stays Beni Muted. Pattern: `text-beni dark:text-beni-light`.
 
-### Cards / Journal Cards
+Three link components in `ui/`:
 
-- Kiri background on Washi pages. Sumi text. Radius-4 (8px). Padding: space-6.
-- Journal cards: `col-span-2 row-span-3`, with 1px border at `border-black/
+- **`Link`** — base `<a>`; auto-detects external URLs, adds `target="_blank"` + `rel="nofollow noopener noreferrer"`, Umami tracking.
+- **`TextLink`** — wraps `Link`; Beni-coloured underline that draws on hover via background-size transition.
+- **`MoreLink`** — wraps `Link`; accepts `href` + `text`, appends `ArrowCta` icon that translates on hover.
+
+### Cards
+
+No generic Card primitive currently exists. Content blocks — `Banner`, `BookCard`, `AudioCard`, `VideoCard` — are bespoke composites in `content/`.
