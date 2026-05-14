@@ -1,4 +1,4 @@
-import { sortByAlphabet, sortByDate } from '.';
+import { sortByDate } from '.';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -15,7 +15,7 @@ export const formatPosts = (
 		removeDrafts?: boolean;
 		removeFuture?: boolean;
 		showFeatured?: boolean;
-		sortBy?: 'date' | 'alphabet' | 'random';
+		sortBy?: 'date' | 'random';
 		sortOrder?: 'asc' | 'desc';
 		limit?: number;
 	}
@@ -40,8 +40,6 @@ export const formatPosts = (
 	// Sort posts
 	if (sortBy === 'date') {
 		filteredPosts.sort(sortByDate);
-	} else if (sortBy === 'alphabet') {
-		filteredPosts.sort(sortByAlphabet);
 	} else {
 		filteredPosts.sort(() => Math.random() - 0.5);
 	}

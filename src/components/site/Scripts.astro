@@ -7,45 +7,7 @@
 		document.dispatchEvent(new CustomEvent('command-menu:open'));
 	}
 
-	function setActiveLink() {
-		const links = document.querySelectorAll('.navigation a');
-		const currentPath = window.location.pathname;
-
-		links.forEach((link) => {
-			if (link.getAttribute('href') === currentPath) {
-				link.classList.add('is-active');
-				link.setAttribute('aria-current', 'page');
-			} else {
-				link.classList.remove('is-active');
-				link.removeAttribute('aria-current');
-			}
-		});
-	}
-
-	function setUpLink() {
-		const button = document.getElementById('up-link');
-		button?.addEventListener('click', (event) => {
-			event.preventDefault();
-			window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-		});
-	}
-
-	function setCommandMenuTriggers() {
-		// Search link and menu link both open the command menu
-		const searchLink = document.getElementById('search-link');
-		const menuLink = document.getElementById('menu-link');
-
-		searchLink?.addEventListener('click', (event) => {
-			event.preventDefault();
-			openCommandMenu();
-		});
-
-		menuLink?.addEventListener('click', (event) => {
-			event.preventDefault();
-			openCommandMenu();
-		});
-
-		// "/" key shortcut
+	function initializeKeyboardShortcuts() {
 		document.addEventListener('keydown', (event) => {
 			const target = event.target as HTMLElement;
 			const isInput =
@@ -60,9 +22,7 @@
 	}
 
 	function initializeScripts() {
-		setActiveLink();
-		setCommandMenuTriggers();
-		setUpLink();
+		initializeKeyboardShortcuts();
 	}
 
 	initializeScripts();

@@ -160,6 +160,9 @@ const webManifest = isProduction && {
 			)
 		}
 		<Scripts />
+		<Fragment
+			set:html={`<style>@supports selector(::search-text){::search-text{background-color:var(--color-usuzumi);color:var(--color-sumi)}::search-text:current{background-color:var(--color-hai);color:var(--color-sumi)}.dark ::search-text{background-color:var(--color-nezumi);color:var(--color-washi)}.dark ::search-text:current{background-color:var(--color-usuzumi);color:var(--color-sumi)}}</style>`}
+		/>
 	</head>
 	<body
 		class="bg-shibui-100 text-shibui-950 common-ligatures dark:bg-shibui-900 dark:text-washi flex min-h-screen flex-col font-sans font-normal leading-relaxed"

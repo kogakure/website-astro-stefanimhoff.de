@@ -146,27 +146,6 @@ describe('format-posts', () => {
 		});
 	});
 
-	describe('sorting by alphabet', () => {
-		it('should sort alphabetically A-Z by default (sortOrder desc)', () => {
-			const result = formatPosts(posts, { sortBy: 'alphabet' });
-
-			// sortByAlphabet uses localeCompare which sorts ascending (A-Z)
-			// sortOrder defaults to 'desc' which doesn't reverse for alphabet
-			expect(result[0].data.title).toBe('Beta Post');
-			expect(result[1].data.title).toBe('Charlie Post');
-			expect(result[2].data.title).toBe('Future Post');
-		});
-
-		it('should sort alphabetically Z-A when sortOrder is asc', () => {
-			const result = formatPosts(posts, { sortBy: 'alphabet', sortOrder: 'asc' });
-
-			// With asc, the array is reversed (Z-A)
-			expect(result[0].data.title).toBe('Future Post');
-			expect(result[1].data.title).toBe('Charlie Post');
-			expect(result[2].data.title).toBe('Beta Post');
-		});
-	});
-
 	describe('sorting by random', () => {
 		it('should return posts when sortBy is random', () => {
 			const result = formatPosts(posts, { sortBy: 'random' });

@@ -10,7 +10,6 @@ import ColorStack from './components/content/ColorStack';
 import ColorSwatch from './components/content/ColorSwatch';
 import ColorSwatchMini from './components/content/ColorSwatchMini';
 import ColorSwatchPrimary from './components/content/ColorSwatchPrimary';
-import DisplayBox from './components/content/DisplayBox';
 import DownloadLink from './components/content/DownloadLink';
 import EmailLink from './components/content/EmailLink';
 import Figure from './components/content/Figure';
@@ -24,7 +23,6 @@ import Pullquote from './components/content/Pullquote';
 import RSSText from './components/content/RSSText';
 import Ruby from './components/content/Ruby';
 import Spotify from './components/content/Spotify';
-import ThemeBox from './components/content/ThemeBox';
 import Verse from './components/content/Verse';
 import VideoCard from './components/content/VideoCard';
 import YouTube from './components/content/YouTube';
@@ -72,7 +70,6 @@ export const mapping = {
 	ColorSwatch,
 	ColorSwatchMini,
 	ColorSwatchPrimary,
-	DisplayBox,
 	DownloadLink,
 	EmailLink,
 	Figure,
@@ -87,7 +84,6 @@ export const mapping = {
 	RSSText,
 	Ruby,
 	Spotify,
-	ThemeBox,
 	Verse,
 	YouTube,
 	a: TextLink,

@@ -28,7 +28,6 @@
 	--color-yoru: oklch(0.2142 0.0025 67.69); /* #1A1918 – dark surface */
 
 	/* Legacy backward-compat colors */
-	--color-accent: #900b20;
 	--color-shibui-50: #f3f3f1;
 	--color-shibui-100: #e6e6e3;
 	--color-shibui-150: #dad9d5;
@@ -177,12 +176,7 @@
 	   Shadows
 	   ---------------------------------------------------------- */
 
-	--shadow-subtle: 0 0 50px rgb(0 0 0 / 0.2);
-	--shadow-img: 0 2px 3px rgb(0 0 0 / 0.05);
 	--shadow-beveled: 0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff;
-	--shadow-darkInset: inset 0 0 0 1px rgb(0 0 0 / 0.2);
-	/* Drop shadows */
-	--drop-shadow-subtle: 0 0 50px rgb(0 0 0 / 0.2);
 
 	/* ----------------------------------------------------------
 	   Breakpoints
@@ -414,26 +408,6 @@
 		color: var(--color-washi);
 	}
 
-	::search-text {
-		background-color: var(--color-usuzumi);
-		color: var(--color-sumi);
-	}
-
-	::search-text:current {
-		background-color: var(--color-hai);
-		color: var(--color-sumi);
-	}
-
-	.dark ::search-text {
-		background-color: var(--color-nezumi);
-		color: var(--color-washi);
-	}
-
-	.dark ::search-text:current {
-		background-color: var(--color-usuzumi);
-		color: var(--color-sumi);
-	}
-
 	/** Critic Markup */
 	del {
 		@apply decoration-[0.15em];
@@ -534,34 +508,6 @@
 		padding-inline-end: 0.1em;
 	}
 
-	/** Images */
-	img.image-border {
-		@apply rounded-1 shadow-img block h-auto w-full border border-solid border-black/5 bg-black/5 dark:border-white/5 dark:bg-white/5;
-	}
-
-	img.image-no-border {
-		@apply border-0 bg-transparent shadow-none;
-	}
-
-	.icon {
-		@apply fill-shibui-950 dark:fill-shibui-200/[0.87];
-	}
-
-	.multicolumns > h2 {
-		break-inside: avoid;
-		break-after: avoid;
-	}
-
-	.multicolumns > h2 + ul,
-	.multicolumns > h2 + h3 {
-		break-inside: avoid;
-		break-after: avoid;
-	}
-
-	.multicol-span {
-		column-span: all;
-	}
-
 	/** Inputs */
 	input[type='text'] {
 		@apply border-shibui-450 focus:border-shibui-950 dark:focus:border-shibui-50 border outline-none;
@@ -572,68 +518,8 @@
    Component Layer
    ============================================================ */
 @layer components {
-	.navigation .is-active {
-		@apply decoration-accent underline decoration-4;
-	}
-
-	.navigation .is-active svg {
-		@apply fill-accent;
-	}
-
-	.image-shadow {
-		@apply relative transition-transform duration-500 ease-in-out;
-
-		&::after {
-			@apply shadow-subtle absolute -z-[1] h-full w-full opacity-0 transition-opacity duration-500 ease-in-out content-[''];
-			inset-block-start: 0;
-			inset-inline-start: 0;
-		}
-
-		&:hover,
-		&:focus {
-			@apply scale-[1.03];
-
-			&::after {
-				@apply opacity-100;
-			}
-		}
-	}
-
-	.writing-card,
-	.writing-card-link {
-		@apply rounded-4 border-1 relative col-span-2 row-span-3 inline-block overflow-hidden border-black/25 outline outline-2 outline-offset-2 outline-transparent hover:scale-105 focus:scale-105 md:row-span-5 dark:border-white/25;
-	}
-
-	.writing-card-link {
-		@apply relative block h-full w-full focus:scale-100;
-	}
-
-	.writing-card:focus-within {
-		@apply outline-current;
-	}
-
-	.writing-card img,
-	.writing-card picture,
-	.writing-card-link img,
-	.writing-card-link picture,
-	.figure-content {
-		@apply !h-full w-full object-cover;
-	}
-
 	.figure-content * {
 		@apply rounded-2;
-	}
-
-	.writing-card img,
-	.writing-card-link img {
-		@apply !h-full scale-100 blur-none brightness-[80%] transition duration-300 ease-in-out dark:brightness-[50%];
-	}
-
-	.writing-card:hover img,
-	.writing-card:focus img,
-	.writing-card-link:hover img,
-	.writing-card-link:focus img {
-		@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
 	}
 
 	.writing-post :is(p, ul, ol) {
