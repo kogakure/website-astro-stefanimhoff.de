@@ -1,11 +1,11 @@
 ---
 # SI-gr3h
 title: Vitest Unit Tests for all React Components
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-16T12:12:13Z
-updated_at: 2026-04-25T15:03:43Z
+updated_at: 2026-05-14T11:49:00Z
 parent: SI-vl2o
 ---
 

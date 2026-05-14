@@ -25,7 +25,7 @@ export const EmailLink = ({
 	const [copied, setCopied] = useState(false);
 	const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-	const handleClick = (e: React.MouseEvent) => {
+	const copyEmailToClipboard = (e: React.MouseEvent) => {
 		e.preventDefault();
 		navigator.clipboard.writeText(`${name}@${domain}.${tld}`);
 		setCopied(true);
@@ -51,7 +51,7 @@ export const EmailLink = ({
 							className
 						)}
 						href="#"
-						onClick={handleClick}
+						onClick={copyEmailToClipboard}
 						{...rest}
 					>
 						{text}

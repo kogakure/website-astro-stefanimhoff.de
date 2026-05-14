@@ -20,7 +20,7 @@ import {
 	WrenchIcon,
 } from '@phosphor-icons/react';
 import { Command } from 'cmdk';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation, m } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '../../lib/utils';
 
@@ -239,224 +239,226 @@ export const CommandMenu = () => {
 	};
 
 	return (
-		<AnimatePresence>
-			{open && (
-				<>
-					{/* Backdrop */}
-					<motion.div
-						key="backdrop"
-						className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
-						onClick={close}
-						aria-hidden="true"
-					/>
+		<LazyMotion features={domAnimation}>
+			<AnimatePresence>
+				{open && (
+					<>
+						{/* Backdrop */}
+						<m.div
+							key="backdrop"
+							className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.2 }}
+							onClick={close}
+							aria-hidden="true"
+						/>
 
-					{/* Panel */}
-					<motion.div
-						key="panel"
-						role="dialog"
-						aria-modal="true"
-						aria-label="Command menu"
-						className="max-w-160 inline-start-0 inline-end-0 block-start-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
-						initial={{ opacity: 0, y: -8 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -8 }}
-						transition={{ duration: 0.2, ease: [0.0, 0.0, 0.38, 0.9] }}
-					>
-						<Command
-							className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"
-							loop
-							shouldFilter={view === 'menu'}
+						{/* Panel */}
+						<m.div
+							key="panel"
+							role="dialog"
+							aria-modal="true"
+							aria-label="Command menu"
+							className="max-w-160 inline-start-0 inline-end-0 block-start-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
+							initial={{ opacity: 0, y: -8 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -8 }}
+							transition={{ duration: 0.2, ease: [0.0, 0.0, 0.38, 0.9] }}
 						>
-							{/* Input bar */}
-							<div className="border-be-1 border-be-solid border-be-black/10 dark:border-be-white/10 flex items-center">
-								{view === 'search' && (
-									<button
-										onClick={goToMenu}
-										className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mis-2 shrink-0 p-2"
-										aria-label="Back to navigation"
-										type="button"
-									>
-										<ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
-									</button>
-								)}
-								<Command.Input
-									ref={inputRef}
-									value={query}
-									onValueChange={setQuery}
-									placeholder={
-										view === 'menu' ? 'Type a command…' : 'Search the site…'
-									}
-									className={cn(
-										'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none',
-										view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
+							<Command
+								className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"
+								loop
+								shouldFilter={view === 'menu'}
+							>
+								{/* Input bar */}
+								<div className="border-be-1 border-be-solid border-be-black/10 dark:border-be-white/10 flex items-center">
+									{view === 'search' && (
+										<button
+											onClick={goToMenu}
+											className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mis-2 shrink-0 p-2"
+											aria-label="Back to navigation"
+											type="button"
+										>
+											<ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+										</button>
 									)}
-									autoFocus
-								/>
-							</div>
+									<Command.Input
+										ref={inputRef}
+										value={query}
+										onValueChange={setQuery}
+										placeholder={
+											view === 'menu' ? 'Type a command…' : 'Search the site…'
+										}
+										className={cn(
+											'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none',
+											view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
+										)}
+										autoFocus
+									/>
+								</div>
 
-							<Command.List className="pbe-2 pbs-2 max-h-[60vh] overflow-y-auto">
-								{/* Menu view */}
-								{view === 'menu' && (
-									<>
-										<Command.Empty className="text-2 text-shibui-400 pbl-8 text-center">
-											No results found.
-										</Command.Empty>
+								<Command.List className="pbe-2 pbs-2 max-h-[60vh] overflow-y-auto">
+									{/* Menu view */}
+									{view === 'menu' && (
+										<>
+											<Command.Empty className="text-2 text-shibui-400 pbl-8 text-center">
+												No results found.
+											</Command.Empty>
 
-										<Command.Item
-											value="Search"
-											onSelect={goToSearch}
-											className={itemClasses}
-										>
-											<MagnifyingGlassIcon
-												className="h-4 w-4 shrink-0"
-												aria-hidden="true"
-											/>
-											Search
-										</Command.Item>
-
-										<Command.Group
-											heading="Navigation"
-											className={groupHeadingClasses}
-										>
-											{navItems.map(({ title, url, Icon }) => (
-												<Command.Item
-													key={url}
-													value={title}
-													onSelect={() => navigate(url)}
-													className={itemClasses}
-												>
-													<Icon
-														className="h-4 w-4 shrink-0"
-														aria-hidden="true"
-													/>
-													{title}
-												</Command.Item>
-											))}
-										</Command.Group>
-
-										<Command.Group
-											heading="Links"
-											className={groupHeadingClasses}
-										>
-											{linkItems.map(({ title, url, Icon }) => (
-												<Command.Item
-													key={url}
-													value={title}
-													onSelect={() => navigate(url)}
-													className={itemClasses}
-												>
-													<Icon
-														className="h-4 w-4 shrink-0"
-														aria-hidden="true"
-													/>
-													{title}
-												</Command.Item>
-											))}
-										</Command.Group>
-
-										<Command.Group
-											heading="Theme"
-											className={groupHeadingClasses}
-										>
 											<Command.Item
-												value={
-													isDark
-														? 'Switch to light mode'
-														: 'Switch to dark mode'
-												}
-												onSelect={toggleTheme}
+												value="Search"
+												onSelect={goToSearch}
 												className={itemClasses}
 											>
-												{isDark ? (
-													<SunIcon
-														className="h-4 w-4 shrink-0"
-														aria-hidden="true"
-													/>
-												) : (
-													<MoonIcon
-														className="h-4 w-4 shrink-0"
-														aria-hidden="true"
-													/>
-												)}
-												{isDark
-													? 'Switch to light mode'
-													: 'Switch to dark mode'}
+												<MagnifyingGlassIcon
+													className="size-4 shrink-0"
+													aria-hidden="true"
+												/>
+												Search
 											</Command.Item>
-										</Command.Group>
-									</>
-								)}
 
-								{/* Search view */}
-								{view === 'search' && (
-									<>
-										{!query.trim() && (
-											<div className="text-2 text-shibui-400 pbl-8 text-center">
-												Type to search posts, haiku and work.
-											</div>
-										)}
-										{query.trim() && results.length === 0 && (
-											<div className="text-2 text-shibui-400 pbl-8 text-center">
-												Nothing found for &lsquo;{query}&rsquo;.
-											</div>
-										)}
-										{results.length > 0 && (
-											<Command.Group className={groupHeadingClasses}>
-												{results.map((result) => (
+											<Command.Group
+												heading="Navigation"
+												className={groupHeadingClasses}
+											>
+												{navItems.map(({ title, url, Icon }) => (
 													<Command.Item
-														key={result.url}
-														value={`${result.meta.title} ${result.url}`}
-														onSelect={() => navigate(result.url)}
+														key={url}
+														value={title}
+														onSelect={() => navigate(url)}
 														className={itemClasses}
 													>
-														<div className="min-w-0 flex-1">
-															<div className="text-3 truncate font-semibold">
-																{result.meta.title}
-															</div>
-															<div
-																className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi truncate opacity-60 [&_mark]:rounded-[2px] [&_mark]:px-[0.2em]"
-																dangerouslySetInnerHTML={{
-																	__html: result.excerpt,
-																}}
-															/>
-														</div>
+														<Icon
+															className="size-4 shrink-0"
+															aria-hidden="true"
+														/>
+														{title}
 													</Command.Item>
 												))}
 											</Command.Group>
-										)}
-									</>
-								)}
-							</Command.List>
 
-							{/* Footer hint */}
-							<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
-								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
-										↑↓
-									</kbd>{' '}
-									navigate
-								</span>
-								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
-										↵
-									</kbd>{' '}
-									select
-								</span>
-								<span>
-									<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
-										esc
-									</kbd>{' '}
-									close
-								</span>
-							</div>
-						</Command>
-					</motion.div>
-				</>
-			)}
-		</AnimatePresence>
+											<Command.Group
+												heading="Links"
+												className={groupHeadingClasses}
+											>
+												{linkItems.map(({ title, url, Icon }) => (
+													<Command.Item
+														key={url}
+														value={title}
+														onSelect={() => navigate(url)}
+														className={itemClasses}
+													>
+														<Icon
+															className="size-4 shrink-0"
+															aria-hidden="true"
+														/>
+														{title}
+													</Command.Item>
+												))}
+											</Command.Group>
+
+											<Command.Group
+												heading="Theme"
+												className={groupHeadingClasses}
+											>
+												<Command.Item
+													value={
+														isDark
+															? 'Switch to light mode'
+															: 'Switch to dark mode'
+													}
+													onSelect={toggleTheme}
+													className={itemClasses}
+												>
+													{isDark ? (
+														<SunIcon
+															className="size-4 shrink-0"
+															aria-hidden="true"
+														/>
+													) : (
+														<MoonIcon
+															className="size-4 shrink-0"
+															aria-hidden="true"
+														/>
+													)}
+													{isDark
+														? 'Switch to light mode'
+														: 'Switch to dark mode'}
+												</Command.Item>
+											</Command.Group>
+										</>
+									)}
+
+									{/* Search view */}
+									{view === 'search' && (
+										<>
+											{!query.trim() && (
+												<div className="text-2 text-shibui-400 pbl-8 text-center">
+													Type to search posts, haiku and work.
+												</div>
+											)}
+											{query.trim() && results.length === 0 && (
+												<div className="text-2 text-shibui-400 pbl-8 text-center">
+													Nothing found for &lsquo;{query}&rsquo;.
+												</div>
+											)}
+											{results.length > 0 && (
+												<Command.Group className={groupHeadingClasses}>
+													{results.map((result) => (
+														<Command.Item
+															key={result.url}
+															value={`${result.meta.title} ${result.url}`}
+															onSelect={() => navigate(result.url)}
+															className={itemClasses}
+														>
+															<div className="min-w-0 flex-1">
+																<div className="text-3 truncate font-semibold">
+																	{result.meta.title}
+																</div>
+																<div
+																	className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi truncate opacity-60 [&_mark]:rounded-[2px] [&_mark]:px-[0.2em]"
+																	dangerouslySetInnerHTML={{
+																		__html: result.excerpt,
+																	}}
+																/>
+															</div>
+														</Command.Item>
+													))}
+												</Command.Group>
+											)}
+										</>
+									)}
+								</Command.List>
+
+								{/* Footer hint */}
+								<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
+									<span>
+										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+											↑↓
+										</kbd>{' '}
+										navigate
+									</span>
+									<span>
+										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+											↵
+										</kbd>{' '}
+										select
+									</span>
+									<span>
+										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+											esc
+										</kbd>{' '}
+										close
+									</span>
+								</div>
+							</Command>
+						</m.div>
+					</>
+				)}
+			</AnimatePresence>
+		</LazyMotion>
 	);
 };
 

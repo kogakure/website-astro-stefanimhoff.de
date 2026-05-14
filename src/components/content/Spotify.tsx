@@ -12,6 +12,7 @@ export const Spotify = ({ className, id, ...props }: Props) => (
 		height="352"
 		loading="lazy"
 		src={`https://open.spotify.com/embed/show/${id}?utm_source=generator&theme=0`}
+		title="Spotify Podcast Player"
 		width="100%"
 		{...props}
 	/>

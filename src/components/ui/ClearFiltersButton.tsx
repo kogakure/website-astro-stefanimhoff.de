@@ -19,7 +19,7 @@ export const ClearFiltersButton = ({ count, className, ...props }: Props) => (
 		)}
 		{...props}
 	>
-		<XIcon weight="bold" className="h-3 w-3" aria-hidden="true" />
+		<XIcon weight="bold" className="size-3" aria-hidden="true" />
 		{count === 1 ? 'Clear 1 filter' : `Clear ${count} filters`}
 	</button>
 );

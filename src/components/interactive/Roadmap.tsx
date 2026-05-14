@@ -12,7 +12,7 @@ export const Roadmap = ({ milestones }: Props) => {
 		<ol className="flex list-none flex-col">
 			{milestones.map((milestone, i) => (
 				<RoadmapMilestone
-					key={`${milestone.kind}-${i}`}
+					key={milestone.href}
 					index={i}
 					isLast={i === milestones.length - 1}
 					{...milestone}

@@ -1,9 +1,9 @@
-import moment from 'moment';
+import { format, formatISO } from 'date-fns';
 
-export const dateToFormat = (date: Date, format = 'MMMM Do, YYYY') => {
-	return moment(date).format(format);
+export const dateToFormat = (date: Date, formatStr = 'MMMM do, yyyy') => {
+	return format(date, formatStr);
 };
 
 export const dateToISO = (date: Date) => {
-	return moment(date).format();
+	return formatISO(date);
 };

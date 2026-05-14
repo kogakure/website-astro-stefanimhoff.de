@@ -24,7 +24,7 @@ export const JapaneseSpecimen = () => (
 		<div className="flex flex-col">
 			{lines.map((line, i) => (
 				<div
-					key={i}
+					key={line.japanese}
 					className={`flex flex-col gap-1 p-5 md:p-6${i > 0 ? 'border-usuzumi dark:border-nezumi border-bs-1' : ''}`}
 				>
 					<p

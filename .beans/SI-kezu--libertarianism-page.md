@@ -1,11 +1,11 @@
 ---
 # SI-kezu
 title: Libertarianism Page
-status: todo
+status: completed
 type: feature
 priority: normal
 created_at: 2026-04-16T12:01:35Z
-updated_at: 2026-05-10T06:18:30Z
+updated_at: 2026-05-14T11:49:40Z
 ---
 
 I want to redesign the page under `/libertarianism` that holds a collection of recommended books, articles, podcasts, people, etc.

@@ -1,7 +1,7 @@
 'use client';
 
 import { MinusIcon, PlusIcon } from '@phosphor-icons/react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domMax, m } from 'motion/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { cn } from '../../lib/utils';
@@ -75,76 +75,81 @@ export const TableOfContents = ({ headings }: Props) => {
 	if (headings.length < 2) return null;
 
 	return (
-		<nav aria-label="Table of contents">
-			<button
-				type="button"
-				onClick={() => setOpen((v) => !v)}
-				aria-expanded={open}
-				aria-controls="toc-list"
-				className="flex w-full items-center gap-2 bg-transparent p-0 text-start xl:pointer-events-none xl:cursor-default"
-			>
-				<span
-					aria-hidden="true"
-					className="text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center xl:hidden"
+		<LazyMotion features={domMax}>
+			<nav aria-label="Table of contents">
+				<button
+					type="button"
+					onClick={() => setOpen((v) => !v)}
+					aria-expanded={open}
+					aria-controls="toc-list"
+					className="flex w-full items-center gap-2 bg-transparent p-0 text-start xl:pointer-events-none xl:cursor-default"
 				>
-					{open ? (
-						<MinusIcon size={12} weight="bold" />
-					) : (
-						<PlusIcon size={12} weight="bold" />
-					)}
-				</span>
-				<SectionLabel as="p" className="mbe-0">
-					Table of Contents
-				</SectionLabel>
-			</button>
-
-			<AnimatePresence initial={false}>
-				{open && (
-					<motion.div
-						key="toc-body"
-						id="toc-list"
-						initial={{ height: 0, opacity: 0 }}
-						animate={{ height: 'auto', opacity: 1 }}
-						exit={{ height: 0, opacity: 0 }}
-						transition={{ duration: 0.25, ease: EASE_ENTER }}
-						className="overflow-hidden"
+					<span
+						aria-hidden="true"
+						className="text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center xl:hidden"
 					>
-						<ol className="border-usuzumi dark:border-nezumi mbs-4 border-is-1 relative flex list-none flex-col">
-							{headings.map(({ id, text }) => {
-								const isActive = id === activeId;
-								return (
-									<li key={id} className="relative">
-										{isActive && (
-											<motion.span
-												layoutId="toc-indicator"
-												aria-hidden="true"
-												className="bg-beni dark:bg-beni-light -inline-start-px block-start-0 absolute h-full w-px"
-												transition={{ duration: 0.25, ease: EASE_ENTER }}
-											/>
-										)}
-										<a
-											href={`#${id}`}
-											onClick={(event) => handleClick(event, id)}
-											className={cn(
-												'pis-4 pbl-[0.375rem] block leading-snug transition-colors duration-200',
-												isActive
-													? 'text-beni dark:text-beni-light'
-													: 'text-hai hover:text-sumi dark:hover:text-washi'
+						{open ? (
+							<MinusIcon size={12} weight="bold" />
+						) : (
+							<PlusIcon size={12} weight="bold" />
+						)}
+					</span>
+					<SectionLabel as="p" className="mbe-0">
+						Table of Contents
+					</SectionLabel>
+				</button>
+
+				<AnimatePresence initial={false}>
+					{open && (
+						<m.div
+							key="toc-body"
+							id="toc-list"
+							initial={{ height: 0, opacity: 0 }}
+							animate={{ height: 'auto', opacity: 1 }}
+							exit={{ height: 0, opacity: 0 }}
+							transition={{ duration: 0.25, ease: EASE_ENTER }}
+							className="overflow-hidden"
+						>
+							<ol className="border-usuzumi dark:border-nezumi mbs-4 border-is-1 relative flex list-none flex-col">
+								{headings.map(({ id, text }) => {
+									const isActive = id === activeId;
+									return (
+										<li key={id} className="relative">
+											{isActive && (
+												<m.span
+													layoutId="toc-indicator"
+													aria-hidden="true"
+													className="bg-beni dark:bg-beni-light -inline-start-px block-start-0 absolute h-full w-px"
+													transition={{
+														duration: 0.25,
+														ease: EASE_ENTER,
+													}}
+												/>
 											)}
-											style={{
-												transitionTimingFunction: 'var(--ease-enter)',
-											}}
-										>
-											{text}
-										</a>
-									</li>
-								);
-							})}
-						</ol>
-					</motion.div>
-				)}
-			</AnimatePresence>
-		</nav>
+											<a
+												href={`#${id}`}
+												onClick={(event) => handleClick(event, id)}
+												className={cn(
+													'pis-4 pbl-[0.375rem] block leading-snug transition-colors duration-200',
+													isActive
+														? 'text-beni dark:text-beni-light'
+														: 'text-hai hover:text-sumi dark:hover:text-washi'
+												)}
+												style={{
+													transitionTimingFunction: 'var(--ease-enter)',
+												}}
+											>
+												{text}
+											</a>
+										</li>
+									);
+								})}
+							</ol>
+						</m.div>
+					)}
+				</AnimatePresence>
+			</nav>
+		</LazyMotion>
 	);
 };
 

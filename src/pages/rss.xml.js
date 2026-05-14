@@ -11,8 +11,10 @@ const parser = new MarkdownIt({ html: true });
 import { stripMDXComponents } from '../utils';
 
 export async function GET(context) {
-	const writing = await getCollection('writing', ({ data }) => !data.draft);
-	const haiku = await getCollection('haiku');
+	const [writing, haiku] = await Promise.all([
+		getCollection('writing', ({ data }) => !data.draft),
+		getCollection('haiku'),
+	]);
 	writing.sort(sortByDate);
 	haiku.sort(sortByDate);
 

@@ -1,5 +1,5 @@
 import { XIcon } from '@phosphor-icons/react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { computeLightboxSize } from '../../lib/lightboxSizing';
 
@@ -102,77 +102,79 @@ export const LightboxRoot = () => {
 	const backdropDuration = prefersReducedMotion ? 0 : 0.2;
 
 	return (
-		<AnimatePresence>
-			{active && target && (
-				<>
-					{/* Backdrop */}
-					<motion.div
-						key="lb-backdrop"
-						className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: backdropDuration }}
-						onClick={close}
-						aria-hidden="true"
-					/>
-
-					{/* Close button */}
-					<motion.button
-						key="lb-close"
-						ref={closeBtnRef}
-						onClick={close}
-						className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 inline-end-4 block-start-4 fixed z-[52] p-2"
-						aria-label="Close lightbox"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: backdropDuration }}
-					>
-						<XIcon className="h-5 w-5" />
-					</motion.button>
-
-					{/* Image */}
-					<div
-						role="dialog"
-						aria-modal="true"
-						aria-label="Image lightbox"
-						className="pointer-events-none fixed inset-0 z-[51]"
-					>
-						<motion.img
-							key="lb-image"
-							src={active.src}
-							alt={active.alt}
-							className="rounded-2 cursor-zoom-out object-contain"
-							style={{ position: 'fixed', pointerEvents: 'auto' }}
-							initial={{
-								top: active.rect.top,
-								left: active.rect.left,
-								width: active.rect.width,
-								height: active.rect.height,
-								opacity: 1,
-							}}
-							animate={{
-								top: target.top,
-								left: target.left,
-								width: target.width,
-								height: target.height,
-								opacity: 1,
-							}}
-							exit={{
-								top: active.rect.top,
-								left: active.rect.left,
-								width: active.rect.width,
-								height: active.rect.height,
-								opacity: 1,
-							}}
-							transition={{ duration, ease: EASE }}
+		<LazyMotion features={domAnimation}>
+			<AnimatePresence>
+				{active && target && (
+					<>
+						{/* Backdrop */}
+						<m.div
+							key="lb-backdrop"
+							className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: backdropDuration }}
 							onClick={close}
+							aria-hidden="true"
 						/>
-					</div>
-				</>
-			)}
-		</AnimatePresence>
+
+						{/* Close button */}
+						<m.button
+							key="lb-close"
+							ref={closeBtnRef}
+							onClick={close}
+							className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 inline-end-4 block-start-4 fixed z-[52] p-2"
+							aria-label="Close lightbox"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: backdropDuration }}
+						>
+							<XIcon className="size-5" />
+						</m.button>
+
+						{/* Image */}
+						<div
+							role="dialog"
+							aria-modal="true"
+							aria-label="Image lightbox"
+							className="pointer-events-none fixed inset-0 z-[51]"
+						>
+							<m.img
+								key="lb-image"
+								src={active.src}
+								alt={active.alt}
+								className="rounded-2 cursor-zoom-out object-contain"
+								style={{ position: 'fixed', pointerEvents: 'auto' }}
+								initial={{
+									top: active.rect.top,
+									left: active.rect.left,
+									width: active.rect.width,
+									height: active.rect.height,
+									opacity: 1,
+								}}
+								animate={{
+									top: target.top,
+									left: target.left,
+									width: target.width,
+									height: target.height,
+									opacity: 1,
+								}}
+								exit={{
+									top: active.rect.top,
+									left: active.rect.left,
+									width: active.rect.width,
+									height: active.rect.height,
+									opacity: 1,
+								}}
+								transition={{ duration, ease: EASE }}
+								onClick={close}
+							/>
+						</div>
+					</>
+				)}
+			</AnimatePresence>
+		</LazyMotion>
 	);
 };
 

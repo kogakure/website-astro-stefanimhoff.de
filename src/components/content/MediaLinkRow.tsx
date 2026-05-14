@@ -52,7 +52,7 @@ export const MediaLinkRow = ({ className, links }: Props) => {
 				const ariaLabel = link.label ?? labelMap[link.kind];
 				return (
 					<Link
-						key={i}
+						key={link.kind}
 						href={link.url!}
 						aria-label={ariaLabel}
 						className="text-hai hover:text-beni dark:hover:text-beni-light transition-colors duration-150"

@@ -64,21 +64,24 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 				</div>
 				{/* Link */}
 				<div className="flex flex-col items-start gap-2">
-					<a
-						href="#"
+					<button
+						type="button"
 						style={{
 							...(focused === 'link' ? ring : {}),
 							color: linkColor,
 							fontFamily: 'var(--font-sans)',
 							fontSize: 'var(--text-3)',
 							textDecoration: 'underline',
+							background: 'none',
+							border: 'none',
+							padding: 0,
+							cursor: 'pointer',
 						}}
 						onFocus={() => setFocused('link')}
 						onBlur={() => setFocused(null)}
-						onClick={(e) => e.preventDefault()}
 					>
 						Text link
-					</a>
+					</button>
 					<span className="font-mono text-[9px]" style={{ color: 'var(--color-hai)' }}>
 						{focused === 'link' ? 'focused' : 'unfocused'}
 					</span>
