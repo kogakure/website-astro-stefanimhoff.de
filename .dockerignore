@@ -9,9 +9,12 @@ dist
 # Agentic
 CLAUDE.md
 AGENTS.md
+DESIGN.md
 .agents
 .beans
 .claude
+.codex
+.opencode
 
 # Development files
 .vscode
