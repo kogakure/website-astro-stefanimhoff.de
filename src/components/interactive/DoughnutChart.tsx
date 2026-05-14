@@ -32,8 +32,8 @@ type DoughnutChartProps = {
 };
 
 type LegendPayloadEntry = {
-	value: string;
-	color: string;
+	value?: string;
+	color?: string;
 };
 
 type TooltipEntry = {
@@ -58,12 +58,12 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Toolti
 	);
 };
 
-const renderLegend = ({ payload }: { payload?: LegendPayloadEntry[] }) => {
+const renderLegend = ({ payload }: { payload?: readonly LegendPayloadEntry[] }) => {
 	if (!payload) return null;
 	return (
 		<ul className="pbs-2 flex flex-wrap justify-center gap-x-4 gap-y-1">
 			{payload.map((entry, index) => (
-				<li key={entry.value} className="flex items-center gap-1.5">
+				<li key={entry.value ?? index} className="flex items-center gap-1.5">
 					<span
 						className="inline-block size-3 flex-shrink-0 rounded-sm border border-black/25 dark:border-white/25"
 						style={{ backgroundColor: entry.color }}
