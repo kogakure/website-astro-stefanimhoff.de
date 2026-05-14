@@ -1,0 +1,7 @@
+---
+date: {{date}}
+de: |
+{{{indent de}}}
+en: |
+{{{indent en}}}
+---

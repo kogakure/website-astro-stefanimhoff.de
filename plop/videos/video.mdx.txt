@@ -1,0 +1,25 @@
+---
+title: {{{yamlString title}}}
+url: {{{yamlString url}}}
+topic: {{{yamlSlug topic}}}
+{{#if sort}}
+sort: {{sort}}
+{{/if}}
+language: {{language}}
+{{#if featured}}
+featured: true
+{{/if}}
+{{#if youtubeId}}
+youtubeId: {{{yamlString youtubeId}}}
+{{/if}}
+{{#if channel}}
+channel: {{{yamlString channel}}}
+{{/if}}
+kind: {{kind}}
+{{#if cover}}
+cover: {{{yamlString cover}}}
+{{/if}}
+{{#if description}}
+description: {{{yamlString description}}}
+{{/if}}
+---

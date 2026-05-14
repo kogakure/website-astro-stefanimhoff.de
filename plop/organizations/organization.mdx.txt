@@ -1,0 +1,15 @@
+---
+title: {{{yamlString title}}}
+url: {{{yamlString url}}}
+topic: {{{yamlSlug topic}}}
+{{#if sort}}
+sort: {{sort}}
+{{/if}}
+language: {{language}}
+{{#if featured}}
+featured: true
+{{/if}}
+{{#if description}}
+description: {{{yamlString description}}}
+{{/if}}
+---
