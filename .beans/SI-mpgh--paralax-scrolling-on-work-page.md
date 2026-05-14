@@ -1,12 +1,12 @@
 ---
 # SI-mpgh
 title: Paralax scrolling on "Work" page
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-16T12:38:09Z
-updated_at: 2026-04-25T15:03:15Z
-parent: SI-n5p8
+updated_at: 2026-05-14T13:36:40Z
+parent: SI-akaq
 ---
 
 The different images on the "Work" page should have a subtle paralax movement when the user scrolls down the page. In case that a project has 2 to or more images, some should go slightly up and others down.
