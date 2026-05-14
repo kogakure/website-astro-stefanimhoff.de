@@ -11,7 +11,7 @@ export const ClearFiltersButton = ({ count, className, ...props }: Props) => (
 		type="button"
 		aria-label="Clear all active tag filters"
 		className={cn(
-			'border-beni dark:border-beni-light text-beni dark:text-beni-light hover:bg-beni/10 dark:hover:bg-beni-light/10 mbs-3 pli-[0.625rem] pbl-[0.125rem] inline-flex items-center gap-1.5 rounded-full border text-xs transition-all duration-200 active:scale-[0.97]',
+			'border-beni dark:border-beni-light text-beni dark:text-beni-light hover:bg-beni/10 dark:hover:bg-beni-light/10 mbs-3 pli-px10 pbl-px2 inline-flex items-center gap-1.5 rounded-full border text-xs transition-all duration-200 active:scale-[0.97]',
 			count > 0
 				? 'pointer-events-auto translate-y-0 opacity-100'
 				: 'pointer-events-none -translate-y-1 opacity-0',

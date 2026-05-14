@@ -14,7 +14,7 @@ export const HomePageSection = ({ label, className, children, ...props }: Props)
 		)}
 		{...props}
 	>
-		<div className="col-span-3 md:col-span-2 md:pt-[0.35em] xl:col-span-2 xl:col-start-3">
+		<div className="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-3">
 			<SectionLabel>{label}</SectionLabel>
 		</div>
 		<div className="[&>p]:mbe-5 col-span-3 min-w-0 md:col-span-5 xl:col-span-5">{children}</div>

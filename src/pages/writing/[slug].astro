@@ -113,14 +113,14 @@ const schema = JSON.stringify({
 	noindex={entry.data.noindex}
 	title={subtitle ? `${title}: ${subtitle}` : title}
 >
-	<PageTitle class="pbe-6" titleClass="text-8 leading-[1.0] tracking-[-0.04em] font-bold"
+	<PageTitle class="pbe-6" titleClass="text-8 leading-display tracking-display font-bold"
 		>{title}</PageTitle
 	>
 
 	{
 		subtitle && (
 			<div class="max-w-360 pli-8 pbe-8 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-				<Text className="col-span-3 text-[clamp(1.25rem,2.083vw,1.875rem)] leading-[1.3] text-sumi dark:text-washi tracking-[-0.05em] mbe-0 md:col-span-6 xl:col-span-8 xl:col-start-2">
+				<Text className="col-span-3 text-[clamp(1.25rem,2.083vw,1.875rem)] leading-display-lg text-sumi dark:text-washi tracking-heading mbe-0 md:col-span-6 xl:col-span-8 xl:col-start-2">
 					{subtitle}
 				</Text>
 			</div>

@@ -18,7 +18,7 @@ const variantClasses: Record<Variant, string> = {
 export const Badge = ({ variant = 'default', className, children, ...props }: Props) => (
 	<span
 		className={cn(
-			'rounded-25 text-1 pli-2 pbl-[0.125rem] inline-flex items-center border font-medium uppercase leading-none',
+			'rounded-25 text-1 pli-2 pbl-px2 inline-flex items-center border font-medium uppercase leading-none',
 			variantClasses[variant],
 			className
 		)}

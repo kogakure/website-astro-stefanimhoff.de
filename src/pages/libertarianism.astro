@@ -112,11 +112,11 @@ const description =
 			books.length > 0 && (
 				<section class="flex flex-col gap-6">
 					<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-						<div class="md:pbs-[0.35em] col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+						<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
 							<span class="text-2 text-hai block uppercase">Books</span>
 						</div>
 					</div>
-					<Bookshelf className="grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-stretch items-start">
+					<Bookshelf className="grid-cols-auto-lg justify-items-stretch items-start">
 						{books.map((book) => (
 							<BookCard
 								asin={book.data.asin}
@@ -140,11 +140,11 @@ const description =
 			audiobooks.length > 0 && (
 				<section class="flex flex-col gap-6">
 					<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-						<div class="md:pbs-[0.35em] col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+						<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
 							<span class="text-2 text-hai block uppercase">Audio Books</span>
 						</div>
 					</div>
-					<Bookshelf className="grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-stretch items-start">
+					<Bookshelf className="grid-cols-auto-lg justify-items-stretch items-start">
 						{audiobooks.map((book) => (
 							<AudioCard
 								author={book.data.author}
@@ -168,11 +168,11 @@ const description =
 			podcasts.length > 0 && (
 				<section class="flex flex-col gap-6">
 					<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-						<div class="md:pbs-[0.35em] col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+						<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
 							<span class="text-2 text-hai block uppercase">Podcasts</span>
 						</div>
 					</div>
-					<Bookshelf className="grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-stretch items-start">
+					<Bookshelf className="grid-cols-auto-lg justify-items-stretch items-start">
 						{podcasts.map((podcast) => (
 							<AudioCard
 								author={podcast.data.moderator}
@@ -197,11 +197,11 @@ const description =
 			videos.length > 0 && (
 				<section class="flex flex-col gap-6">
 					<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
-						<div class="md:pbs-[0.35em] col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+						<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
 							<span class="text-2 text-hai block uppercase">Videos</span>
 						</div>
 					</div>
-					<div class="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5">
+					<div class="grid-cols-auto-xl grid gap-5">
 						{videos.map((video) => (
 							<VideoCard
 								channel={video.data.channel}

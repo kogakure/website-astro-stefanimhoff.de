@@ -413,6 +413,30 @@ All font sizes use `clamp()` for fluid scaling. The `vw` value is calculated as 
 | text-1    | Sub-element relative         | 0.65em   | —           | —        | `--text-1`    |
 | text-code | Code (Fira Code)             | 15px     | 1.625       | 0        | `--text-code` |
 
+### Letter-Spacing Scale
+
+Named tracking tokens — use instead of arbitrary `tracking-[em]` values.
+
+| Token                 | Value   | CSS Variable            | Use                                     |
+| --------------------- | ------- | ----------------------- | --------------------------------------- |
+| `tracking-body-tight` | −0.02em | `--tracking-body-tight` | Body text, H3 blog (text-4), nav labels |
+| `tracking-display`    | −0.04em | `--tracking-display`    | H1 display headings (text-8, text-9)    |
+| `tracking-heading`    | −0.05em | `--tracking-heading`    | H3 section / lead paragraph subtitles   |
+
+Tailwind built-ins (`tracking-tight`, `tracking-wider`, `tracking-widest`) remain available for standard UI usage.
+
+### Line-Height Display Scale
+
+Named leading tokens for display type — Tailwind's built-in `leading-*` scale (1.5, 1.25, etc.) is too coarse for Boska display use.
+
+| Token                | Value | CSS Variable           | Use                                     |
+| -------------------- | ----- | ---------------------- | --------------------------------------- |
+| `leading-display-xs` | 0.92  | `--leading-display-xs` | Tightest hero (Title component default) |
+| `leading-display-sm` | 0.95  | `--leading-display-sm` | Tight H1, 404 page title, DS index hero |
+| `leading-display`    | 1.0   | `--leading-display`    | Blog title (text-8)                     |
+| `leading-display-md` | 1.05  | `--leading-display-md` | Relaxed display (homepage hero Title)   |
+| `leading-display-lg` | 1.3   | `--leading-display-lg` | Lead paragraph / subtitle               |
+
 ### Rules
 
 - **Two display typefaces only.** Boska and Switzer. No third-party fonts. Fira Code is the sole monospace exception.
@@ -441,6 +465,18 @@ The grid is the tatami mat of the design — a modular system that structures sp
 
 Every measurement snaps to multiples of 4px. The full spacing scale is defined in CSS as fluid `clamp()` values. Small values (space-1, space-2) are fixed; larger values scale fluidly with viewport width, capped at their maximum.
 
+### Sub-4px Spacing Tokens
+
+Values below the 4px base unit minimum, used for fine-grained component padding.
+
+| Token          | Value           | CSS Variable     | Use                                           |
+| -------------- | --------------- | ---------------- | --------------------------------------------- |
+| `spacing-px2`  | 0.125rem (2px)  | `--spacing-px2`  | Badge / SeriesStepper subtitle `pbl` / `mbs`  |
+| `spacing-px6`  | 0.375rem (6px)  | `--spacing-px6`  | SeriesStepper step row / TableOfContents item |
+| `spacing-px10` | 0.625rem (10px) | `--spacing-px10` | ClearFiltersButton horizontal padding (`pli`) |
+
+These are not part of the 4px fluid scale — they are fixed sub-scale values.
+
 ### Layout-Specific Tokens
 
 | Token         | CSS Variable                 | Purpose                                    |
@@ -458,6 +494,23 @@ Every measurement snaps to multiples of 4px. The full spacing scale is defined i
 - **Asymmetric split (Fukinsei):** Content occupies 7–9 columns; the remaining space is deliberate void.
 - **Full-bleed moments (Datsuzoku):** The Japanese poem strip breaks the grid entirely, edge to edge.
 - **Centred minimal (Seijaku):** Centred column of 6–8 grid units, surrounded by generous margins.
+
+### Responsive Auto-Fill Grid Utilities
+
+Four named `@utility` classes for responsive content grids (auto-fill, no media queries needed).
+
+| Utility             | Min column width | Use                                           |
+| ------------------- | ---------------- | --------------------------------------------- |
+| `grid-cols-auto-sm` | 150px            | Color swatches, small card grids              |
+| `grid-cols-auto-md` | 220px            | Traditional color palette grid                |
+| `grid-cols-auto-lg` | 250px            | Bookshelf cards (books, audiobooks, podcasts) |
+| `grid-cols-auto-xl` | 280px            | Video card grids                              |
+
+All use `repeat(auto-fill, minmax(Npx, 1fr))`. Gap is set independently with `gap-*`.
+
+### Optical Baseline Utility
+
+`pbs-optical` — adds `padding-block-start: 0.35em` to optically align a section label's cap-height with the adjacent content's first text baseline. Applied at `md:` breakpoint where the label column sits beside the content column. This is em-relative and intentionally outside the 4px spacing scale.
 
 ### Responsive
 

@@ -103,9 +103,7 @@ export const RoadmapMilestone = ({
 					</div>
 
 					{note && (
-						<p className="text-2 text-muted-foreground mbe-0 mbs-[0.125rem] italic">
-							{note}
-						</p>
+						<p className="text-2 text-muted-foreground mbe-0 mbs-px2 italic">{note}</p>
 					)}
 				</div>
 			</Link>
