@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
 import { remarkMark, remarkReadingTime, remarkTableOfContents, remarkWidont } from './src/utils';
 
-import customTheme from './shiki-theme.json';
+import customTheme from './ma-theme.json';
 
 // https://astro.build/config
 export default defineConfig({
