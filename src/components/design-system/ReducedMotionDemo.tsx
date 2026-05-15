@@ -28,6 +28,7 @@ export const ReducedMotionDemo = () => {
 		<div className="flex flex-col gap-5">
 			<div className="flex items-center gap-4">
 				<Switch
+					aria-label="Simulate prefers-reduced-motion"
 					checked={reduced}
 					onCheckedChange={(val) => {
 						setReduced(val);

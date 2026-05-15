@@ -67,6 +67,7 @@
 		"@typescript-eslint/parser": "^8.0.0",
 		"@vitest/coverage-v8": "^4.0.18",
 		"@vitest/ui": "^4.0.18",
+		"axe-core": "^4.11.4",
 		"eslint": "^9.3.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-astro": "^1.2.0",
@@ -90,7 +91,8 @@
 		"sharp": "^0.33.4",
 		"typescript": "^5.4.5",
 		"vite": "^6.0.0",
-		"vitest": "^4.0.18"
+		"vitest": "^4.0.18",
+		"vitest-axe": "^0.1.0"
 	},
 	"pnpm": {
 		"supportedArchitectures": {

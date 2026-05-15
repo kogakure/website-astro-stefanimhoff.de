@@ -4,6 +4,7 @@ import { afterEach, vi } from 'vitest';
 if (typeof window !== 'undefined') {
 	// Import jest-dom matchers only in DOM environment
 	await import('@testing-library/jest-dom/vitest');
+	await import('./a11y');
 	const { cleanup } = await import('@testing-library/react');
 
 	if (!window.matchMedia) {
