@@ -112,6 +112,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 								)}
 								<button
 									type="button"
+									aria-pressed={selectedTags.includes(tag)}
 									onClick={() => toggleTag(tag)}
 									className={`transition-opacity hover:opacity-60 ${
 										selectedTags.includes(tag)
@@ -165,7 +166,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			) : (
 				<section className={sectionGrid}>
 					<div className={labelCol} />
-					<Text className={`${contentCol} text-hai`}>
+					<Text className={`${contentCol} text-nezumi`}>
 						No essays found for the selected tags.
 					</Text>
 				</section>

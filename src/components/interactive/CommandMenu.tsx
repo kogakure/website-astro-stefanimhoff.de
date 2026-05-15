@@ -101,9 +101,13 @@ export const CommandMenu = () => {
 	const [isDark, setIsDark] = useState(false);
 	const pagefindRef = useRef<any>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
+	const prevFocusRef = useRef<HTMLElement | null>(null);
 
 	useEffect(() => {
 		setIsDark(document.documentElement.classList.contains('dark'));
+		if (open) {
+			prevFocusRef.current = document.activeElement as HTMLElement;
+		}
 	}, [open]);
 
 	useEffect(() => {
@@ -211,7 +215,10 @@ export const CommandMenu = () => {
 		}
 	}, [open]);
 
-	const close = () => setOpen(false);
+	const close = () => {
+		setOpen(false);
+		requestAnimationFrame(() => prevFocusRef.current?.focus());
+	};
 
 	const navigate = (url: string) => {
 		close();
@@ -277,7 +284,7 @@ export const CommandMenu = () => {
 									{view === 'search' && (
 										<button
 											onClick={goToMenu}
-											className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 mis-2 shrink-0 p-2"
+											className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 focus-visible:ring-beni dark:focus-visible:ring-beni-light mis-2 shrink-0 p-2 focus-visible:outline-none focus-visible:ring-2"
 											aria-label="Back to navigation"
 											type="button"
 										>
@@ -292,7 +299,7 @@ export const CommandMenu = () => {
 											view === 'menu' ? 'Type a command…' : 'Search the site…'
 										}
 										className={cn(
-											'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none',
+											'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-offset-0',
 											view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
 										)}
 										autoFocus

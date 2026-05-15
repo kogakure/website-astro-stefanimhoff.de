@@ -48,24 +48,31 @@ export const LightboxRoot = () => {
 		const el = active?.sourceEl;
 		setActive(null);
 		setTarget(null);
-		requestAnimationFrame(() => el?.focus());
+		requestAnimationFrame(() => {
+			const focusTarget = el?.closest<HTMLElement>('button') ?? el;
+			focusTarget?.focus();
+		});
 	}, [active]);
 
 	// Event delegation — one listener handles all data-lightbox images
 	useEffect(() => {
+		const getImg = (target: Element): HTMLImageElement | null => {
+			const el = target.closest('[data-lightbox="true"]');
+			if (!el) return null;
+			return el instanceof HTMLImageElement ? el : el.querySelector<HTMLImageElement>('img');
+		};
 		const handleClick = (e: MouseEvent) => {
-			const img = (e.target as Element).closest<HTMLImageElement>('[data-lightbox="true"]');
+			const img = getImg(e.target as Element);
 			if (!img) return;
 			e.preventDefault();
 			open(img);
 		};
 		const handleKeydown = (e: KeyboardEvent) => {
-			const img = (e.target as Element).closest<HTMLImageElement>('[data-lightbox="true"]');
+			if (e.key !== 'Enter' && e.key !== ' ') return;
+			const img = getImg(e.target as Element);
 			if (!img) return;
-			if (e.key === 'Enter' || e.key === ' ') {
-				e.preventDefault();
-				open(img);
-			}
+			e.preventDefault();
+			open(img);
 		};
 		document.body.addEventListener('click', handleClick);
 		document.body.addEventListener('keydown', handleKeydown);
@@ -130,7 +137,7 @@ export const LightboxRoot = () => {
 							exit={{ opacity: 0 }}
 							transition={{ duration: backdropDuration }}
 						>
-							<XIcon className="size-5" />
+							<XIcon className="size-5" aria-hidden="true" />
 						</m.button>
 
 						{/* Image */}

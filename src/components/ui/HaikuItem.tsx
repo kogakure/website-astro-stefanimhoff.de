@@ -17,7 +17,7 @@ const formatLines = (text: string) =>
 export const HaikuItem = ({ className, de, en, ...props }: Props) => (
 	<li className={cn('text-3 flex flex-col', className)} {...props}>
 		<Text className="text-sumi dark:text-washi mbe-0 font-bold">{formatLines(de)}</Text>
-		<Text className="text-hai mbe-0">{formatLines(en)}</Text>
+		<Text className="text-nezumi mbe-0">{formatLines(en)}</Text>
 	</li>
 );
 

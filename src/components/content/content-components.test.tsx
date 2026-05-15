@@ -128,12 +128,9 @@ describe('content image and embed components', () => {
 			'src',
 			'/book.jpg'
 		);
-		expect(
-			screen.getAllByRole('button', { name: 'Open image in lightbox' })[0]
-		).toHaveAttribute('src', '/photo.jpg');
-		expect(
-			screen.getAllByRole('button', { name: 'Open image in lightbox' })[1]
-		).toHaveAttribute('data-lightbox', 'true');
+		const [btn0, btn1] = screen.getAllByRole('button', { name: 'Open image in lightbox' });
+		expect(btn0.querySelector('img')).toHaveAttribute('src', '/photo.jpg');
+		expect(btn1).toHaveAttribute('data-lightbox', 'true');
 		expect(container).toHaveTextContent('A caption');
 		expect(screen.getByText('Ada').tagName).toBe('CITE');
 		expect(screen.getByRole('link', { name: 'Linked photo' })).toHaveAttribute(

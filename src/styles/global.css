@@ -556,7 +556,17 @@
 
 	/** Inputs */
 	input[type='text'] {
-		@apply border-shibui-450 focus:border-shibui-950 dark:focus:border-shibui-50 border outline-none;
+		@apply border-shibui-450 focus:border-shibui-950 dark:focus:border-shibui-50 focus-visible:ring-beni border outline-none focus-visible:ring-2 focus-visible:ring-offset-1;
+	}
+
+	/** Focus rings */
+	:focus-visible {
+		outline: 2px solid var(--color-beni);
+		outline-offset: 2px;
+	}
+
+	.dark :focus-visible {
+		outline-color: var(--color-beni-light);
 	}
 }
 

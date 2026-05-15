@@ -15,6 +15,7 @@ const isActive = (url: string) => (url === '/' ? currentPath === '/' : currentPa
 							'decoration-beni hover:text-beni dark:decoration-beni-light dark:hover:text-beni-light pli-1 text-sm underline-offset-4 transition-colors',
 							isActive(url) && 'underline',
 						]}
+						aria-current={isActive(url) ? 'page' : undefined}
 						data-umami-event={`Nav: ${title}`}
 						href={url}
 					>

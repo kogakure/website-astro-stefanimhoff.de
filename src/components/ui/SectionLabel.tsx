@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 export const SectionLabel = ({ as: Tag = 'h2', className, children, ...props }: Props) => (
-	<Tag className={cn('text-2 text-hai block uppercase', className)} {...props}>
+	<Tag className={cn('text-2 text-nezumi block uppercase', className)} {...props}>
 		{children}
 	</Tag>
 );

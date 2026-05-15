@@ -78,7 +78,7 @@ export const BookCard = ({
 							{subtitle}
 						</Text>
 					)}
-					{author && <Text className="text-2 text-hai mbe-0">{author}</Text>}
+					{author && <Text className="text-2 text-nezumi mbe-0">{author}</Text>}
 				</div>
 
 				{description && (

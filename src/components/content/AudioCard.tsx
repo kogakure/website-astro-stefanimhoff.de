@@ -78,7 +78,7 @@ export const AudioCard = ({
 							{subtitle}
 						</Text>
 					)}
-					{contributor && <Text className="text-2 text-hai mbe-0">{contributor}</Text>}
+					{contributor && <Text className="text-2 text-nezumi mbe-0">{contributor}</Text>}
 				</div>
 
 				{description && (

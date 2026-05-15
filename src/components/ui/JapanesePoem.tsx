@@ -11,6 +11,7 @@ export const JapanesePoem = ({ as: Tag = 'span', className, children, ...props }
 			'marquee-content font-japanese text-beni dark:text-beni-light px-12 text-[clamp(3rem,6vw,7.5rem)] font-bold not-italic',
 			className
 		)}
+		lang="ja"
 		{...props}
 	>
 		{children ?? '無限の沈黙である私はお前に言葉を與へてやろう。'}

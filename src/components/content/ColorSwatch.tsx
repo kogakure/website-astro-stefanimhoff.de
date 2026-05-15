@@ -56,14 +56,14 @@ export const ColorSwatch = ({
 						<span className="text-3 text-sumi dark:text-washi truncate font-medium">
 							{label}
 							{kanji && (
-								<span className="mie-0 mis-2 text-hai font-normal">{kanji}</span>
+								<span className="mie-0 mis-2 text-nezumi font-normal">{kanji}</span>
 							)}
 						</span>
 					</div>
 				)}
-				<p className="text-2 text-hai font-mono">{color}</p>
+				<p className="text-2 text-nezumi font-mono">{color}</p>
 				{description && (
-					<p className="text-2 mbs-1 text-hai overflow-hidden [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]">
+					<p className="text-2 mbs-1 text-nezumi overflow-hidden [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]">
 						{description}
 					</p>
 				)}

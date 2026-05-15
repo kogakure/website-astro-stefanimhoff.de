@@ -89,7 +89,7 @@ export const VideoCard = ({
 
 			<div className="flex flex-col gap-1 p-3">
 				<Text className="text-2 mbe-0 line-clamp-2 font-medium">{title}</Text>
-				{channel && <Text className="text-2 text-hai mbe-0">{channel}</Text>}
+				{channel && <Text className="text-2 text-nezumi mbe-0">{channel}</Text>}
 				{(language || featured) && (
 					<div className="flex flex-wrap items-center gap-1">
 						{featured && <Badge variant="favorite">Favorite</Badge>}

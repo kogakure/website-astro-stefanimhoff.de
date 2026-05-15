@@ -39,12 +39,12 @@ const Image = ({
 	...props
 }: Props) => {
 	const lightbox = enableLightbox && !href;
-	const imgEl = (
+	const img = (
 		<img
 			className={cn(
 				'rounded-2 object-cover',
 				lightbox &&
-					'ease-enter cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]'
+					'ease-enter transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]'
 			)}
 			decoding={decoding}
 			loading={loading}
@@ -52,15 +52,19 @@ const Image = ({
 			alt={alt ?? ''}
 			width={width}
 			height={height}
-			{...(lightbox
-				? {
-						'data-lightbox': 'true' as const,
-						tabIndex: 0,
-						role: 'button' as const,
-						'aria-label': 'Open image in lightbox',
-					}
-				: {})}
 		/>
+	);
+	const imgEl = lightbox ? (
+		<button
+			type="button"
+			aria-label="Open image in lightbox"
+			className="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+			data-lightbox="true"
+		>
+			{img}
+		</button>
+	) : (
+		img
 	);
 
 	return (
@@ -75,7 +79,7 @@ const Image = ({
 			{...props}
 		>
 			<div className="figure-content mbs-0 gap-6 [&_img]:w-full [&_img]:max-w-full">
-				{href ? <a href={href}>{imgEl}</a> : imgEl}
+				{href ? <a href={href}>{img}</a> : imgEl}
 			</div>
 			{(caption || source) && (
 				<figcaption className="text-2 mbs-2 text-balance text-center">

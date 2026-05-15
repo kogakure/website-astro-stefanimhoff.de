@@ -50,10 +50,10 @@ export const ColorSwatchPrimary = ({
 						{name}
 					</span>
 				)}
-				<span className="text-2 text-hai font-mono">{color}</span>
+				<span className="text-2 text-nezumi font-mono">{color}</span>
 
 				{description && (
-					<p className="text-2 mbs-1 text-hai overflow-hidden [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]">
+					<p className="text-2 mbs-1 text-nezumi overflow-hidden [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [display:-webkit-box]">
 						{description}
 					</p>
 				)}

@@ -19,17 +19,20 @@ const [primary, ...gallery] = images;
 	{
 		primary && (
 			<div class="rounded-2 mbe-6 md:mbe-8 xl:mbe-8 col-span-3 overflow-hidden md:col-span-6 xl:col-span-12">
-				<img
-					src={primary.src}
-					alt={primary.alt ?? title}
-					data-lightbox="true"
-					tabindex="0"
-					role="button"
+				<button
+					type="button"
 					aria-label="Open image in lightbox"
-					class="ease-enter w-full cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-					loading="lazy"
-					decoding="async"
-				/>
+					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+					data-lightbox="true"
+				>
+					<img
+						src={primary.src}
+						alt={primary.alt ?? title}
+						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
+						loading="lazy"
+						decoding="async"
+					/>
+				</button>
 			</div>
 		)
 	}
@@ -38,17 +41,20 @@ const [primary, ...gallery] = images;
 	{
 		gallery[0] && (
 			<div class="rounded-2 mbe-6 md:mbe-0 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-2">
-				<img
-					src={gallery[0].src}
-					alt={gallery[0].alt ?? title}
-					data-lightbox="true"
-					tabindex="0"
-					role="button"
+				<button
+					type="button"
 					aria-label="Open image in lightbox"
-					class="ease-enter w-full cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-					loading="lazy"
-					decoding="async"
-				/>
+					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+					data-lightbox="true"
+				>
+					<img
+						src={gallery[0].src}
+						alt={gallery[0].alt ?? title}
+						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
+						loading="lazy"
+						decoding="async"
+					/>
+				</button>
 			</div>
 		)
 	}
@@ -57,17 +63,20 @@ const [primary, ...gallery] = images;
 	{
 		gallery[1] && (
 			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-7">
-				<img
-					src={gallery[1].src}
-					alt={gallery[1].alt ?? title}
-					data-lightbox="true"
-					tabindex="0"
-					role="button"
+				<button
+					type="button"
 					aria-label="Open image in lightbox"
-					class="ease-enter w-full cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-					loading="lazy"
-					decoding="async"
-				/>
+					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+					data-lightbox="true"
+				>
+					<img
+						src={gallery[1].src}
+						alt={gallery[1].alt ?? title}
+						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
+						loading="lazy"
+						decoding="async"
+					/>
+				</button>
 			</div>
 		)
 	}
