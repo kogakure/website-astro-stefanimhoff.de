@@ -20,6 +20,7 @@
 		"preview": "astro preview --open",
 		"start": "astro dev",
 		"test": "vitest run",
+		"test:site": "vitest run --config vitest.astro.config.ts",
 		"test:watch": "vitest",
 		"test:ui": "vitest --ui",
 		"test:coverage": "vitest run --coverage && open coverage/index.html",
