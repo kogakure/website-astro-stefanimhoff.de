@@ -52,8 +52,11 @@ export default defineConfig({
 					globals: true,
 				},
 			},
+			// @ts-expect-error — getViteConfig returns Astro's bundled vite@7 types;
+			// vitest resolves against vite@6. Runtime works; type mismatch is structural.
 			getViteConfig({
 				resolve: { alias },
+				// @ts-expect-error — 'test' is a Vitest-only key; getViteConfig's Vite UserConfig doesn't declare it, but Astro passes it through at runtime.
 				test: {
 					name: 'astro',
 					environment: 'node',

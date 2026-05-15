@@ -1,6 +1,7 @@
 import type AxeCore from 'axe-core';
 import { expect } from 'vitest';
 import { axe as runAxeCore } from 'vitest-axe';
+import 'vitest-axe/extend-expect';
 import * as matchers from 'vitest-axe/matchers';
 
 expect.extend(matchers);
