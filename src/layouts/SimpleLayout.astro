@@ -7,16 +7,37 @@ export interface Props {
 	title?: string;
 	description?: string;
 	cover?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
 }
 
-const { frontmatter, title: titleProp, description: descProp, cover: coverProp } = Astro.props;
+const {
+	frontmatter,
+	title: titleProp,
+	description: descProp,
+	cover: coverProp,
+	noindex: noindexProp,
+	nofollow: nofollowProp,
+} = Astro.props;
 
-const title = frontmatter?.title ?? titleProp ?? '';
+const title = frontmatter?.title ?? titleProp;
 const description = frontmatter?.description ?? descProp ?? '';
 const cover = frontmatter?.cover ?? coverProp;
+const noindex = frontmatter?.noindex ?? noindexProp;
+const nofollow = frontmatter?.nofollow ?? nofollowProp;
+
+if (!title) {
+	throw new Error('SimpleLayout requires a `title` (via frontmatter or prop).');
+}
 ---
 
-<BaseLayout title={title} description={description} cover={cover}>
+<BaseLayout
+	title={title}
+	description={description}
+	cover={cover}
+	noindex={noindex}
+	nofollow={nofollow}
+>
 	<!-- Page title -->
 	<PageTitle>{title}</PageTitle>
 

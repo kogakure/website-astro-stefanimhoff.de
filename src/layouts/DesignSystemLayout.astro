@@ -2,6 +2,10 @@
 import BaseLayout from './BaseLayout.astro';
 import TableOfContents from '../components/interactive/TableOfContents';
 import DesignSystemNav from '../components/site/DesignSystemNav.astro';
+import Breadcrumb from '../components/site/Breadcrumb.astro';
+import PrevNextNavigation from '../components/site/PrevNextNavigation.astro';
+import Title from '../components/ui/Title';
+import Text from '../components/ui/Text';
 
 export interface Props {
 	title: string;
@@ -21,19 +25,10 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 
 <BaseLayout title={title} description={description}>
 	<!-- Breadcrumb -->
-	<nav aria-label="Breadcrumb" class="max-w-360 pli-8 pbs-8 mx-auto w-full">
-		<ol class="text-hai flex items-center gap-2 font-mono text-xs">
-			<li>
-				<a
-					href="/design-system/"
-					class="hover:text-sumi dark:hover:text-washi transition-colors duration-200"
-					>Design System</a
-				>
-			</li>
-			<li aria-hidden="true" class="text-usuzumi">/</li>
-			<li class="text-nezumi" aria-current="page">{title}</li>
-		</ol>
-	</nav>
+	<Breadcrumb
+		class="pbs-8"
+		items={[{ label: 'Design System', href: '/design-system/' }, { label: title }]}
+	/>
 
 	<!-- Hero strip -->
 	<div class="max-w-360 pli-8 pbe-10 pbs-8 mx-auto w-full">
@@ -47,7 +42,10 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 							{orderStr}
 						</span>
 						{kanji && (
-							<span class="font-japanese text-usuzumi dark:text-nezumi text-5 leading-none">
+							<span
+								lang="ja"
+								class="font-japanese text-usuzumi dark:text-nezumi text-5 leading-none"
+							>
 								{kanji}
 							</span>
 						)}
@@ -60,12 +58,8 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 					orderStr ? 'xl:col-start-2' : 'col-span-3 xl:col-span-10 xl:col-start-2',
 				]}
 			>
-				<h1
-					class="font-display text-sumi dark:text-washi mbe-3 tracking-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none"
-				>
-					{title}
-				</h1>
-				{description && <p class="text-hai text-3 mbe-0">{description}</p>}
+				<Title className="text-7 mbe-3 leading-none">{title}</Title>
+				{description && <Text className="text-hai mbe-0">{description}</Text>}
 			</div>
 		</div>
 		<div class="border-usuzumi dark:border-nezumi mbs-8 border-bs-1"></div>
@@ -105,65 +99,11 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 	</div>
 
 	<!-- Prev / next navigation -->
-	{
-		(prev || next) && (
-			<nav
-				class="max-w-360 pli-8 pbe-16 pbs-4 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
-				aria-label="Design system section navigation"
-			>
-				<div class="col-span-3 md:col-span-4 md:col-start-3 xl:col-span-7 xl:col-start-3">
-					<div
-						class:list={[
-							'rounded-2 border-usuzumi dark:border-nezumi grid border',
-							prev && next ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1',
-						]}
-					>
-						{prev && (
-							<a
-								class:list={[
-									'ease-enter pli-6 pbl-6 md:pli-8 md:pbl-8 group relative flex flex-col gap-3 text-start transition-colors duration-200',
-									prev &&
-										next &&
-										'border-usuzumi dark:border-nezumi border-be-1 md:border-be-0 md:border-ie-1',
-								]}
-								href={`/design-system/${prev.slug}/`}
-								rel="prev"
-							>
-								<span class="text-hai dark:text-nezumi text-2 flex items-center gap-3 uppercase tracking-wide">
-									<span
-										aria-hidden="true"
-										class="bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 origin-right transition-transform duration-200 group-hover:scale-x-150"
-									/>
-									Previous
-								</span>
-								<span class="text-3 text-sumi dark:text-washi ease-enter group-hover:text-beni dark:group-hover:text-beni-light text-balance font-bold transition-colors duration-200">
-									{prev.title}
-								</span>
-							</a>
-						)}
-						{next && (
-							<a
-								class="ease-enter pli-6 pbl-6 md:pli-8 md:pbl-8 group relative flex flex-col items-end gap-3 text-end transition-colors duration-200"
-								href={`/design-system/${next.slug}/`}
-								rel="next"
-							>
-								<span class="text-hai dark:text-nezumi text-2 flex items-center gap-3 uppercase tracking-wide">
-									Next
-									<span
-										aria-hidden="true"
-										class="bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 origin-left transition-transform duration-200 group-hover:scale-x-150"
-									/>
-								</span>
-								<span class="text-3 text-sumi dark:text-washi ease-enter group-hover:text-beni dark:group-hover:text-beni-light text-balance font-bold transition-colors duration-200">
-									{next.title}
-								</span>
-							</a>
-						)}
-					</div>
-				</div>
-			</nav>
-		)
-	}
+	<PrevNextNavigation
+		prev={prev ? { href: `/design-system/${prev.slug}/`, title: prev.title } : null}
+		next={next ? { href: `/design-system/${next.slug}/`, title: next.title } : null}
+		label="Design system section navigation"
+	/>
 </BaseLayout>
 
 <style is:global>

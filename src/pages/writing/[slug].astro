@@ -22,7 +22,7 @@ import SeriesStepper from '@/components/interactive/SeriesStepper';
 import ListItem from '@/components/ui/ListItem';
 import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
-import PostNavigation from '@/components/site/PostNavigation.astro';
+import PrevNextNavigation from '@/components/site/PrevNextNavigation.astro';
 import SectionLabel from '@/components/ui/SectionLabel';
 import LightboxRoot from '@/components/interactive/LightboxRoot';
 import TableOfContents from '@/components/interactive/TableOfContents';
@@ -212,7 +212,22 @@ const schema = JSON.stringify({
 		</article>
 	</div>
 
-	<PostNavigation prev={prev} next={next} />
+	<PrevNextNavigation
+		prev={prev.id && prev.data
+			? {
+					href: `/writing/${prev.id.split('/').pop() ?? ''}/`,
+					title: prev.data.title,
+					subtitle: prev.data.subtitle,
+				}
+			: null}
+		next={next.id && next.data
+			? {
+					href: `/writing/${next.id.split('/').pop() ?? ''}/`,
+					title: next.data.title,
+					subtitle: next.data.subtitle,
+				}
+			: null}
+	/>
 	<LightboxRoot client:load transition:persist />
 </BaseLayout>
 

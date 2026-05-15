@@ -1,0 +1,48 @@
+---
+export interface BreadcrumbItem {
+	label: string;
+	href?: string;
+}
+
+export interface Props {
+	items: BreadcrumbItem[];
+	label?: string;
+	class?: string;
+}
+
+const { items, label = 'Breadcrumb', class: className } = Astro.props;
+---
+
+<nav aria-label={label} class:list={['max-w-360 pli-8 mx-auto w-full', className]}>
+	<ol class="text-hai text-2 flex items-center gap-2 font-sans uppercase tracking-wider">
+		{
+			items.map((item, i) => {
+				const isLast = i === items.length - 1;
+				return (
+					<>
+						<li
+							class={isLast ? 'text-nezumi' : ''}
+							aria-current={isLast ? 'page' : undefined}
+						>
+							{item.href && !isLast ? (
+								<a
+									href={item.href}
+									class="hover:text-sumi dark:hover:text-washi ease-enter duration-fast transition-colors"
+								>
+									{item.label}
+								</a>
+							) : (
+								item.label
+							)}
+						</li>
+						{!isLast && (
+							<li aria-hidden="true" class="text-usuzumi">
+								/
+							</li>
+						)}
+					</>
+				);
+			})
+		}
+	</ol>
+</nav>
