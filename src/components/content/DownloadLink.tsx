@@ -24,7 +24,7 @@ export const DownloadLink = ({ href, text, className, ...props }: Props) => (
 		<span className="more-icon inset-bs-[0.2em] relative ms-[0.2em] inline-flex">
 			<DownloadSimpleIcon
 				aria-hidden="true"
-				className="icon h-icon w-icon transition-transform duration-500 ease-in-out group-hover:translate-y-1 group-focus:translate-y-1"
+				className="icon h-icon w-icon duration-slow ease-standard transition-transform group-hover:translate-y-1 group-focus:translate-y-1"
 			/>
 		</span>
 	</Link>

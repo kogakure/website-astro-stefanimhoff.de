@@ -123,7 +123,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 								: 'transform 200ms var(--ease-enter)',
 						}}
 					>
-						<CaretDownIcon size={12} weight="bold" />
+						<CaretDownIcon size={12} />
 					</span>
 				</button>
 

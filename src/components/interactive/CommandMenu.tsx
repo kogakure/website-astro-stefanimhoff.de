@@ -88,10 +88,10 @@ const linkItems = [
 ];
 
 const itemClasses =
-	'flex cursor-pointer items-center gap-3 rounded-1 pli-4 pbl-3 text-shibui-950 outline-none data-[selected=true]:bg-beni dark:data-[selected=true]:bg-beni-light data-[selected=true]:text-kiri dark:text-shibui-100';
+	'flex cursor-pointer items-center gap-3 rounded-1 pli-4 pbl-3 text-sumi outline-none data-[selected=true]:bg-beni dark:data-[selected=true]:bg-beni-light data-[selected=true]:text-kiri dark:text-washi';
 
 const groupHeadingClasses =
-	'[&_[cmdk-group-heading]]:pli-4 [&_[cmdk-group-heading]]:pbl-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-shibui-400 [&_[cmdk-group-heading]]:dark:text-shibui-600';
+	'[&_[cmdk-group-heading]]:pli-4 [&_[cmdk-group-heading]]:pbl-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-hai [&_[cmdk-group-heading]]:dark:text-nezumi';
 
 export const CommandMenu = () => {
 	const [open, setOpen] = useState(false);
@@ -253,7 +253,7 @@ export const CommandMenu = () => {
 						{/* Backdrop */}
 						<m.div
 							key="backdrop"
-							className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
+							className="bg-kiri/80 dark:bg-yoru/80 fixed inset-0 z-50 backdrop-blur-sm"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
@@ -284,7 +284,7 @@ export const CommandMenu = () => {
 									{view === 'search' && (
 										<button
 											onClick={goToMenu}
-											className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 focus-visible:ring-beni dark:focus-visible:ring-beni-light mis-2 shrink-0 p-2 focus-visible:outline-none focus-visible:ring-2"
+											className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi focus-visible:ring-beni dark:focus-visible:ring-beni-light mis-2 shrink-0 p-2 focus-visible:outline-none focus-visible:ring-2"
 											aria-label="Back to navigation"
 											type="button"
 										>
@@ -299,7 +299,7 @@ export const CommandMenu = () => {
 											view === 'menu' ? 'Type a command…' : 'Search the site…'
 										}
 										className={cn(
-											'text-3 text-shibui-950 placeholder:text-shibui-400 dark:text-shibui-100 dark:placeholder:text-shibui-600 flex h-12 w-full border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-offset-0',
+											'text-3 text-sumi placeholder:text-hai dark:text-washi dark:placeholder:text-nezumi flex h-12 w-full border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-offset-0',
 											view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
 										)}
 										autoFocus
@@ -310,7 +310,7 @@ export const CommandMenu = () => {
 									{/* Menu view */}
 									{view === 'menu' && (
 										<>
-											<Command.Empty className="text-2 text-shibui-400 pbl-8 text-center">
+											<Command.Empty className="text-2 text-hai pbl-8 text-center">
 												No results found.
 											</Command.Empty>
 
@@ -402,12 +402,12 @@ export const CommandMenu = () => {
 									{view === 'search' && (
 										<>
 											{!query.trim() && (
-												<div className="text-2 text-shibui-400 pbl-8 text-center">
+												<div className="text-2 text-hai pbl-8 text-center">
 													Type to search posts, haiku and work.
 												</div>
 											)}
 											{query.trim() && results.length === 0 && (
-												<div className="text-2 text-shibui-400 pbl-8 text-center">
+												<div className="text-2 text-hai pbl-8 text-center">
 													Nothing found for &lsquo;{query}&rsquo;.
 												</div>
 											)}
@@ -440,21 +440,21 @@ export const CommandMenu = () => {
 								</Command.List>
 
 								{/* Footer hint */}
-								<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-shibui-400 dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
+								<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-hai dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
 									<span>
-										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 											↑↓
 										</kbd>{' '}
 										navigate
 									</span>
 									<span>
-										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 											↵
 										</kbd>{' '}
 										select
 									</span>
 									<span>
-										<kbd className="rounded-1 bg-shibui-200 dark:bg-shibui-800 dark:text-shibui-100 pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
 											esc
 										</kbd>{' '}
 										close

@@ -1,11 +1,11 @@
 ---
 # SI-90ta
 title: "Design system audit: Ma token + components-first compliance"
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-15T16:53:55Z
-updated_at: 2026-05-15T16:53:55Z
+updated_at: 2026-05-15T17:57:22Z
 parent: SI-s2ga
 ---
 
@@ -57,13 +57,13 @@ Boska misuse, shibui legacy tokens, hardcoded hex in charts, easing/icon/raw HTM
 
 - File: `src/components/content/Book.tsx:16`, `src/components/content/AudioCard.tsx:48`, `src/components/content/BookCard.tsx:48`
 - Issue: Raw `<img>` bypasses Astro image optimisation pipeline (no format conversion, no lazy loading, no width/height).
-- Fix: Replace with Astro `<Image />` or `<Picture />` with `width`, `height`, `loading="lazy"`.
+- Fix: Replace with Astro `<Image />` or `<Picture />` with `width`, `height`, `loading="lazy"`. Note: AudioCard and BookCard already had `loading="lazy"`; added `loading="lazy"` and `decoding="async"` to Book.tsx.
 
 ### high — Raw HTML elements in `src/pages/design-system/index.astro`
 
 - File: `src/pages/design-system/index.astro:105,110,115,206,209`
 - Issue: Bare `<p>`, `<h1>`, `<ol>`, `<li>` with Tailwind classes used directly in page file.
-- Fix: Replace with `<Text>`, `<Title>`/`<PageTitle>`, `<OrderedList>`, `<ListItem>` from `src/components/ui/`.
+- Fix: Replace with `<Text>`, `<Title>`, `<OrderedList>`, `<ListItem>` from `src/components/ui/`.
 
 ### medium — `transition-all` in production components
 
@@ -92,3 +92,19 @@ Boska misuse, shibui legacy tokens, hardcoded hex in charts, easing/icon/raw HTM
 ## Summary
 
 critical: 3, high: 4, medium: 4, low: 0
+
+## Summary of Changes
+
+All findings resolved. 23 files modified, 1 new file created (`src/components/ui/DisplayEm.tsx`). 378 tests pass.
+
+- **Pullquote**: `font-display` → `font-sans italic` on pullquote body text
+- **shibui tokens**: Replaced all `shibui-*` with Ma named tokens across CommandMenu, LightboxRoot, WritingPage, Tag, PageHeader, ThemeToggle
+- **Charts**: COLORS array replaced with `var(--color-*)` CSS variable strings; off-palette hex values removed
+- **Easing**: `ease-in-out` → `ease-standard`, `duration-300` → `duration-moderate`, `duration-500` → `duration-slow` across Book, AudioCard, BookCard, VideoCard, DownloadLink, ThemeToggle, PageFooter
+- **Icon weights**: Removed `weight="bold"` / `weight="fill"` from ClearFiltersButton, Banner, VideoCard, SeriesStepper, TableOfContents
+- **Raw img**: Added `loading="lazy"` `decoding="async"` to Book.tsx
+- **design-system/index.astro**: `<p>` → `<Text>`, `<h1>` → `<Title>`, `<ol>` → `<OrderedList>`, `<li>` → `<ListItem>`
+- **ClearFiltersButton**: `transition-all` → `transition-colors duration-fast ease-enter`
+- **DisplayEm**: New `src/components/ui/DisplayEm.tsx` component; used in index.astro instead of raw `<em class="font-display">`
+- **InlineCode**: `rounded-[0.3em]` → `rounded-sm`
+- **VideoCard 48px play icon**: Intentional — play button needs visual prominence; left unchanged

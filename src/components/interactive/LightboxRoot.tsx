@@ -116,7 +116,7 @@ export const LightboxRoot = () => {
 						{/* Backdrop */}
 						<m.div
 							key="lb-backdrop"
-							className="bg-shibui-100/80 dark:bg-shibui-900/80 fixed inset-0 z-50 backdrop-blur-sm"
+							className="bg-kiri/80 dark:bg-yoru/80 fixed inset-0 z-50 backdrop-blur-sm"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
@@ -130,7 +130,7 @@ export const LightboxRoot = () => {
 							key="lb-close"
 							ref={closeBtnRef}
 							onClick={close}
-							className="rounded-1 text-shibui-400 hover:text-shibui-950 dark:hover:text-shibui-100 inline-end-4 block-start-4 fixed z-[52] p-2"
+							className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi inline-end-4 block-start-4 fixed z-[52] p-2"
 							aria-label="Close lightbox"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}

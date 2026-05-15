@@ -233,7 +233,10 @@ components:
     backgroundColor: "{colors.kiri}"
     textColor: "{colors.nezumi}"
 
-  # Navigation
+  # Navigation / Header
+  header:
+    backgroundColor: "{colors.washi}"
+    darkBackgroundColor: "{colors.yoru}"
   nav-seal:
     backgroundColor: "transparent"
     textColor: "{colors.beni}"
@@ -440,7 +443,7 @@ Named leading tokens for display type — Tailwind's built-in `leading-*` scale 
 ### Rules
 
 - **Two display typefaces only.** Boska and Switzer. No third-party fonts. Fira Code is the sole monospace exception.
-- **Boska never appears in body copy, UI, or components.** Only hero/display headings (H0, H1, Blog Title).
+- **Boska never appears in body copy, UI, or components.** Only hero/display headings (H0, H1, Blog Title). Exception: `Pullquote` uses Boska bold (`font-display font-bold`) — it is a deliberate typographic accent (Datsuzoku), not running body copy.
 - **Display type** (H0, H1): aggressive negative tracking (−15% to −50%). Type as image — individual letterforms dissolve into texture.
 - **Body text**: −2% tracking, 18px max, optimised for sustained reading.
 - **Captions and labels**: Switzer, uppercase. A nod to Swiss labelling conventions.

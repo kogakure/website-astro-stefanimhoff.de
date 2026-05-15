@@ -9,13 +9,13 @@ interface Props {
 }
 
 const baseClasses =
-	'relative inline-flex min-w-[40px] items-center justify-center rounded-2 border border-shibui-300 bg-shibui-200 pli-3 pbl-1 text-1 font-normal capitalize leading-none text-shibui-950 mie-1 dark:border-shibui-700 dark:bg-shibui-800 dark:text-shibui-100 print:hidden transition-colors duration-150';
+	'relative inline-flex min-w-[40px] items-center justify-center rounded-2 border border-usuzumi bg-kiri pli-3 pbl-1 text-1 font-normal capitalize leading-none text-sumi mie-1 dark:border-nezumi dark:bg-yoru dark:text-washi print:hidden transition-colors duration-150';
 
 const activeClasses =
 	'border-beni/25 bg-beni text-kiri hover:bg-beni-light focus:bg-beni-light dark:border-beni/50 dark:bg-beni dark:text-kiri dark:hover:bg-beni-light dark:focus:bg-beni-light';
 
 const inactiveClasses =
-	'cursor-pointer hover:bg-shibui-300 focus:bg-shibui-300 dark:hover:bg-shibui-700 dark:focus:bg-shibui-700';
+	'cursor-pointer hover:bg-usuzumi/50 focus:bg-usuzumi/50 dark:hover:bg-nezumi/50 dark:focus:bg-nezumi/50';
 
 export const Tag = ({ active, children, className, href, onClick }: Props) => {
 	if (href) {

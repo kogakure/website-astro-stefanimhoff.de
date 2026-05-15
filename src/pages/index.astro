@@ -13,6 +13,7 @@ import JapanesePoem from '@/components/ui/JapanesePoem';
 import ListItem from '@/components/ui/ListItem';
 import EmailLink from '@/components/content/EmailLink';
 import MoreLink from '@/components/ui/MoreLink';
+import DisplayEm from '@/components/ui/DisplayEm';
 import Title from '@/components/ui/Title';
 import UnorderedList from '@/components/ui/UnorderedList';
 
@@ -36,12 +37,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 	>
 		<div class="col-span-3 flex w-full md:col-span-6 xl:col-span-9 xl:col-start-3">
 			<Title className="hero-title leading-[1.10]!">
-				Stefan Imhoff <em class="font-display font-normal">is a</em><br
-					class="hidden xl:block"
-				/>
+				Stefan Imhoff <DisplayEm>is a</DisplayEm><br class="hidden xl:block" />
 				Design Engineer<br class="hidden xl:block" />
 				<span>
-					<em class="font-display font-normal">from</em>
+					<DisplayEm>from</DisplayEm>
 					<span class="whitespace-nowrap"
 						>Hamburg<span class="text-beni dark:text-beni-light mis-4">—</span></span
 					>

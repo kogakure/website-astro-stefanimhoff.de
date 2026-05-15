@@ -55,7 +55,7 @@ export const VideoCard = ({
 			href={url}
 			aria-label={title}
 			className={cn(
-				'rounded-4 group block overflow-hidden border border-black/5 shadow-sm transition-shadow duration-300 ease-in-out hover:shadow-md dark:border-white/5',
+				'rounded-4 duration-moderate ease-standard group block overflow-hidden border border-black/5 shadow-sm transition-shadow hover:shadow-md dark:border-white/5',
 				className
 			)}
 		>
@@ -63,7 +63,7 @@ export const VideoCard = ({
 				{thumbnailSrc ? (
 					<img
 						alt={title}
-						className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+						className="duration-moderate ease-standard h-full w-full object-cover transition-transform group-hover:scale-105"
 						loading="lazy"
 						src={thumbnailSrc}
 					/>
@@ -73,12 +73,7 @@ export const VideoCard = ({
 					</div>
 				)}
 				<div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-200 group-hover:bg-black/30">
-					<PlayCircleIcon
-						aria-hidden
-						className="text-white drop-shadow-md"
-						size={48}
-						weight="fill"
-					/>
+					<PlayCircleIcon aria-hidden className="text-white drop-shadow-md" size={48} />
 				</div>
 				{kind !== 'video' && (
 					<div className="inline-end-2 block-start-2 absolute">

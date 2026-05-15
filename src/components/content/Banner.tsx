@@ -35,7 +35,7 @@ export const Banner = ({ className, open, summary, tone, children, ...props }: P
 						aria-hidden="true"
 						className="ease-enter text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center transition-transform duration-200 group-open:rotate-180"
 					>
-						<CaretDownIcon size={12} weight="bold" />
+						<CaretDownIcon size={12} />
 					</span>
 				</summary>
 				<div className="pli-6 pbe-6">{children}</div>

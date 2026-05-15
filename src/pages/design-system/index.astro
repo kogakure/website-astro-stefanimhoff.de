@@ -2,6 +2,10 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PrincipleCard from '@/components/design-system/PrincipleCard';
+import ListItem from '@/components/ui/ListItem';
+import OrderedList from '@/components/ui/OrderedList';
+import Text from '@/components/ui/Text';
+import Title from '@/components/ui/Title';
 import coverImage from '../../../public/assets/images/cover/ma-design-system.webp';
 
 const principles = [
@@ -102,22 +106,24 @@ const sections = [
 			>
 				間
 			</span>
-			<p class="text-hai text-2 mbe-0 uppercase tracking-widest">The space between</p>
+			<Text className="text-hai text-2 mbe-0 uppercase tracking-widest"
+				>The space between</Text
+			>
 		</div>
 
 		<!-- Right: main title + description -->
 		<div class="col-span-3 md:col-span-4 xl:col-span-8 xl:col-start-5">
-			<h1
-				class="font-display text-sumi dark:text-washi mbe-6 leading-display-sm tracking-display text-[clamp(3rem,8vw,7rem)] font-bold"
+			<Title
+				className="text-sumi dark:text-washi mbe-6 leading-display-sm tracking-display text-[clamp(3rem,8vw,7rem)]"
 			>
 				Ma Design System
-			</h1>
-			<p class="text-3 text-hai mbe-0 max-w-[60ch]">
+			</Title>
+			<Text className="text-3 text-hai mbe-0 max-w-[60ch]">
 				Two letters. The entire design system is built on the idea that the empty space <em
 					>is</em
 				> the design. The kanji 間 means “gate with light passing through”—which is literally
 				what a well-designed interface does.
-			</p>
+			</Text>
 		</div>
 	</div>
 
@@ -203,10 +209,10 @@ const sections = [
 				>
 					Sections
 				</p>
-				<ol class="flex flex-col">
+				<OrderedList className="pis-0 mbe-0 flex list-none flex-col gap-0">
 					{
 						sections.map((s) => (
-							<li>
+							<ListItem>
 								<a
 									href={`/design-system/${s.slug}/`}
 									class="section-link border-usuzumi dark:border-nezumi border-be-1 pbl-5 first:border-bs-1 group flex items-center gap-6 transition-colors duration-200 hover:no-underline"
@@ -225,10 +231,10 @@ const sections = [
 										{s.kanji}
 									</span>
 								</a>
-							</li>
+							</ListItem>
 						))
 					}
-				</ol>
+				</OrderedList>
 			</div>
 		</div>
 	</div>

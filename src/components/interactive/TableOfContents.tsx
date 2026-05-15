@@ -88,11 +88,7 @@ export const TableOfContents = ({ headings }: Props) => {
 						aria-hidden="true"
 						className="text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center xl:hidden"
 					>
-						{open ? (
-							<MinusIcon size={12} weight="bold" />
-						) : (
-							<PlusIcon size={12} weight="bold" />
-						)}
+						{open ? <MinusIcon size={12} /> : <PlusIcon size={12} />}
 					</span>
 					<SectionLabel as="p" className="mbe-0">
 						Table of Contents

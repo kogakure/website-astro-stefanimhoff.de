@@ -147,8 +147,8 @@ describe('chart components', () => {
 
 		const props = JSON.parse(screen.getByTestId('recharts-BarChart').dataset.props ?? '{}');
 		expect(props.data).toEqual([
-			{ name: 'A', value: 10, fill: '#900B20' },
-			{ name: 'B', value: 20, fill: '#6B6B67' },
+			{ name: 'A', value: 10, fill: 'var(--color-beni)' },
+			{ name: 'B', value: 20, fill: 'var(--color-nezumi)' },
 		]);
 	});
 
@@ -157,8 +157,8 @@ describe('chart components', () => {
 
 		const props = JSON.parse(screen.getByTestId('recharts-Pie').dataset.props ?? '{}');
 		expect(props.data).toEqual([
-			{ name: 'A', value: 5, fill: '#900B20' },
-			{ name: 'B', value: 15, fill: '#6B6B67' },
+			{ name: 'A', value: 5, fill: 'var(--color-beni)' },
+			{ name: 'B', value: 15, fill: 'var(--color-nezumi)' },
 		]);
 		expect(props.innerRadius).toBe('55%');
 	});

@@ -1,24 +1,18 @@
 import { Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
 const COLORS = [
-	'#900B20',
-	'#6B6B67',
-	'#A0A09C',
-	'#1A1918',
-	'#C8C8C4',
-	'#B83A4E',
-	'#C75566',
-	'#F2D5DA',
-	'#6A0818',
-	'#0E0D0C',
-	'#E6E6E6',
-	'#F2F2F0',
-	'#4e4b45',
-	'#807e77',
-	'#34322e',
-	'#b3b2ab',
-	'#5a5751',
-	'#272522',
+	'var(--color-beni)',
+	'var(--color-nezumi)',
+	'var(--color-hai)',
+	'var(--color-yoru)',
+	'var(--color-usuzumi)',
+	'var(--color-beni-light)',
+	'var(--color-beni-muted)',
+	'var(--color-beni-pale)',
+	'var(--color-beni-dark)',
+	'var(--color-sumi)',
+	'var(--color-washi)',
+	'var(--color-kiri)',
 ];
 
 type ChartJsData = {

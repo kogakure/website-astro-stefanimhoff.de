@@ -55,7 +55,7 @@ export const BookCard = ({
 	return (
 		<div
 			className={cn(
-				'rounded-4 bg-card flex w-full flex-col overflow-hidden border border-black/5 shadow-sm transition-shadow duration-300 ease-in-out hover:shadow-md dark:border-white/5',
+				'rounded-4 bg-card duration-moderate ease-standard flex w-full flex-col overflow-hidden border border-black/5 shadow-sm transition-shadow hover:shadow-md dark:border-white/5',
 				className
 			)}
 			tabIndex={0}

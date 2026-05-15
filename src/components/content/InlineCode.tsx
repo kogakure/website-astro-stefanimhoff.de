@@ -6,7 +6,7 @@ type Props = HTMLAttributes<HTMLElement>;
 export const InlineCode = ({ className, children, ...props }: Props) => (
 	<code
 		className={cn(
-			'relative inline whitespace-normal rounded-[0.3em] not-italic',
+			'relative inline whitespace-normal rounded-sm not-italic',
 			'text-code font-mono',
 			'bg-kiri text-sumi border-nezumi/30 border',
 			'dark:bg-code-1 dark:text-code-2 dark:border-white/10',

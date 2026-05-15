@@ -136,7 +136,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			</section>
 
 			{/* Separator */}
-			<Divider className="border-shibui-300 dark:border-shibui-700" />
+			<Divider className="border-usuzumi dark:border-nezumi" />
 
 			{/* Essays grouped by year */}
 			{years.length > 0 ? (
