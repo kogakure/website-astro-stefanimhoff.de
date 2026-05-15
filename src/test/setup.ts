@@ -73,6 +73,18 @@ if (typeof window !== 'undefined') {
 		value: localStorageMock,
 	});
 
+	// Disable iframe/child-frame URL loading to prevent real network requests
+	if ('happyDOM' in window) {
+		(
+			window as Window &
+				typeof globalThis & {
+					happyDOM: {
+						settings: { navigation: { disableChildFrameNavigation: boolean } };
+					};
+				}
+		).happyDOM.settings.navigation.disableChildFrameNavigation = true;
+	}
+
 	// Automatically cleanup after each test
 	afterEach(() => {
 		cleanup();

@@ -1,6 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { Window } from 'happy-dom';
-import { beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { axe } from '@/test/a11y';
 import { reactRenderer } from '@/test/astro-react-renderer';
@@ -27,16 +27,22 @@ import WorkItemGallery3Stagger from './work/WorkItemGallery3Stagger.astro';
 import WorkItemImageInset from './work/WorkItemImageInset.astro';
 import WorkItemTextOnly from './work/WorkItemTextOnly.astro';
 
+let win: InstanceType<typeof Window>;
 let container: Awaited<ReturnType<typeof AstroContainer.create>>;
 
 beforeAll(async () => {
-	const win = new Window({ url: 'http://localhost/' });
+	win = new Window({ url: 'http://localhost/' });
+	win.happyDOM.settings.navigation.disableChildFrameNavigation = true;
 	(global as Record<string, unknown>).window = win;
 	(global as Record<string, unknown>).document = win.document;
 	Object.defineProperty(global, 'navigator', { value: win.navigator, configurable: true });
 
 	container = await AstroContainer.create();
 	container.addServerRenderer({ renderer: reactRenderer });
+});
+
+afterAll(async () => {
+	await win.happyDOM.close();
 });
 
 async function render(

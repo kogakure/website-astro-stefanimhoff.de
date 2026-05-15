@@ -1,30 +1,14 @@
+import { getViteConfig } from 'astro/config';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
+const alias = {
+	'@': fileURLToPath(new URL('./src', import.meta.url)),
+	'/pagefind/pagefind.js': fileURLToPath(new URL('./src/test/pagefind-mock.ts', import.meta.url)),
+};
+
 export default defineConfig({
-	resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url)),
-			'/pagefind/pagefind.js': fileURLToPath(
-				new URL('./src/test/pagefind-mock.ts', import.meta.url)
-			),
-		},
-	},
 	test: {
-		// Use node environment by default (faster, fewer dependencies)
-		// Component tests can override with @vitest-environment happy-dom
-		environment: 'node',
-
-		// Setup file for test utilities (jest-dom matchers)
-		setupFiles: ['./src/test/setup.ts'],
-
-		// Include patterns
-		include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
-
-		// Exclude patterns
-		exclude: ['node_modules', 'dist', '.astro', '.git', 'public'],
-
-		// Coverage configuration
 		coverage: {
 			provider: 'v8',
 			reporter: ['text', 'json', 'html', 'lcov'],
@@ -49,8 +33,35 @@ export default defineConfig({
 				lines: 70,
 			},
 		},
-
-		// Globals for cleaner test syntax
-		globals: true,
+		projects: [
+			{
+				resolve: { alias },
+				test: {
+					name: 'unit',
+					environment: 'node',
+					setupFiles: ['./src/test/setup.ts'],
+					include: ['src/**/*.{test,spec}.{js,ts,tsx}'],
+					exclude: [
+						'node_modules',
+						'dist',
+						'.astro',
+						'.git',
+						'public',
+						'src/components/site/**/*.a11y.test.ts',
+					],
+					globals: true,
+				},
+			},
+			getViteConfig({
+				resolve: { alias },
+				test: {
+					name: 'astro',
+					environment: 'node',
+					setupFiles: ['./src/test/setup.ts'],
+					include: ['src/components/site/**/*.a11y.test.ts'],
+					globals: true,
+				},
+			}),
+		],
 	},
 });

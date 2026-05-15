@@ -70,6 +70,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 					<m.div
 						className="relative flex flex-1 items-center"
 						aria-hidden="true"
+						initial={{ opacity: 1 }}
 						animate={{ opacity: open ? 0 : 1 }}
 						transition={
 							prefersReducedMotion
