@@ -31,10 +31,7 @@ export const Pullquote = ({
 		)}
 		{...props}
 	>
-		<p
-			className="font-display text-5 mbe-0 text-balance italic"
-			dangerouslySetInnerHTML={{ __html: text }}
-		/>
+		<p className="font-display text-5 mbe-0 text-balance italic">{text}</p>
 		<QuoteAttribution author={author} source={source} sourceUrl={sourceUrl} />
 	</blockquote>
 );

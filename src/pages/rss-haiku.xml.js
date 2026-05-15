@@ -2,7 +2,7 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 import { site } from '../data/site';
-import { sortByDate } from '../utils';
+import { escapeHtml, sortByDate } from '../utils';
 
 export async function GET(context) {
 	const haiku = await getCollection('haiku');
@@ -18,7 +18,7 @@ export async function GET(context) {
 			pubDate: item.data.date,
 			customData: '<language>en-us</language>',
 			link: `/haiku/${item.slug}/`,
-			content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
+			content: `<blockquote><p>${escapeHtml(item.data.de)}</p><hr /><p>${escapeHtml(item.data.en)}</p></blockquote>`,
 		})),
 		customData: `<language>en-us</language>`,
 	});

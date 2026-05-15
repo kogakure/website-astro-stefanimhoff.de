@@ -15,7 +15,6 @@
  * used from RSS builder code or other places.
  */
 
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 export function stripMarkdown(text: string): string {
 	// Remove markdown links: [text](url) => text
 	// Remove basic markdown formatting characters: *, _, `, ~
@@ -35,7 +34,7 @@ export function makeAbsolute(url: string, siteUrl: string): string {
 	try {
 		// The URL constructor will resolve relative URLs against the base.
 		return new URL(url, siteUrl).toString();
-	} catch (e) {
+	} catch {
 		// Fallback: simple concatenation with a single slash between.
 		const base = siteUrl.endsWith('/') ? siteUrl.slice(0, -1) : siteUrl;
 		const path = url.startsWith('/') ? url : `/${url}`;
@@ -376,7 +375,10 @@ export function replaceColorSwatchComponent(attributes: string): string {
 
 	if (!color) return '';
 
-	return `<div style="width: 100px; height: 100px; background-color: ${escapeHtmlAttr(color)};"></div>`;
+	// Allowlist: hex colors (#rgb, #rrggbb, #rrggbbaa) and CSS named colors (letters only)
+	const safeColor = /^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+)$/.test(color) ? color : 'transparent';
+
+	return `<div style="width: 100px; height: 100px; background-color: ${safeColor};"></div>`;
 }
 
 // Convert wrapper components (like <ColorStack> and <BookShelf>)
@@ -503,7 +505,7 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 /**
  * Simple helper to escape text for inclusion inside HTML text nodes.
  */
-function escapeHtml(str: string | null | undefined): string {
+export function escapeHtml(str: string | null | undefined): string {
 	if (str == null) return '';
 	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

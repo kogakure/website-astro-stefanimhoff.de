@@ -166,7 +166,7 @@ describe('content text and callout components', () => {
 				<Blockquote author="Ada" source="Book" sourceUrl="/book/">
 					<p>Quoted text</p>
 				</Blockquote>
-				<Pullquote text="Pull <strong>quote</strong>" author="Grace" alignment="center" />
+				<Pullquote text="Pull quote" author="Grace" alignment="center" />
 				<Verse>{'line one\nline two'}</Verse>
 				<Ruby base="間" text="ma" />
 				<InlineCode>npm test</InlineCode>

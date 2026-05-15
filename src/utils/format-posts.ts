@@ -7,7 +7,7 @@ export const formatPosts = (
 	{
 		removeDrafts = true,
 		removeFuture = false,
-		showFeatured,
+		showFeatured, // true = featured only, undefined/false = all posts
 		sortBy = 'date',
 		sortOrder = 'desc',
 		limit,

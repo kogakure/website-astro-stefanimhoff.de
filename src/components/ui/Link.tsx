@@ -6,7 +6,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export const Link = ({ className, href = '#', children, ...props }: Props) => {
-	const isExternal = (href as string).startsWith('http');
+	const isExternal = /^https?:\/\//i.test(href as string);
 	return (
 		<a
 			className={cn('link', isExternal && 'external', className)}

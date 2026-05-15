@@ -1,11 +1,11 @@
 ---
 # SI-nwez
 title: "QA review: src/ code-quality findings"
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-15T16:55:16Z
-updated_at: 2026-05-15T16:55:16Z
+updated_at: 2026-05-15T17:46:37Z
 parent: SI-s2ga
 ---
 

@@ -8,7 +8,7 @@ import { sortByDate } from '../utils';
 
 const parser = new MarkdownIt({ html: true });
 
-import { stripMDXComponents } from '../utils';
+import { escapeHtml, stripMDXComponents } from '../utils';
 
 export async function GET(context) {
 	const [writing, haiku] = await Promise.all([
@@ -30,7 +30,7 @@ export async function GET(context) {
 			...writing.map((post) => {
 				const { title, subtitle, date, description, cover } = post.data;
 				// Filter out import statements from content
-				const contentWithoutImports = post.body
+				const contentWithoutImports = (post.body ?? '')
 					.split('\n')
 					.filter((line) => !line.startsWith('import'))
 					.join('\n');
@@ -89,7 +89,7 @@ export async function GET(context) {
 					title: `Haiku ${item.slug}`,
 					pubDate: item.data.date,
 					link: `/haiku/${item.slug}/`,
-					content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
+					content: `<blockquote><p>${escapeHtml(item.data.de)}</p><hr /><p>${escapeHtml(item.data.en)}</p></blockquote>`,
 					enclosure: {
 						url: `${site.url}/assets/images/og/ma.jpg`,
 						length: 0,
