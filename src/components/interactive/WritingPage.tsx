@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getPreviewUrl } from '../../utils/preview-url';
 import ClearFiltersButton from '../ui/ClearFiltersButton';
 import Divider from '../ui/Divider';
@@ -45,13 +45,16 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 		window.history.replaceState({}, '', url.toString());
 	}, []);
 
-	const toggleTag = (tag: string) => {
-		setSelectedTags((prev) => {
-			const next = prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag];
-			updateUrl(next);
-			return next;
-		});
-	};
+	const toggleTag = useCallback(
+		(tag: string) => {
+			setSelectedTags((prev) => {
+				const next = prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag];
+				updateUrl(next);
+				return next;
+			});
+		},
+		[updateUrl]
+	);
 
 	// Restore filter after hydration — URL params take priority over localStorage
 	useEffect(() => {
@@ -73,18 +76,30 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 		} catch {}
 	}, [updateUrl]);
 
-	const filteredPosts =
-		selectedTags.length > 0
-			? posts.filter((post) => selectedTags.every((tag) => post.tags.includes(tag)))
-			: posts;
+	const filteredPosts = useMemo(
+		() =>
+			selectedTags.length > 0
+				? posts.filter((post) => selectedTags.every((tag) => post.tags.includes(tag)))
+				: posts,
+		[posts, selectedTags]
+	);
 
-	const byYear = filteredPosts.reduce<Record<number, PostItem[]>>((acc, post) => {
-		(acc[post.year] ??= []).push(post);
-		return acc;
-	}, {});
-	const years = Object.keys(byYear)
-		.map(Number)
-		.sort((a, b) => b - a);
+	const byYear = useMemo(
+		() =>
+			filteredPosts.reduce<Record<number, PostItem[]>>((acc, post) => {
+				(acc[post.year] ??= []).push(post);
+				return acc;
+			}, {}),
+		[filteredPosts]
+	);
+
+	const years = useMemo(
+		() =>
+			Object.keys(byYear)
+				.map(Number)
+				.sort((a, b) => b - a),
+		[byYear]
+	);
 
 	const sectionGrid =
 		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8';

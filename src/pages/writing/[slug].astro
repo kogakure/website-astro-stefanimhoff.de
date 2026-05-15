@@ -177,7 +177,7 @@ const schema = JSON.stringify({
 			{
 				tocHeadings.length > 1 && (
 					<div class="xl:block-start-24 xl:sticky">
-						<TableOfContents headings={tocHeadings} client:load transition:persist />
+						<TableOfContents headings={tocHeadings} client:idle transition:persist />
 					</div>
 				)
 			}
@@ -193,7 +193,7 @@ const schema = JSON.stringify({
 						steps={seriesSteps}
 						currentId={getWritingSlug(entryId)}
 						seriesName={entry.data.series}
-						client:load
+						client:idle
 						transition:persist
 					/>
 				)
@@ -228,7 +228,7 @@ const schema = JSON.stringify({
 				}
 			: null}
 	/>
-	<LightboxRoot client:load transition:persist />
+	<LightboxRoot client:idle transition:persist />
 </BaseLayout>
 
 <script>

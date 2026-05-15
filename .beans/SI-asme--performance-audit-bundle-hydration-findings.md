@@ -1,11 +1,11 @@
 ---
 # SI-asme
 title: "Performance audit: bundle + hydration findings"
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-15T16:53:17Z
-updated_at: 2026-05-15T16:53:18Z
+updated_at: 2026-05-15T18:29:22Z
 parent: SI-s2ga
 ---
 

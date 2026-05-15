@@ -91,7 +91,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 			headings.length > 1 && (
 				<aside class="col-span-3 md:col-span-4 md:col-start-3 xl:col-span-2 xl:col-start-11 xl:row-start-1">
 					<div class="xl:block-start-24 xl:sticky">
-						<TableOfContents headings={headings} client:load transition:persist />
+						<TableOfContents headings={headings} client:idle transition:persist />
 					</div>
 				</aside>
 			)

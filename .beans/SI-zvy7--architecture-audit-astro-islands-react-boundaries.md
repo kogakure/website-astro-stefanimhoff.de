@@ -1,11 +1,11 @@
 ---
 # SI-zvy7
 title: "Architecture audit: Astro islands + React boundaries"
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-15T16:54:19Z
-updated_at: 2026-05-15T16:54:19Z
+updated_at: 2026-05-15T18:29:17Z
 parent: SI-s2ga
 ---
 

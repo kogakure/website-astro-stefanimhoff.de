@@ -5,6 +5,7 @@ const twMerge = extendTailwindMerge({
 	extend: {
 		classGroups: {
 			'font-size': [{ text: ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'code'] }],
+			'grid-cols-auto': [{ 'grid-cols-auto': ['sm', 'md', 'lg', 'xl'] }],
 		},
 	},
 });
