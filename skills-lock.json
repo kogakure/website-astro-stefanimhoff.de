@@ -16,6 +16,12 @@
       "sourceType": "github",
       "computedHash": "49817c981208de2f412719f7814d31eba2b2096462edc048a279d93f522cab0f"
     },
+    "framer-motion-animator": {
+      "source": "patricio0312rev/skills",
+      "sourceType": "github",
+      "skillPath": "frontend/framer-motion-animator/SKILL.md",
+      "computedHash": "d0137ba04049bf8926bc80f6a5e2b82d94b5633b6445a85dbfb26ab4f1b104c6"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
