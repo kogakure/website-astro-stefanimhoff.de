@@ -1,11 +1,11 @@
 ---
 # SI-ar1x
 title: Replace arbitrary Tailwind [values] with Ma tokens
-status: in_progress
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-14T18:00:00Z
-updated_at: 2026-05-14T18:00:00Z
+updated_at: 2026-05-15T18:53:16Z
 ---
 
 Audit of `src/layouts/`, `src/components/`, `src/pages/`. Found **155** arbitrary-value `[...]` Tailwind classes. 65 are in `design-system/` specimen files (excluded by design). 90 in production. Phase A + B applied; Phase C stay-list below for review.

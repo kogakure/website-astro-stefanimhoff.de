@@ -1,11 +1,11 @@
 ---
 # SI-a70g
 title: Run React Doctor
-status: done
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-12T16:58:22Z
-updated_at: 2026-05-14T11:47:55Z
+updated_at: 2026-05-15T18:53:03Z
 parent: SI-vl2o
 ---
 

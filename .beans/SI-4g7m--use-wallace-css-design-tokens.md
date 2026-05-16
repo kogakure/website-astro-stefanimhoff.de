@@ -1,11 +1,11 @@
 ---
 # SI-4g7m
 title: Use Wallace CSS Design Tokens
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-22T18:10:54Z
-updated_at: 2026-04-22T18:14:00Z
+updated_at: 2026-05-15T18:52:33Z
 parent: SI-vl2o
 ---
 

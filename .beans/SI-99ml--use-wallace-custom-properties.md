@@ -1,11 +1,11 @@
 ---
 # SI-99ml
 title: Use Wallace Custom Properties
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-22T18:11:51Z
-updated_at: 2026-04-22T18:14:10Z
+updated_at: 2026-05-15T18:52:35Z
 parent: SI-vl2o
 ---
 

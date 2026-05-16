@@ -1,11 +1,11 @@
 ---
 # SI-vb9g
 title: Use Wallace Code Coverage
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-22T18:13:13Z
-updated_at: 2026-04-22T18:13:51Z
+updated_at: 2026-05-15T18:52:25Z
 parent: SI-vl2o
 ---
 

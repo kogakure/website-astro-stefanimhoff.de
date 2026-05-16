@@ -1,11 +1,11 @@
 ---
 # SI-k1it
 title: Use Wallace CSS Analyzer
-status: draft
+status: todo
 type: task
 priority: normal
 created_at: 2026-04-22T18:07:57Z
-updated_at: 2026-04-22T18:09:26Z
+updated_at: 2026-05-15T18:52:28Z
 parent: SI-vl2o
 ---
 
