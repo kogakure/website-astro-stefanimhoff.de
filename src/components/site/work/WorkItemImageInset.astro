@@ -18,21 +18,13 @@ const direction = index % 2 === 0 ? 'up' : 'down';
 	<WorkContent entry={entry} />
 	{
 		image && (
-			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-6 xl:col-span-10 xl:col-start-2">
-				<button
-					type="button"
-					aria-label="Open image in lightbox"
-					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
-					data-lightbox="true"
-				>
-					<WorkImageParallax
-						src={image.src}
-						alt={entry.data.title}
-						direction={direction}
-						client:visible
-					/>
-				</button>
-			</div>
+			<WorkImageParallax
+				src={image.src}
+				alt={entry.data.title}
+				direction={direction}
+				className="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2"
+				client:visible
+			/>
 		)
 	}
 </article>

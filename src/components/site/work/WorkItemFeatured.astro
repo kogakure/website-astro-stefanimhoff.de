@@ -17,66 +17,39 @@ const [primary, ...gallery] = images;
 <article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 	<WorkContent entry={entry} />
 
-	<!-- Full-bleed primary image -->
 	{
 		primary && (
-			<div class="rounded-2 mbe-6 md:mbe-8 xl:mbe-8 col-span-3 overflow-hidden md:col-span-6 xl:col-span-12">
-				<button
-					type="button"
-					aria-label="Open image in lightbox"
-					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
-					data-lightbox="true"
-				>
-					<WorkImageParallax
-						src={primary.src}
-						alt={primary.alt ?? title}
-						direction="up"
-						client:visible
-					/>
-				</button>
-			</div>
+			<WorkImageParallax
+				src={primary.src}
+				alt={primary.alt ?? title}
+				direction="up"
+				className="mbe-6 md:mbe-8 xl:mbe-8 col-span-3 md:col-span-6 xl:col-span-12"
+				client:visible
+			/>
 		)
 	}
 
-	<!-- Gallery image 1: col-start-2, col-span-5 -->
 	{
 		gallery[0] && (
-			<div class="rounded-2 mbe-6 md:mbe-0 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-2">
-				<button
-					type="button"
-					aria-label="Open image in lightbox"
-					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
-					data-lightbox="true"
-				>
-					<WorkImageParallax
-						src={gallery[0].src}
-						alt={gallery[0].alt ?? title}
-						direction="down"
-						client:visible
-					/>
-				</button>
-			</div>
+			<WorkImageParallax
+				src={gallery[0].src}
+				alt={gallery[0].alt ?? title}
+				direction="down"
+				className="mbe-6 md:mbe-0 col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-2"
+				client:visible
+			/>
 		)
 	}
 
-	<!-- Gallery image 2: col-start-7, col-span-5 -->
 	{
 		gallery[1] && (
-			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-3 xl:col-span-5 xl:col-start-7">
-				<button
-					type="button"
-					aria-label="Open image in lightbox"
-					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
-					data-lightbox="true"
-				>
-					<WorkImageParallax
-						src={gallery[1].src}
-						alt={gallery[1].alt ?? title}
-						direction="up"
-						client:visible
-					/>
-				</button>
-			</div>
+			<WorkImageParallax
+				src={gallery[1].src}
+				alt={gallery[1].alt ?? title}
+				direction="up"
+				className="col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-7"
+				client:visible
+			/>
 		)
 	}
 </article>

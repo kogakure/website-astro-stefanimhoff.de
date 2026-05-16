@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImage from './WorkImage.astro';
+import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -19,24 +19,24 @@ const offsetClass = offset === '32' ? 'md:mbs-32 xl:mbs-32' : 'md:mbs-24 xl:mbs-
 	<WorkContent entry={entry} />
 	{
 		images[0] && (
-			<div class="col-span-3 md:col-span-3 xl:col-span-6">
-				<WorkImage
-					src={images[0].src}
-					alt={images[0].alt ?? entry.data.title}
-					direction="up"
-				/>
-			</div>
+			<WorkImageParallax
+				src={images[0].src}
+				alt={images[0].alt ?? entry.data.title}
+				direction="up"
+				className="col-span-3 md:col-span-3 xl:col-span-6"
+				client:visible
+			/>
 		)
 	}
 	{
 		images[1] && (
-			<div class:list={['mbs-6 col-span-3 md:col-span-3 xl:col-span-6', offsetClass]}>
-				<WorkImage
-					src={images[1].src}
-					alt={images[1].alt ?? entry.data.title}
-					direction="down"
-				/>
-			</div>
+			<WorkImageParallax
+				src={images[1].src}
+				alt={images[1].alt ?? entry.data.title}
+				direction="down"
+				className={`mbs-6 col-span-3 md:col-span-3 xl:col-span-6 ${offsetClass}`}
+				client:visible
+			/>
 		)
 	}
 </article>

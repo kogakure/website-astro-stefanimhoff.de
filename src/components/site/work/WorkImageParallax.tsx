@@ -17,10 +17,10 @@ interface Props {
 	className?: string;
 }
 
-const BASE_IMG_CLASS =
-	'ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]';
+const IMG_CLASS =
+	'w-full transition-[transform,filter] duration-200 ease-enter hover:scale-[1.01] hover:brightness-[1.03]';
 
-const ParallaxImg = ({ src, alt, intensity = 40, direction = 'up', className }: Props) => {
+const ParallaxCard = ({ src, alt, intensity = 10, direction = 'up', className }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
 	const y = useTransform(
@@ -30,31 +30,27 @@ const ParallaxImg = ({ src, alt, intensity = 40, direction = 'up', className }: 
 	);
 
 	return (
-		<div ref={ref}>
-			<m.div
-				style={{
-					y,
-					scale: 1.12,
-					transformOrigin: 'center center',
-					willChange: 'transform',
-				}}
+		<m.div
+			ref={ref}
+			style={{ y, willChange: 'transform' }}
+			className={cn('rounded-2 overflow-hidden', className)}
+		>
+			<button
+				type="button"
+				aria-label="Open image in lightbox"
+				data-lightbox="true"
+				className="block h-full w-full cursor-zoom-in border-0 bg-transparent p-0"
 			>
-				<img
-					src={src}
-					alt={alt}
-					className={cn(BASE_IMG_CLASS, className)}
-					loading="lazy"
-					decoding="async"
-				/>
-			</m.div>
-		</div>
+				<img src={src} alt={alt} className={IMG_CLASS} loading="lazy" decoding="async" />
+			</button>
+		</m.div>
 	);
 };
 
 export const WorkImageParallax = ({
 	src,
 	alt,
-	intensity = 40,
+	intensity = 10,
 	direction = 'up',
 	className,
 }: Props) => {
@@ -62,19 +58,28 @@ export const WorkImageParallax = ({
 
 	if (reduced) {
 		return (
-			<img
-				src={src}
-				alt={alt}
-				className={cn(BASE_IMG_CLASS, className)}
-				loading="lazy"
-				decoding="async"
-			/>
+			<div className={cn('rounded-2 overflow-hidden', className)}>
+				<button
+					type="button"
+					aria-label="Open image in lightbox"
+					data-lightbox="true"
+					className="block h-full w-full cursor-zoom-in border-0 bg-transparent p-0"
+				>
+					<img
+						src={src}
+						alt={alt}
+						className={IMG_CLASS}
+						loading="lazy"
+						decoding="async"
+					/>
+				</button>
+			</div>
 		);
 	}
 
 	return (
 		<LazyMotion features={domAnimation}>
-			<ParallaxImg
+			<ParallaxCard
 				src={src}
 				alt={alt}
 				intensity={intensity}
