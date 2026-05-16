@@ -12,8 +12,7 @@ import HomePageSection from '@/components/ui/HomepagePageSection';
 import JapanesePoem from '@/components/ui/JapanesePoem';
 import EmailLink from '@/components/content/EmailLink';
 import MoreLink from '@/components/ui/MoreLink';
-import DisplayEm from '@/components/ui/DisplayEm';
-import Title from '@/components/ui/Title';
+import HeroTitle from '@/components/site/HeroTitle';
 import LatestEssaysList from '@/components/site/LatestEssaysList';
 
 import { Content as About } from '@/content/text/homepage/about.mdx';
@@ -41,16 +40,7 @@ const description = 'Design Engineer from Hamburg, Germany';
 		class="max-w-360 pli-8 pbe-32 pbs-32 mx-auto grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
 	>
 		<div class="col-span-3 flex w-full md:col-span-6 xl:col-span-9 xl:col-start-3">
-			<Title className="hero-title leading-[1.10]!">
-				Stefan Imhoff <DisplayEm>is a</DisplayEm><br class="hidden xl:block" />
-				Design Engineer<br class="hidden xl:block" />
-				<span>
-					<DisplayEm>from</DisplayEm>
-					<span class="whitespace-nowrap"
-						>Hamburg<span class="text-beni dark:text-beni-light mis-4">—</span></span
-					>
-				</span>
-			</Title>
+			<HeroTitle client:load />
 		</div>
 	</div>
 
