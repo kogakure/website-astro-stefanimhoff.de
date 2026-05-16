@@ -6,6 +6,7 @@ import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
+	index: number;
 }
 
 const { entry } = Astro.props;
@@ -29,6 +30,7 @@ const [primary, ...gallery] = images;
 					<WorkImageParallax
 						src={primary.src}
 						alt={primary.alt ?? title}
+						direction="up"
 						client:visible
 					/>
 				</button>
@@ -49,6 +51,7 @@ const [primary, ...gallery] = images;
 					<WorkImageParallax
 						src={gallery[0].src}
 						alt={gallery[0].alt ?? title}
+						direction="down"
 						client:visible
 					/>
 				</button>
@@ -69,6 +72,7 @@ const [primary, ...gallery] = images;
 					<WorkImageParallax
 						src={gallery[1].src}
 						alt={gallery[1].alt ?? title}
+						direction="up"
 						client:visible
 					/>
 				</button>

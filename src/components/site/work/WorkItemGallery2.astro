@@ -6,6 +6,7 @@ import WorkImage from './WorkImage.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
+	index: number;
 }
 
 const { entry } = Astro.props;
@@ -17,14 +18,22 @@ const images = entry.data.images ?? [];
 	{
 		images[0] && (
 			<div class="col-span-3 md:col-span-4 xl:col-span-8">
-				<WorkImage src={images[0].src} alt={images[0].alt ?? entry.data.title} />
+				<WorkImage
+					src={images[0].src}
+					alt={images[0].alt ?? entry.data.title}
+					direction="up"
+				/>
 			</div>
 		)
 	}
 	{
 		images[1] && (
 			<div class="mbs-6 md:mbs-32 xl:mbs-32 col-span-3 md:col-span-2 xl:col-span-4">
-				<WorkImage src={images[1].src} alt={images[1].alt ?? entry.data.title} />
+				<WorkImage
+					src={images[1].src}
+					alt={images[1].alt ?? entry.data.title}
+					direction="down"
+				/>
 			</div>
 		)
 	}

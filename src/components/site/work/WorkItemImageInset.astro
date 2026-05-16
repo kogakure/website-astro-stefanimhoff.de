@@ -6,10 +6,12 @@ import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
+	index: number;
 }
 
-const { entry } = Astro.props;
+const { entry, index } = Astro.props;
 const image = entry.data.image;
+const direction = index % 2 === 0 ? 'up' : 'down';
 ---
 
 <article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
@@ -23,7 +25,12 @@ const image = entry.data.image;
 					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
 					data-lightbox="true"
 				>
-					<WorkImageParallax src={image.src} alt={entry.data.title} client:visible />
+					<WorkImageParallax
+						src={image.src}
+						alt={entry.data.title}
+						direction={direction}
+						client:visible
+					/>
 				</button>
 			</div>
 		)

@@ -33,9 +33,9 @@ const description = "I'm a Design Engineer. These are selected projects from the
 
 		<div class="flex flex-col gap-32">
 			{
-				workEntries.map((entry) => (
+				workEntries.map((entry, index) => (
 					<Reveal client:visible>
-						<WorkItem entry={entry} />
+						<WorkItem entry={entry} index={index} />
 					</Reveal>
 				))
 			}

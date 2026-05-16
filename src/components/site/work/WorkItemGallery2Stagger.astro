@@ -6,6 +6,7 @@ import WorkImage from './WorkImage.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
+	index: number;
 }
 
 const { entry } = Astro.props;
@@ -19,14 +20,22 @@ const offsetClass = offset === '32' ? 'md:mbs-32 xl:mbs-32' : 'md:mbs-24 xl:mbs-
 	{
 		images[0] && (
 			<div class="col-span-3 md:col-span-3 xl:col-span-6">
-				<WorkImage src={images[0].src} alt={images[0].alt ?? entry.data.title} />
+				<WorkImage
+					src={images[0].src}
+					alt={images[0].alt ?? entry.data.title}
+					direction="up"
+				/>
 			</div>
 		)
 	}
 	{
 		images[1] && (
 			<div class:list={['mbs-6 col-span-3 md:col-span-3 xl:col-span-6', offsetClass]}>
-				<WorkImage src={images[1].src} alt={images[1].alt ?? entry.data.title} />
+				<WorkImage
+					src={images[1].src}
+					alt={images[1].alt ?? entry.data.title}
+					direction="down"
+				/>
 			</div>
 		)
 	}

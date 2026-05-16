@@ -6,6 +6,7 @@ import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
+	index: number;
 }
 
 const { entry } = Astro.props;
@@ -33,6 +34,7 @@ const offsets = ['', 'md:mbs-32 xl:mbs-32', 'md:mbs-16 xl:mbs-16'];
 					<WorkImageParallax
 						src={img.src}
 						alt={img.alt ?? entry.data.title}
+						direction={i % 2 === 0 ? 'up' : 'down'}
 						client:visible
 					/>
 				</button>

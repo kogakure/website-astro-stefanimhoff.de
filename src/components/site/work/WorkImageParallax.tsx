@@ -13,20 +13,32 @@ interface Props {
 	src: string;
 	alt: string;
 	intensity?: number;
+	direction?: 'up' | 'down';
 	className?: string;
 }
 
 const BASE_IMG_CLASS =
 	'ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]';
 
-const ParallaxImg = ({ src, alt, intensity = 16, className }: Props) => {
+const ParallaxImg = ({ src, alt, intensity = 40, direction = 'up', className }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-	const y = useTransform(scrollYProgress, [0, 1], [intensity, -intensity]);
+	const y = useTransform(
+		scrollYProgress,
+		[0, 1],
+		direction === 'up' ? [intensity, -intensity] : [-intensity, intensity]
+	);
 
 	return (
 		<div ref={ref}>
-			<m.div style={{ y, willChange: 'transform' }}>
+			<m.div
+				style={{
+					y,
+					scale: 1.12,
+					transformOrigin: 'center center',
+					willChange: 'transform',
+				}}
+			>
 				<img
 					src={src}
 					alt={alt}
@@ -39,7 +51,13 @@ const ParallaxImg = ({ src, alt, intensity = 16, className }: Props) => {
 	);
 };
 
-export const WorkImageParallax = ({ src, alt, intensity = 16, className }: Props) => {
+export const WorkImageParallax = ({
+	src,
+	alt,
+	intensity = 40,
+	direction = 'up',
+	className,
+}: Props) => {
 	const reduced = useReducedMotion();
 
 	if (reduced) {
@@ -56,7 +74,13 @@ export const WorkImageParallax = ({ src, alt, intensity = 16, className }: Props
 
 	return (
 		<LazyMotion features={domAnimation}>
-			<ParallaxImg src={src} alt={alt} intensity={intensity} className={className} />
+			<ParallaxImg
+				src={src}
+				alt={alt}
+				intensity={intensity}
+				direction={direction}
+				className={className}
+			/>
 		</LazyMotion>
 	);
 };

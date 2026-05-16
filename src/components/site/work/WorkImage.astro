@@ -4,10 +4,11 @@ import WorkImageParallax from './WorkImageParallax';
 interface Props {
 	src: string;
 	alt: string;
+	direction?: 'up' | 'down';
 	className?: string;
 }
 
-const { src, alt, className } = Astro.props;
+const { src, alt, direction, className } = Astro.props;
 ---
 
 <div class:list={['rounded-2 overflow-hidden', className]}>
@@ -20,6 +21,7 @@ const { src, alt, className } = Astro.props;
 		<WorkImageParallax
 			src={src}
 			alt={alt}
+			direction={direction}
 			className="h-full w-full object-cover"
 			client:visible
 		/>
