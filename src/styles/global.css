@@ -636,6 +636,13 @@
 	will-change: transform;
 }
 
+/* No-JS fallback: show content hidden by motion primitives */
+html.no-js [data-reveal],
+html.no-js [data-splittext] {
+	opacity: 1 !important;
+	transform: none !important;
+}
+
 /* ============================================================
    Reduced Motion — Seijaku (静寂)
    ============================================================ */

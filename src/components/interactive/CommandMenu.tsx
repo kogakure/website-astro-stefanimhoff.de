@@ -22,6 +22,7 @@ import {
 import { Command } from 'cmdk';
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { EASE_ENTER } from '../../lib/motion';
 import { cn } from '../../lib/utils';
 
 type View = 'menu' | 'search';
@@ -272,7 +273,7 @@ export const CommandMenu = () => {
 							initial={{ opacity: 0, y: -8 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -8 }}
-							transition={{ duration: 0.2, ease: [0.0, 0.0, 0.38, 0.9] }}
+							transition={{ duration: 0.2, ease: EASE_ENTER }}
 						>
 							<Command
 								className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"

@@ -10,6 +10,8 @@ updated_at: 2026-04-16T13:02:27Z
 
 **Goal:** All tests pass, accessibility and performance validated.
 
+This phase was done mostly in earlier stages. Nevertheless please do a smoke test if all unit tests, ui tests and A11Y tests are working. And work on the lighthouse performance; the goal is a 100 score.
+
 ### Steps
 
 1. **Update Vitest tests**: All utility tests should still pass unchanged

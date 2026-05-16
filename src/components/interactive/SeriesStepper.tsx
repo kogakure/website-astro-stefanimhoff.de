@@ -3,6 +3,7 @@
 import { CaretDownIcon } from '@phosphor-icons/react';
 import { AnimatePresence, LazyMotion, domMax, m } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { EASE_ENTER } from '../../lib/motion';
 
 import { cn } from '../../lib/utils';
 
@@ -20,8 +21,6 @@ interface Props {
 	currentId: string;
 	seriesName?: string;
 }
-
-const EASE_ENTER = [0, 0, 0.38, 0.9] as const;
 
 type StepState = 'past' | 'current' | 'upcoming';
 

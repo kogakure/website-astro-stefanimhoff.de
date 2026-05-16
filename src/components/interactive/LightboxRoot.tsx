@@ -2,6 +2,7 @@ import { XIcon } from '@phosphor-icons/react';
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { computeLightboxSize } from '../../lib/lightboxSizing';
+import { DUR_FAST, DUR_MODERATE, EASE_ENTER } from '../../lib/motion';
 
 type ActiveImage = {
 	src: string;
@@ -13,8 +14,6 @@ type ActiveImage = {
 };
 
 type TargetRect = { width: number; height: number; left: number; top: number };
-
-const EASE: [number, number, number, number] = [0.0, 0.0, 0.38, 0.9];
 
 export const LightboxRoot = () => {
 	const [active, setActive] = useState<ActiveImage | null>(null);
@@ -105,8 +104,8 @@ export const LightboxRoot = () => {
 		return () => window.removeEventListener('resize', onResize);
 	}, [active, computeTarget]);
 
-	const duration = prefersReducedMotion ? 0 : 0.3;
-	const backdropDuration = prefersReducedMotion ? 0 : 0.2;
+	const duration = prefersReducedMotion ? 0 : DUR_MODERATE;
+	const backdropDuration = prefersReducedMotion ? 0 : DUR_FAST;
 
 	return (
 		<LazyMotion features={domAnimation}>
@@ -174,7 +173,7 @@ export const LightboxRoot = () => {
 									height: active.rect.height,
 									opacity: 1,
 								}}
-								transition={{ duration, ease: EASE }}
+								transition={{ duration, ease: EASE_ENTER }}
 								onClick={close}
 							/>
 						</div>

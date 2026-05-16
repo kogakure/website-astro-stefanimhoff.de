@@ -12,10 +12,9 @@ updated_at: 2026-04-16T13:00:35Z
 
 ### Steps
 
-1. Update `docs/checklist.md` — all items checked
-2. Update `docs/work-log.md` — final entry
-3. Update `src/content/` static pages:
-   - `colophon.mdx`: Update fonts (Boska + Switzer), icons (Phosphor), remove Secuela/Remix Icon
-   - Update tech stack references
-4. Final `beans` status update — all issues closed
-5. Create PR from `feature/relaunch-redesign` → `master` (DO NOT MERGE — user reviews first)
+1. Update `CLAUDE.md` and `AGENTS.md` to reflect the current implementation
+2. Update all specific documentation for ai agents in `docs` to reflect the current state
+3. Check, if it makes sense to restructure the `docs` and/or adding new information.
+4. Update the `DESIGN.md` to reflect the current implementation on the Ma Design System.
+5. Final `beans` status update — all issues closed
+6. Create PR from `feature/relaunch-redesign` → `master` (DO NOT MERGE — user reviews first)
