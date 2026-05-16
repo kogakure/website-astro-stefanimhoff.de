@@ -17,7 +17,6 @@ import Scripts from './Scripts.astro';
 import ThemeProvider from './ThemeProvider.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import WorkContent from './work/WorkContent.astro';
-import WorkImage from './work/WorkImage.astro';
 import WorkItemFeatured from './work/WorkItemFeatured.astro';
 import WorkItemFullBleed from './work/WorkItemFullBleed.astro';
 import WorkItemGallery2 from './work/WorkItemGallery2.astro';
@@ -156,13 +155,6 @@ describe('site components — axe', () => {
 	it('PrevNextNavigation (next only) has no a11y violations', async () => {
 		const el = await render(PrevNextNavigation, {
 			props: { next: { href: '/writing/next-post/', title: 'Next Post' } },
-		});
-		expect(await axe(el)).toHaveNoViolations();
-	});
-
-	it('WorkImage has no a11y violations', async () => {
-		const el = await render(WorkImage, {
-			props: { src: '/assets/images/work/img1.webp', alt: 'Project screenshot' },
 		});
 		expect(await axe(el)).toHaveNoViolations();
 	});

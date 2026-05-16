@@ -5,6 +5,7 @@ import { defineConfig } from 'vitest/config';
 const alias = {
 	'@': fileURLToPath(new URL('./src', import.meta.url)),
 	'/pagefind/pagefind.js': fileURLToPath(new URL('./src/test/pagefind-mock.ts', import.meta.url)),
+	'astro:assets': fileURLToPath(new URL('./src/test/astro-assets-mock.ts', import.meta.url)),
 };
 
 export default defineConfig({
