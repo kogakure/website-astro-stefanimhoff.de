@@ -1,11 +1,11 @@
 ---
 # SI-2a4l
 title: Use Wallace CSS Code Quality
-status: todo
+status: scrapped
 type: task
 priority: normal
 created_at: 2026-04-22T18:10:02Z
-updated_at: 2026-05-15T18:52:31Z
+updated_at: 2026-05-16T13:28:31Z
 parent: SI-vl2o
 ---
 

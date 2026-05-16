@@ -1,11 +1,11 @@
 ---
 # SI-vb9g
 title: Use Wallace Code Coverage
-status: todo
+status: scrapped
 type: task
 priority: normal
 created_at: 2026-04-22T18:13:13Z
-updated_at: 2026-05-15T18:52:25Z
+updated_at: 2026-05-16T13:28:26Z
 parent: SI-vl2o
 ---
 
