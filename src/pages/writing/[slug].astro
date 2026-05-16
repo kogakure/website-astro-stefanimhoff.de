@@ -18,6 +18,7 @@ import { mapping } from '@/mdx-components';
 
 import 'lite-youtube-embed/src/lite-yt-embed.css';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import CoverImage from '@/components/site/CoverImage.astro';
 import SeriesStepper from '@/components/interactive/SeriesStepper';
 import Reveal from '@/components/interactive/motion/Reveal';
 import ListItem from '@/components/ui/ListItem';
@@ -85,6 +86,15 @@ const title = entry.data.title;
 const subtitle = entry.data.subtitle;
 const description = entry.data.description;
 
+const coverOgUrl = entry.data.cover
+	? `/assets/images/og/${
+			entry.data.cover.src
+				.split('/')
+				.pop()
+				?.replace(/\.[^.]+$/, '.jpg') ?? 'ma.jpg'
+		}`
+	: undefined;
+
 const schema = JSON.stringify({
 	'@context': 'https://schema.org',
 	'@type': 'Article',
@@ -92,7 +102,7 @@ const schema = JSON.stringify({
 	description: entry.data.description,
 	datePublished: entry.data.date,
 	dateModified: entry.data.updated,
-	image: [entry.data.cover ? site.url + entry.data.cover : `${site.url}/assets/images/og/ma.jpg`],
+	image: [coverOgUrl ? site.url + coverOgUrl : `${site.url}/assets/images/og/ma.jpg`],
 	author: [
 		{
 			'@type': 'Person',
@@ -108,7 +118,7 @@ const schema = JSON.stringify({
 ---
 
 <BaseLayout
-	cover={entry.data.cover}
+	cover={coverOgUrl}
 	description={description}
 	nofollow={entry.data.nofollow}
 	noindex={entry.data.noindex}
@@ -132,12 +142,9 @@ const schema = JSON.stringify({
 		entry.data.cover && (
 			<div class="max-w-360 pli-8 pbe-12 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 				<div class="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2">
-					<img
+					<CoverImage
 						src={entry.data.cover}
 						alt={title}
-						class="rounded-2 w-full object-cover"
-						loading="eager"
-						decoding="async"
 						style="view-transition-name: post-cover"
 					/>
 				</div>

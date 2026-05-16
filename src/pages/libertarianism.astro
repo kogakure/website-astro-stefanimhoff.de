@@ -16,6 +16,9 @@ import ListItem from '@/components/ui/ListItem';
 import TextLink from '@/components/ui/TextLink';
 import UnorderedList from '@/components/ui/UnorderedList';
 
+import { Image } from 'astro:assets';
+import anarchoCover from '@/assets/images/cover/anarcho-capitalist-city.webp';
+
 import { Content as Intro } from '@/content/text/libertarianism/intro.mdx';
 import { Content as Principles } from '@/content/text/libertarianism/principles.mdx';
 import { Content as Concepts } from '@/content/text/libertarianism/concepts.mdx';
@@ -60,23 +63,26 @@ const roadmapMilestones = resolveRoadmap(roadmapLibertarianism, {
 	videos,
 });
 
-const cover = '/assets/images/cover/anarcho-capitalist-city.webp';
+const coverOgUrl = '/assets/images/og/anarcho-capitalist-city.jpg';
 const title = 'Libertarianism';
 const description =
 	'A curated hub of books, audiobooks, podcasts, videos, and articles on libertarianism, anarcho-capitalism, and the philosophy of freedom.';
 ---
 
-<BaseLayout cover={cover} description={description} title={title}>
+<BaseLayout cover={coverOgUrl} description={description} title={title}>
 	<PageTitle>{title}</PageTitle>
 
 	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-24">
 		<div class="md:rounded-2 col-span-full aspect-video overflow-hidden print:hidden">
-			<img
+			<Image
+				src={anarchoCover}
 				alt="Anarcho-capitalist city"
+				widths={[800, 1200, 1600, 2400]}
+				sizes="(min-width: 1280px) 1376px, 100vw"
+				formats={['avif', 'webp']}
 				class="h-full w-full object-cover"
 				decoding="async"
 				loading="eager"
-				src={cover}
 			/>
 		</div>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import type { ImageMetadata } from 'astro';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getPreviewUrl } from '../../utils/preview-url';
 import ClearFiltersButton from '../ui/ClearFiltersButton';
@@ -18,7 +19,7 @@ interface PostItem {
 	subtitle?: string;
 	tags: string[];
 	year: number;
-	cover?: string;
+	cover?: ImageMetadata | string;
 }
 
 interface Props {

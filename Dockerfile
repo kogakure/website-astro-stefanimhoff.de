@@ -48,8 +48,9 @@ FROM deps AS builder
 # Copy all source files (respects .dockerignore)
 COPY . .
 
-# Build the Astro site
-RUN pnpm run build
+# Build the Astro site — cache mount persists optimized images across deploys
+RUN --mount=type=cache,id=astro-assets,target=/app/node_modules/.astro \
+    pnpm run build
 
 # Verify build output exists
 RUN ls -la /app/dist

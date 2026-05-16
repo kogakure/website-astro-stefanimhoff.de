@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImage from './WorkImage';
+import WorkImageOptimized from './WorkImageOptimized.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -17,11 +17,11 @@ const image = entry.data.image;
 	<WorkContent entry={entry} />
 	{
 		image && (
-			<WorkImage
+			<WorkImageOptimized
 				src={image.src}
 				alt={entry.data.title}
+				sizes="(min-width: 1280px) 1376px, (min-width: 768px) 90vw, 100vw"
 				className="col-span-3 md:col-span-6 xl:col-span-12"
-				client:visible
 			/>
 		)
 	}

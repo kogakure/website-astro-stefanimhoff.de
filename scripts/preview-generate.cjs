@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
 
-const inputFolder = './public/assets/images/cover/';
+const inputFolder = './src/assets/images/cover/';
 const outputFolder = './public/assets/images/preview/';
 
 if (!fs.existsSync(outputFolder)) {

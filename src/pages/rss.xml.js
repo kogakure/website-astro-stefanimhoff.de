@@ -54,12 +54,19 @@ export async function GET(context) {
 					},
 				});
 
-				// Logic to determine image URL
-				const isWebp =
-					cover?.startsWith('/assets/images/cover/') && cover?.endsWith('.webp');
-				const imgUrl = isWebp
-					? cover.replace('/assets/images/cover/', '/assets/images/preview/')
+				// Derive preview + OG paths from ImageMetadata basename
+				const coverBasename = cover?.src
+					? (cover.src
+							.split('/')
+							.pop()
+							?.replace(/\.[^.]+$/, '') ?? null)
+					: null;
+				const previewUrl = coverBasename
+					? `/assets/images/preview/${coverBasename}.webp`
 					: '/assets/images/preview/ma.webp';
+				const ogUrl = coverBasename
+					? `/assets/images/og/${coverBasename}.jpg`
+					: '/assets/images/og/ma.jpg';
 
 				return {
 					title: subtitle ? `${title}: ${subtitle}` : title,
@@ -68,19 +75,13 @@ export async function GET(context) {
 					link: `/writing/${post.id.split('/').pop()}/`,
 					content: sanitizedContent,
 					enclosure: {
-						url:
-							site.url +
-							(isWebp
-								? cover
-										.replace('/assets/images/cover/', '/assets/images/og/')
-										.replace(/\.webp$/, '.jpg')
-								: '/assets/images/og/ma.jpg'),
+						url: site.url + ogUrl,
 						length: 0,
 						type: 'image/jpeg',
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}${imgUrl}" width="800" height="450" />
+            <media:thumbnail url="${site.url}${previewUrl}" width="800" height="450" />
           `,
 				};
 			}),

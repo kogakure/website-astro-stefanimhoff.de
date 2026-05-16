@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImage from './WorkImage';
+import WorkImageOptimized from './WorkImageOptimized.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -18,9 +18,10 @@ const offsets = ['', 'md:mbs-32 xl:mbs-32', 'md:mbs-16 xl:mbs-16'];
 	<WorkContent entry={entry} />
 	{
 		images.map((img, i) => (
-			<WorkImage
+			<WorkImageOptimized
 				src={img.src}
 				alt={img.alt ?? entry.data.title}
+				sizes="(min-width: 1280px) 440px, (min-width: 768px) 33vw, 100vw"
 				className={[
 					'col-span-3 md:col-span-2 xl:col-span-4',
 					i > 0 && 'mbs-6 md:mbs-0',
@@ -28,7 +29,6 @@ const offsets = ['', 'md:mbs-32 xl:mbs-32', 'md:mbs-16 xl:mbs-16'];
 				]
 					.filter(Boolean)
 					.join(' ')}
-				client:visible
 			/>
 		))
 	}

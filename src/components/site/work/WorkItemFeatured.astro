@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImage from './WorkImage';
+import WorkImageOptimized from './WorkImageOptimized.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -19,33 +19,33 @@ const [primary, ...gallery] = images;
 
 	{
 		primary && (
-			<WorkImage
+			<WorkImageOptimized
 				src={primary.src}
 				alt={primary.alt ?? title}
+				sizes="(min-width: 1280px) 1376px, 100vw"
 				className="mbe-6 md:mbe-8 xl:mbe-8 col-span-3 md:col-span-6 xl:col-span-12"
-				client:visible
 			/>
 		)
 	}
 
 	{
 		gallery[0] && (
-			<WorkImage
+			<WorkImageOptimized
 				src={gallery[0].src}
 				alt={gallery[0].alt ?? title}
+				sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
 				className="mbe-6 md:mbe-0 col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-2 self-start"
-				client:visible
 			/>
 		)
 	}
 
 	{
 		gallery[1] && (
-			<WorkImage
+			<WorkImageOptimized
 				src={gallery[1].src}
 				alt={gallery[1].alt ?? title}
+				sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
 				className="col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-7 self-start"
-				client:visible
 			/>
 		)
 	}

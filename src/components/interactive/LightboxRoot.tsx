@@ -27,11 +27,15 @@ export const LightboxRoot = () => {
 
 	const open = useCallback(
 		(img: HTMLImageElement) => {
-			const nw = img.naturalWidth;
-			const nh = img.naturalHeight;
+			const nw = img.dataset.lightboxWidth
+				? parseInt(img.dataset.lightboxWidth, 10)
+				: img.naturalWidth;
+			const nh = img.dataset.lightboxHeight
+				? parseInt(img.dataset.lightboxHeight, 10)
+				: img.naturalHeight;
 			const rect = img.getBoundingClientRect();
 			setActive({
-				src: img.currentSrc || img.src,
+				src: img.dataset.lightboxSrc || img.currentSrc || img.src,
 				alt: img.alt,
 				rect,
 				naturalWidth: nw,
@@ -73,11 +77,20 @@ export const LightboxRoot = () => {
 			e.preventDefault();
 			open(img);
 		};
+		const handleMouseEnter = (e: MouseEvent) => {
+			const img = getImg(e.target as Element);
+			const largeSrc = img?.dataset.lightboxSrc;
+			if (!largeSrc) return;
+			const preload = new Image();
+			preload.src = largeSrc;
+		};
 		document.body.addEventListener('click', handleClick);
 		document.body.addEventListener('keydown', handleKeydown);
+		document.body.addEventListener('mouseover', handleMouseEnter);
 		return () => {
 			document.body.removeEventListener('click', handleClick);
 			document.body.removeEventListener('keydown', handleKeydown);
+			document.body.removeEventListener('mouseover', handleMouseEnter);
 		};
 	}, [open]);
 
