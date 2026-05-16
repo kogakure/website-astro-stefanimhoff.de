@@ -1,11 +1,11 @@
 ---
 # SI-akaq
 title: "Phase 6: Motion & Special Interactions"
-status: in-progress
+status: completed
 type: feature
 priority: normal
 created_at: 2026-04-09T12:14:46Z
-updated_at: 2026-05-12T16:53:27Z
+updated_at: 2026-05-16T16:05:00Z
 ---
 
 ## Phase 6 — Motion & Special Interactions
