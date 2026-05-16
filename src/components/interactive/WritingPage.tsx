@@ -162,7 +162,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 								{year}
 							</SectionLabel>
 						</div>
-						<UnorderedList className={contentCol}>
+						<UnorderedList className={`${contentCol} gap-0`}>
 							{byYear[year].map((post) => (
 								<ListItem key={post.slug}>
 									<EssayLink

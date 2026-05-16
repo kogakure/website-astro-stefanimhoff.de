@@ -65,6 +65,8 @@ export const HoverPreview = () => {
 		const onMouseOut = (e: MouseEvent) => {
 			const anchor = (e.target as Element).closest('[data-hover-preview]');
 			if (!anchor) return;
+			const related = (e.relatedTarget as Element | null)?.closest('[data-hover-preview]');
+			if (related) return;
 			hide();
 		};
 
