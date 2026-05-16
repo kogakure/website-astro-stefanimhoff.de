@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImageParallax from './WorkImageParallax';
+import WorkImage from './WorkImage';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -19,10 +19,9 @@ const [primary, ...gallery] = images;
 
 	{
 		primary && (
-			<WorkImageParallax
+			<WorkImage
 				src={primary.src}
 				alt={primary.alt ?? title}
-				direction="up"
 				className="mbe-6 md:mbe-8 xl:mbe-8 col-span-3 md:col-span-6 xl:col-span-12"
 				client:visible
 			/>
@@ -31,11 +30,10 @@ const [primary, ...gallery] = images;
 
 	{
 		gallery[0] && (
-			<WorkImageParallax
+			<WorkImage
 				src={gallery[0].src}
 				alt={gallery[0].alt ?? title}
-				direction="down"
-				className="mbe-6 md:mbe-0 col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-2"
+				className="mbe-6 md:mbe-0 col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-2 self-start"
 				client:visible
 			/>
 		)
@@ -43,11 +41,10 @@ const [primary, ...gallery] = images;
 
 	{
 		gallery[1] && (
-			<WorkImageParallax
+			<WorkImage
 				src={gallery[1].src}
 				alt={gallery[1].alt ?? title}
-				direction="up"
-				className="col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-7"
+				className="col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-7 self-start"
 				client:visible
 			/>
 		)

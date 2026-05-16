@@ -2,26 +2,24 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
-import WorkImageParallax from './WorkImageParallax';
+import WorkImage from './WorkImage';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
 	index: number;
 }
 
-const { entry, index } = Astro.props;
+const { entry } = Astro.props;
 const image = entry.data.image;
-const direction = index % 2 === 0 ? 'up' : 'down';
 ---
 
 <article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 	<WorkContent entry={entry} />
 	{
 		image && (
-			<WorkImageParallax
+			<WorkImage
 				src={image.src}
 				alt={entry.data.title}
-				direction={direction}
 				className="col-span-3 md:col-span-6 xl:col-span-12"
 				client:visible
 			/>
