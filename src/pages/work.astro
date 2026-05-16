@@ -6,6 +6,7 @@ import { sortBySortKey } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import LightboxRoot from '@/components/interactive/LightboxRoot';
+import Reveal from '@/components/interactive/motion/Reveal';
 import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
 import WorkItem from '@/components/site/work/WorkItem.astro';
@@ -24,12 +25,20 @@ const description = "I'm a Design Engineer. These are selected projects from the
 	<PageTitle>Work</PageTitle>
 
 	<div class="max-w-360 pbe-32 pli-8 mx-auto flex w-full flex-col gap-24">
-		<PageSection label="Introduction">
-			<WorkIntro components={mapping} />
-		</PageSection>
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<WorkIntro components={mapping} />
+			</PageSection>
+		</Reveal>
 
 		<div class="flex flex-col gap-32">
-			{workEntries.map((entry) => <WorkItem entry={entry} />)}
+			{
+				workEntries.map((entry) => (
+					<Reveal client:visible>
+						<WorkItem entry={entry} />
+					</Reveal>
+				))
+			}
 		</div>
 	</div>
 

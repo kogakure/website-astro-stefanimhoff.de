@@ -1,10 +1,11 @@
 ---
 # SI-7q5r
 title: Reveal-on-scroll for content pages
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-16T12:28:53Z
-updated_at: 2026-05-16T12:28:53Z
+updated_at: 2026-05-16T15:00:00Z
 parent: SI-akaq
 ---
 

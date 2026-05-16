@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AmazonBook from '@/components/content/AmazonBook';
 import ColorStack from '@/components/content/ColorStack';
 import ColorSwatchPrimary from '@/components/content/ColorSwatchPrimary';
+import Reveal from '@/components/interactive/motion/Reveal';
 import PageSection from '@/components/ui/PageSection';
 import PageTitle from '@/components/site/PageTitle.astro';
 
@@ -30,16 +31,20 @@ const description =
 	<PageTitle>The Traditional Colors of&nbsp;Japan</PageTitle>
 
 	<div class="max-w-360 pli-8 pbe-32 pbs-16 mx-auto flex w-full flex-col gap-16">
-		<PageSection label="Introduction">
-			<Intro components={mapping} />
-		</PageSection>
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<Intro components={mapping} />
+			</PageSection>
+		</Reveal>
 
-		<PageSection label="Books">
-			<div class="flex gap-6">
-				<AmazonBook alt="The Traditional Colors of Japan" asin="475624100X" />
-				<AmazonBook alt="Traditional Japanese Color Palette" asin="475624114X" />
-			</div>
-		</PageSection>
+		<Reveal client:visible>
+			<PageSection label="Books">
+				<div class="flex gap-6">
+					<AmazonBook alt="The Traditional Colors of Japan" asin="475624100X" />
+					<AmazonBook alt="Traditional Japanese Color Palette" asin="475624114X" />
+				</div>
+			</PageSection>
+		</Reveal>
 
 		<ColorStack className="grid-cols-auto-md">
 			{

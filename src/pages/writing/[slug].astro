@@ -19,6 +19,7 @@ import { mapping } from '@/mdx-components';
 import 'lite-youtube-embed/src/lite-yt-embed.css';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SeriesStepper from '@/components/interactive/SeriesStepper';
+import Reveal from '@/components/interactive/motion/Reveal';
 import ListItem from '@/components/ui/ListItem';
 import UnorderedList from '@/components/ui/UnorderedList';
 import PageTitle from '@/components/site/PageTitle.astro';
@@ -212,22 +213,24 @@ const schema = JSON.stringify({
 		</article>
 	</div>
 
-	<PrevNextNavigation
-		prev={prev.id && prev.data
-			? {
-					href: `/writing/${prev.id.split('/').pop() ?? ''}/`,
-					title: prev.data.title,
-					subtitle: prev.data.subtitle,
-				}
-			: null}
-		next={next.id && next.data
-			? {
-					href: `/writing/${next.id.split('/').pop() ?? ''}/`,
-					title: next.data.title,
-					subtitle: next.data.subtitle,
-				}
-			: null}
-	/>
+	<Reveal client:visible preset="fadeIn">
+		<PrevNextNavigation
+			prev={prev.id && prev.data
+				? {
+						href: `/writing/${prev.id.split('/').pop() ?? ''}/`,
+						title: prev.data.title,
+						subtitle: prev.data.subtitle,
+					}
+				: null}
+			next={next.id && next.data
+				? {
+						href: `/writing/${next.id.split('/').pop() ?? ''}/`,
+						title: next.data.title,
+						subtitle: next.data.subtitle,
+					}
+				: null}
+		/>
+	</Reveal>
 	<LightboxRoot client:idle transition:persist />
 </BaseLayout>
 

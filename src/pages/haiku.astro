@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import { sortByDate } from '@/utils';
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import Reveal from '@/components/interactive/motion/Reveal';
 import Divider from '@/components/ui/Divider';
 import HaikuItem from '@/components/ui/HaikuItem';
 import PageTitle from '@/components/site/PageTitle.astro';
@@ -25,20 +26,24 @@ const description = 'An ever-growing collection of Haiku — three phrases, two 
 	<PageTitle>Haiku</PageTitle>
 
 	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-16">
-		<PageSection label="Introduction">
-			<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4 leading-relaxed [&ul]:gap-2">
-				<HaikuIntro components={mapping} />
-			</div>
-		</PageSection>
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4 leading-relaxed [&ul]:gap-2">
+					<HaikuIntro components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
 
 		<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
 			<Divider className="col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4" />
 		</div>
 
-		<PageSection label="Haiku">
-			<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
-				{allHaiku.map(({ data }) => <HaikuItem de={data.de} en={data.en} />)}
-			</ol>
-		</PageSection>
+		<Reveal client:visible>
+			<PageSection label="Haiku">
+				<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
+					{allHaiku.map(({ data }) => <HaikuItem de={data.de} en={data.en} />)}
+				</ol>
+			</PageSection>
+		</Reveal>
 	</div>
 </BaseLayout>
