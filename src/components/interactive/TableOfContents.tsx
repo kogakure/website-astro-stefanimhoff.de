@@ -1,7 +1,7 @@
 'use client';
 
 import { MinusIcon, PlusIcon } from '@phosphor-icons/react';
-import { AnimatePresence, LazyMotion, domMax, m } from 'motion/react';
+import { AnimatePresence, LazyMotion, domMax, m, useReducedMotion } from 'motion/react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { EASE_ENTER } from '../../lib/motion';
 
@@ -19,6 +19,8 @@ interface Props {
 }
 
 export const TableOfContents = ({ headings }: Props) => {
+	const reduced = useReducedMotion();
+	const tocDur = reduced ? 0 : 0.25;
 	const [activeId, setActiveId] = useState<string>(headings[0]?.id ?? '');
 	const [open, setOpen] = useState<boolean>(false);
 	const observerRef = useRef<IntersectionObserver | null>(null);
@@ -102,7 +104,7 @@ export const TableOfContents = ({ headings }: Props) => {
 							initial={{ height: 0, opacity: 0 }}
 							animate={{ height: 'auto', opacity: 1 }}
 							exit={{ height: 0, opacity: 0 }}
-							transition={{ duration: 0.25, ease: EASE_ENTER }}
+							transition={{ duration: tocDur, ease: EASE_ENTER }}
 							className="overflow-hidden"
 						>
 							<ol className="border-usuzumi dark:border-nezumi mbs-4 border-is-1 relative flex list-none flex-col">

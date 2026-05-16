@@ -1,10 +1,11 @@
 ---
 # SI-ukv5
 title: Reduced-motion fix in CommandMenu + TOC
-status: todo
+status: completed
 type: bug
+priority: normal
 created_at: 2026-05-16T12:28:49Z
-updated_at: 2026-05-16T12:28:49Z
+updated_at: 2026-05-16T12:35:22Z
 parent: SI-akaq
 ---
 

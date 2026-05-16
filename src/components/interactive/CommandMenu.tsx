@@ -20,9 +20,9 @@ import {
 	WrenchIcon,
 } from '@phosphor-icons/react';
 import { Command } from 'cmdk';
-import { AnimatePresence, LazyMotion, domAnimation, m } from 'motion/react';
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { EASE_ENTER } from '../../lib/motion';
+import { DUR_FAST, EASE_ENTER } from '../../lib/motion';
 import { cn } from '../../lib/utils';
 
 type View = 'menu' | 'search';
@@ -95,6 +95,8 @@ const groupHeadingClasses =
 	'[&_[cmdk-group-heading]]:pli-4 [&_[cmdk-group-heading]]:pbl-2 [&_[cmdk-group-heading]]:text-2 [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-wide [&_[cmdk-group-heading]]:text-hai [&_[cmdk-group-heading]]:dark:text-nezumi';
 
 export const CommandMenu = () => {
+	const reduced = useReducedMotion();
+	const dur = reduced ? 0 : DUR_FAST;
 	const [open, setOpen] = useState(false);
 	const [view, setView] = useState<View>('menu');
 	const [query, setQuery] = useState('');
@@ -258,7 +260,7 @@ export const CommandMenu = () => {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							transition={{ duration: 0.2 }}
+							transition={{ duration: dur }}
 							onClick={close}
 							aria-hidden="true"
 						/>
@@ -270,10 +272,10 @@ export const CommandMenu = () => {
 							aria-modal="true"
 							aria-label="Command menu"
 							className="max-w-160 inline-start-0 inline-end-0 block-start-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
-							initial={{ opacity: 0, y: -8 }}
+							initial={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
 							animate={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, y: -8 }}
-							transition={{ duration: 0.2, ease: EASE_ENTER }}
+							exit={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
+							transition={{ duration: dur, ease: EASE_ENTER }}
 						>
 							<Command
 								className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"
