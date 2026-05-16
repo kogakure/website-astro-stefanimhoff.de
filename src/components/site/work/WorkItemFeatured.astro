@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
+import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -25,12 +26,10 @@ const [primary, ...gallery] = images;
 					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
 					data-lightbox="true"
 				>
-					<img
+					<WorkImageParallax
 						src={primary.src}
 						alt={primary.alt ?? title}
-						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-						loading="lazy"
-						decoding="async"
+						client:visible
 					/>
 				</button>
 			</div>
@@ -47,12 +46,10 @@ const [primary, ...gallery] = images;
 					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
 					data-lightbox="true"
 				>
-					<img
+					<WorkImageParallax
 						src={gallery[0].src}
 						alt={gallery[0].alt ?? title}
-						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-						loading="lazy"
-						decoding="async"
+						client:visible
 					/>
 				</button>
 			</div>
@@ -69,12 +66,10 @@ const [primary, ...gallery] = images;
 					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
 					data-lightbox="true"
 				>
-					<img
+					<WorkImageParallax
 						src={gallery[1].src}
 						alt={gallery[1].alt ?? title}
-						class="ease-enter w-full transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-						loading="lazy"
-						decoding="async"
+						client:visible
 					/>
 				</button>
 			</div>

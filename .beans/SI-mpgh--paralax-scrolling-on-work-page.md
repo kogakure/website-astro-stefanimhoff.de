@@ -1,11 +1,11 @@
 ---
 # SI-mpgh
 title: Paralax scrolling on "Work" page
-status: todo
+status: completed
 type: task
 priority: normal
 created_at: 2026-04-16T12:38:09Z
-updated_at: 2026-05-16T12:29:01Z
+updated_at: 2026-05-16T16:00:00Z
 parent: SI-akaq
 ---
 

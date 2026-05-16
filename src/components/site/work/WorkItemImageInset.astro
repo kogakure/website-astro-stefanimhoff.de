@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import WorkContent from './WorkContent.astro';
+import WorkImageParallax from './WorkImageParallax';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
@@ -16,17 +17,14 @@ const image = entry.data.image;
 	{
 		image && (
 			<div class="rounded-2 col-span-3 overflow-hidden md:col-span-6 xl:col-span-10 xl:col-start-2">
-				<img
-					src={image.src}
-					alt={entry.data.title}
-					data-lightbox="true"
-					tabindex="0"
-					role="button"
+				<button
+					type="button"
 					aria-label="Open image in lightbox"
-					class="ease-enter w-full cursor-zoom-in transition-[transform,filter] duration-200 hover:scale-[1.01] hover:brightness-[1.03]"
-					loading="lazy"
-					decoding="async"
-				/>
+					class="block w-full cursor-zoom-in border-0 bg-transparent p-0"
+					data-lightbox="true"
+				>
+					<WorkImageParallax src={image.src} alt={entry.data.title} client:visible />
+				</button>
 			</div>
 		)
 	}
