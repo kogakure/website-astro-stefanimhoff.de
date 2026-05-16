@@ -24,6 +24,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from '
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { DUR_FAST, EASE_ENTER } from '../../lib/motion';
 import { cn } from '../../lib/utils';
+import { queryLengthBucket, resultCountBucket, trackEvent } from '../../utils/analytics';
 
 type View = 'menu' | 'search';
 
@@ -137,13 +138,16 @@ export const CommandMenu = () => {
 		const timer = setTimeout(async () => {
 			if (import.meta.env.DEV) {
 				const q = query.toLowerCase();
-				setResults(
-					MOCK_SEARCH.filter(
-						(r) =>
-							r.meta.title.toLowerCase().includes(q) ||
-							r.excerpt.toLowerCase().includes(q)
-					).slice(0, 8)
-				);
+				const filtered = MOCK_SEARCH.filter(
+					(r) =>
+						r.meta.title.toLowerCase().includes(q) ||
+						r.excerpt.toLowerCase().includes(q)
+				).slice(0, 8);
+				setResults(filtered);
+				trackEvent('Search', {
+					length: queryLengthBucket(query),
+					results: resultCountBucket(filtered.length),
+				});
 				return;
 			}
 			await loadPagefind();
@@ -151,6 +155,10 @@ export const CommandMenu = () => {
 			const res = await pagefindRef.current.search(query);
 			const data = await Promise.all(res.results.slice(0, 8).map((r: any) => r.data()));
 			setResults(data);
+			trackEvent('Search', {
+				length: queryLengthBucket(query),
+				results: resultCountBucket(data.length),
+			});
 		}, 150);
 		return () => clearTimeout(timer);
 	}, [query, view, open, loadPagefind]);
@@ -160,7 +168,10 @@ export const CommandMenu = () => {
 		const handler = (e: KeyboardEvent) => {
 			if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
 				e.preventDefault();
-				setOpen((o) => !o);
+				setOpen((o) => {
+					if (!o) trackEvent('Command Menu: Open (hotkey)');
+					return !o;
+				});
 			}
 			if (e.key === 'Escape' && open) {
 				if (view === 'search' && query) {
@@ -183,10 +194,12 @@ export const CommandMenu = () => {
 			window.openCommandMenu = () => setOpen(true);
 		}
 		const openMenu = () => {
+			trackEvent('Command Menu: Open (event)', { view: 'menu' });
 			setView('menu');
 			setOpen(true);
 		};
 		const openSearch = () => {
+			trackEvent('Command Menu: Open (event)', { view: 'search' });
 			setView('search');
 			setOpen(true);
 		};
@@ -224,6 +237,11 @@ export const CommandMenu = () => {
 	};
 
 	const navigate = (url: string) => {
+		if (view === 'search') {
+			trackEvent('Search: Result Click', { results: resultCountBucket(results.length) });
+		} else {
+			trackEvent('Command Menu: Navigate', { url });
+		}
 		close();
 		if (typeof window !== 'undefined') {
 			window.location.href = url;
@@ -234,16 +252,19 @@ export const CommandMenu = () => {
 		const newDark = !isDark;
 		document.documentElement.classList[newDark ? 'add' : 'remove']('dark');
 		localStorage.setItem('theme', newDark ? 'dark' : 'light');
+		trackEvent('Theme: Switch', { to: newDark ? 'dark' : 'light', from: 'command-menu' });
 		setIsDark(newDark);
 		close();
 	};
 
 	const goToSearch = () => {
+		trackEvent('Command Menu: View Search');
 		setQuery('');
 		setView('search');
 	};
 
 	const goToMenu = () => {
+		trackEvent('Command Menu: View Menu');
 		setQuery('');
 		setView('menu');
 	};

@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { EASE_ENTER } from '../../lib/motion';
 
 import { cn } from '../../lib/utils';
+import { trackEvent } from '../../utils/analytics';
 
 import SectionLabel from '../ui/SectionLabel';
 
@@ -65,6 +66,7 @@ export const TableOfContents = ({ headings }: Props) => {
 
 	const handleClick = useCallback((event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 		event.preventDefault();
+		trackEvent('TOC: Heading Click', { id });
 		const target = document.getElementById(id);
 		if (!target) return;
 		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -80,7 +82,12 @@ export const TableOfContents = ({ headings }: Props) => {
 			<nav aria-label="Table of contents">
 				<button
 					type="button"
-					onClick={() => setOpen((v) => !v)}
+					onClick={() => {
+						if (!window.matchMedia('(min-width: 1280px)').matches) {
+							trackEvent('TOC: Toggle', { open: !open });
+						}
+						setOpen((v) => !v);
+					}}
 					aria-expanded={open}
 					aria-controls="toc-list"
 					className="flex w-full items-center gap-2 bg-transparent p-0 text-start xl:pointer-events-none xl:cursor-default"

@@ -6,7 +6,6 @@ import { CircleHalfIcon } from '@phosphor-icons/react';
 	<button
 		aria-label="Switch color theme"
 		class="h-clickarea w-clickarea rounded-2 hover:bg-sumi/10 focus:bg-sumi/10 dark:hover:bg-washi/10 dark:focus:bg-washi/10 flex cursor-pointer items-center justify-center self-center border-0 text-[0] transition-colors duration-100"
-		data-umami-event="Switch color theme"
 	>
 		<CircleHalfIcon
 			aria-hidden="true"
@@ -29,6 +28,12 @@ import { CircleHalfIcon } from '@phosphor-icons/react';
 						button.setAttribute('aria-pressed', String(newDark));
 						if (typeof localStorage !== 'undefined') {
 							localStorage.setItem('theme', newDark ? 'dark' : 'light');
+						}
+						const umami = (window as any).umami;
+						if (typeof umami === 'function') {
+							void umami('Theme: Switch', { to: newDark ? 'dark' : 'light' });
+						} else if (umami && typeof umami.track === 'function') {
+							void umami.track('Theme: Switch', { to: newDark ? 'dark' : 'light' });
 						}
 						button.blur();
 					});

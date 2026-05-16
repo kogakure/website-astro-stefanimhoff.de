@@ -48,14 +48,18 @@ const description = 'Design Engineer from Hamburg, Germany';
 		<Reveal client:visible>
 			<HomePageSection label="About">
 				<About components={mapping} />
-				<MoreLink href="/about/" text="About" />
+				<MoreLink href="/about/" text="About" data-umami-event="Home CTA: About" />
 			</HomePageSection>
 		</Reveal>
 
 		<Reveal client:visible>
 			<HomePageSection label="Work">
 				<Work components={mapping} />
-				<MoreLink href="/work/" text="See selected work" />
+				<MoreLink
+					href="/work/"
+					text="See selected work"
+					data-umami-event="Home CTA: Work"
+				/>
 			</HomePageSection>
 		</Reveal>
 	</div>
@@ -69,8 +73,16 @@ const description = 'Design Engineer from Hamburg, Germany';
 			<HomePageSection label="Writing">
 				<Writing components={mapping} />
 				<div class="flex flex-col gap-2">
-					<MoreLink href="/writing/" text="Read the essays" />
-					<MoreLink href="/rss.xml" text="Subscribe to RSS Feed" />
+					<MoreLink
+						href="/writing/"
+						text="Read the essays"
+						data-umami-event="Home CTA: Writing"
+					/>
+					<MoreLink
+						href="/rss.xml"
+						text="Subscribe to RSS Feed"
+						data-umami-event="Subscribe: RSS"
+					/>
 				</div>
 			</HomePageSection>
 		</Reveal>

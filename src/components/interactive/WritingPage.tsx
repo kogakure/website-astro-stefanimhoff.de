@@ -2,6 +2,7 @@
 
 import type { ImageMetadata } from 'astro';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { trackEvent } from '../../utils/analytics';
 import { getPreviewUrl } from '../../utils/preview-url';
 import ClearFiltersButton from '../ui/ClearFiltersButton';
 import Divider from '../ui/Divider';
@@ -50,6 +51,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 		(tag: string) => {
 			setSelectedTags((prev) => {
 				const next = prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag];
+				trackEvent('Writing: Filter Toggle', { tag, active: next.includes(tag) });
 				updateUrl(next);
 				return next;
 			});
@@ -144,6 +146,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 					<ClearFiltersButton
 						count={selectedTags.length}
 						onClick={() => {
+							trackEvent('Writing: Clear Filters', { count: selectedTags.length });
 							setSelectedTags([]);
 							updateUrl([]);
 						}}
@@ -169,6 +172,11 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 									<EssayLink
 										href={`/writing/${post.slug}/`}
 										data-hover-preview={getPreviewUrl(post.cover)}
+										onClick={() =>
+											trackEvent('Writing: Essay Click', {
+												filtered: selectedTags.length > 0,
+											})
+										}
 									>
 										{post.subtitle
 											? `${post.title}: ${post.subtitle}`

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { EASE_ENTER } from '../../lib/motion';
 
 import { cn } from '../../lib/utils';
+import { trackEvent } from '../../utils/analytics';
 
 import SectionLabel from '../ui/SectionLabel';
 import TextLink from '../ui/TextLink';
@@ -56,7 +57,10 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 				{/* Header — always visible, click to toggle the body */}
 				<button
 					type="button"
-					onClick={() => setOpen((v) => !v)}
+					onClick={() => {
+						trackEvent('Series: Toggle', { open: !open });
+						setOpen((v) => !v);
+					}}
 					aria-expanded={open}
 					aria-controls="series-list"
 					className="flex w-full items-center gap-3 bg-transparent p-0 text-start"
@@ -209,6 +213,13 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 													<TextLink
 														href={`/writing/${step.id}/`}
 														className="text-balance"
+														onClick={() =>
+															trackEvent('Series: Step Click', {
+																from: currentIndex + 1,
+																to: i + 1,
+																total: steps.length,
+															})
+														}
 													>
 														{step.title}
 													</TextLink>
