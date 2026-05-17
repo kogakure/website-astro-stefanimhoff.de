@@ -12,13 +12,14 @@ updated_at: 2026-05-17T14:30:00Z
 
 ### Resolution: Node 22.13.1 LTS
 
-`.nvmrc`: `25.0.0` → `22.13.1`. Dockerfile and CI already at `22.13.1` — no changes needed there.
+`.nvmrc`: `25.0.0` → `22.13.1`. `mise.toml`: `latest` → `22.13.1`. Dockerfile and CI already at `22.13.1` — no changes needed there.
 
-All three environments now consistent:
+All environments now consistent:
 
 | Environment                       | Node version |
 | --------------------------------- | ------------ |
 | `.nvmrc`                          | 22.13.1 ✓    |
+| `mise.toml`                       | 22.13.1 ✓    |
 | `Dockerfile` (`ARG NODE_VERSION`) | 22.13.1 ✓    |
 | CI `.github/workflows/tests.yml`  | 22.13.1 ✓    |
 
