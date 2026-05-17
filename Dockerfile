@@ -5,7 +5,7 @@
 
 # Pin versions for reproducibility
 ARG NODE_VERSION=22.13.1
-ARG PNPM_VERSION=9
+ARG PNPM_VERSION=11
 ARG NGINX_VERSION=1.27-alpine
 
 # ========================================
