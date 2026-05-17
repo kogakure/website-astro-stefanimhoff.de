@@ -27,7 +27,7 @@ export const Banner = ({ className, open, summary, tone, children, ...props }: P
 	<aside className={cn(bannerVariants({ tone }), className)} {...props}>
 		{summary ? (
 			<details open={open} className="banner-disclosure group">
-				<summary className="ease-enter pli-6 pbl-5 flex cursor-pointer list-none items-center gap-3 transition-colors duration-200 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] [&::-webkit-details-marker]:hidden">
+				<summary className="ease-enter pli-6 pbl-5 dark:hover:bg-white/2 hover:bg-black/2 flex cursor-pointer list-none items-center gap-3 transition-colors duration-200 [&::-webkit-details-marker]:hidden">
 					<SectionLabel as="span" className="mbe-0 flex-1">
 						{summary}
 					</SectionLabel>

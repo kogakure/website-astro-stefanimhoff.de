@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const FOCUS_STYLE: React.CSSProperties = {
 	outline: '2px solid var(--color-beni)',

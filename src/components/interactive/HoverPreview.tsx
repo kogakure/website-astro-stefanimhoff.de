@@ -128,7 +128,7 @@ export const HoverPreview = () => {
 			ref={imgRef}
 			alt=""
 			aria-hidden="true"
-			className="w-100 block-start-0 pointer-events-none fixed start-0 z-50 aspect-video rounded-md opacity-0 shadow-xl transition-opacity duration-150"
+			className="w-100 block-start-0 inset-s-0 pointer-events-none fixed z-50 aspect-video rounded-md opacity-0 shadow-xl transition-opacity duration-150"
 			decoding="async"
 			loading="lazy"
 		/>

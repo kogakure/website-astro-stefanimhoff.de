@@ -47,7 +47,7 @@ export const MediaLinkRow = ({ className, links }: Props) => {
 
 	return (
 		<div className={cn('flex flex-wrap gap-2', className)}>
-			{activeLinks.map((link, i) => {
+			{activeLinks.map((link) => {
 				const Icon = iconMap[link.kind];
 				const ariaLabel = link.label ?? labelMap[link.kind];
 				return (

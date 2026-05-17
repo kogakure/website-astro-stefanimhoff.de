@@ -60,7 +60,7 @@ export const BookCard = ({
 			)}
 			tabIndex={0}
 		>
-			<div className="bg-muted aspect-[2/3] overflow-hidden">
+			<div className="bg-muted aspect-2/3 overflow-hidden">
 				{primaryLink ? (
 					<Link href={primaryLink} aria-label={title} className="block h-full w-full">
 						{coverEl}

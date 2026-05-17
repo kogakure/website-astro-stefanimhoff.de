@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react';
 import { cn } from '../../lib/utils';
 
 interface Props {
 	active?: boolean;
-	children: React.ReactNode;
+	children: ReactNode;
 	className?: string;
 	href?: string;
 	onClick?: () => void;

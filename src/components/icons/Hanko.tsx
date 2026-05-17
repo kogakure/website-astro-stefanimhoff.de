@@ -4,7 +4,12 @@ const Hanko = (props: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 29 29"
-		style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}
+		style={{
+			fillRule: 'evenodd',
+			clipRule: 'evenodd',
+			strokeLinejoin: 'round',
+			strokeMiterlimit: 2,
+		}}
 		{...props}
 	>
 		<path d="M0 0h28.8v28.8H0z" style={{ fill: 'none' }} />

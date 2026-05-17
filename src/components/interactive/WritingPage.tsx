@@ -37,12 +37,16 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 			url.searchParams.set('tag', tags.join(','));
 			try {
 				localStorage.setItem(STORAGE_KEY, JSON.stringify(tags));
-			} catch {}
+			} catch {
+				/* ignore */
+			}
 		} else {
 			url.searchParams.delete('tag');
 			try {
 				localStorage.removeItem(STORAGE_KEY);
-			} catch {}
+			} catch {
+				/* ignore */
+			}
 		}
 		window.history.replaceState({}, '', url.toString());
 	}, []);
@@ -76,7 +80,9 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 					updateUrl(parsed);
 				}
 			}
-		} catch {}
+		} catch {
+			/* ignore */
+		}
 	}, [updateUrl]);
 
 	const filteredPosts = useMemo(

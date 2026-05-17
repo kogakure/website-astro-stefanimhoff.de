@@ -4,6 +4,7 @@ import {
 	TelevisionSimpleIcon,
 	VideoIcon,
 } from '@phosphor-icons/react';
+import React from 'react';
 import { cn } from '../../lib/utils';
 import { Badge } from '../ui/Badge';
 import { Link } from '../ui/Link';

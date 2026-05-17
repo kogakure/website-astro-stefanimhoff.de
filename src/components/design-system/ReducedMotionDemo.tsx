@@ -34,7 +34,7 @@ export const ReducedMotionDemo = () => {
 						setReduced(val);
 						setKey((k) => k + 1);
 					}}
-					className="data-[state=checked]:bg-(--color-beni) dark:data-[state=checked]:bg-(--color-beni-light) data-[state=unchecked]:bg-(--color-sumi)"
+					className="data-[state=checked]:bg-(--color-beni) dark:data-[state=checked]:bg-beni-light data-[state=unchecked]:bg-(--color-sumi)"
 				/>
 				<span className="text-sumi dark:text-washi font-mono text-xs">
 					{reduced

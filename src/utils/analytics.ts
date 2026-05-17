@@ -1,5 +1,4 @@
 type UmamiEventData = Record<string, string | number | boolean>;
-// eslint-disable-next-line no-unused-vars
 type UmamiFn = (_name: string, _data?: UmamiEventData) => void | Promise<void>;
 type UmamiTracker = UmamiFn | { track?: UmamiFn };
 

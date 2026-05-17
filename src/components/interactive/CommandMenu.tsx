@@ -292,7 +292,7 @@ export const CommandMenu = () => {
 							role="dialog"
 							aria-modal="true"
 							aria-label="Command menu"
-							className="max-w-160 inline-start-0 inline-end-0 block-start-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
+							className="max-w-160 inline-start-0 inline-end-0 inset-bs-[10vh] fixed z-50 mx-auto w-[calc(100%-2rem)]"
 							initial={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={reduced ? { opacity: 0 } : { opacity: 0, y: -8 }}
@@ -466,19 +466,19 @@ export const CommandMenu = () => {
 								{/* Footer hint */}
 								<div className="border-bs-1 border-bs-solid border-bs-black/10 text-2 text-hai dark:border-bs-white/10 pli-4 pbl-2 flex items-center justify-end gap-4">
 									<span>
-										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 text-shadow-none font-mono text-[0.7em] shadow-none">
 											↑↓
 										</kbd>{' '}
 										navigate
 									</span>
 									<span>
-										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 text-shadow-none font-mono text-[0.7em] shadow-none">
 											↵
 										</kbd>{' '}
 										select
 									</span>
 									<span>
-										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 font-mono text-[0.7em] shadow-none [text-shadow:none]">
+										<kbd className="rounded-1 bg-kiri dark:bg-sumi dark:text-washi pli-1 text-shadow-none font-mono text-[0.7em] shadow-none">
 											esc
 										</kbd>{' '}
 										close

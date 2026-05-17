@@ -1,4 +1,5 @@
 /** @vitest-environment happy-dom */
+import React from 'react';
 
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -51,7 +52,7 @@ vi.mock('recharts', async () => {
 			let extra: React.ReactNode = null;
 			if (name === 'Tooltip') {
 				if (typeof props.formatter === 'function') {
-					(props.formatter as (value: number) => unknown)(1234);
+					(props.formatter as (_value: number) => unknown)(1234);
 				}
 				if (React.isValidElement(props.content)) {
 					extra = React.cloneElement(
@@ -62,7 +63,7 @@ vi.mock('recharts', async () => {
 			}
 			if (name === 'Legend' && typeof props.content === 'function') {
 				extra = (
-					props.content as (props: { payload: typeof samplePayload }) => React.ReactNode
+					props.content as (_props: { payload: typeof samplePayload }) => React.ReactNode
 				)({
 					payload: samplePayload,
 				});
@@ -95,8 +96,12 @@ vi.mock('recharts', async () => {
 vi.mock('cmdk', async () => {
 	const React = await import('react');
 	type Props = Record<string, unknown> & { children?: React.ReactNode };
-	const Command: any = ({ children, loop, shouldFilter, ...props }: Props) =>
-		React.createElement('div', { ...props, role: 'listbox' }, children);
+	const Command: any = ({
+		children,
+		loop: _loop,
+		shouldFilter: _shouldFilter,
+		...props
+	}: Props) => React.createElement('div', { ...props, role: 'listbox' }, children);
 	Command.Input = React.forwardRef<HTMLInputElement, Props>(
 		({ onValueChange, value, ...props }, ref) =>
 			React.createElement('input', {
@@ -104,7 +109,7 @@ vi.mock('cmdk', async () => {
 				ref,
 				value: (value as string) ?? '',
 				onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-					(onValueChange as ((value: string) => void) | undefined)?.(event.target.value),
+					(onValueChange as ((_value: string) => void) | undefined)?.(event.target.value),
 			})
 	);
 	Command.List = ({ children, ...props }: Props) => React.createElement('div', props, children);
@@ -114,7 +119,7 @@ vi.mock('cmdk', async () => {
 			{
 				...props,
 				type: 'button',
-				onClick: () => (onSelect as ((value?: unknown) => void) | undefined)?.(value),
+				onClick: () => (onSelect as ((_value?: unknown) => void) | undefined)?.(value),
 			},
 			children
 		);

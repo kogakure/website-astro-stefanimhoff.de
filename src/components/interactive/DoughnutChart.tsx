@@ -42,7 +42,7 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Toolti
 	return (
 		<div className="pli-3 pbl-2 border-usuzumi bg-washi dark:border-nezumi dark:bg-yoru flex items-center gap-2 rounded-md border text-sm shadow-sm">
 			<span
-				className="inline-block size-3 flex-shrink-0 rounded-sm border border-black/25 dark:border-white/25"
+				className="inline-block size-3 shrink-0 rounded-sm border border-black/25 dark:border-white/25"
 				style={{ backgroundColor: item.payload.fill }}
 			/>
 			<span className="text-sumi dark:text-washi">
@@ -59,7 +59,7 @@ const renderLegend = ({ payload }: { payload?: readonly LegendPayloadEntry[] }) 
 			{payload.map((entry, index) => (
 				<li key={entry.value ?? index} className="flex items-center gap-1.5">
 					<span
-						className="inline-block size-3 flex-shrink-0 rounded-sm border border-black/25 dark:border-white/25"
+						className="inline-block size-3 shrink-0 rounded-sm border border-black/25 dark:border-white/25"
 						style={{ backgroundColor: entry.color }}
 					/>
 					<span className="text-sm">{entry.value}</span>

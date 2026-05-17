@@ -480,7 +480,7 @@
 	}
 
 	kbd {
-		@apply rounded-2 border-1 shadow-beveled inline-block whitespace-nowrap border-solid border-[#ccc] bg-[#f7f7f7] font-bold leading-5 text-[#333] dark:bg-[#f7f7f7]/[0.9];
+		@apply rounded-2 border-1 shadow-beveled inline-block whitespace-nowrap border-solid border-[#ccc] bg-[#f7f7f7] font-bold leading-5 text-[#333] dark:bg-[#f7f7f7]/90;
 		font-size: var(--text-code);
 		line-height: 1.625;
 		padding-inline: 0.4em;

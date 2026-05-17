@@ -142,7 +142,7 @@ export const LightboxRoot = () => {
 							key="lb-close"
 							ref={closeBtnRef}
 							onClick={close}
-							className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi inline-end-4 block-start-4 fixed z-[52] p-2"
+							className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi inline-end-4 block-start-4 z-52 fixed p-2"
 							aria-label="Close lightbox"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -157,7 +157,7 @@ export const LightboxRoot = () => {
 							role="dialog"
 							aria-modal="true"
 							aria-label="Image lightbox"
-							className="pointer-events-none fixed inset-0 z-[51]"
+							className="z-51 pointer-events-none fixed inset-0"
 						>
 							<m.img
 								key="lb-image"
