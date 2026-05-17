@@ -89,7 +89,7 @@ export async function GET(context) {
 				return {
 					title: `Haiku ${item.slug}`,
 					pubDate: item.data.date,
-					link: `/haiku/${item.slug}/`,
+					link: `/haiku/#haiku-${item.slug}`,
 					content: `<blockquote><p>${escapeHtml(item.data.de)}</p><hr /><p>${escapeHtml(item.data.en)}</p></blockquote>`,
 					enclosure: {
 						url: `${site.url}/assets/images/og/ma.jpg`,

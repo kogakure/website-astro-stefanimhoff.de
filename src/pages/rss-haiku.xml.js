@@ -17,7 +17,7 @@ export async function GET(context) {
 			title: `Haiku ${item.slug}`,
 			pubDate: item.data.date,
 			customData: '<language>en-us</language>',
-			link: `/haiku/${item.slug}/`,
+			link: `/haiku/#haiku-${item.slug}`,
 			content: `<blockquote><p>${escapeHtml(item.data.de)}</p><hr /><p>${escapeHtml(item.data.en)}</p></blockquote>`,
 		})),
 		customData: `<language>en-us</language>`,

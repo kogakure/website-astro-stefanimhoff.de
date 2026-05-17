@@ -115,6 +115,21 @@ const schema = JSON.stringify({
 		id: `${site.url}/writing/${getWritingSlug(entryId)}/`,
 	},
 });
+
+const breadcrumb = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+		{ '@type': 'ListItem', position: 2, name: 'Writing', item: `${site.url}/writing` },
+		{
+			'@type': 'ListItem',
+			position: 3,
+			name: entry.data.title,
+			item: `${site.url}/writing/${getWritingSlug(entryId)}/`,
+		},
+	],
+});
 ---
 
 <BaseLayout
@@ -245,6 +260,7 @@ const schema = JSON.stringify({
 	import 'lite-youtube-embed';
 </script>
 <script is:inline type="application/ld+json" set:html={schema} />
+<script is:inline type="application/ld+json" set:html={breadcrumb} />
 
 <style is:global>
 	@reference "../../styles/global.css";

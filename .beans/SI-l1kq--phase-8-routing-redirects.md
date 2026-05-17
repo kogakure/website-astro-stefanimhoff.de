@@ -1,11 +1,11 @@
 ---
 # SI-l1kq
 title: "Phase 8: Routing & Redirects"
-status: todo
+status: completed
 type: epic
 priority: normal
 created_at: 2026-04-09T12:14:47Z
-updated_at: 2026-04-16T13:02:23Z
+updated_at: 2026-05-16T19:08:00Z
 ---
 
 ## Phase 8 — Routing & Redirects
@@ -38,3 +38,15 @@ updated_at: 2026-04-16T13:02:23Z
 5. Update schema JSON-LD breadcrumbs
 
 **Critical files:** `nginx.conf`, `astro.config.mjs`, RSS feed generators
+
+## Summary of Changes
+
+- **nginx.conf**: Added slug-preserving `/journal/(.*)` → `/writing/$1` rewrite; new redirect blocks for `/projects/*` → `/work`, `/tag/*` → `/writing?tag=*`, `/haiku/<slug>` → `/haiku`
+- **src/data/**: Renamed `journal/` → `writing/`; updated import paths in 2 MDX files
+- **MDX content**: Fixed 7 files with stale `/journal/`, `/projects/*`, `/haiku/<slug>` links; removed 3 dead project-specific links from new-website-2020-inspiration.mdx
+- **HaikuItem.tsx**: Added `scroll-mt-20` for anchor scroll offset; `id` passes through `...props` (HTMLAttributes)
+- **haiku.astro**: Pass `id={`haiku-${slug}`}` to each HaikuItem for anchor targeting
+- **rss.xml.js + rss-haiku.xml.js**: Updated haiku item links from `/haiku/<slug>/` to `/haiku/#haiku-<slug>`
+- **writing/[slug].astro**: Added `BreadcrumbList` JSON-LD (Home → Writing → Post) alongside existing Article schema
+- **CommandMenu.tsx**: Updated mock haiku URL from `/haiku/morning-mist/` to `/haiku/`
+- Build: 122 pages, clean
