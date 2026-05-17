@@ -1,0 +1,29 @@
+name: Unlighthouse
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  unlighthouse:
+    name: Full-site Lighthouse audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Unlighthouse CLI and Puppeteer
+        run: npm install -g @unlighthouse/cli puppeteer
+
+      - name: Run Unlighthouse CI
+        run: unlighthouse-ci --build-static
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unlighthouse-report
+          path: .unlighthouse/
+          retention-days: 30
