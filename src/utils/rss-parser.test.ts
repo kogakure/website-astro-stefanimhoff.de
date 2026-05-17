@@ -13,12 +13,14 @@ import {
 	replaceImageComponent,
 	replaceMoreLinkComponent,
 	replaceNetflixComponent,
+	replacePlatformComponent,
 	replacePrimeVideoComponent,
 	replaceProductLinkComponent,
 	replacePullquoteComponent,
 	replaceRubyComponent,
 	replaceSpotifyComponent,
 	replaceWrapperComponent,
+	replaceYouTubeComponent,
 	stripMarkdown,
 	stripMDXComponents,
 } from './rss-parser';
@@ -229,18 +231,59 @@ describe('rss-parser', () => {
 	});
 
 	describe('replaceAppleTvComponent', () => {
-		it('should create Apple TV link', () => {
+		it('should create Apple TV link with label', () => {
 			const attrs = 'id="test123"';
 			const result = replaceAppleTvComponent(attrs);
 
 			expect(result).toContain('https://tv.apple.com/show/umc.cmc.test123');
 			expect(result).toContain('title="Apple TV+"');
+			expect(result).toContain('[Apple TV+]');
 		});
 
 		it('should return empty string if no id', () => {
 			const result = replaceAppleTvComponent('');
 
 			expect(result).toBe('');
+		});
+	});
+
+	describe('replaceYouTubeComponent', () => {
+		it('should create YouTube link', () => {
+			const attrs = 'id="dQw4w9WgXcQ"';
+			const result = replaceYouTubeComponent(attrs);
+
+			expect(result).toContain('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+			expect(result).toContain('[Watch on YouTube]');
+		});
+
+		it('should return empty string if no id', () => {
+			expect(replaceYouTubeComponent('')).toBe('');
+		});
+	});
+
+	describe('replacePlatformComponent', () => {
+		it('should return iPhone / iPad label', () => {
+			expect(replacePlatformComponent('kind="iphone"')).toBe('[iPhone / iPad]');
+		});
+
+		it('should return Desktop label', () => {
+			expect(replacePlatformComponent('kind="desktop"')).toBe('[Desktop]');
+		});
+
+		it('should return Apple TV label', () => {
+			expect(replacePlatformComponent('kind="appletv"')).toBe('[Apple TV]');
+		});
+
+		it('should return Web label', () => {
+			expect(replacePlatformComponent('kind="web"')).toBe('[Web]');
+		});
+
+		it('should fall back to kind value for unknown kinds', () => {
+			expect(replacePlatformComponent('kind="unknown"')).toBe('[unknown]');
+		});
+
+		it('should return empty string if no kind', () => {
+			expect(replacePlatformComponent('')).toBe('');
 		});
 	});
 
@@ -767,6 +810,46 @@ describe('rss-parser', () => {
 			const result = stripMDXComponents(text, SITE_URL);
 
 			expect(result).toContain('<div>Books</div>');
+		});
+
+		it('should replace YouTube component with link', () => {
+			const text = '<YouTube id="dQw4w9WgXcQ" />';
+			const result = stripMDXComponents(text, SITE_URL);
+
+			expect(result).toContain('youtube.com/watch?v=dQw4w9WgXcQ');
+			expect(result).toContain('[Watch on YouTube]');
+		});
+
+		it('should replace Platform component with label', () => {
+			const text = 'App <Platform kind="iphone" /> and <Platform kind="desktop" />';
+			const result = stripMDXComponents(text, SITE_URL);
+
+			expect(result).toContain('[iPhone / iPad]');
+			expect(result).toContain('[Desktop]');
+		});
+
+		it('should strip BarChart component', () => {
+			const text = 'Before <BarChart data="test" /> After';
+			const result = stripMDXComponents(text, SITE_URL);
+
+			expect(result).toBe('Before  After');
+			expect(result).not.toContain('BarChart');
+		});
+
+		it('should strip DoughnutChart component', () => {
+			const text = 'Before <DoughnutChart data="test" /> After';
+			const result = stripMDXComponents(text, SITE_URL);
+
+			expect(result).toBe('Before  After');
+			expect(result).not.toContain('DoughnutChart');
+		});
+
+		it('should strip RedButton component', () => {
+			const text = 'Before <RedButton label="Click" /> After';
+			const result = stripMDXComponents(text, SITE_URL);
+
+			expect(result).toBe('Before  After');
+			expect(result).not.toContain('RedButton');
 		});
 
 		it('should remove unknown self-closing components', () => {

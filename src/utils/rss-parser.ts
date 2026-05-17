@@ -9,7 +9,9 @@
  * - fixImagePaths(html, siteUrl): Replace <img src="..."> with absolute src.
  * - replaceImageComponent(attributes, siteUrl): Convert an MDX `<Image ... />` component into HTML.
  * - replaceAmazonBookComponent(attributes): Convert an MDX `<AmazonBook ... />` component into HTML.
- * - stripMDXComponents(text, siteUrl): Replace `<Image />`, `<AmazonBook />` and strip other MDX component tags.
+ * - replaceYouTubeComponent(attributes): Convert an MDX `<YouTube id="..." />` to a link.
+ * - replacePlatformComponent(attributes): Convert an MDX `<Platform kind="..." />` to a label.
+ * - stripMDXComponents(text, siteUrl): Replace/strip all MDX component tags for RSS output.
  *
  * These are implemented in TypeScript with minimal dependencies so they can be
  * used from RSS builder code or other places.
@@ -140,12 +142,33 @@ export function replaceAppleTvComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://tv.apple.com/show/umc.cmc.${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
-	return `<a href="${url}" title="Apple TV+">[]</a>`;
+	return `<a href="${url}" title="Apple TV+">[Apple TV+]</a>`;
+}
+
+// Convert an MDX <YouTube id="..." />
+export function replaceYouTubeComponent(attributes: string): string {
+	const id = getAttr(attributes, 'id');
+
+	if (!id) return '';
+
+	const url = `https://www.youtube.com/watch?v=${id}`;
+	return `<a href="${url}">[Watch on YouTube]</a>`;
+}
+
+// Convert an MDX <Platform kind="..." />
+const platformLabels: Record<string, string> = {
+	iphone: 'iPhone / iPad',
+	desktop: 'Desktop',
+	appletv: 'Apple TV',
+	web: 'Web',
+};
+
+export function replacePlatformComponent(attributes: string): string {
+	const kind = getAttr(attributes, 'kind');
+	const label = kind ? (platformLabels[kind] ?? kind) : '';
+	return label ? `[${label}]` : '';
 }
 
 // Convert an MDX <NetflixFlag ... />
@@ -154,11 +177,8 @@ export function replaceNetflixComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://www.netflix.com/title/${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
 	return `<a href="${url}" title="Netflix">[Netflix]</a>`;
 }
 
@@ -168,11 +188,8 @@ export function replacePrimeVideoComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://www.amazon.de/gp/video/detail/${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
 	return `<a href="${url}" title="Prime Video">[Prime Video]</a>`;
 }
 
@@ -408,6 +425,16 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		(_match, _tagSuffix, attributes: string) => replaceAppleTvComponent(attributes)
 	);
 
+	// <YouTube ... />
+	processed = processed.replace(/<YouTube([\s\S]*?)\/>/g, (_match, attributes: string) =>
+		replaceYouTubeComponent(attributes)
+	);
+
+	// <Platform ... />
+	processed = processed.replace(/<Platform([\s\S]*?)\/>/g, (_match, attributes: string) =>
+		replacePlatformComponent(attributes)
+	);
+
 	// <Netflix ... />
 	processed = processed.replace(/<Netflix([\s\S]*?)\/>/g, (_match, attributes: string) =>
 		replaceNetflixComponent(attributes)
@@ -489,6 +516,11 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		/<RSSText\b[^>]*>([\s\S]*?)<\/RSSText>/g,
 		(_match, content: string) => content
 	);
+
+	// Visual-only components — strip explicitly so intent is documented
+	processed = processed.replace(/<BarChart([\s\S]*?)\/>/g, '');
+	processed = processed.replace(/<DoughnutChart([\s\S]*?)\/>/g, '');
+	processed = processed.replace(/<RedButton([\s\S]*?)\/>/g, '');
 
 	// Remove any other self-closing components e.g. <Foo bar="baz" />
 	const removedSelfClosing = processed.replace(/<([A-Z][\w\d]*)\b[^>]*?\/>/g, '');
