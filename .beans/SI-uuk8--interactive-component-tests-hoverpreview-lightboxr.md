@@ -1,11 +1,11 @@
 ---
 # SI-uuk8
 title: "Interactive component tests: HoverPreview, LightboxRoot, charts, Marquee, Roadmap, SeriesStepper, TableOfContents"
-status: done
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-17T12:19:42Z
-updated_at: 2026-05-17T12:19:42Z
+updated_at: 2026-05-17T12:36:46Z
 ---
 
 **Goal:** Add vitest unit + a11y tests for the interactive components that were deferred in SI-vl2o (Phase 9).

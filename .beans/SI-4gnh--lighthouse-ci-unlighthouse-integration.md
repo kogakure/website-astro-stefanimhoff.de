@@ -1,11 +1,11 @@
 ---
 # SI-4gnh
 title: Lighthouse CI / unlighthouse integration
-status: done
+status: completed
 type: feature
 priority: low
 created_at: 2026-05-17T12:20:04Z
-updated_at: 2026-05-17T14:00:00Z
+updated_at: 2026-05-17T12:36:59Z
 ---
 
 **Goal:** Automate Lighthouse auditing so regressions are caught in CI before merge.

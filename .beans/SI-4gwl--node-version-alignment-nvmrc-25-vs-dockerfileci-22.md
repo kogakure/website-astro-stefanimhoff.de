@@ -1,11 +1,11 @@
 ---
 # SI-4gwl
 title: "Node version alignment: .nvmrc 25 vs Dockerfile/CI 22.13.1"
-status: done
+status: completed
 type: task
 priority: normal
 created_at: 2026-05-17T12:20:20Z
-updated_at: 2026-05-17T14:30:00Z
+updated_at: 2026-05-17T12:36:50Z
 ---
 
 **Goal:** All environments use the same Node version.

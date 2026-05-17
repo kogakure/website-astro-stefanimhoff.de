@@ -1,11 +1,11 @@
 ---
 # SI-e1sq
 title: Playwright E2E framework
-status: todo
+status: done
 type: feature
 priority: normal
 created_at: 2026-05-17T12:19:54Z
-updated_at: 2026-05-17T12:19:54Z
+updated_at: 2026-05-17T14:30:00Z
 ---
 
 **Goal:** Add Playwright for end-to-end tests covering critical user flows.
@@ -38,3 +38,17 @@ Priority flows:
 - Run against production build only (not dev server) to catch Astro SSG edge cases.
 - Use `webServer` config to auto-start `pnpm preview`.
 - No Playwright in pre-commit hook — too slow; CI only.
+
+## Summary of Changes
+
+- `playwright.config.ts` — Chromium only, `pnpm exec astro preview` webServer, `tests/e2e/` dir
+- `tests/e2e/homepage.spec.ts` — title, About section (no island dependency), nav links, skip-link focus
+- `tests/e2e/writing.spec.ts` — page loads, tag filter (with `networkidle` for client:visible hydration), clear filter
+- `tests/e2e/post.spec.ts` — heading/content, series stepper nav, TOC at 1024px viewport (avoids xl pointer-events-none), prev/next nav
+- `tests/e2e/command-menu.spec.ts` — opens/closes Escape, navigates Writing (role=option), search mode input; polls `window.openCommandMenu` for client:idle hydration
+- `tests/e2e/theme.spec.ts` — toggle persists, dark/light class applied
+- `tests/e2e/rss.spec.ts` — /rss.xml valid XML, no empty `[]` anchor text, /rss-haiku.xml valid
+- `.github/workflows/tests.yml` — added `e2e` job after build; uploads Playwright report artifact on failure
+- `package.json` — added `test:e2e` and `test:e2e:ui` scripts, `@playwright/test` devDependency
+
+All 19 E2E tests green.
