@@ -37,6 +37,7 @@ export const SplitText = ({
 	return (
 		<LazyMotion features={domAnimation}>
 			<m.span
+				role="img"
 				className={className}
 				variants={containerVariants}
 				initial="hidden"

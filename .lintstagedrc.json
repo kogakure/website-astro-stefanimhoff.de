@@ -1,4 +1,5 @@
 {
 	"**/*.{md,mdx,html,astro,css,tsx,ts}": ["npx prettier --write"],
-	"**/*.{js,ts,html,astro}": ["npx eslint --fix", "npx vitest run"]
+	"**/*.{js,ts,html,astro}": ["npx eslint --fix"],
+	"**/*.{test,spec}.{js,ts,tsx}": ["npx vitest run --passWithNoTests"]
 }

@@ -45,12 +45,10 @@ const description = 'Design Engineer from Hamburg, Germany';
 	</div>
 
 	<div class="max-w-360 mbe-16 pli-8 mx-auto flex w-full flex-col gap-16">
-		<Reveal client:visible>
-			<HomePageSection label="About">
-				<About components={mapping} />
-				<MoreLink href="/about/" text="About" data-umami-event="Home CTA: About" />
-			</HomePageSection>
-		</Reveal>
+		<HomePageSection label="About">
+			<About components={mapping} />
+			<MoreLink href="/about/" text="About" data-umami-event="Home CTA: About" />
+		</HomePageSection>
 
 		<Reveal client:visible>
 			<HomePageSection label="Work">
