@@ -32,7 +32,7 @@ RUN npm install -g pnpm@${PNPM_VERSION}
 FROM base AS deps
 
 # Copy package files and lockfile
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies with cache mount for faster rebuilds
 # --frozen-lockfile ensures reproducible builds
