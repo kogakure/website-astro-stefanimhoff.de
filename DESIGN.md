@@ -298,7 +298,7 @@ The voice is calm, direct, and considered. It does not perform enthusiasm. It do
 - **Styling:** Tailwind CSS v4 with `@theme` directive; dark mode wired via `@variant dark (&:where(.dark, .dark *))`. Logical-property and OpenType utilities live in `@utility` blocks in `global.css` — `tailwindcss-logical` and `tailwindcss-opentype` are not installed.
 - **Component library:** shadcn/ui used selectively (`switch`, `tooltip`). Most Ma components are bespoke, tokenised primitives.
 - **Dark mode:** Class-based (`.dark` class on root element)
-- **CSS architecture:** `global.css` defines all tokens in `@theme`; a `--color-*` alias block at lines 146–163 re-exposes shadcn semantic vars for Tailwind v4 utility generation; components use Tailwind utilities referencing these tokens
+- **CSS architecture:** `global.css` defines all tokens in `@theme`; a `--color-*` alias block at lines 162–180 re-exposes shadcn semantic vars for Tailwind v4 utility generation; components use Tailwind utilities referencing these tokens
 - **All sizes are fluid:** Font sizes and spacing use `clamp()` with `vw` units, capped at their spec maximum
 
 ## Colors
@@ -549,7 +549,7 @@ Do not mix sharp and rounded corners in the same view. The Hanko seal mark is th
 
 ## Motion
 
-Motion is functional, not decorative. Easing curves and durations are tokenised in `global.css` (lines 194–201) and surfaced as Tailwind utilities (`ease-enter`, `ease-exit`, `ease-standard`, `duration-fast`, etc.).
+Motion is functional, not decorative. Easing curves and durations are tokenised in `global.css` (lines 211–218) and surfaced as Tailwind utilities (`ease-enter`, `ease-exit`, `ease-standard`, `duration-fast`, etc.).
 
 ### Easing
 
@@ -575,10 +575,10 @@ Motion is functional, not decorative. Easing curves and durations are tokenised 
 
 Components live in `src/components/` with six subdirectories:
 
-- `src/components/ui/` — presentational primitives: Text, Title, Headline, Subheadline, Subsubheadline, Divider, Link, TextLink, MoreLink, EssayLink, UnorderedList, OrderedList, ListItem, Tag, Badge, SectionLabel, PageSection, HomepagePageSection, Table family (Table, TableHead, TableBody, TableRow, TableHeaderCell, TableCell), HaikuItem, JapanesePoem, Flag, Marked, Strong, Em, Inserted, Strikethrough, Subscript, Superscript, LineBreak, QuoteAttribution, FootnoteSection, CodeBlock, TaskCheckbox, ClearFiltersButton, plus shadcn-style `switch` and `tooltip`.
+- `src/components/ui/` — presentational primitives: Text, Title, DisplayEm, Headline, Subheadline, Subsubheadline, Divider, Link, TextLink, MoreLink, EssayLink, UnorderedList, OrderedList, ListItem, Tag, Badge, SectionLabel, PageSection, HomepagePageSection, Table family (Table, TableHead, TableBody, TableRow, TableHeaderCell, TableCell), HaikuItem, JapanesePoem, Flag, Marked, Strong, Em, Inserted, Strikethrough, Subscript, Superscript, LineBreak, QuoteAttribution, FootnoteSection, CodeBlock, TaskCheckbox, ClearFiltersButton, plus shadcn-style `switch` and `tooltip`.
 - `src/components/content/` — MDX content blocks: Image, MarkdownImage, Figure, Blockquote, Pullquote, Banner, InlineCode, Verse, Ruby, AmazonBook, Book, BookCard, Bookshelf, AudioCard, VideoCard, YouTube, Spotify, ColorStack, ColorSwatch family, Platform, AppleTVFlag, NetflixFlag, PrimeVideoFlag, DownloadLink, EmailLink, ProductLink, MediaLinkRow, RSSText.
 - `src/components/interactive/` — client-side hydrated islands: WritingPage, CommandMenu, BarChart, DoughnutChart, HoverPreview, LightboxRoot, Marquee, Roadmap, RoadmapMilestone, SeriesStepper, TableOfContents.
-- `src/components/site/` — Astro-only infrastructure (requires `Astro.url`, `getCollection`, `astro:transitions`, `is:inline`/`is:global`): PageHeader, PageFooter, PageTitle, MainNavigation, DesignSystemNav, ThemeProvider, ThemeToggle, Scripts, Logo, PostNavigation, plus `site/work/` family.
+- `src/components/site/` — Astro-only infrastructure (requires `Astro.url`, `getCollection`, `astro:transitions`, `is:inline`/`is:global`): PageHeader, PageFooter, PageTitle, MainNavigation, DesignSystemNav, ThemeProvider, ThemeToggle, Scripts, Logo, Breadcrumb, CoverImage, HeroTitle, LatestEssaysList, PrevNextNavigation, plus `site/work/` family.
 - `src/components/design-system/` — specimen components rendered on `/design-system/*` documentation pages only. Not for use in pages or content.
 - `src/components/icons/` — SVG icon components: ArrowCta, Hanko.
 

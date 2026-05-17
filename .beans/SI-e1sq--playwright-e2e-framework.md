@@ -1,11 +1,11 @@
 ---
 # SI-e1sq
 title: Playwright E2E framework
-status: done
+status: completed
 type: feature
 priority: normal
 created_at: 2026-05-17T12:19:54Z
-updated_at: 2026-05-17T14:30:00Z
+updated_at: 2026-05-17T13:14:02Z
 ---
 
 **Goal:** Add Playwright for end-to-end tests covering critical user flows.

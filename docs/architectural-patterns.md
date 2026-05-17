@@ -4,20 +4,20 @@ This document describes the architectural patterns, design decisions, and conven
 
 ## Content Collection Pattern
 
-**Location**: `src/content/`, `src/schema/`, `src/content/config.ts`
+**Location**: `src/content/`, `src/content.config.ts`
 
 The site uses Astro's content collections for type-safe content management:
 
-1. **Schema Definition** (`src/schema/*.ts`):
+1. **Schema Definition** (`src/content.config.ts`):
 
-   - Each collection has a Zod schema defining frontmatter structure
-   - Example: `src/schema/writing.ts:4-40` - defines required/optional fields, enums for tags
+   - Schemas are inlined using `defineCollection` — no separate `src/schema/` directory
+   - Each `defineCollection` call defines frontmatter structure with Zod
    - Schemas provide compile-time type safety and runtime validation
 
-2. **Collection Registration** (`src/content/config.ts:1-7`):
+2. **Collection Registration** (`src/content.config.ts`):
 
-   - Imports schemas and exports collection configuration
-   - Collections: `writing`, `haiku`, `projects`
+   - Single file exports all collection configurations
+   - Collections: `writing`, `haiku`, `work`, `books`, `audiobooks`, `podcasts`, `videos`, `articles`, `organizations`, `text`, `designSystem`
 
 3. **Content Organization**:
    - Writing: Year-based folders (`src/content/writing/YYYY/`)
@@ -59,7 +59,7 @@ Custom remark plugins extend MDX processing to inject computed data into frontma
 
 HTML elements are mapped to custom Astro components for consistent styling and behavior:
 
-1. **Mapping Object** (`src/mdx-components.ts:39-80`):
+1. **Mapping Object** (`src/mdx-components.ts`):
 
    - Maps HTML elements (a, blockquote, h1-h6, img, etc.) to custom components
    - Makes custom components available in MDX without imports
@@ -143,13 +143,12 @@ Separate build scripts generate optimized assets from source files:
 1. **Script Types**:
 
    - `scripts/og-generate.cjs` - Generates Open Graph preview images for posts
-   - `thumbnail-generate.cjs` - Creates thumbnail images
-   - `icons-generate.cjs` - Converts SVG icons to React components
+   - `scripts/preview-generate.cjs` - Creates thumbnail preview images
    - `scripts/convert-images.cjs` - Batch image format conversion (WebP)
 
 2. **Execution**:
 
-   - Run manually via npm scripts: `pnpm og:generate`, `pnpm icons:generate`
+   - Run manually via npm scripts: `pnpm og:generate`
    - `pnpm images` - Runs multiple generators in sequence
    - Not part of main build pipeline (run when content/assets change)
 
@@ -209,7 +208,7 @@ Strong typing enforced via TypeScript strict mode and Zod schemas:
    - Example: `formatPosts()` takes `CollectionEntry<'writing'>[]`
 
 4. **Schema Validation**:
-   - Zod schemas in `src/schema/*.ts`
+   - Zod schemas inlined in `src/content.config.ts`
    - Runtime validation + TypeScript types
    - Enums for constrained values (tags, etc.)
 
@@ -217,26 +216,25 @@ Strong typing enforced via TypeScript strict mode and Zod schemas:
 
 ## Styling Conventions
 
-**Location**: `tailwind.config.cjs`, component files
+**Location**: `src/styles/global.css`, component files
 
-Tailwind CSS with extensive customization and logical properties:
+Tailwind CSS v4 with CSS-native configuration:
 
-1. **Custom Scale** (`tailwind.config.cjs`):
+1. **Custom Scale** (`src/styles/global.css` `@theme` block):
 
-   - Spacing: Fluid sizing with clamp() (lines 95-123)
-   - Typography: Responsive font sizes (lines 128-139)
-   - Color system: Custom "shibui" palette (lines 16-36)
+   - Spacing: Fluid sizing with clamp()
+   - Typography: Fluid font sizes using clamp() and vw units
+   - Color system: Ma Design System palette (Beni, Sumi, Washi, etc.)
 
-2. **Plugins**:
+2. **Custom Utilities**:
 
-   - `tailwindcss-logical` - Logical properties (inline-start vs left)
-   - `tailwindcss-opentype` - OpenType font features
-   - See `tailwind.config.cjs:159-162`
+   - Logical properties (`mbe-*`, `mbs-*`, `pis-*`, etc.) defined in `@utility` blocks
+   - OpenType feature utilities defined in `@utility` blocks
+   - No external plugins — all utilities are inline in `global.css`
 
 3. **Dark Mode**:
 
-   - Class-based strategy: `dark:` prefix
-   - See `tailwind.config.cjs:4`
+   - `@variant dark (&:where(.dark, .dark *))` in `src/styles/global.css`
    - ThemeProvider component manages theme switching
 
 4. **Component Styling**:
@@ -262,17 +260,16 @@ Astro's file-based routing with static path generation:
    - `about.mdx` → `/about/`
    - `writing.astro` → `/writing/`
 
-2. **Dynamic Routes** (`src/pages/[...slug].astro`):
+2. **Dynamic Routes** (`src/pages/writing/[slug].astro`):
 
-   - `getStaticPaths()` at line 23-38
-   - Fetches all writing entries
+   - `getStaticPaths()` fetches all writing entries
    - Returns array of { params, props }
    - Each entry becomes a static page at build time
 
 3. **Nested Routes**:
 
    - Directories create path segments
-   - `pages/tag/[tag].astro` → `/tag/:tag/`
+   - `pages/writing/[slug].astro` → `/writing/:slug/`
    - `pages/haiku/[...slug].astro` → `/haiku/:slug/`
 
 4. **Props Passing**:
@@ -330,7 +327,7 @@ src/components/
 Components in `site/` stay Astro because they need:
 
 - `Astro.url` for active nav detection (MainNavigation)
-- `getCollection` (JournalList, ProjectContainer)
+- `getCollection` (LatestEssaysList, work components)
 - `astro:transitions` (ThemeProvider)
 - `is:inline` scripts (ThemeToggle, LegalDate, Scripts, Pagination, UpLink)
 - `is:global` CSS (MenuModal, SearchModal, ProjectContainer)

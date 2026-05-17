@@ -13,7 +13,6 @@ pnpm preview        # Build + preview production build
 ```sh
 pnpm plop           # Create new content (interactive generator picker)
 pnpm images         # Generate all images (OG + thumbnails)
-pnpm icons:generate # Convert SVG icons to components
 ```
 
 ### Code Quality
