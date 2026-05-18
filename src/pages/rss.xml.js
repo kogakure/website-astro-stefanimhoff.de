@@ -9,6 +9,7 @@ import { sortByDate } from '../utils';
 const parser = new MarkdownIt({ html: true });
 
 import { escapeHtml, stripMDXComponents } from '../utils';
+import { getPreviewUrl } from '../utils/preview-url';
 
 export async function GET(context) {
 	const [writing, haiku] = await Promise.all([
@@ -54,16 +55,10 @@ export async function GET(context) {
 					},
 				});
 
-				// Derive preview + OG paths from ImageMetadata basename
+				const previewUrl = getPreviewUrl(cover);
 				const coverBasename = cover?.src
-					? (cover.src
-							.split('/')
-							.pop()
-							?.replace(/\.[^.]+$/, '') ?? null)
+					? (cover.src.split('/').pop()?.split('.')[0] ?? null)
 					: null;
-				const previewUrl = coverBasename
-					? `/assets/images/preview/${coverBasename}.webp`
-					: '/assets/images/preview/ma.webp';
 				const ogUrl = coverBasename
 					? `/assets/images/og/${coverBasename}.jpg`
 					: '/assets/images/og/ma.jpg';
