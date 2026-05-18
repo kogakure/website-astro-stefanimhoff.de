@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkContent from './WorkContent.astro';
+import WorkImageOptimized from './WorkImageOptimized.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+	index: number;
+}
+
+const { entry } = Astro.props;
+const image = entry.data.image;
+---
+
+<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+	<WorkContent entry={entry} />
+	{
+		image && (
+			<WorkImageOptimized
+				src={image.src}
+				alt={entry.data.title}
+				sizes="(min-width: 1280px) 1140px, (min-width: 768px) 90vw, 100vw"
+				className="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2"
+			/>
+		)
+	}
+</article>

@@ -1,0 +1,200 @@
+import { XIcon } from '@phosphor-icons/react';
+import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'motion/react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { computeLightboxSize } from '../../lib/lightboxSizing';
+import { DUR_FAST, DUR_MODERATE, EASE_ENTER } from '../../lib/motion';
+
+type ActiveImage = {
+	src: string;
+	alt: string;
+	rect: DOMRect;
+	naturalWidth: number;
+	naturalHeight: number;
+	sourceEl: HTMLImageElement;
+};
+
+type TargetRect = { width: number; height: number; left: number; top: number };
+
+export const LightboxRoot = () => {
+	const [active, setActive] = useState<ActiveImage | null>(null);
+	const [target, setTarget] = useState<TargetRect | null>(null);
+	const closeBtnRef = useRef<HTMLButtonElement>(null);
+	const prefersReducedMotion = useReducedMotion();
+
+	const computeTarget = useCallback((nw: number, nh: number) => {
+		setTarget(computeLightboxSize(nw, nh, window.innerWidth, window.innerHeight));
+	}, []);
+
+	const open = useCallback(
+		(img: HTMLImageElement) => {
+			const nw = img.dataset.lightboxWidth
+				? parseInt(img.dataset.lightboxWidth, 10)
+				: img.naturalWidth;
+			const nh = img.dataset.lightboxHeight
+				? parseInt(img.dataset.lightboxHeight, 10)
+				: img.naturalHeight;
+			const rect = img.getBoundingClientRect();
+			setActive({
+				src: img.dataset.lightboxSrc || img.currentSrc || img.src,
+				alt: img.alt,
+				rect,
+				naturalWidth: nw,
+				naturalHeight: nh,
+				sourceEl: img,
+			});
+			computeTarget(nw, nh);
+		},
+		[computeTarget]
+	);
+
+	const close = useCallback(() => {
+		const el = active?.sourceEl;
+		setActive(null);
+		setTarget(null);
+		requestAnimationFrame(() => {
+			const focusTarget = el?.closest<HTMLElement>('button') ?? el;
+			focusTarget?.focus();
+		});
+	}, [active]);
+
+	// Event delegation — one listener handles all data-lightbox images
+	useEffect(() => {
+		const getImg = (target: Element): HTMLImageElement | null => {
+			const el = target.closest('[data-lightbox="true"]');
+			if (!el) return null;
+			return el instanceof HTMLImageElement ? el : el.querySelector<HTMLImageElement>('img');
+		};
+		const handleClick = (e: MouseEvent) => {
+			const img = getImg(e.target as Element);
+			if (!img) return;
+			e.preventDefault();
+			open(img);
+		};
+		const handleKeydown = (e: KeyboardEvent) => {
+			if (e.key !== 'Enter' && e.key !== ' ') return;
+			const img = getImg(e.target as Element);
+			if (!img) return;
+			e.preventDefault();
+			open(img);
+		};
+		const handleMouseEnter = (e: MouseEvent) => {
+			const img = getImg(e.target as Element);
+			const largeSrc = img?.dataset.lightboxSrc;
+			if (!largeSrc) return;
+			const preload = new Image();
+			preload.src = largeSrc;
+		};
+		document.addEventListener('click', handleClick);
+		document.addEventListener('keydown', handleKeydown);
+		document.addEventListener('mouseover', handleMouseEnter);
+		return () => {
+			document.removeEventListener('click', handleClick);
+			document.removeEventListener('keydown', handleKeydown);
+			document.removeEventListener('mouseover', handleMouseEnter);
+		};
+	}, [open]);
+
+	// Scroll lock + Escape while open
+	useEffect(() => {
+		if (!active) return;
+		document.body.style.overflow = 'hidden';
+		requestAnimationFrame(() => closeBtnRef.current?.focus());
+		const onEscape = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') close();
+		};
+		document.addEventListener('keydown', onEscape);
+		return () => {
+			document.body.style.overflow = '';
+			document.removeEventListener('keydown', onEscape);
+		};
+	}, [active, close]);
+
+	// Recompute target on resize while open
+	useEffect(() => {
+		if (!active) return;
+		const onResize = () => computeTarget(active.naturalWidth, active.naturalHeight);
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	}, [active, computeTarget]);
+
+	const duration = prefersReducedMotion ? 0 : DUR_MODERATE;
+	const backdropDuration = prefersReducedMotion ? 0 : DUR_FAST;
+
+	return (
+		<LazyMotion features={domAnimation}>
+			<AnimatePresence>
+				{active && target && (
+					<>
+						{/* Backdrop */}
+						<m.div
+							key="lb-backdrop"
+							className="bg-kiri/80 dark:bg-yoru/80 fixed inset-0 z-50 backdrop-blur-sm"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: backdropDuration }}
+							onClick={close}
+							aria-hidden="true"
+						/>
+
+						{/* Close button */}
+						<m.button
+							key="lb-close"
+							ref={closeBtnRef}
+							onClick={close}
+							className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi inline-end-4 block-start-4 z-52 fixed p-2"
+							aria-label="Close lightbox"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: backdropDuration }}
+						>
+							<XIcon className="size-5" aria-hidden="true" />
+						</m.button>
+
+						{/* Image */}
+						<div
+							role="dialog"
+							aria-modal="true"
+							aria-label="Image lightbox"
+							className="z-51 pointer-events-none fixed inset-0"
+						>
+							<m.img
+								key="lb-image"
+								src={active.src}
+								alt={active.alt}
+								className="rounded-2 cursor-zoom-out object-contain"
+								style={{ position: 'fixed', pointerEvents: 'auto' }}
+								initial={{
+									top: active.rect.top,
+									left: active.rect.left,
+									width: active.rect.width,
+									height: active.rect.height,
+									opacity: 1,
+								}}
+								animate={{
+									top: target.top,
+									left: target.left,
+									width: target.width,
+									height: target.height,
+									opacity: 1,
+								}}
+								exit={{
+									top: active.rect.top,
+									left: active.rect.left,
+									width: active.rect.width,
+									height: active.rect.height,
+									opacity: 1,
+								}}
+								transition={{ duration, ease: EASE_ENTER }}
+								onClick={close}
+							/>
+						</div>
+					</>
+				)}
+			</AnimatePresence>
+		</LazyMotion>
+	);
+};
+
+export default LightboxRoot;

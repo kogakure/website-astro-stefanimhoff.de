@@ -1,0 +1,18 @@
+import type { HTMLAttributes } from 'react';
+import { cn } from '../../lib/utils';
+
+interface Props extends HTMLAttributes<HTMLElement> {
+	base: string;
+	text?: string;
+}
+
+export const Ruby = ({ base, text, className, ...props }: Props) => (
+	<ruby className={cn('text-nezumi dark:text-usuzumi font-sans', className)} {...props}>
+		{base}
+		<rp>（</rp>
+		{text && <rt className="-block-start-[0.3em] relative">{text}</rt>}
+		<rp>）</rp>
+	</ruby>
+);
+
+export default Ruby;

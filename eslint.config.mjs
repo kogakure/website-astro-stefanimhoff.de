@@ -9,13 +9,34 @@ export default [
 	prettierRecommended,
 	...astroPlugin.configs['flat/recommended'],
 	{
+		files: ['**/*.{js,ts,tsx,mjs,cjs}'],
 		languageOptions: {
 			parser: tsParser,
 			parserOptions: {
 				sourceType: 'module',
 				project: './tsconfig.json',
-				extraFileExtensions: ['.astro'],
 			},
+			globals: {
+				...globals.es6,
+				...globals.node,
+				...globals.browser,
+			},
+		},
+		rules: {
+			'no-unused-vars': [
+				'error',
+				{
+					argsIgnorePattern: '^_',
+					varsIgnorePattern: '^_',
+					caughtErrorsIgnorePattern: '^_',
+					ignoreRestSiblings: true,
+				},
+			],
+		},
+	},
+	{
+		files: ['**/*.astro'],
+		languageOptions: {
 			globals: {
 				...globals.es6,
 				...globals.node,

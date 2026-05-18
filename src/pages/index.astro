@@ -1,85 +1,103 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-type JournalType = CollectionEntry<'journal'>;
+type WritingType = CollectionEntry<'writing'>;
 import { getCollection } from 'astro:content';
 
-import { formatPosts, isProduction, sortMarkdownByDate } from '../utils';
+import { formatPosts, getWritingSlug } from '@/utils';
 
-import { site } from '../data/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Marquee from '@/components/interactive/Marquee';
+import Reveal from '@/components/interactive/motion/Reveal';
+import HomePageSection from '@/components/ui/HomepagePageSection';
+import JapanesePoem from '@/components/ui/JapanesePoem';
+import EmailLink from '@/components/content/EmailLink';
+import MoreLink from '@/components/ui/MoreLink';
+import HeroTitle from '@/components/site/HeroTitle';
+import LatestEssaysList from '@/components/site/LatestEssaysList';
 
-import GridLayout from '../layouts/GridLayout.astro';
+import { Content as About } from '@/content/text/homepage/about.mdx';
+import { Content as Work } from '@/content/text/homepage/work.mdx';
+import { Content as Writing } from '@/content/text/homepage/writing.mdx';
+import { mapping } from '@/mdx-components';
+import { getPreviewUrl } from '@/utils/preview-url';
 
-import PageTitle from '../components/PageTitle.astro';
-import Image from '../components/Image.astro';
-import JournalList from '../components/JournalList.astro';
+const allPosts = await getCollection('writing', ({ data }: WritingType) => !data.draft);
+const latestPosts = formatPosts(allPosts, { limit: 9 });
 
-import Headline from '../components/Headline.astro';
-import MoreLink from '../components/MoreLink.astro';
-
-import { Content as AboutMe } from '../text/homepage/about-me.mdx';
-import { Content as WhatIDo } from '../text/homepage/what-i-do.mdx';
-import { Content as Journal } from '../text/homepage/journal.mdx';
-
-import { mapping } from '../mdx-components';
-
-const allPosts = await getCollection('journal', ({ data }: JournalType) => !data.draft);
-const formattedLatest = formatPosts(allPosts, { limit: 6 });
+const essayPosts = latestPosts.map((post) => ({
+	href: `/writing/${getWritingSlug(post.id)}/`,
+	previewUrl: getPreviewUrl(post.data.cover),
+	label: post.data.subtitle ? `${post.data.title}: ${post.data.subtitle}` : post.data.title,
+}));
 
 const title = 'Stefan Imhoff';
 const description = 'Design Engineer from Hamburg, Germany';
-
-const rssPosts = await Astro.glob('../content/journal/**/*.mdx');
-rssPosts.sort(sortMarkdownByDate);
 ---
 
-<GridLayout title={title} description={description} grid="fullsize" class="grid" innerGrid>
-	<PageTitle class="!text-6 sm:!text-7">
-		{site.title}
-	</PageTitle>
+<BaseLayout title={title} description={description}>
+	<!-- Hero -->
 	<div
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-10 xl:col-end-12 [&_div]:!border-x-0 [&_div]:!mbe-0 [&_div]:md:!border-s-0"
+		class="max-w-360 pli-8 pbe-32 pbs-32 mx-auto grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
 	>
-		<Image
-			alt="Bonsai"
-			class="[&_img]:rounded-none md:[&_img]:rounded-2"
-			loading="eager"
-			role="presentation"
-			src="/assets/images/cover/bonsai.webp"
-			fullHeight
-		/>
+		<div class="col-span-3 flex w-full md:col-span-6 xl:col-span-9 xl:col-start-3">
+			<HeroTitle client:load />
+		</div>
 	</div>
 
-	<article
-		class="col-start-2 col-end-18 row-start-3 self-center md:col-start-11 md:col-end-17 md:row-start-2 xl:col-start-13 xl:col-end-17"
-	>
-		<Headline>About Me</Headline>
-		<AboutMe components={mapping} />
-		<MoreLink href="/about/" text="Read more about me" />
-	</article>
+	<div class="max-w-360 mbe-16 pli-8 mx-auto flex w-full flex-col gap-16">
+		<HomePageSection label="About">
+			<About components={mapping} />
+			<MoreLink href="/about/" text="About" data-umami-event="Home CTA: About" />
+		</HomePageSection>
 
-	<article
-		class="col-start-2 col-end-18 row-start-4 md:col-start-3 md:col-end-17 md:row-start-3 xl:col-start-5 xl:col-end-15"
-	>
-		<Headline>What I Do</Headline>
-		<div class="columns-1 gap-[2.775vw] mbe-10 md:columns-2 [&_p:last-of-type]:mbe-0">
-			<WhatIDo components={mapping} />
-		</div>
-		<MoreLink href="/projects/" text="See what I do" />
-	</article>
+		<Reveal client:visible>
+			<HomePageSection label="Work">
+				<Work components={mapping} />
+				<MoreLink
+					href="/work/"
+					text="See selected work"
+					data-umami-event="Home CTA: Work"
+				/>
+			</HomePageSection>
+		</Reveal>
+	</div>
 
-	<article
-		class="col-start-2 col-end-18 md:col-start-6 md:col-end-14 xl:col-start-7 xl:col-end-13"
-	>
-		<Headline>Journal</Headline>
-		<Journal components={mapping} />
-		<MoreLink href="/journal/" text="See all Journal Entries" />
-	</article>
+	<Marquee client:visible className="my-4">
+		<JapanesePoem />
+	</Marquee>
 
-	<article
-		class="min-[1794px]:[&_li:block col-start-2 col-end-18 grid w-full grid-cols-18 gap-y-gap mbe-12 min-[1097px]:[&_li:nth-child(n+5)]:hidden min-[1410px]:[&_li:nth-child(n+5)]:block min-[1411px]:[&_li:nth-child(n+6)]:hidden min-[1793px]:[&_li:nth-child(n+6)]:block"
-		data-pagefind-ignore
-		aria-label="Latest essays"
-	>
-		<JournalList entries={formattedLatest} />
-	</article>
-</GridLayout>
+	<div class="max-w-360 mbe-32 mbs-16 pli-8 mx-auto flex w-full flex-col gap-16">
+		<Reveal client:visible>
+			<HomePageSection label="Writing">
+				<Writing components={mapping} />
+				<div class="flex flex-col gap-2">
+					<MoreLink
+						href="/writing/"
+						text="Read the essays"
+						data-umami-event="Home CTA: Writing"
+					/>
+					<MoreLink
+						href="/rss.xml"
+						text="Subscribe to RSS Feed"
+						data-umami-event="Subscribe: RSS"
+					/>
+				</div>
+			</HomePageSection>
+		</Reveal>
+
+		<HomePageSection label="Latest Essays" data-pagefind-ignore>
+			<LatestEssaysList client:visible posts={essayPosts} />
+		</HomePageSection>
+
+		<HomePageSection label="Contact">
+			<EmailLink
+				data-name="hey"
+				data-domain="stefanimhoff"
+				data-tld="de"
+				text="hey@stefanimhoff.de"
+				data-umami-event="Contact: Email"
+				client:idle
+			/>
+		</HomePageSection>
+	</div>
+</BaseLayout>

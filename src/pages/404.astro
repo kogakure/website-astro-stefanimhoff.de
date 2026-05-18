@@ -1,45 +1,56 @@
 ---
-import GridLayout from '../layouts/GridLayout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
-import PageTitle from '../components/PageTitle.astro';
-import Verse from '../components/Verse.astro';
+import MoreLink from '@/components/ui/MoreLink';
+import SectionLabel from '@/components/ui/SectionLabel';
+import Text from '@/components/ui/Text';
+import Title from '@/components/ui/Title';
+import Verse from '@/components/content/Verse';
 
-import { Content as Haiku } from '../text/404/haiku.mdx';
-import { mapping } from '../mdx-components';
+import { Content as Haiku } from '@/content/text/404/haiku.mdx';
+import { mapping } from '@/mdx-components';
 
 const title = 'Error 404';
 const description = 'Page not found.';
 ---
 
-<GridLayout
-	class="grid"
-	description={description}
-	grid="wide"
-	innerGrid
-	nofollow={true}
-	noindex={true}
-	title={title}
->
-	<PageTitle grid="wide" innerGrid>Not Found.</PageTitle>
-	<Verse
-		class="z-10 col-start-1 col-end-17 row-start-2 text-3 italic mbe-10 mbs-10 md:col-start-3 md:col-end-9"
-		variant="left"
+<BaseLayout description={description} nofollow={true} noindex={true} title={title}>
+	<!-- Hero: kanji left, text stack right -->
+	<div
+		class="max-w-360 pli-8 pbs-32 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-0 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 	>
-		<Haiku components={mapping} />
-	</Verse>
-	<span
-		aria-hidden="true"
-		class="col-start-10 col-end-13 row-start-1 row-end-3 text-9 font-black text-black/[0.05] dark:text-white/[0.05]"
-		role="img"
-	>
-		404
-	</span>
-</GridLayout>
+		<div class="col-span-3 flex items-end md:col-span-2 xl:col-span-4">
+			<span
+				aria-hidden="true"
+				class="font-japanese text-beni dark:text-beni-light select-none text-[clamp(8rem,28vw,22rem)] leading-none"
+				lang="ja"
+			>
+				迷
+			</span>
+		</div>
 
-<style>
-	span {
-		line-height: 0.6;
-		user-select: none;
-		writing-mode: vertical-lr;
-	}
-</style>
+		<div
+			class="pbe-4 col-span-3 flex flex-col justify-end md:col-span-4 xl:col-span-6 xl:col-start-7"
+		>
+			<SectionLabel as="p">Error · 404</SectionLabel>
+			<Title className="mbs-2 text-8 leading-display-sm"> Not Found. </Title>
+			<Text as="p" className="text-2 text-nezumi mbe-0 mbs-2">
+				<span lang="ja-Latn">mayoi</span> · lost · astray
+			</Text>
+		</div>
+	</div>
+
+	<!-- Haiku + CTA -->
+	<div
+		class="max-w-360 pli-8 pbe-32 pbs-16 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+			<Verse variant="left">
+				<Haiku components={mapping} />
+			</Verse>
+			<div class="mbs-8">
+				<MoreLink href="/" text="Return home" />
+			</div>
+		</div>
+	</div>
+</BaseLayout>

@@ -1,0 +1,241 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PrincipleCard from '@/components/design-system/PrincipleCard';
+import ListItem from '@/components/ui/ListItem';
+import OrderedList from '@/components/ui/OrderedList';
+import Text from '@/components/ui/Text';
+import Title from '@/components/ui/Title';
+import coverImage from '@/assets/images/cover/ma-design-system.webp';
+
+const principles = [
+	{
+		kanji: '不均齊',
+		romaji: 'Fukinsei',
+		japanese: '不均齊',
+		gloss: 'Asymmetry. A 12-column grid is not a cage but a field of tension.',
+		principle: '01',
+	},
+	{
+		kanji: '簡素',
+		romaji: 'Kanso',
+		japanese: '簡素',
+		gloss: 'Simplicity. Clarity is not the absence of complexity; it is its resolution.',
+		principle: '02',
+	},
+	{
+		kanji: '考古',
+		romaji: 'Koko',
+		japanese: '考古',
+		gloss: 'Austerity. Favour decisions that age well over those that trend well.',
+		principle: '03',
+	},
+	{
+		kanji: '自然',
+		romaji: 'Shizen',
+		japanese: '自然',
+		gloss: 'Naturalness. Code that reads cleanly. Type set with care.',
+		principle: '04',
+	},
+	{
+		kanji: '幽玄',
+		romaji: 'Yūgen',
+		japanese: '幽玄',
+		gloss: 'Subtlety. Work that suggests rather than declares.',
+		principle: '05',
+	},
+	{
+		kanji: '脱俗',
+		romaji: 'Datsuzoku',
+		japanese: '脱俗',
+		gloss: 'Detachment. The controlled exception that makes the convention visible.',
+		principle: '06',
+	},
+	{
+		kanji: '静寂',
+		romaji: 'Seijaku',
+		japanese: '静寂',
+		gloss: 'Tranquility. White space is not empty; it is ma — the substance between things.',
+		principle: '07',
+	},
+];
+
+const sections = [
+	{ order: '01', title: 'Brand Foundations', kanji: '本', slug: 'brand-foundations' },
+	{ order: '02', title: 'Naming & Voice', kanji: '言', slug: 'naming-and-voice' },
+	{ order: '03', title: 'Logo', kanji: '印', slug: 'logo' },
+	{ order: '04', title: 'Color', kanji: '色', slug: 'color' },
+	{ order: '05', title: 'Typography', kanji: '字', slug: 'typography' },
+	{ order: '06', title: 'Layout & Grids', kanji: '格', slug: 'layout-and-grids' },
+	{ order: '07', title: 'Spacing', kanji: '間', slug: 'spacing' },
+	{ order: '08', title: 'Motion', kanji: '動', slug: 'motion' },
+	{ order: '09', title: 'Imagery', kanji: '像', slug: 'imagery' },
+	{ order: '10', title: 'Accessibility', kanji: '道', slug: 'accessibility' },
+	{ order: '11', title: 'Components', kanji: '部', slug: 'components' },
+];
+---
+
+<BaseLayout
+	title="Ma (間) Design System"
+	description="The space between. Two letters. A design system built on the idea that empty space is the design."
+>
+	<!-- Cover image -->
+	<div class="max-w-360 pli-8 pbe-16 pbs-24 mx-auto w-full">
+		<Image
+			src={coverImage}
+			alt="Ma Design System — the gate with light passing through"
+			class="rounded-2 w-full object-cover"
+			loading="eager"
+			decoding="async"
+			style="view-transition-name: ds-cover"
+		/>
+	</div>
+
+	<!-- Hero: asymmetric 3+9 -->
+	<div
+		class="max-w-360 pli-8 pbe-20 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<!-- Left accent (kanji + tagline) -->
+		<div
+			class="pbe-2 col-span-3 flex flex-col justify-end gap-4 md:col-span-2 xl:col-span-3 xl:col-start-1"
+		>
+			<span
+				class="font-japanese text-usuzumi dark:text-nezumi leading-none"
+				style="font-size: clamp(5rem, 10vw, 9rem)"
+				aria-hidden="true"
+			>
+				間
+			</span>
+			<Text className="text-hai text-2 mbe-0 uppercase tracking-widest"
+				>The space between</Text
+			>
+		</div>
+
+		<!-- Right: main title + description -->
+		<div class="col-span-3 md:col-span-4 xl:col-span-8 xl:col-start-5">
+			<Title
+				className="text-sumi dark:text-washi mbe-6 leading-display-sm tracking-display text-[clamp(3rem,8vw,7rem)]"
+			>
+				Ma Design System
+			</Title>
+			<Text className="text-3 text-hai mbe-0 max-w-[60ch]">
+				Two letters. The entire design system is built on the idea that the empty space <em
+					>is</em
+				> the design. The kanji 間 means “gate with light passing through”—which is literally
+				what a well-designed interface does.
+			</Text>
+		</div>
+	</div>
+
+	<!-- Divider -->
+	<div class="max-w-360 pli-8 pbe-20 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
+	</div>
+
+	<!-- Seven principles (asymmetric 3+4 grid) -->
+	<div class="max-w-360 pli-8 pbe-20 mx-auto w-full">
+		<div
+			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-4 md:grid-cols-6 md:gap-x-6 md:gap-y-6 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-8"
+		>
+			<!-- Section label -->
+			<div class="col-span-3 md:col-span-6 xl:col-span-12">
+				<p
+					class="text-hai text-2 mbe-0 uppercase tracking-widest"
+					style="font-variant: all-small-caps"
+				>
+					Seven Principles
+				</p>
+			</div>
+
+			<!-- First row: 3 cards -->
+			{
+				principles.slice(0, 3).map((p) => (
+					<div class="col-span-3 md:col-span-2 xl:col-span-4">
+						<PrincipleCard
+							kanji={p.kanji}
+							romaji={p.romaji}
+							japanese={p.japanese}
+							gloss={p.gloss}
+							principle={p.principle}
+							className="h-full"
+						/>
+					</div>
+				))
+			}
+
+			<!-- Second row: 4 cards (Fukinsei — last card shifted right) -->
+			{
+				principles.slice(3, 6).map((p) => (
+					<div class="col-span-3 md:col-span-2 xl:col-span-3">
+						<PrincipleCard
+							kanji={p.kanji}
+							romaji={p.romaji}
+							japanese={p.japanese}
+							gloss={p.gloss}
+							principle={p.principle}
+							className="h-full"
+						/>
+					</div>
+				))
+			}
+			<!-- Seventh card: offset right (Fukinsei) -->
+			<div class="col-span-3 md:col-span-2 xl:col-span-3 xl:col-start-10">
+				<PrincipleCard
+					kanji={principles[6].kanji}
+					romaji={principles[6].romaji}
+					japanese={principles[6].japanese}
+					gloss={principles[6].gloss}
+					principle={principles[6].principle}
+					className="h-full"
+				/>
+			</div>
+		</div>
+	</div>
+
+	<!-- Divider -->
+	<div class="max-w-360 pli-8 pbe-16 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
+	</div>
+
+	<!-- Section index -->
+	<div class="max-w-360 pli-8 pbe-32 mx-auto w-full">
+		<div
+			class="max-w-360 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+		>
+			<div class="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2">
+				<p
+					class="text-hai text-2 mbe-8 uppercase tracking-widest"
+					style="font-variant: all-small-caps"
+				>
+					Sections
+				</p>
+				<OrderedList className="pis-0 mbe-0 flex list-none flex-col gap-0">
+					{
+						sections.map((s) => (
+							<ListItem>
+								<a
+									href={`/design-system/${s.slug}/`}
+									class="section-link border-usuzumi dark:border-nezumi border-be-1 pbl-5 first:border-bs-1 group flex items-center gap-6 transition-colors duration-200 hover:no-underline"
+								>
+									<span class="text-usuzumi dark:text-nezumi w-8 shrink-0 font-mono text-xs">
+										{s.order}
+									</span>
+									<span class="font-display text-sumi dark:text-washi group-hover:text-beni dark:group-hover:text-beni-light tracking-body-tight text-[clamp(1.5rem,3vw,2.5rem)] font-bold leading-none transition-colors duration-200">
+										{s.title}
+									</span>
+									<span
+										class="font-japanese text-usuzumi dark:text-nezumi mis-auto opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+										style="font-size: clamp(1.5rem, 3vw, 2.5rem)"
+										aria-hidden="true"
+									>
+										{s.kanji}
+									</span>
+								</a>
+							</ListItem>
+						))
+					}
+				</OrderedList>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

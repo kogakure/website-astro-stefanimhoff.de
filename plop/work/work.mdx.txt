@@ -1,0 +1,24 @@
+---
+title: {{{yamlString title}}}
+date: {{date}}
+{{#if variant}}
+variant: {{variant}}
+{{/if}}
+{{#if sort}}
+sort: {{sort}}
+{{/if}}
+categories: {{{yamlStringArray categories}}}
+{{#if description}}
+description: {{{yamlString description}}}
+{{/if}}
+{{#if intro}}
+intro: {{{yamlString intro}}}
+{{/if}}
+{{#if imageSrc}}
+image:
+  src: {{{yamlString imageSrc}}}
+{{#if imageAspectRatio}}
+  aspectRatio: {{imageAspectRatio}}
+{{/if}}
+{{/if}}
+---

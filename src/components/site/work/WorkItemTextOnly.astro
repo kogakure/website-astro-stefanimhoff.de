@@ -1,0 +1,15 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkContent from './WorkContent.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+---
+
+<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+	<WorkContent entry={entry} />
+</article>

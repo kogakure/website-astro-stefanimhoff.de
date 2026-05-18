@@ -9,13 +9,14 @@
  * - fixImagePaths(html, siteUrl): Replace <img src="..."> with absolute src.
  * - replaceImageComponent(attributes, siteUrl): Convert an MDX `<Image ... />` component into HTML.
  * - replaceAmazonBookComponent(attributes): Convert an MDX `<AmazonBook ... />` component into HTML.
- * - stripMDXComponents(text, siteUrl): Replace `<Image />`, `<AmazonBook />` and strip other MDX component tags.
+ * - replaceYouTubeComponent(attributes): Convert an MDX `<YouTube id="..." />` to a link.
+ * - replacePlatformComponent(attributes): Convert an MDX `<Platform kind="..." />` to a label.
+ * - stripMDXComponents(text, siteUrl): Replace/strip all MDX component tags for RSS output.
  *
  * These are implemented in TypeScript with minimal dependencies so they can be
  * used from RSS builder code or other places.
  */
 
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 export function stripMarkdown(text: string): string {
 	// Remove markdown links: [text](url) => text
 	// Remove basic markdown formatting characters: *, _, `, ~
@@ -35,7 +36,7 @@ export function makeAbsolute(url: string, siteUrl: string): string {
 	try {
 		// The URL constructor will resolve relative URLs against the base.
 		return new URL(url, siteUrl).toString();
-	} catch (e) {
+	} catch {
 		// Fallback: simple concatenation with a single slash between.
 		const base = siteUrl.endsWith('/') ? siteUrl.slice(0, -1) : siteUrl;
 		const path = url.startsWith('/') ? url : `/${url}`;
@@ -141,12 +142,33 @@ export function replaceAppleTvComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://tv.apple.com/show/umc.cmc.${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
-	return `<a href="${url}" title="Apple TV+">[]</a>`;
+	return `<a href="${url}" title="Apple TV+">[Apple TV+]</a>`;
+}
+
+// Convert an MDX <YouTube id="..." />
+export function replaceYouTubeComponent(attributes: string): string {
+	const id = getAttr(attributes, 'id');
+
+	if (!id) return '';
+
+	const url = `https://www.youtube.com/watch?v=${id}`;
+	return `<a href="${url}">[Watch on YouTube]</a>`;
+}
+
+// Convert an MDX <Platform kind="..." />
+const platformLabels: Record<string, string> = {
+	iphone: 'iPhone / iPad',
+	desktop: 'Desktop',
+	appletv: 'Apple TV',
+	web: 'Web',
+};
+
+export function replacePlatformComponent(attributes: string): string {
+	const kind = getAttr(attributes, 'kind');
+	const label = kind ? (platformLabels[kind] ?? kind) : '';
+	return label ? `[${label}]` : '';
 }
 
 // Convert an MDX <NetflixFlag ... />
@@ -155,11 +177,8 @@ export function replaceNetflixComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://www.netflix.com/title/${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
 	return `<a href="${url}" title="Netflix">[Netflix]</a>`;
 }
 
@@ -169,11 +188,8 @@ export function replacePrimeVideoComponent(attributes: string): string {
 
 	if (!id) return '';
 
-	// The URL pattern from the component
 	const url = `https://www.amazon.de/gp/video/detail/${id}`;
 
-	// We preserve the inner HTML structure (spans and Apple logo)
-	// but strip the complex Tailwind classes for the "pure HTML" output.
 	return `<a href="${url}" title="Prime Video">[Prime Video]</a>`;
 }
 
@@ -376,7 +392,10 @@ export function replaceColorSwatchComponent(attributes: string): string {
 
 	if (!color) return '';
 
-	return `<div style="width: 100px; height: 100px; background-color: ${escapeHtmlAttr(color)};"></div>`;
+	// Allowlist: hex colors (#rgb, #rrggbb, #rrggbbaa) and CSS named colors (letters only)
+	const safeColor = /^(#[0-9a-fA-F]{3,8}|[a-zA-Z]+)$/.test(color) ? color : 'transparent';
+
+	return `<div style="width: 100px; height: 100px; background-color: ${safeColor};"></div>`;
 }
 
 // Convert wrapper components (like <ColorStack> and <BookShelf>)
@@ -404,6 +423,16 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 	processed = processed.replace(
 		/<Apple(Tv|TV)([\s\S]*?)\/>/g,
 		(_match, _tagSuffix, attributes: string) => replaceAppleTvComponent(attributes)
+	);
+
+	// <YouTube ... />
+	processed = processed.replace(/<YouTube([\s\S]*?)\/>/g, (_match, attributes: string) =>
+		replaceYouTubeComponent(attributes)
+	);
+
+	// <Platform ... />
+	processed = processed.replace(/<Platform([\s\S]*?)\/>/g, (_match, attributes: string) =>
+		replacePlatformComponent(attributes)
 	);
 
 	// <Netflix ... />
@@ -470,9 +499,10 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		replaceSpotifyComponent(attributes)
 	);
 
-	// <ColorSwatch ... />
-	processed = processed.replace(/<ColorSwatch([\s\S]*?)\/>/g, (_match, attributes: string) =>
-		replaceColorSwatchComponent(attributes)
+	// <ColorSwatch ... />, <ColorSwatchPrimary ... />, <ColorSwatchMini ... />
+	processed = processed.replace(
+		/<ColorSwatch(?:Primary|Mini)?([\s\S]*?)\/>/g,
+		(_match, attributes: string) => replaceColorSwatchComponent(attributes)
 	);
 
 	// <ColorStack>...</ColorStack> and <BookShelf>...</BookShelf>
@@ -480,6 +510,17 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 		/<(ColorStack|Bookshelf)\b[^>]*>([\s\S]*?)<\/\1>/g,
 		(_match, _tag, content: string) => replaceWrapperComponent(content)
 	);
+
+	// <RSSText>...</RSSText> — strip wrapper tags but preserve inner content
+	processed = processed.replace(
+		/<RSSText\b[^>]*>([\s\S]*?)<\/RSSText>/g,
+		(_match, content: string) => content
+	);
+
+	// Visual-only components — strip explicitly so intent is documented
+	processed = processed.replace(/<BarChart([\s\S]*?)\/>/g, '');
+	processed = processed.replace(/<DoughnutChart([\s\S]*?)\/>/g, '');
+	processed = processed.replace(/<RedButton([\s\S]*?)\/>/g, '');
 
 	// Remove any other self-closing components e.g. <Foo bar="baz" />
 	const removedSelfClosing = processed.replace(/<([A-Z][\w\d]*)\b[^>]*?\/>/g, '');
@@ -496,7 +537,7 @@ export function stripMDXComponents(text: string, siteUrl: string): string {
 /**
  * Simple helper to escape text for inclusion inside HTML text nodes.
  */
-function escapeHtml(str: string | null | undefined): string {
+export function escapeHtml(str: string | null | undefined): string {
 	if (str == null) return '';
 	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

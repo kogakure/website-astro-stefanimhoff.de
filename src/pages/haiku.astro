@@ -3,53 +3,51 @@ import type { CollectionEntry } from 'astro:content';
 type Haiku = CollectionEntry<'haiku'>;
 import { getCollection } from 'astro:content';
 
-import { sortByDate } from '../utils';
+import { sortByDate } from '@/utils';
 
-import GridLayout from '../layouts/GridLayout.astro';
-import Link from '../components/Link.astro';
-import PageTitle from '../components/PageTitle.astro';
-import { Content as Intro } from '../text/haiku/intro.mdx';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Reveal from '@/components/interactive/motion/Reveal';
+import Divider from '@/components/ui/Divider';
+import HaikuItem from '@/components/ui/HaikuItem';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
 
-import { mapping } from '../mdx-components';
+import { Content as HaikuIntro } from '@/content/text/haiku/intro.mdx';
+import { mapping } from '@/mdx-components';
 
 const allHaiku: Haiku[] = await getCollection('haiku');
 allHaiku.sort(sortByDate).reverse();
 
 const title = 'Haiku';
-const description =
-	'This is an ever-growing collection of Haiku I have written. My Haiku reflect my own unique perspective on the world, and I hope they bring a bit of beauty and insight to the reader.';
+const description = 'An ever-growing collection of Haiku — three phrases, two images, one cut.';
 ---
 
-<GridLayout title={title} description={description} grid="wide" class="grid" innerGrid>
-	<PageTitle grid="wide" innerGrid>Haiku</PageTitle>
+<BaseLayout title={title} description={description}>
+	<PageTitle>Haiku</PageTitle>
 
-	<article
-		class="col-start-1 col-end-19 md:col-start-3 md:col-end-13 lg:col-start-4 lg:col-end-12 xl:col-start-5 xl:col-end-11"
-	>
-		<Intro components={mapping} />
-	</article>
+	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-16">
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4 leading-relaxed [&ul]:gap-2">
+					<HaikuIntro components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
 
-	<nav
-		aria-label="Haiku"
-		class="col-start-1 col-end-17 md:col-start-2 md:col-end-14 print:hidden"
-		data-pagefind-ignore
-	>
-		<ol
-			class="grid list-none grid-cols-[repeat(auto-fill,_minmax(3rem,_1fr))] justify-items-center gap-[1rem]"
-		>
-			{
-				allHaiku.map(({ slug }) => (
-					<li>
-						<Link
-							class="flex h-[3rem] w-[3rem] items-center justify-center rounded-[50%] bg-black/80 font-semibold text-white/80 hover:!bg-accent focus:!bg-accent dark:bg-white/80 dark:text-black/80 dark:hover:text-white/80 dark:focus:text-white/80"
-							arial-label={`Haiku ${slug}`}
-							href={`/haiku/${slug}/`}
-						>
-							{slug}
-						</Link>
-					</li>
-				))
-			}
-		</ol>
-	</nav>
-</GridLayout>
+		<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+			<Divider className="col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4" />
+		</div>
+
+		<Reveal client:visible>
+			<PageSection label="Haiku">
+				<ol class="flex list-none flex-col gap-8" data-pagefind-ignore>
+					{
+						allHaiku.map(({ data, slug }) => (
+							<HaikuItem id={`haiku-${slug}`} de={data.de} en={data.en} />
+						))
+					}
+				</ol>
+			</PageSection>
+		</Reveal>
+	</div>
+</BaseLayout>

@@ -9,5 +9,6 @@ export const remarkReadingTime = () => {
 		const readingTime = getReadingTime(textOnPage);
 
 		data.astro.frontmatter.minutesRead = readingTime.minutes;
+		data.astro.frontmatter.words = readingTime.words;
 	};
 };

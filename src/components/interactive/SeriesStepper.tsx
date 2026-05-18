@@ -1,0 +1,245 @@
+'use client';
+
+import { CaretDownIcon } from '@phosphor-icons/react';
+import { AnimatePresence, LazyMotion, domMax, m } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { EASE_ENTER } from '../../lib/motion';
+
+import { cn } from '../../lib/utils';
+import { trackEvent } from '../../utils/analytics';
+
+import SectionLabel from '../ui/SectionLabel';
+import TextLink from '../ui/TextLink';
+
+export interface SeriesStep {
+	id: string;
+	title: string;
+	subtitle?: string;
+}
+
+interface Props {
+	steps: SeriesStep[];
+	currentId: string;
+	seriesName?: string;
+}
+
+type StepState = 'past' | 'current' | 'upcoming';
+
+export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
+	const [open, setOpen] = useState<boolean>(false);
+	const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+	useEffect(() => {
+		const reduceMql = window.matchMedia('(prefers-reduced-motion: reduce)');
+		setPrefersReducedMotion(reduceMql.matches);
+		const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+		reduceMql.addEventListener('change', handler);
+		return () => reduceMql.removeEventListener('change', handler);
+	}, []);
+
+	if (steps.length < 2) return null;
+
+	const currentIndex = steps.findIndex((s) => s.id === currentId);
+	if (currentIndex === -1) return null;
+
+	const stateOf = (i: number): StepState =>
+		i < currentIndex ? 'past' : i === currentIndex ? 'current' : 'upcoming';
+
+	const srLabel = (state: StepState) =>
+		state === 'past' ? 'Visited' : state === 'current' ? 'Current part' : 'Upcoming';
+
+	return (
+		<LazyMotion features={domMax}>
+			<nav
+				aria-label={seriesName ? `Series: ${seriesName}` : 'Series navigation'}
+				className="rounded-2 border-usuzumi dark:border-nezumi mbe-8 border p-4"
+			>
+				{/* Header — always visible, click to toggle the body */}
+				<button
+					type="button"
+					onClick={() => {
+						trackEvent('Series: Toggle', { open: !open });
+						setOpen((v) => !v);
+					}}
+					aria-expanded={open}
+					aria-controls="series-list"
+					className="flex w-full items-center gap-3 bg-transparent p-0 text-start"
+				>
+					<SectionLabel as="span" className="mbe-0 shrink-0">
+						Series
+					</SectionLabel>
+
+					{/* Horizontal mini-progress (decorative, aria-hidden) */}
+					<m.div
+						className="relative flex flex-1 items-center"
+						aria-hidden="true"
+						initial={{ opacity: 1 }}
+						animate={{ opacity: open ? 0 : 1 }}
+						transition={
+							prefersReducedMotion
+								? { duration: 0 }
+								: { duration: 0.2, ease: EASE_ENTER }
+						}
+						style={{ pointerEvents: open ? 'none' : undefined }}
+					>
+						{/* Full background grey line */}
+						<div className="bg-hai dark:bg-nezumi inline-start-0 inline-end-0 absolute h-px" />
+						{/* Crimson overlay from first dot up to current */}
+						{currentIndex > 0 && (
+							<div
+								className="bg-beni dark:bg-beni-light inline-start-0 absolute h-px"
+								style={{
+									width: `${(currentIndex / (steps.length - 1)) * 100}%`,
+								}}
+							/>
+						)}
+						{/* Dots */}
+						<div className="relative flex w-full items-center justify-between">
+							{steps.map((step, i) => {
+								const state = stateOf(i);
+								return (
+									<span
+										key={step.id}
+										className={cn(
+											'block size-2 shrink-0 rounded-full',
+											state === 'upcoming'
+												? 'bg-hai dark:bg-nezumi'
+												: 'bg-beni dark:bg-beni-light'
+										)}
+									/>
+								);
+							})}
+						</div>
+					</m.div>
+
+					<span className="text-2 text-hai dark:text-nezumi shrink-0 uppercase">
+						Part {currentIndex + 1} of {steps.length}
+					</span>
+
+					<span
+						aria-hidden="true"
+						className="text-hai dark:text-nezumi inline-flex size-4 shrink-0 items-center justify-center"
+						style={{
+							transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+							transition: prefersReducedMotion
+								? 'none'
+								: 'transform 200ms var(--ease-enter)',
+						}}
+					>
+						<CaretDownIcon size={12} />
+					</span>
+				</button>
+
+				{/* Expandable vertical stepper */}
+				<AnimatePresence initial={false}>
+					{open && (
+						<m.div
+							key="series-body"
+							id="series-list"
+							initial={prefersReducedMotion ? false : { height: 0, opacity: 0 }}
+							animate={{ height: 'auto', opacity: 1 }}
+							exit={prefersReducedMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+							transition={{ duration: 0.25, ease: EASE_ENTER }}
+							className="overflow-hidden"
+						>
+							<ol className="mbs-4 flex list-none flex-col">
+								{steps.map((step, i) => {
+									const state = stateOf(i);
+									const isLast = i === steps.length - 1;
+									const number = String(i + 1).padStart(2, '0');
+
+									return (
+										<li
+											key={step.id}
+											aria-current={state === 'current' ? 'page' : undefined}
+											className="relative flex items-stretch gap-x-3"
+										>
+											{/* Crimson rail bar for current step — shared layout animation */}
+											{state === 'current' && (
+												<m.span
+													layoutId="series-indicator"
+													aria-hidden="true"
+													layout={prefersReducedMotion ? false : true}
+													className="bg-beni dark:bg-beni-light block-start-0 absolute h-full w-px"
+													style={{ insetInlineStart: '4.5px' }}
+													transition={{
+														duration: 0.25,
+														ease: EASE_ENTER,
+													}}
+												/>
+											)}
+
+											{/* Dot column with flex connectors — continuous rail */}
+											<div className="flex w-2 shrink-0 flex-col items-center">
+												<div
+													className={cn(
+														'min-h-2 w-px flex-1',
+														i > 0
+															? 'bg-hai dark:bg-nezumi'
+															: 'invisible'
+													)}
+												/>
+												<span
+													aria-hidden="true"
+													className={cn(
+														'block size-2 shrink-0 rounded-full',
+														(state === 'past' || state === 'current') &&
+															'bg-beni dark:bg-beni-light',
+														state === 'upcoming' &&
+															'bg-hai dark:bg-nezumi'
+													)}
+												/>
+												<div
+													className={cn(
+														'min-h-2 w-px flex-1',
+														!isLast
+															? 'bg-hai dark:bg-nezumi'
+															: 'invisible'
+													)}
+												/>
+											</div>
+
+											{/* Content */}
+											<div className="pbl-px6 min-w-0 flex-1">
+												<span className="sr-only">{srLabel(state)}: </span>
+												<span className="text-2 text-hai dark:text-nezumi mie-1 tabular-nums">
+													{number}.
+												</span>
+												{state === 'current' ? (
+													<span className="text-sumi dark:text-washi text-balance font-bold">
+														{step.title}
+													</span>
+												) : (
+													<TextLink
+														href={`/writing/${step.id}/`}
+														className="text-balance"
+														onClick={() =>
+															trackEvent('Series: Step Click', {
+																from: currentIndex + 1,
+																to: i + 1,
+																total: steps.length,
+															})
+														}
+													>
+														{step.title}
+													</TextLink>
+												)}
+												{step.subtitle && (
+													<p className="text-2 text-hai dark:text-nezumi mbe-0 mbs-px2 text-balance">
+														{step.subtitle}
+													</p>
+												)}
+											</div>
+										</li>
+									);
+								})}
+							</ol>
+						</m.div>
+					)}
+				</AnimatePresence>
+			</nav>
+		</LazyMotion>
+	);
+};
+
+export default SeriesStepper;

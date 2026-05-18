@@ -1,21 +1,23 @@
 import mdx from '@astrojs/mdx';
-import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
+import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
-import { remarkReadingTime, remarkWidont } from './src/utils';
+import { remarkMark, remarkReadingTime, remarkTableOfContents, remarkWidont } from './src/utils';
 
-import customTheme from './shiki-theme.json';
+import customTheme from './ma-theme.json';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
-	viewTransitions: true,
+	image: {
+		service: { entrypoint: 'astro/assets/services/sharp' },
+	},
 	markdown: {
 		shikiConfig: {
 			theme: customTheme,
@@ -25,11 +27,15 @@ export default defineConfig({
 	},
 	integrations: [
 		mdx({
-			remarkPlugins: [remarkReadingTime, remarkWidont],
+			remarkPlugins: [
+				remarkGfm,
+				remarkMark,
+				remarkReadingTime,
+				remarkTableOfContents,
+				remarkWidont,
+			],
 		}),
-		tailwind(),
 		react(),
-		prefetch(),
 		pagefind(),
 		sitemap({
 			filter: (page) =>
@@ -80,6 +86,27 @@ export default defineConfig({
 			},
 		}),
 	],
+	vite: {
+		plugins: [
+			tailwindcss(),
+			{
+				name: 'pagefind-dev-stub',
+				apply: 'serve',
+				resolveId(id) {
+					if (id === '/pagefind/pagefind.js') return '\0pagefind-stub';
+				},
+				load(id) {
+					if (id === '\0pagefind-stub')
+						return 'export const init = async () => {}; export const search = async () => ({ results: [] });';
+				},
+			},
+		],
+		build: {
+			rollupOptions: {
+				external: ['/pagefind/pagefind.js'],
+			},
+		},
+	},
 	build: {
 		inlineStylesheets: 'always',
 		client: './dist',

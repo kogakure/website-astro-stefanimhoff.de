@@ -1,0 +1,284 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { sortBySortKey } from '@/utils';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Reveal from '@/components/interactive/motion/Reveal';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
+
+import AudioCard from '@/components/content/AudioCard';
+import BookCard from '@/components/content/BookCard';
+import Bookshelf from '@/components/content/Bookshelf';
+import VideoCard from '@/components/content/VideoCard';
+import ListItem from '@/components/ui/ListItem';
+import TextLink from '@/components/ui/TextLink';
+import UnorderedList from '@/components/ui/UnorderedList';
+
+import { Image } from 'astro:assets';
+import anarchoCover from '@/assets/images/cover/anarcho-capitalist-city.webp';
+
+import { Content as Intro } from '@/content/text/libertarianism/intro.mdx';
+import { Content as Principles } from '@/content/text/libertarianism/principles.mdx';
+import { Content as Concepts } from '@/content/text/libertarianism/concepts.mdx';
+import { mapping } from '@/mdx-components';
+import { roadmapLibertarianism } from '@/data/roadmap-libertarianism';
+import { resolveRoadmap } from '@/utils/resolve-roadmap';
+import Roadmap from '@/components/interactive/Roadmap';
+import Text from '@/components/ui/Text';
+
+type Books = CollectionEntry<'books'>;
+type Audiobooks = CollectionEntry<'audiobooks'>;
+type Podcasts = CollectionEntry<'podcasts'>;
+type Videos = CollectionEntry<'videos'>;
+type Articles = CollectionEntry<'articles'>;
+type Organizations = CollectionEntry<'organizations'>;
+
+const topic = 'libertarianism';
+const byTopic = (entry: { data: { topic: string } }) => entry.data.topic === topic;
+
+const [books, audiobooks, podcasts, videos, publications, organizations] = (
+	await Promise.all([
+		getCollection('books', byTopic),
+		getCollection('audiobooks', byTopic),
+		getCollection('podcasts', byTopic),
+		getCollection('videos', byTopic),
+		getCollection('articles', byTopic),
+		getCollection('organizations', byTopic),
+	])
+).map((group) => [...group].sort(sortBySortKey)) as [
+	Books[],
+	Audiobooks[],
+	Podcasts[],
+	Videos[],
+	Articles[],
+	Organizations[],
+];
+
+const roadmapMilestones = resolveRoadmap(roadmapLibertarianism, {
+	books,
+	audiobooks,
+	podcasts,
+	videos,
+});
+
+const coverOgUrl = '/assets/images/og/anarcho-capitalist-city.jpg';
+const title = 'Libertarianism';
+const description =
+	'A curated hub of books, audiobooks, podcasts, videos, and articles on libertarianism, anarcho-capitalism, and the philosophy of freedom.';
+---
+
+<BaseLayout cover={coverOgUrl} description={description} title={title}>
+	<PageTitle>{title}</PageTitle>
+
+	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-24">
+		<div class="md:rounded-2 col-span-full aspect-video overflow-hidden print:hidden">
+			<Image
+				src={anarchoCover}
+				alt="Anarcho-capitalist city"
+				widths={[800, 1200, 1600, 2400]}
+				sizes="(min-width: 1280px) 1376px, 100vw"
+				formats={['avif', 'webp']}
+				class="h-full w-full object-cover"
+				decoding="async"
+				loading="eager"
+			/>
+		</div>
+
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4 leading-relaxed">
+					<Intro components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
+
+		<Reveal client:visible>
+			<PageSection label="Principles">
+				<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4">
+					<Principles components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
+
+		<Reveal client:visible>
+			<PageSection label="Concepts & Schools">
+				<div class="[&>*:last-child]:mbe-0 flex flex-col gap-4">
+					<Concepts components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
+
+		{
+			roadmapMilestones.length > 0 && (
+				<Reveal client:visible>
+					<PageSection label="Roadmap">
+						<Text className="mbe-4">
+							New to these ideas? Follow the path. Each step deepens the last.
+						</Text>
+						<Roadmap milestones={roadmapMilestones} />
+					</PageSection>
+				</Reveal>
+			)
+		}
+
+		{
+			books.length > 0 && (
+				<Reveal client:visible>
+					<section class="flex flex-col gap-6">
+						<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+							<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+								<span class="text-2 text-hai block uppercase">Books</span>
+							</div>
+						</div>
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
+							{books.map((book) => (
+								<BookCard
+									asin={book.data.asin}
+									author={book.data.author}
+									cover={book.data.cover}
+									description={book.data.description}
+									featured={book.data.featured}
+									language={book.data.language}
+									links={book.data.links}
+									paid={book.data.paid}
+									subtitle={book.data.subtitle}
+									title={book.data.title}
+								/>
+							))}
+						</Bookshelf>
+					</section>
+				</Reveal>
+			)
+		}
+
+		{
+			audiobooks.length > 0 && (
+				<Reveal client:visible>
+					<section class="flex flex-col gap-6">
+						<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+							<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+								<span class="text-2 text-hai block uppercase">Audio Books</span>
+							</div>
+						</div>
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
+							{audiobooks.map((book) => (
+								<AudioCard
+									author={book.data.author}
+									cover={book.data.cover}
+									description={book.data.description}
+									featured={book.data.featured}
+									kind="audiobook"
+									language={book.data.language}
+									links={book.data.links}
+									paid={book.data.paid}
+									subtitle={book.data.subtitle}
+									title={book.data.title}
+								/>
+							))}
+						</Bookshelf>
+					</section>
+				</Reveal>
+			)
+		}
+
+		{
+			podcasts.length > 0 && (
+				<Reveal client:visible>
+					<section class="flex flex-col gap-6">
+						<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+							<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+								<span class="text-2 text-hai block uppercase">Podcasts</span>
+							</div>
+						</div>
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
+							{podcasts.map((podcast) => (
+								<AudioCard
+									author={podcast.data.moderator}
+									cover={podcast.data.cover}
+									description={podcast.data.description}
+									featured={podcast.data.featured}
+									kind="podcast"
+									language={podcast.data.language}
+									links={podcast.data.links}
+									moderator={podcast.data.moderator}
+									paid={podcast.data.paid}
+									subtitle={podcast.data.subtitle}
+									title={podcast.data.title}
+								/>
+							))}
+						</Bookshelf>
+					</section>
+				</Reveal>
+			)
+		}
+
+		{
+			videos.length > 0 && (
+				<Reveal client:visible>
+					<section class="flex flex-col gap-6">
+						<div class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+							<div class="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+								<span class="text-2 text-hai block uppercase">Videos</span>
+							</div>
+						</div>
+						<div class="grid-cols-auto-xl grid gap-5">
+							{videos.map((video) => (
+								<VideoCard
+									channel={video.data.channel}
+									cover={video.data.cover}
+									description={video.data.description}
+									featured={video.data.featured}
+									kind={video.data.kind}
+									language={video.data.language}
+									title={video.data.title}
+									url={video.data.url}
+									youtubeId={video.data.youtubeId}
+								/>
+							))}
+						</div>
+					</section>
+				</Reveal>
+			)
+		}
+
+		{
+			publications.length > 0 && (
+				<Reveal client:visible>
+					<PageSection label="Publications">
+						<UnorderedList>
+							{publications.map((pub) => (
+								<ListItem>
+									<TextLink href={pub.data.url}>{pub.data.title}</TextLink>
+									{pub.data.description && (
+										<span class="text-hai"> — {pub.data.description}</span>
+									)}
+								</ListItem>
+							))}
+						</UnorderedList>
+					</PageSection>
+				</Reveal>
+			)
+		}
+
+		{
+			organizations.length > 0 && (
+				<Reveal client:visible>
+					<PageSection label="Organizations">
+						<UnorderedList>
+							{organizations.map((org) => (
+								<ListItem>
+									<TextLink href={org.data.url}>{org.data.title}</TextLink>
+									{org.data.description && (
+										<span class="text-hai"> — {org.data.description}</span>
+									)}
+								</ListItem>
+							))}
+						</UnorderedList>
+					</PageSection>
+				</Reveal>
+			)
+		}
+	</div>
+</BaseLayout>

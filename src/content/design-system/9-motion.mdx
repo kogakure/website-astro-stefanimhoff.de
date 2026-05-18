@@ -1,0 +1,120 @@
+---
+title: Motion
+order: 9
+description: Motion in this system is not decoration — it is Datsuzoku.
+kanji: 動
+principle: Datsuzoku
+group: tokens
+---
+
+import EasingCurvePlot from "../../components/design-system/EasingCurvePlot";
+import EasingComparison from "../../components/design-system/EasingComparison";
+import DurationBar from "../../components/design-system/DurationBar";
+import MotionDemo from "../../components/design-system/MotionDemo";
+import ReducedMotionDemo from "../../components/design-system/ReducedMotionDemo";
+
+## Philosophy
+
+Motion in this system is not decoration — it is Datsuzoku, the moment of departure from stillness that makes the stillness meaningful. Every animation must justify its existence: does it orient the user, provide feedback, or reveal structure? If not, it is noise. The site should feel alive the way a garden feels alive — not because everything is moving, but because you sense that movement could happen.
+
+## Easing Curves
+
+Three custom curves as CSS custom properties. Click each plot to see the curve animate.
+
+<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+  <EasingCurvePlot
+    client:load
+    name="Enter"
+    p1x={0}
+    p1y={0}
+    p2x={0.38}
+    p2y={0.9}
+    role="Fast start, gentle landing"
+    cssVar="--ease-enter"
+  />
+  <EasingCurvePlot
+    client:load
+    name="Exit"
+    p1x={0.2}
+    p1y={0}
+    p2x={1}
+    p2y={0.9}
+    role="Slow start, accelerates away"
+    cssVar="--ease-exit"
+  />
+  <EasingCurvePlot
+    client:load
+    name="Standard"
+    p1x={0.2}
+    p1y={0}
+    p2x={0.38}
+    p2y={0.9}
+    role="Smooth and considered"
+    cssVar="--ease-standard"
+  />
+</div>
+
+```css
+--ease-enter: cubic-bezier(0, 0, 0.38, 0.9); /* ease-out — element appears */
+--ease-exit: cubic-bezier(0.2, 0, 1, 0.9); /* ease-in  — element departs */
+--ease-standard: cubic-bezier(0.2, 0, 0.38, 0.9); /* ease-in-out — element moves */
+```
+
+## Curve Comparison
+
+All three curves overlaid. Click to play.
+
+<EasingComparison client:load />
+
+## Duration Scale
+
+<DurationBar />
+
+| Token                   | Duration | Use                                  |
+| ----------------------- | -------- | ------------------------------------ |
+| `--duration-instant`    | 100ms    | Colour shifts, opacity, hover states |
+| `--duration-fast`       | 200ms    | Button feedback, icon transitions    |
+| `--duration-moderate`   | 300ms    | Dropdowns, tooltips, card hover      |
+| `--duration-slow`       | 500ms    | Modal / overlay entrance             |
+| `--duration-deliberate` | 800ms    | Page transitions, hero reveals       |
+
+## Motion Demo
+
+<MotionDemo client:load />
+
+## Reduced Motion — Seijaku
+
+When `prefers-reduced-motion: reduce` is active, strip all positional animation. Replace with opacity crossfade or no animation. Motion is never essential to understanding — the content is complete in stillness.
+
+<ReducedMotionDemo client:load />
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+## Choreography Rules
+
+- **Stagger, don't synchronise.** Multiple entering elements stagger by 50–80ms each — like brushstrokes laid one after another.
+- **Direction follows reading.** Elements enter from the left or bottom. Exit in the reverse direction.
+- **Hierarchy first.** Hero headline animates before body text, which animates before captions.
+
+## State Transitions
+
+| State change          | Animation                         | Duration | Easing            |
+| --------------------- | --------------------------------- | -------- | ----------------- |
+| Hover (link / button) | Colour shift                      | 100ms    | `--ease-standard` |
+| Hover (card image)    | Opacity fade + scale (1.0 → 1.02) | 300ms    | `--ease-enter`    |
+| Page change           | Cross-fade                        | 500ms    | `--ease-standard` |
+| Modal open            | Opacity 0→1 + translateY(8px → 0) | 300ms    | `--ease-enter`    |
+| Modal close           | Opacity 1→0 + translateY(0 → 8px) | 200ms    | `--ease-exit`     |
+| Arrow link hover      | Arrow translates 4px right        | 200ms    | `--ease-enter`    |
+| Text link hover       | Underline draws left to right     | 200ms    | `--ease-enter`    |

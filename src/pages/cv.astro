@@ -1,19 +1,20 @@
 ---
-import Divider from '../components/Divider.astro';
-import DownloadLink from '../components/DownloadLink.astro';
-import EmailLink from '../components/EmailLink.astro';
-import GridLayout from '../layouts/GridLayout.astro';
-import Headline from '../components/Headline.astro';
-import ListItem from '../components/ListItem.astro';
-import PageTitle from '../components/PageTitle.astro';
-import Subheadline from '../components/Subheadline.astro';
-import Subsubheadline from '../components/Subsubheadline.astro';
-import Text from '../components/Text.astro';
-import TextLink from '../components/TextLink.astro';
-import UnorderedList from '../components/UnorderedList.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DownloadLink from '@/components/content/DownloadLink';
+import EmailLink from '@/components/content/EmailLink';
+import Headline from '@/components/ui/Headline';
+import ListItem from '@/components/ui/ListItem';
+import MoreLink from '@/components/ui/MoreLink';
+import SectionLabel from '@/components/ui/SectionLabel';
+import Subheadline from '@/components/ui/Subheadline';
+import Subsubheadline from '@/components/ui/Subsubheadline';
+import Text from '@/components/ui/Text';
+import TextLink from '@/components/ui/TextLink';
+import Title from '@/components/ui/Title';
+import UnorderedList from '@/components/ui/UnorderedList';
 
-import { Content as Intro } from '../text/cv/intro.mdx';
-import { Content as InterestsHobbies } from '../text/cv/interests-hobbies.mdx';
+import { Content as Intro } from '../content/text/cv/intro.mdx';
+import { Content as InterestsHobbies } from '../content/text/cv/interests-hobbies.mdx';
 
 import { mapping } from '../mdx-components';
 
@@ -21,262 +22,314 @@ const title = 'Resume';
 const description = 'The resume of Stefan Imhoff, Senior Software Engineer from Hamburg, Germany.';
 ---
 
-<GridLayout
-	class="grid"
-	description={description}
-	grid="wide"
-	innerGrid
-	nofollow={true}
-	noindex={true}
-	title={title}
->
-	<PageTitle grid="wide" innerGrid>Resume</PageTitle>
+<BaseLayout description={description} nofollow={true} noindex={true} title={title}>
+	<!-- Hero: asymmetric 3+9 -->
+	<div
+		class="max-w-360 pli-8 pbe-16 pbs-32 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<!-- Left: kanji accent -->
+		<div
+			class="pbe-2 col-span-3 flex flex-col justify-end gap-4 md:col-span-2 xl:col-span-3 xl:col-start-1"
+		>
+			<span
+				class="font-japanese text-usuzumi dark:text-nezumi leading-none"
+				style="font-size: clamp(5rem, 10vw, 9rem)"
+				aria-hidden="true"
+			>
+				歴
+			</span>
+			<SectionLabel as="p">Career history</SectionLabel>
+		</div>
 
-	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline>Professional Summary</Headline>
-		<Intro components={mapping} />
-	</article>
-
-	<article class="col-span-full md:col-start-10 md:col-end-18">
-		<Headline>Personal Information</Headline>
-		<Subheadline class="font-semibold">Stefan Imhoff</Subheadline>
-		<Text class="!mbe-0">Senior Software Engineer / Design System Authority</Text>
-		<ul class="flex list-none flex-wrap items-center gap-2 p-0">
-			<li><TextLink href="https://www.stefanimhoff.de">Website</TextLink></li>
-			<li aria-hidden="true">•</li>
-			<li>
-				<EmailLink data-domain="stefanimhoff" data-name="cv" data-tld="de" icon={false} />
-			</li>
-			<li aria-hidden="true">•</li>
-			<li><DownloadLink href="/downloads/resume-stefan-imhoff.zip" text="Resume" /></li>
-			<li aria-hidden="true">•</li>
-			<li><DownloadLink href="/downloads/business-card-stefan-imhoff.zip" text="VCard" /></li>
-		</ul>
-	</article>
-
-	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
-
-	<article class="col-span-full md:col-start-1 md:col-end-9">
-		<Headline>Professional Experience</Headline>
-
-		<div>
-			<div class="mbe-10">
-				<Subheadline class="font-semibold">Senior Software Engineer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
-					<div class="leading-none">
-						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
-					</div>
-					<div class="italic no-common-ligatures">Remote / Mar. 2020 – Present</div>
-				</div>
-			</div>
-			<Text>
-				<em>
-					Lead Engineer for the XING Design System (XDS), recognized by management as the
-					<q>Authority for Design System components on Web.</q>
-				</em>
+		<!-- Right: title + tagline -->
+		<div class="col-span-3 md:col-span-4 xl:col-span-8 xl:col-start-5">
+			<Title>Resume</Title>
+			<Text as="p" className="text-3 text-hai mbe-0 mbs-4 max-w-[60ch]">
+				Senior Software Engineer · Design System Authority · Hamburg
 			</Text>
-			<UnorderedList>
-				<ListItem>
-					<strong>Delivered €572,400 in estimated annual savings</strong> (Savings Factor 3.32)
-					by establishing a centralized component creation workflow, achieving <q
-						>Top Performer</q
-					>
-					ratings (2021, 2022) for high-impact efficiency gains.
-				</ListItem>
-				<ListItem>
-					<strong>Dominated code contributions as the #3 ranked contributor</strong> - in the
-					Crate core monorepo (<strong>272,000+ LOC</strong> across <strong
-						>3,500+ files</strong
-					>), serving as the <strong>sole Web Engineer</strong> during critical 2023 reorganizations
-					while maintaining 100% delivery output.
-				</ListItem>
-				<ListItem>
-					<strong>Accelerated XING Design System adoption by 278%</strong> (cumulative growth
-					by Q3 2025), successfully deprecating legacy systems and reducing technical debt
-					through aggressive migration strategies acknowledged as <q
-						>technically demanding</q
-					> successes.
-				</ListItem>
-				<ListItem>
-					<strong>Spearheaded WCAG 2.2 AA compliance</strong> for the EU Accessibility Act,
-					conducting comprehensive audits on 50+ core components and implementing semantic
-					standards, focus management, and high-contrast support.
-				</ListItem>
-				<ListItem>
-					<strong>Recognized as a <q>Role Model for AI Tooling</q></strong> by leadership,
-					integrating generative AI into daily workflows for debugging and documentation, and
-					winning <strong>2nd Place in the 2023 AI Hackweek</strong> for profile image generation.
-				</ListItem>
-				<ListItem>
-					<strong>Engineered a scalable Dark Mode architecture</strong> by creating a dual-mode
-					SVG token mapping strategy for 400+ illustrations, reducing asset load sizes, and
-					enabling dynamic theming without code duplication.
-				</ListItem>
-				<ListItem>
-					<strong>Executed the cloud migration</strong> of 10+ internal tools and Chrome extensions
-					to <strong>GitHub Cloud</strong>, modernizing the CI/CD infrastructure and
-					ensuring zero downtime.
-				</ListItem>
-				<ListItem>
-					<strong>Lead the technical upgrade to Styled Components</strong> and TypeScript modernization,
-					refactoring complex types and eliminating “snowflake” implementations to enhance
-					build performance and developer experience.
-				</ListItem>
-				<ListItem>
-					<strong>Mentored junior engineers and working students</strong> through dedicated
-					onboarding programs and support sessions, formally praised for being
-					<q>the most helpful person I know.</q>
-				</ListItem>
-			</UnorderedList>
 		</div>
+	</div>
 
-		<div>
-			<div class="mbe-10">
-				<Subheadline class="font-semibold">Frontend Engineer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
-					<div class="leading-none">
-						<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
+	<!-- Divider -->
+	<div class="max-w-360 pli-8 pbe-16 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
+	</div>
+
+	<!-- Body: main + sidebar -->
+	<div
+		class="max-w-360 pli-8 pbe-20 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-16 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<!-- Main column -->
+		<div class="col-span-3 md:col-span-4 xl:col-span-7 xl:col-start-1">
+			<!-- Summary -->
+			<article class="mbe-14">
+				<SectionLabel as="p" className="mbe-4">01 · Summary</SectionLabel>
+				<Headline>Professional Summary</Headline>
+				<Intro components={mapping} />
+			</article>
+
+			<div class="border-usuzumi dark:border-nezumi mbe-14 border-bs-1"></div>
+
+			<!-- Experience -->
+			<article class="mbe-14">
+				<SectionLabel as="p" className="mbe-4">02 · Experience</SectionLabel>
+				<Headline>Professional Experience</Headline>
+
+				<div class="mbe-12">
+					<Subheadline className="font-semibold">Senior Software Engineer</Subheadline>
+					<div class="mbe-2 flex items-center justify-between">
+						<div class="leading-none">
+							<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
+						</div>
+						<div class="no-common-ligatures italic">Remote / Mar. 2020 – Present</div>
 					</div>
-					<div class="italic mbe-2 no-common-ligatures">
-						Hamburg, Germany / Jan. 2011 – Feb. 2020
+					<Text>
+						<em>
+							Lead Engineer for the XING Design System (XDS), recognized by management
+							as the
+							<q>Authority for Design System components on Web.</q>
+						</em>
+					</Text>
+					<UnorderedList>
+						<ListItem>
+							<strong>Delivered €572,400 in estimated annual savings</strong> (Savings
+							Factor 3.32) by establishing a centralized component creation workflow, achieving
+							<q>Top Performer</q>
+							ratings (2021, 2022) for high-impact efficiency gains.
+						</ListItem>
+						<ListItem>
+							<strong
+								>Dominated code contributions as the #3 ranked contributor</strong
+							> - in the Crate core monorepo (<strong>272,000+ LOC</strong> across <strong
+								>3,500+ files</strong
+							>), serving as the <strong>sole Web Engineer</strong> during critical 2023
+							reorganizations while maintaining 100% delivery output.
+						</ListItem>
+						<ListItem>
+							<strong>Accelerated XING Design System adoption by 278%</strong> (cumulative
+							growth by Q3 2025), successfully deprecating legacy systems and reducing
+							technical debt through aggressive migration strategies acknowledged as <q
+								>technically demanding</q
+							> successes.
+						</ListItem>
+						<ListItem>
+							<strong>Spearheaded WCAG 2.2 AA compliance</strong> for the EU Accessibility
+							Act, conducting comprehensive audits on 50+ core components and implementing
+							semantic standards, focus management, and high-contrast support.
+						</ListItem>
+						<ListItem>
+							<strong>Recognized as a <q>Role Model for AI Tooling</q></strong> by leadership,
+							integrating generative AI into daily workflows for debugging and documentation,
+							and winning <strong>2nd Place in the 2023 AI Hackweek</strong> for profile
+							image generation.
+						</ListItem>
+						<ListItem>
+							<strong>Engineered a scalable Dark Mode architecture</strong> by creating
+							a dual-mode SVG token mapping strategy for 400+ illustrations, reducing asset
+							load sizes, and enabling dynamic theming without code duplication.
+						</ListItem>
+						<ListItem>
+							<strong>Executed the cloud migration</strong> of 10+ internal tools and Chrome
+							extensions to <strong>GitHub Cloud</strong>, modernizing the CI/CD
+							infrastructure and ensuring zero downtime.
+						</ListItem>
+						<ListItem>
+							<strong>Lead the technical upgrade to Styled Components</strong> and TypeScript
+							modernization, refactoring complex types and eliminating "snowflake" implementations
+							to enhance build performance and developer experience.
+						</ListItem>
+						<ListItem>
+							<strong>Mentored junior engineers and working students</strong> through dedicated
+							onboarding programs and support sessions, formally praised for being
+							<q>the most helpful person I know.</q>
+						</ListItem>
+					</UnorderedList>
+				</div>
+
+				<div class="mbe-12">
+					<Subheadline className="font-semibold">Frontend Engineer</Subheadline>
+					<div class="mbe-2 flex items-center justify-between">
+						<div class="leading-none">
+							<strong><TextLink href="https://www.xing.com">XING</TextLink></strong>
+						</div>
+						<div class="mbe-2 no-common-ligatures italic">
+							Hamburg, Germany / Jan. 2011 – Feb. 2020
+						</div>
+					</div>
+					<Text>
+						<em>
+							Key contributor to high-traffic product verticals including Onboarding,
+							SEO, Mobile, and Jobs. Consistently rated <q
+								>Expectations Clearly Exceeded</q
+							> (2018, 2019).
+						</em>
+					</Text>
+
+					<div class="mbe-2 flex items-center justify-between">
+						<Subsubheadline>Onboarding Team</Subsubheadline>
+						<div class="mbe-2 no-common-ligatures italic">2017–2020</div>
+					</div>
+					<UnorderedList>
+						<ListItem>
+							<strong>Led the "Reactification" of user profiles</strong> and the team's
+							migration to <strong>TypeScript</strong>, managing the entire frontend
+							stack solo in 2019 and earning a <q
+								>Performance Expectations Clearly Exceeded</q
+							> rating.
+						</ListItem>
+						<ListItem>
+							<strong>Improved user profile completion rates</strong> by engineering a
+							high-performance responsive widget using React.js and Redux, optimizing the
+							data entry flow for new users.
+						</ListItem>
+					</UnorderedList>
+
+					<div class="mbe-2 flex items-center justify-between">
+						<Subsubheadline>SEO Team</Subsubheadline>
+						<div class="mbe-2 no-common-ligatures italic">2015–2017</div>
+					</div>
+					<UnorderedList>
+						<ListItem>
+							<strong>Maximized organic traffic and Google rankings</strong> by re-architecting
+							the Logged-Out User Profile with a focus on "Mobile First" performance and
+							Core Web Vitals.
+						</ListItem>
+						<ListItem>
+							<strong>Pioneered the first production usage of CSS Grid</strong> at XING
+							during the relaunch of Public Search, setting the standard for modern layout
+							implementation across the company.
+						</ListItem>
+					</UnorderedList>
+
+					<div class="mbe-2 flex items-center justify-between">
+						<Subsubheadline>Mobile Web Team</Subsubheadline>
+						<div class="mbe-2 no-common-ligatures italic">2013–2014</div>
+					</div>
+					<UnorderedList>
+						<ListItem>
+							<strong>Enhanced cross-device consistency</strong> by developing a hybrid
+							iPad application using Backbone.js and migrating the "XING Touch" platform
+							to a flattened, responsive design system.
+						</ListItem>
+						<ListItem>
+							<strong>Increased user engagement</strong> by programming an interactive
+							horizontal navigation with complex state-based animations.
+						</ListItem>
+					</UnorderedList>
+
+					<div class="mbe-2 flex items-center justify-between">
+						<Subsubheadline>Jobs Team</Subsubheadline>
+						<div class="mbe-2 no-common-ligatures italic">2011–2013</div>
+					</div>
+					<UnorderedList>
+						<ListItem>
+							<strong>Increased job ad visits by 59%</strong> by conceptualizing and developing
+							a novel "Context Pagination" feature, significantly boosting user retention.
+						</ListItem>
+						<ListItem>
+							<strong>Launched "XING Projects" (Beta)</strong> by successfully pitching
+							and developing a Freelancer Marketplace prototype during Innovation Week,
+							which evolved into a dedicated revenue-generating product.
+						</ListItem>
+					</UnorderedList>
+				</div>
+
+				<div class="mbe-12">
+					<Subheadline className="font-semibold">Web Designer</Subheadline>
+					<div class="mbe-2 flex items-center justify-between">
+						<div class="leading-none">
+							<strong
+								><TextLink href="https://duf.de/">Dumrath & Fassnacht</TextLink
+								></strong
+							>
+						</div>
+						<div class="mbe-2 no-common-ligatures italic">
+							Hamburg, Germany / Sep. 2005 – Dec. 2010
+						</div>
 					</div>
 				</div>
-			</div>
-			<Text>
-				<em
-					>Key contributor to high-traffic product verticals including Onboarding, SEO,
-					Mobile, and Jobs. Consistently rated <q>Expectations Clearly Exceeded</q> (2018,
-					2019).</em
-				>
-			</Text>
 
-			<div class="flex items-center justify-between mbe-2">
-				<Subsubheadline>Onboarding Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2017–2020</div>
-			</div>
-			<UnorderedList>
-				<ListItem>
-					<strong>Led the “Reactification” of user profiles</strong> and the team's migration
-					to <strong>TypeScript</strong>, managing the entire frontend stack solo in 2019
-					and earning a <q>Performance Expectations Clearly Exceeded</q> rating.
-				</ListItem>
-				<ListItem>
-					<strong>Improved user profile completion rates</strong> by engineering a high-performance
-					responsive widget using React.js and Redux, optimizing the data entry flow for new
-					users.
-				</ListItem>
-			</UnorderedList>
-
-			<div class="flex items-center justify-between mbe-2">
-				<Subsubheadline>SEO Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2015–2017</div>
-			</div>
-			<UnorderedList>
-				<ListItem>
-					<strong>Maximized organic traffic and Google rankings</strong> by re-architecting
-					the Logged-Out User Profile with a focus on “Mobile First” performance and Core Web
-					Vitals.
-				</ListItem>
-				<ListItem>
-					<strong>Pioneered the first production usage of CSS Grid</strong> at XING during
-					the relaunch of Public Search, setting the standard for modern layout implementation
-					across the company.
-				</ListItem>
-			</UnorderedList>
-
-			<div class="flex items-center justify-between mbe-2">
-				<Subsubheadline>Mobile Web Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2013–2014</div>
-			</div>
-			<UnorderedList>
-				<ListItem>
-					<strong>Enhanced cross-device consistency</strong> by developing a hybrid iPad application
-					using Backbone.js and migrating the “XING Touch” platform to a flattened, responsive
-					design system.
-				</ListItem>
-				<ListItem>
-					<strong>Increased user engagement</strong> by programming an interactive horizontal
-					navigation with complex state-based animations.
-				</ListItem>
-			</UnorderedList>
-
-			<div class="flex items-center justify-between mbe-2">
-				<Subsubheadline>Jobs Team</Subsubheadline>
-				<div class="italic mbe-2 no-common-ligatures">2011–2013</div>
-			</div>
-			<UnorderedList>
-				<ListItem>
-					<strong>Increased job ad visits by 59%</strong> by conceptualizing and developing
-					a novel “Context Pagination” feature, significantly boosting user retention.
-				</ListItem>
-				<ListItem>
-					<strong>Launched “XING Projects” (Beta)</strong> by successfully pitching and developing
-					a Freelancer Marketplace prototype during Innovation Week, which evolved into a dedicated
-					revenue-generating product.
-				</ListItem>
-			</UnorderedList>
-		</div>
-
-		<div>
-			<div class="mbe-10">
-				<Subheadline class="font-semibold">Web Designer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
-					<div class="leading-none">
-						<strong
-							><TextLink href="https://www.xing.com">Dumrath & Fassnacht</TextLink
-							></strong
-						>
-					</div>
-					<div class="italic mbe-2 no-common-ligatures">
-						Hamburg, Germany / Sep. 2005 – Dec. 2010
+				<div class="mbe-12">
+					<Subheadline className="font-semibold">Media Designer</Subheadline>
+					<div class="mbe-2 flex items-center justify-between">
+						<div class="leading-none">
+							<strong
+								><TextLink href="https://www.igs-development.de"
+									>IGS Development</TextLink
+								></strong
+							>
+						</div>
+						<div class="mbe-2 no-common-ligatures italic">
+							Harbke, Germany / Feb. 2002 – Jan. 2005
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</article>
 
-		<div>
-			<div class="mbe-10">
-				<Subheadline class="font-semibold">Media Designer</Subheadline>
-				<div class="flex items-center justify-between mbe-2">
-					<div class="leading-none">
-						<strong
-							><TextLink href="https://www.xing.com">IGS Development</TextLink
-							></strong
-						>
+			<div class="border-usuzumi dark:border-nezumi mbe-14 border-bs-1"></div>
+
+			<!-- Education -->
+			<article>
+				<SectionLabel as="p" className="mbe-4">03 · Education</SectionLabel>
+				<Headline>Education</Headline>
+
+				<div class="mbe-12">
+					<Subheadline className="font-semibold">Computer Scientist</Subheadline>
+					<div class="mbe-2 flex items-center justify-between">
+						<div class="leading-none">
+							<strong
+								><TextLink href="https://www.bib.de"
+									>bib International College</TextLink
+								></strong
+							>
+						</div>
+						<div class="mbe-2 no-common-ligatures italic">
+							Hanover, Germany / Oct. 1999 – Sept. 2001
+						</div>
 					</div>
-					<div class="italic mbe-2 no-common-ligatures">
-						Harbke, Germany / Feb. 2002 – Jan. 2005
-					</div>
 				</div>
-			</div>
+			</article>
 		</div>
 
-		<Divider />
-
-		<Headline>Education</Headline>
-
-		<div class="mbe-12">
-			<Subheadline class="font-semibold">Computer Scientist</Subheadline>
-			<div class="flex items-center justify-between mbe-2">
-				<div class="leading-none">
-					<strong
-						><TextLink href="https://www.bib.de">bib International College</TextLink
-						></strong
-					>
+		<!-- Sidebar column -->
+		<aside class="col-span-3 md:col-span-2 xl:col-span-4 xl:col-start-9">
+			<!-- Personal Information -->
+			<article class="mbe-10">
+				<SectionLabel as="p" className="mbe-4">Contact</SectionLabel>
+				<Subheadline className="mbe-1 font-semibold">Stefan Imhoff</Subheadline>
+				<Text as="p" className="text-3 mbe-0">
+					Senior Software Engineer / Design System Authority
+				</Text>
+				<Text as="p" className="text-3 text-hai mbe-4">Hamburg, Germany</Text>
+				<div class="flex flex-col items-start gap-2">
+					<MoreLink href="https://www.stefanimhoff.de" text="Website" />
+					<EmailLink
+						data-domain="stefanimhoff"
+						data-name="hey"
+						data-tld="de"
+						text="hey@stefanimhoff.de"
+						client:idle
+					/>
+					<DownloadLink
+						href="/downloads/resume-stefan-imhoff.zip"
+						text="Resume"
+						className="text-sumi dark:text-washi hover:text-beni dark:hover:text-beni-light font-bold"
+					/>
+					<DownloadLink
+						href="/downloads/business-card-stefan-imhoff.zip"
+						text="vCard"
+						className="text-sumi dark:text-washi hover:text-beni dark:hover:text-beni-light font-bold"
+					/>
 				</div>
-				<div class="italic mbe-2 no-common-ligatures">
-					Hanover, Germany / Oct. 1999 – Sept. 2001
-				</div>
-			</div>
-		</div>
-	</article>
+			</article>
 
-	<aside class="col-span-full md:col-start-10 md:col-end-18">
-		<article>
-			<Headline>Key Skills</Headline>
-			<div>
-				<Subheadline class="font-semibold">Core Competencies</Subheadline>
-				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+			<div class="border-usuzumi dark:border-nezumi mbe-10 border-bs-1"></div>
+
+			<!-- Key Skills -->
+			<article class="mbe-10">
+				<Headline>Key Skills</Headline>
+				<Subheadline className="font-semibold">Core Competencies</Subheadline>
+				<UnorderedList className="mbe-10 mbs-5 list-none! p-0">
 					<ListItem>
 						<strong>Design Systems:</strong> Architecture, Tokenization, Versioning, Governance,
 						<q>Swiss Precision</q> Quality Assurance.
@@ -295,8 +348,8 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 					</ListItem>
 				</UnorderedList>
 
-				<Subheadline class="font-semibold">Technologies & Tools</Subheadline>
-				<UnorderedList class="!list-none p-0 mbe-10 mbs-5">
+				<Subheadline className="font-semibold">Technologies & Tools</Subheadline>
+				<UnorderedList className="mbe-0 mbs-5 list-none! p-0">
 					<ListItem>
 						<strong>Languages:</strong> TypeScript, JavaScript (ES6+), HTML5, CSS3, PostCSS,
 						CSS Modules, Sass/SCSS.
@@ -310,58 +363,64 @@ const description = 'The resume of Stefan Imhoff, Senior Software Engineer from 
 					</ListItem>
 					<ListItem>
 						<strong>DevOps & AI:</strong> Git, GitHub Actions, Docker, Jenkins, GitHub Copilot,
-						Claude Code, OpenCode, Prompt Engineering.
+						Claude Code, Codex, OpenCode, Pi Agent, Prompt Engineering.
 					</ListItem>
 					<ListItem>
 						<strong>Design:</strong> Figma, Sketch, Adobe Creative Suite, Affinity.
 					</ListItem>
 				</UnorderedList>
-			</div>
-		</article>
+			</article>
 
-		<article>
-			<Headline>Languages</Headline>
-			<UnorderedList>
-				<ListItem>
-					<strong>German:</strong> Native
-				</ListItem>
-				<ListItem>
-					<strong>English:</strong> Fluent (Spoken & Written)
-				</ListItem>
-				<ListItem>
-					<strong>Spanish:</strong> Basic (A2/B1)
-				</ListItem>
-				<ListItem>
-					<strong>Japanese:</strong> Basic (JLPT N3 level)
-				</ListItem>
-			</UnorderedList>
+			<div class="border-usuzumi dark:border-nezumi mbe-10 border-bs-1"></div>
 
+			<!-- Languages -->
+			<article class="mbe-10">
+				<Headline>Languages</Headline>
+				<UnorderedList>
+					<ListItem><strong>German:</strong> Native</ListItem>
+					<ListItem><strong>English:</strong> Fluent (Spoken & Written)</ListItem>
+					<ListItem><strong>Spanish:</strong> Basic (A2/B1)</ListItem>
+					<ListItem><strong>Japanese:</strong> Basic (JLPT N3 level)</ListItem>
+				</UnorderedList>
+			</article>
+
+			<div class="border-usuzumi dark:border-nezumi mbe-10 border-bs-1"></div>
+
+			<!-- Awards & Hackathons -->
 			<article>
 				<Headline>Awards & Hackathons</Headline>
 				<UnorderedList>
-					<ListItem
-						><strong>3x Winner of XING Hackweeks</strong> (2023, 2024, 2025) – <em
+					<ListItem>
+						<strong>3x Winner of XING Hackweeks</strong> (2023, 2024, 2025) – <em
 							>Consistently driving innovation in internal tools and AI.</em
-						></ListItem
-					><ListItem
-						><strong>2nd Place AI Hackweek (2023)</strong> (2013, 2015, 2017) – <em
+						>
+					</ListItem>
+					<ListItem>
+						<strong>2nd Place AI Hackweek (2023)</strong> – <em
 							>Company-wide innovation awards.</em
-						></ListItem
-					><ListItem
-						><strong>SEMY Award</strong> (2015) – <em
+						>
+					</ListItem>
+					<ListItem>
+						<strong>SEMY Award</strong> (2015) – <em
 							>German Search Marketing Award for SEO excellence.</em
-						></ListItem
-					>
+						>
+					</ListItem>
 				</UnorderedList>
 			</article>
-		</article>
-	</aside>
-	<Divider class="col-span-full w-[90] !mbe-0 !mbs-0" />
+		</aside>
+	</div>
 
-	<article class="col-span-full">
+	<!-- Divider -->
+	<div class="max-w-360 pli-8 pbe-16 mx-auto w-full">
+		<div class="border-usuzumi dark:border-nezumi border-bs-1"></div>
+	</div>
+
+	<!-- Interests -->
+	<div class="max-w-360 pli-8 pbe-32 mx-auto w-full">
+		<SectionLabel as="p" className="mbe-4">04 · Interests</SectionLabel>
 		<Headline>Interests & Hobbies</Headline>
-		<ul class="columns-1 gap-gap md:columns-2">
+		<ul class="gap-gap list-none columns-1 p-0 md:columns-2 xl:columns-3">
 			<InterestsHobbies components={mapping} />
 		</ul>
-	</article>
-</GridLayout>
+	</div>
+</BaseLayout>

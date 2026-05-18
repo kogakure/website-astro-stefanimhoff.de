@@ -1,0 +1,95 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PageTitle from '../components/site/PageTitle.astro';
+
+export interface Props {
+	frontmatter?: any;
+	title?: string;
+	description?: string;
+	cover?: string;
+	noindex?: boolean;
+	nofollow?: boolean;
+}
+
+const {
+	frontmatter,
+	title: titleProp,
+	description: descProp,
+	cover: coverProp,
+	noindex: noindexProp,
+	nofollow: nofollowProp,
+} = Astro.props;
+
+const title = frontmatter?.title ?? titleProp;
+const description = frontmatter?.description ?? descProp ?? '';
+const cover = frontmatter?.cover ?? coverProp;
+const noindex = frontmatter?.noindex ?? noindexProp;
+const nofollow = frontmatter?.nofollow ?? nofollowProp;
+
+if (!title) {
+	throw new Error('SimpleLayout requires a `title` (via frontmatter or prop).');
+}
+---
+
+<BaseLayout
+	title={title}
+	description={description}
+	cover={cover}
+	noindex={noindex}
+	nofollow={nofollow}
+>
+	<!-- Page title -->
+	<PageTitle>{title}</PageTitle>
+
+	{
+		cover && (
+			<div class="max-w-360 pli-8 pbe-16 mx-auto w-full">
+				<img
+					src={cover}
+					alt={title}
+					class="rounded-2 w-full object-cover"
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
+		)
+	}
+
+	<!-- Content -->
+	<div class="max-w-360 pli-8 pbe-32 mx-auto w-full">
+		<div
+			class="simple-content [&_li]:-block-start-1 relative grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
+		>
+			<slot />
+		</div>
+	</div>
+</BaseLayout>
+
+<style is:global>
+	@reference "../styles/global.css";
+
+	.simple-content > * {
+		@apply col-span-3 md:col-span-5 xl:col-span-6 xl:col-start-4;
+	}
+
+	.simple-content > h2 {
+		@apply text-2 text-hai col-span-3 self-start uppercase md:col-span-2 md:col-start-1 xl:col-span-2 xl:col-start-2;
+		@apply mbe-0 mbs-10 font-normal tracking-normal dark:font-normal;
+	}
+
+	.simple-content > h2:first-child {
+		@apply mbs-0;
+	}
+
+	.simple-content > h2 + * {
+		@apply xl:mbs-10;
+	}
+
+	.simple-content > h2:first-child + * {
+		@apply xl:mbs-0;
+	}
+
+	.simple-content > h3 {
+		@apply text-3 text-sumi dark:text-washi mbe-2 mbs-8 font-bold;
+	}
+</style>

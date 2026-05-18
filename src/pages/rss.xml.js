@@ -8,12 +8,15 @@ import { sortByDate } from '../utils';
 
 const parser = new MarkdownIt({ html: true });
 
-import { stripMDXComponents } from '../utils';
+import { escapeHtml, stripMDXComponents } from '../utils';
+import { getPreviewUrl } from '../utils/preview-url';
 
 export async function GET(context) {
-	const journal = await getCollection('journal', ({ data }) => !data.draft);
-	const haiku = await getCollection('haiku');
-	journal.sort(sortByDate);
+	const [writing, haiku] = await Promise.all([
+		getCollection('writing', ({ data }) => !data.draft),
+		getCollection('haiku'),
+	]);
+	writing.sort(sortByDate);
 	haiku.sort(sortByDate);
 
 	return rss({
@@ -25,10 +28,10 @@ export async function GET(context) {
 			media: 'http://search.yahoo.com/mrss/',
 		},
 		items: [
-			...journal.map((post) => {
+			...writing.map((post) => {
 				const { title, subtitle, date, description, cover } = post.data;
 				// Filter out import statements from content
-				const contentWithoutImports = post.body
+				const contentWithoutImports = (post.body ?? '')
 					.split('\n')
 					.filter((line) => !line.startsWith('import'))
 					.join('\n');
@@ -52,35 +55,28 @@ export async function GET(context) {
 					},
 				});
 
-				// Logic to determine image URL
-				const isWebp =
-					cover?.startsWith('/assets/images/cover/') && cover?.endsWith('.webp');
-				const imgUrl = isWebp
-					? cover
-							.replace('/assets/images/cover/', '/assets/images/thumbnail/')
-							.replace(/\.webp$/, '.jpg')
-					: '/assets/images/thumbnail/bonsai.jpg';
+				const previewUrl = getPreviewUrl(cover);
+				const coverBasename = cover?.src
+					? (cover.src.split('/').pop()?.split('.')[0] ?? null)
+					: null;
+				const ogUrl = coverBasename
+					? `/assets/images/og/${coverBasename}.jpg`
+					: '/assets/images/og/ma.jpg';
 
 				return {
 					title: subtitle ? `${title}: ${subtitle}` : title,
 					pubDate: date,
 					description: description,
-					link: `/${post.slug}/`,
+					link: `/writing/${post.id.split('/').pop()}/`,
 					content: sanitizedContent,
 					enclosure: {
-						url:
-							site.url +
-							(isWebp
-								? cover
-										.replace('/assets/images/cover/', '/assets/images/og/')
-										.replace(/\.webp$/, '.jpg')
-								: '/assets/images/og/bonsai.jpg'),
+						url: site.url + ogUrl,
 						length: 0,
 						type: 'image/jpeg',
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}${imgUrl}" width="100" height="100" />
+            <media:thumbnail url="${site.url}${previewUrl}" width="800" height="450" />
           `,
 				};
 			}),
@@ -88,16 +84,16 @@ export async function GET(context) {
 				return {
 					title: `Haiku ${item.slug}`,
 					pubDate: item.data.date,
-					link: `/haiku/${item.slug}/`,
-					content: `<blockquote><p>${item.data.de}</p><hr /><p>${item.data.en}</p></blockquote>`,
+					link: `/haiku/#haiku-${item.slug}`,
+					content: `<blockquote><p>${escapeHtml(item.data.de)}</p><hr /><p>${escapeHtml(item.data.en)}</p></blockquote>`,
 					enclosure: {
-						url: `${site.url}/assets/images/og/bonsai.jpg`,
+						url: `${site.url}/assets/images/og/ma.jpg`,
 						length: 0,
 						type: 'image/jpeg',
 					},
 					customData: `
             <language>en-us</language>
-            <media:thumbnail url="${site.url}/assets/images/thumbnail/bonsai.jpg" width="100" height="100" />
+            <media:thumbnail url="${site.url}/assets/images/preview/ma.webp" width="800" height="450" />
           `,
 				};
 			}),

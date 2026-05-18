@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import SectionLabel from '@/components/ui/SectionLabel';
+import WorkItemFeatured from './WorkItemFeatured.astro';
+import WorkItemFullBleed from './WorkItemFullBleed.astro';
+import WorkItemGallery2 from './WorkItemGallery2.astro';
+import WorkItemGallery2Stagger from './WorkItemGallery2Stagger.astro';
+import WorkItemGallery3 from './WorkItemGallery3.astro';
+import WorkItemGallery3Stagger from './WorkItemGallery3Stagger.astro';
+import WorkItemImageInset from './WorkItemImageInset.astro';
+import WorkItemTextOnly from './WorkItemTextOnly.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+	index: number;
+}
+
+const { entry, index } = Astro.props;
+const sectionLabel = entry.data.sectionLabel;
+
+function resolveLayout(entry: CollectionEntry<'work'>) {
+	if (entry.data.variant) return entry.data.variant;
+	const imageCount = entry.data.images?.length ?? 0;
+	if (imageCount >= 3) return 'gallery-3';
+	if (imageCount === 2) return 'gallery-2';
+	return 'text-only';
+}
+
+const variant = resolveLayout(entry);
+---
+
+<div>
+	{
+		sectionLabel && (
+			<div class="mbe-16 grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+				<div class="col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
+					<SectionLabel as="p">{sectionLabel}</SectionLabel>
+				</div>
+			</div>
+		)
+	}
+
+	{variant === 'featured' && <WorkItemFeatured entry={entry} index={index} />}
+	{variant === 'gallery-2' && <WorkItemGallery2 entry={entry} index={index} />}
+	{variant === 'gallery-2-stagger' && <WorkItemGallery2Stagger entry={entry} index={index} />}
+	{variant === 'gallery-3' && <WorkItemGallery3 entry={entry} index={index} />}
+	{variant === 'gallery-3-stagger' && <WorkItemGallery3Stagger entry={entry} index={index} />}
+	{variant === 'full-bleed' && <WorkItemFullBleed entry={entry} index={index} />}
+	{variant === 'image-inset' && <WorkItemImageInset entry={entry} index={index} />}
+	{variant === 'text-only' && <WorkItemTextOnly entry={entry} />}
+</div>

@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import WorkContent from './WorkContent.astro';
+import WorkImageOptimized from './WorkImageOptimized.astro';
+
+interface Props {
+	entry: CollectionEntry<'work'>;
+	index: number;
+}
+
+const { entry } = Astro.props;
+const { title, images = [] } = entry.data;
+const [primary, ...gallery] = images;
+---
+
+<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+	<WorkContent entry={entry} />
+
+	{
+		primary && (
+			<WorkImageOptimized
+				src={primary.src}
+				alt={primary.alt ?? title}
+				sizes="(min-width: 1280px) 1376px, 100vw"
+				className="mbe-6 md:mbe-8 xl:mbe-8 col-span-3 md:col-span-6 xl:col-span-12"
+			/>
+		)
+	}
+
+	{
+		gallery[0] && (
+			<WorkImageOptimized
+				src={gallery[0].src}
+				alt={gallery[0].alt ?? title}
+				sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
+				className="mbe-6 md:mbe-0 col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-2 self-start"
+			/>
+		)
+	}
+
+	{
+		gallery[1] && (
+			<WorkImageOptimized
+				src={gallery[1].src}
+				alt={gallery[1].alt ?? title}
+				sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw"
+				className="col-span-3 md:col-span-3 xl:col-span-5 xl:col-start-7 self-start"
+			/>
+		)
+	}
+</article>

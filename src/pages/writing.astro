@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type Writing = CollectionEntry<'writing'>;
+import { getCollection } from 'astro:content';
+
+import { formatPosts, getWritingSlug } from '@/utils';
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
+import Reveal from '@/components/interactive/motion/Reveal';
+import WritingPage from '@/components/interactive/WritingPage';
+
+import { Content as WritingIntro } from '@/content/text/writing/intro.mdx';
+import { mapping } from '@/mdx-components';
+
+const allPosts = await getCollection('writing', ({ data }: Writing) => !data.draft);
+const formattedPosts = formatPosts(allPosts, {});
+
+const uniqueTags = [...new Set(formattedPosts.flatMap((entry) => entry.data.tags ?? []))];
+uniqueTags.sort((a, b) => a.localeCompare(b));
+
+const posts = formattedPosts.map((entry) => ({
+	slug: getWritingSlug(entry.id),
+	title: entry.data.title,
+	subtitle: entry.data.subtitle,
+	tags: entry.data.tags ?? [],
+	year: new Date(entry.data.date).getFullYear(),
+	cover: entry.data.cover,
+}));
+
+const title = 'Writing';
+const description =
+	'Essays on design, code, philosophy, and the examined life. Published here since 2007.';
+---
+
+<BaseLayout title={title} description={description}>
+	<PageTitle>Writing</PageTitle>
+
+	<div class="max-w-360 pli-8 pbe-32 pbs-16 mx-auto flex w-full flex-col gap-16">
+		<Reveal client:visible>
+			<PageSection label="Introduction">
+				<WritingIntro components={mapping} />
+			</PageSection>
+		</Reveal>
+
+		<WritingPage client:load allTags={uniqueTags} posts={posts} />
+	</div>
+</BaseLayout>

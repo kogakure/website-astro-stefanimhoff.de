@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/PageLayout.astro
+layout: ../layouts/SimpleLayout.astro
 title: Imprint
 description: The imprint of this website.
 noindex: true
@@ -7,24 +7,27 @@ nofollow: true
 ---
 
 import { mapping } from "../mdx-components.ts";
+import EmailLink from "../components/content/EmailLink.tsx";
 export const components = mapping;
 
-### Contact Person
+## Contact
 
-Stefan Imhoff<br /><><EmailLink data-domain="stefanimhoff" data-name="hey" data-tld="de" text="E-Mail" /></>
+Stefan Imhoff<br /><><EmailLink data-domain="stefanimhoff" data-name="hey" data-tld="de" text="hey@stefanimhoff.de" client:load /></>
 
 - [Paypal](https://www.paypal.me/kogakure)
 - `kogakure@walletofsatoshi.com`
 
-### License
+## License
 
 All content has a copyright by _Stefan Imhoff_ unless otherwise stated. You are welcome to learn from the [Source Code](https://github.com/kogakure/website-astro-stefanimhoff.de) and reuse code for your projects.
 
-The essays in my [Journal](/journal/) on this website have a [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
+The essays in my [Writing](/writing/) on this website have a [Creative Commons](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
 To use my design (the unique combination of layout, photos, and illustrations), my private photos, personal data, and my logo, you need written permission for any usage.
 
 In easier words: This is not a free theme. Learn from it. Remix. Reuse. Build your own things.&nbsp;🤘
+
+## Legal
 
 ### Legal Fine Print
 

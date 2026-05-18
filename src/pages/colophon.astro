@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Reveal from '@/components/interactive/motion/Reveal';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PageSection from '@/components/ui/PageSection';
+
+import { Content as Design } from '@/content/text/colophon/design.mdx';
+import { Content as Technology } from '@/content/text/colophon/technology.mdx';
+import { mapping } from '@/mdx-components';
+
+const title = 'Colophon';
+const description = 'How this website was designed and built.';
+---
+
+<BaseLayout title={title} description={description}>
+	<PageTitle>Colophon</PageTitle>
+
+	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-16">
+		<Reveal client:visible>
+			<PageSection label="Design">
+				<div class="*:mbe-0 flex flex-col gap-5 leading-relaxed">
+					<Design components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
+
+		<Reveal client:visible>
+			<PageSection label="Technology">
+				<div class="*:mbe-0 flex flex-col gap-5 leading-relaxed">
+					<Technology components={mapping} />
+				</div>
+			</PageSection>
+		</Reveal>
+	</div>
+</BaseLayout>

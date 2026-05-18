@@ -1,43 +1,66 @@
-import { YouTube } from '@astro-community/astro-embed-youtube';
-
-import AmazonBook from './components/AmazonBook.astro';
-import AppleTVFlag from './components/AppleTVFlag.astro';
-import Banner from './components/Banner.astro';
-import Blockquote from './components/Blockquote.astro';
-import Book from './components/Book.astro';
-import Bookshelf from './components/Bookshelf.astro';
-import ColorStack from './components/ColorStack.astro';
-import ColorSwatch from './components/ColorSwatch.astro';
-import DisplayBox from './components/DisplayBox.astro';
-import Divider from './components/Divider.astro';
-import DownloadLink from './components/DownloadLink.astro';
-import EmailLink from './components/EmailLink.astro';
-import Figure from './components/Figure.astro';
-import Flag from './components/Flag.astro';
-import Headline from './components/Headline.astro';
-import Image from './components/Image.astro';
-import ListItem from './components/ListItem.astro';
-import MarkdownImage from './components/MarkdownImage.astro';
-import MoreLink from './components/MoreLink.astro';
-import NetflixFlag from './components/NetflixFlag.astro';
-import OrderedList from './components/OrderedList.astro';
-import PrimeVideoFlag from './components/PrimeVideoFlag.astro';
-import ProductLink from './components/ProductLink.astro';
-import ProjectIntro from './components/ProjectIntro.astro';
-import Pullquote from './components/Pullquote.astro';
-import Ruby from './components/Ruby.astro';
-import Spotify from './components/Spotify.astro';
-import Subheadline from './components/Subheadline.astro';
-import Subsubheadline from './components/Subsubheadline.astro';
-import Text from './components/Text.astro';
-import TextLink from './components/TextLink.astro';
-import ThemeBox from './components/ThemeBox.astro';
-import Title from './components/Title.astro';
-import UnorderedList from './components/UnorderedList.astro';
-import Verse from './components/Verse.astro';
+import AmazonBook from './components/content/AmazonBook';
+import AppleTVFlag from './components/content/AppleTVFlag';
+import AudioCard from './components/content/AudioCard';
+import Banner from './components/content/Banner';
+import Blockquote from './components/content/Blockquote';
+import Book from './components/content/Book';
+import BookCard from './components/content/BookCard';
+import Bookshelf from './components/content/Bookshelf';
+import ColorStack from './components/content/ColorStack';
+import ColorSwatch from './components/content/ColorSwatch';
+import ColorSwatchMini from './components/content/ColorSwatchMini';
+import ColorSwatchPrimary from './components/content/ColorSwatchPrimary';
+import DownloadLink from './components/content/DownloadLink';
+import EmailLink from './components/content/EmailLink';
+import Figure from './components/content/Figure';
+import Image from './components/content/Image';
+import MarkdownImage from './components/content/MarkdownImage';
+import NetflixFlag from './components/content/NetflixFlag';
+import Platform from './components/content/Platform';
+import PrimeVideoFlag from './components/content/PrimeVideoFlag';
+import ProductLink from './components/content/ProductLink';
+import Pullquote from './components/content/Pullquote';
+import RSSText from './components/content/RSSText';
+import Ruby from './components/content/Ruby';
+import Spotify from './components/content/Spotify';
+import Verse from './components/content/Verse';
+import VideoCard from './components/content/VideoCard';
+import YouTube from './components/content/YouTube';
+import CodeBlock from './components/ui/CodeBlock';
+import Divider from './components/ui/Divider';
+import Em from './components/ui/Em';
+import Flag from './components/ui/Flag';
+import FootnoteSection from './components/ui/FootnoteSection';
+import Headline from './components/ui/Headline';
+import Inserted from './components/ui/Inserted';
+import LineBreak from './components/ui/LineBreak';
+import ListItem from './components/ui/ListItem';
+import Marked from './components/ui/Marked';
+import MoreLink from './components/ui/MoreLink';
+import OrderedList from './components/ui/OrderedList';
+import Strikethrough from './components/ui/Strikethrough';
+import Strong from './components/ui/Strong';
+import Subheadline from './components/ui/Subheadline';
+import Subscript from './components/ui/Subscript';
+import Subsubheadline from './components/ui/Subsubheadline';
+import Superscript from './components/ui/Superscript';
+import Table from './components/ui/Table';
+import TableBody from './components/ui/TableBody';
+import TableCell from './components/ui/TableCell';
+import TableHead from './components/ui/TableHead';
+import TableHeaderCell from './components/ui/TableHeaderCell';
+import TableRow from './components/ui/TableRow';
+import TaskCheckbox from './components/ui/TaskCheckbox';
+import Text from './components/ui/Text';
+import TextLink from './components/ui/TextLink';
+import Title from './components/ui/Title';
+import UnorderedList from './components/ui/UnorderedList';
 
 export const mapping = {
 	AmazonBook,
+	AudioCard,
+	BookCard,
+	VideoCard,
 	AppleTVFlag,
 	Banner,
 	Blockquote,
@@ -45,26 +68,29 @@ export const mapping = {
 	Bookshelf,
 	ColorStack,
 	ColorSwatch,
-	DisplayBox,
+	ColorSwatchMini,
+	ColorSwatchPrimary,
 	DownloadLink,
 	EmailLink,
 	Figure,
 	Flag,
 	Image,
-	MarkdownImage,
 	MoreLink,
 	NetflixFlag,
+	Platform,
 	PrimeVideoFlag,
 	ProductLink,
-	ProjectIntro,
 	Pullquote,
+	RSSText,
 	Ruby,
 	Spotify,
-	ThemeBox,
 	Verse,
 	YouTube,
 	a: TextLink,
 	blockquote: Blockquote,
+	br: LineBreak,
+	del: Strikethrough,
+	em: Em,
 	h1: Title,
 	h2: Headline,
 	h3: Subheadline,
@@ -73,8 +99,22 @@ export const mapping = {
 	h6: Subsubheadline,
 	hr: Divider,
 	img: MarkdownImage,
+	input: TaskCheckbox,
+	ins: Inserted,
 	li: ListItem,
+	mark: Marked,
 	ol: OrderedList,
 	p: Text,
+	pre: CodeBlock,
+	section: FootnoteSection,
+	strong: Strong,
+	sub: Subscript,
+	sup: Superscript,
+	table: Table,
+	tbody: TableBody,
+	td: TableCell,
+	th: TableHeaderCell,
+	thead: TableHead,
+	tr: TableRow,
 	ul: UnorderedList,
 };

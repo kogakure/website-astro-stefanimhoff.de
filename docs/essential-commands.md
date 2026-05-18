@@ -1,0 +1,24 @@
+## Essential Commands
+
+### Development
+
+```sh
+pnpm dev            # Start dev server
+pnpm build          # Build for production
+pnpm preview        # Build + preview production build
+```
+
+### Content Generation
+
+```sh
+pnpm plop           # Create new content (interactive generator picker)
+pnpm images         # Generate all images (OG + thumbnails)
+```
+
+### Code Quality
+
+```sh
+npx prettier --write <files>
+npx eslint --fix <files>
+npx lint-staged     # Run pre-commit hooks manually
+```

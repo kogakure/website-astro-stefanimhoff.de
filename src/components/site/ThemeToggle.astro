@@ -1,0 +1,55 @@
+---
+import { CircleHalfIcon } from '@phosphor-icons/react';
+---
+
+<theme-toggle class="h-clickarea w-clickarea flex print:hidden">
+	<button
+		aria-label="Switch color theme"
+		class="h-clickarea w-clickarea rounded-2 hover:bg-sumi/10 focus:bg-sumi/10 dark:hover:bg-washi/10 dark:focus:bg-washi/10 flex cursor-pointer items-center justify-center self-center border-0 text-[0] transition-colors duration-100"
+	>
+		<CircleHalfIcon
+			aria-hidden="true"
+			className="icon h-icon-small w-icon-small duration-slow ease-standard transition-transform dark:rotate-180"
+		/>
+	</button>
+</theme-toggle>
+
+<script>
+	function initializeThemeToggle() {
+		if (!customElements.get('theme-toggle')) {
+			class ThemeToggle extends HTMLElement {
+				constructor() {
+					super();
+					const button = this.querySelector('button')!;
+
+					button.addEventListener('click', () => {
+						const newDark = !this.isDark();
+						document.documentElement.classList[newDark ? 'add' : 'remove']('dark');
+						button.setAttribute('aria-pressed', String(newDark));
+						if (typeof localStorage !== 'undefined') {
+							localStorage.setItem('theme', newDark ? 'dark' : 'light');
+						}
+						const umami = (window as any).umami;
+						if (typeof umami === 'function') {
+							void umami('Theme: Switch', { to: newDark ? 'dark' : 'light' });
+						} else if (umami && typeof umami.track === 'function') {
+							void umami.track('Theme: Switch', { to: newDark ? 'dark' : 'light' });
+						}
+						button.blur();
+					});
+
+					button.setAttribute('aria-pressed', String(this.isDark()));
+				}
+
+				isDark() {
+					return document.documentElement.classList.contains('dark');
+				}
+			}
+
+			customElements.define('theme-toggle', ThemeToggle);
+		}
+	}
+
+	initializeThemeToggle();
+	document.addEventListener('astro:after-swap', initializeThemeToggle);
+</script>

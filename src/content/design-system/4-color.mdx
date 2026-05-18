@@ -1,0 +1,115 @@
+---
+title: Color
+order: 4
+description: The palette is austere by design—Koko.
+kanji: 色
+principle: Koko
+group: tokens
+---
+
+import ColorSwatchPrimary from "../../components/content/ColorSwatchPrimary";
+import ColorStack from "../../components/content/ColorStack";
+import ColorSwatch from "../../components/content/ColorSwatch";
+import ColorRamp from "../../components/design-system/ColorRamp";
+import RatioBar from "../../components/design-system/RatioBar";
+import ContrastMatrix from "../../components/design-system/ContrastMatrix";
+import PrintSpec from "../../components/design-system/PrintSpec";
+
+## Philosophy
+
+The palette is austere by design—Koko. Like sumi ink on handmade paper, the system finds its richness in restraint: a single hue (crimson), a near-black, and a warm-neutral ground. Additional tones exist only as functional necessities, never as decoration. This is a palette that does not tire the eye, one that rewards sustained viewing—the chromatic equivalent of a shibui object.
+
+## Primary Palette
+
+The three primaries form the chromatic skeleton of every screen.
+
+<ColorStack>
+  <ColorSwatchPrimary
+    color="#900B20"
+    name="Beni"
+    kanji="紅"
+    hiragana="べに"
+    description="Crimson. Accent, logo, links, emphasis. The single point of colour in the system. CSS: var(--color-beni)"
+  />
+  <ColorSwatchPrimary
+    color="#0E0D0C"
+    name="Sumi"
+    kanji="墨"
+    hiragana="すみ"
+    description="Ink. Primary text, headings, high-contrast elements. Not a pure black — it carries the warmth of aged ink. CSS: var(--color-sumi)"
+  />
+  <ColorSwatchPrimary
+    color="#E6E6E6"
+    name="Washi"
+    kanji="和紙"
+    hiragana="わし"
+    description="Japanese paper. Primary background. The colour of unbleached paper under soft light. CSS: var(--color-washi)"
+  />
+</ColorStack>
+
+## Secondary / Neutral Palette
+
+Five neutral tones provide surface, border, and muted text contexts.
+
+<ColorStack>
+  <ColorSwatch
+    color="#F2F2F0"
+    name="Kiri"
+    kanji="霧"
+    description="Fog. Lighter background for cards, alternating sections, hover states. CSS: var(--color-kiri)"
+  />
+  <ColorSwatch
+    color="#C8C8C4"
+    name="Usuzumi"
+    kanji="薄墨"
+    description="Thin ink. The pale grey left when sumi is heavily diluted with water on washi. CSS: var(--color-usuzumi)"
+  />
+  <ColorSwatch
+    color="#A0A09C"
+    name="Hai"
+    kanji="灰"
+    description="Ash. Muted text, captions, disabled states. Large text only (≥18px). CSS: var(--color-hai)"
+  />
+  <ColorSwatch
+    color="#6B6B67"
+    name="Nezumi"
+    kanji="鼠"
+    description="Mouse. Mid-tone for borders, dividers, subtle UI elements. CSS: var(--color-nezumi)"
+  />
+  <ColorSwatch
+    color="#1A1918"
+    name="Yoru"
+    kanji="夜"
+    description="Night. Dark surface for inverted sections, footer, dark-mode base. CSS: var(--color-yoru)"
+  />
+</ColorStack>
+
+## Beni Scale — Interactive States
+
+The crimson tint scale provides all interactive state colours: hover, visited, active, pressed, and highlight.
+
+<ColorRamp />
+
+| Token      | Hex       | CSS Variable              | Use                                  |
+| ---------- | --------- | ------------------------- | ------------------------------------ |
+| Beni Dark  | `#6A0818` | `var(--color-beni-dark)`  | Active / pressed state               |
+| Beni       | `#900B20` | `var(--color-beni)`       | Primary accent (default)             |
+| Beni Muted | `#C75566` | `var(--color-beni-muted)` | Visited links, secondary buttons     |
+| Beni Light | `#B83A4E` | `var(--color-beni-light)` | Hover on light bg, dark-mode primary |
+| Beni Pale  | `#F2D5DA` | `var(--color-beni-pale)`  | Selection bg, tag backgrounds        |
+
+## Usage Ratio — 70 / 25 / 5
+
+<RatioBar />
+
+## Contrast Matrix (WCAG 2.1)
+
+All text pairings must meet at minimum AA (4.5:1 for body text, 3:1 for large text). The table auto-computes WCAG contrast ratios.
+
+<ContrastMatrix />
+
+**Rule:** Never set Beni text directly on Sumi or near-black backgrounds (2.08:1 — fails all levels). For crimson-on-dark contexts, use Beni Light (`#B83A4E`) or switch to Washi text. Hai (`#A0A09C`) on Washi is ~2.7:1 — restrict to large text (≥18px) or decorative use only.
+
+## CMYK & Pantone — Print
+
+<PrintSpec />

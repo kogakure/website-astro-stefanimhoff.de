@@ -1,0 +1,8 @@
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  puppeteer: false
+  sharp: true
+  vue-demi: true
+minimumReleaseAge: 1440
+blockExoticSubdeps: true

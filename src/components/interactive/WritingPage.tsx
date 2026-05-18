@@ -1,0 +1,208 @@
+'use client';
+
+import type { ImageMetadata } from 'astro';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { trackEvent } from '../../utils/analytics';
+import { getPreviewUrl } from '../../utils/preview-url';
+import ClearFiltersButton from '../ui/ClearFiltersButton';
+import Divider from '../ui/Divider';
+import EssayLink from '../ui/EssayLink';
+import ListItem from '../ui/ListItem';
+import SectionLabel from '../ui/SectionLabel';
+import Text from '../ui/Text';
+import UnorderedList from '../ui/UnorderedList';
+
+const STORAGE_KEY = 'writing-filter';
+
+interface PostItem {
+	slug: string;
+	title: string;
+	subtitle?: string;
+	tags: string[];
+	year: number;
+	cover?: ImageMetadata | string;
+}
+
+interface Props {
+	allTags: string[];
+	posts: PostItem[];
+}
+
+export const WritingPage = ({ allTags, posts }: Props) => {
+	const [selectedTags, setSelectedTags] = useState<string[]>([]);
+
+	const updateUrl = useCallback((tags: string[]) => {
+		const url = new URL(window.location.href);
+		if (tags.length > 0) {
+			url.searchParams.set('tag', tags.join(','));
+			try {
+				localStorage.setItem(STORAGE_KEY, JSON.stringify(tags));
+			} catch {
+				/* ignore */
+			}
+		} else {
+			url.searchParams.delete('tag');
+			try {
+				localStorage.removeItem(STORAGE_KEY);
+			} catch {
+				/* ignore */
+			}
+		}
+		window.history.replaceState({}, '', url.toString());
+	}, []);
+
+	const toggleTag = useCallback(
+		(tag: string) => {
+			setSelectedTags((prev) => {
+				const next = prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag];
+				trackEvent('Writing: Filter Toggle', { tag, active: next.includes(tag) });
+				updateUrl(next);
+				return next;
+			});
+		},
+		[updateUrl]
+	);
+
+	// Restore filter after hydration — URL params take priority over localStorage
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+		const tag = params.get('tag');
+		if (tag) {
+			setSelectedTags(tag.split(',').filter(Boolean));
+			return;
+		}
+		try {
+			const stored = localStorage.getItem(STORAGE_KEY);
+			if (stored) {
+				const parsed = JSON.parse(stored);
+				if (Array.isArray(parsed) && parsed.length > 0) {
+					setSelectedTags(parsed);
+					updateUrl(parsed);
+				}
+			}
+		} catch {
+			/* ignore */
+		}
+	}, [updateUrl]);
+
+	const filteredPosts = useMemo(
+		() =>
+			selectedTags.length > 0
+				? posts.filter((post) => selectedTags.every((tag) => post.tags.includes(tag)))
+				: posts,
+		[posts, selectedTags]
+	);
+
+	const byYear = useMemo(
+		() =>
+			filteredPosts.reduce<Record<number, PostItem[]>>((acc, post) => {
+				(acc[post.year] ??= []).push(post);
+				return acc;
+			}, {}),
+		[filteredPosts]
+	);
+
+	const years = useMemo(
+		() =>
+			Object.keys(byYear)
+				.map(Number)
+				.sort((a, b) => b - a),
+		[byYear]
+	);
+
+	const sectionGrid =
+		'grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8';
+	const labelCol = 'col-span-3 md:col-span-2 md:pbs-optical xl:col-span-2 xl:col-start-2';
+	const contentCol = 'mbe-0 col-span-3 min-w-0 md:col-span-5 xl:col-span-6';
+
+	return (
+		<div className="flex flex-col gap-16">
+			{/* FILTER section */}
+			<section className={sectionGrid} data-pagefind-ignore>
+				<div className={labelCol}>
+					<SectionLabel>Filter</SectionLabel>
+				</div>
+				<div className={contentCol}>
+					<Text className="leading-relaxed">
+						{allTags.map((tag, i) => (
+							<span key={tag}>
+								{i > 0 && (
+									<span
+										className="text-hai mx-1.5 select-none"
+										aria-hidden="true"
+									>
+										·
+									</span>
+								)}
+								<button
+									type="button"
+									aria-pressed={selectedTags.includes(tag)}
+									onClick={() => toggleTag(tag)}
+									className={`transition-opacity hover:opacity-60 ${
+										selectedTags.includes(tag)
+											? 'decoration-beni dark:decoration-beni-light underline decoration-2 underline-offset-2'
+											: ''
+									}`}
+								>
+									{tag}
+								</button>
+							</span>
+						))}
+					</Text>
+					<ClearFiltersButton
+						count={selectedTags.length}
+						onClick={() => {
+							trackEvent('Writing: Clear Filters', { count: selectedTags.length });
+							setSelectedTags([]);
+							updateUrl([]);
+						}}
+					/>
+				</div>
+			</section>
+
+			{/* Separator */}
+			<Divider className="border-usuzumi dark:border-nezumi" />
+
+			{/* Essays grouped by year */}
+			{years.length > 0 ? (
+				years.map((year) => (
+					<section key={year} className={sectionGrid}>
+						<div className={labelCol}>
+							<SectionLabel className="normal-case tracking-normal">
+								{year}
+							</SectionLabel>
+						</div>
+						<UnorderedList className={`${contentCol} gap-0`}>
+							{byYear[year].map((post) => (
+								<ListItem key={post.slug}>
+									<EssayLink
+										href={`/writing/${post.slug}/`}
+										data-hover-preview={getPreviewUrl(post.cover)}
+										onClick={() =>
+											trackEvent('Writing: Essay Click', {
+												filtered: selectedTags.length > 0,
+											})
+										}
+									>
+										{post.subtitle
+											? `${post.title}: ${post.subtitle}`
+											: post.title}
+									</EssayLink>
+								</ListItem>
+							))}
+						</UnorderedList>
+					</section>
+				))
+			) : (
+				<section className={sectionGrid}>
+					<div className={labelCol} />
+					<Text className={`${contentCol} text-nezumi`}>
+						No essays found for the selected tags.
+					</Text>
+				</section>
+			)}
+		</div>
+	);
+};
+
+export default WritingPage;

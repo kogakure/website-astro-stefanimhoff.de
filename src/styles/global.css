@@ -1,11 +1,442 @@
-@import 'fonts.css';
+@import './fonts.css';
 
-/** Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/** Base */
+/* Class-based dark mode (matches old darkMode: 'class' config) */
+@variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   Ma (間) Design System — Theme Tokens
+   ============================================================ */
+@theme {
+	/* ----------------------------------------------------------
+	   Color Palette
+	   ---------------------------------------------------------- */
+
+	/* Primary Ma Colors */
+	--color-beni: oklch(0.4174 0.1615 21.95); /* #900B20 – crimson accent */
+	--color-beni-light: oklch(0.5366 0.1614 15.32); /* #B83A4E – hover */
+	--color-beni-muted: oklch(0.599 0.146 13.5); /* #C75566 – visited/secondary */
+	--color-beni-pale: oklch(0.8985 0.0329 6); /* #F2D5DA – selection bg */
+	--color-beni-dark: oklch(0.3368 0.1279 20.74); /* #6A0818 – active/pressed */
+	--color-sumi: oklch(0.1599 0.0027 67.63); /* #0E0D0C – primary text */
+	--color-washi: oklch(0.9249 0 0); /* #E6E6E6 – primary bg */
+	--color-kiri: oklch(0.9606 0.0027 106.45); /* #F2F2F0 – card/alternate bg */
+	--color-usuzumi: oklch(0.832 0.0055 107); /* #C8C8C4 – diluted ink */
+	--color-hai: oklch(0.7046 0.0057 106.55); /* #A0A09C – muted/captions */
+	--color-nezumi: oklch(0.5265 0.0062 106.61); /* #6B6B67 – borders/dividers */
+	--color-yoru: oklch(0.2142 0.0025 67.69); /* #1A1918 – dark surface */
+
+	/* Legacy backward-compat colors */
+	--color-shibui-50: #f3f3f1;
+	--color-shibui-100: #e6e6e3;
+	--color-shibui-150: #dad9d5;
+	--color-shibui-200: #cdccc7;
+	--color-shibui-250: #c0bfb9;
+	--color-shibui-300: #b3b2ab;
+	--color-shibui-350: #a7a59e;
+	--color-shibui-400: #9a9891;
+	--color-shibui-450: #8d8b84;
+	--color-shibui-500: #807e77;
+	--color-shibui-550: #74716a;
+	--color-shibui-600: #67645e;
+	--color-shibui-650: #5a5751;
+	--color-shibui-700: #4e4b45;
+	--color-shibui-750: #413e3a;
+	--color-shibui-800: #34322e;
+	--color-shibui-850: #272522;
+	--color-shibui-900: #1b1917;
+	--color-shibui-950: #0e0d0c;
+	--color-code-1: #1e2229;
+	--color-code-2: #abb2bf;
+
+	/* ----------------------------------------------------------
+	   Typography
+	   ---------------------------------------------------------- */
+
+	--font-display: 'BoskaVariable', Georgia, 'Times New Roman', serif;
+	--font-sans: 'SwitzerVariable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--font-mono: 'Fira Code', Operator, Hasklig, Monoid, monospace;
+	--font-japanese: 'Toppan Bunkyu Midashi Mincho', 'YuMincho', 'Hiragino Mincho ProN',
+		'Hiragino Mincho Pro', 'BIZ UDPMincho', 'MS PMincho', 'Noto Serif JP', serif;
+
+	/* Font sizes — Ma Design System scale */
+	/* Max values = spec maxima; vw = max_px / 1440 * 100 */
+	/* Letter-spacing scale (Ma-specific) */
+	--tracking-body-tight: -0.02em; /* body, H3 blog */
+	--tracking-display: -0.04em; /* H1 display headings */
+	--tracking-heading: -0.05em; /* H3 section / lead paragraph */
+
+	/* Line-height display scale */
+	--leading-display-xs: 0.92; /* tightest hero */
+	--leading-display-sm: 0.95; /* tight H1 */
+	--leading-display: 1; /* blog title */
+	--leading-display-md: 1.05; /* relaxed display */
+	--leading-display-lg: 1.3; /* lead paragraph */
+
+	--text-1: 0.65em; /* relative sub-element size */
+	--text-2: clamp(0.625rem, 0.972vw, 0.875rem); /* Caption / Footnote — max 14px */
+	--text-2--line-height: 1.4;
+	--text-3: clamp(0.875rem, 1.25vw, 1.125rem); /* Paragraph — max 18px */
+	--text-3--line-height: 1.55;
+	--text-4: clamp(1rem, 1.944vw, 1.75rem); /* H3 Blog — max 28px */
+	--text-4--line-height: 1.2;
+	--text-5: clamp(1.5rem, 2.778vw, 2.5rem); /* H2 Blog / Blog Subtitle — max 40px */
+	--text-5--line-height: 1.15;
+	--text-6: clamp(1.75rem, 3.333vw, 3rem); /* H3 Section — max 48px */
+	--text-6--line-height: 1.15;
+	--text-7: clamp(2.5rem, 5vw, 4.5rem); /* H2 Section — max 72px */
+	--text-7--line-height: 1.1;
+	--text-8: clamp(2.5rem, 5vw, 4.5rem); /* Blog Title — max 72px */
+	--text-8--line-height: 1;
+	--text-9: clamp(4.5rem, 10vw, 9rem); /* H1 Page Title — max 144px */
+	--text-9--line-height: 0.95;
+	--text-code: clamp(0.75rem, 1.042vw, 0.9375rem); /* Code — max 15px */
+	--text-code--line-height: 1.625;
+
+	/* ----------------------------------------------------------
+	   Spacing — 4px base unit scale (Ma Design System)
+	   Max values = n × 4px; vw = max_px / 1440 * 100
+	   ---------------------------------------------------------- */
+
+	/* Sub-4px steps (below scale minimum) */
+	--spacing-px2: 0.125rem; /* 2px */
+	--spacing-px6: 0.375rem; /* 6px */
+	--spacing-px10: 0.625rem; /* 10px */
+
+	--spacing-0: 0px;
+	--spacing-1: 0.25rem; /* 4px — fixed, too small to fluid */
+	--spacing-2: 0.5rem; /* 8px — fixed */
+	--spacing-3: clamp(0.5rem, 0.833vw, 0.75rem); /* 12px max */
+	--spacing-4: clamp(0.75rem, 1.111vw, 1rem); /* 16px max */
+	--spacing-5: clamp(1rem, 1.389vw, 1.25rem); /* 20px max */
+	--spacing-6: clamp(1rem, 1.667vw, 1.5rem); /* 24px max */
+	--spacing-7: clamp(1.25rem, 1.944vw, 1.75rem); /* 28px max */
+	--spacing-8: clamp(1.5rem, 2.222vw, 2rem); /* 32px max */
+	--spacing-9: clamp(1.75rem, 2.5vw, 2.25rem); /* 36px max */
+	--spacing-10: clamp(2rem, 2.778vw, 2.5rem); /* 40px max */
+	--spacing-11: clamp(2rem, 3.056vw, 2.75rem); /* 44px max */
+	--spacing-12: clamp(2.25rem, 3.333vw, 3rem); /* 48px max */
+	--spacing-13: clamp(2.5rem, 3.611vw, 3.25rem); /* 52px max */
+	--spacing-14: clamp(2.5rem, 3.889vw, 3.5rem); /* 56px max */
+	--spacing-15: clamp(2.75rem, 4.167vw, 3.75rem); /* 60px max */
+	--spacing-16: clamp(3rem, 4.444vw, 4rem); /* 64px max */
+	--spacing-17: clamp(3rem, 4.722vw, 4.25rem); /* 68px max */
+	--spacing-18: clamp(3.25rem, 5vw, 4.5rem); /* 72px max */
+	--spacing-19: clamp(3.5rem, 5.278vw, 4.75rem); /* 76px max */
+	--spacing-20: clamp(4rem, 5.556vw, 5rem); /* 80px max */
+	--spacing-24: clamp(5rem, 6.667vw, 6rem); /* 96px max */
+	--spacing-32: clamp(6rem, 8.889vw, 8rem); /* 128px max */
+	--spacing-column: 6.9375vw;
+	--spacing-layout: clamp(1.5rem, 6.9375vw, 4.5rem);
+	--spacing-gap: clamp(1.5rem, 3.46875vw, 3rem);
+	--spacing-halfgap: calc(clamp(1.5rem, 6.9375vw, 6rem) / 2);
+	--spacing-icon: clamp(1.25rem, 1.5vw, 1.5rem);
+	--spacing-icon-small: clamp(1.125rem, 1.375vw, 1.375rem);
+	--spacing-clickarea: 40px;
+
+	/* ----------------------------------------------------------
+	   shadcn/ui CSS Variables — mapped to Ma Design System
+	   ---------------------------------------------------------- */
+
+	--background: var(--color-washi);
+	--foreground: var(--color-sumi);
+	--card: var(--color-kiri);
+	--card-foreground: var(--color-sumi);
+	--popover: var(--color-washi);
+	--popover-foreground: var(--color-sumi);
+	--primary: var(--color-beni);
+	--primary-foreground: oklch(1 0 0);
+	--secondary: var(--color-kiri);
+	--secondary-foreground: var(--color-sumi);
+	--muted: var(--color-kiri);
+	--muted-foreground: var(--color-hai);
+	--accent: var(--color-kiri);
+	--accent-foreground: var(--color-sumi);
+	--destructive: var(--color-beni);
+	--border: var(--color-usuzumi);
+	--input: var(--color-usuzumi);
+	--ring: var(--color-beni);
+	--radius: 0.375rem;
+
+	/* Tailwind v4: expose as --color-* so utility classes resolve */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+
+	/* ----------------------------------------------------------
+	   Border Radius (legacy)
+	   ---------------------------------------------------------- */
+
+	--radius-1: 2px;
+	--radius-2: 5px;
+	--radius-4: 8px;
+	--radius-25: 25px;
+	--radius-50: 50%;
+
+	/* ----------------------------------------------------------
+	   Shadows
+	   ---------------------------------------------------------- */
+
+	--shadow-beveled: 0 1px 0 rgb(0 0 0 / 0.2), inset 0 0 0 2px #ffffff;
+
+	/* ----------------------------------------------------------
+	   Breakpoints
+	   ---------------------------------------------------------- */
+
+	--breakpoint-xs: 320px;
+	--breakpoint-md: 768px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-3xl: 1800px;
+
+	/* ----------------------------------------------------------
+	   Motion Tokens
+	   ---------------------------------------------------------- */
+
+	--ease-enter: cubic-bezier(0, 0, 0.38, 0.9);
+	--ease-exit: cubic-bezier(0.2, 0, 1, 0.9);
+	--ease-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
+	--duration-instant: 100ms;
+	--duration-fast: 200ms;
+	--duration-moderate: 300ms;
+	--duration-slow: 500ms;
+	--duration-deliberate: 800ms;
+}
+
+/* shadcn/ui dark mode overrides */
+.dark {
+	--background: var(--color-yoru);
+	--foreground: var(--color-washi);
+	--card: var(--color-sumi);
+	--card-foreground: var(--color-washi);
+	--popover: var(--color-sumi);
+	--popover-foreground: var(--color-washi);
+	--primary: var(--color-beni-light);
+	--primary-foreground: var(--color-yoru);
+	--secondary: var(--color-sumi);
+	--secondary-foreground: var(--color-washi);
+	--muted: var(--color-sumi);
+	--muted-foreground: var(--color-nezumi);
+	--accent: var(--color-sumi);
+	--accent-foreground: var(--color-washi);
+	--destructive: var(--color-beni-light);
+	--border: var(--color-nezumi);
+	--input: var(--color-nezumi);
+	--ring: var(--color-beni-light);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+@layer base {
+	html {
+		font-size: 125%;
+	}
+}
+
+/* ============================================================
+   Logical Property Utilities (tailwindcss-logical compat)
+   ============================================================ */
+
+@utility mbe-* {
+	margin-block-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility mbs-* {
+	margin-block-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility mis-* {
+	margin-inline-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility mie-* {
+	margin-inline-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility pbe-* {
+	padding-block-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility pbs-* {
+	padding-block-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility pis-* {
+	padding-inline-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility pie-* {
+	padding-inline-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility pli-* {
+	padding-inline: --value(--spacing- *, [length], [percentage]);
+}
+@utility pbl-* {
+	padding-block: --value(--spacing- *, [length], [percentage]);
+}
+@utility mli-auto {
+	margin-inline: auto;
+}
+@utility mli-* {
+	margin-inline: --value(--spacing- *, [length], [percentage]);
+}
+@utility mbe-auto {
+	margin-block-end: auto;
+}
+@utility mbs-auto {
+	margin-block-start: auto;
+}
+@utility mis-auto {
+	margin-inline-start: auto;
+}
+@utility mie-auto {
+	margin-inline-end: auto;
+}
+@utility block-start-* {
+	inset-block-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility inline-start-* {
+	inset-inline-start: --value(--spacing- *, [length], [percentage]);
+}
+@utility inline-end-* {
+	inset-inline-end: --value(--spacing- *, [length], [percentage]);
+}
+@utility block-end-* {
+	inset-block-end: --value(--spacing- *, [length], [percentage]);
+}
+
+/* Border utilities */
+@utility border-1 {
+	border-width: 1px;
+}
+
+/* Logical border widths — static values */
+@utility border-be-0 {
+	border-block-end-width: 0px;
+}
+@utility border-be-1 {
+	border-block-end-width: 1px;
+}
+@utility border-be-2 {
+	border-block-end-width: 2px;
+}
+@utility border-bs-0 {
+	border-block-start-width: 0px;
+}
+@utility border-bs-1 {
+	border-block-start-width: 1px;
+}
+@utility border-bs-2 {
+	border-block-start-width: 2px;
+}
+@utility border-is-0 {
+	border-inline-start-width: 0px;
+}
+@utility border-ie-0 {
+	border-inline-end-width: 0px;
+}
+
+/* Logical border styles */
+@utility border-be-solid {
+	border-block-end-style: solid;
+}
+@utility border-bs-solid {
+	border-block-start-style: solid;
+}
+
+/* Logical border — arbitrary widths */
+@utility border-be-* {
+	border-block-end-width: --value([length]);
+}
+@utility border-bs-* {
+	border-block-start-width: --value([length]);
+}
+
+/* Logical border — colors */
+@utility border-be-* {
+	border-block-end-color: --value(--color- *, [color]);
+}
+@utility border-bs-* {
+	border-block-start-color: --value(--color- *, [color]);
+}
+
+/* Logical border — inline-start/end static widths */
+@utility border-is-1 {
+	border-inline-start-width: 1px;
+}
+@utility border-is-2 {
+	border-inline-start-width: 2px;
+}
+@utility border-ie-1 {
+	border-inline-end-width: 1px;
+}
+@utility border-ie-2 {
+	border-inline-end-width: 2px;
+}
+/* Logical border — inline-start/end styles */
+@utility border-is-solid {
+	border-inline-start-style: solid;
+}
+@utility border-ie-solid {
+	border-inline-end-style: solid;
+}
+/* Logical border — inline-start/end arbitrary widths */
+@utility border-is-* {
+	border-inline-start-width: --value([length]);
+}
+@utility border-ie-* {
+	border-inline-end-width: --value([length]);
+}
+/* Logical border — inline-start/end colors */
+@utility border-is-* {
+	border-inline-start-color: --value(--color- *, [color]);
+}
+@utility border-ie-* {
+	border-inline-end-color: --value(--color- *, [color]);
+}
+
+/* Optical baseline nudge — em-relative, not a spacing-scale value */
+@utility pbs-optical {
+	padding-block-start: 0.35em;
+}
+
+/* Responsive auto-fill grid columns — four named breakpoints */
+@utility grid-cols-auto-sm {
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+@utility grid-cols-auto-md {
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+@utility grid-cols-auto-lg {
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+@utility grid-cols-auto-xl {
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@utility small-caps {
+	font-variant-caps: small-caps;
+}
+@utility common-ligatures {
+	font-variant-ligatures: common-ligatures;
+}
+@utility no-common-ligatures {
+	font-variant-ligatures: no-common-ligatures;
+}
+
+/* ============================================================
+   Base Layer
+   ============================================================ */
 @layer base {
 	*,
 	*:before,
@@ -14,14 +445,13 @@
 	}
 
 	::selection {
-		background-color: #a3b387;
-		color: #ffffff;
+		background-color: var(--color-usuzumi);
+		color: var(--color-sumi);
 	}
 
-	/* Page Transitions */
-	::view-transition-old(root),
-	::view-transition-new(root) {
-		animation-duration: 300ms;
+	.dark ::selection {
+		background-color: var(--color-nezumi);
+		color: var(--color-washi);
 	}
 
 	/** Critic Markup */
@@ -33,27 +463,35 @@
 		@apply decoration-dashed decoration-[0.15em];
 	}
 
-	mark {
-		@apply rounded border border-black/[0.1] bg-marked text-black/[0.75] pli-[0.3em] pbe-[0.2em] pbs-[0.3em] dark:bg-marked/[0.7];
-	}
-
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
-	pre {
-		@apply whitespace-pre;
+	pre[data-language] {
+		@apply border-1 border-usuzumi border-solid;
 	}
+}
 
-	.astro-code {
-		@apply border-1 border-solid dark:border-white/20;
-	}
+:where(.dark, .dark *) pre[data-language] {
+	background-color: var(--color-sumi) !important;
+	border-color: var(--color-nezumi);
+}
 
-	p code,
-	li code,
+@layer base {
+	:not(pre) > code,
 	samp {
-		@apply relative whitespace-normal rounded-[0.3em] bg-code-1 text-2 text-code-2 pli-3 pbe-1 pbs-3 -block-start-[0.2em];
+		@apply relative inline whitespace-normal rounded-[0.3em];
+		@apply font-mono;
+		@apply bg-kiri text-sumi border-nezumi/30 border;
+		@apply dark:bg-code-1 dark:text-code-2 dark:border-white/10;
+		font-size: var(--text-code);
+		padding-inline: 0.4em;
+		padding-block: 0.15em;
 	}
 
 	kbd {
-		@apply inline-block whitespace-nowrap rounded-2 border-1 border-solid border-[#ccc] bg-[#f7f7f7] !text-code font-bold leading-5 text-[#333] shadow-beveled pli-[0.4em] pbe-[0.1em] pbs-[0.1em] dark:bg-[#f7f7f7]/[0.9];
+		@apply rounded-2 border-1 shadow-beveled inline-block whitespace-nowrap border-solid border-[#ccc] bg-[#f7f7f7] font-bold leading-5 text-[#333] dark:bg-[#f7f7f7]/90;
+		font-size: var(--text-code);
+		line-height: 1.625;
+		padding-inline: 0.4em;
+		padding-block: 0.1em;
 		text-shadow: 0 1px 0 #ffffff;
 	}
 
@@ -62,7 +500,8 @@
 	}
 
 	:is(code, kbd, samp) {
-		@apply font-mono !text-code;
+		font-size: var(--text-code);
+		@apply font-mono;
 	}
 
 	:is(abbr, dfn) {
@@ -74,7 +513,7 @@
 	blockquote[lang|='en'],
 	[lang|='en'] q,
 	q[lang|='en'] {
-		quotes: '“' '”' '‘' '’';
+		quotes: '"' '"' '' ' ' '';
 	}
 
 	[lang|='de'] blockquote,
@@ -93,30 +532,12 @@
 
 	/** Blockquote */
 	blockquote {
-		& p,
-		& ul,
-		& ol {
-			@apply text-3 font-extralight italic opacity-60 !mbe-8 mbs-0;
-		}
-
-		& p:last-child {
-			@apply !mbe-0;
-		}
-
-		& > footer {
-			@apply !-mbs-5;
-		}
-
-		&:nth-last-child(2) {
-			@apply mbe-5;
-		}
-
 		& strong {
 			@apply font-bold italic;
 		}
 
 		& sup {
-			@apply font-normal;
+			@apply font-normal not-italic;
 		}
 	}
 
@@ -125,153 +546,120 @@
 		@apply italic;
 
 		&::before {
-			@apply not-italic mis-[0.1em];
+			@apply not-italic;
+			margin-inline-start: 0.1em;
 		}
 
 		&::after {
-			@apply not-italic mie-[0.1em];
+			@apply not-italic;
+			margin-inline-end: 0.1em;
 		}
-	}
-
-	/** Pullquote */
-	.pullquote {
-		&::before {
-			@apply hidden;
-		}
-
-		& p {
-			@apply m-0 text-4 font-extrabold leading-none;
-		}
-
-		& p:first-child::before {
-			@apply font-normal content-[open-quote];
-		}
-
-		& p:nth-of-type(1):first-letter {
-			@apply -mis-[0.4em];
-		}
-
-		& p:nth-last-of-type(1)::after {
-			@apply font-normal content-[close-quote];
-		}
-	}
-
-	.pullquote[lang|='ja'] {
-		@apply font-normal;
 	}
 
 	/** Cite */
 	cite {
-		@apply pie-[0.1em];
-	}
-
-	/** Images */
-	img.image-border {
-		@apply block h-auto w-full rounded-1 border border-solid border-black/5 bg-black/5 shadow-img dark:border-white/5 dark:bg-white/5;
-	}
-
-	img.image-no-border {
-		@apply border-0 bg-transparent shadow-none;
-	}
-
-	.icon {
-		@apply fill-shibui-950 dark:fill-shibui-200/[0.87];
-	}
-
-	.multicolumns > h2 {
-		break-inside: avoid;
-		break-after: avoid;
-	}
-
-	.multicolumns > h2 + ul,
-	.multicolumns > h2 + h3 {
-		break-inside: avoid;
-		break-after: avoid;
-	}
-
-	.multicol-span {
-		column-span: all;
+		padding-inline-end: 0.1em;
 	}
 
 	/** Inputs */
 	input[type='text'] {
-		@apply border border-shibui-450 outline-none focus:!border-shibui-950 dark:focus:!border-shibui-50;
+		@apply border-shibui-450 focus:border-shibui-950 dark:focus:border-shibui-50 focus-visible:ring-beni border outline-none focus-visible:ring-2 focus-visible:ring-offset-1;
+	}
+
+	/** Focus rings */
+	:focus-visible {
+		outline: 2px solid var(--color-beni);
+		outline-offset: 2px;
+	}
+
+	.dark :focus-visible {
+		outline-color: var(--color-beni-light);
 	}
 }
 
+/* ============================================================
+   Component Layer
+   ============================================================ */
 @layer components {
-	.navigation .is-active {
-		@apply underline !decoration-accent decoration-4;
-	}
-
-	.navigation .is-active svg {
-		@apply fill-accent;
-	}
-
-	.image-shadow {
-		@apply relative transition-transform duration-500 ease-in-out;
-
-		&::after {
-			@apply absolute -z-[1] h-full w-full opacity-0 shadow-subtle transition-opacity duration-500 ease-in-out content-[''] block-start-0 inline-start-0;
-		}
-
-		&:hover,
-		&:focus {
-			@apply scale-[1.03];
-
-			&::after {
-				@apply opacity-100;
-			}
-		}
-	}
-
-	.journal-card,
-	.journal-card-link {
-		@apply relative col-span-2 row-span-3 inline-block overflow-hidden rounded-4 border-1 border-black/25 outline outline-2 outline-offset-2 outline-transparent hover:scale-105 focus:scale-105 dark:border-white/25 md:row-span-5;
-	}
-
-	.journal-card-link {
-		@apply relative block h-full w-full focus:scale-100;
-	}
-
-	.journal-card:focus-within {
-		@apply outline-current;
-	}
-
-	.journal-card img,
-	.journal-card picture,
-	.journal-card-link img,
-	.journal-card-link picture,
-	.figure-content {
-		@apply !h-full w-full object-cover;
-	}
-
 	.figure-content * {
 		@apply rounded-2;
 	}
 
-	.journal-card img,
-	.journal-card-link img {
-		@apply !h-full scale-100 blur-0 brightness-[80%] filter transition duration-300 ease-in-out dark:brightness-[50%];
+	.writing-post :is(p, ul, ol) {
+		@apply max-w-prose;
 	}
 
-	.journal-card:hover img,
-	.journal-card:focus img,
-	.journal-card-link:hover img,
-	.journal-card-link:focus img {
-		@apply scale-105 blur-sm brightness-[100%] dark:brightness-[70%];
+	/** YouTube embed (iframe-based, replaces lite-youtube) */
+	.youtube-embed {
+		@apply mbe-10 relative aspect-video w-full;
 	}
 
-	/** YouTube Lite */
-	lite-youtube {
-		@apply relative aspect-video w-full !max-w-none mbe-10;
-
-		&::before {
-			@apply !bg-none;
-		}
-	}
-
-	figure > .figure-content > lite-youtube {
+	figure > .figure-content > .youtube-embed {
 		@apply mbe-0;
+	}
+}
+
+/* ============================================================
+   Banner Disclosure Animation
+   ============================================================ */
+
+.banner-disclosure {
+	interpolate-size: allow-keywords;
+}
+
+.banner-disclosure > summary {
+	list-style: none;
+}
+
+.banner-disclosure::details-content {
+	block-size: 0;
+	overflow: clip;
+	opacity: 0;
+	transition:
+		block-size var(--duration-moderate) var(--ease-enter),
+		opacity var(--duration-fast) var(--ease-enter);
+}
+
+.banner-disclosure[open]::details-content {
+	block-size: auto;
+	opacity: 1;
+}
+
+/* ============================================================
+   Marquee
+   ============================================================ */
+@keyframes marquee-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.marquee-track {
+	width: max-content;
+	animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
+	will-change: transform;
+}
+
+/* No-JS fallback: show content hidden by motion primitives */
+html.no-js [data-reveal],
+html.no-js [data-splittext] {
+	opacity: 1 !important;
+	transform: none !important;
+}
+
+/* ============================================================
+   Reduced Motion — Seijaku (静寂)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
 	}
 }

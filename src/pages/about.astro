@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Reveal from '@/components/interactive/motion/Reveal';
+import MoreLink from '@/components/ui/MoreLink';
+import PageSection from '@/components/ui/PageSection';
+import PageTitle from '@/components/site/PageTitle.astro';
+import SectionLabel from '@/components/ui/SectionLabel';
+
+import { Content as AboutIntro } from '@/content/text/about/intro.mdx';
+import { mapping } from '@/mdx-components';
+
+const title = 'About';
+const description =
+	"I'm Stefan Imhoff—design engineer, writer, and observer—based in Hamburg, Germany.";
+---
+
+<BaseLayout title={title} description={description}>
+	<PageTitle>About</PageTitle>
+
+	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-16">
+		<Reveal client:visible>
+			<section
+				class="grid grid-cols-3 gap-x-4 gap-y-6 md:grid-cols-6 md:gap-x-6 md:gap-y-8 xl:grid-cols-12 xl:gap-x-8 xl:gap-y-0"
+			>
+				<div
+					class="md-row-start-2 -mis-8 md:mis-0 col-span-2 row-start-1 self-start md:col-span-3 md:col-start-5 md:row-span-1 md:row-start-2 xl:col-span-2 xl:col-start-10 xl:row-span-1 xl:row-start-1"
+				>
+					<img
+						src="/assets/images/portrait-stefan-imhoff-2026.webp"
+						alt="Portrait of Stefan Imhoff"
+						class="rounded-e-2 md:rounded-2 w-full object-cover md:-scale-x-100"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+
+				<div
+					class="md:pbs-optical col-span-3 row-start-2 md:col-span-3 md:col-start-1 md:row-start-1 xl:col-span-2 xl:col-start-2 xl:row-start-1"
+				>
+					<SectionLabel>Introduction</SectionLabel>
+				</div>
+
+				<div
+					class="col-span-3 row-start-3 min-w-0 md:col-span-4 md:col-start-1 md:row-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
+				>
+					<div class="*:mbe-0 flex flex-col gap-5 leading-relaxed">
+						<AboutIntro components={mapping} />
+					</div>
+				</div>
+			</section>
+		</Reveal>
+
+		<Reveal client:visible>
+			<PageSection label="Links">
+				<div class="flex flex-col items-start gap-2">
+					<MoreLink href="/life-rules/" text="Rules and principles I live by" />
+					<MoreLink href="/tools/" text="Tools I use" />
+					<MoreLink href="/now/" text="What I am doing now" />
+				</div>
+			</PageSection>
+		</Reveal>
+	</div>
+</BaseLayout>

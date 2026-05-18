@@ -1,0 +1,13 @@
+---
+draft: true
+title: {{{yamlString title}}}
+subtitle: {{{yamlString subtitle}}}
+slug: {{{yamlSlug title}}}
+date: {{date}}
+author: Stefan Imhoff
+description: {{{yamlString description}}}
+cover: /assets/images/cover/{{slug title}}.webp
+tags: {{{yamlStringArray tags}}}
+---
+
+Start writing.

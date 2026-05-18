@@ -1,13 +1,13 @@
-import { sortByAlphabet, sortByDate } from '.';
+import { sortByDate } from '.';
 
 import type { CollectionEntry } from 'astro:content';
 
 export const formatPosts = (
-	posts: CollectionEntry<'journal'>[],
+	posts: CollectionEntry<'writing'>[],
 	{
 		removeDrafts = true,
 		removeFuture = false,
-		showFeatured,
+		showFeatured, // true = featured only, undefined/false = all posts
 		sortBy = 'date',
 		sortOrder = 'desc',
 		limit,
@@ -15,12 +15,12 @@ export const formatPosts = (
 		removeDrafts?: boolean;
 		removeFuture?: boolean;
 		showFeatured?: boolean;
-		sortBy?: 'date' | 'alphabet' | 'random';
+		sortBy?: 'date' | 'random';
 		sortOrder?: 'asc' | 'desc';
 		limit?: number;
 	}
-): CollectionEntry<'journal'>[] => {
-	const filteredPosts = posts.reduce((acc: CollectionEntry<'journal'>[], post) => {
+): CollectionEntry<'writing'>[] => {
+	const filteredPosts = posts.reduce((acc: CollectionEntry<'writing'>[], post) => {
 		const { date, draft, featured } = post.data;
 
 		// Remove draft content
@@ -40,8 +40,6 @@ export const formatPosts = (
 	// Sort posts
 	if (sortBy === 'date') {
 		filteredPosts.sort(sortByDate);
-	} else if (sortBy === 'alphabet') {
-		filteredPosts.sort(sortByAlphabet);
 	} else {
 		filteredPosts.sort(() => Math.random() - 0.5);
 	}

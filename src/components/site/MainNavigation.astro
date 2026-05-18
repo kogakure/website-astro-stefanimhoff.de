@@ -1,0 +1,37 @@
+---
+import navigation from '../../data/navigation.json';
+
+const currentPath = Astro.url.pathname;
+const isActive = (url: string) => (url === '/' ? currentPath === '/' : currentPath.startsWith(url));
+---
+
+<nav class="hidden items-center md:flex" role="navigation" aria-label="Main">
+	<ul class="nav-list flex items-center">
+		{
+			navigation.map(({ title, url }) => (
+				<li class="nav-item">
+					<a
+						class:list={[
+							'decoration-beni hover:text-beni dark:decoration-beni-light dark:hover:text-beni-light pli-1 text-sm underline-offset-4 transition-colors',
+							isActive(url) && 'underline',
+						]}
+						aria-current={isActive(url) ? 'page' : undefined}
+						data-umami-event={`Nav: ${title}`}
+						href={url}
+					>
+						{title}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
+
+<style>
+	.nav-item + .nav-item::before {
+		content: '·';
+		padding: 0 0.4rem;
+		color: var(--color-hai);
+		user-select: none;
+	}
+</style>

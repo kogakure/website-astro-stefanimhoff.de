@@ -1,0 +1,127 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import TableOfContents from '../components/interactive/TableOfContents';
+import DesignSystemNav from '../components/site/DesignSystemNav.astro';
+import Breadcrumb from '../components/site/Breadcrumb.astro';
+import PrevNextNavigation from '../components/site/PrevNextNavigation.astro';
+import Title from '../components/ui/Title';
+import Text from '../components/ui/Text';
+
+export interface Props {
+	title: string;
+	description?: string;
+	kanji?: string;
+	order?: number;
+	headings?: Array<{ id: string; text: string }>;
+	currentSlug?: string;
+	prev?: { title: string; slug: string } | null;
+	next?: { title: string; slug: string } | null;
+}
+
+const { title, description, kanji, order, headings = [], currentSlug, prev, next } = Astro.props;
+
+const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0') : null;
+---
+
+<BaseLayout title={title} description={description}>
+	<!-- Breadcrumb -->
+	<Breadcrumb
+		class="pbs-8"
+		items={[{ label: 'Design System', href: '/design-system/' }, { label: title }]}
+	/>
+
+	<!-- Hero strip -->
+	<div class="max-w-360 pli-8 pbe-10 pbs-8 mx-auto w-full">
+		<div
+			class="mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+		>
+			{
+				orderStr && (
+					<div class="col-span-1 flex flex-col gap-1 xl:col-span-1 xl:col-start-1">
+						<span class="text-hai font-mono text-xs uppercase tracking-wider">
+							{orderStr}
+						</span>
+						{kanji && (
+							<span
+								lang="ja"
+								class="font-japanese text-usuzumi dark:text-nezumi text-5 leading-none"
+							>
+								{kanji}
+							</span>
+						)}
+					</div>
+				)
+			}
+			<div
+				class:list={[
+					'col-span-2 md:col-span-5 xl:col-span-9',
+					orderStr ? 'xl:col-start-2' : 'col-span-3 xl:col-span-10 xl:col-start-2',
+				]}
+			>
+				<Title className="text-7 mbe-3 leading-none">{title}</Title>
+				{description && <Text className="text-hai mbe-0">{description}</Text>}
+			</div>
+		</div>
+		<div class="border-usuzumi dark:border-nezumi mbs-8 border-bs-1"></div>
+	</div>
+
+	<!-- Three-column body -->
+	<div
+		class="max-w-360 pli-8 pbe-32 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	>
+		<!-- Left nav sidebar -->
+		<aside
+			class="mbe-10 md:mbe-0 col-span-3 md:col-span-2 md:row-start-1 xl:col-span-2 xl:col-start-1 xl:row-start-1"
+			aria-label="Design system navigation"
+		>
+			<div class="md:block-start-24 md:sticky">
+				<DesignSystemNav currentSlug={currentSlug} />
+			</div>
+		</aside>
+
+		<!-- Article body -->
+		<article
+			class="design-system-article col-span-3 min-w-0 md:col-span-4 md:col-start-3 md:row-start-1 xl:col-span-7 xl:col-start-3 xl:row-start-1"
+		>
+			<slot />
+		</article>
+
+		<!-- Right rail: Table of Contents -->
+		{
+			headings.length > 1 && (
+				<aside class="col-span-3 md:col-span-4 md:col-start-3 xl:col-span-2 xl:col-start-11 xl:row-start-1">
+					<div class="xl:block-start-24 xl:sticky">
+						<TableOfContents headings={headings} client:idle transition:persist />
+					</div>
+				</aside>
+			)
+		}
+	</div>
+
+	<!-- Prev / next navigation -->
+	<PrevNextNavigation
+		prev={prev ? { href: `/design-system/${prev.slug}/`, title: prev.title } : null}
+		next={next ? { href: `/design-system/${next.slug}/`, title: next.title } : null}
+		label="Design system section navigation"
+	/>
+</BaseLayout>
+
+<style is:global>
+	@reference "../styles/global.css";
+
+	.design-system-article {
+		:where(h2, h3, h4) {
+			scroll-margin-block-start: var(--spacing-24);
+		}
+
+		/* Space between all direct children — tables, code blocks, islands */
+		> * + * {
+			margin-block-start: var(--spacing-8);
+		}
+
+		/* Headings pull tighter to what follows them */
+		> :where(h2, h3, h4) + * {
+			margin-block-start: var(--spacing-4);
+		}
+	}
+</style>

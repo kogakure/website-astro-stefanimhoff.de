@@ -5,7 +5,7 @@
 
 # Pin versions for reproducibility
 ARG NODE_VERSION=22.13.1
-ARG PNPM_VERSION=9
+ARG PNPM_VERSION=11
 ARG NGINX_VERSION=1.27-alpine
 
 # ========================================
@@ -32,7 +32,7 @@ RUN npm install -g pnpm@${PNPM_VERSION}
 FROM base AS deps
 
 # Copy package files and lockfile
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies with cache mount for faster rebuilds
 # --frozen-lockfile ensures reproducible builds
@@ -48,8 +48,9 @@ FROM deps AS builder
 # Copy all source files (respects .dockerignore)
 COPY . .
 
-# Build the Astro site
-RUN pnpm run build
+# Build the Astro site — cache mount persists optimized images across deploys
+RUN --mount=type=cache,id=astro-assets,target=/app/node_modules/.astro \
+    pnpm run build
 
 # Verify build output exists
 RUN ls -la /app/dist

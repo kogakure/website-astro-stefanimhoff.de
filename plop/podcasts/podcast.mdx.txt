@@ -1,0 +1,31 @@
+---
+title: {{{yamlString title}}}
+{{#if subtitle}}
+subtitle: {{{yamlString subtitle}}}
+{{/if}}
+{{#if moderator}}
+moderator: {{{yamlString moderator}}}
+{{/if}}
+topic: {{{yamlSlug topic}}}
+{{#if cover}}
+cover: {{{yamlString cover}}}
+{{/if}}
+{{#if sort}}
+sort: {{sort}}
+{{/if}}
+language: {{language}}
+{{#if featured}}
+featured: true
+{{/if}}
+{{#if paid}}
+paid: true
+{{/if}}
+{{#if description}}
+description: {{{yamlString description}}}
+{{/if}}
+{{#if linkUrl}}
+links:
+  - kind: {{linkKind}}
+    url: {{{yamlString linkUrl}}}
+{{/if}}
+---

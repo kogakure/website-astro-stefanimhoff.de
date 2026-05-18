@@ -1,0 +1,30 @@
+---
+
+---
+
+<script>
+	function openCommandMenu() {
+		document.dispatchEvent(new CustomEvent('command-menu:open'));
+	}
+
+	function initializeKeyboardShortcuts() {
+		document.addEventListener('keydown', (event) => {
+			const target = event.target as HTMLElement;
+			const isInput =
+				target.tagName === 'INPUT' ||
+				target.tagName === 'TEXTAREA' ||
+				target.isContentEditable;
+			if (event.key === '/' && !isInput) {
+				event.preventDefault();
+				document.dispatchEvent(new CustomEvent('command-menu:open-search'));
+			}
+		});
+	}
+
+	function initializeScripts() {
+		initializeKeyboardShortcuts();
+	}
+
+	initializeScripts();
+	document.addEventListener('astro:after-swap', initializeScripts);
+</script>

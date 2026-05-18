@@ -1,0 +1,102 @@
+---
+export interface PrevNextEntry {
+	href: string;
+	title: string;
+	subtitle?: string;
+}
+
+export interface Props {
+	prev?: PrevNextEntry | null;
+	next?: PrevNextEntry | null;
+	label?: string;
+	prevLabel?: string;
+	nextLabel?: string;
+}
+
+const {
+	prev,
+	next,
+	label = 'Post navigation',
+	prevLabel = 'Previous',
+	nextLabel = 'Next',
+} = Astro.props;
+
+const hasPrev = Boolean(prev);
+const hasNext = Boolean(next);
+const hasNav = hasPrev || hasNext;
+const hasBoth = hasPrev && hasNext;
+
+const linkBase =
+	'group ease-enter relative flex flex-col gap-3 pli-6 pbl-6 transition-colors duration-fast md:pli-8 md:pbl-8';
+const labelBase =
+	'text-2 text-hai dark:text-nezumi flex items-center gap-3 uppercase tracking-wide';
+const strokeBase =
+	'bg-beni dark:bg-beni-light ease-enter inline-block h-px w-6 transition-transform duration-fast';
+const titleBase =
+	'text-3 text-sumi dark:text-washi text-balance font-bold ease-enter transition-colors duration-fast group-hover:text-beni dark:group-hover:text-beni-light';
+const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
+---
+
+{
+	hasNav && (
+		<nav
+			class="max-w-360 pli-8 pbe-16 pbs-12 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+			aria-label={label}
+		>
+			<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+				<div
+					class:list={[
+						'rounded-2 border-usuzumi dark:border-nezumi grid border',
+						hasBoth ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1',
+					]}
+				>
+					{prev && (
+						<a
+							class:list={[
+								linkBase,
+								'text-start',
+								hasBoth &&
+									'border-usuzumi dark:border-nezumi border-be-1 md:border-be-0 md:border-ie-1',
+							]}
+							href={prev.href}
+							rel="prev"
+							data-umami-event="PrevNext: Prev"
+						>
+							<span class={labelBase}>
+								<span
+									aria-hidden="true"
+									class:list={[
+										strokeBase,
+										'origin-right group-hover:scale-x-150',
+									]}
+								/>
+								{prevLabel}
+							</span>
+							<span class={titleBase}>{prev.title}</span>
+							{prev.subtitle && <span class={subtitleBase}>{prev.subtitle}</span>}
+						</a>
+					)}
+
+					{next && (
+						<a
+							class:list={[linkBase, 'items-end text-end']}
+							href={next.href}
+							rel="next"
+							data-umami-event="PrevNext: Next"
+						>
+							<span class:list={[labelBase, 'justify-end']}>
+								{nextLabel}
+								<span
+									aria-hidden="true"
+									class:list={[strokeBase, 'origin-left group-hover:scale-x-150']}
+								/>
+							</span>
+							<span class={titleBase}>{next.title}</span>
+							{next.subtitle && <span class={subtitleBase}>{next.subtitle}</span>}
+						</a>
+					)}
+				</div>
+			</div>
+		</nav>
+	)
+}

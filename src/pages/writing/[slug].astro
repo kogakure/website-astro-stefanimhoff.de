@@ -1,0 +1,293 @@
+---
+import type { CollectionEntry } from 'astro:content';
+type Writing = CollectionEntry<'writing'>;
+import { getCollection, render } from 'astro:content';
+
+import { site } from '@/data/site';
+
+import {
+	formatPosts,
+	sortByDate,
+	dateToFormat,
+	dateToISO,
+	wordCount,
+	getWritingSlug,
+} from '@/utils';
+
+import { mapping } from '@/mdx-components';
+
+import 'lite-youtube-embed/src/lite-yt-embed.css';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CoverImage from '@/components/site/CoverImage.astro';
+import SeriesStepper from '@/components/interactive/SeriesStepper';
+import Reveal from '@/components/interactive/motion/Reveal';
+import ListItem from '@/components/ui/ListItem';
+import UnorderedList from '@/components/ui/UnorderedList';
+import PageTitle from '@/components/site/PageTitle.astro';
+import PrevNextNavigation from '@/components/site/PrevNextNavigation.astro';
+import SectionLabel from '@/components/ui/SectionLabel';
+import LightboxRoot from '@/components/interactive/LightboxRoot';
+import TableOfContents from '@/components/interactive/TableOfContents';
+import Text from '@/components/ui/Text';
+
+interface TocHeading {
+	id: string;
+	text: string;
+}
+
+interface SeriesStep {
+	id: string;
+	title: string;
+	subtitle?: string;
+}
+
+export async function getStaticPaths() {
+	const writingEntries = await getCollection('writing', ({ data }: Writing) => !data.draft);
+	const numberOfPages = writingEntries.length;
+	const formattedWritingEntries: Writing[] = formatPosts(writingEntries, { sortOrder: 'asc' });
+
+	return formattedWritingEntries.map((entry, index) => ({
+		params: { slug: getWritingSlug(entry.id) },
+		props: {
+			entry,
+			next:
+				index + 1 === numberOfPages
+					? { id: null, data: null }
+					: formattedWritingEntries[index + 1],
+			prev: index === 0 ? { id: null, data: null } : formattedWritingEntries[index - 1],
+		},
+	}));
+}
+
+const { entry, prev, next } = Astro.props;
+const entryId = entry.id;
+const {
+	Content,
+	remarkPluginFrontmatter: { minutesRead, headings = [] },
+} = await render(entry);
+
+const tocHeadings: TocHeading[] = headings;
+
+const words = wordCount(entry.body ?? '');
+
+const seriesEntries: Writing[] = await getCollection('writing', ({ data }: Writing) => {
+	return data.series === entry.data.series && !data.draft;
+});
+
+seriesEntries.sort(sortByDate).reverse();
+
+const seriesSteps: SeriesStep[] = seriesEntries.map((item) => ({
+	id: getWritingSlug(item.id),
+	title: item.data.title,
+	subtitle: item.data.subtitle,
+}));
+
+const title = entry.data.title;
+const subtitle = entry.data.subtitle;
+const description = entry.data.description;
+
+const coverOgUrl = entry.data.cover
+	? `/assets/images/og/${
+			entry.data.cover.src
+				.split('/')
+				.pop()
+				?.replace(/\.[^.]+$/, '.jpg') ?? 'ma.jpg'
+		}`
+	: undefined;
+
+const schema = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: entry.data.title,
+	description: entry.data.description,
+	datePublished: entry.data.date,
+	dateModified: entry.data.updated,
+	image: [coverOgUrl ? site.url + coverOgUrl : `${site.url}/assets/images/og/ma.jpg`],
+	author: [
+		{
+			'@type': 'Person',
+			name: entry.data.author || site.author,
+			url: `${site.url}/about`,
+		},
+	],
+	mainEntityOfPage: {
+		'@type': 'webPage',
+		id: `${site.url}/writing/${getWritingSlug(entryId)}/`,
+	},
+});
+
+const breadcrumb = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{ '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+		{ '@type': 'ListItem', position: 2, name: 'Writing', item: `${site.url}/writing` },
+		{
+			'@type': 'ListItem',
+			position: 3,
+			name: entry.data.title,
+			item: `${site.url}/writing/${getWritingSlug(entryId)}/`,
+		},
+	],
+});
+---
+
+<BaseLayout
+	cover={coverOgUrl}
+	description={description}
+	nofollow={entry.data.nofollow}
+	noindex={entry.data.noindex}
+	title={subtitle ? `${title}: ${subtitle}` : title}
+>
+	<PageTitle class="pbe-6" titleClass="text-8 leading-display tracking-display font-bold"
+		>{title}</PageTitle
+	>
+
+	{
+		subtitle && (
+			<div class="max-w-360 pli-8 pbe-8 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+				<Text className="col-span-3 text-[clamp(1.25rem,2.083vw,1.875rem)] leading-display-lg text-sumi dark:text-washi tracking-heading mbe-0 md:col-span-6 xl:col-span-8 xl:col-start-2">
+					{subtitle}
+				</Text>
+			</div>
+		)
+	}
+
+	{
+		entry.data.cover && (
+			<div class="max-w-360 pli-8 pbe-12 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+				<div class="col-span-3 md:col-span-6 xl:col-span-10 xl:col-start-2">
+					<CoverImage
+						src={entry.data.cover}
+						alt={title}
+						style="view-transition-name: post-cover"
+					/>
+				</div>
+			</div>
+		)
+	}
+
+	<!-- Article layout: meta sidebar + content -->
+	<div
+		class:list={[
+			'max-w-360 pli-8 pbe-12 mx-auto grid w-full grid-cols-3 gap-x-4 gap-y-8 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8',
+			!entry.data.cover && 'pbs-24',
+		]}
+	>
+		<!-- Right meta sidebar (DOM-first for mobile/tablet stacking order) -->
+		<aside
+			class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-10 xl:row-start-1"
+		>
+			<div class="block-start-24 sticky flex flex-col gap-6">
+				<SectionLabel as="p" className="mbe-0">Meta</SectionLabel>
+				<UnorderedList className="text-sumi dark:text-washi">
+					<ListItem>
+						<time datetime={dateToISO(entry.data.date)}>
+							{dateToFormat(entry.data.date, 'd MMMM yyyy')}
+						</time>
+					</ListItem>
+					<ListItem>
+						{words.toLocaleString('en-US')} words · {Math.round(minutesRead)} min read
+					</ListItem>
+				</UnorderedList>
+			</div>
+		</aside>
+
+		<!-- Left sidebar: Table of contents -->
+		<aside
+			class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-2 xl:col-start-2 xl:row-start-1"
+		>
+			{
+				tocHeadings.length > 1 && (
+					<div class="xl:block-start-24 xl:sticky">
+						<TableOfContents headings={tocHeadings} client:idle transition:persist />
+					</div>
+				)
+			}
+		</aside>
+
+		<!-- Article body -->
+		<article
+			class="writing-post col-span-3 min-w-0 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4 xl:row-start-1"
+		>
+			{
+				entry.data.series && seriesSteps.length > 1 && (
+					<SeriesStepper
+						steps={seriesSteps}
+						currentId={getWritingSlug(entryId)}
+						seriesName={entry.data.series}
+						client:idle
+						transition:persist
+					/>
+				)
+			}
+			<Content components={mapping} />
+			{
+				entry.data.updated && (
+					<footer class="text-2 text-hai mbs-12">
+						<span class="font-bold">Last Updated:</span>{' '}
+						<time datetime={dateToISO(entry.data.updated)}>
+							{dateToFormat(entry.data.updated)}
+						</time>
+					</footer>
+				)
+			}
+		</article>
+	</div>
+
+	<Reveal client:visible preset="fadeIn">
+		<PrevNextNavigation
+			prev={prev.id && prev.data
+				? {
+						href: `/writing/${prev.id.split('/').pop() ?? ''}/`,
+						title: prev.data.title,
+						subtitle: prev.data.subtitle,
+					}
+				: null}
+			next={next.id && next.data
+				? {
+						href: `/writing/${next.id.split('/').pop() ?? ''}/`,
+						title: next.data.title,
+						subtitle: next.data.subtitle,
+					}
+				: null}
+		/>
+	</Reveal>
+	<LightboxRoot client:idle transition:persist />
+</BaseLayout>
+
+<script>
+	import 'lite-youtube-embed';
+</script>
+<script is:inline type="application/ld+json" set:html={schema} />
+<script is:inline type="application/ld+json" set:html={breadcrumb} />
+
+<style is:global>
+	@reference "../../styles/global.css";
+
+	.writing-post {
+		:where(h2, h3, h4) {
+			scroll-margin-block-start: var(--spacing-24);
+		}
+
+		.footnotes h2 {
+			@apply text-2! text-hai! mbe-4! font-normal! uppercase! tracking-normal!;
+		}
+
+		.footnotes ol {
+			@apply list-decimal! text-2! gap-0! mbe-0! flex! flex-col! ps-[1.5em]!;
+		}
+
+		.footnotes li {
+			@apply mbe-2!;
+		}
+
+		.footnotes p {
+			@apply text-2! mbe-0! font-normal! dark:font-normal!;
+		}
+
+		[data-footnote-ref] {
+			@apply relative ms-[0.2em] font-light not-italic no-underline;
+		}
+	}
+</style>
