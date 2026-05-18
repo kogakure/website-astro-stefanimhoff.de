@@ -465,7 +465,7 @@
 
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
 	.astro-code {
-		@apply border-1 border-solid dark:border-white/20;
+		@apply border-1 dark:!bg-sumi border-solid dark:border-white/20;
 	}
 
 	:not(pre) > code,

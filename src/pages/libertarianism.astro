@@ -132,7 +132,7 @@ const description =
 								<span class="text-2 text-hai block uppercase">Books</span>
 							</div>
 						</div>
-						<Bookshelf className="grid-cols-auto-xl justify-items-stretch items-start">
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
 							{books.map((book) => (
 								<BookCard
 									asin={book.data.asin}
@@ -162,7 +162,7 @@ const description =
 								<span class="text-2 text-hai block uppercase">Audio Books</span>
 							</div>
 						</div>
-						<Bookshelf className="grid-cols-auto-xl justify-items-stretch items-start">
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
 							{audiobooks.map((book) => (
 								<AudioCard
 									author={book.data.author}
@@ -192,7 +192,7 @@ const description =
 								<span class="text-2 text-hai block uppercase">Podcasts</span>
 							</div>
 						</div>
-						<Bookshelf className="grid-cols-auto-xl justify-items-stretch items-start">
+						<Bookshelf className="grid grid-cols-auto-xl justify-items-stretch items-start [&>*]:w-auto [&>*]:shrink">
 							{podcasts.map((podcast) => (
 								<AudioCard
 									author={podcast.data.moderator}

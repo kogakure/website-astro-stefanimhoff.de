@@ -6,7 +6,7 @@ interface Props extends HTMLAttributes<HTMLElement> {}
 export const Bookshelf = ({ className, children, ...props }: Props) => (
 	<article
 		className={cn(
-			'rounded-4 mbe-13 mbs-0 mie-0 mis-0 grid-cols-auto-sm grid place-items-center justify-center gap-5 bg-white/50 p-10 dark:bg-black/80',
+			'rounded-4 mbe-13 mbs-0 mie-0 mis-0 flex flex-wrap justify-center gap-5 bg-white/50 p-10 dark:bg-black/80 [&>*]:w-[250px] [&>*]:shrink-0',
 			className
 		)}
 		{...props}
