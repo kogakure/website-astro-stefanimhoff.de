@@ -1,10 +1,11 @@
 ---
 # SI-70hh
 title: Open PR feature/relaunch-redesign → master (relaunch)
-status: todo
+status: completed
 type: task
+priority: normal
 created_at: 2026-05-17T13:14:09Z
-updated_at: 2026-05-17T13:14:09Z
+updated_at: 2026-05-18T17:07:24Z
 ---
 
 ## Goal
@@ -31,3 +32,8 @@ gh pr create --title "feat: relaunch redesign (Ma Design System)" \
 
 - SI-5ron (Phase 10: Documentation & Launch Prep) — prerequisite, now complete.
 - All previous phase tickets completed.
+
+## Summary of Changes
+
+Opened PR #46: https://github.com/kogakure/website-astro-stefanimhoff.de/pull/46
+Awaiting user review. Not merged.
