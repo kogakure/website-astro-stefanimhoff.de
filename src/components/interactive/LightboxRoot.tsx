@@ -84,13 +84,13 @@ export const LightboxRoot = () => {
 			const preload = new Image();
 			preload.src = largeSrc;
 		};
-		document.body.addEventListener('click', handleClick);
-		document.body.addEventListener('keydown', handleKeydown);
-		document.body.addEventListener('mouseover', handleMouseEnter);
+		document.addEventListener('click', handleClick);
+		document.addEventListener('keydown', handleKeydown);
+		document.addEventListener('mouseover', handleMouseEnter);
 		return () => {
-			document.body.removeEventListener('click', handleClick);
-			document.body.removeEventListener('keydown', handleKeydown);
-			document.body.removeEventListener('mouseover', handleMouseEnter);
+			document.removeEventListener('click', handleClick);
+			document.removeEventListener('keydown', handleKeydown);
+			document.removeEventListener('mouseover', handleMouseEnter);
 		};
 	}, [open]);
 
