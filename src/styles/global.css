@@ -465,9 +465,16 @@
 
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
 	.astro-code {
-		@apply border-1 dark:!bg-sumi border-solid dark:border-white/20;
+		@apply border-1 border-usuzumi border-solid;
 	}
+}
 
+:where(.dark, .dark *) .astro-code {
+	background-color: var(--color-sumi) !important;
+	border-color: var(--color-nezumi);
+}
+
+@layer base {
 	:not(pre) > code,
 	samp {
 		@apply relative inline whitespace-normal rounded-[0.3em];
