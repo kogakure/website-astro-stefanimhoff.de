@@ -464,12 +464,12 @@
 	}
 
 	/** Code, Sample, Abbreviation, Keyboard Shortcuts etc. */
-	.astro-code {
+	pre[data-language] {
 		@apply border-1 border-usuzumi border-solid;
 	}
 }
 
-:where(.dark, .dark *) .astro-code {
+:where(.dark, .dark *) pre[data-language] {
 	background-color: var(--color-sumi) !important;
 	border-color: var(--color-nezumi);
 }
