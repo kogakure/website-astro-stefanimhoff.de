@@ -11,16 +11,10 @@ import {
 const COLORS = [
 	'var(--color-beni)',
 	'var(--color-nezumi)',
-	'var(--color-hai)',
-	'var(--color-yoru)',
-	'var(--color-usuzumi)',
 	'var(--color-beni-light)',
 	'var(--color-beni-muted)',
-	'var(--color-beni-pale)',
 	'var(--color-beni-dark)',
-	'var(--color-sumi)',
-	'var(--color-washi)',
-	'var(--color-kiri)',
+	'var(--color-hai)',
 ];
 
 type ChartJsData = {
