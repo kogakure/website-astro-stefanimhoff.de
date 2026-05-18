@@ -86,7 +86,7 @@ const title = entry.data.title;
 const subtitle = entry.data.subtitle;
 const description = entry.data.description;
 
-const coverOgUrl = entry.data.cover
+const coverOgUrl = entry.data.cover?.src
 	? `/assets/images/og/${
 			entry.data.cover.src
 				.split('/')
