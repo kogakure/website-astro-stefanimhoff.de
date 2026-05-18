@@ -1,0 +1,171 @@
+---
+title: A Design Engineer’s Guide to Agentic Coding
+subtitle: Six weeks rebuilding my website with Claude, Codex, and a team of subagents.
+slug: guide-to-agentic-coding
+date: 2026-05-19
+author: Stefan Imhoff
+description: "How I rebuilt my website with Claude Code, Codex, and a team of AI subagents in six weeks—the disillusionment, the breakthrough, and what I learned."
+cover: ../../../assets/images/cover/guide-to-agentic-coding.webp
+tags: ["ai", "code", "design", "japan", "personal"]
+---
+
+<RSSText>
+  If you’re reading this post via RSS, I encourage you to visit the website this time—you’ll find an
+  overhauled design, refined information architecture, and a modernized tech stack.
+</RSSText>
+
+After my last job [ended abruptly](https://www.stefanimhoff.de/writing/15-years-xing/) in December 2025, I had a few months of spare time before starting my new role. I decided to dive deep into agentic coding and learn as much as possible. As a design engineer, I was mostly curious how well these models and workflows perform when producing front-end interfaces and designs.
+
+## The Experiment
+
+I subscribed to [Claude Code](https://claude.com/product/claude-code) Pro at the beginning of 2026 and tested how well the different models could turn random Pinterest layouts into responsive designs. The initial results were promising and confirmed that the models could produce interfaces closely resembling the source designs. However, even the most advanced and expensive model, Claude Opus, struggled with certain layout challenges—such as horizontal text positioned along the edge of a photo. It lacked the intuitive understanding a human brings to solving these visual puzzles.
+
+## Finding the Style
+
+My plan was to redesign my website in a specific style that reflected a mix of my interests. I had built a massive collection of screenshots in Eagle of websites I admired but couldn’t name the style. My first AI task was to find out what to call it by letting AI analyze the collection. The response (shortened and summarized) was:
+
+> The style in these images is known as **digital editorial** or **typographic minimalism**, inspired by high-end fashion magazines. It features distinctive typography—particularly Didone styles with oversized serif headlines and utilitarian sans-serif body text—creating a strong visual impact.
+>
+> The layout resembles an art book or magazine, using a grid system with intentional asymmetry for visual interest. Extensive macro whitespace conveys luxury, while a predominantly monochromatic palette highlights photography against neutral backgrounds.
+>
+> This style also incorporates elements of web brutalism in a polished manner, with raw features like thin dividing lines presented elegantly, contributing to a sophisticated minimalist aesthetic. For inspiration, explore terms like “Swiss Style Web Design,” “Editorial Portfolio Design,” and “High-Contrast Serif Typography.”
+
+As Japandi interior design combines Japanese minimalism with Scandinavian functionality and coziness, I wanted to blend Swiss-style editorial typography with Japanese aesthetics—particularly *shibui* (渋い) and *iki* (粋)—as I had done in my previous design.
+
+## Designing with AI
+
+I explored AI design tools such as [Google Stitch](https://stitch.withgoogle.com/) to see how effectively I could design with AI and quickly realized how primitive the current generation still is. Those who claim, “I created this design with just one sentence,” are either misleading or very lucky. I experimented with several tools, but all of them produced bland, generic designs—even when they tried to look professional by first establishing a design system and color palette. At that time, Claude Design wasn’t yet available; more on that later.
+
+As I learned many years ago, content is essential. Without content, there is no design. Lorem ipsum is not a content strategy. I fed all the text from my current website into Claude Opus, which created a new information architecture, adjusted the wording, and shortened my copy to align with the philosophy of my design system. Copywriting and design went hand in hand, resulting in many changes throughout the site to match the desired tone and mood.
+
+I then spent two weeks in Affinity creating a design based on a mood board, my design skills, and my technical knowledge. But I wasn’t entirely alone—I used Claude Opus (via Raycast) as a guide to develop my design system. I discovered that Claude Opus can produce remarkably mature design system specifications based on my descriptions. It understood the philosophy behind shibui, Japanese aesthetics, Swiss aesthetics, typographic scales, color palettes, and component design. I shared early mockups of my typographic choices, my new logo, and some color options, and it returned brand guidelines that exceeded my expectations. Nearly everything was exactly as I had envisioned. Claude even assigned Japanese names to the colors and suggested several Japanese names for the design system itself. It produced brand foundations, voice, a comprehensive typographic scale and system, primary, secondary, and supporting color palettes (including CMYK and RAL), layouts and grids, imagery, motion, accessibility guidelines, and much more—all while staying true to the philosophy of shibui.
+
+I named my [design system](https://www.stefanimhoff.de/design-system/) “Ma” (間), the Japanese word for “space.” The name reflects the importance of whitespace and the overall philosophy of the design. I created 15 Markdown documents outlining all the rules of the design system, which I later handed off to Claude Code.
+
+Over those two weeks, I alternated between designing the main screens of my website and asking Claude for design reviews, advice on refining details, and help resolving issues. I used Claude Opus so extensively that I exhausted my AI limits in Raycast, which left me blocked from the expensive models for a full week.
+
+## Choosing the Stack
+
+After designing the 8–9 main pages, including the header, footer, navigation, and a dark mode screen, I started coding. I initially planned to switch to an entirely new stack with Next.js. However, after a former coworker questioned my decision to move away from Astro, I realized Next.js wasn’t the best choice for a blog—I could achieve everything I wanted with Astro. Moreover, Astro reached a staggering 94% satisfaction rate in the [2025 State of JS survey](https://2025.stateofjs.com/en-US/libraries/meta-frameworks/#meta_frameworks_happiness) (the highest of all meta-frameworks), while Next.js dropped from 92% satisfaction in 2020 to just 55% in 2025.
+
+The updated stack included the latest version of [Astro](https://astro.build/) 6.1, [React](https://astro.build/) 19 for all components that weren’t Astro layouts, [TypeScript](https://www.typescriptlang.org/), [Tailwind CSS](https://tailwindcss.com/) v4, [Phosphor](https://phosphoricons.com/) icons, the [CMDK](https://github.com/dip/cmdk) menu, and (Framer) [Motion](https://motion.dev/).
+
+## The First Build
+
+I wrote a lengthy kickoff prompt describing the project in meticulous detail—every tech stack decision, the information architecture, routing, and the full feature wishlist. I also provided a comprehensive spec folder containing the complete brand guide in Markdown, all designs with and without grid and spacer specifications, and the updated copy.
+
+Claude Code produced an extensive plan of nearly 600 lines and ran with it. It devised a ten-phase strategy covering everything from technical setup to launch preparation and documentation and completed the first few phases in under an hour.
+
+I was amazed by the results. Claude achieved far more in such a short time than I had anticipated. When I first saw the rendered design, I couldn’t believe my eyes—the outcome of 14 days of manual design work looked nearly identical to what I had created. Claude Code had already implemented dark mode, the menu modal, the mobile design, and animated text on the homepage, all from a single sentence description and a static image. I was so impressed that I overwhelmed my friends and former coworkers with screenshots.
+
+## The Valley of Tears
+
+But the initial excitement quickly turned into disappointment. The code was a complete mess. It was clear that Claude Code lacked any understanding of how to write maintainable code. The grids were disorganized, and there were countless instances of duplicated code. Nothing had been written with long-term maintenance in mind. So began my two weeks of disillusionment with AI. I oscillated between anger and sadness, contemplating whether to abandon the project entirely, as fixing all the misaligned components and random grids felt overwhelming. Old parts of the website were mixed with new ones, making it difficult to tell what was still needed and what wasn’t.
+
+During those two weeks, I had lunch with two former coworkers, and we discussed our experiences with agentic AI in development and design. I considered continuing the project without a deadline or completion date—using it instead as a way to learn AI for a few minutes each day. At the same time, Anthropic significantly reduced the limits for the Pro and Max plans, making it impossible to work more than an hour with my Pro plan.
+
+## Slope of Enlightenment
+
+The “Valley of Tears,” also known as the “Valley of Despair,” is the second phase of the [Dunning-Kruger effect](https://grokipedia.com/page/Dunning%E2%80%93Kruger_effect), following the peak of “Mount Stupid.” Most of the negative outcomes were my fault, because I hadn’t understood the limitations of agentic AI. I had expected it to be much more capable than it actually was, and I had assumed it would produce maintainable code, which it did not. I also needed to learn how to work *with* the AI—providing better instructions and correcting its mistakes along the way.
+
+My first decision was to create proper `CLAUDE.md` and `AGENTS.md` files containing information about the entire project, the folder structure, the tech stack, and more. I installed useful skills and started using token-saving tools. I realized my biggest mistake had been being cheap and relying on Claude Sonnet for most tasks. I thought a cheaper model would let me work longer, but I had picked the wrong tool for the job—Sonnet is inadequate for advanced CSS. Wes Bos and Scott Tolinski discussed exactly this on the Syntax Podcast: [AI sucks at CSS](https://www.youtube.com/watch?v=5dEp1ZpYDUg).
+
+I subscribed to [OpenCode “Go”](https://opencode.ai/go) for several reasons. One was the eagerness to learn agentic coding more broadly, not just Claude Code. I also was keen to explore the highly praised Chinese models—GLM, Kimi, Qwen, Minimax, and DeepSeek—which let me keep working when my 5-hour Claude windows ran out. Personally, I prefer OpenCode: the TUI is fantastic, and with [OpenCode “Zen,”](https://opencode.ai/zen) any model can be used on a pay-as-you-go basis. The “Go” subscription is fair and affordable enough for anyone to try agentic coding.
+
+Working with multiple providers and models makes Claude Code’s plans largely useless.
+
+That’s why I decided to use an agentic project management tool. Many options are available, the most notable being [Dex](https://dex.rip/) and [Beads](https://github.com/gastownhall/beads). Dex stores tasks in a local JSON file and can sync them with GitHub issues, while Beads relies on a local database. I tried both but wasn’t satisfied with either. My former boss suggested I explore [Beans](https://github.com/hmans/beans), a Markdown-based agentic project management tool created by [Hendrik Mans](https://github.com/hmans/), another former coworker. The advantage of Beans is that it’s usable by both agentic AI and humans. It can be maintained via a CLI, features a beautiful TUI, and lets Markdown files be written and edited in any editor. It also includes coding plugins and a harness to teach AI how to use them.
+
+I assigned Claude Opus to transfer the complete plan into Beans’ milestones, epics, features, tasks, and bugs. Then I spent an entire day reviewing every page of the website, noting all the bugs and issues, and creating tickets in Beans.
+
+Over the following weeks, I used various agentic agents to work through the tickets, create new ones, and resolve every issue on the pages. I learned to use `/model opusplan`, while some already have access to `/advisor`, which is similar. Both modes use the most capable model to create a detailed plan and write it into Beans tickets, then switch to a more affordable model to execute. The advisor—which I haven’t accessed yet—is even better, because it can assist less capable models when they get stuck. This approach let me use Opus for a solid plan and then employ a model like Kimi 2.6, which is nearly as capable as Opus but four times cheaper, for execution. David Heinemeier Hansson swears by Kimi and has [tweeted](https://x.com/dhh/status/2031630810344825242) for months about it being his primary working agent.
+
+I built some pages with different models just to see how they performed. I used GLM 5.1 to create the first draft of my design system page. I was happy with what it produced, but it wasn’t quite what I had envisioned.
+
+And then, suddenly, AI agents were working for me. I had to think like a project planner, designer, developer, and QA engineer all at once. I learned to use tokens and 5-hour windows efficiently—estimating task sizes and fitting them into each window. Step by step, I transformed the grid and HTML chaos into proper layouts, reusable components, and a maintainable codebase.
+
+The biggest advantage of agentic coding is how much more work it makes possible in less time. I once finished a 25-minute run while the AI coded one of my pages—a task that would have taken me 2 to 3 hours. It built an image hover component I had always wanted on my website while I was doing the dishes. More importantly, agentic coding lets me dream big. Before AI, many of the projects I would have loved to pursue were simply too time-consuming to be worthwhile. Did I really want to spend a week of evenings creating a smooth animation or transition? With AI, I can just describe it and have it implemented in minutes or hours. I still read and understand everything the AI produces.
+
+## One Source of Truth: DESIGN.md
+
+Even though I had already finished my design, I was curious how well [Claude Design](https://claude.ai/design) would handle my design system. On its first day of release, I uploaded all my assets, my Figma files, and all the design system Markdown specifications. (I had to convert my Affinity designs first to import them.) The result was impressive: Claude Design had built interactive prototypes of all my components, and even the homepage resembled the real implementation, using only the text descriptions and a static Figma design.
+
+I used the design system created by Claude Design to build one sample page that I hadn’t designed in Affinity, but the result still wasn’t satisfying enough. I did, however, like the multistep questionnaire about how the page should be designed.
+
+Around the same time, Google released its specifications for a new document format that AI agents could read to generate consistent UI across a project: [DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview). Up to that point, my design system specifications were scattered across a dozen Markdown files, screenshots of major pages, and information embedded in Tailwind CSS files.
+
+I asked Claude Code to generate a `DESIGN.md` from all those knowledge sources and to validate the file with Google’s [CLI tool](https://stitch.withgoogle.com/docs/design-md/cli/). It even told me I could now delete my old files, since all the knowledge would live in one central place. For all future design-related tasks, I referenced this file, and the quality of the resulting pages improved noticeably.
+
+## A Team of Subagents
+
+Up to this point, I had only worked with one agent at a time, but now I wanted to use subagents to validate and verify the implemented features. I asked Claude Code which subagents would make sense for my website project, and it recommended these to start with:
+
+- `a11y-auditor` — Audits components and pages for WCAG 2.1/2.2 accessibility violations. Checks semantic HTML, ARIA usage, keyboard navigation, focus management, color contrast, and screen reader compatibility. Invoked after any UI component or page is created or modified, or when axe test failures need diagnosis.
+- `component-architecture-auditor` — Audits Astro island architecture and React component boundaries. Checks for proper client directive usage, unnecessary hydration, island bloat, and component composition patterns. Invoked after the main agent creates or modifies Astro pages or React components.
+- `design-system-enforcer` — Enforces the Ma (間) Design System across the project. Checks that all UI is built from components (never inline in pages), and that color tokens, typography, spacing, motion, imagery, and accessibility rules follow the Ma product guide. Invoked after any UI component or page is created or modified.
+- `performance-bundle-analyst` — Analyzes client-side bundle impact, hydration strategy, and performance patterns in an Astro + React project. Detects unnecessary JavaScript shipping, suboptimal loading strategies, and missed optimization opportunities. Invoked after pages or components are created or modified.
+- `qa-reviewer` — A QA subagent that reviews output from the main agent. Checks code quality, correctness, test coverage, edge cases, and potential bugs. Automatically invoked after the main agent produces or modifies code.
+
+This way, whenever the agent started development on a feature, I could prompt the subagents to validate the output against the design, coding standards, performance, and code quality.
+
+It’s now also possible to use Codex as a reviewer through an official OpenAI plugin within Claude Code.
+
+## Building the Features
+
+After the initial page layouts were implemented, I asked Claude Opus, in incremental steps, to resolve component issues and develop new features. I hadn’t designed all features or pages in Affinity, and at the time, I didn’t know how capable the agents would be in practice. But I had a long list of features I wanted on my website. For some, like the table of contents, I had designed a rather boring layout. I gave Claude Code screenshots of the component design and asked it to build the component—but also to get creative, using its design skills and the `DESIGN.md` file to make a table of contents that looked less boring and more engaging than my version while still respecting the design system.
+
+The results were far better than I expected. The table of contents was animated, used level 2 headings, and fit perfectly into the design. After this initial success, I was convinced that all my wishes could be implemented, and I started tasking Claude Code with one feature after another: hover images that stick to the mouse cursor, series stepper components, pagination, animated image lightboxes, interactive chart components, filter features, and much more. Each component was better designed than I could have done myself.
+
+## Tokens, Limits & Trade-offs
+
+With a Claude Pro subscription, you can only do a limited amount of work. I learned that I could complete maybe one big feature with Opus per 5-hour window, or 2–5 smaller ones. The weekly budget would reliably run out 1–2 days before the new week started. If you only have 1–2 hours per day to work on side projects, Claude Pro is sufficient. But at that time I hadn’t started my new job yet and had more time on my hands, so I tried to fill multiple 5-hour windows per day.
+
+I experimented with all kinds of tools to reduce token consumption and adopted best practices for agentic development: keep the context small, avoid going back and forth with the agent, compact early and often, always plan first, and use a cheaper model for implementation. I tried [Claude Mem](https://claude-mem.ai/), but it led to massive token consumption. After using a dashboard tool to visualize token usage, I could see that the famous memory tool consumed so many tokens that it simply wasn’t worth it. A much better technique is to write handoff documents or keep tasks in Beans tickets. I also use [rtk](https://www.rtk-ai.app/) to compress command outputs before they reach the context window, and [Caveman](https://getcaveman.dev/) to cut needless communication tokens: “AI make page. Claude is ready. Work done.” Caveman has multiple modes to reduce text. It even has a Chinese mode, since Chinese characters are one of the most token-efficient writing systems existing today.
+
+## The Design System Page
+
+After I had finished fixing all the issues created by Claude Sonnet in the initial phase and had established the basic agentic harness and a design system file, I started working on some larger planned pages. First, I wanted a dedicated page for my design system. Do I need this on a personal site? No. Do I even require a design system? Also no. But besides being fun work, it’s a good showcase—along with the XING Design System—to prove my ability to create one.
+
+Unfortunately, just as I wanted to start the page, my weekly Claude Code limit was exhausted. So I tried one of the Chinese models included with my OpenCode “Go” subscription, about which I had heard many good things: GLM-5.1. On many metrics, it sits very close to Claude Opus 4.6, but it’s four times cheaper. I wrote a long prompt describing the page I wanted and let the LLM do its work. Unfortunately, the design didn’t suit my taste. Technically it was a design system page, and it even included interactive demos, but it didn’t fit the site, didn’t follow my style, and looked boring and cheap.
+
+Rather than wait several days, I bought some extra tokens to continue with Claude Opus. I asked it to redesign, restructure, and improve the page created by GLM-5.1—and Opus delivered. It produced an impressive multi-page design system page with interactive demos, animations, and tables, pulling in all my text content from the Markdown design system files. It even created a cover page with a cover image I had generated using GPT Image 2, an index, the philosophy behind the design system, in-page navigation, pagination, and much more.
+
+## Claude vs. GPT: A Head-to-Head
+
+Development speed was much faster than anticipated, so I could even start working on some nice-to-have pages. As a full-blooded anarcho-capitalist, I had previously created [a page with libertarian resources](https://www.stefanimhoff.de/libertarianism/)—books, audiobooks, podcasts, organizations, and so on. The page looked boring and was a poorly structured Markdown document.
+
+I additionally subscribed to GPT Plus so I could use Codex. For one thing, I wanted to test the strengths and weaknesses of different model providers myself, and GPT 5.5 scored even higher on many metrics than Opus 4.7. I was also eager to learn the [Pi agent](https://pi.dev/), one of the most loved agentic tools besides Claude Code. And because Anthropic disallows the use of Claude outside of Claude Code, I wanted a capable model for Pi alongside GLM-5.1, Kimi K2.6, MiMo-V2.5 Pro, Qwen 3.6 Plus, MiniMax M2.7, and DeepSeek V4 Pro and Flash.
+
+I used both of my best models: Claude Opus 4.7 and GPT 5.5 High Thinking. GPT 5.5 Pro is only available in the €100/month subscription, so this wasn’t a comparison between the best model and the best model, but between the best models available at the same €20 price point. I wrote a longer Beans ticket describing what I wanted for the page: structured content collections of different types with cover images, information, some basic libertarian terms and principles, and a roadmap-like feature for people new to the topic. I created two Git worktrees and let both agents work in parallel with the same prompt, starting in planning mode.
+
+The results were interesting. GPT 5.5 finished much earlier and used only ⅓ of my 5-hour window, while Claude took much longer and used nearly ⅔. I immediately noticed that Claude Code asked much better questions. It thought ahead and asked whether I wanted only a libertarian book collection or planned to add book collections on other topics in the future. It also asked whether the roadmap feature should be postponed to development phase 2.
+
+The quality difference was even more striking. GPT adhered more strictly to my grid, resulting in a more boring design. It tried to squeeze three book cards into the narrow content column. Technically solid, but not creative. Claude Code, by contrast, overdelivered. It understood the task and recognized that this page—like the design system page—was meant to be special, allowing more creative freedom. It still respected the grid but knew that good design sometimes means breaking it. Claude Code created full-width sections, used an existing component to display the books, designed a new audiobook card, and added podcast and video cards with icons for the different platforms. It also migrated all content into structured collections.
+
+GPT handled the migration well too and was slightly better at researching missing book information, whereas Claude Opus got some links wrong. I decided to keep the Claude Opus version, added more books, audiobooks, and podcasts, and let Claude create the content files just by looking at the covers.
+
+In the end, Claude also implemented the roadmap feature, which is easy for me to extend or update later. I asked it to reorder and sort the books by favorites and author and to extend the cards with various smaller refinements.
+
+## Motion & Microinteractions
+
+Once all my pages were in place, I asked AI to implement a consistent motion strategy across the site using the Motion library. It created shared lib files and primitives—for example, fade-in and slide-in—and added stagger animation to the hero text, reveal-on-scroll to the pages, and image fade-ins, all while maintaining A11Y compliance by respecting `prefers-reduced-motion`. I wanted some animation and subtle motion, but not the constant movement you see on so many “award-winning” agency sites. Not everything needs to move in all directions all the time. And no, you don’t need a loading screen.
+
+## Solving Image Optimization
+
+Image optimization was probably the most technical challenge for the AI. Previously, I had used unoptimized images because build times with optimizations were far too long. Claude Code suggested a two-tier approach: use a BuildKit cache mount in the Dockerfile for Sharp on CI for all covers, work screenshots, and the about photo, with a Docker volume mount as a fallback.
+
+## Testing & Quality
+
+My greatest challenge was the testing and QA phase. I used the five subagents mentioned earlier to check the codebase in parallel for violations in their respective domains, and they found plenty of issues. After each one was resolved, I had Claude Code implement A11Y tests with axe-core, and I added Vitest unit tests for all components as well as E2E tests with Playwright.
+
+## Documentation & Launch
+
+In the final step, I used Claude Code to update the plop templates and all documentation to match the actual implementation, clean up unused code, align the Node version, and update the Docker build tests.
+
+My project entered the finish lane after six weeks of work, with over 110 Beans tickets completed.
+
+## What I Learned
+
+After weeks of working with AI, I think it’s futile not to embrace the new agentic workflows. Companies that don’t adopt them will gradually be replaced by those that know how to integrate them into their development workflow. Developers who refuse to use them—or who dismiss them as glorified 2020-era chat tools—will lose market value and gradually be pushed out. Learning to work with agentic AI is crucial not just for developers, but for many other roles as well. It’s a whole new skill set, and it benefits people who think structurally, write proper specifications, validate suggested solutions, check implementations, and—most importantly—have taste.
+
+Working with multiple subagents is just the beginning. Real professionals know how to build systems of AI agents that work in parallel under central coordination (a CEO agent), write specs, discuss with each other, operate within time and token budgets, include security layers, and run mostly autonomously. This is far from vibe coding—it’s intentional agentic architecture. I’ll continue to develop these skills and look much deeper into the [Pi agent](https://pi.dev/) to learn how to create custom workflows, extensions, and AI harnesses.
