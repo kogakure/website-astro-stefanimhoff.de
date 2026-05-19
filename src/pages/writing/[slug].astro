@@ -91,7 +91,7 @@ const coverOgUrl = entry.data.cover?.src
 			entry.data.cover.src
 				.split('/')
 				.pop()
-				?.replace(/\.[^.]+$/, '.jpg') ?? 'ma.jpg'
+				?.replace(/(?:\.[A-Za-z0-9_-]+)?\.(?:webp|jpe?g|png|avif)$/i, '.jpg') ?? 'ma.jpg'
 		}`
 	: undefined;
 
