@@ -11,6 +11,7 @@ export interface Props {
 	label?: string;
 	prevLabel?: string;
 	nextLabel?: string;
+	contentClass?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
 	label = 'Post navigation',
 	prevLabel = 'Previous',
 	nextLabel = 'Next',
+	contentClass = 'col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4',
 } = Astro.props;
 
 const hasPrev = Boolean(prev);
@@ -43,7 +45,7 @@ const subtitleBase = 'text-2 text-hai dark:text-nezumi text-balance';
 			class="max-w-360 pli-8 pbe-16 pbs-12 mx-auto grid w-full grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
 			aria-label={label}
 		>
-			<div class="col-span-3 md:col-span-4 md:col-start-2 xl:col-span-6 xl:col-start-4">
+			<div class={contentClass}>
 				<div
 					class:list={[
 						'rounded-2 border-usuzumi dark:border-nezumi grid border',
