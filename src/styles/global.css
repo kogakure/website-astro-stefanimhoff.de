@@ -87,9 +87,9 @@
 	--text-6--line-height: 1.15;
 	--text-7: clamp(2.5rem, 5vw, 4.5rem); /* H2 Section — max 72px */
 	--text-7--line-height: 1.1;
-	--text-8: clamp(2.5rem, 5vw, 4.5rem); /* Blog Title — max 72px */
+	--text-8: clamp(1.75rem, 5vw, 4.5rem); /* Blog Title — max 72px */
 	--text-8--line-height: 1;
-	--text-9: clamp(4.5rem, 10vw, 9rem); /* H1 Page Title — max 144px */
+	--text-9: clamp(2.5rem, 10vw, 9rem); /* H1 Page Title — max 144px */
 	--text-9--line-height: 0.95;
 	--text-code: clamp(0.75rem, 1.042vw, 0.9375rem); /* Code — max 15px */
 	--text-code--line-height: 1.625;
@@ -238,6 +238,14 @@
 	--border: var(--color-nezumi);
 	--input: var(--color-nezumi);
 	--ring: var(--color-beni-light);
+}
+
+/* Tighter vertical rhythm on mobile — halve the largest ma tokens */
+@media (width < 768px) {
+	:root {
+		--spacing-32: clamp(3rem, 8.889vw, 8rem); /* min 96px → 48px */
+		--spacing-14: clamp(1.25rem, 3.889vw, 3.5rem); /* min 40px → 20px */
+	}
 }
 
 /* ============================================================

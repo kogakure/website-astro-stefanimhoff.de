@@ -8,9 +8,9 @@ export const HeroTitle = () => (
 		<DisplayEm>
 			<SplitText text="is a" stagger={0.04} delay={0.15} />
 		</DisplayEm>
-		<br className="hidden xl:block" />
+		<br className="hidden xl:block" />{' '}
 		<SplitText text="Design Engineer" stagger={0.04} delay={0.3} />
-		<br className="hidden xl:block" />
+		<br className="hidden xl:block" />{' '}
 		<span>
 			<DisplayEm>
 				<SplitText text="from" stagger={0.04} delay={0.6} />{' '}
