@@ -7,7 +7,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 export const TextLink = ({ className, children, ...props }: Props) => (
 	<Link
 		className={cn(
-			'text-beni dark:text-beni-light visited:text-beni-muted active:text-beni-dark no-underline',
+			'text-beni dark:text-beni-light visited:text-beni-muted active:text-beni-dark break-words no-underline',
 			'bg-linear-to-r bg-size-[0%_1px] bg-position-[0_100%] from-current to-current bg-no-repeat',
 			'ease-enter transition-[background-size] duration-200',
 			'hover:text-beni dark:hover:text-beni-light hover:bg-size-[100%_1px]',
