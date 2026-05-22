@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 export const Title = ({ as: Tag = 'h1', className, children, ...props }: Props) => (
 	<Tag
 		className={cn(
-			'font-display text-sumi dark:text-washi leading-display-xs text-balance text-[clamp(3rem,10vw,9rem)] font-bold tracking-tight',
+			'font-display text-sumi dark:text-washi leading-display-xs text-9 tracking-display text-balance font-bold',
 			className
 		)}
 		{...props}
