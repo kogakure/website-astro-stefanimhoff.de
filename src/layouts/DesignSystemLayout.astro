@@ -37,7 +37,7 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 		>
 			{
 				orderStr && (
-					<div class="col-span-1 flex flex-col gap-1 xl:col-span-1 xl:col-start-1">
+					<div class="col-span-3 flex flex-row items-baseline gap-2 md:col-span-1 md:flex-col md:gap-1 xl:col-span-1 xl:col-start-1">
 						<span class="text-hai font-mono text-xs uppercase tracking-wider">
 							{orderStr}
 						</span>
@@ -54,8 +54,8 @@ const orderStr = order !== undefined && order > 0 ? String(order).padStart(2, '0
 			}
 			<div
 				class:list={[
-					'col-span-2 md:col-span-5 xl:col-span-9',
-					orderStr ? 'xl:col-start-2' : 'col-span-3 xl:col-span-10 xl:col-start-2',
+					'col-span-3 md:col-span-5 xl:col-span-9',
+					orderStr ? 'xl:col-start-2' : 'xl:col-span-10 xl:col-start-2',
 				]}
 			>
 				<Title className="text-7 mbe-3 leading-none">{title}</Title>
