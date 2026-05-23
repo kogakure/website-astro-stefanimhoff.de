@@ -78,8 +78,8 @@ const videos = defineCollection({
 	}),
 });
 
-const articles = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
+const links = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/links' }),
 	schema: z.object({
 		title: z.string(),
 		url: z.string().url(),
@@ -251,6 +251,6 @@ export const collections = {
 	audiobooks,
 	podcasts,
 	videos,
-	articles,
+	links,
 	organizations,
 };

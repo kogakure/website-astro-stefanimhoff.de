@@ -32,19 +32,19 @@ type Books = CollectionEntry<'books'>;
 type Audiobooks = CollectionEntry<'audiobooks'>;
 type Podcasts = CollectionEntry<'podcasts'>;
 type Videos = CollectionEntry<'videos'>;
-type Articles = CollectionEntry<'articles'>;
+type Links = CollectionEntry<'links'>;
 type Organizations = CollectionEntry<'organizations'>;
 
 const topic = 'libertarianism';
 const byTopic = (entry: { data: { topic: string } }) => entry.data.topic === topic;
 
-const [books, audiobooks, podcasts, videos, publications, organizations] = (
+const [books, audiobooks, podcasts, videos, links, organizations] = (
 	await Promise.all([
 		getCollection('books', byTopic),
 		getCollection('audiobooks', byTopic),
 		getCollection('podcasts', byTopic),
 		getCollection('videos', byTopic),
-		getCollection('articles', byTopic),
+		getCollection('links', byTopic),
 		getCollection('organizations', byTopic),
 	])
 ).map((group) => [...group].sort(sortBySortKey)) as [
@@ -52,7 +52,7 @@ const [books, audiobooks, podcasts, videos, publications, organizations] = (
 	Audiobooks[],
 	Podcasts[],
 	Videos[],
-	Articles[],
+	Links[],
 	Organizations[],
 ];
 
@@ -244,15 +244,15 @@ const description =
 		}
 
 		{
-			publications.length > 0 && (
+			links.length > 0 && (
 				<Reveal client:visible>
-					<PageSection label="Publications">
+					<PageSection label="Links">
 						<UnorderedList>
-							{publications.map((pub) => (
+							{links.map((link) => (
 								<ListItem>
-									<TextLink href={pub.data.url}>{pub.data.title}</TextLink>
-									{pub.data.description && (
-										<span class="text-hai"> — {pub.data.description}</span>
+									<TextLink href={link.data.url}>{link.data.title}</TextLink>
+									{link.data.description && (
+										<span class="text-hai"> — {link.data.description}</span>
 									)}
 								</ListItem>
 							))}
