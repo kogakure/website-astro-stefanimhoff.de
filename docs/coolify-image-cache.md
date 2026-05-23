@@ -29,43 +29,23 @@ near the `pnpm run build` step. If the step shows `CACHED`, the cache mount is a
 
 ---
 
-## Strategy 2 — Coolify Persistent Storage (fallback)
+## What does NOT work — Coolify Persistent Storage
 
-Use this only if BuildKit cache mounts are not persisting (e.g. Coolify rebuilds from a fresh runner each time).
+Do not add a Coolify Persistent Storage volume pointing at `/app/node_modules/.astro`.
 
-### Steps
+The multi-stage Dockerfile produces a final `nginx` image. Coolify mounts volumes on the **runtime container** (nginx), not the builder stage. The nginx container never reads or writes `.astro/assets/`, so the volume is dead weight and has no effect on build speed.
 
-1. In Coolify dashboard, open the application.
-2. Go to the **Storages** tab.
-3. Click **+ Add Storage**.
-4. Fill in:
-   - **Type**: Volume Mount
-   - **Name**: `astro-image-cache`
-   - **Mount Path (container)**: `/app/node_modules/.astro`
-5. Click **Save**, then **Redeploy**.
+---
 
-> Use **Volume Mount** (managed by Coolify/Docker), not File Mount or Directory Mount — those are for config files, not build caches.
+## Coolify Resource Limits
 
-### Verify the volume was created
+The resource limits under `Configuration → Resource Limits` apply to the nginx runtime container, not the builder. Keep them either empty or set `Maximum Swap Limit >= Maximum Memory Limit` — Docker's `memory_swap` field is the **combined** memory + swap ceiling. Setting swap lower than memory causes the container to fail to start:
 
-SSH to the VPS and run:
-
-```bash
-docker volume ls | grep astro-image-cache
-du -sh $(docker volume inspect -f '{{ .Mountpoint }}' astro-image-cache_<app-uuid>)
+```
+Error response from daemon: Minimum memoryswap limit should be larger than memory limit
 ```
 
-After the first build the volume directory should contain `.astro/assets/` with subdirectories of optimised images.
-
-### Evict stale cache
-
-If you rename or remove source images, the Sharp cache may serve stale output. Clear it with:
-
-```bash
-docker volume rm <volume-name>
-```
-
-Then redeploy to rebuild from scratch.
+Recommended: leave both `Maximum Memory Limit` and `Maximum Swap Limit` empty. Nginx serving static files uses ~20 MB.
 
 ---
 
