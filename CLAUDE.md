@@ -6,38 +6,29 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 
 **Live Site**: https://www.stefanimhoff.de
 
-**IMPORTANT**: before you do anything else, run the `beans prime` command and heed its output.
+## Quick Start
 
-**IMPORTANT**: Always read and follow @DESIGN.md for all UI decisions.
+- Install: `pnpm install`
+- Test: `pnpm test`
+- Development Server: `pnpm dev`
 
-## Components-First Rule
+## Hard Constrains
 
-**Always use existing UI components instead of raw HTML elements.** Before writing `<p>`, `<h1>`–`<h6>`, `<hr>`, `<ul>`, `<ol>`, `<li>`, or `<a>` in `.astro` or `.tsx` files, check `src/components/ui/` first.
+- This project uses spec-driven development, before you do anything else, run the `beans prime` command and heed its output.
+- Create beans tickets for implementation and write the full plan into the spec files; keep knowledge agent agnostic inside this repository.
+- Every design decision should be following the rules of the Ma Design System, documented in `DESIGN.md`
+- Always use existing UI components instead of raw HTML elements. Before writing `<p>`, `<h1>`–`<h6>`, `<hr>`, `<ul>`, `<ol>`, `<li>`, or `<a>` in `.astro` or `.tsx` files, check `src/components/ui/` first.
+- Use `className` prop to override default styles via `cn()` / tailwind-merge when needed. Only use raw HTML when a component requires fighting against too many defaults (e.g. custom `list-none flex` layouts).
 
-| Raw HTML                 | Use instead                           |
-| ------------------------ | ------------------------------------- |
-| `<p>`                    | `<Text>`                              |
-| `<h1>` (page title)      | `<PageTitle>` (from `site/PageTitle`) |
-| `<h1>` (content)         | `<Title>`                             |
-| `<h2>` (section)         | `<Headline>`                          |
-| `<h3>`                   | `<Subheadline>`                       |
-| `<h4>`                   | `<Subsubheadline>`                    |
-| `<hr>`                   | `<Divider>`                           |
-| `<ul>` + `<li>`          | `<UnorderedList>` + `<ListItem>`      |
-| `<ol>` + `<li>`          | `<OrderedList>` + `<ListItem>`        |
-| `<a>` (inline text link) | `<TextLink>`                          |
-| `<a>` (nav/arrow link)   | `<MoreLink>` or `<Link>`              |
-| Section label text       | `<SectionLabel>`                      |
+## Topics
 
-Use `className` prop to override default styles via `cn()` / tailwind-merge when needed. Only use raw HTML when a component requires fighting against too many defaults (e.g. custom `list-none flex` layouts).
-
-@docs/architectural-patterns.md
-@docs/directories.md
-@docs/tech-stack.md
-@docs/essential-commands.md
-@docs/git-workflow.md
-@docs/content-collections.md
-@docs/key-files.md
-@docs/build-features.md
-@docs/development-notes.md
-@docs/coolify-image-cache.md
+- Key Directories (`docs/directories.md`) – Overview of the projects directories
+- Key Files (`docs/key-files.md`) – The most important files of the project
+- Tech Stack (`docs/tech-stack.md`) – What tech stack does this project use?
+- Architectural Patterns (`docs/architectural-patterns.md`) – The architectural patterns, design decisions, and conventions used throughout the codebase.
+- Essential Commands (`docs/essential-commands.md`) – How do run server, create content and ensure code quality
+- Git Workflow (`docs/git-workflow.md`) – How to commit code and create pull requests
+- Development Notes (`docs/development-notes.md`) – Special knowledge for development
+- Content Collections (`docs/content-collections.md`) – Which Astro content collections exist?
+- Build Features (`docs/build-features.md`) – Important information on building the site
+- Coolify Image Cache (`docs/coolify-image-cache.md`) – Special knowledge on the image optimization and the VPS specs.
