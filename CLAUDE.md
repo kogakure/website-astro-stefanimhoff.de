@@ -17,8 +17,7 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 - This project uses spec-driven development, before you do anything else, run the `beans prime` command and heed its output.
 - Create beans tickets for implementation and write the full plan into the spec files; keep knowledge agent agnostic inside this repository.
 - Every design decision should be following the rules of the Ma Design System, documented in `DESIGN.md`
-- Always use existing UI components instead of raw HTML elements. Before writing `<p>`, `<h1>`–`<h6>`, `<hr>`, `<ul>`, `<ol>`, `<li>`, or `<a>` in `.astro` or `.tsx` files, check `src/components/ui/` first.
-- Use `className` prop to override default styles via `cn()` / tailwind-merge when needed. Only use raw HTML when a component requires fighting against too many defaults (e.g. custom `list-none flex` layouts).
+- Always use existing UI components instead of raw HTML elements, documented in `src/components/COMPONENTS.md`
 
 ## Topics
 
