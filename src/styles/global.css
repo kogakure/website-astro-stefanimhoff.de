@@ -599,11 +599,15 @@
 
 	/** YouTube embed (iframe-based, replaces lite-youtube) */
 	.youtube-embed {
-		@apply mbe-10 relative aspect-video w-full;
+		@apply mbe-0 relative aspect-video w-full;
+	}
+
+	.youtube-embed lite-youtube {
+		@apply max-w-none! block w-full;
 	}
 
 	figure > .figure-content > .youtube-embed {
-		@apply mbe-0;
+		@apply mbe-0!;
 	}
 }
 
