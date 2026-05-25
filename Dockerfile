@@ -1,6 +1,6 @@
 # ========================================
 # Optimized Multi-Stage Dockerfile
-# Astro Static Site with Native Dependencies
+# Astro Static Site
 # ========================================
 
 # Pin versions for reproducibility
@@ -9,19 +9,12 @@ ARG PNPM_VERSION=11
 ARG NGINX_VERSION=1.27-alpine
 
 # ========================================
-# Base Stage - Alpine for musl libc support
+# Base Stage
 # ========================================
 FROM node:${NODE_VERSION}-alpine AS base
 
 # Set working directory
 WORKDIR /app
-
-# Install build dependencies for native modules and pnpm
-RUN apk add --no-cache \
-    python3 \
-    make \
-    g++ \
-    libc6-compat
 
 # Install pnpm globally with pinned version
 RUN npm install -g pnpm@${PNPM_VERSION}
@@ -37,8 +30,9 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 # Install dependencies with cache mount for faster rebuilds
 # --frozen-lockfile ensures reproducible builds
 # --prefer-offline reduces network requests
+# --ignore-scripts skips Sharp native compilation (only needed for local image scripts)
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
-    pnpm install --frozen-lockfile --prefer-offline
+    pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
 
 # ========================================
 # Build Stage - Compile Astro site
@@ -48,7 +42,7 @@ FROM deps AS builder
 # Copy all source files (respects .dockerignore)
 COPY . .
 
-# Build the Astro site — cache mount persists optimized images across deploys
+# Build the Astro site — cache mount persists Vite/Rollup intermediate outputs
 RUN --mount=type=cache,id=astro-assets,target=/app/node_modules/.astro \
     pnpm run build
 
