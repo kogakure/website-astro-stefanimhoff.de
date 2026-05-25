@@ -42,8 +42,8 @@ FROM deps AS builder
 # Copy all source files (respects .dockerignore)
 COPY . .
 
-# Build the Astro site — cache mount persists Vite/Rollup intermediate outputs
-RUN --mount=type=cache,id=astro-assets,target=/app/node_modules/.astro \
+# Build the Astro site — cache mount persists Vite/Rollup intermediate state
+RUN --mount=type=cache,id=astro-cache,target=/app/node_modules/.astro \
     pnpm run build
 
 # Verify build output exists

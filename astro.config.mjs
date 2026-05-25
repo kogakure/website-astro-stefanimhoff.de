@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
@@ -15,6 +15,9 @@ import customTheme from './ma-theme.json';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
+	image: {
+		service: passthroughImageService(),
+	},
 	markdown: {
 		shikiConfig: {
 			theme: customTheme,
