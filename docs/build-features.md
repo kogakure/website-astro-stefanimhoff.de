@@ -8,4 +8,3 @@ Configured in `astro.config.mjs`:
 - Sitemap generation (excludes /cv/, /imprint/)
 - Web manifest for PWA support
 - View transitions (via `<ViewTransitions />` component in `src/layouts/BaseLayout.astro`)
-- Sharp image optimization with BuildKit cache mount (see `docs/coolify-image-cache.md`)

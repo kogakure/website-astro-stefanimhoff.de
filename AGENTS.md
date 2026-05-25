@@ -30,4 +30,3 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 - Development Notes (`docs/development-notes.md`) – Special knowledge for development
 - Content Collections (`docs/content-collections.md`) – Which Astro content collections exist?
 - Build Features (`docs/build-features.md`) – Important information on building the site
-- Coolify Image Cache (`docs/coolify-image-cache.md`) – Special knowledge on the image optimization and the VPS specs.
