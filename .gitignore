@@ -23,9 +23,6 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Unlighthouse reports
-.unlighthouse
-
 # Test coverage reports
 coverage/
 
