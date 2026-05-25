@@ -97,20 +97,5 @@
 		"vite": "^6.0.0",
 		"vitest": "^4.0.18",
 		"vitest-axe": "^0.1.0"
-	},
-	"pnpm": {
-		"supportedArchitectures": {
-			"libc": [
-				"musl"
-			]
-		},
-		"overrides": {
-			"sharp": "0.33.4",
-			"rollup": "npm:@rollup/wasm-node"
-		},
-		"ignoredBuiltDependencies": [
-			"esbuild",
-			"sharp"
-		]
 	}
 }

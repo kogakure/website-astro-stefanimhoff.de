@@ -6,3 +6,18 @@ allowBuilds:
   vue-demi: true
 minimumReleaseAge: 1440
 blockExoticSubdeps: true
+overrides:
+  sharp: 0.33.4
+  rollup: npm:@rollup/wasm-node
+supportedArchitectures:
+  os:
+    - current
+    - linux
+  cpu:
+    - current
+    - x64
+    - arm64
+  libc:
+    - current
+    - musl
+    - glibc
