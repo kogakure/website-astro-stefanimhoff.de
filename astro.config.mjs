@@ -15,9 +15,6 @@ import customTheme from './ma-theme.json';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.stefanimhoff.de',
-	image: {
-		service: { entrypoint: 'astro/assets/services/sharp' },
-	},
 	markdown: {
 		shikiConfig: {
 			theme: customTheme,

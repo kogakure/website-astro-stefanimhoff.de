@@ -56,8 +56,8 @@ export async function GET(context) {
 				});
 
 				const previewUrl = getPreviewUrl(cover);
-				const coverBasename = cover?.src
-					? (cover.src.split('/').pop()?.split('.')[0] ?? null)
+				const coverBasename = cover
+					? (cover.split('/').pop()?.split('.')[0] ?? null)
 					: null;
 				const ogUrl = coverBasename
 					? `/assets/images/og/${coverBasename}.jpg`

@@ -1,12 +1,12 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import PrincipleCard from '@/components/design-system/PrincipleCard';
 import ListItem from '@/components/ui/ListItem';
 import OrderedList from '@/components/ui/OrderedList';
 import Text from '@/components/ui/Text';
 import Title from '@/components/ui/Title';
-import coverImage from '@/assets/images/cover/ma-design-system.webp';
+
+const coverImage = '/assets/images/cover/ma-design-system.webp';
 
 const principles = [
 	{
@@ -81,7 +81,7 @@ const sections = [
 >
 	<!-- Cover image -->
 	<div class="max-w-360 pli-8 pbe-16 pbs-24 mx-auto w-full">
-		<Image
+		<img
 			src={coverImage}
 			alt="Ma Design System — the gate with light passing through"
 			class="rounded-2 w-full object-cover"
