@@ -1,9 +1,6 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-
 interface Props {
-	src: ImageMetadata;
+	src: string;
 	alt: string;
 	class?: string;
 	style?: string;
@@ -12,12 +9,9 @@ interface Props {
 const { src, alt, class: className, style } = Astro.props;
 ---
 
-<Image
+<img
 	src={src}
 	alt={alt}
-	widths={[400, 800, 1200, 1600, 2400]}
-	sizes="(min-width: 1280px) 1040px, (min-width: 768px) 90vw, 100vw"
-	formats={['avif', 'webp']}
 	loading="eager"
 	fetchpriority="high"
 	decoding="async"

@@ -16,8 +16,7 @@ import ListItem from '@/components/ui/ListItem';
 import TextLink from '@/components/ui/TextLink';
 import UnorderedList from '@/components/ui/UnorderedList';
 
-import { Image } from 'astro:assets';
-import anarchoCover from '@/assets/images/cover/anarcho-capitalist-city.webp';
+const anarchoCover = '/assets/images/cover/anarcho-capitalist-city.webp';
 
 import { Content as Intro } from '@/content/text/libertarianism/intro.mdx';
 import { Content as Principles } from '@/content/text/libertarianism/principles.mdx';
@@ -74,12 +73,9 @@ const description =
 
 	<div class="max-w-360 pli-8 pbe-32 mx-auto flex w-full flex-col gap-24">
 		<div class="md:rounded-2 col-span-full aspect-video overflow-hidden print:hidden">
-			<Image
+			<img
 				src={anarchoCover}
 				alt="Anarcho-capitalist city"
-				widths={[800, 1200, 1600, 2400]}
-				sizes="(min-width: 1280px) 1376px, 100vw"
-				formats={['avif', 'webp']}
 				class="h-full w-full object-cover"
 				decoding="async"
 				loading="eager"

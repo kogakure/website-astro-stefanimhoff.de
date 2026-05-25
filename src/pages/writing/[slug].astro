@@ -86,9 +86,9 @@ const title = entry.data.title;
 const subtitle = entry.data.subtitle;
 const description = entry.data.description;
 
-const coverOgUrl = entry.data.cover?.src
+const coverOgUrl = entry.data.cover
 	? `/assets/images/og/${
-			entry.data.cover.src
+			entry.data.cover
 				.split('/')
 				.pop()
 				?.replace(/(?:\.[A-Za-z0-9_-]+)?\.(?:webp|jpe?g|png|avif)$/i, '.jpg') ?? 'ma.jpg'
