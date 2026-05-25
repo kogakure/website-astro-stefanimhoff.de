@@ -26,8 +26,6 @@
 		"test:coverage": "vitest run --coverage && open coverage/index.html",
 		"test:e2e": "playwright test",
 		"test:e2e:ui": "playwright test --ui",
-		"unlighthouse": "unlighthouse --site http://localhost:4321",
-		"unlighthouse:ci": "unlighthouse-ci --build-static",
 		"webp": "node scripts/convert-images.cjs"
 	},
 	"dependencies": {
@@ -71,7 +69,6 @@
 		"@types/react-dom": "^19.2.3",
 		"@types/unist": "^3.0.2",
 		"@typescript-eslint/parser": "^8.0.0",
-		"@unlighthouse/cli": "^0.17.9",
 		"@vitest/coverage-v8": "^4.0.18",
 		"@vitest/ui": "^4.0.18",
 		"axe-core": "^4.11.4",

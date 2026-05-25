@@ -7,8 +7,15 @@
 		"types": ["vitest/globals", "@testing-library/jest-dom", "vitest-axe/extend-expect"],
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
-		}
+			"@/*": ["./src/*"],
+		},
 	},
-	"include": ["src/**/*", "src/test/**/*", "vitest.config.ts", "vitest.astro.config.ts", "unlighthouse.config.ts", "playwright.config.ts", "tests/**/*"]
+	"include": [
+		"src/**/*",
+		"src/test/**/*",
+		"vitest.config.ts",
+		"vitest.astro.config.ts",
+		"playwright.config.ts",
+		"tests/**/*",
+	],
 }
