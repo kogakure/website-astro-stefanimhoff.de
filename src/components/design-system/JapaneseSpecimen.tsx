@@ -20,7 +20,7 @@ const lines: Line[] = [
 ];
 
 export const JapaneseSpecimen = () => (
-	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md" data-ma="JapaneseSpecimen">
 		<div className="flex flex-col">
 			{lines.map((line, i) => (
 				<div

@@ -12,7 +12,11 @@ export const QuoteAttribution = ({ author, source, sourceUrl, className, ...prop
 	if (!author && !source) return null;
 
 	return (
-		<footer className={cn('text-3 mbs-6 mbe-0 not-italic', className)} {...props}>
+		<footer
+			className={cn('text-3 mbs-6 mbe-0 not-italic', className)}
+			{...props}
+			data-ma="QuoteAttribution"
+		>
 			<span aria-hidden="true" className="text-beni dark:text-beni-light">
 				—
 			</span>{' '}

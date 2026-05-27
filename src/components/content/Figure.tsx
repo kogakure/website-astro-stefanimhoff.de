@@ -7,7 +7,11 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 export const Figure = ({ caption, className, size: _size, children, ...props }: Props) => (
-	<figure className={cn('rounded-2 mbs-0 mie-0 mis-0 mbe-13', className)} {...props}>
+	<figure
+		className={cn('rounded-2 mbs-0 mie-0 mis-0 mbe-13', className)}
+		{...props}
+		data-ma="Figure"
+	>
 		<div className="figure-content flex flex-wrap gap-6 md:flex-nowrap [&_div]:grow">
 			{children}
 		</div>

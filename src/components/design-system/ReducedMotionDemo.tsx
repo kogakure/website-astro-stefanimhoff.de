@@ -25,7 +25,7 @@ export const ReducedMotionDemo = () => {
 	const boxColor = isDark ? '#B83A4E' : '#900B20';
 
 	return (
-		<div className="flex flex-col gap-5">
+		<div className="flex flex-col gap-5" data-ma="ReducedMotionDemo">
 			<div className="flex items-center gap-4">
 				<Switch
 					aria-label="Simulate prefers-reduced-motion"

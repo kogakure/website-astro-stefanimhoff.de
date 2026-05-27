@@ -81,7 +81,10 @@ export const EasingCurvePlot = ({ name, p1x, p1y, p2x, p2y, role, cssVar }: Prop
 	const cp2y = PAD + (1 - p2y) * INNER;
 
 	return (
-		<div className="bg-kiri dark:bg-sumi flex flex-col items-center gap-3 rounded-md p-4">
+		<div
+			className="bg-kiri dark:bg-sumi flex flex-col items-center gap-3 rounded-md p-4"
+			data-ma="EasingCurvePlot"
+		>
 			<button
 				onClick={play}
 				className="text-beni dark:text-beni-light group relative cursor-pointer"

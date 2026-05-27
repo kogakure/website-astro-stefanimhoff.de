@@ -17,6 +17,7 @@ export const DownloadLink = ({ href, text, className, ...props }: Props) => (
 		href={href}
 		data-umami-event={`Download: ${text}`}
 		{...props}
+		data-ma="DownloadLink"
 	>
 		<span className="bg-linear-to-r bg-size-[0%_1px] bg-position-[0_100%] ease-enter group-hover:bg-size-[100%_1px] from-current to-current bg-no-repeat transition-[background-size] duration-200">
 			{text}

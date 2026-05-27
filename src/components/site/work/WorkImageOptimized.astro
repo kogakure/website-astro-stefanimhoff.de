@@ -11,4 +11,11 @@ interface Props {
 const { src, alt, className } = Astro.props;
 ---
 
-<WorkImage src={src} largeSrc={src} alt={alt} className={className} client:visible />
+<WorkImage
+	src={src}
+	largeSrc={src}
+	alt={alt}
+	className={className}
+	client:visible
+	data-ma="WorkImageOptimized"
+/>

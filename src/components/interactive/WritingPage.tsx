@@ -116,7 +116,7 @@ export const WritingPage = ({ allTags, posts }: Props) => {
 	const contentCol = 'mbe-0 col-span-3 min-w-0 md:col-span-5 xl:col-span-6';
 
 	return (
-		<div className="flex flex-col gap-16">
+		<div className="flex flex-col gap-16" data-ma="WritingPage">
 			{/* FILTER section */}
 			<section className={sectionGrid} data-pagefind-ignore>
 				<div className={labelCol}>

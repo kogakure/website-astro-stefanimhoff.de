@@ -7,7 +7,11 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 export const Ruby = ({ base, text, className, ...props }: Props) => (
-	<ruby className={cn('text-nezumi dark:text-usuzumi font-sans', className)} {...props}>
+	<ruby
+		className={cn('text-nezumi dark:text-usuzumi font-sans', className)}
+		{...props}
+		data-ma="Ruby"
+	>
 		{base}
 		<rp>（</rp>
 		{text && <rt className="-block-start-[0.3em] relative">{text}</rt>}

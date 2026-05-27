@@ -15,7 +15,10 @@ export const ContrastBadge = ({ fg, bg, className }: Props) => {
 	const passLargeAA = ratio >= 3;
 
 	return (
-		<div className={cn('flex flex-col items-center gap-0.5', className)}>
+		<div
+			className={cn('flex flex-col items-center gap-0.5', className)}
+			data-ma="ContrastBadge"
+		>
 			<span className="font-mono text-xs font-medium" style={{ color: 'var(--color-sumi)' }}>
 				{ratioStr}:1
 			</span>

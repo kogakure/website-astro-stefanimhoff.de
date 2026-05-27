@@ -24,7 +24,7 @@ export const ColorSwatchPrimary = ({
 	const textColor = contrastColor === 'dark' ? 'var(--color-sumi)' : 'var(--color-washi)';
 
 	return (
-		<div className={cn('w-full', className)} {...props}>
+		<div className={cn('w-full', className)} {...props} data-ma="ColorSwatchPrimary">
 			{/* Color field with centered kanji */}
 			<div
 				className={cn(

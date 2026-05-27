@@ -15,7 +15,7 @@ export const GridOverlay = () => {
 	const view = views.find((v) => v.id === active)!;
 
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-4" data-ma="GridOverlay">
 			<div className="flex gap-2">
 				{views.map((v) => (
 					<button

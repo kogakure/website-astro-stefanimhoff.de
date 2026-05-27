@@ -42,7 +42,7 @@ export const EmailLink = ({
 	};
 
 	return (
-		<TooltipProvider>
+		<TooltipProvider data-ma="EmailLink">
 			<Tooltip open={open} onOpenChange={handleOpenChange}>
 				<TooltipTrigger asChild>
 					<Link

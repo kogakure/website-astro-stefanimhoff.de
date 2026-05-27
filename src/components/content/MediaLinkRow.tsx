@@ -46,7 +46,7 @@ export const MediaLinkRow = ({ className, links }: Props) => {
 	if (!activeLinks || activeLinks.length === 0) return null;
 
 	return (
-		<div className={cn('flex flex-wrap gap-2', className)}>
+		<div className={cn('flex flex-wrap gap-2', className)} data-ma="MediaLinkRow">
 			{activeLinks.map((link) => {
 				const Icon = iconMap[link.kind];
 				const ariaLabel = link.label ?? labelMap[link.kind];

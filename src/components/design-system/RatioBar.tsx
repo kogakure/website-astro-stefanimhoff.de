@@ -1,5 +1,5 @@
 export const RatioBar = () => (
-	<div className="mbe-0">
+	<div className="mbe-0" data-ma="RatioBar">
 		<div className="overflow-hidden rounded-md" style={{ height: '3rem' }}>
 			<div className="flex h-full">
 				<div

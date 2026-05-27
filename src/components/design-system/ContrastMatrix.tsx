@@ -22,7 +22,7 @@ const backgrounds: ColorEntry[] = [
 ];
 
 export const ContrastMatrix = () => (
-	<div className="overflow-x-auto">
+	<div className="overflow-x-auto" data-ma="ContrastMatrix">
 		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>

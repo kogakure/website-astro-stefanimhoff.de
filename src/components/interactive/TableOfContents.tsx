@@ -78,7 +78,7 @@ export const TableOfContents = ({ headings }: Props) => {
 	if (headings.length < 2) return null;
 
 	return (
-		<LazyMotion features={domMax}>
+		<LazyMotion features={domMax} data-ma="TableOfContents">
 			<nav aria-label="Table of contents">
 				<button
 					type="button"

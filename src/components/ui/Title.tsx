@@ -12,6 +12,7 @@ export const Title = ({ as: Tag = 'h1', className, children, ...props }: Props) 
 			className
 		)}
 		{...props}
+		data-ma="Title"
 	>
 		{children}
 	</Tag>

@@ -12,7 +12,7 @@ const entries: PrintEntry[] = [
 ];
 
 export const PrintSpec = () => (
-	<div className="overflow-x-auto">
+	<div className="overflow-x-auto" data-ma="PrintSpec">
 		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>

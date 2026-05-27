@@ -1,5 +1,5 @@
 export const PhosphorNote = () => (
-	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md" data-ma="PhosphorNote">
 		<div className="flex flex-col gap-4 p-6 md:flex-row md:items-start md:gap-8">
 			<div className="shrink-0">
 				<div className="text-beni dark:text-beni-light font-mono text-xs font-medium">

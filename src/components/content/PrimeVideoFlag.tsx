@@ -16,6 +16,7 @@ export const PrimeVideoFlag = ({ className, id, ...props }: Props) => (
 		href={`https://www.amazon.de/gp/video/detail/${id}`}
 		title="Prime Video"
 		{...props}
+		data-ma="PrimeVideoFlag"
 	>
 		<span className="hidden" aria-hidden="true">
 			[

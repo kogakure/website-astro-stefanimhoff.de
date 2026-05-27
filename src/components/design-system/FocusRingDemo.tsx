@@ -115,7 +115,7 @@ const DemoRow = ({ label, dark }: DemoRowProps) => {
 };
 
 export const FocusRingDemo = () => (
-	<div className="flex flex-col gap-4">
+	<div className="flex flex-col gap-4" data-ma="FocusRingDemo">
 		<DemoRow label="Light background — Beni focus ring" />
 		<DemoRow label="Dark background — Washi focus ring" dark />
 	</div>

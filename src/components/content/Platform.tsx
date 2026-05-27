@@ -27,6 +27,7 @@ export const Platform = ({ kind, className, ...props }: Props) => {
 			aria-label={label}
 			className={cn('inline-flex size-4 shrink-0 align-middle', className)}
 			{...props}
+			data-ma="Platform"
 		>
 			<Icon size={16} aria-hidden="true" />
 		</span>

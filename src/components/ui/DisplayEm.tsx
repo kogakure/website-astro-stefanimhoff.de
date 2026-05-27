@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLElement>;
 
 export const DisplayEm = ({ className, children, ...props }: Props) => (
-	<em className={cn('font-display font-normal', className)} {...props}>
+	<em className={cn('font-display font-normal', className)} {...props} data-ma="DisplayEm">
 		{children}
 	</em>
 );

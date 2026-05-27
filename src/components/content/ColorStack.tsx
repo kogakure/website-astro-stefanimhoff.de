@@ -12,6 +12,7 @@ export const ColorStack = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="ColorStack"
 	>
 		{children}
 	</article>

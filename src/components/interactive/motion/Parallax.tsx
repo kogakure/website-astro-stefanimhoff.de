@@ -33,11 +33,15 @@ export const Parallax = (props: Props) => {
 	const reduced = useReducedMotion();
 
 	if (reduced) {
-		return <div className={props.className}>{props.children}</div>;
+		return (
+			<div className={props.className} data-ma="Parallax">
+				{props.children}
+			</div>
+		);
 	}
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="Parallax">
 			<ParallaxInner {...props} />
 		</LazyMotion>
 	);

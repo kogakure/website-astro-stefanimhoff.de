@@ -29,7 +29,7 @@ export const WorkImage = ({
 	const { fadeUp } = useMotionPreset();
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="WorkImage">
 			<m.div
 				initial="hidden"
 				whileInView="visible"

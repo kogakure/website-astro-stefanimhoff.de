@@ -48,7 +48,7 @@ const breakpoints: BreakpointEntry[] = [
 ];
 
 export const BreakpointTable = () => (
-	<div className="overflow-x-auto">
+	<div className="overflow-x-auto" data-ma="BreakpointTable">
 		<table className="w-full text-start" style={{ borderCollapse: 'collapse' }}>
 			<thead>
 				<tr>

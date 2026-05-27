@@ -40,7 +40,12 @@ export const Marquee = ({
 	}, [pixelsPerSecond, children]);
 
 	return (
-		<div className={cn('pbl-3 overflow-hidden', className)} aria-hidden="true" {...props}>
+		<div
+			className={cn('pbl-3 overflow-hidden', className)}
+			aria-hidden="true"
+			{...props}
+			data-ma="Marquee"
+		>
 			<div
 				ref={trackRef}
 				className="marquee-track flex whitespace-nowrap"

@@ -24,7 +24,13 @@ export const Flag = ({ className, href, label, ...props }: Props) => {
 	);
 
 	return href ? (
-		<Link className={cn(flagClasses, className)} href={href} title={label} {...(props as any)}>
+		<Link
+			className={cn(flagClasses, className)}
+			href={href}
+			title={label}
+			{...(props as any)}
+			data-ma="Flag"
+		>
 			{inner}
 		</Link>
 	) : (

@@ -4,7 +4,11 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLElement>;
 
 export const FootnoteSection = ({ className, children, ...props }: Props) => (
-	<section className={cn('footnotes text-2 mbs-12', className)} {...props}>
+	<section
+		className={cn('footnotes text-2 mbs-12', className)}
+		{...props}
+		data-ma="FootnoteSection"
+	>
 		{children}
 	</section>
 );

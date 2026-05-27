@@ -41,7 +41,7 @@ export const RoadmapMilestone = ({
 	const Icon = kindIcon[kind];
 
 	return (
-		<li className="relative flex items-stretch">
+		<li className="relative flex items-stretch" data-ma="RoadmapMilestone">
 			{/* Rail dot column — decorative */}
 			<div aria-hidden className="flex w-5 shrink-0 flex-col items-center">
 				<div

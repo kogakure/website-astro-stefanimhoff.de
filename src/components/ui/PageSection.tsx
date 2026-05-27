@@ -13,6 +13,7 @@ export const PageSection = ({ label, className, children, ...props }: Props) => 
 			className
 		)}
 		{...props}
+		data-ma="PageSection"
 	>
 		<div className="md:pbs-optical col-span-3 md:col-span-2 xl:col-span-2 xl:col-start-2">
 			<SectionLabel>{label}</SectionLabel>

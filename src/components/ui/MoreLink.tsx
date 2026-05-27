@@ -16,6 +16,7 @@ export const MoreLink = ({ href, text, className, ...props }: Props) => (
 		)}
 		href={href}
 		{...props}
+		data-ma="MoreLink"
 	>
 		{text}
 		<ArrowCta

@@ -270,7 +270,7 @@ export const CommandMenu = () => {
 	};
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="CommandMenu">
 			<AnimatePresence>
 				{open && (
 					<>

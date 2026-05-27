@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 interface Props extends LiHTMLAttributes<HTMLLIElement> {}
 
 export const ListItem = ({ className, children, ...props }: Props) => (
-	<li className={cn(className)} {...props}>
+	<li className={cn(className)} {...props} data-ma="ListItem">
 		{children}
 	</li>
 );

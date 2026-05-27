@@ -10,6 +10,7 @@ export const Marked = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="Marked"
 	>
 		{children}
 	</mark>

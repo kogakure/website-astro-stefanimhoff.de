@@ -25,7 +25,7 @@ export const ColorSwatch = ({
 	const contrastColor = getContrastColor(color);
 
 	return (
-		<div className={cn('w-full', className)} {...props}>
+		<div className={cn('w-full', className)} {...props} data-ma="ColorSwatch">
 			{/* Color field */}
 			<div
 				className={cn(

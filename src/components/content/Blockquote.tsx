@@ -25,6 +25,7 @@ export const Blockquote = ({
 			className
 		)}
 		{...props}
+		data-ma="Blockquote"
 	>
 		{children}
 		<QuoteAttribution author={author} source={source} sourceUrl={sourceUrl} />

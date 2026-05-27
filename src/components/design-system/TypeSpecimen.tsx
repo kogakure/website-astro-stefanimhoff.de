@@ -29,7 +29,7 @@ export const TypeSpecimen = ({
 	const text = sampleText ?? 'The space between.';
 
 	return (
-		<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
+		<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md" data-ma="TypeSpecimen">
 			<div className="p-6 md:p-8">
 				<p
 					className="text-sumi dark:text-washi"

@@ -35,7 +35,7 @@ export const BarChart = ({ data }: BarChartProps) => {
 	}));
 
 	return (
-		<ResponsiveContainer width="100%" height={500}>
+		<ResponsiveContainer width="100%" height={500} data-ma="BarChart">
 			<RechartsBarChart data={chartData} margin={{ top: 8, right: 0, left: 0, bottom: 64 }}>
 				<CartesianGrid vertical={false} stroke="rgba(0,0,0,0.08)" />
 				<XAxis

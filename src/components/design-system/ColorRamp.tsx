@@ -16,7 +16,7 @@ const beniRamp: RampEntry[] = [
 ];
 
 export const ColorRamp = () => (
-	<div className="mbe-0 overflow-hidden rounded-md">
+	<div className="mbe-0 overflow-hidden rounded-md" data-ma="ColorRamp">
 		<div className="flex">
 			{beniRamp.map((entry) => {
 				const textColor =

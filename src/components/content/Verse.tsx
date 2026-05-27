@@ -14,6 +14,7 @@ export const Verse = ({ className, variant = 'center', children, ...props }: Pro
 			className
 		)}
 		{...props}
+		data-ma="Verse"
 	>
 		<pre
 			className={cn(

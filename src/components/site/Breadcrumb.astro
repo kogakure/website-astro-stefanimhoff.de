@@ -13,7 +13,11 @@ export interface Props {
 const { items, label = 'Breadcrumb', class: className } = Astro.props;
 ---
 
-<nav aria-label={label} class:list={['max-w-360 pli-8 mx-auto w-full', className]}>
+<nav
+	aria-label={label}
+	class:list={['max-w-360 pli-8 mx-auto w-full', className]}
+	data-ma="Breadcrumb"
+>
 	<ol
 		class="breadcrumb-list text-hai text-2 flex items-center font-sans uppercase tracking-wider"
 	>

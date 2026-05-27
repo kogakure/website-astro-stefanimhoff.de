@@ -13,6 +13,7 @@ export const ProductLink = ({ asin, className, text, ...props }: Props) => (
 		data-umami-event={`Product: ${asin}`}
 		href={`https://www.amazon.de/gp/product/${asin}`}
 		{...props}
+		data-ma="ProductLink"
 	>
 		{text}
 	</TextLink>

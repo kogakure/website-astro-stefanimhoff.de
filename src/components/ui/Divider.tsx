@@ -10,6 +10,7 @@ export const Divider = ({ className, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="Divider"
 	/>
 );
 

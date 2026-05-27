@@ -30,6 +30,7 @@ export const Link = ({ className, href = '#', children, ...props }: Props) => {
 			rel={isExternal ? 'nofollow noopener noreferrer' : undefined}
 			target={isExternal ? '_blank' : undefined}
 			{...props}
+			data-ma="Link"
 		>
 			{children}
 		</a>
