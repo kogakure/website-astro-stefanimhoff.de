@@ -32,7 +32,7 @@ export const SpacingPicker = () => {
 	const pad = tokens[padIdx].value;
 
 	return (
-		<div className="flex flex-col gap-5">
+		<div className="flex flex-col gap-5" data-ma="SpacingPicker">
 			<div className="flex flex-wrap gap-6">
 				<label className="flex flex-col gap-1.5">
 					<span className="font-mono text-[11px]" style={{ color: 'var(--color-hai)' }}>

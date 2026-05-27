@@ -19,7 +19,7 @@ const durations = [
 const MAX_MS = 800;
 
 export const DurationBar = () => (
-	<div className="flex flex-col gap-3">
+	<div className="flex flex-col gap-3" data-ma="DurationBar">
 		{durations.map((d) => (
 			<div key={d.token} className="flex items-center gap-4">
 				<div className="flex w-28 shrink-0 flex-col gap-0.5">

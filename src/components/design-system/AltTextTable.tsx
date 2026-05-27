@@ -37,7 +37,10 @@ const rows = [
 ];
 
 export const AltTextTable = () => (
-	<div className="border-usuzumi dark:border-nezumi overflow-hidden rounded-md border">
+	<div
+		className="border-usuzumi dark:border-nezumi overflow-hidden rounded-md border"
+		data-ma="AltTextTable"
+	>
 		<table className="w-full border-collapse font-mono text-[11px]">
 			<thead>
 				<tr className="bg-kiri dark:bg-sumi">

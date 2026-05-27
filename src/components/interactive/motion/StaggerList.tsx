@@ -34,7 +34,7 @@ export const StaggerList = ({
 	const MotionTag = m[Tag];
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="StaggerList">
 			<MotionTag
 				className={className}
 				variants={variants}
@@ -54,7 +54,7 @@ export const StaggerItem = ({ as: Tag = 'li', className, children }: StaggerItem
 	const variants = reduced ? fadeUpReduced : staggerItem;
 
 	return (
-		<MotionTag className={className} variants={variants}>
+		<MotionTag className={className} variants={variants} data-ma="StaggerItem">
 			{children}
 		</MotionTag>
 	);

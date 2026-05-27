@@ -25,6 +25,7 @@ export const Tag = ({ active, children, className, href, onClick }: Props) => {
 				href={href}
 				className={cn(baseClasses, active ? activeClasses : inactiveClasses, className)}
 				aria-current={active ? 'true' : undefined}
+				data-ma="Tag"
 			>
 				{children}
 			</a>
@@ -37,6 +38,7 @@ export const Tag = ({ active, children, className, href, onClick }: Props) => {
 			onClick={onClick}
 			className={cn(baseClasses, active ? activeClasses : inactiveClasses, className)}
 			aria-pressed={active}
+			data-ma="Tag"
 		>
 			{children}
 		</button>

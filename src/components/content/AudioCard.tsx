@@ -59,6 +59,7 @@ export const AudioCard = ({
 				className
 			)}
 			tabIndex={0}
+			data-ma="AudioCard"
 		>
 			<div className="bg-muted aspect-square overflow-hidden">
 				{primaryLink ? (

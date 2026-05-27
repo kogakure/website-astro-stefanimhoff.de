@@ -14,6 +14,7 @@ export const InlineCode = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="InlineCode"
 	>
 		{children}
 	</code>

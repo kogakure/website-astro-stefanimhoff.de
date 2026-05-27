@@ -77,6 +77,7 @@ const Image = ({
 				className
 			)}
 			{...props}
+			data-ma="Image"
 		>
 			<div className="figure-content mbs-0 gap-6 [&_img]:w-full [&_img]:max-w-full">
 				{href ? <a href={href}>{img}</a> : imgEl}

@@ -1,7 +1,7 @@
 const SAMPLE = 'The space between things is the substance of design.';
 
 export const ItalicComparison = () => (
-	<div className="grid gap-4 md:grid-cols-2">
+	<div className="grid gap-4 md:grid-cols-2" data-ma="ItalicComparison">
 		<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
 			<div className="p-6">
 				<p

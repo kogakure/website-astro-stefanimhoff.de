@@ -37,7 +37,7 @@ export const Reveal = ({ preset = 'fadeUp', delay, className, children }: Props)
 			: base;
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="Reveal">
 			<m.div
 				data-reveal=""
 				className={className}

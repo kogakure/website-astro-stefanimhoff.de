@@ -10,6 +10,7 @@ export const Strikethrough = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="Strikethrough"
 	>
 		{children}
 	</del>

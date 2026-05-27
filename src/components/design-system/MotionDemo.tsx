@@ -68,7 +68,7 @@ export const MotionDemo = () => {
 	};
 
 	return (
-		<div className="flex flex-col gap-5">
+		<div className="flex flex-col gap-5" data-ma="MotionDemo">
 			<style>{`
 				@keyframes ds-motion-fade {
 					from { opacity: 0; }

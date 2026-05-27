@@ -15,6 +15,7 @@ export const Spotify = ({ className, id, ...props }: Props) => (
 		title="Spotify Podcast Player"
 		width="100%"
 		{...props}
+		data-ma="Spotify"
 	/>
 );
 

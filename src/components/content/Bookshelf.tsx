@@ -10,6 +10,7 @@ export const Bookshelf = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="Bookshelf"
 	>
 		{children}
 	</article>

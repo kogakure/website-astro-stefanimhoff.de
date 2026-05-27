@@ -14,7 +14,10 @@ const { title, images = [] } = entry.data;
 const [primary, ...gallery] = images;
 ---
 
-<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+<article
+	class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	data-ma="WorkItemFeatured"
+>
 	<WorkContent entry={entry} />
 
 	{

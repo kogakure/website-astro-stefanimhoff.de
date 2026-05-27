@@ -24,7 +24,7 @@ const entries: SpacingEntry[] = [
 const MAX_PX = 128;
 
 export const SpacingScale = () => (
-	<div className="flex flex-col gap-2">
+	<div className="flex flex-col gap-2" data-ma="SpacingScale">
 		{entries.map((entry) => (
 			<div key={entry.token} className="flex items-center gap-4">
 				<span className="text-beni dark:text-beni-light w-28 shrink-0 font-mono text-[11px]">

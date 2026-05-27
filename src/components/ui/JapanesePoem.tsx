@@ -13,6 +13,7 @@ export const JapanesePoem = ({ as: Tag = 'span', className, children, ...props }
 		)}
 		lang="ja"
 		{...props}
+		data-ma="JapanesePoem"
 	>
 		{children ?? '無限の沈黙である私はお前に言葉を與へてやろう。'}
 	</Tag>

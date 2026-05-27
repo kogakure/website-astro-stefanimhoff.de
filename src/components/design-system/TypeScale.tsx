@@ -98,6 +98,7 @@ export const TypeScale = () => (
 	<div
 		className="mbe-0 flex flex-col"
 		style={{ borderBlockStart: '1px solid var(--color-usuzumi)' }}
+		data-ma="TypeScale"
 	>
 		{scale.map((entry) => (
 			<div

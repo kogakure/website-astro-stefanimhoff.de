@@ -59,6 +59,7 @@ export const VideoCard = ({
 				'rounded-4 duration-moderate ease-standard group block overflow-hidden border border-black/5 shadow-sm transition-shadow hover:shadow-md dark:border-white/5',
 				className
 			)}
+			data-ma="VideoCard"
 		>
 			<div className="bg-muted relative aspect-video overflow-hidden">
 				{thumbnailSrc ? (

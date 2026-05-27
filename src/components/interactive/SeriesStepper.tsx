@@ -49,7 +49,7 @@ export const SeriesStepper = ({ steps, currentId, seriesName }: Props) => {
 		state === 'past' ? 'Visited' : state === 'current' ? 'Current part' : 'Upcoming';
 
 	return (
-		<LazyMotion features={domMax}>
+		<LazyMotion features={domMax} data-ma="SeriesStepper">
 			<nav
 				aria-label={seriesName ? `Series: ${seriesName}` : 'Series navigation'}
 				className="rounded-2 border-usuzumi dark:border-nezumi mbe-8 border p-4"

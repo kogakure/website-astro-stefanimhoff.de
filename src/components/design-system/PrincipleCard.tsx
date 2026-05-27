@@ -24,6 +24,7 @@ export const PrincipleCard = ({
 			className
 		)}
 		{...props}
+		data-ma="PrincipleCard"
 	>
 		<div className="flex items-start justify-between gap-4">
 			<span

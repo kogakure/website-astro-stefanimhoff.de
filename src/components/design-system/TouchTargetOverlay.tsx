@@ -22,7 +22,7 @@ const examples: { label: string; size: number; icon: ReactNode }[] = [
 ];
 
 export const TouchTargetOverlay = () => (
-	<div className="flex flex-wrap gap-8">
+	<div className="flex flex-wrap gap-8" data-ma="TouchTargetOverlay">
 		{examples.map((ex) => (
 			<div key={ex.label} className="flex flex-col items-center gap-3">
 				<div

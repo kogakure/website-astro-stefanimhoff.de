@@ -13,7 +13,10 @@ const { entry } = Astro.props;
 const images = entry.data.images ?? [];
 ---
 
-<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+<article
+	class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	data-ma="WorkItemGallery2"
+>
 	<WorkContent entry={entry} />
 	{
 		images[0] && (

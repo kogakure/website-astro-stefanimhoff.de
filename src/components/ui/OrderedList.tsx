@@ -10,6 +10,7 @@ export const OrderedList = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="OrderedList"
 	>
 		{children}
 	</ol>

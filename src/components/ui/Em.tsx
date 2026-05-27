@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLElement>;
 
 export const Em = ({ className, children, ...props }: Props) => (
-	<em className={cn('italic', className)} {...props}>
+	<em className={cn('italic', className)} {...props} data-ma="Em">
 		{children}
 	</em>
 );

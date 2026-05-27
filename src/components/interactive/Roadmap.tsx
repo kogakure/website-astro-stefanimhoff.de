@@ -9,7 +9,7 @@ export const Roadmap = ({ milestones }: Props) => {
 	if (milestones.length === 0) return null;
 
 	return (
-		<ol className="flex list-none flex-col">
+		<ol className="flex list-none flex-col" data-ma="Roadmap">
 			{milestones.map((milestone, i) => (
 				<RoadmapMilestone
 					key={milestone.href}

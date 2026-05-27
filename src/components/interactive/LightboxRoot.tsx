@@ -121,7 +121,7 @@ export const LightboxRoot = () => {
 	const backdropDuration = prefersReducedMotion ? 0 : DUR_FAST;
 
 	return (
-		<LazyMotion features={domAnimation}>
+		<LazyMotion features={domAnimation} data-ma="LightboxRoot">
 			<AnimatePresence>
 				{active && target && (
 					<>

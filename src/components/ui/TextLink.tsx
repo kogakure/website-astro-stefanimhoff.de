@@ -14,6 +14,7 @@ export const TextLink = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="TextLink"
 	>
 		{children}
 	</Link>

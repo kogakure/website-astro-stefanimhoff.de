@@ -10,7 +10,11 @@ const sizes = [
 ];
 
 export const LogoSizeStrip = () => (
-	<div className="overflow-hidden rounded-md" style={{ backgroundColor: 'var(--color-kiri)' }}>
+	<div
+		className="overflow-hidden rounded-md"
+		style={{ backgroundColor: 'var(--color-kiri)' }}
+		data-ma="LogoSizeStrip"
+	>
 		<div className="flex flex-wrap items-end gap-6 p-6">
 			{sizes.map((s) => (
 				<div key={s.px} className="flex flex-col items-center gap-2">

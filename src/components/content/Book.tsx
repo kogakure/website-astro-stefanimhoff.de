@@ -12,6 +12,7 @@ export const Book = ({ alt = '', className, src, ...props }: Props) => (
 			className
 		)}
 		tabIndex={0}
+		data-ma="Book"
 	>
 		<img alt={alt} src={src} loading="lazy" decoding="async" {...props} />
 	</div>

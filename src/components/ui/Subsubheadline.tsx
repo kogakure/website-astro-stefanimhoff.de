@@ -6,7 +6,11 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 export const Subsubheadline = ({ as: Tag = 'h4', className, children, ...props }: Props) => (
-	<Tag className={cn('text-2 mbe-1 text-balance font-bold', className)} {...props}>
+	<Tag
+		className={cn('text-2 mbe-1 text-balance font-bold', className)}
+		{...props}
+		data-ma="Subsubheadline"
+	>
 		{children}
 	</Tag>
 );

@@ -15,6 +15,7 @@ export const AmazonBook = ({ alt = '', asin, className, ...props }: Props) => (
 		data-umami-event={`Book: ${asin}`}
 		href={`https://www.amazon.de/gp/product/${asin}`}
 		{...props}
+		data-ma="AmazonBook"
 	>
 		<Book
 			alt={alt}

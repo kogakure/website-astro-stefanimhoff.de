@@ -59,6 +59,7 @@ export const BookCard = ({
 				className
 			)}
 			tabIndex={0}
+			data-ma="BookCard"
 		>
 			<div className="bg-muted aspect-2/3 overflow-hidden">
 				{primaryLink ? (

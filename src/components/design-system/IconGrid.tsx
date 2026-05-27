@@ -30,7 +30,7 @@ const icons: { name: string; component: Icon; usage: string }[] = [
 ];
 
 export const IconGrid = () => (
-	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md">
+	<div className="bg-kiri dark:bg-sumi overflow-hidden rounded-md" data-ma="IconGrid">
 		<div className="grid grid-cols-2 gap-px sm:grid-cols-3 md:grid-cols-5">
 			{icons.map(({ name, component: Icon, usage }) => (
 				<div

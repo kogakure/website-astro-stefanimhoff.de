@@ -3,7 +3,7 @@ import DisplayEm from '../ui/DisplayEm';
 import Title from '../ui/Title';
 
 export const HeroTitle = () => (
-	<Title className="hero-title leading-[1.10]!">
+	<Title className="hero-title leading-[1.10]!" data-ma="HeroTitle">
 		<SplitText text="Stefan Imhoff" stagger={0.04} delay={0} />{' '}
 		<DisplayEm>
 			<SplitText text="is a" stagger={0.04} delay={0.15} />

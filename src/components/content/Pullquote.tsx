@@ -30,6 +30,7 @@ export const Pullquote = ({
 			className
 		)}
 		{...props}
+		data-ma="Pullquote"
 	>
 		<p className="font-display text-5 mbe-0 text-balance font-bold">{text}</p>
 		<QuoteAttribution author={author} source={source} sourceUrl={sourceUrl} />

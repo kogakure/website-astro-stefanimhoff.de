@@ -15,7 +15,10 @@ const offset = entry.data.imageOffset ?? '24';
 const offsetClass = offset === '32' ? 'md:mbs-32 xl:mbs-32' : 'md:mbs-24 xl:mbs-24';
 ---
 
-<article class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8">
+<article
+	class="grid grid-cols-3 gap-x-4 md:grid-cols-6 md:gap-x-6 xl:grid-cols-12 xl:gap-x-8"
+	data-ma="WorkItemGallery2Stagger"
+>
 	<WorkContent entry={entry} />
 	{
 		images[0] && (

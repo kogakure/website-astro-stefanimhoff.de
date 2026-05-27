@@ -71,7 +71,7 @@ export const DoughnutChart = ({ data }: DoughnutChartProps) => {
 	}));
 
 	return (
-		<ResponsiveContainer width="100%" height={520}>
+		<ResponsiveContainer width="100%" height={520} data-ma="DoughnutChart">
 			<PieChart>
 				<Pie
 					data={chartData}

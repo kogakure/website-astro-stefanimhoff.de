@@ -19,6 +19,7 @@ export const ColorSwatchMini = ({ className, color, ...props }: Props) => {
 			)}
 			style={{ backgroundColor: color }}
 			{...props}
+			data-ma="ColorSwatchMini"
 		/>
 	);
 };

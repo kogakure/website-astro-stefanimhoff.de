@@ -10,6 +10,7 @@ export const UnorderedList = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="UnorderedList"
 	>
 		{children}
 	</ul>

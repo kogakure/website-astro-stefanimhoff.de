@@ -24,6 +24,7 @@ export const Badge = ({ variant = 'default', className, children, ...props }: Pr
 			className
 		)}
 		{...props}
+		data-ma="Badge"
 	>
 		{children}
 	</span>

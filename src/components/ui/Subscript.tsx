@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLElement>;
 
 export const Subscript = ({ className, children, ...props }: Props) => (
-	<sub className={cn('align-sub text-[0.75em]', className)} {...props}>
+	<sub className={cn('align-sub text-[0.75em]', className)} {...props} data-ma="Subscript">
 		{children}
 	</sub>
 );

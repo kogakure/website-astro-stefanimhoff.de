@@ -16,6 +16,7 @@ export const NetflixFlag = ({ className, id, ...props }: Props) => (
 		href={`https://www.netflix.com/title/${id}`}
 		title="Netflix"
 		{...props}
+		data-ma="NetflixFlag"
 	>
 		<span className="hidden" aria-hidden="true">
 			[

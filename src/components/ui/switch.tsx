@@ -19,6 +19,7 @@ function Switch({
 				className
 			)}
 			{...props}
+			data-ma="Switch"
 		>
 			<SwitchPrimitive.Thumb
 				data-slot="switch-thumb"

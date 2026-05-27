@@ -131,6 +131,7 @@ export const HoverPreview = () => {
 			className="w-100 block-start-0 inset-s-0 pointer-events-none fixed z-50 aspect-video rounded-md opacity-0 shadow-xl transition-opacity duration-150"
 			decoding="async"
 			loading="lazy"
+			data-ma="HoverPreview"
 		/>
 	);
 };

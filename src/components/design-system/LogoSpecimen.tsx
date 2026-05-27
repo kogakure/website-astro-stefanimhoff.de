@@ -42,7 +42,7 @@ const LOGO_SIZE = 80;
 const SAFE_RATIO = 1.5; // safe zone = logo * 1.5
 
 export const LogoSpecimen = () => (
-	<div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+	<div className="grid grid-cols-1 gap-4 sm:grid-cols-3" data-ma="LogoSpecimen">
 		{variants.map((v) => (
 			<div
 				key={v.label}

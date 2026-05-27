@@ -4,7 +4,11 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLTableRowElement>;
 
 export const TableRow = ({ className, children, ...props }: Props) => (
-	<tr className={cn('border-be-1 border-black/8 dark:border-white/8', className)} {...props}>
+	<tr
+		className={cn('border-be-1 border-black/8 dark:border-white/8', className)}
+		{...props}
+		data-ma="TableRow"
+	>
 		{children}
 	</tr>
 );

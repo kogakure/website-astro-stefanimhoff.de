@@ -49,7 +49,7 @@ const donts: {
 ];
 
 export const LogoDontList = () => (
-	<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+	<div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6" data-ma="LogoDontList">
 		{donts.map((d) => (
 			<div
 				key={d.label}

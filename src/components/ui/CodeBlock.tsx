@@ -7,6 +7,7 @@ export const CodeBlock = ({ className, children, ...props }: Props) => (
 	<pre
 		className={cn('rounded-2 text-code mbe-8 overflow-auto p-4 font-mono', className)}
 		{...props}
+		data-ma="CodeBlock"
 	>
 		{children}
 	</pre>

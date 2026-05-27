@@ -12,6 +12,7 @@ const ArrowCta = (props: SVGProps<SVGSVGElement>) => (
 			strokeMiterlimit: 2,
 		}}
 		{...props}
+		data-ma="ArrowCta"
 	>
 		<path d="M22.533,13.004l-3.778,-3.778l0,3.131l-16.222,0l0,1.294l16.222,0l0,3.131l3.778,-3.778Z" />
 	</svg>

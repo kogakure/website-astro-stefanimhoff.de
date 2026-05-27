@@ -10,6 +10,7 @@ export const Inserted = ({ className, children, ...props }: Props) => (
 			className
 		)}
 		{...props}
+		data-ma="Inserted"
 	>
 		{children}
 	</ins>

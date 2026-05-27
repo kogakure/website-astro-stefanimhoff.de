@@ -112,7 +112,7 @@ export const EasingComparison = () => {
 	);
 
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-4" data-ma="EasingComparison">
 			<button
 				onClick={play}
 				className="bg-kiri dark:bg-sumi rounded-md"

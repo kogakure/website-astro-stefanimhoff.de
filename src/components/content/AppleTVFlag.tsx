@@ -16,6 +16,7 @@ export const AppleTVFlag = ({ className, id, ...props }: Props) => (
 		href={`https://tv.apple.com/show/umc.cmc.${id}`}
 		title="Apple TV+"
 		{...props}
+		data-ma="AppleTVFlag"
 	>
 		<span className="hidden" aria-hidden="true">
 			[

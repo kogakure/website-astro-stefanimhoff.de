@@ -24,7 +24,7 @@ interface Props extends HTMLAttributes<HTMLElement>, VariantProps<typeof bannerV
 }
 
 export const Banner = ({ className, open, summary, tone, children, ...props }: Props) => (
-	<aside className={cn(bannerVariants({ tone }), className)} {...props}>
+	<aside className={cn(bannerVariants({ tone }), className)} {...props} data-ma="Banner">
 		{summary ? (
 			<details open={open} className="banner-disclosure group">
 				<summary className="ease-enter pli-6 pbl-5 dark:hover:bg-white/2 hover:bg-black/2 flex cursor-pointer list-none items-center gap-3 transition-colors duration-200 [&::-webkit-details-marker]:hidden">

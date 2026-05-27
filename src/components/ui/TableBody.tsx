@@ -4,7 +4,7 @@ import { cn } from '../../lib/utils';
 type Props = HTMLAttributes<HTMLTableSectionElement>;
 
 export const TableBody = ({ className, children, ...props }: Props) => (
-	<tbody className={cn(className)} {...props}>
+	<tbody className={cn(className)} {...props} data-ma="TableBody">
 		{children}
 	</tbody>
 );

@@ -5,7 +5,12 @@ const currentPath = Astro.url.pathname;
 const isActive = (url: string) => (url === '/' ? currentPath === '/' : currentPath.startsWith(url));
 ---
 
-<nav class="hidden items-center md:flex" role="navigation" aria-label="Main">
+<nav
+	class="hidden items-center md:flex"
+	role="navigation"
+	aria-label="Main"
+	data-ma="MainNavigation"
+>
 	<ul class="nav-list flex items-center">
 		{
 			navigation.map(({ title, url }) => (

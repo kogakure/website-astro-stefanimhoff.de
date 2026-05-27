@@ -9,6 +9,7 @@ export const Text = ({ as: Tag = 'p', className, children, ...props }: Props) =>
 	<Tag
 		className={cn('text-3 mbe-10 mbs-0 font-normal tracking-normal dark:font-light', className)}
 		{...props}
+		data-ma="Text"
 	>
 		{children}
 	</Tag>
