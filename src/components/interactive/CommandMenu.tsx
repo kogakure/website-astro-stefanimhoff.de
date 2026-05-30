@@ -1,7 +1,6 @@
 'use client';
 
 import {
-	ArrowLeftIcon,
 	BookOpenIcon,
 	BriefcaseIcon,
 	ClockIcon,
@@ -10,7 +9,6 @@ import {
 	HouseIcon,
 	InfoIcon,
 	LeafIcon,
-	MagnifyingGlassIcon,
 	MoonIcon,
 	PaintBrushIcon,
 	PencilSimpleIcon,
@@ -25,8 +23,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { DUR_FAST, EASE_ENTER } from '../../lib/motion';
 import { cn } from '../../lib/utils';
 import { queryLengthBucket, resultCountBucket, trackEvent } from '../../utils/analytics';
-
-type View = 'menu' | 'search';
 
 type PagefindResult = {
 	url: string;
@@ -99,7 +95,6 @@ export const CommandMenu = () => {
 	const reduced = useReducedMotion();
 	const dur = reduced ? 0 : DUR_FAST;
 	const [open, setOpen] = useState(false);
-	const [view, setView] = useState<View>('menu');
 	const [query, setQuery] = useState('');
 	const [results, setResults] = useState<PagefindResult[]>([]);
 	const [isDark, setIsDark] = useState(false);
@@ -116,7 +111,7 @@ export const CommandMenu = () => {
 
 	useEffect(() => {
 		if (open) inputRef.current?.focus();
-	}, [view, open]);
+	}, [open]);
 
 	const loadPagefind = useCallback(async () => {
 		if (pagefindRef.current) return;
@@ -129,9 +124,8 @@ export const CommandMenu = () => {
 		}
 	}, []);
 
-	// Pagefind search (search view only)
 	useEffect(() => {
-		if (view !== 'search' || !open || !query.trim()) {
+		if (!open || !query.trim()) {
 			setResults([]);
 			return;
 		}
@@ -161,7 +155,7 @@ export const CommandMenu = () => {
 			});
 		}, 150);
 		return () => clearTimeout(timer);
-	}, [query, view, open, loadPagefind]);
+	}, [query, open, loadPagefind]);
 
 	// Cmd+K / Ctrl+K + ESC
 	useEffect(() => {
@@ -174,10 +168,8 @@ export const CommandMenu = () => {
 				});
 			}
 			if (e.key === 'Escape' && open) {
-				if (view === 'search' && query) {
+				if (query) {
 					setQuery('');
-				} else if (view === 'search') {
-					setView('menu');
 				} else {
 					setOpen(false);
 				}
@@ -185,7 +177,7 @@ export const CommandMenu = () => {
 		};
 		document.addEventListener('keydown', handler);
 		return () => document.removeEventListener('keydown', handler);
-	}, [open, view, query]);
+	}, [open, query]);
 
 	// Global openers
 	useEffect(() => {
@@ -194,24 +186,18 @@ export const CommandMenu = () => {
 			window.openCommandMenu = () => setOpen(true);
 		}
 		const openMenu = () => {
-			trackEvent('Command Menu: Open (event)', { view: 'menu' });
-			setView('menu');
-			setOpen(true);
-		};
-		const openSearch = () => {
-			trackEvent('Command Menu: Open (event)', { view: 'search' });
-			setView('search');
+			trackEvent('Command Menu: Open (event)');
 			setOpen(true);
 		};
 		document.addEventListener('command-menu:open', openMenu);
-		document.addEventListener('command-menu:open-search', openSearch);
+		document.addEventListener('command-menu:open-search', openMenu);
 		return () => {
 			if (typeof window !== 'undefined') {
 				// @ts-expect-error -- global opener for Astro scripts / header buttons
 				delete window.openCommandMenu;
 			}
 			document.removeEventListener('command-menu:open', openMenu);
-			document.removeEventListener('command-menu:open-search', openSearch);
+			document.removeEventListener('command-menu:open-search', openMenu);
 		};
 	}, []);
 
@@ -227,7 +213,6 @@ export const CommandMenu = () => {
 	useEffect(() => {
 		if (!open) {
 			setQuery('');
-			setView('menu');
 		}
 	}, [open]);
 
@@ -237,7 +222,7 @@ export const CommandMenu = () => {
 	};
 
 	const navigate = (url: string) => {
-		if (view === 'search') {
+		if (results.length > 0 && query.trim()) {
 			trackEvent('Search: Result Click', { results: resultCountBucket(results.length) });
 		} else {
 			trackEvent('Command Menu: Navigate', { url });
@@ -248,6 +233,15 @@ export const CommandMenu = () => {
 		}
 	};
 
+	const q = query.trim().toLowerCase();
+	const matches = (title: string) => !q || title.toLowerCase().includes(q);
+	const filteredNav = navItems.filter((i) => matches(i.title));
+	const filteredLinks = linkItems.filter((i) => matches(i.title));
+	const themeLabel = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+	const showTheme = matches(themeLabel);
+	const hasAny =
+		filteredNav.length + filteredLinks.length + (showTheme ? 1 : 0) + results.length > 0;
+
 	const toggleTheme = () => {
 		const newDark = !isDark;
 		document.documentElement.classList[newDark ? 'add' : 'remove']('dark');
@@ -255,18 +249,6 @@ export const CommandMenu = () => {
 		trackEvent('Theme: Switch', { to: newDark ? 'dark' : 'light', from: 'command-menu' });
 		setIsDark(newDark);
 		close();
-	};
-
-	const goToSearch = () => {
-		trackEvent('Command Menu: View Search');
-		setQuery('');
-		setView('search');
-	};
-
-	const goToMenu = () => {
-		trackEvent('Command Menu: View Menu');
-		setQuery('');
-		setView('menu');
 	};
 
 	return (
@@ -301,165 +283,126 @@ export const CommandMenu = () => {
 							<Command
 								className="rounded-2 bg-kiri dark:bg-yoru overflow-hidden border border-black/10 shadow-sm dark:border-white/10 dark:shadow-none"
 								loop
-								shouldFilter={view === 'menu'}
+								shouldFilter={false}
 							>
 								{/* Input bar */}
 								<div className="border-be-1 border-be-solid border-be-black/10 dark:border-be-white/10 flex items-center">
-									{view === 'search' && (
-										<button
-											onClick={goToMenu}
-											className="rounded-1 text-hai hover:text-sumi dark:hover:text-washi focus-visible:ring-beni dark:focus-visible:ring-beni-light mis-2 shrink-0 p-2 focus-visible:outline-none focus-visible:ring-2"
-											aria-label="Back to navigation"
-											type="button"
-										>
-											<ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
-										</button>
-									)}
 									<Command.Input
 										ref={inputRef}
 										value={query}
 										onValueChange={setQuery}
-										placeholder={
-											view === 'menu' ? 'Type a command…' : 'Search the site…'
-										}
+										placeholder="Search or jump to…"
 										className={cn(
 											'text-3 text-sumi placeholder:text-hai dark:text-washi dark:placeholder:text-nezumi flex h-12 w-full border-0 bg-transparent outline-none focus-visible:ring-0 focus-visible:ring-offset-0',
-											view === 'search' ? 'pis-3 pie-4' : 'pis-4 pie-4'
+											'pis-4 pie-4'
 										)}
 										autoFocus
 									/>
 								</div>
 
 								<Command.List className="pbe-2 pbs-2 max-h-[60vh] overflow-y-auto">
-									{/* Menu view */}
-									{view === 'menu' && (
-										<>
-											<Command.Empty className="text-2 text-hai pbl-8 text-center">
-												No results found.
-											</Command.Empty>
-
-											<Command.Item
-												value="Search"
-												onSelect={goToSearch}
-												className={itemClasses}
-											>
-												<MagnifyingGlassIcon
-													className="size-4 shrink-0"
-													aria-hidden="true"
-												/>
-												Search
-											</Command.Item>
-
-											<Command.Group
-												heading="Navigation"
-												className={groupHeadingClasses}
-											>
-												{navItems.map(({ title, url, Icon }) => (
-													<Command.Item
-														key={url}
-														value={title}
-														onSelect={() => navigate(url)}
-														className={itemClasses}
-													>
-														<Icon
-															className="size-4 shrink-0"
-															aria-hidden="true"
-														/>
-														{title}
-													</Command.Item>
-												))}
-											</Command.Group>
-
-											<Command.Group
-												heading="Links"
-												className={groupHeadingClasses}
-											>
-												{linkItems.map(({ title, url, Icon }) => (
-													<Command.Item
-														key={url}
-														value={title}
-														onSelect={() => navigate(url)}
-														className={itemClasses}
-													>
-														<Icon
-															className="size-4 shrink-0"
-															aria-hidden="true"
-														/>
-														{title}
-													</Command.Item>
-												))}
-											</Command.Group>
-
-											<Command.Group
-												heading="Theme"
-												className={groupHeadingClasses}
-											>
-												<Command.Item
-													value={
-														isDark
-															? 'Switch to light mode'
-															: 'Switch to dark mode'
-													}
-													onSelect={toggleTheme}
-													className={itemClasses}
-												>
-													{isDark ? (
-														<SunIcon
-															className="size-4 shrink-0"
-															aria-hidden="true"
-														/>
-													) : (
-														<MoonIcon
-															className="size-4 shrink-0"
-															aria-hidden="true"
-														/>
-													)}
-													{isDark
-														? 'Switch to light mode'
-														: 'Switch to dark mode'}
-												</Command.Item>
-											</Command.Group>
-										</>
+									{!hasAny && (
+										<Command.Empty className="text-2 text-hai pbl-8 text-center">
+											No results found.
+										</Command.Empty>
 									)}
 
-									{/* Search view */}
-									{view === 'search' && (
-										<>
-											{!query.trim() && (
-												<div className="text-2 text-hai pbl-8 text-center">
-													Type to search posts, haiku and work.
-												</div>
-											)}
-											{query.trim() && results.length === 0 && (
-												<div className="text-2 text-hai pbl-8 text-center">
-													Nothing found for &lsquo;{query}&rsquo;.
-												</div>
-											)}
-											{results.length > 0 && (
-												<Command.Group className={groupHeadingClasses}>
-													{results.map((result) => (
-														<Command.Item
-															key={result.url}
-															value={`${result.meta.title} ${result.url}`}
-															onSelect={() => navigate(result.url)}
-															className={itemClasses}
-														>
-															<div className="min-w-0 flex-1">
-																<div className="text-3 truncate font-semibold">
-																	{result.meta.title}
-																</div>
-																<div
-																	className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi [&_mark]:rounded-1 truncate opacity-60 [&_mark]:px-[0.2em]"
-																	dangerouslySetInnerHTML={{
-																		__html: result.excerpt,
-																	}}
-																/>
-															</div>
-														</Command.Item>
-													))}
-												</Command.Group>
-											)}
-										</>
+									{filteredNav.length > 0 && (
+										<Command.Group
+											heading="Navigation"
+											className={groupHeadingClasses}
+										>
+											{filteredNav.map(({ title, url, Icon }) => (
+												<Command.Item
+													key={url}
+													value={title}
+													onSelect={() => navigate(url)}
+													className={itemClasses}
+												>
+													<Icon
+														className="size-4 shrink-0"
+														aria-hidden="true"
+													/>
+													{title}
+												</Command.Item>
+											))}
+										</Command.Group>
+									)}
+
+									{filteredLinks.length > 0 && (
+										<Command.Group
+											heading="Links"
+											className={groupHeadingClasses}
+										>
+											{filteredLinks.map(({ title, url, Icon }) => (
+												<Command.Item
+													key={url}
+													value={title}
+													onSelect={() => navigate(url)}
+													className={itemClasses}
+												>
+													<Icon
+														className="size-4 shrink-0"
+														aria-hidden="true"
+													/>
+													{title}
+												</Command.Item>
+											))}
+										</Command.Group>
+									)}
+
+									{showTheme && (
+										<Command.Group
+											heading="Theme"
+											className={groupHeadingClasses}
+										>
+											<Command.Item
+												value={themeLabel}
+												onSelect={toggleTheme}
+												className={itemClasses}
+											>
+												{isDark ? (
+													<SunIcon
+														className="size-4 shrink-0"
+														aria-hidden="true"
+													/>
+												) : (
+													<MoonIcon
+														className="size-4 shrink-0"
+														aria-hidden="true"
+													/>
+												)}
+												{themeLabel}
+											</Command.Item>
+										</Command.Group>
+									)}
+
+									{q && results.length > 0 && (
+										<Command.Group
+											heading="Results"
+											className={groupHeadingClasses}
+										>
+											{results.map((result) => (
+												<Command.Item
+													key={result.url}
+													value={result.url}
+													onSelect={() => navigate(result.url)}
+													className={itemClasses}
+												>
+													<div className="min-w-0 flex-1">
+														<div className="text-3 truncate font-semibold">
+															{result.meta.title}
+														</div>
+														<div
+															className="text-2 [&_mark]:bg-beni-pale [&_mark]:text-sumi [&_mark]:dark:bg-beni-dark/40 [&_mark]:dark:text-washi [&_mark]:rounded-1 truncate opacity-60 [&_mark]:px-[0.2em]"
+															dangerouslySetInnerHTML={{
+																__html: result.excerpt,
+															}}
+														/>
+													</div>
+												</Command.Item>
+											))}
+										</Command.Group>
 									)}
 								</Command.List>
 
