@@ -28,11 +28,11 @@ test('command menu navigates to writing page', async ({ page }) => {
 	await expect(page).toHaveURL('/writing/');
 });
 
-test('command menu search mode renders input', async ({ page }) => {
+test('command menu shows search input with unified interface', async ({ page }) => {
 	await page.goto('/');
 	await openMenu(page);
 	await expect(page.getByRole('dialog', { name: /Command menu/i })).toBeVisible();
 
-	await page.getByRole('option', { name: /Search/i }).click();
-	await expect(page.getByPlaceholder(/Search/i)).toBeVisible();
+	// Search input is always visible in unified interface
+	await expect(page.getByPlaceholder(/Search or jump to/i)).toBeVisible();
 });
