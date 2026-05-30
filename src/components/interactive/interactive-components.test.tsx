@@ -442,7 +442,7 @@ describe('command menu', () => {
 		expect(screen.getByText('The Art of Minimalism')).toBeInTheDocument();
 	});
 
-	it('handles search opener and Escape key branches', () => {
+	it('handles search opener and Escape key closes immediately', () => {
 		render(<CommandMenu />);
 
 		act(() => document.dispatchEvent(new Event('command-menu:open-search')));
@@ -451,8 +451,6 @@ describe('command menu', () => {
 		fireEvent.change(screen.getByPlaceholderText('Search or jump to…'), {
 			target: { value: 'missing' },
 		});
-		fireEvent.keyDown(document, { key: 'Escape' });
-		expect(screen.getByPlaceholderText('Search or jump to…')).toHaveValue('');
 
 		fireEvent.keyDown(document, { key: 'Escape' });
 		expect(screen.queryByRole('dialog', { name: 'Command menu' })).not.toBeInTheDocument();

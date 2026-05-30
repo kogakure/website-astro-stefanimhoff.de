@@ -168,11 +168,8 @@ export const CommandMenu = () => {
 				});
 			}
 			if (e.key === 'Escape' && open) {
-				if (query) {
-					setQuery('');
-				} else {
-					setOpen(false);
-				}
+				e.preventDefault();
+				setOpen(false);
 			}
 		};
 		document.addEventListener('keydown', handler);
