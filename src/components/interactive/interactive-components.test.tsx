@@ -424,16 +424,15 @@ describe('command menu', () => {
 		vi.useRealTimers();
 	});
 
-	it('opens from a custom event and switches to search results', async () => {
+	it('opens from a custom event and shows search results inline', async () => {
 		vi.useFakeTimers();
 		render(<CommandMenu />);
 
 		act(() => document.dispatchEvent(new Event('command-menu:open')));
 		expect(screen.getByRole('dialog', { name: 'Command menu' })).toBeInTheDocument();
-		expect(screen.getByPlaceholderText('Type a command…')).toBeInTheDocument();
+		expect(screen.getByPlaceholderText('Search or jump to…')).toBeInTheDocument();
 
-		fireEvent.click(screen.getByRole('button', { name: /Search/ }));
-		fireEvent.change(screen.getByPlaceholderText('Search the site…'), {
+		fireEvent.change(screen.getByPlaceholderText('Search or jump to…'), {
 			target: { value: 'minimalism' },
 		});
 		await act(async () => {
@@ -443,25 +442,17 @@ describe('command menu', () => {
 		expect(screen.getByText('The Art of Minimalism')).toBeInTheDocument();
 	});
 
-	it('handles search opener, back button, and Escape key branches', () => {
+	it('handles search opener and Escape key branches', () => {
 		render(<CommandMenu />);
 
 		act(() => document.dispatchEvent(new Event('command-menu:open-search')));
-		expect(screen.getByPlaceholderText('Search the site…')).toBeInTheDocument();
-		expect(screen.getByText('Type to search posts, haiku and work.')).toBeInTheDocument();
+		expect(screen.getByPlaceholderText('Search or jump to…')).toBeInTheDocument();
 
-		fireEvent.change(screen.getByPlaceholderText('Search the site…'), {
+		fireEvent.change(screen.getByPlaceholderText('Search or jump to…'), {
 			target: { value: 'missing' },
 		});
 		fireEvent.keyDown(document, { key: 'Escape' });
-		expect(screen.getByPlaceholderText('Search the site…')).toHaveValue('');
-
-		fireEvent.keyDown(document, { key: 'Escape' });
-		expect(screen.getByPlaceholderText('Type a command…')).toBeInTheDocument();
-
-		fireEvent.click(screen.getByRole('button', { name: /Search/ }));
-		fireEvent.click(screen.getByRole('button', { name: 'Back to navigation' }));
-		expect(screen.getByPlaceholderText('Type a command…')).toBeInTheDocument();
+		expect(screen.getByPlaceholderText('Search or jump to…')).toHaveValue('');
 
 		fireEvent.keyDown(document, { key: 'Escape' });
 		expect(screen.queryByRole('dialog', { name: 'Command menu' })).not.toBeInTheDocument();
