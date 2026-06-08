@@ -45,6 +45,6 @@ export default [
 		},
 	},
 	{
-		ignores: ['public/assets/scripts/'],
+		ignores: ['public/assets/scripts/', '.opencode/', '.codex/'],
 	},
 ];
