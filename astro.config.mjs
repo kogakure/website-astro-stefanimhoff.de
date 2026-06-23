@@ -1,4 +1,5 @@
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -19,14 +20,12 @@ export default defineConfig({
 		service: passthroughImageService(),
 	},
 	markdown: {
-		shikiConfig: {
-			theme: customTheme,
-			langs: [],
-			wrap: true,
-		},
-	},
-	integrations: [
-		mdx({
+		processor: unified({
+			shikiConfig: {
+				theme: customTheme,
+				langs: [],
+				wrap: true,
+			},
 			remarkPlugins: [
 				remarkGfm,
 				remarkMark,
@@ -35,6 +34,9 @@ export default defineConfig({
 				remarkWidont,
 			],
 		}),
+	},
+	integrations: [
+		mdx(),
 		react(),
 		pagefind(),
 		sitemap({
