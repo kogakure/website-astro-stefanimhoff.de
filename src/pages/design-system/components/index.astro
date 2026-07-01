@@ -371,11 +371,11 @@ const sampleBookImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http
 		name="Badge"
 		importPath="components/ui/Badge"
 		category="ui"
-		description="Small status/label chip. Variants: default, favorite (Beni), paid, language."
+		description="Small status/label chip. Variants: default, favorite (Beni), language."
 		props={[
 			{
 				name: 'variant',
-				type: '"default" | "favorite" | "paid" | "language"',
+				type: '"default" | "favorite" | "language"',
 				default: '"default"',
 				description: 'Visual variant',
 			},
@@ -384,7 +384,6 @@ const sampleBookImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http
 		<div class="flex flex-wrap gap-2">
 			<Badge>Default</Badge>
 			<Badge variant="favorite">Favorite</Badge>
-			<Badge variant="paid">Paid</Badge>
 			<Badge variant="language">DE</Badge>
 		</div>
 	</ComponentShowcase>
@@ -698,7 +697,7 @@ const sampleBookImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http
 		name="AudioCard"
 		importPath="components/content/AudioCard"
 		category="content"
-		description="Card for audiobooks and podcasts. Cover image with placeholder icon fallback. Badges for featured/paid/language."
+		description="Card for audiobooks and podcasts. Cover image with placeholder icon fallback. Badges for featured/language; paid shown as 💰 emoji."
 		props={[
 			{ name: 'title', type: 'string', description: 'Card title (required)' },
 			{
@@ -710,7 +709,7 @@ const sampleBookImg = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http
 			{ name: 'moderator', type: 'string', description: 'Podcast host' },
 			{ name: 'cover', type: 'string', description: 'Cover image URL' },
 			{ name: 'featured', type: 'boolean', description: 'Shows Favorite badge' },
-			{ name: 'paid', type: 'boolean', description: 'Shows Paid badge' },
+			{ name: 'paid', type: 'boolean', description: 'Shows 💰 emoji with sr-only "Paid" label' },
 			{ name: 'language', type: 'string', description: 'Shows language badge' },
 			{
 				name: 'links',
