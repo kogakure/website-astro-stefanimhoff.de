@@ -91,7 +91,11 @@ export const AudioCard = ({
 				{(featured || paid || language) && (
 					<div className="flex flex-wrap gap-1">
 						{featured && <Badge variant="favorite">Favorite</Badge>}
-						{paid && <Badge variant="paid">Paid</Badge>}
+						{paid && (
+								<span role="img" aria-label="Paid">
+									💰<span className="sr-only">Paid</span>
+								</span>
+							)}
 						{language && <Badge variant="language">{language.toUpperCase()}</Badge>}
 					</div>
 				)}
