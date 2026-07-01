@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 const flagClasses =
-	'rounded-1 border-1 border-solid border-usuzumi bg-kiri font-mono text-[0.7em] text-black decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] dark:bg-yoru/80';
+	'rounded-1 border-1 border-solid border-usuzumi bg-kiri font-mono text-[0.7em] text-black decoration-0 pli-[0.3em] pbe-0 pbs-[0.1em] dark:bg-yoru/80 dark:text-washi';
 
 export const Flag = ({ className, href, label, ...props }: Props) => {
 	const inner = (
