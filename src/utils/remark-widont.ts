@@ -1,17 +1,16 @@
-import { visit } from 'unist-util-visit';
+import { defineMdastPlugin } from 'satteri';
 
-import type { Literal, Node } from 'unist';
+/**
+ * Sätteri MDAST plugin: replaces the last space in a ≥3-word text node with
+ * a non-breaking space, so the final word never wraps onto its own line.
+ */
+export const remarkWidont = () =>
+	defineMdastPlugin({
+		name: 'widont',
+		text(node, ctx) {
+			const wordCount = node.value.split(' ').length;
+			if (wordCount < 3) return;
 
-export function remarkWidont() {
-	function transformer(tree: Node) {
-		visit(tree, 'text', function (node: Literal) {
-			let wordCount = (node.value as string).split(' ').length;
-
-			if (wordCount >= 3) {
-				node.value = (node.value as string).replace(/ ([^ ]*)$/, '\u00A0$1');
-			}
-		});
-	}
-
-	return transformer;
-}
+			ctx.setProperty(node, 'value', node.value.replace(/ ([^ ]*)$/, ' $1'));
+		},
+	});
