@@ -14,8 +14,6 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 
 ## Hard Constrains
 
-- This project uses spec-driven development, before you do anything else, run the `beans prime` command and heed its output.
-- Create beans tickets for implementation and write the full plan into the spec files; keep knowledge agent agnostic inside this repository.
 - Every design decision should be following the rules of the Ma Design System, documented in `DESIGN.md`
 - Always use existing UI components instead of raw HTML elements, documented in `src/components/COMPONENTS.md`
 
