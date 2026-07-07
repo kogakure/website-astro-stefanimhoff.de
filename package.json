@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.9",
-		"@astrojs/markdown-remark": "^7.2.0",
+		"@astrojs/markdown-satteri": "^0.3.3",
 		"@astrojs/mdx": "^7.0.0",
 		"@astrojs/react": "^6.0.0",
 		"@astrojs/rss": "^4.0.18",
@@ -48,16 +48,15 @@
 		"date-fns": "^4.1.0",
 		"github-slugger": "^2.0.0",
 		"lite-youtube-embed": "^0.3.4",
-		"mdast-util-to-string": "^4.0.0",
 		"motion": "^12.38.0",
 		"radix-ui": "^1.4.3",
 		"react": "^19.2.5",
 		"react-dom": "^19.2.5",
 		"reading-time": "^1.5.0",
 		"recharts": "^3.8.1",
+		"satteri": "^0.9.4",
 		"tailwind-merge": "^3.5.0",
-		"tailwindcss": "^4.3.0",
-		"unist-util-visit": "^5.0.0"
+		"tailwindcss": "^4.3.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.9.0",
@@ -68,7 +67,6 @@
 		"@types/mdast": "^4.0.4",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
-		"@types/unist": "^3.0.2",
 		"@typescript-eslint/parser": "^8.0.0",
 		"@vitest/coverage-v8": "^4.0.18",
 		"@vitest/ui": "^4.0.18",
@@ -90,7 +88,6 @@
 		"prettier-plugin-astro-organize-imports": "^0.4.8",
 		"prettier-plugin-organize-imports": "^4.0.0",
 		"prettier-plugin-tailwindcss": "^0.6.5",
-		"remark-gfm": "^4.0.1",
 		"rollup": "^4.18.0",
 		"sanitize-html": "^2.14.0",
 		"sharp": "^0.33.4",

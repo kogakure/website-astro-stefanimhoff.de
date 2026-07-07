@@ -12,6 +12,7 @@ import {
 	dateToISO,
 	wordCount,
 	getWritingSlug,
+	filterTocHeadings,
 } from '@/utils';
 
 import { mapping } from '@/mdx-components';
@@ -29,11 +30,6 @@ import SectionLabel from '@/components/ui/SectionLabel';
 import LightboxRoot from '@/components/interactive/LightboxRoot';
 import TableOfContents from '@/components/interactive/TableOfContents';
 import Text from '@/components/ui/Text';
-
-interface TocHeading {
-	id: string;
-	text: string;
-}
 
 interface SeriesStep {
 	id: string;
@@ -63,10 +59,11 @@ const { entry, prev, next } = Astro.props;
 const entryId = entry.id;
 const {
 	Content,
-	remarkPluginFrontmatter: { minutesRead, headings = [] },
+	headings,
+	remarkPluginFrontmatter: { minutesRead },
 } = await render(entry);
 
-const tocHeadings: TocHeading[] = headings;
+const tocHeadings = filterTocHeadings(headings);
 
 const words = wordCount(entry.body ?? '');
 

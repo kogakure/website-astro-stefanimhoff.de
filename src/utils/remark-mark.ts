@@ -1,42 +1,44 @@
-import { SKIP, visit } from 'unist-util-visit';
+import { defineMdastPlugin } from 'satteri';
 
 import type { Text } from 'mdast';
-import type { Node, Parent } from 'unist';
+import type { MdxJsxTextElement } from 'satteri';
 
 const MARK_RE = /==(?!\s)([^=]+?)(?<!\s)==/g;
 
-export function remarkMark() {
-	return function transformer(tree: Node) {
-		visit(tree, 'text', (node: Text, index, parent: Parent | null) => {
-			if (!parent || index == null) return;
+/**
+ * Sätteri MDAST plugin: `==text==` → `<mark>text</mark>` (MDX JSX).
+ */
+export const remarkMark = () =>
+	defineMdastPlugin({
+		name: 'mark',
+		text(node, ctx) {
 			MARK_RE.lastIndex = 0;
 			if (!MARK_RE.test(node.value)) return;
 			MARK_RE.lastIndex = 0;
 
-			const segments: Parent['children'] = [];
+			const segments: (Text | MdxJsxTextElement)[] = [];
 			let cursor = 0;
 			let match: RegExpExecArray | null;
 			while ((match = MARK_RE.exec(node.value)) !== null) {
 				if (match.index > cursor) {
-					segments.push({
-						type: 'text',
-						value: node.value.slice(cursor, match.index),
-					} as Text);
+					segments.push({ type: 'text', value: node.value.slice(cursor, match.index) });
 				}
 				segments.push({
 					type: 'mdxJsxTextElement',
 					name: 'mark',
 					attributes: [],
-					children: [{ type: 'text', value: match[1] } as Text],
-				} as unknown as Parent['children'][number]);
+					children: [{ type: 'text', value: match[1] }],
+				});
 				cursor = match.index + match[0].length;
 			}
 			if (cursor < node.value.length) {
-				segments.push({ type: 'text', value: node.value.slice(cursor) } as Text);
+				segments.push({ type: 'text', value: node.value.slice(cursor) });
 			}
 
-			parent.children.splice(index, 1, ...segments);
-			return [SKIP, index + segments.length];
-		});
-	};
-}
+			if (segments.length === 0) return;
+			if (segments.length === 1) return segments[0];
+
+			ctx.replaceNode(node, segments[0]);
+			ctx.insertAfter(node, segments.slice(1));
+		},
+	});

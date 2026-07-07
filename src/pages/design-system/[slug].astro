@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { mapping } from '@/mdx-components';
+import { filterTocHeadings } from '@/utils';
 import DesignSystemLayout from '@/layouts/DesignSystemLayout.astro';
 
 export async function getStaticPaths() {
@@ -24,10 +25,8 @@ export async function getStaticPaths() {
 const { entry, prev, next } = Astro.props;
 const { slug } = Astro.params;
 
-const {
-	Content,
-	remarkPluginFrontmatter: { headings = [] },
-} = await render(entry);
+const { Content, headings } = await render(entry);
+const tocHeadings = filterTocHeadings(headings);
 
 const prevSlug = prev ? (prev.data.slug ?? prev.id.replace(/^\d+[a-z]?-/, '')) : null;
 const nextSlug = next ? (next.data.slug ?? next.id.replace(/^\d+[a-z]?-/, '')) : null;
@@ -43,7 +42,7 @@ const nextPage = next
 	description={entry.data.description}
 	kanji={entry.data.kanji}
 	order={entry.data.order}
-	headings={headings}
+	headings={tocHeadings}
 	currentSlug={slug}
 	prev={prevPage}
 	next={nextPage}

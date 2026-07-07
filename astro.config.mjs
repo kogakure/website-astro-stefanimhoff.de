@@ -1,5 +1,5 @@
+import { satteri } from '@astrojs/markdown-satteri';
 import mdx from '@astrojs/mdx';
-import { unified } from '@astrojs/markdown-remark';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -7,9 +7,8 @@ import pagefind from 'astro-pagefind';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig, passthroughImageService } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
-import remarkGfm from 'remark-gfm';
 import { site } from './src/data/site';
-import { remarkMark, remarkReadingTime, remarkTableOfContents, remarkWidont } from './src/utils';
+import { remarkHeadingIds, remarkMark, remarkReadingTime, remarkWidont } from './src/utils';
 
 import customTheme from './ma-theme.json';
 
@@ -20,20 +19,24 @@ export default defineConfig({
 		service: passthroughImageService(),
 	},
 	markdown: {
-		processor: unified({
-			shikiConfig: {
-				theme: customTheme,
-				langs: [],
-				wrap: true,
-			},
-			remarkPlugins: [
-				remarkGfm,
-				remarkMark,
-				remarkReadingTime,
-				remarkTableOfContents,
-				remarkWidont,
-			],
+		// GFM (tables, footnotes, task lists) and smart punctuation are handled
+		// by Sätteri's built-in `features` — smartPunctuation stays off to match
+		// the previous pipeline's behaviour (no remark-smartypants was wired in).
+		processor: satteri({
+			mdastPlugins: [remarkMark, remarkReadingTime, remarkWidont],
+			// Must run before Sätteri's built-in heading-ids plugin (which it
+			// does — Sätteri appends its own after user hastPlugins) so the
+			// normalized id wins. See remark-toc.ts for why this is needed.
+			hastPlugins: [remarkHeadingIds],
+			features: { gfm: true, smartPunctuation: false },
 		}),
+		// shikiConfig lives on the shared markdown config, independent of the
+		// processor — unchanged from the previous unified() setup.
+		shikiConfig: {
+			theme: customTheme,
+			langs: [],
+			wrap: true,
+		},
 	},
 	integrations: [
 		mdx(),
