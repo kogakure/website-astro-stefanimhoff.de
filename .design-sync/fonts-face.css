@@ -1,0 +1,37 @@
+/* Corrected @font-face rules for design-sync's cfg.extraFonts.
+   src/styles/fonts.css uses site-root-relative url()s (/assets/fonts/...)
+   which only resolve in a browser serving the site, not as filesystem paths
+   during the design-sync build. These rules point at the same files
+   (public/assets/fonts/) with paths relative to this file's own location. */
+
+@font-face {
+	font-display: swap;
+	font-family: 'BoskaVariable';
+	font-style: normal;
+	font-weight: 100 900;
+	src: url('../public/assets/fonts/boska-variable.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'BoskaVariable';
+	font-style: italic;
+	font-weight: 100 900;
+	src: url('../public/assets/fonts/boska-variable-italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'SwitzerVariable';
+	font-style: normal;
+	font-weight: 100 900;
+	src: url('../public/assets/fonts/switzer-variable.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'SwitzerVariable';
+	font-style: italic;
+	font-weight: 100 900;
+	src: url('../public/assets/fonts/switzer-variable-italic.woff2') format('woff2');
+}
