@@ -19,7 +19,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 	width?: string | number;
 }
 
-const Image = ({
+export const Image = ({
 	alt,
 	caption,
 	className,
