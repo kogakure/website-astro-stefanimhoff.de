@@ -124,6 +124,7 @@ const writing = defineCollection({
 				'code',
 				'design',
 				'download',
+				'economics',
 				'film',
 				'japan',
 				'minimalism',
