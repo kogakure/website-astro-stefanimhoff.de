@@ -12,6 +12,12 @@ Personal website and blog for Stefan Imhoff, featuring writing posts, haiku coll
 - Test: `pnpm test`
 - Development Server: `pnpm dev`
 
+## Cursor Cloud specific instructions
+
+- Install with `pnpm install --frozen-lockfile`. The package manager is pnpm 11.8.0 (`packageManager` in `package.json`). Node 22 from the image is enough to install, test, build, and run the site. No secrets or external services are required.
+- Dev server: `pnpm dev --host 0.0.0.0 --port 4321` (http://127.0.0.1:4321/). Do not insert an extra `--` before those flags. Astro 7 treats the next token after `astro dev` as a subcommand (`stop`, `status`, `logs`).
+- `pnpm test` is the Vitest suite. `pnpm build` writes the static site to `dist/` and builds the Pagefind index. `pnpm exec astro check` reports existing TypeScript errors and is not a passing gate.
+
 ## Hard Constrains
 
 - Every design decision should be following the rules of the Ma Design System, documented in `DESIGN.md`
