@@ -23,7 +23,7 @@ fs.readdir(inputFolder, async (err, files) => {
 					fit: 'cover',
 				})
 				.composite([{ input: textImagePath, gravity: 'center' }])
-				.jpeg({ quality: 70 })
+				.jpeg({ quality: 80 })
 				.toFile(outputImagePath);
 
 			console.log(`Generated: ${outputFilename}`);
